@@ -8,6 +8,8 @@
 - [Source-free比較の研究ノート](papers/source-free-comparison.tex)（旧v0.21前付け）
 - [補助検算](scripts/)：統合稿5本と旧v0.12の16本を再実行し、全件成功。旧16本は配布時のSHA-256と一致。有限計算・式の診断であり解析証明の代用ではない。
 
+**今回の数学的点検：** [Part V](papers/cubical-gh-limit.tex) に一般次数 \(d\ge5\) の候補 \(\mathcal C_d\) のセル数、二次骨格への明示的同相、整数ホモロジーを証明し、Lagrangian側の分岐基底 \(B_d(T)\) とのcell-like homotopy equivalenceを明示した。\(d\ge6\) では同相ではなく、GH収束には依然 \((CP)_d+(PBE)_d\) が必要。
+
 最初に[研究方針](00_research_plan.md)、次に[研究ノート](research/notes.md)。[移行・検証範囲](research/migration.md)と[ソース対応](research/source-manifest.json)を参照する。
 
 ルートで `latexmk`。PDF/SyncTeXはbuild/、正本はmain。[research-hub](https://github.com/uedakazushi/research-hub)。
