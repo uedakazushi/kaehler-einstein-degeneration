@@ -10,10 +10,9 @@
 - 高次元ではmixed source–higher-stratum modelsの解析が残るためGH極限は予想。
 - Fixed arrangement complement側Part I–IIIの正本は[multiscale-kaehler-einstein](https://github.com/uedakazushi/multiscale-kaehler-einstein)。固定空間の結果から族の一様性を自動的に導かない。
 
-## 候補基底の位相と計量的可能性
-Part V主稿には任意のd≥5についてC_dのセル数・Sk_2 Δ^{d-1}との同相・整数ホモロジーの一般次数証明がある。Lagrangianの分岐基底B_d(T)とはcell-like homotopy equivalenceで結ばれる。d≥6では非同相であるが、人工的に定めたpiecewise length metrics d_epsilonについて sup|d_epsilon-d_square∘p_T|≤C epsilon と d_GH≤C epsilon/2 を証明した（厳密な証明はlagrangian-torus-fibrationのbase_topology.tex、ここでは帰結と参照のみを記載）。これらはrealized KE metricのGH収束もLagrangianの作用計量の収束も保証しない。実際の解析課題は依然(CP)_d+(PBE)_dの確立である。独立の有限鎖階数検算はd=5,6,7,8で実施済み。
-
-六次ではKE候補C_6がS6座標置換対称なのに対し、Petersen分岐木系の選択はS6の6点軌道をなし、固定した一系の安定化群は位数120。ラベル付き比較では木系選択に依存することを明示する。実際の計量の対称性はこれだけで結論しない。
+## 位相・人工計量とactual metricの区別
+候補\(\mathcal C_d\)の一般次数のセル数・\(\operatorname{Sk}_2\Delta^{d-1}\)との同相・整数ホモロジーはPart Vに証明がある。Lagrangian分岐基底\(B_d(T)\)からのcell-like写像は\(d\ge6\)では同相でないが、人工PL長さ距離によるdistortionは\(d=5\)で\(\Theta(\varepsilon^2)\)、\(d\ge6\)で\(\Theta(\varepsilon)\)であり、GH距離には各々対応する上界がある。証明の正本はLagrangian repoの`topo:metric-collapse-sharp`。
+Actual計量へ適用するには(N) global no-shortcut、(S) local square path lifts、(F) small fiber/portal connectorsを証明する必要があり、(F)は前二条件からは従わない（同repoの`topo:portal-counterexample`）。Part IV–Vの\((CP)_d+(PBE)_d\)は依然未証明。六次Petersen木系は6点の\(S_6\)軌道をなすが、これはrealized KE計量の対称性を決めない。
 
 ## 次の課題
 1. (PBE)_dのquantitative terminal trivialization、protected rectangular inclusion、uniform comparison、two-metric escapeをactual metricsで証明する。
