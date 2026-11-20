@@ -6,10 +6,10 @@
     {
       "source": "04_hyperplane_degenerations_local_ja.tex",
       "destination": "papers/kaehler-einstein-degeneration.tex",
-      "sha256": "aeadc1bf986c1eb11337493310d53907af2b5ffccc796096112258f25089a151",
-      "bytes": 229003,
+      "sha256": "705436b937e8fd0ab6b84c22e74fae7c0bde6c21863e26a7237dd6b2886f4345",
+      "bytes": 232963,
       "source_sha256": "cc0343cf295d26321d9c19e979c0181db34bd93de25673967c649b31cf13be3b",
-      "current_blob_sha": "1f47ff8f5ce116ed860c73bb400ef3c91c2b989d"
+      "current_blob_sha": "1481e937a3f8702393e915fecae9ebe0b042db90"
     },
     {
       "source": "05_hyperplane_degenerations_global_ja.tex",
@@ -168,9 +168,9 @@
     "source_chat": "https://chatgpt.com/g/g-p-6a874b9c58a481918993aab64d09c7c2-duo-zhong-sukerukaehler-einsteinji-he/c/6a864137-0ff8-83e8-ac1f-98f48df7e5eb"
   },
   "audit_update_2026_11_20": {
-    "version": "v1.6",
-    "scope": "For every fixed degree d>=5: full deep-triple actual semi-flat comparison; exact rank-one Schwarz bound; dominant O(delta^2), facet O(epsilon^(2/3)), and active co-Gram estimates; closed-corner intrinsic and protected-ambient GH collapse with distortion O(log R/R), realized by the same actual Lagrangian torus bundle. Open-square tensor and GH errors improve to O(L^(-eta)). Chain averaging preserves an already Lagrangian orbit collar as a fiber partition. Global X_t distances, actual neck matching, relative gluing, and singular-fiber compatibility remain open; novelty is unconfirmed.",
-    "verification": "Primary-source inputs and new proofs independently read, including normalizations, domain barriers, fixed-ball perturbation regularity, all-path pruning, finite galleries, Moser pullback, and protected-ambient endpoint control. Recursive TeX inputs, labels/references, citation keys, environments, braces, and newly introduced macros checked. Revised PDFs are not compiled: lualatex.fmt and essential LuaTeX-ja assets are unavailable. No formal proof, comprehensive novelty audit, or fresh full audit of the pre-existing global constructions is claimed."
+    "version": "v1.7",
+    "scope": "For each fixed degree d>=5, retain full deep-triple tensor comparison and closed-corner intrinsic/protected-ambient GH collapse with O(log R/R) distortion. Add explicit projective normal-bundle coordinates on fixed source-free base domains, canonical global primitives and moments, and a uniform averaged moment interval from fixed-end convergence. Add exact staged circle averaging, all marked-period transport, Hamiltonian comparison of averaging paths and integer bases, and an adapted closed-corner bundle with the same GH rate. Distinguish bounded neck volume envelopes from tensor asymptotics; give a residual-boundary counterexample, a mixed-coefficient rank-one circle criterion, and conditional coupled-background and complete-product identification. Full-neck flow buffers, simultaneous triple-end action/reduced-foliation matching, sources and global GH remain open. Novelty is unconfirmed.",
+    "verification": "New proofs independently read, with primary-source checks of Song Definition 2.3 and Lemmas 4.4-4.5, Rochon-Zhang equations (5.5)-(5.6) and Theorem 5.1, Zhang Lemma 3.3, Mandel section 2.3, and the Laplacian maximum principle. Audited explicit inverse coordinates, period-one normalization, fixed-end limit order, staged exact transport, Hamiltonian path/image buffers, C1/Gronwall GH transfer, residual counterexample and determinant criterion. Recursive inputs, labels, references, citations, braces, environments and introduced macros checked; optional local-font input remains optional. Current revised PDFs have not been compiled because lualatex.fmt and LuaTeX-ja assets are unavailable. No formal verification, comprehensive novelty audit or fresh audit of all older global constructions is claimed."
   },
   "current_post_migration_sources": [
     {
@@ -202,6 +202,18 @@
       "sha256": "61ba5eb77e28e604178d57c90a5ea96e533458f2baeb8d3471253851422f1d51",
       "bytes": 20380,
       "current_blob_sha": "b58868d811cbccdedd31581ff7819042e14a777c"
+    },
+    {
+      "destination": "papers/sections/source_free_neck_coordinates.tex",
+      "sha256": "ee162bf6b0ea0cb4e617a251c3cfc7d9da620afef02ae77355391700964ee264",
+      "bytes": 21057,
+      "current_blob_sha": "cbf1abab3b3edaba7c1e02129eb397b1002f9ee8"
+    },
+    {
+      "destination": "papers/sections/source_free_neck_comparison.tex",
+      "sha256": "a71779d0d2418356cde6126625ed21e180b01a907fbc4253e23ccd298a837dea",
+      "bytes": 17504,
+      "current_blob_sha": "ed77e99fb60d92153e55559eda48ac00c201ee00"
     }
   ]
 }

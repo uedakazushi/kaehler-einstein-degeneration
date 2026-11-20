@@ -58,17 +58,23 @@
 \large 超平面和への退化 I：完備局所模型，terminal-cusp adapted gauges，\\
 および raw co-Gram 剛性}
 \author{植田一石\\[-1mm]\small Kazushi Ueda}
-\date{2026年11月20日\\五部作・統合改訂稿 v1.6}
+\date{2026年11月20日\\五部作・統合改訂稿 v1.7}
 \begin{document}\maketitle
 
 \begin{abstract}
 本稿は五部作の第IV篇であり，第I--III篇の超平面配置補集合の完備負 Kähler--Einstein 幾何を，射影曲面が超平面の和へ退化する問題へ接続する．一般位置の五平面の和へ退化する五次曲面について，$R_t=\log(-\log|t|^2)$ の尺度で smooth raw logarithmic depths，有限正方形複体 $\mathcal C_5$ への $O(R_t^{-1})$-dense な写像，六つの intrinsic complete local models，capped determinant lower bound，および source-core の一様 inradius bound を構成する．開正方形の固定 compact 部分では，大域体積下界と明示的な負 KE barriers，Savin の小摂動定理から actual metric の product-cusp 漸近を全位相一様に証明する．さらに任意の固定次数 $d\ge5$ について capped volume 下界を証明し，complete simplex KE 模型の内外平行移動と小摂動正則性により，全深部三重点領域で actual semi-flat 漸近 $O(m^{-1})$ を得る．係数 $1$ の Schwarz 評価と二重 cusp への鋭い境界漸近を用いて，全閉 triple corner の内在距離と保護領域内の経路を許す距離が，三枚の unit squares 自身の内在距離へ distortion $O((\log R_t)/R_t)$ で収束することを証明する．同じ局所領域を覆う actual Lagrangian torus fibration への移送は関連稿で行う．Source を含む exterior 全体の一様 tensor comparison は独立の仮定 $\mathrm{(TC)}_5$ とし，粗い二側距離比較と source-core diameter bound はこの仮定の下で得る．Bounded volume density だけから局所 tensor comparison は導けないことを，滑らかな負 KE metrics の列による反例で示す．さらに固定次数 $d\ge5$ の $d$ 平面退化に対し，候補複体 $\mathcal C_d$，source と cusp の代数データ，terminal cusp で order zero を持つ有限 gauge family，および正規化を決定する．Sharp raw co-Gram 係数1定理は，compatible product boxes の存在・一様比較・二重 boundary escape・compatible exhaustion をまとめた仮定 $\mathrm{(PBE)}_d$ の下で証明する．第V篇の厳密 Gromov--Hausdorff 極限には，粗い大域入力 $\mathrm{(CP)}_d$ と $\mathrm{(PBE)}_d$ の双方を要する．高次元では pure normal-crossing determinant までは一般化する一方，mixed source--higher-stratum models が不可避であるため，厳密極限は予想として述べる．
+Source-free な二重線の固定 compact 部分には，射影的な法線束から exact conic 座標と共通の正則円作用を構成する．
+Actual KE form の円平均に対し，canonical primitive と加法定数のない normal moment を与え，
+固定 end での smooth convergence と normal-crossing cusp 漸近から，共通の moment interval を得る．
+Neck 内部の積比較には追加の解析が必要であり，固定 residual 境界による非消失誤差の例と，
+mixed terms を許す rank-one 比較による法線円周の収縮条件を示す．
 \end{abstract}
 
 \begin{center}
 \begin{minipage}{0.93\textwidth}\small
 \textbf{Abstract.}
 This is Part IV of a five-paper series and the first paper on degenerations to unions of hyperplanes.  For a quintic surface degenerating to five hyperplanes in general position, with $\operatorname{Ric}(\omega_t)=-\omega_t$, we construct smooth raw logarithmic depths, an $O(R_t^{-1})$-dense map to the square complex $\mathcal C_5$, six intrinsic complete local models, and a uniform source-core inradius bound.  For every fixed degree $d\ge5$, translated complete-simplex barriers give actual semi-flat tensor asymptotics on the entire deep triple region, including balanced points.  A rank-one Schwarz estimate with exact coefficient one and sharp cusp-product asymptotics give convergence of every closed triple corner to its three-square intrinsic metric, with distortion $O((\log R_t)/R_t)$.  The estimate holds both for the intrinsic distance and for paths in a larger protected triple region; a related paper transfers it to the same actual Lagrangian torus bundle.  On compact subsets of open squares, explicit negative KE barriers and Savin's small-perturbation theorem give uniform product-cusp asymptotics for the actual metrics, with all angular phases included.  Coarse global two-sided distance control and bounded source-core diameter require an independent tensor-comparison hypothesis $\mathrm{(TC)}_5$.  We give a sequence of smooth negative Kähler--Einstein metrics showing that bounded local volume density alone does not imply tensor comparison.  For every fixed degree $d\ge5$ in $\mathbb P^3$, we determine the candidate complex $\mathcal C_d$, the source and cusp data, terminal-cusp order-zero gauges, and the normalization.  We isolate a Product-Box Exhaustion hypothesis $\mathrm{(PBE)}_d$, consisting of quantitative terminal trivialization, protected rectangular inclusion, uniform local/global/actual comparison, and compatible exhaustion with two-metric boundary escape.  Under $\mathrm{(PBE)}_d$, the relevant marked pointed limits are Poincaré bidiscs and the raw co-Gram matrices converge uniformly to the identity.  Part V obtains the exact cubical Gromov--Hausdorff limit under the coarse global package $\mathrm{(CP)}_d$ together with $\mathrm{(PBE)}_d$.  In higher dimension we establish the candidate complex, adjunction and the pure normal-crossing determinant package, while leaving the mixed source--higher-stratum analysis as a conjectural extension.
+On a fixed compact subset of a source-free double curve, explicit projective normal-bundle coordinates give a common holomorphic circle action. Its averaged KE form has a global primitive, a canonically normalized moment, and a uniform moment interval obtained from fixed-end convergence and cusp asymptotics. These facts do not give a uniform Moser buffer through the neck. We exhibit the residual-boundary obstruction to a prescribed product limit and give a rank-one criterion for shrinking normal circles, allowing mixed metric coefficients.
 \end{minipage}
 \end{center}
 
@@ -159,6 +165,32 @@ cusp--annulus 漸近を $O((b/d_*)^{2/3})$ で与える．
 これらの模型の評価は全正深度に一様であり，active co-Gram の系も得られる．
 Actual への移送には全深度が発散する条件を課す．
 本稿の定量的比較と局所 GH 結論の包括的な新規性確認は未完了である．
+
+Neck との接続には，複素座標，作用周期，計量比較をそれぞれ扱う必要がある．
+\Cref{pair:prop:bundle-conic} は射影的な束座標の中で
+$x_i'=x_i h_0/h$，$x_j'=x_j$ と変換し，方程式を厳密に $uv=t$ へ移す．
+この方法では base-only の transition を最初から保ち，共通の正則 normal circle を得る．
+\Cref{pair:cor:global-primitive,pair:cor:actual-common-moment} は，
+source と三重点を避けた固定 compact base 上で，単一の canonical primitive と，
+円平均後の form に対する $t$ に一様な moment interval を与える．
+解析入力は Song\cite[Lemmas~4.4--4.5]{SongDegeneration} の固定 gauge での収束と，
+Rochon--Zhang\cite[Theorem~5.1]{RochonZhang} の normal-crossing potential 漸近である．
+$r$ を先に固定してから $t\to0$ とする点が本結論の範囲を決める．
+関連 Lagrangian 原稿\cite{LagrangianCurrent}の
+\texttt{ke:staged-neck-averaging} は，normal circle を先に平均する二段階 Moser 法により，
+共通の actual circle と全 marked action periods を保つ．
+同稿の \texttt{ke:staged-closed-corner-gh} は，指定した primitive circle に適合する
+triple bundle にも同じ局所 GH 誤差を与える．
+Neck 全体の flow buffer と，複数の end における作用・reduced leaves の同時一致は残る．
+
+\Cref{neck:prop:volume-envelope} の source-free volume 比較は有界誤差に留まる．
+\Cref{neck:prop:residual-boundary-obstruction} は normal 深度が発散しても，
+固定 residual 境界の影響が消えない exact negative KE product の例を与える．
+また Zhang\cite[Lemma~3.3]{ZhangNegativeKE} の正次元 stratum の局所極限は
+normal と residual variables の coupled potential を許すため，
+角度不変性から積分離を結論しない．
+法線円周の短さには \cref{neck:lem:rank-one-circle} の residual rank-one 下界が十分であり，
+full tensor 漸近とは分けて必要な解析条件を探せる．
 
 文献の適用範囲には二点注意する．Ruan\cite{RuanII} の base point free 条件は
 中央ファイバーの各 smooth stratum が全空間の一つの smooth stratum に入ることを要求し，
@@ -1732,6 +1764,8 @@ $\lambda_a\ge C^{-1}$ と $\lambda_1\lambda_2\le C_0$ なので，$\lambda_a\le 
 \input{sections/full_triple_comparison}
 \input{sections/simplex_boundary_geometry}
 \input{sections/closed_triple_metric}
+\input{sections/source_free_neck_coordinates}
+\input{sections/source_free_neck_comparison}
 
 \begin{lemma}[Actual metric buffer による tensor comparison]\label{coarse:lem:actual-buffer-comparison}
 $U$ を複素曲面上の domain，$h$ を $U$ 上の K\"ahler metric とし，
@@ -2372,30 +2406,34 @@ Global flat product metricを選ぶこと自体は可能である．問題は，
 同時に係数1で同定できないことである．本稿は一つの global frameを使わず，観測する cellに応じた marked local frameを使う．
 \end{remark}
 
-\subsection{Fixed marked chartの relative Morse form}
+\subsection{Fixed marked chartの explicit relative conic form}
 
 \begin{proposition}[labelled relative conic normal form]\label{sharp:prop:conic-normal-form}
 $K\Subset\Sigma_{ij}\setminus\{p_{ij,1},\dots,p_{ij,5}\}$ を simply connected compact bordered domainとする．
-十分小さい $t$ に対し，$D_{ij}$ の $K$-近傍にある $X_t$ の部分は，labelled normal coordinatesを保つ形で
+射影的な法線束の座標を固定すると，十分小さい $t$ に対し，
+$D_{ij}$ の $K$-近傍にある $X_t$ の部分は，base，labelled axes，
+normal first jet，および $j$-normal coordinate を保つ正則変換によって
 \begin{equation}\label{sharp:eq:conic-normal-form}
- x_i x_j=t\,\zeta_{ij,t}(p)
+ x_i' x_j'=t\,\zeta_{ij}(p)
 \end{equation}
-と biholomorphicである．ここで $\zeta_{ij,t}$ は nowhere-zero holomorphic sectionで，固定 markingにおいて
-$\zeta_{ij,t}=\zeta_{ij}(1+O_K(t))$ が全階微分込みで成り立つ．
+と biholomorphicである．ここで
+$\zeta_{ij}=-(F_5/\prod_{k\ne i,j}L_k)|_{D_{ij}}$ は nowhere-zero holomorphic sectionであり，
+この固定した族では $\zeta_{ij,t}\equiv\zeta_{ij}$ と選べる．
 さらに $j$-normal frameを固定し
 \begin{equation}\label{sharp:eq:oriented-coordinates}
- v_j=x_j,\qquad u_{i\mid j}=x_i/\zeta_{ij,t}
+ v_j=x_j'=x_j,\qquad u_{i\mid j}=x_i'/\zeta_{ij}
 \end{equation}
 と置けば $u_{i\mid j}v_j=t$ である．
 \end{proposition}
 
 \begin{proof}
-$D_{ij}$ に沿う二 normal variablesに関する defining functionの Hessianは，$t=0$ で labelled nondegenerate bilinear form $x_ix_j$ である．
-Parameter付き holomorphic Morse--Bott lemmaを適用し，critical locusを基底とする local conic formsを得る．
-基底 $K$ は simply connected Stein domainであり，labelled normal line bundlesは trivialである．
-二つの local normal formsの overlap mapは基底と二 endsを保つ．各 conic fibreは $\CC^*$ であり，二 endsを固定する holomorphic automorphismは
-$v\mapsto a(p,t)v$，$u\mapsto a(p,t)^{-1}u$ に限る．従って transitionは $\mathcal O_K^*$-cocycleであり，
-$\Pic(K)=0$ により消せる．Critical value sectionの holomorphic dependenceから最後の評価を得る．
+\Cref{pair:prop:bundle-conic} を $d=5$ に適用する．
+具体的には $h=-F_5/\prod_{k\ne i,j}L_k$，$h_0=h|_{D_{ij}}=\zeta_{ij}$ と置き，
+$x_i'=x_i h_0/h$，$x_j'=x_j$ とする．固定した $K$ の近傍で $h,h_0$ は非零であり，
+この写像は一様な正則逆を持つ．恒等式
+$x_i'x_j'-t h_0=(h_0/h)(x_ix_j-th)$ が方程式を厳密に移す．
+法線束の frame を固定して最後の座標を得る．
+局所 annulus の overlap を complete $\CC^*$ の自己同型とみなす議論は用いない．
 \end{proof}
 
 \subsection{Triple chartと source arms}
@@ -2613,8 +2651,11 @@ marked local universal cover上で用いる．一つの tame global frameで三�
  =-\omega_{i\mid j,t}^{\mathrm{prod}}
 \end{equation}
 を満たす．三つの triple cusp方向と二つの annulus ends方向には完備である．Source pointは基底の通常点であり，
-product model自体はそこを滑らかに横切る．Actual familyとの marked identificationから除かれるのは，
-各 sourceの balanced central coreだけである．
+product model自体はそこを滑らかに横切る．
+Actual family への局所的な複素座標の marking は，
+\cref{pair:prop:bundle-conic,sharp:lem:local-oriented-forms} の各 domain で与える．
+これらは product metric と actual KE metric の tensor 比較や，
+異なる markings の大域的な一致を主張しない．
 \end{theorem}
 
 \begin{proof}
@@ -2630,8 +2671,14 @@ Complex dimension一の各因子で $\Ric(\omega)=-\omega$ である．積 metri
 
 \begin{remark}[Mandel source-free solution]
 Moment coordinateを $z=T^{-1}\sinh s$ と置けば，\eqref{sharp:eq:annulus-mandel} の longitudinal coefficientは
-$h_0=(z^2+T^{-2})^{-1}$ の形になる．従って \eqref{sharp:eq:product-neck-metric} は Mandelの reduced systemの
-source-free exact solutionに一致する．本稿では delta sourcesを解いて defectを fillせず，本稿前半の bounded-source theoremを用いる．
+$h_0=(z^2+T^{-2})^{-1}$ の形になる．これは
+Mandel\cite[\S2.3, equation~(2.13)]{Mandel} の reduced system で
+$\chi=1$ とし，flat connection を局所的に固定した source-free solution に対応する．
+同論文のより一般の base-independent solution は
+$\chi=1+az$，$h=(1+az)/(\frac23az^3+z^2+c)$ であり，source-free であることだけから
+積分離は従わない．同論文の compact negative curve 上の neck construction も，
+本稿の compact family との一様 tensor 比較を自動的には与えない．
+本稿の source diameter の適用には独立の仮定 $\mathrm{(TC)}_5$ が必要である．
 \end{remark}
 
 \subsection{Ordinary half-edge}
@@ -3736,6 +3783,12 @@ J.~Song, J.~Sturm and X.~Wang,
 \newblock Riemannian geometry of K\"ahler--Einstein currents III: compactness of K\"ahler--Einstein manifolds of negative scalar curvature,
 \newblock arXiv:2003.04709.
 
+\bibitem{SongDegeneration}
+J.~Song,
+\newblock Degeneration of Kähler--Einstein manifolds of negative scalar curvature,
+\newblock arXiv:1706.01518v1 (2017), Definition~2.3 and Lemmas~4.4--4.5.
+\newblock \url{https://arxiv.org/abs/1706.01518}.
+
 \bibitem{Yau}
 S.-T.~Yau,
 \newblock On the Ricci curvature of a compact K\"ahler manifold and the complex Monge--Amp\`ere equation I,
@@ -3775,7 +3828,7 @@ Theorem~2.
 \bibitem{LagrangianCurrent}
 K.~Ueda,
 \newblock 一般型射影曲面の Lagrangian torus fibration と作用適合 matroidal atlas，
-\newblock 現行未公表原稿，2026年11月20日，第25稿・現行改訂6．
+\newblock 現行未公表原稿，2026年11月20日，第25稿・現行改訂7．
 \newblock \texttt{ke:closed-corner-gh}, \texttt{ke:closed-corner-protected-gh},
 \texttt{ke:relative-fiber-preserving}.
 \newblock \url{https://github.com/uedakazushi/lagrangian-torus-fibration/blob/main/papers/lagrangian-torus-fibration.tex}.

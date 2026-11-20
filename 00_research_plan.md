@@ -1,10 +1,10 @@
 # 現行研究方針：一般型超曲面の負Kähler–Einstein退化
 
-更新：2026-11-20 / v1.6・現行研究方針
+更新：2026-11-20 / v1.7・現行研究方針
 
 ## 研究固有の目標
 
-固定次数d≥5の一般型曲面の全平面退化について、径の尺度のactual KE極限をcubical複体と同定し、Lagrangian torus fibrationのfiber収縮として実現することを目指す。全深部三重点の解析比較と全閉cornerの局所GH収縮は証明済みであり、次の核心はneckとのorbit partitionの整合、sourceでの解析、全曲面のshortcut制御である。高次元の超平面退化は、mixed source–higher-stratum modelsの解析を含む後続課題とする。
+固定次数d≥5の一般型曲面の全平面退化について、径の尺度のactual KE極限をcubical複体と同定し、Lagrangian torus fibrationのfiber収縮として実現することを目指す。全深部三重点の解析比較と全閉cornerの局所GH収縮は証明済みであり、Source-freeな固定compact baseで正則normal action、canonical primitive、円平均後の共通moment intervalを得た。次の核心はneck全体のMoser flow bufferと複数のtriple endsの同時整合、sourceでの解析、全曲面のshortcut制御である。高次元の超平面退化は、mixed source–higher-stratum modelsの解析を含む後続課題とする。
 
 ## 論文と証明の状態
 
@@ -71,9 +71,23 @@ Actual計量への大域適用には(N) global no-shortcut、(S) square path lif
 
 標準負KE尺度での四実次元非崩壊極限と、$R_t^{-2}g_t$ のcubical候補を区別する。Zhang (MRL, 2015)の局所torus collapse定理はQ-factorialなtoroidal全空間を仮定するため、我々のsource $xy=tz$ へ直接適用しない。主稿序論に先行比較を統合した。閉corner内では同じactual Lagrangian fibrationの射影がGH近似となることを証明した。一方、Part Vの大域GH近似を既存大域fibrationのfiber収縮と同定するには、$\sup_x d_\square(\Phi_t(x),p_T\pi_t(x))\to0$ を全X_tで検証する必要がある。関連Lagrangian主原稿の `topo:ke-map-compatibility` がその十分性を示すが、この大域適合性は未証明である。
 
+## Source-free neckの座標・作用周期・解析条件
+
+正本は主稿の `papers/sections/source_free_neck_coordinates.tex` と `papers/sections/source_free_neck_comparison.tex`。二重線のsourceと三重点を避ける固定compact baseに対して次を証明した。Moving baseやmoving endの一様性は別問題である。
+
+- `pair:prop:bundle-conic`：射影的法線束の表示を先に固定し、h=−F_d/∏_{k≠i,j}L_k、h0=h|Dとしてx_i'=x_i h0/h、x_j'=x_jでexact uv=tを得る。Base、labelled axes、normal first jetを保ち、固定compact上で一様な正則逆を持つ。局所conic overlapをcomplete C*の自己同型と扱う旧証明をこの明示構成で置き換えた。
+- `pair:cor:normal-circle` / `pair:prop:canonical-normal-moment`：同じ正則normal S¹と、η_t=Aω_tに対するcanonical μ_tを構成。ι_Vη_t=−dμ_t、dμ_t(−JV)=η_t(V,JV)>0。周期は1で、patchごとの加法定数はない。
+- `pair:cor:global-primitive`：open base上の非消滅正則1-form τを選び、Ω=dlog v∧τ、λ_t=d^c log(ω_t²/|Ω|²)を一つの大域primitiveとする。τの変更ではnormal momentは不変だが、residual periodsのためにprimitiveの選択は保持する。
+- `pair:thm:fixed-end-moment` / `pair:cor:actual-common-moment`：s_r=−log r²として両固定endのmomentは±4π/s_r+O(s_r^(−1−δ))+o_t(1)。rを小さく固定した後でt→0とする。Song, arXiv:1706.01518, Definition 2.3 / Lemmas 4.4–4.5とRochon–Zhang, arXiv:1106.0873, (5.5)–(5.6) / Theorem 5.1を用い、η_tのreductionsに共通のintervalを得る。
+- `neck:prop:volume-envelope`：固定residual compact上でc h_t²≤ω_t²≤h_t²。ただし誤差はO(1)である。`neck:prop:residual-boundary-obstruction`はexact negative KE productでも固定residual境界の影響が消えないことを示す。Actual compact familyへの反例ではない。
+- `neck:lem:rank-one-circle`：p*h_D≤Aωかつω²≤B(h_A+h_D)²ならnormal real vectorsについてg_ω≤AB g_A。Mixed termsを許す。Actual metric ballの一様bufferを別途仮定すればnormal circleの長さはO(1/min(s,M−s))となる。Buffer自体は未証明。
+- `neck:prop:small-density-coupled`：一般のsmooth negative KE背景h_tに対しsmall log-volume errorから同率のtensor誤差を得る。積分離は要求しない。Complete strip×curve上への延長・完備性・global bounded log-ratioがあればproductを同定できるが、そのglobal仮定は未検証である。
+
+関連Lagrangian主稿 `ke:staged-neck-averaging` は、一つのnormal circleを先に平均し、endで残る円を平均することで、同じactual normal actionと全marked action periodsを保つ。共通のdomain/image bufferの下で一段階構成や整数基底変更とHamiltonian比較できる。`ke:staged-closed-corner-gh` は指定primitive subgroupに適合するactual triple bundleにも同じGH誤差O(log R/R)を与える。旧bundleと同一のfiber分割は主張しない。固定base上のprimitiveとmoment intervalがあっても、neck全体のflow生存、tripleとの同一作用、reduced foliationの同時整合はまだ必要である。
+
 ## 次の課題
 
-1. 最優先はneck collarとのorbit partition matching。Exact triple座標とneck座標のoverlapを具体化し、phase toriの分割、action periods、quantitative bufferを同時に合わせる。関連Lagrangian主稿 `ke:relative-fiber-preserving` / `ke:relative-neck-matching` は、既にLagrangianで同じorbit partitionを持つcollarを集合として保つ接着を与える。その仮定をactual neckで実現する。非定数holomorphic unitを含む座標変更は一般にorbit partitionを変えるので、torus actionsの存在だけでは足りない。
+1. 最優先はsource-free neck全体のnormal Moser flowの生存と一様buffer。まず `neck:lem:rank-one-circle` に必要なresidual方向の下界を、欲しい距離比較を先取りせず証明する。指定productへの漸近を仮定せずcoupledな背景も許す。同時に射影的normal actionとtriple側の指定subgroupの実際のoverlapを比較し、複数endの作用・reduced leaves・primitive markingsを合わせる。二段階構成はこの入力があれば同じnormal circleとperiodsを保つが、非定数unitによるorbit partitionの変化は別に処理する。
 2. Sourceの正しいorientationでactual tensor・connector評価を進め、source・branch・coreと既存大域fibrationへの相対接着を扱う。三重点のcusp–annulus漸近は利用できるが、sourceでの比較やsingular fibersのmetric制御を代替しない。
 3. 全曲面のno-shortcutとglobal portal費用を検証する。(PBE)_dのquantitative terminal trivialization、protected rectangular inclusion、uniform comparison、two-metric escapeをactual metricsで証明し、一般次数の(CP)_dのconnectorsを監査する。C_J内の距離と、他のlabelsを通るC_dの距離を明確に分ける。
 
@@ -81,7 +95,7 @@ Actual計量への大域適用には(N) global no-shortcut、(S) square path lif
 
 全文TeXのSHA-256は `research/source-manifest.json`、元監査は `research/source-audit.md`。回収時に3原稿のLuaLaTeX組版と、統合稿5 scripts・旧v0.12の16 scriptsの再実行を行った。検査は有限組合せ・式・bookkeepingに限られ、未完成の解析証明を代替しない。詳細は `research/migration.md`。
 
-現行の解析監査では、全固定次数のweighted cap determinant、source residue規格化、complete simplexの内外barriers、convex shift評価、expanding product domains、shifted-sinh barriers、Savinの原典のH1/H2/H4とTheorem 1.3を点検した。さらに正確な係数1のBochner計算、積領域の包含と内部近似によるvolume比較、dominant/facetの誤差率、active co-Gram、全閉cornerのpruningと有限gallery、modelを基準とするMoser pullbackおよびprotected-ambient GHの証明を独立に再読した。Bounded-density推論の反例とその依存先、GuanのDirichlet存在定理、Bedford–Taylorの比較・pluripolar massの一次資料も確認した。局所GH定理の原稿内の証明・今回の監査と、未完成の大域解析、新規性の未確認、未実施の形式証明を区別する。現環境では `lualatex.fmt`・LuaTeX-ja等の基本資産がなく、LuaLaTeX組版の試行は本文処理前に停止した。回収時の組版成功と現行改訂の未組版を区別する。
+今回追加したexplicit bundle coordinates、canonical momentのpatchingと周期1の係数、Songのstable-family仮定、Rochon–ZhangのSNC potential remainder、rank-one determinant、residual-boundary例、complete KE uniquenessを原典および証明で点検した。二段階averageのexact primitive transport、Hamiltonian path homotopy、指定subgroupでのclosed-corner GHも関連稿で独立に再読した。現行の解析監査では、全固定次数のweighted cap determinant、source residue規格化、complete simplexの内外barriers、convex shift評価、expanding product domains、shifted-sinh barriers、Savinの原典のH1/H2/H4とTheorem 1.3を点検した。さらに正確な係数1のBochner計算、積領域の包含と内部近似によるvolume比較、dominant/facetの誤差率、active co-Gram、全閉cornerのpruningと有限gallery、modelを基準とするMoser pullbackおよびprotected-ambient GHの証明を独立に再読した。Bounded-density推論の反例とその依存先、GuanのDirichlet存在定理、Bedford–Taylorの比較・pluripolar massの一次資料も確認した。局所GH定理の原稿内の証明・今回の監査と、未完成の大域解析、新規性の未確認、未実施の形式証明を区別する。現環境では `lualatex.fmt`・LuaTeX-ja等の基本資産がなく、LuaLaTeX組版の試行は本文処理前に停止した。回収時の組版成功と現行改訂の未組版を区別する。
 
 ## 共通研究原則と保存許可（研究固有方針から独立）
 

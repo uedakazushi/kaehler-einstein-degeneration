@@ -1,6 +1,22 @@
 # 研究ノート：一般型超曲面のKE退化
 
-更新：2026-11-20 / v1.6
+更新：2026-11-20 / v1.7
+
+## Source-free neck：正則作用とactual metricの接続
+
+現在の証明の正本は主稿の `source_free_neck_coordinates.tex` と `source_free_neck_comparison.tex`。固定次数d≥5、sourceとtriple pointsを避ける固定compact base Kに限る。前者の `pair:prop:bundle-conic` がexplicit normal form、`pair:cor:global-primitive` が単一primitive、`pair:thm:fixed-end-moment` / `pair:cor:actual-common-moment` が円平均η_tの共通moment stripを与える。
+
+**座標の障害と修復。** 局所conic overlapをcomplete C*の自己同型と分類してはならない。例えば(u,v)↦(ue^u,ve^(−u))は原点近くで正則可逆、uvとlabelled axesを保つが、base-only乗数ではない。この例はnormal formの不存在を示さない。射影P(V)からD=P(W)へのprojectionを先に固定すると、P(V)＼P(U)=Tot(O_D(1)⊕O_D(1))でtransitionは初めからbase-onlyである。h=−F_d/G、h0=h|Dを用いるx_i'=x_i h0/h、x_j'=x_jがexact方程式へ移す。旧 `sharp:prop:conic-normal-form` の証明をこの構成へ置き換えた。
+
+**Momentの規約。** d^c=(i/2)(bar∂−∂)、circleのperiodは1、ι_Vη=−dμとする。Ω=dlogv∧τに対するλ=d^c log(ω²/|Ω|²)を固定するとμ=(Aλ)(V)。τ'=bτの場合のλの差はbaseからの閉形式−d^c log|b|²であり、normal momentは不変だがresidual action periodsのためには選択を固定する。各conic fibreでdμ(−JV)=η(V,JV)>0。
+
+**固定endとmoving end。** s_r=−log r²についてμの両end値は±4π/s_r+O(s_r^(−1−δ))+o_{t→0;r,K}(1)。まずrを固定し、その後tを小さくする。Song (arXiv:1706.01518, Definition 2.3, Lemmas 4.4–4.5)の固定gauge収束とRochon–Zhang (arXiv:1106.0873, (5.5)–(5.6), Theorem 5.1)のSNC potential remainderを使う。Period 2πのgeneratorなら主項は±2/s_rとなるので規約を混ぜない。Smooth-divisor full expansionをSNCへ無断で適用していない。共通intervalからradial derivativeの一様下界や全neckのMoser生存は従わない。
+
+**平均の順序とperiods。** 関連Lagrangian主稿 `ke:staged-neck-averaging` ではη=A1ω、κ=A2η、φ*ω=η、ψ*η=κとし、Θ=φψを使う。第二flowはnormal S¹にequivariantで、Θ*λ=A2A1λ+dq、μ∘ψ=A2μが厳密に成り立つ。原primitiveと整数cycleを共通に固定すれば全periodを追跡できる。同じnormal actionだけでは、独立に指定したneckの第二periodやreduced leavesの一致は得られない。共通bufferの下で一段階bundleとのHamiltonian比較があり、指定subgroupのactual closed cornerにも従来と同じGH率がある。
+
+**解析の残り。** `neck:prop:volume-envelope` は固定residual compact上でc h²≤ω²≤h²のみを与える。拡幅annulus×D₂と同じannulus×D₃のcomplete product metricsの制限は、全人工境界を越えて滑らかで、normal depthが発散しても中心volume比9/4を保つ（`neck:prop:residual-boundary-obstruction`）。これはactual compact familyの反例ではなく、local residual boundary情報の不足を示す。Zhang (arXiv:1505.04728v2, Lemma 3.3, (3.10)–(3.12))の正次元stratumの極限もpotential φ₀(x,z)とmixed termsを残す。
+
+次の解析目標は `neck:lem:rank-one-circle` のp*h_D≤Aωである。Volume上界と合わせれば、Hermitian matrix G=[[a,c],[c̄,b]]に対しdetG≥a/A、従ってa≤ABとなり、mixed coefficientsがあってもnormal circle長を抑えられる。Actual metric ball bufferがあればlocalized Chern–Luでこのrank-one下界を得るが、そのbufferを欲しいtensor比較から逆算しない。Full tensor比較にはsmall log-densityと一様smooth背景、あるいは別の解析が必要。Complete strip×curveへのglobal延長・完備性・bounded log-ratioを仮定すればOmori–Yauによる一意性でproductを同定できるが、fixed residual discの極限だけではこれらの条件を満たさない。
 
 ## 全深部三重点の比較と大域density入力
 

@@ -1,0 +1,347 @@
+% !TeX root = ../kaehler-einstein-degeneration.tex
+% Current content: 2026-11-20, v1.0.
+\section{Source を避ける二重交差 neck：体積包絡と計量比較の追加入力}
+\label{neck:sec:comparison-inputs}
+
+三重点の深部では \cref{coarse:thm:full-triple-tensor} により actual tensor
+比較を得た．本節では，三重点と source を避けた二重交差曲線の固定 compact
+部分に沿う neck について，現時点で得られる結論と追加解析を要する結論を区別する．
+全角度に一様な体積密度の上下界は得られるが，固定した residual disc の境界は
+法線深度を増しても遠ざからない．このため，三重点の障壁をそのまま適用して
+指定した積計量との小さい誤差を導くことはできない．
+以下の elementary な障害と十分条件の包括的な新規性は未確認である．
+本節は $\mathrm{(TC)}_5$ や $\mathrm{(PBE)}_d$ を証明したものではない．
+
+\subsection{固定 residual compact 上の体積包絡}
+
+\Cref{ass:Gd} を満たす固定次数 $d\ge5$ の族を考える．
+二重交差曲線上の三重点と source を避けた座標 disc の近傍では，unit を吸収して
+\[
+ uv=t,\qquad z\in D_R=\{|z|<R\}
+\]
+という正確な座標を取れる．十分小さい固定 $r_+>0$ に対し
+\[
+ U_t=\{|u|<r_+,\ |v|<r_+,\ z\in D_R\}
+     \simeq A_t\times D_R,
+ \qquad A_t=\{|t|/r_+<|u|<r_+\}
+\]
+とし，その人工境界を越えて同じ座標を定義しておく．
+\[
+ s=-\log\frac{|u|^2}{r_+^2},\qquad
+ M_t=-\log\frac{|t|^2}{r_+^4}=L_t+O(1)
+\]
+ならば $0<s<M_t$ である．$\theta=\arg u\in\RR/(2\pi\ZZ)$ と置く．
+Complete curvature $-1$ metrics は
+\begin{equation}\label{neck:eq:annulus-disc-background}
+ g_{A_t}=K_{M_t}(s)(ds^2+4d\theta^2),\qquad
+ K_M(s)=\left(\frac\pi M\right)^2
+             \csc^2\frac{\pi s}{M},\qquad
+ g_{D_R}=\frac{4R^2|dz|^2}{(R^2-|z|^2)^2}.
+\end{equation}
+対応する K\"ahler forms を $h_{A_t},h_{D_R}$ とし，
+$h_t=h_{A_t}+h_{D_R}$ と書く．これは $U_t$ 自身の complete negative KE
+積計量である．
+
+\begin{proposition}[固定 residual compact 上の bounded volume envelope]
+\label{neck:prop:volume-envelope}
+固定 $a_0>0$ と $K\Subset D_R$ に対し，十分小さい全 $t$ について
+\begin{equation}\label{neck:eq:volume-envelope}
+ c\,h_t^2\le\omega_t^2\le h_t^2
+ \quad\text{on}\quad
+ V_t(a_0,K)=\{a_0\le s\le M_t-a_0,\ z\in K\}
+\end{equation}
+となる $c>0$ が存在する．定数は固定した族，座標，$a_0,K$ に依存してよいが，
+$t,s$ と全角度 $\theta$ に依存しない．特に
+\[
+ \left|\log\frac{\omega_t^2}{h_t^2}\right|\le C
+\]
+である．この命題は，$\min(s,M_t-s)\to\infty$ のときこの対数が $0$ へ
+収束することも，tensor ratio が有界であることも主張しない．
+\end{proposition}
+
+\begin{proof}
+上界は \cref{coarse:lem:complete-volume-upper} の annulus--disc の場合である．
+この場合は有限 angular quotient 上で直接証明できる．
+$w=\log(\omega_t^2/h_t^2)$ は人工境界で $-\infty$ へ行き，
+$\ddc w=\omega_t-h_t$ だから，正の最大点があれば
+$\omega_t\le h_t$ と $e^w\le1$ が矛盾する．
+
+下界には \cref{coarse:cor:degree-d-volume-lower} を用いる．
+この座標では adjunction residue は $du/u\wedge dz$ に有界な非零 unit を
+掛けたものであり，二つの active cap 以外の係数は固定 compact 上で有界である．
+\Cref{coarse:lem:pair-arm-density} の ordinary pair の計算により，
+normal density は $K_{M_t}(s)$ と一様比較可能である．
+Residual density も $K\Subset D_R$ 上で $h_{D_R}$ と一様比較可能なので，
+capped canonical density $\Omega_{t,d}^{\mathrm{low}}$ と $h_t^2$ は
+$V_t(a_0,K)$ 上で一様比較可能である．大域下界
+$\omega_t^2\ge c_d\Omega_{t,d}^{\mathrm{low}}$ と合わせればよい．
+全ての unit と residue の評価は円周全体を含む固定座標で行っている．
+\end{proof}
+
+同じ定数は $V_t(m_t,K)$，$m_t\ge a_0$，という normal 方向に深くなる領域にも
+使えるが，誤差は依然 $O(1)$ である．Residual compact 自身を三重点や source
+へ動かす場合の一様性はこの命題に含めない．また normal 模型は有限 annulus
+であり，$s/M\to0$ の端でのみ
+\[
+ K_M(s)=s^{-2}\bigl(1+O((s/M)^2)\bigr)
+\]
+と cusp で置き換えられる．例えば $s=M/2$ では $K_M(s)s^2=\pi^2/4$ であり，
+全 normal 深度比にわたり一つの端の cusp を鋭い比較相手にすることはできない．
+
+\subsection{固定 residual 境界による非消失誤差}
+
+\begin{proposition}[Normal 深度だけでは residual 計量を同定できない]
+\label{neck:prop:residual-boundary-obstruction}
+$A_M=\{e^{-M/2}<|u|<1\}$，$s=-\log|u|^2\in(0,M)$ とする．
+$A_M\times D_1$ 上には，人工境界を越えて滑らかに定義される二つの
+negative KE 積計量 $g_M^{(2)},g_M^{(3)}$ が存在し，次を満たす．
+\begin{enumerate}
+\item 両計量は全 normal 角度について不変である．固定 $a_0>0$，$0<\rho<1$
+に対し，$a_0\le s\le M-a_0$，$|z|\le\rho$ 上で，両者の volume は
+$A_M\times D_1$ の complete product envelope の volume と $M$ に一様に
+二側比較可能であり，上からはその envelope 以下である．
+\item $p_M=(s=M/2,z=0)$ では両 normal 深度が発散するが，
+両計量の residual tensors の差は $0$ へ行かず，volume ratio は $9/4$ である．
+Complete product envelope との log-volume discrepancy も $0$ へ行かない．
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+少し広い annulus
+$\{e^{-(M+1)/2}<|u|<e^{1/2}\}$ の complete metric を制限して
+\[
+ \widehat g_{A_M}
+ =K_{M+2}(s+1)(ds^2+4d\theta^2)
+\]
+と置く．$a=2,3$ に対し $D_a$ の complete curvature $-1$ metric を制限し，
+\[
+ g_M^{(a)}=\widehat g_{A_M}
+       +\frac{4a^2|dz|^2}{(a^2-|z|^2)^2}
+\]
+とすれば，両因子とも人工境界を越えて滑らかである．積は
+$\Ric(g_M^{(a)})=-g_M^{(a)}$ を満たす．
+Envelope の実計量を $g_M^{\mathrm{env}}=g_{A_M}+g_{D_1}$ とする．
+One-dimensional Poincar\'e metric の domain monotonicity により
+$g_M^{(a)}\le g_M^{\mathrm{env}}$ である．
+$d(s)=\min(s,M-s)$ とすると
+\[
+ \frac1{d(s)^2}\le K_M(s)\le\frac{\pi^2}{4d(s)^2},\qquad
+ \frac{K_{M+2}(s+1)}{K_M(s)}
+ \ge\frac4{\pi^2}\left(\frac{a_0}{a_0+1}\right)^2
+\]
+が $d(s)\ge a_0$ 上で成り立つ．Residual ratio も
+\[
+ \frac{g_{D_a}}{g_{D_1}}
+ =\frac{a^2(1-|z|^2)^2}{(a^2-|z|^2)^2}
+\]
+であり，$|z|\le\rho$ 上で正の定数と $1$ の間にある．従って volume の
+二側比較を得る．
+
+対応する forms を $\omega_M^{(a)},h_M^{\mathrm{env}}$ と書く．$p_M$ では
+\[
+ \frac{(\omega_M^{(a)})^2}{(h_M^{\mathrm{env}})^2}(p_M)
+ =\left(\frac M{M+2}\right)^2\frac1{a^2}
+ \longrightarrow\frac1{a^2},\qquad
+ \frac{(\omega_M^{(2)})^2}{(\omega_M^{(3)})^2}(p_M)=\frac94.
+\]
+また $z=0$ における residual real coefficients は，それぞれ $1$ と $4/9$
+である．これらは $M$ に依存しないので所要の非消失誤差を得る．
+\end{proof}
+
+この例は compact family の actual metric の反例ではなく，固定 residual disc
+上の局所情報から何が従わないかを示すものである．Normal の内外 annuli の
+差は中心で $O(M^{-1})$ にできても，residual 因子の境界条件の自由度は残る．
+ここでは tensor ratios 自体は良好であるが，指定した積計量への収束がない．
+さらに bounded volume から tensor の有界性さえ一般には従わないことは，
+\cref{coarse:prop:density-counterexample} が別に示している．
+
+\subsection{法線円周の短さに十分な rank-one 下界}
+
+\begin{lemma}[Residual rank-one 下界と normal 上界]
+\label{neck:lem:rank-one-circle}
+複素一次元の二因子の積 $A\times D$ に，積 K\"ahler form
+$h=h_A+h_D$ を入れ，$p:A\times D\to D$ を射影とする．
+任意の K\"ahler form $\omega$ に対して，点ごとに
+\begin{equation}\label{neck:eq:rank-one-inputs}
+ p^*h_D\le A_0\omega,\qquad \omega^2\le B_0h^2
+\end{equation}
+が成り立つなら，全ての vertical real vector $V\in\ker dp$ について
+\begin{equation}\label{neck:eq:vertical-upper}
+ g_\omega(V,V)\le A_0B_0\,g_{h_A}(V,V)
+\end{equation}
+である．$\omega$ の mixed coefficients が消えることは仮定しない．
+\end{lemma}
+
+\begin{proof}
+Normal，residual の順の $h$-unitary complex coframe $\eta^1,\eta^2$ を取り，
+$h=\sqrt{-1}\sum_\alpha\eta^\alpha\wedge\bar\eta^\alpha$，
+$\omega=\sqrt{-1}\sum_{\alpha,\beta}G_{\alpha\bar\beta}
+\eta^\alpha\wedge\bar\eta^\beta$ と書く．この Hermitian coefficient matrix を
+\[
+ G=\begin{pmatrix}a&c\\\bar c&b\end{pmatrix}>0
+\]
+と書く．第一の仮定は
+$G-\operatorname{diag}(0,A_0^{-1})\ge0$ だから
+\[
+ \det G=a b-|c|^2\ge a/A_0.
+\]
+第二の仮定 $\det G\le B_0$ と合わせて $a\le A_0B_0$ を得る．
+Vertical real vector $V$ には
+$g_\omega(V,V)=2a|\eta^1(V)|^2$，
+$g_{h_A}(V,V)=2|\eta^1(V)|^2$ であり，同じ実計量の係数 $2$ が相殺して
+\eqref{neck:eq:vertical-upper} を得る．
+\end{proof}
+
+\begin{corollary}[Actual buffer の下での normal circle の収縮]
+\label{neck:cor:buffer-circle}
+\Cref{neck:prop:volume-envelope} の $U_t$ と $h_t$ を用いる．
+$\Gamma_t\subset U_t$ を $z$ と $s$ を固定した normal orbit circle とし，
+$m_t=\min(s,M_t-s)$ と置く．固定 $\sigma>0$ が存在して，円周上の全点 $q$ で
+\begin{equation}\label{neck:eq:actual-circle-buffer}
+ \overline{B_{g_t}(q,2\sigma)}\Subset U_t
+\end{equation}
+を満たすと仮定する．このとき
+\[
+ \Length_{g_t}(\Gamma_t)\le C_\sigma/m_t.
+\]
+従って $m_t\to\infty$ ならば normal circle の長さは $0$ へ行く．
+Buffer を一様に持つ全 orbit circles に同じ評価が成り立つ．
+\end{corollary}
+
+\begin{proof}
+正則射影 $p:U_t\to(D_R,h_{D_R})$ に対する Chern--Lu 不等式と
+actual ball 上の cutoff を用いる．具体的には
+$f=\tr_{\omega_t}(p^*h_{D_R})$ に対し，$\Ric(\omega_t)=-\omega_t$ と
+target の曲率 $-1$ から
+$\Delta_{\omega_t}\log f\ge c f-C$ を得る．
+\Cref{coarse:lem:localized-chern-lu} と同じ距離 cutoff の証明をこの射影に
+適用すると，中心で $f(q)\le C_\sigma$，従って
+$p^*h_{D_R}\le C_\sigma\omega_t$ を得る
+\cite[Section~1 and Theorem~2 の証明]{YauSchwarzThm2}．
+\Cref{neck:prop:volume-envelope} の上界と
+\cref{neck:lem:rank-one-circle} により
+Period $1$ の generator を $V=2\pi\partial_\theta$ とすれば
+\[
+ |V|_{g_t}
+ \le C_\sigma\,4\pi\sqrt{K_{M_t}(s)}
+ \le C_\sigma\frac{2\pi^2}{m_t}
+ \le\frac{C'_\sigma}{\min(s,M_t-s)}.
+\]
+この評価は円周の全点に成り立つので，flow parameter $\tau\in[0,1]$ で積分する．
+\end{proof}
+
+\eqref{neck:eq:actual-circle-buffer} は追加仮定であり，現時点では actual family
+の全 source-free neck に一様には証明していない．Model metric に関する
+境界までの正の距離は，この actual buffer の代わりにはならない．
+また rank-one 入力だけから得た normal circle の長さの上界は，full tensor
+比較，mixed coefficients の微分評価，または Moser isotopy の定量的制御を
+与えるものではない．円周の収縮を検証する段階では，full tensor 下界より
+弱い \eqref{neck:eq:rank-one-inputs} の第一式を独立に探すことができる．
+
+\subsection{Coupled KE 背景に対する小さい density の十分条件}
+
+\begin{proposition}[比較背景の積分離を仮定しない局所安定性]
+\label{neck:prop:small-density-coupled}
+正規化された正則座標 $B_1\Subset B_2\subset\CC^2$ 上に
+$\Ric(h_t)=-h_t$，$\Ric(\omega_t)=-\omega_t$ を満たす滑らかな forms があるとする．
+$h_t$ の Hermitian matrices は一様に正で，全固定階の係数 bounds を持つとする．
+\begin{equation}\label{neck:eq:small-density-coupled}
+ \left\|v_t\right\|_{C^0(B_2)}\le\epsilon_t\longrightarrow0,
+ \qquad v_t=\log\frac{\omega_t^2}{h_t^2}
+\end{equation}
+ならば，任意の固定 $q\ge0$ に対し
+\[
+ \|\omega_t-h_t\|_{C^q(B_1,h_t)}\le C_q\epsilon_t.
+\]
+$h_t$ が normal と residual の積であること，角度不変であること，または
+この座標領域で完備であることは仮定しない．
+\end{proposition}
+
+\begin{proof}
+Ricci forms の差から
+\[
+ \ddc v_t=\omega_t-h_t,\qquad
+ (h_t+\ddc v_t)^2=e^{v_t}h_t^2
+\]
+を得る．\Cref{coarse:lem:small-volume-tensor} の証明は，背景の Hermitian
+matrix が一様に正で滑らかであることだけを用いる．Mixed entries を含む場合も
+同じ determinant operator に Savin\cite[Theorem~1.3]{SavinSmall} を適用できる．
+小さい $C^0$ norm から内側の一様楕円性を得た後，logarithmic equation を
+線形化した Schauder estimates が表示の線形誤差率を与える．
+\end{proof}
+
+Normal angular cover 上の固定半径の座標を使う場合，この仮定と係数 bounds を
+全角度に一様に検証して初めて，orbit circle 全体への結論が得られる．
+単に $\epsilon_t\le C$ であることは十分でない．
+正の次元の stratum を持つ場合に coupled な比較背景を許すことにも意味がある．
+Zhang\cite[Lemma~3.3, equations~(3.10)--(3.12)]{ZhangNegativeKE} の局所極限では，
+potential は $\varphi_0(x,z)$ という normal real variables と residual complex
+variables の関数であり，metric の表示には mixed terms を含む $G_0$ が残る．
+角度不変性だけから，あらかじめ指定した residual metric との積への分離は
+結論されない．同補題の compactness は Proposition~3.1 の tensor bounds を
+用いており，bounded potential 単独からの tensor 推論ではない．
+我々の source を持つ全空間に同論文の退化定理を直接適用することも，本節では行わない．
+
+\subsection{Complete な大域極限を同定するための条件}
+
+\begin{lemma}[有界 log-volume ratio を持つ complete negative KE metrics の一意性]
+\label{neck:lem:complete-KE-uniqueness}
+同じ複素 $n$ 次元多様体 $Y$ 上の二つの K\"ahler forms $\omega,h$ が
+\[
+ \Ric(\omega)=-\omega,\qquad \Ric(h)=-h
+\]
+を満たし，対応する両実計量が complete であるとする．さらに
+$u=\log(\omega^n/h^n)$ が $Y$ 全体で有界ならば $\omega=h$ である．
+\end{lemma}
+
+\begin{proof}
+$\ddc u=\omega-h$ である．Complex Laplacian を
+$\Delta_h u=\tr_h\ddc u$ と規格化すると，相加相乗平均より
+\begin{equation}\label{neck:eq:complete-uniqueness-laplacians}
+ \Delta_hu=\tr_h\omega-n\ge n(e^{u/n}-1),\qquad
+ \Delta_\omega u=n-\tr_\omega h\le n(1-e^{-u/n}).
+\end{equation}
+Complete metric $h$ は Ricci curvature の下界を持ち，$u$ は上に有界なので，
+Omori--Yau 原理\cite[Theorem~1]{YauSchwarzThm2} により
+$u(p_j)\to\sup_Yu$，$\Delta_hu(p_j)\le j^{-1}$ となる点列を取れる．
+第一の不等式により $\sup_Yu\le0$ を得る．
+同様に，complete metric $\omega$ と下に有界な $u$ に対し
+$u(q_j)\to\inf_Yu$，$\Delta_\omega u(q_j)\ge-j^{-1}$ となる点列を取り，
+第二の不等式から $\inf_Yu\ge0$ を得る．従って $u=0$ であり，
+$\ddc u=\omega-h$ から結論する．
+\end{proof}
+
+\begin{corollary}[Complete strip--curve への延長を仮定した product 同定]
+\label{neck:cor:complete-product-identification}
+$S\subset\CC$ を proper strip とし，$h_S$ をその complete curvature $-1$
+metric，$\Sigma$ を complete curvature $-1$ metric $h_\Sigma$ を持つ曲線とする．
+Normal angular cover 上で得た negative KE 極限 $\omega_\infty$ が，
+複素積 $S\times\Sigma$ 全体へ滑らかに延長され，complete であり，かつ
+\[
+ \left|\log\frac{\omega_\infty^2}{(h_S+h_\Sigma)^2}\right|\le C
+ \quad\text{on }S\times\Sigma
+\]
+を満たすならば，$\omega_\infty=h_S+h_\Sigma$ である．
+\end{corollary}
+
+\begin{proof}
+$h_S+h_\Sigma$ は complete negative KE metric なので，
+\cref{neck:lem:complete-KE-uniqueness} を適用する．
+\end{proof}
+
+この系は，任意に大きい residual 領域への整合的延長，その極限の completeness，
+および大域的な bounded log-volume ratio が得られた場合の同定である．
+固定 residual disc 上の smooth convergence や，normal 方向だけの exhaustion
+ではこれらの仮定を満たさない．特に source を除いた領域から source を含む
+残余曲線へ延長する解析は残る．
+\Cref{neck:prop:residual-boundary-obstruction} の例は residual 境界まで不完備であり，
+この一意性と矛盾しない．
+
+\Cref{sharp:thm:exact-oriented-neck} の exact product neck は，指定した
+normal frame と residual metric から構成する模型である．その存在は actual
+metric との tensor 比較を含まない．Actual source-free neck で現在無条件に
+得た本節の入力は \cref{neck:prop:volume-envelope} であり，法線円周の収縮には
+\cref{neck:lem:rank-one-circle} の residual rank-one 下界，full tensor 漸近には
+\cref{neck:prop:small-density-coupled} の小さい比較 potential，または同等の
+独立した解析を要する．Complete product 同定の系は，これらを大域的に補強する
+一つの十分条件として位置付ける．

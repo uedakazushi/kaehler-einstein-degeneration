@@ -1,0 +1,400 @@
+% !TeX root = ../kaehler-einstein-degeneration.tex
+% 2026-11-20 / v1.0
+\section{Source-free neck の束座標と normal moment}
+\label{pair:sec:source-free-neck-coordinates}
+
+本節では，二重曲線の source と三重点を避ける固定 compact 部分上で，
+一つの正則 normal circle action を構成する．射影空間の線形な束座標を先に固定し，
+その座標内の明示的な変換を用いる．従って，異なる局所 Morse charts の overlap が
+complete $\CC^*$ の自己同型へ延長されることは仮定しない．
+さらに actual KE form の normal-circle average に対し，大域的に規格化された moment と，
+固定 end cuts から得られる $t$ に一様な moment interval を構成する．
+これらは averaged form に関する主張であり，neck 全体の Moser flow の存在や
+actual KE metric と積模型の tensor 比較を含まない．
+
+\subsection{射影的な束表示と明示的 conic normal form}
+
+固定次数 $d\ge5$ の一般位置退化
+\[
+ X_t^{(d)}=\left\{\prod_{k=0}^{d-1}L_k+tF_d=0\right\}\subset\PP(V),
+ \qquad V=\CC^4
+\]
+を考える．固定した二つの labels $i\ne j$ に対し
+\[
+ W=\ker L_i\cap\ker L_j,\qquad D=D_{ij}=\PP(W)
+\]
+とし，補空間 $U$ を一度選んで $V=W\oplus U$ と書く．
+$L_i|_U,L_j|_U$ を $U$ の座標に取る．
+射影 $\pi:\PP(V)\setminus\PP(U)\to D$ によって
+\begin{equation}\label{pair:eq:projective-bundle}
+ \PP(V)\setminus\PP(U)
+ \simeq\operatorname{Tot}\bigl(\mathcal O_D(1)\otimes U\bigr)
+ \simeq\operatorname{Tot}(\mathcal L_i\oplus\mathcal L_j),
+ \qquad \mathcal L_i\simeq\mathcal L_j\simeq\mathcal O_D(1).
+\end{equation}
+実際，$[w+u]$ は $[w]\in\PP(W)$ と線形写像
+$\CC w\to U$, $w\mapsto u$ を定める．この表示で $L_i,L_j$ は
+それぞれ fibre coordinates $x_i,x_j$ となり，座標変換は base のみに依存する線形変換である．
+射影による tautological line の同定を用いると，各 $L_k$ は $\pi^*\mathcal O_D(1)$ の section，
+$F_d$ は $\pi^*\mathcal O_D(d)$ の section として扱える．
+
+Source と三重点を除いた開集合を
+\[
+ D^\circ=D\setminus
+ \left(\{F_d|_D=0\}\cup\bigcup_{k\ne i,j}\{L_k|_D=0\}\right)
+\]
+とする．以下では $K\Subset D^\circ$ を固定し，必要ならその少し大きい
+比較的 compact な開近傍 $B\Subset D^\circ$ を用いる．
+\begin{equation}\label{pair:eq:normal-unit}
+ G=\prod_{k\ne i,j}L_k,\qquad
+ h=-\frac{F_d}{G},\qquad h_0=h|_D
+\end{equation}
+と置く．$h$ は $\mathcal L_i\otimes\mathcal L_j$ に値を持ち，
+$\pi^{-1}(B)$ の零切断の十分小さい近傍で nowhere zero である．
+$h_0$ も $B$ 上で nowhere zero である．ここでは defining polynomial を固定しているので，
+$h$ と $h_0$ は $t$ に依存しない．
+
+\begin{proposition}[束の marking を保つ exact normal form]
+\label{pair:prop:bundle-conic}
+固定した $K\Subset D^\circ$ の近傍で
+\begin{equation}\label{pair:eq:explicit-normal-map}
+ \Psi(p,x_i,x_j)
+ =\left(p,\ x_i'=x_i\frac{h_0(p)}{h(p,x_i,x_j)},\ x_j'=x_j\right)
+\end{equation}
+は零切断の一様な近傍間の正則同型を与える．この写像は $\pi$ と二つの labelled axes を保ち，
+零切断上の normal first jet は恒等写像である．
+さらに $X_t^{(d)}$ の方程式を厳密に
+\begin{equation}\label{pair:eq:bundle-conic}
+ x_i'x_j'=t h_0(p)
+\end{equation}
+へ移す．従って
+\begin{equation}\label{pair:eq:dual-conic}
+ u=x_i'/h_0\in\mathcal L_j^{-1},\qquad
+ v=x_j'\in\mathcal L_j,
+ \qquad uv=t
+\end{equation}
+という大域的な束表示が得られる．ここで「大域的」とは固定した $B$ 上を意味する．
+\end{proposition}
+
+\begin{proof}
+$h_0/h$ は同じ line bundle に値を持つ二つの section の比なので一価な正則関数であり，
+零切断上で $1$ となる．よって \eqref{pair:eq:explicit-normal-map} は trivialization に依存しない．
+固定した Hermitian norms を用い，$B$ を必要なら少し縮めると
+\[
+ \Psi(p,x)-x=O(|x|^2),\qquad
+ D_x\Psi(p,x)-I=O(|x|)
+\]
+が $p\in\overline B$ に一様に成り立つ．十分小さい fibre ball 上で
+$\Norm{D_x\Psi-I}<1/2$ とできるので，各 fibre で単射である．
+$y=x+(\Psi(x)-x)$ を $x=y-(\Psi(x)-x)$ として解く contraction argument により，
+さらに小さい一様な fibre ball が像に含まれる．局所逆写像は正則であり，
+base と fibre ごとの一意性によって貼り合わさる．これで $K$ 上の一様な正則逆を得る．
+同じ評価から axes の保存と normal first jet の主張も従う．
+
+元の方程式は $x_ix_j=t h$ であるから，
+\[
+ x_i'x_j'-t h_0
+ =\frac{h_0}{h}(x_ix_j-t h).
+\]
+係数 $h_0/h$ は nowhere zero なので，零点集合の同定は厳密である．
+$h_0\in\mathcal L_i\otimes\mathcal L_j$ による除算は
+$\mathcal L_i\to\mathcal L_j^{-1}$ の正則同型を与えるので，
+\eqref{pair:eq:dual-conic} も trivialization に依存しない．
+\end{proof}
+
+\begin{corollary}[共通の正則 normal circle]
+\label{pair:cor:normal-circle}
+$\mathcal L_j$ の Hermitian norm とその dual norm を固定する．十分小さい固定 $r>0$ に対し
+\begin{equation}\label{pair:eq:neck-domain}
+ N_t(r)=\{p\in B,\ uv=t,\ \Norm u<r,\ \Norm v<r\}
+\end{equation}
+は，十分小さい $0<|t|<r^2$ で actual $X_t^{(d)}$ に正則に埋め込まれる．
+この domain は period $1$ の自由な正則作用
+\begin{equation}\label{pair:eq:normal-circle}
+ \rho_\theta(p,u,v)=(p,e^{-2\pi\sqrt{-1}\theta}u,
+ e^{2\pi\sqrt{-1}\theta}v),\qquad\theta\in\RR/\ZZ
+\end{equation}
+で不変である．その infinitesimal generator を $V$ とする．
+Local frame の変更 $v'=a(p)v$, $u'=a(p)^{-1}u$ はこの作用と可換である．
+\end{corollary}
+
+\begin{proof}
+$h_0$ とその逆は $\overline B$ 上で有界なので，十分小さい $r$ を取れば
+\eqref{pair:eq:neck-domain} は \cref{pair:prop:bundle-conic} の一様な像の内部に入る．
+Dual norms により $\Norm u\,\Norm v=|t|$ であり，各 fibre は
+$|t|/r<\Norm v<r$ という annulus である．
+\eqref{pair:eq:normal-circle} は両 norm と積 $uv$ を保ち，$t\ne0$ では自由である．
+Base-dependent linear transition との可換性は式から直接従う．
+\end{proof}
+
+\begin{remark}[固定した projection と適用範囲]
+本構成は source と triple points から離れた固定 compact base 上のものである．
+$K$ がそれらの点へ動く場合の uniform radius や transition bounds は主張していない．
+また，ここで得る normal action が別に選んだ triple $T^2$-action の所定の circle と
+同じ部分作用になることは，その charts の具体的な比較を要する．
+Base-only の unit $a(p)$ は normal circle を変えないが，base の回転も含めた
+full $T^2$ の orbit partition を自動的に保つわけではない．
+\end{remark}
+
+\subsection{Actual KE form の平均と canonical normal moment}
+
+以下では
+\[
+ d^c=\frac{\sqrt{-1}}2(\bar\partial-\partial),\qquad
+ dd^c=\sqrt{-1}\partial\bar\partial,
+ \qquad \iota_V\eta=-d\mu
+\]
+を規約とする．$\omega_t$ は $N_t(r)$ に引き戻した actual KE form とし，
+\begin{equation}\label{pair:eq:normal-average}
+ A\alpha=\int_0^1\rho_\theta^*\alpha\,d\theta,
+ \qquad \eta_t=A\omega_t
+\end{equation}
+と置く．作用が正則なので $\eta_t$ は $S^1$-invariant Kähler form である．
+一般には $\eta_t$ 自身が KE form であるとは限らない．
+
+Base の正則座標 $z_\alpha$ と $\mathcal L_j$ の正則 frame を取った patch 上で
+\begin{equation}\label{pair:eq:canonical-potential}
+ \Omega_\alpha=\frac{dv_\alpha}{v_\alpha}\wedge dz_\alpha,
+ \qquad
+ F_{t,\alpha}=\log\frac{\omega_t^2}{\Omega_\alpha\wedge\overline{\Omega_\alpha}}
+\end{equation}
+と置く．Volume form の一定の正規化因子は以下に影響しない．
+$\Ric(\omega_t)=-\omega_t$ より $dd^cF_{t,\alpha}=\omega_t$ である．
+
+\begin{proposition}[Canonical moment の patching と単調性]
+\label{pair:prop:canonical-normal-moment}
+Local functions
+\begin{equation}\label{pair:eq:canonical-moment}
+ \mu_t=(d^cAF_{t,\alpha})(V)
+\end{equation}
+は patch ごとの加法定数を導入せずに貼り合わさり，$N_t(r)$ 上の一つの実関数を定める．
+これは $S^1$-invariant であり，
+\begin{equation}\label{pair:eq:moment-monotonicity}
+ \iota_V\eta_t=-d\mu_t,
+ \qquad d\mu_t(-JV)=\eta_t(V,JV)>0
+\end{equation}
+を満たす．特に各 conic fibre で $\mu_t$ は $\Norm v$ に関して狭義単調増加する．
+\end{proposition}
+
+\begin{proof}
+Overlap で $z_\beta=f(z_\alpha)$, $v_\beta=a(z_\alpha)v_\alpha$ と書くと
+\[
+ \Omega_\beta
+ =\left(\frac{dv_\alpha}{v_\alpha}+d\log a\right)\wedge f'(z_\alpha)dz_\alpha
+ =f'(z_\alpha)\Omega_\alpha.
+\]
+従って
+$F_{t,\beta}-F_{t,\alpha}=-\log|f'(z_\alpha)|^2$
+は base-only の pluriharmonic function である．$V$ と $JV$ は base に垂直なので，
+その $d^c$ を $V$ に評価した値は零となる．これで \eqref{pair:eq:canonical-moment} の
+厳密な patching が従う．Base-only の nowhere-zero factor を volume frame に掛けても同じである．
+
+$\lambda_{t,\alpha}=d^cAF_{t,\alpha}$ は invariant で，
+$d\lambda_{t,\alpha}=\eta_t$ を満たす．Cartan の公式から
+\[
+ \iota_V\eta_t
+ =\mathcal L_V\lambda_{t,\alpha}-d(\lambda_{t,\alpha}(V))
+ =-d\mu_t.
+\]
+Kähler positivity を用いると
+$d\mu_t(-JV)=\eta_t(V,JV)>0$ である．
+局所的に $v=\varrho e^{\sqrt{-1}\vartheta}$ と書けば
+$V=2\pi\partial_\vartheta$, $-JV=2\pi\varrho\partial_\varrho$ なので，
+最後の主張も従う．
+\end{proof}
+
+\begin{corollary}[一つの大域 primitive と normal moment の整合]
+\label{pair:cor:global-primitive}
+上記の $B$ 上で nowhere-zero holomorphic $1$-form $\tau$ を一つ固定すると，
+\[
+ \Omega=\frac{dv_\alpha}{v_\alpha}\wedge\pi^*\tau,
+ \qquad
+ \lambda_t=d^c\log\frac{\omega_t^2}{\Omega\wedge\overline\Omega}
+\]
+は $N_t(r)$ 全体で定義され，$\Omega$ は nowhere zero であり，
+\[
+ d\lambda_t=\omega_t,\qquad (A\lambda_t)(V)=\mu_t
+\]
+を満たす．従って fixed source-free base 上では，平均化による exact period transport に
+用いる一つの大域 primitive を選べる．
+$\tau$ を変更しても canonical normal moment $\mu_t$ は変わらないが，
+primitive $\lambda_t$ 自体が同一になるとは主張しない．
+\end{corollary}
+
+\begin{proof}
+Open Riemann surface $B$ は Stein であり\cite{Forster}，指数完全列，Cartan の定理Bと
+$H^2(B;\ZZ)=0$ から $\Pic(B)=0$ を得る．従って $K_B$ は正則に自明であり，
+上記の $\tau$ が存在する．Normal bundle の frame change に対して
+$dv_\beta/v_\beta=dv_\alpha/v_\alpha+d\log a$ であるが，
+$d\log a$ と $\tau$ はともに base curve からの $(1,0)$-forms なので
+$d\log a\wedge\tau=0$ である．これで $\Omega$ は大域化する．
+$v\ne0$，$\tau\ne0$ と $(p,v)$ が正則座標であることから，$\Omega$ は nowhere zero である．
+負 KE 方程式により $d\lambda_t=\omega_t$ を得る．
+
+局所的に $\tau=f_\alpha(z_\alpha)dz_\alpha$ と書くと，この大域 volume frame と
+\eqref{pair:eq:canonical-potential} の frame の比は base-only の nowhere-zero function
+$f_\alpha$ である．\cref{pair:prop:canonical-normal-moment} の patching と同じ計算により
+$(A\lambda_t)(V)=\mu_t$ が厳密に成り立つ．
+別の選択 $\tau'=b(p)\tau$ に対しては
+$\lambda_t'=\lambda_t-d^c\log|b(p)|^2$ となる．この差は base からの閉形式であり，
+normal moment への寄与は零だが，residual cycles に関する primitive の選択は保持する必要がある．
+\end{proof}
+
+\begin{proposition}[End signs からの共通 moment interval]
+\label{pair:prop:common-moment-interval}
+固定した $K\Subset B$ と $r>0$ に対し，$c>0$ と $t_0>0$ が存在して，
+$0<|t|<t_0$ の全てについて
+\begin{equation}\label{pair:eq:end-signs}
+ \mu_t|_{\{p\in K,\,\Norm u=r\}}\le-c,
+ \qquad
+ \mu_t|_{\{p\in K,\,\Norm v=r\}}\ge c
+\end{equation}
+であると仮定する．End cuts の少し外側まで作用と form を定義しておく．
+このとき $I=(-c,c)$ は全ての $p\in K$ と $0<|t|<t_0$ に共通の moment interval であり，
+\[
+ (\pi,\mu_t):N_t(r)|_K\cap\mu_t^{-1}(I)\longrightarrow K\times I
+\]
+は principal $S^1$-bundle である．境界を持つ $K$ についても，その近傍に定義された
+bundle の制限として同じ主張が成立する．
+\end{proposition}
+
+\begin{proof}
+各 $p$ 上で $\Norm v$ は $|t|/r$ から $r$ まで動く．
+\cref{pair:prop:canonical-normal-moment} の単調性と \eqref{pair:eq:end-signs} により，
+各 $m\in I$ に対して $\mu_t=m$ を満たす radius が一つだけ存在する．
+その radius は implicit function theorem により $(p,m)$ に滑らかに依存する．
+従って fibre は正確に一つの normal circle であり，Hermitian norm の unit circle bundle
+$S(\mathcal L_j|_K)$ を $K\times I$ へ引き戻したものと同型になる．
+この議論には $d\mu_t(-JV)$ の $t$ に一様な正の下界を要しない．
+\end{proof}
+
+\subsection{固定 end cuts における actual moment の符号}
+
+次の定理は fixed-scale convergence と central component の cusp 漸近を用いる．
+ここで $r$ を先に小さく固定し，その後 $t\to0$ とする．
+$r=r(t)\to0$ とする moving-end estimate は主張しない．
+
+\begin{theorem}[固定 end の actual moment]
+\label{pair:thm:fixed-end-moment}
+一般性条件 $\mathrm{(G)}_d$ の下で，上記の fixed compact set $K\Subset D^\circ$ を取る．
+ある $\delta>0$ が存在し，十分小さい各固定 $r>0$ に対して，
+$s_r=-\log r^2$ と置くと
+\begin{align}
+ \mu_t|_{\{p\in K,\,\Norm v=r\}}
+ &=\frac{4\pi}{s_r}+O_K(s_r^{-1-\delta})+o_{t\to0;r,K}(1),
+ \label{pair:eq:positive-end-moment}\\
+ \mu_t|_{\{p\in K,\,\Norm u=r\}}
+ &=-\frac{4\pi}{s_r}+O_K(s_r^{-1-\delta})+o_{t\to0;r,K}(1).
+ \label{pair:eq:negative-end-moment}
+\end{align}
+両評価は base point と全 phase に一様である．$O_K$ の定数は小さい $r$ に一様であるが，
+$o_{t\to0;r,K}(1)$ に対する $t$ の閾値は固定した $r$ に依存してよい．
+\end{theorem}
+
+\begin{proof}
+まず fixed-scale convergence の仮定を確認する．本族は平坦な射影 hypersurface family であり，
+adjunction により $K_{\mathcal X/\Delta}=\mathcal O_{\mathcal X}(d-4)$ は Cartier かつ relatively ample である．
+中央 fibre は一般位置の平面の reduced normal-crossing union なので semi-log canonical である．
+全空間は source 以外で滑らかであり，source では単純零点の仮定によって
+$xy+tz=0$ と書ける．これは三次元 ordinary double point である．
+原点の blowup は滑らかな quadric を exceptional divisor とする解消で，
+hypersurface adjunction による discrepancy は $3-2=1$ なので，この特異点は canonical である．
+従って全空間は normal で canonical singularities を持ち，
+Song~\cite[Definition~2.3, Lemmas~4.4--4.5]{SongDegeneration} の stable degeneration の仮定を満たす．
+同結果により $X_0^{\mathrm{reg}}$ の固定 compact subsets 上で actual KE forms は
+canonical KE current の滑らかな部分へ固定 gauge で $C^\infty$ 収束する．
+同じ fixed-gauge smooth convergence は
+\cite[Lemma~6.1 の証明]{SongSturmWang} でも述べられている．
+
+$\Norm v=r$ の end では $(p,v)$ を固定して $u=t/v$ と書く．
+これは $t=0$ まで正則な座標同定であり，極限は component $H_i$ の $x_i=0$ 側である．
+固定した $r>0$ と $K$ に対する end cut とその少し大きい近傍は
+$H_i\setminus\bigcup_{k\ne i}D_{ik}$ の compact subset に入る．
+従ってこの同定で $F_{t,\alpha}$ とその全固定階微分が対応する component density の
+logarithm $F_{0,\alpha}^{(i)}$ へ収束する．平均化と $d^c(\cdot)(V)$ を施しても収束は保たれる．
+$\Norm u=r$ 側も $(p,u)$ と $v=t/u$ によって同様に扱える．
+ここでは \eqref{pair:eq:explicit-normal-map} が $t$ に依存せず，base と選んだ marking を保つことを用いている．
+
+次に component metric の cusp 漸近を調べる．$H_i\simeq\PP^2$ 上の boundary
+$D_i=\sum_{k\ne i}D_{ik}$ は simple normal crossings divisor であり，
+\[
+ K_{H_i}+D_i\simeq\mathcal O_{\PP^2}(d-4)>0.
+\]
+この log pair の complete finite-volume KE metric は，canonical KE current の
+一意性\cite[Lemma~3.7]{SongDegeneration}によって上記の component limit と一致する．
+実際，その log-cusp potential は任意の正係数の logarithmic pole より緩やかなので，
+同補題の一意性の成長条件を満たす．
+Rochon--Zhang~\cite[\S5, 特に式~(5.5)--(5.6) と Theorem~5.1]{RochonZhang}
+はこの normal-crossing setting に適用できる．
+同定理の potential を $\upsilon$ と書くと，$D_{ij}$ に対応する boundary defining function
+$x\asymp s^{-1}$ に対して
+\begin{equation}\label{pair:eq:rz-potential-remainder}
+ \upsilon-\Xi\upsilon_D\in x^\nu C^\infty_{\mathrm{fc}}
+ \qquad\text{for some }\nu>0
+\end{equation}
+である．ここで $C^\infty_{\mathrm{fc}}$ は同論文の polyfibred cusp metric に関する
+全 covariant derivatives が有界な関数空間である．
+
+いま $q$ を $D_{ij}$ の正則 normal coordinate，$s=-\log|q|^2$ とする．
+式~(5.5)--(5.6) の Monge--Amp\`ere density の表示を
+$\Omega_{\log}=dq/q\wedge dz$ に対して書くと，固定した $K$ の近傍で
+\begin{equation}\label{pair:eq:component-log-density}
+ F_0=-2\log(s+b(p,q))+B(p,q)+\upsilon(p,q)
+\end{equation}
+となる．$b,B$ は $q=0$ を跨いで滑らかであり，
+他の boundary sections はこの近傍で nowhere zero なので，それらの因子も $b,B$ に含められる．
+$\Xi\upsilon_D$ は，他の corners から離れた固定 $K$ の近傍では
+logarithmic compactification 上で滑らかな extension であり，
+その radial derivative は $O(s^{-2})+O(|q|)$ である．
+また $|q|\partial_{|q|}$ の cusp norm は $O(s^{-1})$ なので，
+\eqref{pair:eq:rz-potential-remainder} とその一階 covariant bound から
+\[
+ |q|\partial_{|q|}(\upsilon-\Xi\upsilon_D)=O_K(s^{-1-\nu}).
+\]
+二つの components に対して得られる指数の小さい方を $\nu$ と取り，
+$\delta=\min\{\nu,1\}>0$ とすれば
+\begin{equation}\label{pair:eq:radial-density-derivative}
+ |q|\partial_{|q|}F_0
+ =\frac4s+O_K(s^{-1-\delta}).
+\end{equation}
+固定 smooth Hermitian norm による $\Norm q=r$ と local frame による $|q|=r$ の差は
+$s=s_r+O_K(1)$ であり，同じ評価を保つ．
+
+Period $1$ の正の回転 $V_q=2\pi\partial_{\arg q}$ については
+\[
+ (d^cF_0)(V_q)=\pi|q|\partial_{|q|}F_0
+ =\frac{4\pi}{s_r}+O_K(s_r^{-1-\delta}).
+\]
+この式は phase に一様であり，circle average 後も成立する．
+$v$-end では $V=V_v$，$u$-end では $V=-V_u$ なので符号が反転する．
+Fixed-scale convergence の誤差を加えると
+\eqref{pair:eq:positive-end-moment}--\eqref{pair:eq:negative-end-moment} を得る．
+\end{proof}
+
+\begin{corollary}[Actual average の一様な moment interval]
+\label{pair:cor:actual-common-moment}
+上記の一般位置退化と固定した $K\Subset D^\circ$ に対し，
+十分小さい固定 $r>0$ と $c>0$ を選ぶと，$0<|t|\ll1$ の全てについて
+\cref{pair:prop:common-moment-interval} の結論が成立する．
+特に $\eta_t=A\omega_t$ の symplectic reductions は一つの共通 interval
+$I=(-c,c)$ でパラメータ付けられ，その base は同じ曲面 $K$ と同定できる．
+\end{corollary}
+
+\begin{proof}
+\cref{pair:thm:fixed-end-moment} の $O_K(s_r^{-1-\delta})$ が
+$\pi/s_r$ 以下となるよう $r$ を固定する．その後 $t$ を十分小さくして，
+fixed-end convergence の誤差も $\pi/s_r$ 以下にする．
+例えば $c=\pi/s_r$ とすれば \eqref{pair:eq:end-signs} が成立するので，
+\cref{pair:prop:common-moment-interval} を適用できる．
+\end{proof}
+
+\begin{remark}[この結論と neck 全体の比較との違い]
+共通 interval は各 conic fibre の全 phase を含むが，その証明は二つの固定 end cuts の
+metric convergence と，averaged Kähler form の positivity だけを用いる．
+Moment の radial derivative の $t$ に一様な下界，neck 内部の tensor estimates，
+normal averaging を actual form へ戻す Moser flow の一様な buffer は，ここからは従わない．
+Triple collar との full $T^2$-orbit matching と残る action periods の同定も別の問題である．
+また \cref{pair:thm:fixed-end-moment} で用いたのは
+Rochon--Zhang の normal-crossing Theorem~5.1 であり，global divisor が smooth であることを要する
+同論文の full expansion theorem から $O(s^{-2})$ の誤差を輸入してはいない．
+\end{remark}
