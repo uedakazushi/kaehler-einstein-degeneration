@@ -32,14 +32,7 @@ $\mathcal C_6$ は全 $S_6$ の座標置換で不変だが、六つの同時Pete
 
 ## 再現性
 旧v0.12原稿の16検算は元の配布ZIPに基づきSHA-256を照合し、全件再実行した。統合稿の補助検算5本も再実行済み。出典・ハッシュは `source-manifest.json`、結果は `validation.json`。
-## 人工基底計量の定量的GH収縮
-分岐木の系 T を固定し、Lagrangian基底の p_T:B_d(T)→C_d に対し、任意の補助PL Euclidean計量 h と \varepsilon>0 から
-\[
-|v|_\varepsilon^2=|dp_T(v)|_\square^2+\varepsilon^2|v|_h^2
-\]
-という内在的長さ計量を構成できる。有限木fiberの一様径と、unit squareがambient R^dで凸であることを用いる有限gallery liftingから
-\[
-0\le d_\varepsilon(x,y)-d_\square(p_Tx,p_Ty)\le C(d,T,h)\varepsilon
-\]
-が得られ、d_GH≤C\varepsilon/2。d≥6でも基底の非同相性と収束が両立する。厳密な証明は lagrangian-torus-fibration/papers/sections/paper/base_topology.tex の topo:metric-collapse。本研究Part Vには帰結と出典を示した。これは人工的な距離についての定理であり、actual KE距離と作用アフィン基底距離の比較のための解析入力を与えない。一般的な新規性は未確認。
+## 人工基底計量とactual退化計量の比較
+$p_T:B_d(T)\to\mathcal C_d$ の人工PL長さ計量 $|v|_\varepsilon^2=|dp_T(v)|_\square^2+\varepsilon^2|v|_h^2$ によるgraph correspondenceのdistortionは、$d=5$ で $\Theta(\varepsilon^2)$、$d\ge6$ で $\Theta(\varepsilon)$ と鋭い（関連Lagrangian研究の topo:metric-collapse-sharp）。従ってGH収束には各々対応する上界がある。これは人工的な基底計量についての結果であり、actual KE退化やaction-affine metricの収束の証明ではない。
 
+実際の長さ計量へ適用するための三入力（topo:finite-portal-criterion）は、(N) no-shortcut、(S) square path lifts、(F) fiber/portal connector diameterの消失であり、有限square数 $N_d=d\binom{d-1}{2}$ による距離誤差上界が得られる。(N),(S)だけでは(F)は導けない。二つのunit squareを頂点で貼った折り畳み模型は(N),(S)を厳密に満たすのにGH距離が$\sqrt2/2$以上となる反例。Part IV–Vの$(CP)_d+(PBE)_d$へ接続する際は、no-shortcutの定量化とglobal portal費用を区別して検証する。一般的新規性は未確認。
