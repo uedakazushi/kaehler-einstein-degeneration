@@ -21,3 +21,7 @@
 元チャット「5平面への退化1」の `quintic_five_planes_KE_note_v12_bundle.zip` を取得した。ZIP内の元一覧と別途取得済みの一覧にある16本のSHA-256が一致し、コード本体もすべて一致した。未回収だった5本を追加し、cusp-indicialとsemistable-resolutionを配布時の版に差し替えた。原版コードはバイト単位で保持した。mesh-orbit検査は既定の分母12で実行した。
 
 今回の全主原稿の最終logに未解決参照・引用とoverfull/underfull boxはなし。各原稿の冒頭・中間・末尾を描画して確認した。全頁の目視監査は未実施。フォント置換・scale・PDF bookmarkの数式警告は残る。VS Codeは主原稿だけをroot候補とする設定を検査したがUI操作は未検証。
+
+## 旧v0.21との照合
+
+配布ZIPの前付けには、強いdepth-map予想と、SFEC・LRP・sharp neck packageによる還元経路の整理がある。第IV・V篇の(CP)・(PBE)による定式化や、旧v0.12のpunctured-neck計算とは別の研究素材として、`papers/source-free-comparison.tex` に収録した。旧稿の含意には現行稿に対する追加の証明保証を与えない。LuaLaTeXで11頁を生成し、未解決の参照・引用とoverfull boxがないことを確認した。このZIPのv0.19詳細本文はPDF収録で、対応する元TeXと現行稿の補題単位の照合は残る。

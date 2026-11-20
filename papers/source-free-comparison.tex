@@ -1,0 +1,409 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[margin=25mm,headheight=16pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array,tabularx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref,bookmark}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{fancyhdr}
+
+\usepackage{microtype}
+
+\definecolor{deepblue}{RGB}{28,65,104}
+\definecolor{darkgreen}{RGB}{35,95,62}
+\hypersetup{colorlinks=true,linkcolor=deepblue,citecolor=darkgreen,urlcolor=deepblue,
+ pdftitle={5平面へ退化する5次曲面の負Kähler--Einstein計量のdiameter-scale極限 v0.21},
+ pdfauthor={植田一石}}
+
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small 5次曲面 $\rightsquigarrow$ 5平面：KE計量の diameter-scale 極限}
+\fancyhead[R]{\small 論文草稿 v0.21}
+\fancyfoot[C]{\thepage}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.25em}
+\setlist[enumerate]{leftmargin=2.5em,itemsep=0.25em,topsep=0.35em}
+\setlist[itemize]{leftmargin=2.2em,itemsep=0.2em,topsep=0.3em}
+\allowdisplaybreaks
+\emergencystretch=3em
+
+\newcommand{\PP}{\mathbf P}
+\newcommand{\RR}{\mathbf R}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\Sk}{\operatorname{Sk}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\Ric}{\operatorname{Ric}}
+\newcommand{\GH}{\mathrm{GH}}
+\newcommand{\mGH}{\mathrm{mGH}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\dist}{\operatorname{dist}}
+
+\theoremstyle{plain}
+\newtheorem{conjecture}{予想}[section]
+\newtheorem{theorem}[conjecture]{定理}
+\newtheorem{proposition}[conjecture]{命題}
+\newtheorem{corollary}[conjecture]{系}
+\newtheorem{lemma}[conjecture]{補題}
+\theoremstyle{definition}
+\newtheorem{definition}[conjecture]{定義}
+\theoremstyle{remark}
+\newtheorem{remark}[conjecture]{注意}
+\crefname{conjecture}{予想}{予想}
+\crefname{theorem}{定理}{定理}
+\crefname{proposition}{命題}{命題}
+\crefname{corollary}{系}{系}
+\crefname{lemma}{補題}{補題}
+\crefname{definition}{定義}{定義}
+\crefname{remark}{注意}{注意}
+
+\title{\bfseries 5平面へ退化する5次曲面の\\
+負Kähler--Einstein計量の diameter-scale 極限\\[3mm]
+\large cubical main conjecture、最小還元定理、証明戦略}
+\author{植田一石}
+\date{論文草稿 v0.21 --- 2026年8月22日}
+
+\begin{document}
+\pagenumbering{roman}
+\maketitle
+\begin{quote}
+本ノートは旧v0.21の前付けにある比較・接着の戦略を収録する。
+SFEC、LRP、sharp Punctured Neck Package の含意は旧稿の還元方針として読む。
+現行の条件付き収束定理と仮定は第IV・V篇を参照する。
+後続のv0.19詳細本文は別資料であり、このノートには収録していない。
+\end{quote}
+
+\begin{abstract}
+一般位置の5平面の和へ退化する滑らかな5次曲面
+\[
+ X_t=\{L_0L_1L_2L_3L_4+tF_5=0\}\subset\PP^3
+\]
+と、$\Ric(\omega_t)=-\omega_t$ で正規化した負Kähler--Einstein計量 $g_t$ を考える。第一の発散尺度を
+\[
+ L_t=-\log|t|^2,\qquad R_t=\log L_t
+\]
+とする。候補極限は30枚の unit Euclidean squares からなる intrinsic cubical complex
+\[
+ \cC_5=\{w\in[0,1]^5:\max_iw_i=1,\ |\supp w|\le3\}
+       =\square(\Sk_2\Delta^4)
+\]
+である。本稿の主予想は、semistable logarithmic depths から構成される canonical depth map
+$\Phi_t:X_t\to\cC_5$ が actual KE distance を加法誤差 $o(R_t)$ で再構成する、という定量形である。これは特に
+\[
+ (X_t,R_t^{-2}g_t)\xrightarrow{\GH}(\cC_5,d_\square),
+ \qquad
+ \frac{\diam(X_t,g_t)}{R_t}\longrightarrow\sqrt{13}
+\]
+を含意する。
+
+現時点で、$\cC_5$ の cell structure と位相、$\diam(\cC_5,d_\square)=\sqrt{13}$、三重点に現れる Cheng--Yau simplex metric の exact cubical asymptotic cone、balanced reference metric の global cubical limit、50個の total-space ODP と ordered small crepant semistable resolutions、probability KE volume の depth-pushforward の atomic limitは証明済みである。また、three-cusped five-source neck に対する charge balance、weighted $L^2$/Sobolev inverse、filtered Laurent--Jordan transfer、$\Gamma(2)$ scattering、Desargues network coercivity、finite-cutoff massive Dirichlet-to-Neumann positivityも解析済みである。
+
+本版では、これらの結果を「主予想そのもの」「first scale に十分な最小入力」「canonical bundle 上の一つの実装法」「secondary geometry まで含む強い入力」に分離する。first-scale 主予想への最短路は source-free expanding comparison (SFEC) を証明することであり、localized reference package (LRP) は SFEC を作る一つの bundle-level route、Punctured Neck Package は five-source/three-cusp neck の full nonlinear geometryまで扱うより強い route と位置づける。従って、first scale のために各 source core の Taub--NUT pointed limitや five-source compact core内部の full nonlinear Mandel metricを先に完成させる必要はない。残る中心問題は、source-free expanding windows 上で actual/model metrics の一様 two-sided comparisonを得て、それを massive localization と finite surgery により $o(R_t)$ distance comparisonへ昇格させることである。
+\end{abstract}
+
+\tableofcontents
+
+\section{問題の論理構造：主予想と証明済み部分}\label{sec:logic-v21}
+
+\subsection{設定、尺度、depth map}
+以下では v0.19 の genericity assumptions (G1)--(G4) を仮定する。すなわち5平面 $H_i=\{L_i=0\}$ は一般位置、$X_t$ は十分小さい $t\ne0$ で滑らか、各 double line $L_{ij}$ 上の $F_5|_{L_{ij}}$ は reduced degree-five divisor を持ち、その零点は triple points を避ける。
+
+ordered small semistable resolutionを一つ選び、central componentsの defining sections $s_i$ と smooth Hermitian norms に対して
+\[
+ \ell_i=-\log\|s_i\|^2,\qquad \rho_i=\log\ell_i
+\]
+と置く。local semistable chartでは $\sum_{i\in I}\ell_i=L_t+O(1)$ であり、$\rho_i/R_t$ は softmax cubical coordinates を与える。component compact coresを対応する verticesへ送る cutoffを入れ、これらを貼った mapを
+\[
+ \Phi_t:X_t\longrightarrow\cC_5
+\]
+と書く。異なる smooth norms や bounded depth shifts は $\rho_i$ を $O(1)$ しか変えないため、$R_t^{-1}$ scaleでは同じ mapを与える。本稿では $\Phi_t$ を canonical depth map、または metric tropicalization map と呼ぶ。
+
+\subsection{主予想の強い形と弱い形}
+
+\begin{conjecture}[強い主予想：depth-map convergence]\label{conj:strong-main-v21}
+上の generic family に対し、canonical depth maps $\Phi_t$ を選んで
+\begin{align}
+ \sup_{p,q\in X_t}
+ \left|
+ R_t^{-1}d_{g_t}(p,q)
+ -d_\square\bigl(\Phi_t(p),\Phi_t(q)\bigr)
+ \right|&\longrightarrow0,\label{eq:strong-dist-v21}\\
+ \sup_{y\in\cC_5}d_\square\bigl(y,\Phi_t(X_t)\bigr)&\longrightarrow0.\label{eq:strong-surj-v21}
+\end{align}
+\end{conjecture}
+
+\begin{conjecture}[弱い主予想：abstract GH limit]\label{conj:weak-main-v21}
+\[
+ (X_t,R_t^{-2}g_t)\xrightarrow{\GH}(\cC_5,d_\square).
+\]
+\end{conjecture}
+
+強い主予想は弱い主予想より幾何学的に本質的である。単なる abstract GH convergence では、component、double stratum、triple stratum がどの cell へ写るかを忘れるのに対し、\eqref{eq:strong-dist-v21}--\eqref{eq:strong-surj-v21} は semistable logarithmic depths 自身が actual KE distanceを再構成することを述べる。後の secondary geometry や hybrid/Berkovich geometryとの比較にも強い形が自然である。
+
+\begin{corollary}[主予想の直接の帰結]\label{cor:main-consequences-v21}
+\cref{conj:strong-main-v21} が成り立てば
+\[
+ \frac{\diam(X_t,g_t)}{R_t}\longrightarrow\diam(\cC_5,d_\square)=\sqrt{13},
+\]
+かつ diameter-one normalizationでは
+\[
+ (X_t,\diam(X_t,g_t)^{-2}g_t)
+ \xrightarrow{\GH}
+ \left(\cC_5,\frac1{\sqrt{13}}d_\square\right).
+\]
+さらに、既に証明済みの depth-pushforward measure theorem と合わせて
+\[
+ (X_t,R_t^{-2}g_t,\nu_t)
+ \xrightarrow{\mGH}
+ \left(\cC_5,d_\square,\frac15\sum_{i=0}^4\delta_{e_i}\right),
+ \qquad
+ \nu_t=(10\pi^2)^{-1}\frac{\omega_t^2}{2}
+\]
+が従う。
+\end{corollary}
+
+\subsection{何が既に決まっているか}
+主予想の難しさは、候補空間や定数を推測することにはない。現時点の証明済み部分を次のように分ける。
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.68\textwidth}}
+\toprule
+層 & 証明済みの内容\\
+\midrule
+\endfirsthead
+\toprule
+層 & 証明済みの内容\\
+\midrule
+\endhead
+actual KE metric, fixed scale
+& stable degenerationにおける multi-pointed convergence と no-volume-loss、$\diam(X_t,g_t)\to\infty$、probability KE volume の depth-pushforward
+$\frac15\sum_i\delta_{e_i}$ への weak convergence。\\
+\addlinespace
+代数幾何
+& raw total space の50 ODP、local form $xy+tz=0$、triple points の toroidal form $xyz=t$、ordered projective small crepant semistable resolutions、$d$-semistability、type $A_4$ の ordered chamber structure。\\
+\addlinespace
+first-scale model
+& softmax cubical limit、balanced reference metric の $(\cC_5,d_\square)$ への global GH convergence、source-free annulus / bounded-degree collar の $\cC_2$ limit、annulus--Cheng--Yau side の exact radial matching。\\
+\addlinespace
+triple-corner geometry
+& Cheng--Yau simplex metric の asymptotic coneが三つの Euclidean quadrants の all-right gluingであること、truncated simplexの三枚の unit squaresへの GH convergence、seam angleと radial coefficientsの exact determination。\\
+\addlinespace
+有限幾何
+& $\cC_5$ は30 squares、$(f_0,f_1,f_2)=(25,50,30)$、$\cC_5\simeq\bigvee^4S^2$、
+$\diam(\cC_5,d_\square)=\sqrt{13}$、diameter pairsの完全分類。\\
+\addlinespace
+punctured-neck 線形解析
+& $1+1+3-5=0$ charge identity、balanced five-source potential、real/complex scalar factorization、Pöschl--Teller factorization、weighted Hilbert/Sobolev Fredholm splitting、nonzero angular Agmon decay、filtered Laurent--Jordan transfer、$\Gamma(2)$ scattering、Desargues network spectra、finite-cutoff massive Calderón positivity。\\
+\bottomrule
+\end{longtable}
+
+したがって、$\cC_5$ の shape、unit cell coefficients、seam geometry、$\sqrt{13}$ は未知の PDE parameterではない。actual global theoremに残るのは、既知 model piecesが $t$ とともに発散する moving windows 上で actual KE metricを本当に記述し、有限個の overlaps を $o(R_t)$ additive errorで貼れることを示す解析である。
+
+\section{主予想への最小還元と三つの route}\label{sec:reduction-v21}
+
+\subsection{SFEC：first-scale に本質的な最小入力}
+
+\begin{definition}[Source-free expanding comparison; SFEC]\label{def:sfec-v21}
+50個の fixed rescaled inner source coresを除いた source-free exterior において、bounded-degree neck arms、triple corners、component ends、fixed rescaled outer source boundariesを有限個の model chartsで覆り、次が成り立つとき SFEC が成立するという。
+\begin{enumerate}[label=(SF\arabic*)]
+\item actual/model metrics は adapted moving windows 上で $1+o(1)$ に比較される；
+\item neck parameters は $|\alpha_{ij,t}|\le C$、$\log T_{ij,t}=R_t+O(1)$ を満たす；
+\item model depth transitions は $O(1)$ で、collapsed circle/torus fibersの diameter は $o(R_t)$ である。
+\end{enumerate}
+これは v0.19 Definition 17.4 の内容である。
+\end{definition}
+
+\begin{theorem}[first-scale reduction]\label{thm:sfec-main-v21}
+SFEC が成立すれば、\cref{conj:strong-main-v21} の metric conclusion、従って弱い主予想と $\sqrt{13}$ diameter asymptotics が成り立つ。
+\end{theorem}
+
+この theorem が示す最重要点は、主予想の first scaleを証明するために full punctured-neck nonlinear theoryを先に完成させる必要がないことである。
+
+\subsection{LRP：canonical bundle 上で SFEC を実装する route}
+
+\begin{definition}[Localized reference package; LRP]\label{def:lrp-v21}
+LRP は canonical bundle 上の source-free model Hermitian metricsについて、moving overlaps 上の asymptotic Čech normalization、central slabs上の uniform positive extension、bounded Ricci potential、defect slabs外での $o(1)$ defect、sublinear slab diameter、model-space cubical limitを同時に要求する global reference packageである。詳細は v0.19 Definition 11.10 に従う。
+\end{definition}
+
+\begin{theorem}[LRP route]\label{thm:lrp-route-v21}
+\[
+ \mathrm{LRP}\Longrightarrow\mathrm{SFEC}
+ \Longrightarrow\cref{conj:strong-main-v21}\text{ の metric conclusion}.
+\]
+\end{theorem}
+
+LRP は主予想そのものではなく、一つの実装法である。この区別は重要である。bundle-level patching の特定 ansatz が失敗しても主予想は反証されないし、SFECを直接示す route は残る。
+
+\subsection{Punctured Neck Package：secondary geometry まで含む強い route}
+
+Punctured Neck Package は10本の three-cusped five-source neck に対して、logarithmic Mandel approximation、polyhomogeneous finite-cutoff cusp-to-corner matching、Mandel/Taub--NUT source-core identification、filtered weighted Hölder inverse、nonlinear correction、uniform overlapsを同時に要求する。sharp versionでは horizontal/radial comparison を $1+o(1)$、boundary distance distortion を $o(R_t)$ まで強める。
+
+\begin{theorem}[strong neck route]\label{thm:pnp-route-v21}
+sharp Punctured Neck Package と sharp exterior comparison が成立すれば、\cref{conj:strong-main-v21} の metric conclusionが成り立つ。
+\end{theorem}
+
+この route は first-scale theoremには強すぎるが、Taub--NUT secondary limits、five-center divisor $Z_{ij}$、complex phase、circle connection、secondary Torelliまで研究するには自然である。
+
+\subsection{三 route の役割分担}
+\[
+\boxed{
+\begin{array}{ccccc}
+\text{LRP} &\Longrightarrow& \text{SFEC} &\Longrightarrow& \text{Main Conjecture}\\
+&&\Uparrow&&\\[-1mm]
+&&\text{direct expanding comparison}&&
+\end{array}}
+\]
+一方、secondary geometryを含む別 routeとして
+\[
+ \boxed{\text{sharp PNP}+\text{sharp exterior}\Longrightarrow\text{Main Conjecture}}
+\]
+がある。研究上の優先順位は、first-scale theoremを最短で閉じるなら direct SFEC、canonical/global referenceを同時に構成したいなら LRP、secondary geometryまで一気に進むなら PNP である。
+
+\section{推奨するアタック：direct SFEC を主経路にする}\label{sec:attack-v21}
+
+\subsection{Step A：source-free exterior で粗い two-sided comparison を得る}
+現在の最重要入力は、最初から $1+o(1)$ estimate を証明することではない。triple-corner、double-neck arm、component-end の adapted expanding windows 上で、actual KE metricと対応する model metricが一様 quasi-isometricであることを得ればよい。
+
+具体的には次を別々に扱う。
+\begin{enumerate}[label=(A\arabic*)]
+\item triple cornerでは Zhang--Cheng--Yau reference metricとの two-sided comparison；
+\item double neckでは bounded-degree collar $g^{\mathrm{col}}_{\alpha,T}$ との comparison、$|\alpha|\le C$ と $\log T=R_t+O(1)$；
+\item component endでは fixed complete KE metricの Poincaré asymptoticsとの comparison；
+\item source boundaryでは universal rescaling $xy=ts$ を用い、fixed rescaled outer boundaryまで comparisonを延長する。
+\end{enumerate}
+
+この段階で狙うべきは uniform curvature theoremではなく、path metricを支える uniform ellipticity / quasi-isometryである。候補となる方法は、canonical-nef background と Poincaré blocksを用いる direct analysis、または family-uniform capacity/$C^0$ estimate から local Laplacian estimateへ進む route である。
+
+\subsection{Step B：mass term で $1+o(1)$ へ自動改善する}
+negative KE equationの差を取ると、概略
+\[
+ a_t^{i\bar j}\partial_i\partial_{\bar j}u_t-u_t=f_t
+\]
+という massive linear equationが現れる。source-free depth $A$ で reference defectが指数的に減衰し、boundary amplitudeが subexponentialなら、barrier $e^{-c\rho}$ と interior Schauder estimateにより、sublinear boundary layerの内側で $u_t$ と Hessianが $o(1)$ となる。
+
+従って Step A で粗い two-sided comparisonを得た後、たとえば $A_t=(\log R_t)^2=o(R_t)$ の layerを捨てることで、interior metric comparisonは $1+o(1)$ へ改善される。これは triple-corner expanding-window問題を full moving domainで直接解くより弱く、かつ十分である。
+
+\subsection{Step C：source cores は fixed-domain stabilization で処理する}
+source近傍では有限 base change後に
+\[
+ xy=ts,\qquad (x,y,s)=(\tau X,\tau Y,XY),\qquad t=\tau^2
+\]
+とすると、fiber canonical densityは固定 $dX\wedge dY$ に移る。Step A の comparisonが fixed rescaled outer source boundaryまで到達すれば、固定 strongly pseudoconvex domain上の Monge--Ampère interior estimateにより inner coreの diameterは $O(1)$ に制御される。
+
+従って50 source coresは有限 sublinear surgeryで消せる。first scaleでは Taub--NUT pointed limitの完全同定は不要である。
+
+\subsection{Step D：finite overlap から global correspondence を作る}
+model depth transitionsは $O(1)$、chart数と overlap multiplicityは有限である。各 pieceでの multiplicative errorが $1+o(1)$、collapsed fibersが $o(R_t)$なら、minimizing pathsを有限 galleryへ straightenして global additive distortionを $o(R_t)$ にできる。
+
+ここで必要なのは全 overlapで tensorを exactに一致させることではなく、depth mapによる path-length comparisonを $o(R_t)$ にすることである。
+
+\subsection{Step E：calibration / gallery を actual spaceへ liftする}
+上側距離評価には $\cC_5$ の9 orbit representativesで用いた finite square galleriesを actual chartsへ liftする。下側評価には $\sqrt{13}$ の proofで用いた piecewise-linear calibrationを almost-Lipschitz functionsとして actual spaceへ liftする。
+
+SFECが既に global additive $o(R_t)$ correspondenceを与えるなら、この stepは formalizationに近い。逆に、SFECを chartwise statementとして証明する場合には、この stepで strong depth-map convergence \eqref{eq:strong-dist-v21}を明示的に閉じる。
+
+\subsection{この route のボトルネック}
+研究のリスクは主として Step A に集中している。Step B--D は既に abstract theorem化されており、Step Cも outer-boundary comparisonがあれば fixed-domain PDEに帰着する。したがって現在最も価値が高い新規解析は
+\[
+ \boxed{\text{source-free expanding windows 上の uniform two-sided KE/model comparison}}
+\]
+である。
+
+\section{LRP route の位置づけ：必要なら使うが、主経路を塞がない}\label{sec:lrp-attack-v21}
+
+LRP は Step A を canonical bundle の global Hermitian reference constructionから得る systematic routeである。未解決点は次の二つに集約される。
+
+\begin{enumerate}[label=(L\arabic*)]
+\item \textbf{moving-overlap normalization.} component--neck、neck--cornerの actual residue framesを固定し、transition functionsの $t$-dependent expansion、cycle constants、全 adapted quasi-coordinate derivativesを制御して (CO1)--(CO3) を証明する；
+\item \textbf{positive central-slab extension.} 10 central slabsで boundary collar metricsを一つの positive Hermitian metricへ延長し、uniform curvature margin、inverse bounds、bounded Ricci potentialを示す。
+\end{enumerate}
+
+これが閉じれば LRP $\Rightarrow$ global positive reference $\Rightarrow$ localized-defect KE comparison $\Rightarrow$ 主予想、という非常に清潔な proofになる。一方、L1--L2 が技術的に重い場合には、主予想の first scaleをその完成まで待つ必要はない。direct SFEC routeへ切り替えるべきである。
+
+\section{Punctured-neck 解析の整理：何が済み、何が first scale に不要か}\label{sec:pnp-status-v21}
+
+\subsection{既に閉じた部分}
+second partの長い解析のうち、主な閉じた結果は次である。
+\begin{enumerate}
+\item balanced five-source chargeと unit cusp flux、real scalar global matching；
+\item three-cusped pair of pants上の $z$-dependent linear operatorの Pöschl--Teller factorization；
+\item weighted $L^2$/Sobolev sectorの Fredholm splittingと唯一の scale kernel；
+\item nonzero cusp angular modesの Agmon decay；
+\item root-$0/1$ filtered Laurent--Jordan tower、$\Gamma(2)$ scatteringの standard/common channel transfer；
+\item complex scalar factorizationと orientation local system；
+\item Desargues networkの untwisted/twisted spectraと global coercivity；
+\item finite-cutoff scalar linearization $\Delta-1$ の massive Dirichlet-to-Neumann positivityと Schur complement coercivity。
+\end{enumerate}
+
+従って、continuous spectrumが invertibleか、graph cyclesが cokernelを作るか、regular corner matrixが positiveか、という問題はもはや中心障害ではない。
+
+\subsection{残る強い問題}
+PNPを完成させるにはなお、filtered Hölder/polyhomogeneous trace construction、uniform trace Gram/collar estimates、odd average-degree/Wronskian matching、actual familyと logarithmic Mandel neckの identification、parameter matching $T_{ij}\asymp L_t$、nonlinear Monge--Ampère correctionが必要である。
+
+ただし first-scale main conjectureに必要なのは、これらの全構造ではなく、最終的な horizontal/radial metric errorと relative scale modulationが $o(R_t)$ であることだけである。
+
+\begin{proposition}[first scale が要求しない強い情報]\label{prop:not-needed-v21}
+SFECが fixed rescaled outer source boundariesまで成立すれば、first-scale theoremのためには
+\begin{enumerate}[label=(\roman*)]
+\item 各 source coreの Taub--NUT pointed limitの同定、
+\item five-source compact core内部の full nonlinear logarithmic Mandel metricの構成、
+\item complex phaseや circle holonomyの完全な reconstruction
+\end{enumerate}
+は不要である。
+\end{proposition}
+
+これらは $T_{ij}^{-1}$ 級の secondary rescalingで five-center divisor $Z_{ij}$ を回収し、secondary Torelliを研究する段階で本質的になる。
+
+\section{dimension audit と過大主張を避けるための原則}\label{sec:audit-v21}
+
+\subsection{total-space conifold と fiber metric を区別する}
+total spaceの ODP $xy+tz=0$ は complex dimension $3$ の特異幾何を持つ。一方、$X_t$ は complex dimension $2$ の canonically polarized fiberであり、主予想はその KE metricの問題である。total-space conifoldや別の arrangement conifoldに対する canonical square-tube theoryは局所構造を強く示唆するが、それを fiber metricへ単純に restrictして surface neck theoremを得たとみなしてはならない。必要なのは fiberwise comparisonまたは直接の surface Monge--Ampère estimateである。
+
+\subsection{今後使わない誤った shortcut}
+次の論法は採用しない。
+\begin{enumerate}
+\item fixed vertical twistを入れれば uniform positivityと bounded Ricci potentialが同時に得られる、という ansatz；
+\item nonzero-degree line bundleを全 neckで flat gauge化する ansatz；
+\item local tensor modelと scalar matchingだけから global canonical Hermitian overlap packageが自動的に従う、という推論；
+\item weighted $L^2$ invertibilityだけで full polyhomogeneous nonlinear PNPが閉じる、という推論；
+\item 50 ODPを first-scaleで50 independent analytic modesとして扱うこと。
+\end{enumerate}
+
+これらの訂正により、主予想へ必要な unresolved statementはむしろ少なくなっている。
+
+\section{研究マイルストーンと論文化の方針}\label{sec:milestones-v21}
+
+\subsection{マイルストーン}
+主予想への進捗を次の四段階に分ける。
+\begin{enumerate}[label=\textbf{T\arabic*.}]
+\item \textbf{Coarse first-scale control.} $cR_t\le\diam(X_t,g_t)\le CR_t$ と GH precompactness、subsequential limitsが $\cC_5$ と同じ topologyを持つこと。
+\item \textbf{BiLipschitz cubical theorem.} subsequential limit metric $d_\infty$ が $C^{-1}d_\square\le d_\infty\le Cd_\square$ を満たすこと。
+\item \textbf{Exact cubical theorem.} strong depth-map convergence \eqref{eq:strong-dist-v21}--\eqref{eq:strong-surj-v21}、従って exact $d_\square$ と $\sqrt{13}$。
+\item \textbf{Secondary geometry.} Taub--NUT / five-center data、complex period、orientation local system、secondary Torelli。
+\end{enumerate}
+
+T3 が本稿の first-scale main targetであり、T4 は companion projectとして分離可能である。
+
+\subsection{論文化の推奨分割}
+現在の108頁級 draftは研究 memoirとして有用だが、投稿論文としては two-layer structureが明瞭である。
+\begin{enumerate}
+\item \textbf{First-scale paper.} 代数幾何、Cheng--Yau cubical corner、global cubical complex、$\sqrt{13}$、SFEC reduction、actual SFEC proof、measured limit。主定理は strong depth-map convergence。
+\item \textbf{Punctured-neck / secondary paper.} five-source charge、Pöschl--Teller、filtered scattering、Desargues network、nonlinear logarithmic Mandel gluing、Taub--NUT secondary limits、five-center reconstruction。
+\end{enumerate}
+LRPは first-scale paperの proof technologyとして必要な範囲だけ残し、full PNP machineryは first-scale theoremの証明に使わないなら companionへ移すのが最も読みやすい。
+
+\subsection{現 draft の推奨読順}
+以下の inherited v0.19 sectionsは番号を保存するが、論理的には
+\[
+ \boxed{\text{Sections 2--13}\ \longrightarrow\ \text{Sections 17--20}\ \longrightarrow\ \text{Sections 14--16}}
+\]
+の順に読むのがよい。Sections 2--13 が exact geometry と conditional global comparison、Sections 17--20 が first-scale minimal reduction と attack strategy、Sections 14--16 が PNP / secondary route の詳細解析である。最終投稿稿ではこの順序へ実際に並べ替えることを推奨する。
+
+\subsection{現在地の一行要約}
+\[
+\boxed{
+\begin{minipage}{0.84\textwidth}
+候補極限 $\cC_5$、その exact metric geometry、係数 $\sqrt{13}$、局所 Cheng--Yau cubical geometry、depth-pushforward measure、および punctured-neck の主要線形 obstruction theory は確定している。actual KE main conjectureに残る first-scale の核心は、source-free expanding windows 上の uniform two-sided comparisonである。これが得られれば、massive localization、fixed source-core stabilization、finite surgery、finite gallery gluingにより主予想へ到達できる。
+\end{minipage}}
+\]
+\end{document}
