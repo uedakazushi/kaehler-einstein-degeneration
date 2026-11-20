@@ -1,0 +1,389 @@
+% !TeX root = ../kaehler-einstein-degeneration.tex
+% Current result, 2026-11-20.  Included from the main manuscript.
+\section{三重点の開正方形領域における actual KE 比較}
+\label{sec:moving-triple-comparison}
+
+本節では一つの logarithmic depth が他の二つより大きい三重点領域を扱う．
+この領域では三重点 chart を出ない expanding product annuli を直接構成できる．
+大域 volume 下界を境界値として用いる負 KE 下 barrier と，complete annulus 上 barrier により，
+volume ratio を $1$ に挟み込む．その結果として得られる\emph{小さい} potential に
+Savin の定理を適用し，actual metric の tensor 比較を導く．
+単に有界な volume ratio から tensor 比較を推論する議論とは異なり，
+\cref{coarse:prop:density-counterexample} の反例と矛盾しない．
+本節は $\mathrm{(TC)}_5$ や $\mathrm{(PBE)}_5$，任意半径の complete-envelope package を用いない．
+依存する大域入力は \cref{coarse:cor:global-volume-lower} である．
+以下の組合せによる結果の新規性は未確認である．
+
+\subsection{正確な product domain と粗い volume 下界}
+
+Source を含まない三重点で，正則座標を取り直して
+\begin{equation}\label{moving:eq:exact-triple}
+ \zeta_0\zeta_1\zeta_2=t,\qquad
+ \ell_i=-\log|\zeta_i|^2,\qquad
+ \ell_0+\ell_1+\ell_2=L_t
+\end{equation}
+とする．この座標変換に現れる units と canonical residue frame の係数は，
+固定した小さい三重点 chart 上で一様に正の上下界を持つ．
+以下では $s_1=\ell_1$, $s_2=\ell_2$, $\theta_i=\arg \zeta_i$ と書き，
+独立な二つの punctured-disc cusp の積を
+\begin{equation}\label{moving:eq:product-cusp}
+ h_{\mathrm{prod}}
+ =\frac{ds_1^2+4d\theta_1^2}{s_1^2}
+  +\frac{ds_2^2+4d\theta_2^2}{s_2^2}
+\end{equation}
+とする．同じ記号は対応する K\"ahler form にも用いる．
+これは \eqref{coarse:eq:moving-cusp-product} の $\omega_t^{\mathrm{prod}}$ と
+$g_t^{\mathrm{prod}}$ であり，三因子を制約した $g_t^{\mathrm{cusp}}$ とは区別する．
+前節の $dV_{\log}$ を用いると，正規化は
+\[
+ h_{\mathrm{prod}}^2=\frac{8}{s_1^2s_2^2}dV_{\log},
+ \qquad
+ \frac{\mathcal V_t}{h_{\mathrm{prod}}^2}=\frac{L_t^2}{\ell_0^2}
+\]
+である．各因子の Gaussian curvature は $-1$ であり，
+$\Ric(h_{\mathrm{prod}})=-h_{\mathrm{prod}}$ である．
+
+中心深度 $a,b>0$ と $\rho>0$ に対し，全 angular orbits を含む domain を
+\begin{equation}\label{moving:eq:rectangle}
+ D_t(a,b;\rho)
+ =\{e^{-\rho}a<s_1<e^\rho a,\quad
+      e^{-\rho}b<s_2<e^\rho b\}
+\end{equation}
+と置く．$\zeta_0=t/(\zeta_1\zeta_2)$ は従属座標である．
+固定した十分大きい $m_0$ に対して
+\begin{equation}\label{moving:eq:rectangle-protection}
+ e^{-\rho}\min(a,b)\ge m_0,
+ \qquad e^\rho(a+b)\le \frac{L_t}{2}
+\end{equation}
+ならば，$\overline{D_t(a,b;\rho)}$ は同じ三重点 chart 内にある．
+実際，$s_1,s_2\ge m_0$ と $\ell_0=L_t-s_1-s_2\ge L_t/2$ により，
+三つの $|\zeta_i|$ がすべて chart の半径より小さい．
+この包含は全位相について成立する．
+
+\begin{lemma}[Expanding rectangle 上の volume 下界]
+\label{moving:lem:coarse-volume-lower}
+固定した $m_0$ を十分大きく取ると，
+\eqref{moving:eq:rectangle-protection} を満たす全 $t,a,b,\rho$ に対し
+\begin{equation}\label{moving:eq:coarse-volume-lower}
+ \omega_t^2\ge c_* h_{\mathrm{prod}}^2
+ \qquad\text{on }\overline{D_t(a,b;\rho)}
+\end{equation}
+が成り立つ．$c_*>0$ は $t,a,b,\rho$ と angular phases に依存しない．
+\end{lemma}
+
+\begin{proof}
+三重点で消える三つの標識について，固定 Hermitian norm と
+\eqref{moving:eq:exact-triple} の座標との差は bounded units である．
+従って capped depths は，この rectangle 上で
+\[
+ \alpha_0=\frac{L_t}{2}+O(1),\qquad
+ \alpha_1=s_1+O(1),\qquad
+ \alpha_2=s_2+O(1)
+\]
+を満たす．残る標識の depths は正の定数の間にある．
+Canonical residue frame は，bounded nonvanishing factor を除いて
+\[
+ \frac{d\zeta_1}{\zeta_1}\wedge\frac{d\zeta_2}{\zeta_2}
+\]
+である．従って $\Omega_t^{\mathrm{low}}=L_t^2\prod_i\alpha_i^{-2}\Omega_{0,t}$ は
+$h_{\mathrm{prod}}^2$ と一様に比較可能である．
+\Cref{coarse:cor:global-volume-lower} を適用すればよい．
+ここで比較するのは density $\Omega_t^{\mathrm{low}}$ であり，
+その curvature form $h_t^{\mathrm{low}}$ の tensor 比較は用いていない．
+\end{proof}
+
+\subsection{Shifted-sinh barrier による volume ratio の挟み込み}
+
+\begin{lemma}[二つの有限端を持つ負 KE 下 barrier]
+\label{moving:lem:sinh-barrier}
+$A>0$, $\rho>0$, $M>0$ とし，
+\[
+ s_-=e^{-\rho}A,\qquad s_+=e^\rho A,
+ \qquad c=M e^{-\rho}A,\qquad
+ \lambda=\frac{M e^{-\rho}}{A}
+\]
+と置く．有限 annulus $s_-\le s\le s_+$ 上の計量
+\begin{equation}\label{moving:eq:sinh-barrier}
+ h^-_{A,\rho,M}
+ = f^-(s)(ds^2+4d\theta^2),\qquad
+ f^-(s)=\frac{\lambda^2}{\sinh^2(\lambda(s+c))}
+\end{equation}
+は Gaussian curvature $-1$ を持ち，
+$h^-_{A,\rho,M}\le h_{\mathrm{cusp},A}:=(ds^2+4d\theta^2)/s^2$ を満たす．
+Ratio $r^-(s)=s^2f^-(s)$ は二つの端で
+\begin{equation}\label{moving:eq:sinh-face-ratios}
+ r^-(s_-)\le(1+M)^{-2},\qquad
+ r^-(s_+)\le\left(\frac{M}{\sinh M}\right)^2
+\end{equation}
+を満たす．任意の固定 $r>0$ について，$\rho\to\infty$ のとき
+\begin{equation}\label{moving:eq:sinh-center-ratio}
+ \sup_{e^{-r}A\le s\le e^r A}|r^-(s)-1|
+ \le C_{M,r}e^{-\rho}
+\end{equation}
+であり，定数は $A$ に依存しない．
+\end{lemma}
+
+\begin{proof}
+$(\log f^-)''=2f^-$ なので，conformal metric
+$f^-(s)(ds^2+4d\theta^2)$ の曲率は $-1$ である．
+また $\sinh x\ge x$ より
+\[
+ r^-(s)
+ =\left(\frac{s}{s+c}\right)^2
+   \left(\frac{\lambda(s+c)}{\sinh(\lambda(s+c))}\right)^2
+ \le\left(\frac{s}{s+c}\right)^2\le1.
+\]
+低い端では $c=M s_-$ なので最初の評価を得る．
+高い端では $\lambda s_+=M$ なので第二の評価を得る．
+固定 inner interval では
+$c/s\le M e^{r-\rho}$ と
+$\lambda(s+c)\le M e^{r-\rho}+M^2e^{-2\rho}$ である．
+この式と $x/\sinh x=1+O(x^2)$ から
+\eqref{moving:eq:sinh-center-ratio} が従う．
+\end{proof}
+
+同じ有限 annulus 自身の complete curvature $-1$ metric は
+\begin{equation}\label{moving:eq:complete-annulus-upper}
+ h^+_{A,\rho}
+ = f^+(s)(ds^2+4d\theta^2),\qquad
+ f^+(s)=\left(\frac{\pi}{s_+-s_-}\right)^2
+ \frac{1}{\sin^2\!\left(\pi\frac{s-s_-}{s_+-s_-}\right)}.
+\end{equation}
+これは人工境界で発散する．$r^+(s)=s^2f^+(s)$ とすれば
+\begin{equation}\label{moving:eq:complete-center-ratio}
+ \sup_{e^{-r}A\le s\le e^r A}|r^+(s)-1|
+ \le C_r e^{-\rho}
+\end{equation}
+が成立する．実際，$x=\pi(s-s_-)/(s_+-s_-)$ と置くと
+\[
+ r^+(s)=\left(\frac{s}{s-s_-}\right)^2
+        \left(\frac{x}{\sin x}\right)^2,
+ \qquad \frac{s_-}{s}=O_r(e^{-\rho}),\quad x=O_r(e^{-\rho}).
+\]
+
+\begin{proposition}[Sharp volume squeeze]
+\label{coarse:lem:annular-volume-squeeze}
+\eqref{moving:eq:rectangle-protection} を仮定する．
+$c_*$ は \cref{moving:lem:coarse-volume-lower} の定数とし，
+$M$ を固定して
+\[
+ \max\left\{(1+M)^{-2},
+       \left(\frac{M}{\sinh M}\right)^2\right\}\le c_*
+\]
+を満たすように取る．Product metrics を
+\[
+ h^- = h^-_{a,\rho,M}\oplus h^-_{b,\rho,M},\qquad
+ h^+ = h^+_{a,\rho}\oplus h^+_{b,\rho}
+\]
+と置くと，$D_t(a,b;\rho)$ 上で
+\begin{equation}\label{moving:eq:volume-sandwich}
+ (h^-)^2\le\omega_t^2\le(h^+)^2
+\end{equation}
+である．従って任意の固定 $r>0$ に対し，$\rho$ が十分大きいとき
+\begin{equation}\label{moving:eq:volume-small-potential}
+ \left\|\log\frac{\omega_t^2}{h_{\mathrm{prod}}^2}
+ \right\|_{C^0(D_t(a,b;r))}
+ \le C_r e^{-\rho}.
+\end{equation}
+全ての定数と評価は angular phases について一様である．
+\end{proposition}
+
+\begin{proof}
+$h^-$ と $h^+$ はいずれも負 KE product である．
+Rectangle の各 boundary face では，一方の因子の ratio が
+\eqref{moving:eq:sinh-face-ratios} により $c_*$ 以下であり，
+他方の ratio は $1$ 以下である．従って
+\[
+ (h^-)^2\le c_*h_{\mathrm{prod}}^2\le\omega_t^2
+ \quad\text{on }\partial D_t(a,b;\rho).
+\]
+もし $u^-:=\log(\omega_t^2/(h^-)^2)$ が負の最小値を持てば，その点は内部にあり，
+Ricci forms の差から
+\[
+ \ddc u^- =\omega_t-h^-\ge0
+\]
+となる．従ってその点で $\omega_t^2\ge(h^-)^2$ となり矛盾する．
+これで下比較を得る．
+
+上比較について，actual metric は rectangle の閉包の近傍で滑らかであり，
+$h^+$ の density は全ての人工境界で発散するので，
+$u^+:=\log(\omega_t^2/(h^+)^2)$ は境界へ近づくと $-\infty$ へ向かう．
+正の内部最大点があれば
+$\ddc u^+=\omega_t-h^+\le0$ より
+$\omega_t^2\le(h^+)^2$ となり矛盾する．
+両比較とも全位相を含む有限 annulus product 上の通常の最大値原理であり，
+actual metric に関する境界までの距離を仮定していない．
+
+Volume ratios は一変数の ratios の積である．
+\eqref{moving:eq:sinh-center-ratio} と
+\eqref{moving:eq:complete-center-ratio} を用いれば
+\eqref{moving:eq:volume-small-potential} を得る．
+\end{proof}
+
+\subsection{Small potential から tensor 比較へ}
+
+\begin{lemma}[Savin の定理による負 KE の局所安定性]
+\label{coarse:lem:small-volume-tensor}
+固定複素 ball 上の滑らかな負 KE metric $h$ を取り，
+その係数は一様に正で全固定階の bounds を持つとする．
+同じ ball 上の滑らかな負 KE metrics $\omega_\nu$ に対し
+\[
+ v_\nu=\log\frac{\omega_\nu^2}{h^2},\qquad
+ \|v_\nu\|_{C^0}\longrightarrow0
+\]
+ならば，任意の内側 ball 上で
+$\omega_\nu\to h$ が $C^\infty$ の意味で成立する．
+さらに，十分小さい $\|v_\nu\|_{C^0}$ に対して
+\begin{equation}\label{moving:eq:linear-smallness}
+ \|\omega_\nu-h\|_{C^k(B')}
+ \le C_{k,B'}\|v_\nu\|_{C^0(B)}
+\end{equation}
+となる．この主張は $h$ が一様な上記 bounds を持つ族を動く場合も一様である．
+\end{lemma}
+
+\begin{proof}
+Ricci forms の差より
+\begin{equation}\label{moving:eq:small-KE-equation}
+ \ddc v_\nu=\omega_\nu-h,
+ \qquad (h+\ddc v_\nu)^2=e^{v_\nu}h^2.
+\end{equation}
+正則座標で $h$ の Hermitian matrix を $H(x)$ とし，
+real Hessian を complex Hessian へ送る線形写像を $\mathcal H$ とする．
+Hermitian matrix $A$ に対して
+\[
+ \det_+(A)=
+ \begin{cases}
+  \det A,& A\ge0,\\
+  0,& A\not\ge0
+ \end{cases}
+\]
+と定義し，real symmetric matrix $N$，実数 $z$ に対して
+\begin{equation}\label{moving:eq:Savin-operator}
+ F(N,p,z,x)
+ =\frac{\det_+(H(x)+\mathcal H(N))}{\det H(x)}-e^z
+\end{equation}
+と置く．$F$ は $p$ に依存しない．
+$\det_+$ は全 Hermitian matrices 上で連続であり，
+positive semidefinite 方向に単調である．
+また $N\ge0$ なら $\mathcal H(N)\ge0$ であり，
+$\tr_{\CC}\mathcal H(N)$ は $\tr_{\RR}N$ の固定正倍である．
+従って $F$ は Savin の hypothesis H1 を満たす．
+
+$H\ge\lambda I$ より，$(N,p,z)=(0,0,0)$ の十分小さい固定近傍では
+$H+\mathcal H(N)$ は一様に正である．この近傍で determinant の微分を取ると，
+real positive semidefinite increment に対する増分は，その operator norm の
+正の定数倍の間に挟まれる．これが hypothesis H2 である．
+同じ近傍で $F$ は $C^2$ で，その二階微分は $H$ の一様 $C^2$ bounds によって制御され，
+\[
+ F(0,0,0,x)=0
+\]
+を満たす．従って hypothesis H4 も成立する．
+H4 は $x$ および zero-order variable $z$ への依存を許している．
+ここでは全ての定数が解であるという hypothesis H3 を要求しない．
+
+$v_\nu$ は \eqref{moving:eq:Savin-operator} の滑らかな解，従って viscosity solution である．
+Savin\cite[Theorem~1.3]{SavinSmall} を適用すると，小さい $C^0$ norm から
+内側 ball 上の一様 $C^{2,\alpha}$ bound を得る．
+ここでは同定理の近傍半径 $\delta$ を予め $\lambda$ に比べ十分小さく取り，
+結論 $\|v_\nu\|_{C^{2,\alpha}}\le\delta$ から
+$H+((v_\nu)_{i\bar j})\ge(\lambda/2)I$ となるようにする．
+この段階で \eqref{moving:eq:small-KE-equation} は一様楕円的となるので，
+通常の Schauder bootstrap により全固定階の bounds を得る．
+
+率を確認するため，さらに小さい ball 上で
+\eqref{moving:eq:small-KE-equation} の logarithm を線形化する：
+\[
+ A_\nu^{i\bar j}\partial_i\partial_{\bar j}v_\nu-v_\nu=0,
+ \qquad
+ A_\nu^{i\bar j}
+ =\int_0^1\bigl(H+s(v_\nu)_{a\bar b}\bigr)^{-1\,i\bar j}\,ds.
+\]
+これらの係数は一様楕円性と全固定階の bounds を持つ．
+この線形方程式の内点 Schauder estimates により
+$\|v_\nu\|_{C^{k+2}(B')}\le C_{k,B'}\|v_\nu\|_{C^0(B)}$
+を得る．$\ddc v_\nu=\omega_\nu-h$ から
+\eqref{moving:eq:linear-smallness} が従う．
+\end{proof}
+
+\begin{theorem}[Dominant triple 領域の actual product-cusp 漸近]
+\label{coarse:thm:moving-triple-tensor}
+$a=a_t$, $b=b_t$, $\rho=\rho_t\to\infty$ が
+\eqref{moving:eq:rectangle-protection} を満たすとする．
+任意の固定 $r>0$ と $k\ge0$ に対して
+\begin{equation}\label{moving:eq:actual-tensor-asymptotic}
+ \|g_t-h_{\mathrm{prod}}\|_{C^k(D_t(a,b;r),h_{\mathrm{prod}})}
+ \le C_{k,r}e^{-\rho_t}
+\end{equation}
+が十分小さい $t$ に対して成り立つ．
+$C^k$ norm は angular universal cover の normalized logarithmic coordinates で計算し，
+評価は全 torus orbits について一様である．
+特に，この領域では $g_t$ と $h_{\mathrm{prod}}$ の一様 tensor 比較が
+独立の仮定なしに成立する．
+\end{theorem}
+
+\begin{proof}
+任意の固定 $r$ に対し，\cref{coarse:lem:annular-volume-squeeze} を
+$r$ より少し大きい固定 inner width に適用する．
+Angular universal cover 上で
+\[
+ w_1=-a^{-1}\log \zeta_1,\qquad
+ w_2=-b^{-1}\log \zeta_2
+\]
+と置けば，$h_{\mathrm{prod}}$ は固定した二つの half-plane metrics
+\[
+ \frac{|dw_1|^2}{(\Re w_1)^2}
+ +\frac{|dw_2|^2}{(\Re w_2)^2}
+\]
+の積になる．Fixed inner width 上では $\Re w_i$ は正の定数の間にあり，
+imaginary translations によりどの位相でも同じ固定 ball を使える．
+この ball 上の
+$v_t=\log(\omega_t^2/h_{\mathrm{prod}}^2)$ は
+$C^0$ norm $O_r(e^{-\rho_t})$ を持つ．
+\Cref{coarse:lem:small-volume-tensor} を適用して
+\eqref{moving:eq:actual-tensor-asymptotic} を得る．
+\end{proof}
+
+\begin{corollary}[Cubical open-square compacta の一様比較]
+\label{coarse:cor:open-square-tensor}
+$0<\eta<1/2$ を固定する．
+\[
+ \frac12L_t^\eta\le a,b\le2L_t^{1-\eta},
+ \qquad \rho_t=\frac{\eta}{4}R_t
+\]
+とすると，\eqref{moving:eq:rectangle-protection} は十分小さい $t$ に対して一様に成り立つ．
+従って
+\begin{equation}\label{moving:eq:open-square-region}
+ E_{t,\eta}
+ =\{L_t^\eta\le\ell_1,\ell_2\le L_t^{1-\eta},\quad
+      \ell_0=L_t-\ell_1-\ell_2\}
+\end{equation}
+の全位相を含む近傍で，任意の固定 $k$ に対し
+\begin{equation}\label{moving:eq:open-square-rate}
+ \|g_t-h_{\mathrm{prod}}\|_{C^k(E_{t,\eta},h_{\mathrm{prod}})}
+ \le C_{k,\eta}L_t^{-\eta/4}.
+\end{equation}
+この領域の raw image は，dominant label $0$ の正方形の
+$(q_1,q_2)\in[\eta,1-\eta]^2$ を $o(1)$ の誤差で実現する．
+\end{corollary}
+
+\begin{proof}
+\[
+ e^{-\rho_t}\min(a,b)\ge\tfrac12L_t^{3\eta/4}\longrightarrow\infty,
+ \qquad
+ e^{\rho_t}(a+b)\le4L_t^{1-3\eta/4}=o(L_t).
+\]
+従って定理を全ての中心 $(a,b)$ と位相へ一様に適用できる．
+また $q_j=R_t^{-1}\log\ell_j+o(1)$ $(j=1,2)$，
+$q_0=1+O(R_t^{-1})$ なので raw image の主張も従う．
+\end{proof}
+
+\begin{remark}[閉セルと大域 GH 極限との区別]
+\label{moving:rem:scope}
+本節で扱うのは二つの独立 depths が同時に $o(L_t)$ となる領域である．
+例えば balanced triple $\ell_0=\ell_1=\ell_2=L_t/3$ では
+\eqref{moving:eq:rectangle-protection} を保ったまま $\rho_t\to\infty$ とできない．
+従って本節の結論だけから全閉 corner の一様比較，source の直径評価，
+Lagrangian fibrations の全体での接着，または大域 GH 収束は従わない．
+一方，open-square compacta については actual metric の sharp な比較が得られており，
+そこに限定した短い torus averaging--Moser 構成には独立の tensor 仮定を要しない．
+\end{remark}

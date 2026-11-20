@@ -1,0 +1,408 @@
+% !TeX root = ../kaehler-einstein-degeneration.tex
+% Current content: 2026-11-20, v1.0.
+\section{三重点の小さい積窓と拡大可能な領域}
+\label{coarse:sec:triple-windows}
+
+Source を含まない三重点で unit を吸収した exact coordinates を選び，
+\begin{equation}\label{coarse:eq:exact-triple-window-model}
+ \zeta_0\zeta_1\zeta_2=t,
+ \qquad \ell_a=-\log|\zeta_a|^2,
+ \qquad L=-\log|t|^2,
+ \qquad \sum_{a=0}^2\ell_a=L
+\end{equation}
+とする．十分大きな固定 $m_0>1$ を取り，
+$\min_a\ell_a>m_0$ の部分が一つの enlarged labelled triple chart に含まれるようにする．
+以下の領域は常に二つの独立な位相の全軌道を含む．
+
+$\eta_a=d\log\zeta_a$ と置くと $\eta_0+\eta_1+\eta_2=0$ である．
+任意の異なる二添字 $j,k$ に対して
+\[
+ dV_{\log}
+  =(\sqrt{-1}\eta_j\wedge\bar\eta_j)
+    \wedge(\sqrt{-1}\eta_k\wedge\bar\eta_k)
+\]
+は同じ正の volume form を与える．比較に用いる volume form と K\"ahler form を
+\begin{equation}\label{coarse:eq:triple-cusp-reference}
+ \mathcal V_t
+  =\frac{8L^2}{\ell_0^2\ell_1^2\ell_2^2}\,dV_{\log},
+ \qquad
+ \omega_t^{\mathrm{cusp}}
+  =\ddc\log\mathcal V_t
+  =2\sqrt{-1}\sum_{a=0}^2
+       \frac{\eta_a\wedge\bar\eta_a}{\ell_a^2}
+\end{equation}
+と定める．Volume form の対数への $\ddc$ は局所 holomorphic frame を用いて解釈する．
+対応する実計量は
+\begin{equation}\label{coarse:eq:constrained-triple-cusp-metric}
+ g_t^{\mathrm{cusp}}
+ =\left.
+    \sum_{a=0}^2\frac{d\ell_a^2+4d\theta_a^2}{\ell_a^2}
+   \right|_{\sum\ell_a=L,\ \sum\theta_a=\arg t}.
+\end{equation}
+この計量には従属座標の rank-one 項が含まれ，一般には二因子の積ではない．
+行列式を計算すると
+\begin{equation}\label{coarse:eq:triple-cusp-exact-volume-ratio}
+ \frac{(\omega_t^{\mathrm{cusp}})^2}{\mathcal V_t}
+  =\frac{\ell_0^2+\ell_1^2+\ell_2^2}{L^2}
+  \in\left[\frac13,1\right].
+\end{equation}
+
+\subsection{Balanced な点での積領域の障害}
+
+\begin{proposition}[一つの積領域には入らない固定半径球]
+\label{coarse:prop:triple-product-obstruction}
+位相を固定した balanced point
+$p_t$ を $\ell_0(p_t)=\ell_1(p_t)=\ell_2(p_t)=L/3$ で定める．
+十分大きな $L$ に対し，
+$B_{g_t^{\mathrm{cusp}}}(p_t,2)$ を含む二つの独立な algebraic coordinates の
+product domain であって，全体が同じ triple chart に含まれるものは存在しない．
+ここで product domain は，ある異なる $i,j,k$ に対する
+$(\zeta_j,\zeta_k)$ の積領域と，従属座標 $\zeta_i=t/(\zeta_j\zeta_k)$ による
+その像を意味する．同じ主張は labelled angular cover 上でも成立する．
+\end{proposition}
+
+\begin{proof}
+固定した位相の下で，深度が
+\[
+ (3L/5,L/5,L/5)
+\]
+の三つの置換となる点を取る．$p_t$ から各点への深度空間内の直線路では
+全ての $\ell_a$ が $L/5$ 以上である．その長さは
+\[
+ 5\sqrt{(4/15)^2+2(2/15)^2}
+ =\sqrt{8/3}<2
+\]
+以下であり，経路全体は $L$ が大きければ $\min\ell_a>m_0$ に含まれる．
+従って三点は全て所要球に入る．
+
+どの添字 $i$ を従属に選んでも，残る二座標の product domain は，
+$\ell_j=3L/5$ の点の $\zeta_j$ 座標と，
+$\ell_k=3L/5$ の点の $\zeta_k$ 座標を独立に組み合わせた点を含む．
+そこで従属深度は
+\[
+ \ell_i=L-3L/5-3L/5=-L/5
+\]
+となる．これは $|\zeta_i|<1$ にすら属さず，triple chart に含まれるという仮定に矛盾する．
+角度を持ち上げてもこの絶対値の矛盾は変わらない．
+\end{proof}
+
+\begin{remark}\label{coarse:rem:triple-product-obstruction-scope}
+この障害は，小さい積窓や各積窓自身の complete metric の存在を否定しない．
+否定されるのは，constrained metric の任意の固定半径球を，
+二つの独立な大きい annulus windows の積へ一度に含める主張である．
+有限アトラスで従属 label を選び直しても，balanced point では同じ三点による障害が残る．
+\end{remark}
+
+\subsection{全三重点領域で使える小さい相対窓}
+
+\begin{lemma}[最大深度を従属にする小さい相対積窓]
+\label{coarse:lem:triple-relative-window}
+$p\in X_t$ が $\min_a\ell_a(p)\ge2m_0$ を満たすとし，
+$\ell_a^*=\ell_a(p)$ と書く．$\ell_i^*=\max_a\ell_a^*$ となる添字を選び，
+残る二添字を $j,k$ とする．$\delta=1/8$ とし，
+\begin{align}
+ W_{p,t}
+  &=\left\{(\zeta_j,\zeta_k):
+       (1-\delta)\ell_b^*<\ell_b<(1+\delta)\ell_b^*
+       \ (b=j,k)\right\},
+       \label{coarse:eq:triple-relative-window}\\
+ W_{p,t}^{\mathrm{in}}
+  &=\left\{(\zeta_j,\zeta_k):
+       (1-\delta/2)\ell_b^*<\ell_b<(1+\delta/2)\ell_b^*
+       \ (b=j,k)\right\}
+       \label{coarse:eq:triple-relative-inner-window}
+\end{align}
+と置く．各領域は全位相を含む二つの有限 annuli の積である．このとき次が成立する．
+\begin{enumerate}[label=\textup{(S\arabic*)}]
+\item $\zeta_i=t/(\zeta_j\zeta_k)$ により，$\overline{W_{p,t}}$ は同じ enlarged triple chart
+内へ正則に写り，その全体で
+\begin{equation}\label{coarse:eq:relative-dependent-depth}
+ (1-2\delta)\ell_i^*\le\ell_i\le(1+2\delta)\ell_i^*
+\end{equation}
+が成り立つ．特に $\min_a\ell_a>m_0$ である．
+\item $W_{p,t}$ の二つの有限 annuli 自身の complete curvature $-1$ metrics の積を
+$\widehat\omega_{p,t}$ とする．$\widehat\omega_{p,t}$ は
+$\Ric(\widehat\omega_{p,t})=-\widehat\omega_{p,t}$ を満たし，
+ある $t,p$ に依存しない $C>1$ に対し
+\begin{equation}\label{coarse:eq:relative-window-tensor-comparison}
+ C^{-1}\omega_t^{\mathrm{cusp}}
+ \le\widehat\omega_{p,t}\le C\omega_t^{\mathrm{cusp}}
+ \qquad\text{on }W_{p,t}^{\mathrm{in}}
+\end{equation}
+となる．この比較は actual metric に関する仮定を用いない．
+\item Actual KE metric は
+\begin{equation}\label{coarse:eq:relative-window-volume-upper}
+ \omega_t^2\le(\widehat\omega_{p,t})^2
+ \quad\text{on }W_{p,t},
+ \qquad
+ \omega_t^2(p)\le C(\omega_t^{\mathrm{cusp}})^2(p)
+\end{equation}
+を満たす．
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+独立な二深度の変化の総和は
+$\delta(\ell_j^*+\ell_k^*)\le2\delta\ell_i^*$ 以下なので，
+$\ell_i=L-\ell_j-\ell_k$ から
+\eqref{coarse:eq:relative-dependent-depth} を得る．
+従属深度は $3\ell_i^*/4$ 以上，独立深度は $7\ell_b^*/8$ 以上であり，
+全位相にわたって同じ chart 内に留まる．固定 $t$ では radial closure も
+$(\CC^*)^2$ の compact subset である．
+
+$(\eta_j,\eta_k)$ coframe において
+$\omega_t^{\mathrm{cusp}}/(2\sqrt{-1})$ の係数行列は
+\[
+ \begin{pmatrix}\ell_j^{-2}&0\\0&\ell_k^{-2}\end{pmatrix}
+ +\ell_i^{-2}
+     \begin{pmatrix}1&1\\1&1\end{pmatrix}.
+\]
+独立深度と中心深度は一様比較可能で，
+$\ell_i\ge3\ell_i^*/4$ および $\ell_j^*,\ell_k^*\le\ell_i^*$ である．
+従って，$2\sqrt{-1}$ を含めた対応する form は
+\[
+ 2\sqrt{-1}\left(
+   \frac{\eta_j\wedge\bar\eta_j}{(\ell_j^*)^2}
+   +\frac{\eta_k\wedge\bar\eta_k}{(\ell_k^*)^2}\right)
+\]
+と $W_{p,t}$ 全体で一様比較可能である．
+
+一方，$A_b=(1-\delta)\ell_b^*$，$B_b=(1+\delta)\ell_b^*$ と置けば，
+第 $b$ 因子の intrinsic complete form は
+\[
+ 2\sqrt{-1}
+ \left(\frac{\pi}{B_b-A_b}\right)^2
+ \frac{\eta_b\wedge\bar\eta_b}
+ {\sin^2\!\left(\pi\frac{\ell_b-A_b}{B_b-A_b}\right)}.
+\]
+内側半窓では sine の引数が $[\pi/4,3\pi/4]$ に入るので，その係数は
+$\pi^2/(4\delta^2(\ell_b^*)^2)$ と
+$\pi^2/(2\delta^2(\ell_b^*)^2)$ の間にある．
+これで \eqref{coarse:eq:relative-window-tensor-comparison} を得る．
+
+最後に \cref{coarse:lem:complete-volume-upper} を適用する．
+ここでは角度の compact quotient を用いると，radial closure は固定 $t$ で compact であり，
+actual density はその上で有限である．従って
+$\log(\omega_t^2/(\widehat\omega_{p,t})^2)$ は全 radial boundary で $-\infty$ へ行き，
+最大値を内点で取る．その点で
+$\ddc\log(\omega_t^2/(\widehat\omega_{p,t})^2)
+=\omega_t-\widehat\omega_{p,t}\le0$ となるから，最大値は $0$ 以下である．
+中心 $p\in W_{p,t}^{\mathrm{in}}$ で (S2) を用いれば残る上界を得る．
+\end{proof}
+
+\begin{corollary}[全深部三重点領域での volume comparison と有界 potential]
+\label{coarse:cor:triple-volume-comparison}
+固定した $m_0$ を必要なら大きくすれば，ある $C>1$ に対し
+\begin{equation}\label{coarse:eq:full-triple-volume-comparison}
+ C^{-1}\mathcal V_t\le\omega_t^2\le C\mathcal V_t
+ \qquad\text{on }\{\min_a\ell_a\ge2m_0\}
+\end{equation}
+が全位相について一様に成り立つ．この領域上で
+\begin{equation}\label{coarse:eq:full-triple-bounded-potential}
+ u_t=\log\frac{\omega_t^2}{\mathcal V_t},
+ \qquad |u_t|\le C,
+ \qquad
+ \ddc u_t=\omega_t-\omega_t^{\mathrm{cusp}}.
+\end{equation}
+これらは $\mathrm{(TC)}_5$ を仮定しない．
+\end{corollary}
+
+\begin{proof}
+上界は各点で \cref{coarse:lem:triple-relative-window} を適用し，
+\eqref{coarse:eq:triple-cusp-exact-volume-ratio} を用いれば得られる．
+下界には \cref{coarse:cor:global-volume-lower} で証明した
+$\omega_t^2\ge c\Omega_t^{\mathrm{low}}$ を用いる．
+三つの active labels では exact coordinates と元の defining sections の比が bounded unit であり，
+\[
+ \alpha_{a,t}=A_0+\min\{\ell_a,L/2\}+O(1)
+ \asymp\ell_a.
+\]
+最後の比較では $2m_0\le\ell_a\le L$ を用いた．
+Inactive labels は $O(1)$ であり，canonical density の logarithmic frame も
+$dV_{\log}$ と一様比較可能である．従って
+$\Omega_t^{\mathrm{low}}\asymp\mathcal V_t$ である．
+これで両側 volume bounds を得る．最後の恒等式は
+$\ddc\log\omega_t^2=\omega_t$ と
+\eqref{coarse:eq:triple-cusp-reference} の差である．
+\end{proof}
+
+\begin{remark}\label{coarse:rem:triple-volume-not-tensor}
+\eqref{coarse:eq:full-triple-bounded-potential} は本稿の actual compact degeneration に対して
+成立する volume と potential の評価であり，tensor comparison とは区別する．
+この評価だけから $C^{-1}\omega_t^{\mathrm{cusp}}\le\omega_t\le C\omega_t^{\mathrm{cusp}}$，
+actual metric の固定半径球の包含，または actual boundary escape は結論しない．
+Bounded density から tensor comparison を導く一般原理への障害は
+\cref{coarse:prop:density-counterexample} に示した．
+\end{remark}
+
+\subsection{一つの深度が支配する領域での拡大積窓}
+
+\begin{lemma}[Dominant moving sector の product-domain exhaustion]
+\label{coarse:lem:moving-product-domain}
+$p_t$ の深度を
+\[
+ (\ell_i^*,\ell_j^*,\ell_k^*)=(L-a_t-b_t,a_t,b_t)
+\]
+と書き，
+\begin{equation}\label{coarse:eq:moving-product-sector-assumptions}
+ m_t:=\min\{a_t,b_t\}\longrightarrow\infty,
+ \qquad \varepsilon_t:=\frac{a_t+b_t}{L}\longrightarrow0
+\end{equation}
+を仮定する．$\rho_t\to\infty$ を
+\begin{equation}\label{coarse:eq:moving-product-radii}
+ e^{\rho_t}\varepsilon_t\longrightarrow0,
+ \qquad e^{-\rho_t}m_t\longrightarrow\infty
+\end{equation}
+となるように選ぶ．例えば
+\[
+ \rho_t=\frac12\min\left\{
+       \log\frac{L}{a_t+b_t},\ \log m_t\right\}
+\]
+でよい．全位相を含む積領域を
+\begin{equation}\label{coarse:eq:moving-product-window}
+ W_t^{\mathrm{mov}}
+ =\left\{e^{-\rho_t}a_t<\ell_j<e^{\rho_t}a_t,\quad
+          e^{-\rho_t}b_t<\ell_k<e^{\rho_t}b_t\right\}
+\end{equation}
+とする．二因子の cusp product を
+\begin{equation}\label{coarse:eq:moving-cusp-product}
+ \omega_t^{\mathrm{prod}}
+ =2\sqrt{-1}\left(
+       \frac{\eta_j\wedge\bar\eta_j}{\ell_j^2}
+       +\frac{\eta_k\wedge\bar\eta_k}{\ell_k^2}\right)
+\end{equation}
+と書き，その実計量を $g_t^{\mathrm{prod}}$ とする．このとき次が成立する．
+\begin{enumerate}[label=\textup{(M\arabic*)}]
+\item 十分小さい $t$ で $\overline{W_t^{\mathrm{mov}}}$ は同じ triple chart に含まれ，
+その全体で $\min_a\ell_a\to\infty$，$\ell_i/L\to1$ となる．
+任意の固定 $r>0$ に対し，labelled cover 上の
+$B_{g_t^{\mathrm{prod}}}(p_t,r)$ は十分小さい $t$ で $W_t^{\mathrm{mov}}$ に含まれる．
+\item $W_t^{\mathrm{mov}}$ 上で
+\begin{equation}\label{coarse:eq:moving-cusp-tensor-error}
+ 0\le\omega_t^{\mathrm{cusp}}-\omega_t^{\mathrm{prod}}
+ \le
+ \left(\frac{e^{\rho_t}(a_t+b_t)}
+ {L-e^{\rho_t}(a_t+b_t)}\right)^2\omega_t^{\mathrm{prod}}.
+\end{equation}
+また $\mathcal V_t/(\omega_t^{\mathrm{prod}})^2\to1$ も同じ領域で一様に成り立つ．
+\item 各 finite annulus 自身の complete curvature $-1$ metric の積を
+$\widehat\omega_t^{\mathrm{mov}}$ とする．任意の固定 $r>0$ に対し
+\begin{equation}\label{coarse:eq:moving-intrinsic-cusp-comparison}
+ \omega_t^{\mathrm{prod}}
+ \le\widehat\omega_t^{\mathrm{mov}}
+ \le\coth^2\!\left(\frac{\rho_t-r}{2}\right)
+                  \omega_t^{\mathrm{prod}}
+ \quad\text{on }B_{g_t^{\mathrm{prod}}}(p_t,r)
+\end{equation}
+が成立する．Normalized holomorphic covering coordinates 上では，
+全固定階 $C^k$ で $\widehat\omega_t^{\mathrm{mov}}-\omega_t^{\mathrm{prod}}\to0$ となる．
+\item Actual volume は，同じ固定球上で
+\begin{equation}\label{coarse:eq:moving-sharp-volume-upper}
+ \omega_t^2
+ \le\left(\widehat\omega_t^{\mathrm{mov}}\right)^2
+ \le\coth^4\!\left(\frac{\rho_t-r}{2}\right)
+                  (\omega_t^{\mathrm{prod}})^2
+ =(1+o(1))(\omega_t^{\mathrm{prod}})^2
+\end{equation}
+を満たす．この一側の漸近的上界も $\mathrm{(TC)}_5$ を用いない．
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+示した $\rho_t$ は無限大へ行き，
+\[
+ e^{\rho_t}\varepsilon_t\le\sqrt{\varepsilon_t},
+ \qquad
+ e^{-\rho_t}m_t\ge\sqrt{m_t}
+\]
+を満たす．一般に \eqref{coarse:eq:moving-product-radii} の下で
+\[
+ \ell_j+\ell_k\le e^{\rho_t}(a_t+b_t)=o(L),
+ \qquad
+ \min\{\ell_j,\ell_k\}\ge e^{-\rho_t}m_t\to\infty.
+\]
+従って $\ell_i=L-\ell_j-\ell_k=(1-o(1))L$ であり，同じ chart に留まる．
+各 cusp factor では $\log\ell_b$ の gradient norm が $1$ なので，
+product distance が $r$ 以下なら
+$|\log(\ell_j/a_t)|,|\log(\ell_k/b_t)|\le r$ である．
+これで固定 product ball の包含を得る．
+
+二つの forms の差は
+$2\sqrt{-1}\ell_i^{-2}(\eta_j+\eta_k)\wedge
+ (\bar\eta_j+\bar\eta_k)$ である．Cauchy--Schwarz により
+\[
+ |v_j+v_k|^2
+ \le(\ell_j^2+\ell_k^2)
+       \left(\frac{|v_j|^2}{\ell_j^2}
+             +\frac{|v_k|^2}{\ell_k^2}\right)
+\]
+なので \eqref{coarse:eq:moving-cusp-tensor-error} が従う．
+Volume の正規化は \eqref{coarse:eq:triple-cusp-reference} により
+\[
+ \frac{\mathcal V_t}{(\omega_t^{\mathrm{prod}})^2}
+  =\frac{L^2}{\ell_i^2}\longrightarrow1
+\]
+と正確に計算できる．
+
+一つの cusp factor の angular universal cover を考える．
+その complete metric は $\ell^{-2}(d\ell^2+4d\theta^2)$ である．
+$|\log(\ell/a_t)|\le r$ の点から，有限 annulus の二つの radial boundaries
+$\ell=e^{\pm\rho_t}a_t$ までの ambient cusp distance は
+$\rho_t-r$ 以上である．従ってその点を中心とする半径 $\rho_t-r$ の
+ambient hyperbolic ball は finite window に含まれる．
+Poincar\'e metric の domain monotonicity と，半径 $s$ の hyperbolic ball
+自身の complete metric の中心密度比 $\coth^2(s/2)$ を用いると，
+各因子で \eqref{coarse:eq:moving-intrinsic-cusp-comparison} を得る．
+
+高階収束も明示式から従う．第 $j$ 因子で $x=\ell_j/a_t$，
+$q_t=e^{-\rho_t}$ と置けば，intrinsic metric と cusp metric の係数比は
+\[
+ \left(\frac{\pi x}{q_t^{-1}-q_t}\right)^2
+ \sin^{-2}\!\left(\pi\frac{x-q_t}{q_t^{-1}-q_t}\right).
+\]
+任意の固定区間 $e^{-r}\le x\le e^r$ で，この式は $1$ へ全固定階の
+$x$-derivatives とともに収束する．Normalized logarithmic holomorphic coordinate
+$(\log\zeta_j-\log\zeta_j(p_t))/a_t$ では cusp metric 自身の係数が $t$ に依存しないため，
+これが所要 $C^k$ 収束を与える．他方の因子も同様である．
+
+最後に各固定 $t$ で $W_t^{\mathrm{mov}}$ は compact radial closure を持つ annuli の積である．
+\Cref{coarse:lem:complete-volume-upper} により
+$\omega_t^2\le(\widehat\omega_t^{\mathrm{mov}})^2$ であり，
+二因子の metric upper bound の積から
+\eqref{coarse:eq:moving-sharp-volume-upper} を得る．
+\end{proof}
+
+\begin{corollary}[Open square の一様な保護深度での具体的半径]
+\label{coarse:cor:moving-product-eta-radius}
+固定 $0<\eta<1/2$ と $0<c<C$ に対し
+\[
+ cL^\eta\le a_t,b_t\le CL^{1-\eta}
+\]
+を仮定する．$R_t=\log L$ として
+\begin{equation}\label{coarse:eq:moving-product-eta-radius}
+ \rho_t=\frac{\eta R_t}{4}
+\end{equation}
+と選べば，\cref{coarse:lem:moving-product-domain} の全結論が $a_t,b_t$ に一様に成立する．
+特に
+\[
+ e^{\rho_t}\frac{a_t+b_t}{L}\le2CL^{-3\eta/4},
+ \qquad
+ e^{-\rho_t}\min\{a_t,b_t\}\ge cL^{3\eta/4}.
+\]
+\end{corollary}
+
+\begin{proof}
+$e^{\rho_t}=L^{\eta/4}$ を仮定した二側深度評価へ代入すれば二式を得る．
+両式は \eqref{coarse:eq:moving-product-radii} を一様に保証する．
+\end{proof}
+
+\begin{remark}\label{coarse:rem:moving-sector-versus-balanced}
+この exhaustion は非支配深度が発散し，かつその和が $o(L)$ となる領域に限る．
+Balanced region では \cref{coarse:prop:triple-product-obstruction} があるため，
+同じ大きい product-domain statement を主張しない．
+また (M1) が含めるのは model metric の球であり，actual KE metric の球ではない．
+本補題の volume 上界だけから actual tensor comparison は導かない．
+Dominant moving sector については，次の \cref{coarse:thm:moving-triple-tensor} で
+別途構成する下 barrier と small-potential regularity により actual tensor comparison を証明する．
+全閉 corner の比較や，大域的な actual boundary escape までを本補題の結論に含めない．
+\end{remark}

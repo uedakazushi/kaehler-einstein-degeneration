@@ -6,18 +6,18 @@
     {
       "source": "04_hyperplane_degenerations_local_ja.tex",
       "destination": "papers/kaehler-einstein-degeneration.tex",
-      "sha256": "41e6f1382c4cc0ee2d4dbaaeb4b75ba6dfb679fac3668d7768e210051f0d4cfb",
-      "bytes": 215347,
+      "sha256": "b6aaa53e669da2d0e89f891137faee88599128bdd2a89e30a8492e8e56b02cd3",
+      "bytes": 215639,
       "source_sha256": "cc0343cf295d26321d9c19e979c0181db34bd93de25673967c649b31cf13be3b",
-      "current_blob_sha": "52b2d1a958cc0659cddc576dc188743893fba2be"
+      "current_blob_sha": "4ef41c0d4b21e1036f54d85f4d424ce2bca40e43"
     },
     {
       "source": "05_hyperplane_degenerations_global_ja.tex",
       "destination": "papers/cubical-gh-limit.tex",
-      "sha256": "638e9a065e3c4a32f3acc0de567127b4efe90560ca9f840cbc6fad8e0eb010bf",
-      "bytes": 106318,
+      "sha256": "c727e4cf579380c99d2d69b2d34a8b73d1f9a74f2db39bc1bb7ebab448b1e3bb",
+      "bytes": 106771,
       "source_sha256": "fb14a1c2e4a7ee0f699a56c98e23ebe96ef4b1abac12a01d8f379c1ea25b4d4e",
-      "current_blob_sha": "cbc048df9df2dc08e686708104c38f9a6bd43a7c"
+      "current_blob_sha": "44cf8a5ac26a079cf9569b259e731f9e51497df6"
     },
     {
       "source": "supplementary/intrinsic_complete_window_audit_definitive_v1.py",
@@ -167,5 +167,23 @@
     "bundle_sha256": "3373ff04a81ae87b5376dd522c7f105075d6882de76dd4e487a582ecf47b531b",
     "source_chat": "https://chatgpt.com/g/g-p-6a874b9c58a481918993aab64d09c7c2-duo-zhong-sukerukaehler-einsteinji-he/c/6a864137-0ff8-83e8-ac1f-98f48df7e5eb"
   },
-  "audit_update_2026_11_20": "Current sha256/bytes and Git blob reflect mathematical additions or repository entrypoint fixes; source_sha256 preserves original Library-bundle provenance. This update does not imply complete independent proof verification."
+  "audit_update_2026_11_20": {
+    "version": "v1.4",
+    "scope": "Open-cell actual KE tensor asymptotics via explicit volume barriers and Savin; quantitative Lagrangian local GH collapse; corrected product-window and oriented tensor assumptions. Global collapse and singular-fiber gluing remain open.",
+    "verification": "Primary sources, explicit estimates, dependencies and static TeX references checked; revised PDF not compiled because lualatex.fmt and essential TeX assets are absent."
+  },
+  "current_post_migration_sources": [
+    {
+      "destination": "papers/sections/moving_triple_comparison.tex",
+      "sha256": "c7c158c204dec16685cfe348a110eb8702dc6fdd9903598e39e2fff9762cf0cf",
+      "bytes": 16610,
+      "current_blob_sha": "149a37344120177ea8c9cc6420d3532ba7138d37"
+    },
+    {
+      "destination": "papers/sections/triple_windows.tex",
+      "sha256": "ff6da5f7b956d128c72801551b8fd98bd72559df8ba6130e7deb78dfb89b0694",
+      "bytes": 18087,
+      "current_blob_sha": "14aabb8fb03f43dbdb1ab5d38649d8541fbc3db7"
+    }
+  ]
 }

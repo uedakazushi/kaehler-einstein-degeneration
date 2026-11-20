@@ -1,5 +1,17 @@
 # 研究ノート：一般型超曲面のKE退化
-更新：2026-11-20 / v1.3
+更新：2026-11-20 / v1.4
+
+## 開正方形内部の actual KE 比較と局所collapse
+五次族について、主稿 `coarse:thm:moving-triple-tensor` / `coarse:cor:open-square-tensor` に新しい証明を置いた。正確な三重点座標 ζ0ζ1ζ2=t、L=−log|t|²、R=log L、独立深度 a,b とし、0<η<1/2 を固定する。a,b∈[L^η/2,2L^(1−η)] 上で actual g_t は二つの cusp の積 h_prod に全固定階で O(L^(−η/4)) 近づく。全角度について一様であり、(TC)_5、(PBE)_5、actual metric buffer を仮定しない。依存する大域入力は既存の capped volume 下界 `coarse:cor:global-volume-lower` である。
+
+証明は、三重点内の expanding product annuli、shifted-sinh 型の負KE下barrier、finite complete annuli の上barrierから volume ratio→1 を得て、Savin (2007), Theorem 1.3 の small-perturbation regularity を適用する。bounded densityだけの旧推論とは異なり、small C0 potential が入力である。明示式・境界比較・Savinの仮定・Schauderによる誤差率を今回点検した。新規性の網羅的確認は未完了。
+
+関連 Lagrangian 主稿 `ke:open-cell-collapse` により、各開正方形の固定長方形 Kη=[η,1−η]² 上に actual KE–Lagrangian torus fibration を構成できる。Fiberのintrinsic/ambient diameterは O(L^(−η))、raw cubical mapとの値の誤差は O(1/R)。Moser像領域に内在距離を入れれば R^−2 g_t のGH極限は平坦な Kη であり、projection distortion は O(L^(−η/4)+L^(−η)/R)。領域外のshortcutを許すambient距離、大域fibrationとの接着、singular fibersは未解決。
+
+## 局所windowと残るtensor仮定
+三つの深度が同程度のとき、一つの独立二座標product windowで任意半径のconstrained-cusp ballを覆うことはできない（`coarse:prop:triple-product-obstruction`）。最大深度を従属座標にする小さい相対箱は有効であり、全deep triple上のvolume上下界とbounded potentialは `coarse:cor:triple-volume-comparison` で証明する。これだけではfull tripleのtensor比較は得られない。
+
+Source gateのfixed model ballはoriented half-armを越える。Full source-coordinate extension上でdensity比較を行い、(TC)_5は**その点で有効なorientation**のmodelに対する下界として定式化する。全ての拡大窓で同じmodelのtensor比較を要求しない。任意半径のexhaustionはcoarse小窓構成の結論に含めず、dominant tripleでの証明と一般の(PBE)_dを分ける。
 
 ## 体積密度とtensor比較：現行の解析条件
 主稿 `coarse:prop:density-counterexample` は、固定ball上で滑らかな負KE計量列の体積密度が正に一様有界でも、内側ballでtensorが一様有界とは限らないことを証明する。したがってvolume lower/upper estimatesだけを用いた局所tensor比較は使えない。
@@ -26,7 +38,7 @@ $\Omega=B(0,1/4)\subset\mathbf C^2$、$r=|w|$ として
 - E. Bedford and B. A. Taylor, *A new capacity for plurisubharmonic functions*, Acta Math. 149 (1982), 1–40, DOI 10.1007/BF02392348。Theorem 4.1の比較とTheorem 6.9のpluripolar capacity零を使う。https://www.math.stonybrook.edu/~ebedford/PapersForM655/BTNewCapacity.pdf 。
 
 ### Lagrangian側で得た局所結果
-関連主稿 `lagrangian-torus-fibration/papers/sections/paper/ke_fiber_compatibility.tex` の `ke:short-torus-averaging` と `ke:triple-moving-fibration` が証明の正本。Full-orbit moving domainで $c h_t\le g_t\le C h_t$ を仮定すると、torus平均の短いprimitiveから一つのMoser flowを構成し、全局所fibersを同時にLagrangian化する。$\min\ell_a>m_t$ でambient diameter $O(m_t^{-1})$、raw cubical mapのtarget誤差 $O((1+\log m_t)/R_t)$。$m_t=R_t$ と選べる。高階比較やPBEはこの局所symplectic構成の入力ではないが、tensor比較と大域的なmetric近似は未証明である。Ruan, arXiv:math/0309177v2, §3のaveraging–Moser機構に先行研究があり、新規性は未確認。
+関連主稿 `lagrangian-torus-fibration/papers/sections/paper/ke_fiber_compatibility.tex` の `ke:short-torus-averaging` と `ke:triple-moving-fibration` が証明の正本。Full-orbit moving domainで $c h_t\le g_t\le C h_t$ を仮定すると、torus平均の短いprimitiveから一つのMoser flowを構成し、全局所fibersを同時にLagrangian化する。$\min\ell_a>m_t$ でambient diameter $O(m_t^{-1})$、raw cubical mapのtarget誤差 $O((1+\log m_t)/R_t)$。$m_t=R_t$ と選べる。高階比較やPBEはこの局所symplectic構成の入力ではないが、全閉cornerのtensor比較と大域的なmetric近似は未証明である。開正方形の固定compact部分については上記の新定理で解析比較を証明した。Ruan, arXiv:math/0309177v2, §3のaveraging–Moser機構に先行研究があり、新規性は未確認。
 
 ## KE尺度とLagrangian fibrationの比較
 標準規格化 $\operatorname{Ric}(\omega_t)=-\omega_t$ では体積 $2\pi^2d(d-4)^2$ は固定され、成分内部の基点からは $d$ 個の配置補空間の四実次元完備KE極限が残る（Song, arXiv:1706.01518v1, Theorem 1.2；Song–Sturm–Wang, arXiv:2003.04709v1, Theorem 6.1）。径の尺度 $R_t=\log(-\log|t|^2)$ のcubical候補とは異なる極限である。
@@ -58,6 +70,19 @@ Zhang, arXiv:1505.04728v2, Proposition 3.1は、同論文のQ-factorial・相対
 =\frac{x_0^2+x_1^2+x_2^2}{x_0^2x_1^2x_2^2}
 \]
 であり、分子は非定数なので、この模型potential自体を $\det\operatorname{Hess}\psi=\kappa e^{2\psi}$ の解と同一視できない。模型との二側比較と、sharp係数を持つKE漸近は異なる入力である。一次資料：https://arxiv.org/pdf/1505.04728 。
+
+## 背景capped formをtensor比較に使う際の障害
+Density Ω_low とそのcurvature h_low=ddc log Ω_lowは区別する。Tripleの深度 (L/2,L/4,L/4) では、cap係数μ0がO(L^−1)、μ1,μ2がO(L^−2)となり、h_lowとconstrained cuspの最大固有値比はLの程度に増える。一変数capを z=√|t| Z、B=A0+L/2 で書くと、係数は
+\[
+c_B(Z)=\frac{2(B-\log(1+|Z|^2)+|Z|^2)}{(B-\log(1+|Z|^2))^2(1+|Z|^2)^2}.
+\]
+c_B(0)=2/B、−c_B(0)^−1∂Z∂barZ log c_B(0)=B−1。したがって一様な曲率上界を持つreferenceとしてh_lowをそのまま使えない。これはΩ_lowのdensity比較やglobal determinant下界への反例ではない。今回のvolume-barrier法はh_lowのtensor/curvature比較を用いない。
+
+## 今回確認した解析文献
+- O. Savin, *Small Perturbation Solutions for Elliptic Equations*, CPDE 32 (2007), 557–578, DOI 10.1080/03605300500394405, Theorem 1.3、pp.558–560のH1/H2/H4。https://www.math.columbia.edu/~savin/Small_pert.pdf 。ゼロ次項依存を許し、全域の退化楕円性とHessian原点近傍の一様楕円性で足りる。正のcone外でdetを0に延長した F(M,u,x)=det_+(H(x)+P(M))/det H(x)−e^u に適用する。
+- Y. Wang, *A Liouville Theorem for the Complex Monge–Ampère Equation*, arXiv:1303.2403、Lemmas 2.1/2.4。https://arxiv.org/pdf/1303.2403 。Complex Hessianの実Hessianへの埋込みとcone外延長を参照。主適用はSavin原典を用いる。
+- J. Cheng and Y. Xu, *Interior W^{2,p} estimate for small perturbations to the complex Monge–Ampère equation*, Calc. Var. PDE 62 (2023), 231, DOI 10.1007/s00526-023-02571-x、Lemma 2.1/Theorem 1.4。https://arxiv.org/pdf/2301.00940 。関連するsmall-perturbation regularityであり、今回の証明ではSavinを直接使う。
+- E. Di Nezza, V. Guedj, H. Guenancia, *Corrigendum to “Families of singular Kähler–Einstein metrics”*, JEMS 28 (2026), no.11, 5107–5111, DOI 10.4171/JEMS/1801。https://ems.press/content/serial-article-files/54000?nt=1 。元のProposition D/Theorem E（Prop.5.9/Thm.5.11）のpotential下界を訂正。訂正版Theorem 4はX0 irreducibleを仮定し、我々の可約中心fiberへ直接は適用しない。
 
 ## Cubical modelと有限計算
 \(\mathcal C_5=\{w\in[0,1]^5:\max_iw_i=1,\ |\operatorname{supp}w|\le3\}\)。
