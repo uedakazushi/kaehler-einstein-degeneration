@@ -10,6 +10,9 @@
 - 高次元ではmixed source–higher-stratum modelsの解析が残るためGH極限は予想。
 - Fixed arrangement complement側Part I–IIIの正本は[multiscale-kaehler-einstein](https://github.com/uedakazushi/multiscale-kaehler-einstein)。固定空間の結果から族の一様性を自動的に導かない。
 
+## 今回独立に確認した幾何・位相
+Part V主稿に一般次数 \(d\ge5\) の候補 \(\mathcal C_d\) のセル数、二次骨格への明示的同相、整数ホモロジーを命題として証明し、Lagrangian分岐基底とのcell-like homotopy equivalenceを説明した。\(d\ge6\) で同相ではなく、GH計量への同定でもない。有限次数 \(d=5,\ldots,8\) の鎖階数を独立に検算した（一般次数の整数係数証明は本文）。**(CP)_d+(PBE)_d のactual KEへの適用は依然として未証明**。
+
 ## 次の課題
 1. (PBE)_dのquantitative terminal trivialization、protected rectangular inclusion、uniform comparison、two-metric escapeをactual metricsで証明する。
 2. 一般次数の(CP)_dのcoarse realization/connectorsを監査する。
