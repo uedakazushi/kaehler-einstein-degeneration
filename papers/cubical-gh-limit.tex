@@ -254,6 +254,26 @@ $\Cd$ の対応する辺内では $d-2$ 枚が集まる．
 この比較は位相および整数ホモロジーについてのものであり，
 $fibration$ の作用アフィン計量と $d_\square$ の同一性，
 実際の KE 計量の GH 収束，または special Lagrangian 性を含意しない．
+
+さらに有限 CW 基底 $B_d(T)$ には，$p_T=\rho_d^{-1}\circ q$ と
+任意に選んだ補助区分的 Euclidean metric $h$ から
+\[
+ |v|_\varepsilon^2=|dp_T(v)|_\square^2+\varepsilon^2|v|_h^2
+\]
+という\emph{人工的な}区分的長さ計量を入れられる．
+分岐木の一様有界なfiber径と，立方体複体の最短路の有限
+square galleryを用いると，その内在距離$d_\varepsilon$は
+\[
+ 0\le d_\varepsilon(x,y)
+       -d_\square(p_Tx,p_Ty)\le C(d,T,h)\varepsilon
+\]
+を満たす．従って $d\ge6$ の非同相性は，
+\emph{適当に選んだ基底計量の}GH収束そのものを妨げない．
+詳細証明は
+\href{https://github.com/uedakazushi/lagrangian-torus-fibration/blob/main/papers/sections/paper/base_topology.tex}
+{関連するLagrangian研究の基底位相論，定理 \texttt{topo:metric-collapse}}
+に記した．この区分的長さ計量と，actual KE計量や
+Lagrangian fibrationのaction metricとの比較は未証明である．
 \end{remark}
 
 以下の定数は固定した $d$ に依存してよいが，$t$ には依存しない．
