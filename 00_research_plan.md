@@ -2,26 +2,26 @@
 2026-11-20 / v1.0
 
 ## 研究固有の目標
-(X_t=\{\prod_{i=0}^{d-1}L_i+tF_d=0\}\) のような超平面和への退化で、KE距離をdiameterで正規化した**大域Gromov–Hausdorff極限と極限計量**を同定する。特に5平面へ退化する5次曲面のexplicit metric complexを最初の主例とする。既知の局所pointed collapseと大域diameter-scale theoremを混同しない。
+\(X_t=\{\prod_{i=0}^{d-1}L_i+tF_d=0\}\\) のような超平面和への退化で、KE距離をdiameterで正規化した**大域Gromov–Hausdorff極限と極限計量**を同定する。特に5平面へ退化する5次曲面のexplicit metric complexを最初の主例とする。既知の局所pointed collapseと大域diameter-scale theoremを混同しない。
 
 ## 既存原稿と状態
 2026-08-21 v0.12、81頁の日本語論文草稿 `quintic_five_planes_KE_GH_paper_draft_ja_v12.tex` を核とする。候補のcubical complex
-(mathcal C_5=\{w\in[0,1]^5:\max_iw_i=1,\ |\mathrm{supp}(w)|\le3\}\)
-は25頂点、50辺、30枚のsquareという計算、および (mathrm{diam}(\mathcal C_5)=\sqrt{13}) の記録がある。モデル幾何の証明・有限次元certificateと、actual KE metricの一様gluing解析を区別する。
+(\mathcal C_5=\{w\in[0,1]^5:\max_iw_i=1,\ |\\mathrm{supp}(w)|\le3\}\)
+は25頂点、50辺、30枚のsquareという計算、および (\mathrm{diam}\(\\mathcal C_5\)=\sqrt{13}) の記録がある。モデル幾何の証明・有限次元certificateと、actual KE metricの一様gluing解析を区別する。
 
 ## 大域的主予想と必要な仮定
-標準cubical length metricの (\mathcal C_5) へdiameter-rescaled GH収束するという主張は**現在も予想**である。主な欠落はglobal matching、neck/corner間の定量的なKE比較、nonlinear scale-channel correctionの (o(R_t)) 制御。古い論文草稿に強い表現があっても、条件付き結果を無条件の定理に格上げしない。
+標準cubical length metricの \(\\mathcal C_5\) へdiameter-rescaled GH収束するという主張は**現在も予想**である。主な欠落はglobal matching、neck/corner間の定量的なKE比較、nonlinear scale-channel correctionの (o\(R_t\)) 制御。古い論文草稿に強い表現があっても、条件付き結果を無条件の定理に格上げしない。
 
 ## 確認できる中間材料（草稿・計算に記録）
-- triple intersectionの (ell_x+ell_y+ell_z=L_t+O(1)) とleading synchronization。
-- neck sourceの (a_+-a_-=5) およびflux identity (5=2+3)。この5はcusp trivializationに相対的。
+- triple intersectionの (\ell_x+\ell_y+\ell_z=L_t+O(1)) とleading synchronization。
+- neck sourceの \(a_+-a_-=5\) およびflux identity \(5=2+3\)。この5はcusp trivializationに相対的。
 - Mandel reduced familyのlongitudinal zero modesはscale/asymmetry Jacobi方向。
 - finite incidence network、twisted orientation local system、Calderón/scatteringの有限次元モデル。
 - 剛性のあるtopological/cubical計算と、actual nonlinear KE estimateは区別する。
 
 ## 最優先課題
 1. source scriptsを再実行し、証明に使うcertificate/入力のみ保持する。
-2. actual neck-to-corner uniform parametrix とroot-0/root-1 filtered scale modulationの (o(R_t)) 評価を示す。
+2. actual neck-to-corner uniform parametrix とroot-0/root-1 filtered scale modulationの (o\(R_t\)) 評価を示す。
 3. \(n,d\) 一般の超平面和退化へ一般化する前に、5次曲面でmetric glueの論理鎖を閉じる。
 4. 外部文献 Zhang、Song–Sturm–Wang等の適用条件と論文の新規部分を一次資料で照合する。
 
