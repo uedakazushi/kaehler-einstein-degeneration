@@ -1,5 +1,32 @@
 # 研究ノート：一般型超曲面のKE退化
-更新：2026-11-20 / v1.2
+更新：2026-11-20 / v1.3
+
+## 体積密度とtensor比較：現行の解析条件
+主稿 `coarse:prop:density-counterexample` は、固定ball上で滑らかな負KE計量列の体積密度が正に一様有界でも、内側ballでtensorが一様有界とは限らないことを証明する。したがってvolume lower/upper estimatesだけを用いた局所tensor比較は使えない。
+
+五次のexterior comparisonには独立な仮定 $(\mathrm{TC})_5$（`coarse:hyp:TC5`）を置く。これに依存するraw submetry、actual connectors、source diameter、粗い距離二側比較、$(\mathrm{CP})_5$ の検証も条件付きである。Raw coordinatesの代数的構成、閉セルの実現、determinant/volume評価、actual metric ballsを用いたsource inradius/escapeの議論、抽象有限距離論は、このtensor比較の推論から分離する。旧来の全証明を今回独立監査したことにはしない。
+
+修復の具体的な十分条件は、各点にactual metric ballが入る一様bufferと、そこから負のholomorphic sectional curvatureを持つcomplete productへの正則写像である。`coarse:lem:actual-buffer-comparison` によりlocalized Chern–Luから一方向の比較を得て、volume upper boundと合わせる。Model metricでのbufferだけではactual bufferを証明したことにならず、欲しいcoarse distanceを先に使う循環を避ける。
+
+### 反例の要点と参照先
+$\Omega=B(0,1/4)\subset\mathbf C^2$、$r=|w|$ として
+\[
+ \varphi(z,w)=-2\log(1-|z|^2r)-2\log(1-r)
+\]
+は有界連続plurisubharmonicであり、$w\ne0$ では正則局所写像 $(z,w)\mapsto(z\sqrt w,\sqrt w)$ によるproduct-disc KE potentialのpullbackである。Jacobianは $1/2$ なので $\det(\varphi_{a\bar b})=e^\varphi$。Bedford–Taylor measureはdivisor $w=0$ にmassを持たず、方程式は弱い意味で全域に成立する。滑らかな境界値を一様近似しDirichlet問題を解くと、滑らかなstrictly psh $u_j\to\varphi$ が得られる。従って $\omega_j=\mathrm i\partial\bar\partial u_j$ は $\operatorname{Ric}(\omega_j)=-\omega_j$ と一様なdensity上下界を満たす。しかし $z=0,w\ne0$ で
+\[
+\varphi_{z\bar z}=2r,\qquad
+\varphi_{w\bar w}=\frac1{2r(1-r)^2},
+\]
+なので一様tensor上界は存在しない。完全背景をより大きなbidiscに選んでも、その内側の固定ball上では同じ反例になる。**対象compact退化族に対する反例ではなく、一般的な局所推論を排除する反例**である。完全な証明は主稿 `coarse:prop:density-counterexample` に置く。
+
+依存する一次資料：
+
+- B. Guan, *The Dirichlet Problem for Complex Monge–Ampère Equations and Regularity of the Pluri-Complex Green Function*, CAG 6 (1998), 687–703, Theorem 1.1。https://people.math.osu.edu/guan.19/Papers/guan1998b-cag.pdf 。球上で境界値を延長した $\widetilde b_j$ に $A_j(|Z|^2-1/16)$ を足すと、$A_j$ 大で必要なstrict psh subsolutionを得る。2000年のcorrectionはLemma 3.1/Theorem 1.3とGreen functionのTheorem 1.2の問題を扱い、ここで使うTheorem 1.1を撤回していない。https://people.math.osu.edu/guan.19/Papers/guan1998b-cagapp.pdf 。
+- E. Bedford and B. A. Taylor, *A new capacity for plurisubharmonic functions*, Acta Math. 149 (1982), 1–40, DOI 10.1007/BF02392348。Theorem 4.1の比較とTheorem 6.9のpluripolar capacity零を使う。https://www.math.stonybrook.edu/~ebedford/PapersForM655/BTNewCapacity.pdf 。
+
+### Lagrangian側で得た局所結果
+関連主稿 `lagrangian-torus-fibration/papers/sections/paper/ke_fiber_compatibility.tex` の `ke:short-torus-averaging` と `ke:triple-moving-fibration` が証明の正本。Full-orbit moving domainで $c h_t\le g_t\le C h_t$ を仮定すると、torus平均の短いprimitiveから一つのMoser flowを構成し、全局所fibersを同時にLagrangian化する。$\min\ell_a>m_t$ でambient diameter $O(m_t^{-1})$、raw cubical mapのtarget誤差 $O((1+\log m_t)/R_t)$。$m_t=R_t$ と選べる。高階比較やPBEはこの局所symplectic構成の入力ではないが、tensor比較と大域的なmetric近似は未証明である。Ruan, arXiv:math/0309177v2, §3のaveraging–Moser機構に先行研究があり、新規性は未確認。
 
 ## KE尺度とLagrangian fibrationの比較
 標準規格化 $\operatorname{Ric}(\omega_t)=-\omega_t$ では体積 $2\pi^2d(d-4)^2$ は固定され、成分内部の基点からは $d$ 個の配置補空間の四実次元完備KE極限が残る（Song, arXiv:1706.01518v1, Theorem 1.2；Song–Sturm–Wang, arXiv:2003.04709v1, Theorem 6.1）。径の尺度 $R_t=\log(-\log|t|^2)$ のcubical候補とは異なる極限である。
@@ -7,6 +34,30 @@
 Zhang, MRL 22 (2015), 1843–1869, DOI 10.4310/MRL.2015.v22.n6.a16, arXiv:1505.04728v2, Theorem 2.4の局所collapseにはQ-factorialなsimple toroidal全空間と相対canonicalのamplenessを仮定する。Source germ $xy=tz$ とそのcrepant small resolutionでは両条件を同時には満たさず、局所型の類似だけで直接適用しない。詳細な先行比較・仮定の適用計算の正本は[関連Lagrangian研究ノート](https://github.com/uedakazushi/lagrangian-torus-fibration/blob/main/research/notes.md)。
 
 Part Vの写像 $\Phi_t$ と選んだLagrangian fibration $\pi_t:X_t\to B_d(T)$ を対応させるには、$b_t=\sup_xd_\square(\Phi_t(x),p_T\pi_t(x))\to0$ を別途検証する。$\operatorname{dis}(\Phi_t)\le a_t$ なら $\operatorname{dis}(p_T\pi_t)\le a_t+2b_t$、全fiberのambient直径も同じ量以下となる。証明は関連主原稿の `topo:ke-map-compatibility`。これは三角不等式による比較であって、(CP)$_d$+(PBE)$_d$やactual適合性を証明したことではない。五次では $p_T$ は同相、六次以上では基底の木も収縮する。
+
+## 固定領域の収束から径の尺度へ移る際の障害
+三重点の $x_a=\ell_a/L_t$ に関して全 $x_a\ge\eta>0$ である固定compact集合では、$q_a=1+R_t^{-1}\log\min(x_a,1/2)+O((L_tR_t)^{-1})$ であり、cubical像はtriple vertexに縮む。正方形内部の $w_i=1$、$w_j,w_k\in[\eta,1-\eta]$ は $x_j\asymp L_t^{w_j-1}$、$x_k\asymp L_t^{w_k-1}$ に対応する。厳密な証明とsoftmax全閉corner実現は関連Lagrangian主稿 `ke:triple-hexagon`、`ke:fixed-simplex-scale`。固定compacta上の局所収束だけでは、この速度で境界に近づく領域を制御できない。
+
+### 一様な粗比較を加えても係数1は決まらない例
+$R=\log L$、$s=-\log x$、$x\in[L^{-1},1]$ とする。滑らかな $0\le\chi\le1$ を、$u\le0$ で0、$u\ge1$ で1となるよう取り、
+\[
+g_L=(1+\chi(s-R/2))^2\,ds^2
+\]
+と置く。任意の固定compact集合 $K\subset(0,1]$ 上で、十分大きい $L$ に対して $g_L=dx^2/x^2$ が完全に一致する。全領域でも $dx^2/x^2\le g_L\le4dx^2/x^2$。しかし $R\ge2$ のとき全長は
+\[
+\int_0^R(1+\chi(s-R/2))\,ds
+=\frac32R-c_\chi,\qquad
+c_\chi=1-\int_0^1\chi(u)\,du.
+\]
+従って $R^{-2}g_L$ は長さ $3/2-c_\chi/R$ の区間であり、GH極限は $[0,3/2]$。固定領域での完全な一致と全体の粗い比較からは、depth写像 $q=1-s/R$ の値域 $[0,1]$ における係数1の距離は得られない。これはKE計量の反例ではなく、moving-windowの鋭い評価が必要なことを示す長さ空間の例である。
+
+### Cusp Hermitian模型とKE模型の区別
+Zhang, arXiv:1505.04728v2, Proposition 3.1は、同論文のQ-factorial・相対ample仮定の下でactual/background metricの一様比較を与える。Lemma 3.2(ii)の最深stratum背景とLemma 3.3の極限比較は、制約付きcusp Hermitian模型と整合する。等深度で模型が退化するわけではない。他方、$\psi=-\log(x_0x_1x_2)$、$x_0=1-x_1-x_2$ に対し
+\[
+\det\operatorname{Hess}\psi
+=\frac{x_0^2+x_1^2+x_2^2}{x_0^2x_1^2x_2^2}
+\]
+であり、分子は非定数なので、この模型potential自体を $\det\operatorname{Hess}\psi=\kappa e^{2\psi}$ の解と同一視できない。模型との二側比較と、sharp係数を持つKE漸近は異なる入力である。一次資料：https://arxiv.org/pdf/1505.04728 。
 
 ## Cubical modelと有限計算
 \(\mathcal C_5=\{w\in[0,1]^5:\max_iw_i=1,\ |\operatorname{supp}w|\le3\}\)。

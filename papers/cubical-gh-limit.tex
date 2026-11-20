@@ -131,7 +131,7 @@
 \title{\bfseries 多重スケール Kähler--Einstein 幾何 V\\[3mm]
 \Large 超平面和への退化：定量的 pruning，立方体極限，および直径}
 \author{植田一石\\[-1mm]\small Kazushi Ueda}
-\date{2026年11月20日\\五部作・統合改訂稿 v1.1}
+\date{2026年11月20日\\五部作・統合改訂稿 v1.2}
 
 \begin{document}
 \maketitle
@@ -167,7 +167,11 @@ This is Part V of a five-paper series.  We first prove an unconditional quantita
 \[
  \mathcal C_5=\{w\in[0,1]^5:\max_iw_i=1,\ |\operatorname{supp}w|\le3\}
 \]
-とし，各 maximal squareを unit Euclidean squareとする内在的長さ計量を $d_\square$ と書く．本稿の解析的適用は，第IV篇~\cite{SeriesIV} の粗い package $\mathrm{(CP)}_5$ と，そこで $\mathrm{(PBE)}_5$ の下に導かれる raw co-Gram coefficient-one theoremを入力とする．$\mathrm{(PBE)}_5$ 自体を本稿が証明したとはみなさない．他方，\cref{thm:abstract-pruning} と有限計量 \cref{thm:intro-diameter-C5} はこれらの解析入力から独立である．
+とし，各 maximal squareを unit Euclidean squareとする内在的長さ計量を $d_\square$ と書く．本稿の解析的適用は，第IV篇~\cite{SeriesIV} の粗い package $\mathrm{(CP)}_5$ と，そこで $\mathrm{(PBE)}_5$ の下に導かれる raw co-Gram coefficient-one theoremを入力とする．$\mathrm{(CP)}_5$ と $\mathrm{(PBE)}_5$ 自体を本稿が証明したとはみなさない．
+第IV篇では bounded volume density から tensor 比較への一般的な推論を
+\texttt{coarse:prop:density-counterexample} によって排除し，
+exterior の粗い metric comparison を独立な $\mathrm{(TC)}_5$ に条件付けている．
+従って五次の場合にも $\mathrm{(CP)}_5$ の無条件な検証は完了していない．他方，\cref{thm:abstract-pruning} と有限計量 \cref{thm:intro-diameter-C5} はこれらの解析入力から独立である．
 
 \tableofcontents
 
@@ -184,7 +188,7 @@ This is Part V of a five-paper series.  We first prove an unconditional quantita
  H_i^\circ=H_i\setminus\bigcup_{j\ne i}H_j
  \simeq\PP^2\setminus\bigcup_{j\ne i}(H_i\cap H_j)
 \]
-に対する第I篇の orthant complexを unit depthで切り，surfaceの normal-crossing bound $|\supp w|\le3$ を課したものとみなせる．第II篇~\cite{SeriesII} の secondary periodsは，$d\ge6$ では residual arrangementの scale-one geometryを区別し得るが，$\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ から first logarithmic scaleを導く本稿の抽象推論には追加入力として現れない．局所 source germ $xy=tz$ は第III篇~\cite{SeriesIII} の conifold modelsとの形式的な橋をなし，本稿の \cref{thm:abstract-pruning} はその local-to-global距離論を有限複体向けに自己完結化したものである．第IV篇~\cite{SeriesIV} が raw coordinates，粗い connector package，および $\mathrm{(PBE)}_d$ 下の sharp co-Gram入力を供給し，本稿はそれらを大域 metric-space limitへ変換する．
+に対する第I篇の orthant complexを unit depthで切り，surfaceの normal-crossing bound $|\supp w|\le3$ を課したものとみなせる．第II篇~\cite{SeriesII} の secondary periodsは，$d\ge6$ では residual arrangementの scale-one geometryを区別し得るが，$\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ から first logarithmic scaleを導く本稿の抽象推論には追加入力として現れない．局所 source germ $xy=tz$ は第III篇~\cite{SeriesIII} の conifold modelsとの形式的な橋をなし，本稿の \cref{thm:abstract-pruning} はその local-to-global距離論を有限複体向けに自己完結化したものである．第IV篇~\cite{SeriesIV} が raw coordinates と，明示したtensor比較・exhaustion仮定の下での粗い connector package および sharp co-Gram入力を扱い，本稿はそれらを大域 metric-space limitへ変換する．
 
 \subsection{固定次数の解析入力}
 固定した $d\ge5$ に対し，一般位置の平面 $H_i=\{L_i=0\}\subset\PP^3$ $(0\le i\le d-1)$ と次数 $d$ の斉次式 $F_d$ から
@@ -311,6 +315,12 @@ $R_t^{-1}d_{g_t}$ に関する ambient diameterも零へ行く．
 本稿の $\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ も，symplectic Moser 同定も，
 この特定の $\pi_t$ に対する $b_t\to0$ の証明の代用にはならない．
 $d\ge6$ では $p_T$ の木fiberに対応する追加の収縮も含む．
+同関連原稿の
+\href{https://github.com/uedakazushi/lagrangian-torus-fibration/blob/main/papers/sections/paper/ke_fiber_compatibility.tex}
+{定理 \texttt{ke:triple-moving-fibration}} は，
+全phaseを含む moving triple domain 上での一様 tensor 比較を仮定して，
+actual KE 形式に関する局所 Lagrangian fibration と小さい ambient fibers を与える．
+これは全域での $b_t\to0$ や特異 fibers への接着をまだ含まない．
 \end{remark}
 
 以下の定数は固定した $d$ に依存してよいが，$t$ には依存しない．
@@ -2053,7 +2063,7 @@ Ambient $N\ge4$ の $X_t^{(N,d)}\to\Cnd$
 \end{center}
 
 \subsection{結論}
-本稿の無条件な成果は，局所 co-Gram制御を有限複体への almost-isometryへ変換する抽象定理と，$\cC_5$ の厳密直径である．解析的 familyへの適用は，固定次数 $d\ge5$ まで同一の有限次元 pruning--transport proofで一般化されるが，その結論は $\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ に条件付けられる．この区別により，今後必要な仕事は明確である：surface caseでは $\mathrm{(PBE)}_d$ の完全な検証，高次元では mixed source--higher-stratum local modelsの構成である．
+本稿の無条件な成果は，局所 co-Gram制御を有限複体への almost-isometryへ変換する抽象定理と，$\cC_5$ の厳密直径である．解析的 familyへの適用は，固定次数 $d\ge5$ まで同一の有限次元 pruning--transport proofで一般化されるが，その結論は $\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ に条件付けられる．この区別により，今後必要な仕事は明確である：surface caseでは $\mathrm{(CP)}_d$ に必要な非循環のtensor比較と $\mathrm{(PBE)}_d$ の完全な検証，高次元では mixed source--higher-stratum local modelsの構成である．
 
 \appendix
 
