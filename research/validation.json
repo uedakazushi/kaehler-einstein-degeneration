@@ -139,9 +139,9 @@
   },
   "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested.",
   "current_math_audit_2026_11_20": {
-    "mathematical_results": "Artificial PL length-metric collapse B_d(T)→C_d with distortion at most C epsilon; cited proof located in lagrangian-torus-fibration base_topology.tex. This does not establish actual KE GH convergence, which still assumes CP_d+PBE_d.",
-    "independent_computation": "Integer-rational cellular ranks of B_d(T) checked for d=5,6,7,8 in Python/SymPy (r1,r2)=(4,6),(5,25),(6,57),(7,105). K6 Petersen factorisation enumeration also independently checked.",
-    "full_lualatex_after_edits": "not run; previously recorded builds predate the latest manuscript edits",
-    "source_hashes": "research/source-manifest.json updated with current digest and original source digest"
+    "mathematics_verified": "Recorded precise artificial B_d(T)->C_d collapse rates d=5 O(epsilon^2), d>=6 O(epsilon), including the no-shortcut/square lifts/fibre portal criterion and necessity of the portal condition for this correspondence. The proof is maintained in the Lagrangian repository.",
+    "independent_computations_executed": "Independent finite cellular ranks for d=5..8 and exact K6 Petersen matching counts.",
+    "post_edit_lualatex_rerun": false,
+    "claims_not_established": "Actual Kähler–Einstein GH convergence requires proof of (CP)_d and (PBE)_d; synthetic base collapse does not supply these analytic inputs."
   }
 }
