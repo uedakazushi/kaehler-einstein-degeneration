@@ -1,15 +1,29 @@
 # 研究ノート：一般型超曲面のKE退化
-更新：2026-11-20 / v1.4
+更新：2026-11-20 / v1.5
+
+## 全深部三重点の actual semi-flat 比較と閉corner
+任意の固定次数 d≥5 の一般位置全平面退化で、三重点の全深度比・全角度に一様な actual KE 比較を証明した。正確な座標 ζ0ζ1ζ2=t、ell_i=−log|ζ_i|²、L=−log|t|²、R=log L とし、k_Lをlogarithmic simplex上のcomplete toric KE form、その実計量をg_L^sfとする。十分大きい固定m1と各qのCqについて、m≥m1、min ell_i≥mで
+\[
+\left|\log\frac{\omega_t^2}{k_L^2}\right|\le C/m,\qquad
+\|g_t-g_L^{sf}\|_{C^q}\le C_q/m.
+\]
+定数は固定dと族に依存してよい。次数一様性は主張しない。証明の正本はKE主稿 `coarse:thm:full-triple-tensor`。
+
+固定toric模型の存在・完備性にはZhang (2015), §2.1, Theorem 2.1 / Proposition 2.2を用いる（退化族のTheorem 2.4とQ-factorial仮定は使わない）。ψ_L=log L−Σlog ell_iに対してψ_L−(log3)/2≤φ_L≤ψ_L、V_L/3≤k_L²≤V_Lを内外にずらした障壁で証明する。Complete模型から三つの半平面へのYau Schwarz lemma、determinant比較、内部正則性により一様cusp geometryを得る。凸性からfacet shiftのlog-density差をO(1/min ell)とし、actual計量を内外のsimplex KE metricsでvolume比較する。Savinの小摂動定理でtensor・全高階誤差へ移る。Actual metric bufferや(TC)/(PBE)を前提としない。
+
+Actual側の大域入力は `coarse:cor:degree-d-volume-lower`。Adjunction residueでcanonical densityを固定し、backgroundによるHermitian frame errorの吸収と各正のcap方向のminorから六型のdeterminant下界を証明する。Sourceでは元のplane coordinatesを保つexact xy=tzとrescalingにより二つのcap係数≥c_d/Lを使う。Compact minimum原理からactual volume下界を得る。今回この依存部分も再点検して明示化した。
+
+Lagrangian主稿 `ke:actual-closed-corner` により、m=Rでは三枚の閉square全体を一つのactual Lagrangian torus bundleで実現できる。全fiberのintrinsic/ambient diameterはO(1/R)、R^−2 g_tに正規化後はO(1/R²)、raw cubical mapとの誤差はO(log R/R)。Squareの継目でもfiberはregular T²であり、既存大域fibrationのsource・branch・coreのsingular fibersと同定したわけではない。閉corner全体の鋭い距離のGH同定、大域相対接着とshortcut制御は残る。新規性の網羅的確認と外部査読・形式証明は未実施。
 
 ## 開正方形内部の actual KE 比較と局所collapse
-五次族について、主稿 `coarse:thm:moving-triple-tensor` / `coarse:cor:open-square-tensor` に新しい証明を置いた。正確な三重点座標 ζ0ζ1ζ2=t、L=−log|t|²、R=log L、独立深度 a,b とし、0<η<1/2 を固定する。a,b∈[L^η/2,2L^(1−η)] 上で actual g_t は二つの cusp の積 h_prod に全固定階で O(L^(−η/4)) 近づく。全角度について一様であり、(TC)_5、(PBE)_5、actual metric buffer を仮定しない。依存する大域入力は既存の capped volume 下界 `coarse:cor:global-volume-lower` である。
+任意の固定次数d≥5の族について、主稿 `coarse:thm:moving-triple-tensor` / `coarse:cor:open-square-tensor` に新しい証明を置いた。正確な三重点座標 ζ0ζ1ζ2=t、L=−log|t|²、R=log L、独立深度 a,b とし、0<η<1/2 を固定する。a,b∈[L^η/2,2L^(1−η)] 上で actual g_t は二つの cusp の積 h_prod に全固定階で O(L^(−η/4)) 近づく。全角度について一様であり、(TC)_5、(PBE)_5、actual metric buffer を仮定しない。依存する大域入力はcapped volume 下界 `coarse:cor:degree-d-volume-lower` である。
 
 証明は、三重点内の expanding product annuli、shifted-sinh 型の負KE下barrier、finite complete annuli の上barrierから volume ratio→1 を得て、Savin (2007), Theorem 1.3 の small-perturbation regularity を適用する。bounded densityだけの旧推論とは異なり、small C0 potential が入力である。明示式・境界比較・Savinの仮定・Schauderによる誤差率を今回点検した。新規性の網羅的確認は未完了。
 
 関連 Lagrangian 主稿 `ke:open-cell-collapse` により、各開正方形の固定長方形 Kη=[η,1−η]² 上に actual KE–Lagrangian torus fibration を構成できる。Fiberのintrinsic/ambient diameterは O(L^(−η))、raw cubical mapとの値の誤差は O(1/R)。Moser像領域に内在距離を入れれば R^−2 g_t のGH極限は平坦な Kη であり、projection distortion は O(L^(−η/4)+L^(−η)/R)。領域外のshortcutを許すambient距離、大域fibrationとの接着、singular fibersは未解決。
 
 ## 局所windowと残るtensor仮定
-三つの深度が同程度のとき、一つの独立二座標product windowで任意半径のconstrained-cusp ballを覆うことはできない（`coarse:prop:triple-product-obstruction`）。最大深度を従属座標にする小さい相対箱は有効であり、全deep triple上のvolume上下界とbounded potentialは `coarse:cor:triple-volume-comparison` で証明する。これだけではfull tripleのtensor比較は得られない。
+三つの深度が同程度のとき、一つの独立二座標product windowで任意半径のconstrained-cusp ballを覆うことはできない（`coarse:prop:triple-product-obstruction`）。最大深度を従属座標にする小さい相対箱は有効であり、全deep triple上のvolume上下界とbounded potentialは `coarse:cor:triple-volume-comparison` で証明する。このvolume比較単独ではtensor比較は得られず、上記のcomplete simplex barriersとSavinを組み合わせてfull tripleの比較を証明する。
 
 Source gateのfixed model ballはoriented half-armを越える。Full source-coordinate extension上でdensity比較を行い、(TC)_5は**その点で有効なorientation**のmodelに対する下界として定式化する。全ての拡大窓で同じmodelのtensor比較を要求しない。任意半径のexhaustionはcoarse小窓構成の結論に含めず、dominant tripleでの証明と一般の(PBE)_dを分ける。
 
@@ -38,7 +52,7 @@ $\Omega=B(0,1/4)\subset\mathbf C^2$、$r=|w|$ として
 - E. Bedford and B. A. Taylor, *A new capacity for plurisubharmonic functions*, Acta Math. 149 (1982), 1–40, DOI 10.1007/BF02392348。Theorem 4.1の比較とTheorem 6.9のpluripolar capacity零を使う。https://www.math.stonybrook.edu/~ebedford/PapersForM655/BTNewCapacity.pdf 。
 
 ### Lagrangian側で得た局所結果
-関連主稿 `lagrangian-torus-fibration/papers/sections/paper/ke_fiber_compatibility.tex` の `ke:short-torus-averaging` と `ke:triple-moving-fibration` が証明の正本。Full-orbit moving domainで $c h_t\le g_t\le C h_t$ を仮定すると、torus平均の短いprimitiveから一つのMoser flowを構成し、全局所fibersを同時にLagrangian化する。$\min\ell_a>m_t$ でambient diameter $O(m_t^{-1})$、raw cubical mapのtarget誤差 $O((1+\log m_t)/R_t)$。$m_t=R_t$ と選べる。高階比較やPBEはこの局所symplectic構成の入力ではないが、全閉cornerのtensor比較と大域的なmetric近似は未証明である。開正方形の固定compact部分については上記の新定理で解析比較を証明した。Ruan, arXiv:math/0309177v2, §3のaveraging–Moser機構に先行研究があり、新規性は未確認。
+関連主稿 `lagrangian-torus-fibration/papers/sections/paper/ke_fiber_compatibility.tex` の `ke:short-torus-averaging` と `ke:triple-moving-fibration` が証明の正本。Full-orbit moving domainで $c h_t\le g_t\le C h_t$ を仮定すると、torus平均の短いprimitiveから一つのMoser flowを構成し、全局所fibersを同時にLagrangian化する。$\min\ell_a>m_t$ でambient diameter $O(m_t^{-1})$、raw cubical mapのtarget誤差 $O((1+\log m_t)/R_t)$。$m_t=R_t$ と選べる。高階比較やPBEはこの局所symplectic構成の入力ではないが、全閉cornerのtensor比較は上記のsimplex model theoremで証明した。大域的なmetric近似と相対接着は未証明である。Ruan, arXiv:math/0309177v2, §3のaveraging–Moser機構に先行研究があり、新規性は未確認。
 
 ## KE尺度とLagrangian fibrationの比較
 標準規格化 $\operatorname{Ric}(\omega_t)=-\omega_t$ では体積 $2\pi^2d(d-4)^2$ は固定され、成分内部の基点からは $d$ 個の配置補空間の四実次元完備KE極限が残る（Song, arXiv:1706.01518v1, Theorem 1.2；Song–Sturm–Wang, arXiv:2003.04709v1, Theorem 6.1）。径の尺度 $R_t=\log(-\log|t|^2)$ のcubical候補とは異なる極限である。

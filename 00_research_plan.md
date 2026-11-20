@@ -1,5 +1,5 @@
 # 現行研究方針：一般型超曲面の負Kähler–Einstein退化
-更新：2026-11-20 / v1.4・現行研究方針
+更新：2026-11-20 / v1.5・現行研究方針
 
 ## 研究固有の目標
 一般型超曲面の超平面和への退化とdiameter-scale GH極限を研究する。2026-08-31の五篇連作v1.0（旧三部作と退化二部作の再監査版）のPart IV–Vを回収し、短い再構成稿を全文TeXへ置換した。
@@ -10,15 +10,29 @@
 - 高次元ではmixed source–higher-stratum modelsの解析が残るためGH極限は予想。
 - Fixed arrangement complement側Part I–IIIの正本は[multiscale-kaehler-einstein](https://github.com/uedakazushi/multiscale-kaehler-einstein)。固定空間の結果から族の一様性を自動的に導かない。
 
+## 全深部三重点の actual semi-flat 比較と閉corner
+任意の固定次数 d≥5 の一般位置全平面退化で、三重点の全深度比・全角度に一様な actual KE 比較を証明した。正確な座標 ζ0ζ1ζ2=t、ell_i=−log|ζ_i|²、L=−log|t|²、R=log L とし、k_Lをlogarithmic simplex上のcomplete toric KE form、その実計量をg_L^sfとする。十分大きい固定m1と各qのCqについて、m≥m1、min ell_i≥mで
+\[
+\left|\log\frac{\omega_t^2}{k_L^2}\right|\le C/m,\qquad
+\|g_t-g_L^{sf}\|_{C^q}\le C_q/m.
+\]
+定数は固定dと族に依存してよい。次数一様性は主張しない。証明の正本はKE主稿 `coarse:thm:full-triple-tensor`。
+
+固定toric模型の存在・完備性にはZhang (2015), §2.1, Theorem 2.1 / Proposition 2.2を用いる（退化族のTheorem 2.4とQ-factorial仮定は使わない）。ψ_L=log L−Σlog ell_iに対してψ_L−(log3)/2≤φ_L≤ψ_L、V_L/3≤k_L²≤V_Lを内外にずらした障壁で証明する。Complete模型から三つの半平面へのYau Schwarz lemma、determinant比較、内部正則性により一様cusp geometryを得る。凸性からfacet shiftのlog-density差をO(1/min ell)とし、actual計量を内外のsimplex KE metricsでvolume比較する。Savinの小摂動定理でtensor・全高階誤差へ移る。Actual metric bufferや(TC)/(PBE)を前提としない。
+
+Actual側の大域入力は `coarse:cor:degree-d-volume-lower`。Adjunction residueでcanonical densityを固定し、backgroundによるHermitian frame errorの吸収と各正のcap方向のminorから六型のdeterminant下界を証明する。Sourceでは元のplane coordinatesを保つexact xy=tzとrescalingにより二つのcap係数≥c_d/Lを使う。Compact minimum原理からactual volume下界を得る。今回この依存部分も再点検して明示化した。
+
+Lagrangian主稿 `ke:actual-closed-corner` により、m=Rでは三枚の閉square全体を一つのactual Lagrangian torus bundleで実現できる。全fiberのintrinsic/ambient diameterはO(1/R)、R^−2 g_tに正規化後はO(1/R²)、raw cubical mapとの誤差はO(log R/R)。Squareの継目でもfiberはregular T²であり、既存大域fibrationのsource・branch・coreのsingular fibersと同定したわけではない。閉corner全体の鋭い距離のGH同定、大域相対接着とshortcut制御は残る。新規性の網羅的確認と外部査読・形式証明は未実施。
+
 ## 開正方形内部の actual KE 比較と局所collapse
-五次族について、主稿 `coarse:thm:moving-triple-tensor` / `coarse:cor:open-square-tensor` に新しい証明を置いた。正確な三重点座標 ζ0ζ1ζ2=t、L=−log|t|²、R=log L、独立深度 a,b とし、0<η<1/2 を固定する。a,b∈[L^η/2,2L^(1−η)] 上で actual g_t は二つの cusp の積 h_prod に全固定階で O(L^(−η/4)) 近づく。全角度について一様であり、(TC)_5、(PBE)_5、actual metric buffer を仮定しない。依存する大域入力は既存の capped volume 下界 `coarse:cor:global-volume-lower` である。
+任意の固定次数d≥5の族について、主稿 `coarse:thm:moving-triple-tensor` / `coarse:cor:open-square-tensor` に新しい証明を置いた。正確な三重点座標 ζ0ζ1ζ2=t、L=−log|t|²、R=log L、独立深度 a,b とし、0<η<1/2 を固定する。a,b∈[L^η/2,2L^(1−η)] 上で actual g_t は二つの cusp の積 h_prod に全固定階で O(L^(−η/4)) 近づく。全角度について一様であり、(TC)_5、(PBE)_5、actual metric buffer を仮定しない。依存する大域入力はcapped volume 下界 `coarse:cor:degree-d-volume-lower` である。
 
 証明は、三重点内の expanding product annuli、shifted-sinh 型の負KE下barrier、finite complete annuli の上barrierから volume ratio→1 を得て、Savin (2007), Theorem 1.3 の small-perturbation regularity を適用する。bounded densityだけの旧推論とは異なり、small C0 potential が入力である。明示式・境界比較・Savinの仮定・Schauderによる誤差率を今回点検した。新規性の網羅的確認は未完了。
 
 関連 Lagrangian 主稿 `ke:open-cell-collapse` により、各開正方形の固定長方形 Kη=[η,1−η]² 上に actual KE–Lagrangian torus fibration を構成できる。Fiberのintrinsic/ambient diameterは O(L^(−η))、raw cubical mapとの値の誤差は O(1/R)。Moser像領域に内在距離を入れれば R^−2 g_t のGH極限は平坦な Kη であり、projection distortion は O(L^(−η/4)+L^(−η)/R)。領域外のshortcutを許すambient距離、大域fibrationとの接着、singular fibersは未解決。
 
 ## 局所windowと残るtensor仮定
-三つの深度が同程度のとき、一つの独立二座標product windowで任意半径のconstrained-cusp ballを覆うことはできない（`coarse:prop:triple-product-obstruction`）。最大深度を従属座標にする小さい相対箱は有効であり、全deep triple上のvolume上下界とbounded potentialは `coarse:cor:triple-volume-comparison` で証明する。これだけではfull tripleのtensor比較は得られない。
+三つの深度が同程度のとき、一つの独立二座標product windowで任意半径のconstrained-cusp ballを覆うことはできない（`coarse:prop:triple-product-obstruction`）。最大深度を従属座標にする小さい相対箱は有効であり、全deep triple上のvolume上下界とbounded potentialは `coarse:cor:triple-volume-comparison` で証明する。このvolume比較単独ではtensor比較は得られず、上記のcomplete simplex barriersとSavinを組み合わせてfull tripleの比較を証明する。
 
 Source gateのfixed model ballはoriented half-armを越える。Full source-coordinate extension上でdensity比較を行い、(TC)_5は**その点で有効なorientation**のmodelに対する下界として定式化する。全ての拡大窓で同じmodelのtensor比較を要求しない。任意半径のexhaustionはcoarse小窓構成の結論に含めず、dominant tripleでの証明と一般の(PBE)_dを分ける。
 
@@ -37,14 +51,14 @@ Actual計量へ適用するには(N) global no-shortcut、(S) local square path 
 標準負KE尺度での四実次元非崩壊極限と、$R_t^{-2}g_t$ のcubical候補を区別する。Zhang (MRL, 2015)の局所torus collapse定理はQ-factorialなtoroidal全空間を仮定するため、我々のsource $xy=tz$ へ直接適用しない。主稿序論に先行比較を統合した。Part VのGH近似を我々のLagrangian fibrationのfiber収縮と同定するには、$\sup_x d_\square(\Phi_t(x),p_T\pi_t(x))\to0$ という追加の適合性が必要。関連Lagrangian主原稿の `topo:ke-map-compatibility` がその十分性を示すが、actual適合性は未証明である。
 
 ## 次の課題
-1. 最優先は開正方形で得たbarrier–Savin法をclosed triple cornerへ広げること。三角形tube上のcomplete toric KE metricを背景にし、facetsを内外へ平行移動した領域のKE metricsで挟む方法を検討する。存在・一意性・uniform cusp geometry・facet-shiftの評価をそれぞれ一次資料または直接証明で確定する。
-2. 各open-cellの局所fibrationをmultiple-max facesとsupport-drop facesへ延長し、overlapのrelative Moser、source・branch・coreへの接着を進める。全曲面のno-shortcutとconnector径は局所内在GH定理から分離して証明する。
+1. 最優先はclosed triple cornerの局所fibrationをneck・source領域へ相対的に接着すること。Complete simplex背景とfacet-shiftによる三重点の解析比較は証明済み。次にopen-edge領域のannulus×cusp模型、sourceの正しいorientation、overlapで固定するcollarsを具体的に選ぶ。
+2. Multiple-max facesを含むclosed triple cornerの局所fibrationは構成済みである。Support-drop側のneckへ延長し、overlapのrelative Moser、source・branch・coreへの接着を進める。全曲面のno-shortcutとconnector径は局所内在GH定理から分離して証明する。
 3. (PBE)_dのquantitative terminal trivialization、protected rectangular inclusion、uniform comparison、two-metric escapeをactual metricsで証明し、一般次数の(CP)_dのconnectorsを監査する。
 
 ## 保存・検証
 全文TeXのSHA-256は `research/source-manifest.json`、元監査は `research/source-audit.md`。3原稿のLuaLaTeX組版と、統合稿5 scripts・旧v0.12の16 scriptsの再実行を行った。検査は有限組合せ・式・bookkeepingに限られ、未完成の解析証明を代替しない。詳細は `research/migration.md`。
 
-現行の解析監査では、expanding product domains、shifted-sinh barriers、Savinの原典のH1/H2/H4とTheorem 1.3、局所MoserのC1評価とGH distortionを点検した。またbounded-density推論のcutoffの欠落、明示的な負KE弱解と滑らかなDirichlet近似による反例、その依存先を点検した。GuanのDirichlet存在定理とBedford–Taylorの比較・pluripolar massの一次資料を確認した。Actual GH収束・fibrationとの一様適合性の解析証明は未完成。現環境では `lualatex.fmt`・LuaTeX-ja等の基本資産がなく、LuaLaTeX組版の試行は本文処理前に停止した。回収時の組版成功と現行改訂の未組版を区別する。
+現行の解析監査では、全固定次数のweighted cap determinant、source residue規格化、complete simplexの内外barriers、convex shift評価、expanding product domains、shifted-sinh barriers、Savinの原典のH1/H2/H4とTheorem 1.3、局所MoserのC1評価とGH distortionを点検した。またbounded-density推論のcutoffの欠落、明示的な負KE弱解と滑らかなDirichlet近似による反例、その依存先を点検した。GuanのDirichlet存在定理とBedford–Taylorの比較・pluripolar massの一次資料を確認した。Actual GH収束・fibrationとの一様適合性の解析証明は未完成。現環境では `lualatex.fmt`・LuaTeX-ja等の基本資産がなく、LuaLaTeX組版の試行は本文処理前に停止した。回収時の組版成功と現行改訂の未組版を区別する。
 
 ## 共通研究原則と保存許可（研究固有方針から独立）
 数学的重要性・新規性・理解の深化・応用可能性・正確性・実現可能性を総合して方針を更新する。証明済み・仮定付き・未完成・予想・計算観察、既知結果と独自結果、草稿の証明と今回の監査を区別する。重要文献は一次資料の正確な定理と仮定を確認する。日本語LuaLaTeXで公表原稿と十分な証明を保持し、有効なアイデア・反例・計算は現行ノートに統合する。再現コード・証明書・入力を残すが旧版/中間出力は蓄積しない。区切りごと承諾なしに通常コミットで `main` へpush、15–30分を目安に切り良く保存する。force pushとGitHub Actions追加/起動はしない。Library旧資料は削除しないがGitHub移行後は定常二重保存しない。先に対象repoへ保存してからresearch-hubを更新し、数学検証・組版・GitHub・hubを別々に確認する。

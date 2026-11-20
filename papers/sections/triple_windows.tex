@@ -204,13 +204,13 @@ $\ddc\log(\omega_t^2/(\widehat\omega_{p,t})^2)
  \qquad
  \ddc u_t=\omega_t-\omega_t^{\mathrm{cusp}}.
 \end{equation}
-これらは $\mathrm{(TC)}_5$ を仮定しない．
+これらは $\mathrm{(TC)}_5$ を仮定しない．任意の固定次数 $d\ge5$ の同じ三重点で成立し，定数は固定した次数と族に依存してよい．
 \end{corollary}
 
 \begin{proof}
 上界は各点で \cref{coarse:lem:triple-relative-window} を適用し，
 \eqref{coarse:eq:triple-cusp-exact-volume-ratio} を用いれば得られる．
-下界には \cref{coarse:cor:global-volume-lower} で証明した
+下界には \cref{coarse:cor:global-volume-lower,coarse:cor:degree-d-volume-lower} で証明した
 $\omega_t^2\ge c\Omega_t^{\mathrm{low}}$ を用いる．
 三つの active labels では exact coordinates と元の defining sections の比が bounded unit であり，
 \[
@@ -404,5 +404,5 @@ Balanced region では \cref{coarse:prop:triple-product-obstruction} がある�
 本補題の volume 上界だけから actual tensor comparison は導かない．
 Dominant moving sector については，次の \cref{coarse:thm:moving-triple-tensor} で
 別途構成する下 barrier と small-potential regularity により actual tensor comparison を証明する．
-全閉 corner の比較や，大域的な actual boundary escape までを本補題の結論に含めない．
+全閉 corner の比較は \cref{coarse:thm:full-triple-tensor} で complete simplex model を用いて別に証明する．大域的な actual boundary escape は本補題の結論に含めない．
 \end{remark}

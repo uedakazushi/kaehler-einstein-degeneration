@@ -1,17 +1,22 @@
 % !TeX root = ../kaehler-einstein-degeneration.tex
-% Current result, 2026-11-20.  Included from the main manuscript.
+% Current content: 2026-11-20, v1.1.  Included from the main manuscript.
 \section{三重点の開正方形領域における actual KE 比較}
 \label{sec:moving-triple-comparison}
 
-本節では一つの logarithmic depth が他の二つより大きい三重点領域を扱う．
+本節では，\cref{ass:Gd} を満たす固定次数 $d\ge5$ の全平面退化
+$X_t^{(d)}$ を考え，一つの logarithmic depth が他の二つより大きい三重点領域を扱う．
+$\omega_t$ と $g_t$ は $\Ric(\omega_t)=-\omega_t$ と規格化した actual KE form と実計量とする．
+以下の定数は固定した $d$ と退化族に依存してよく，次数を動かす一様性は主張しない．
 この領域では三重点 chart を出ない expanding product annuli を直接構成できる．
 大域 volume 下界を境界値として用いる負 KE 下 barrier と，complete annulus 上 barrier により，
 volume ratio を $1$ に挟み込む．その結果として得られる\emph{小さい} potential に
 Savin の定理を適用し，actual metric の tensor 比較を導く．
 単に有界な volume ratio から tensor 比較を推論する議論とは異なり，
 \cref{coarse:prop:density-counterexample} の反例と矛盾しない．
-本節は $\mathrm{(TC)}_5$ や $\mathrm{(PBE)}_5$，任意半径の complete-envelope package を用いない．
-依存する大域入力は \cref{coarse:cor:global-volume-lower} である．
+本節は exterior の tensor-comparison 仮定や $\mathrm{(PBE)}_d$，
+任意半径の complete-envelope package を用いない．
+依存する大域入力は \cref{coarse:cor:degree-d-volume-lower} である．
+五次では \cref{coarse:cor:global-volume-lower} を用いても同じ証明になる．
 以下の組合せによる結果の新規性は未確認である．
 
 \subsection{正確な product domain と粗い volume 下界}
@@ -85,11 +90,11 @@ Canonical residue frame は，bounded nonvanishing factor を除いて
 \[
  \frac{d\zeta_1}{\zeta_1}\wedge\frac{d\zeta_2}{\zeta_2}
 \]
-である．従って $\Omega_t^{\mathrm{low}}=L_t^2\prod_i\alpha_i^{-2}\Omega_{0,t}$ は
+である．従って $\Omega_{t,d}^{\mathrm{low}}=L_t^2\prod_{i=1}^d\alpha_i^{-2}\Omega_{0,t}^{(d)}$ は
 $h_{\mathrm{prod}}^2$ と一様に比較可能である．
-\Cref{coarse:cor:global-volume-lower} を適用すればよい．
-ここで比較するのは density $\Omega_t^{\mathrm{low}}$ であり，
-その curvature form $h_t^{\mathrm{low}}$ の tensor 比較は用いていない．
+\Cref{coarse:cor:degree-d-volume-lower} を適用すればよい．
+ここで比較するのは density $\Omega_{t,d}^{\mathrm{low}}$ であり，
+その curvature form の tensor 比較は用いていない．
 \end{proof}
 
 \subsection{Shifted-sinh barrier による volume ratio の挟み込み}
@@ -307,6 +312,7 @@ $\|v_\nu\|_{C^{k+2}(B')}\le C_{k,B'}\|v_\nu\|_{C^0(B)}$
 
 \begin{theorem}[Dominant triple 領域の actual product-cusp 漸近]
 \label{coarse:thm:moving-triple-tensor}
+\Cref{ass:Gd} を満たす固定次数 $d\ge5$ の全平面退化を考える．
 $a=a_t$, $b=b_t$, $\rho=\rho_t\to\infty$ が
 \eqref{moving:eq:rectangle-protection} を満たすとする．
 任意の固定 $r>0$ と $k\ge0$ に対して
@@ -317,6 +323,8 @@ $a=a_t$, $b=b_t$, $\rho=\rho_t\to\infty$ が
 が十分小さい $t$ に対して成り立つ．
 $C^k$ norm は angular universal cover の normalized logarithmic coordinates で計算し，
 評価は全 torus orbits について一様である．
+有限個の三重点 chart の定数の最大を取ることにより，固定した族の全三重点にも一様にできる．
+定数は $d$ と退化族に依存してよい．
 特に，この領域では $g_t$ と $h_{\mathrm{prod}}$ の一様 tensor 比較が
 独立の仮定なしに成立する．
 \end{theorem}
@@ -345,7 +353,7 @@ $C^0$ norm $O_r(e^{-\rho_t})$ を持つ．
 
 \begin{corollary}[Cubical open-square compacta の一様比較]
 \label{coarse:cor:open-square-tensor}
-$0<\eta<1/2$ を固定する．
+同じ固定次数 $d\ge5$ の族で $0<\eta<1/2$ を固定する．
 \[
  \frac12L_t^\eta\le a,b\le2L_t^{1-\eta},
  \qquad \rho_t=\frac{\eta}{4}R_t
@@ -362,7 +370,7 @@ $0<\eta<1/2$ を固定する．
  \|g_t-h_{\mathrm{prod}}\|_{C^k(E_{t,\eta},h_{\mathrm{prod}})}
  \le C_{k,\eta}L_t^{-\eta/4}.
 \end{equation}
-この領域の raw image は，dominant label $0$ の正方形の
+この領域の raw image は，$\mathcal C_d$ における dominant local label $0$ の正方形の
 $(q_1,q_2)\in[\eta,1-\eta]^2$ を $o(1)$ の誤差で実現する．
 \end{corollary}
 
