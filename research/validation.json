@@ -137,5 +137,10 @@
     "result": "Reviewed rendered contact sheets; no visible clipping or overlap in sampled pages.",
     "full_page_review": false
   },
-  "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested."
+  "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested.",
+  "current_math_audit_2026_11_20": {
+    "mathematical_check": "Proved a general-d cubical cell-count, skeleton homeomorphism and integral homology proposition; added a labelled topological comparison with the Lagrangian branched base. Actual GH remains conditional on (CP)_d+(PBE)_d.",
+    "finite_test": "Finite d=5..8 cellular chain ranks independently computed in characteristic zero and a finite field (equivalent script stored in Lagrangian repo).",
+    "latest_full_lualatex_build": "Not rerun after these edits; previous build evidence applies to pre-edit manuscripts."
+  }
 }
