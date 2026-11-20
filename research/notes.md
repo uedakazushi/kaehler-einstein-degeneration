@@ -16,4 +16,4 @@
 \(u_0(w)=(1+w^2)^{-2}\) はscale、\(u_1(w)=(w+w^3/3)(1+w^2)^{-2}\) はend-degree/asymmetryのJacobi方向。Five-source relative jump \(a_+-a_-=5\) はcusp trivializationに依存し、balance \(5=2+3\) と整合させる。Filtered root-1 tracesを含むnonlinear Lyapunov–Schmidt/scattering matchingのuniform controlが主障害。
 
 ## 再現性
-旧Libraryの `README_v12.md`、`MANIFEST_v12.json`、16 certificate scriptsが参照資料。旧v0.12全文はpapers/punctured-neck-scattering.texへ移植済み。16 scripts中11本を回収・再実行し、5本は未回収、2本は元manifestとhashが異なる。統合稿の五つの補助scriptsは回収・再実行済みだが、旧16本を代替したとは扱わない。原資料のupLaTeXからLuaLaTeXへの変更は、実際のビルド検証とは区別する。
+旧v0.12原稿の16検算は元の配布ZIPに基づきSHA-256を照合し、全件再実行した。統合稿の補助検算5本も再実行済み。出典・ハッシュは `source-manifest.json`、結果は `validation.json`。

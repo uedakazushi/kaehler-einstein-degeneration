@@ -10,14 +10,14 @@
 
 ## 完全移行の範囲
 
-本記録は取得できた統合版の全文移行を示す。Libraryの全履歴・全旧稿だけに残る内容の網羅的照合は未了。旧v0.12の16 scripts中11本を回収した。9本は元manifestのSHA-256と一致し、cusp_indicial_parametrix_certificate.pyとsemistable_resolution_certificate.pyは異なる取得版である。元と同一版とは報告しない。統合版の五つの検査で旧16本全てを代替したとは扱わない。Post-trilogy noteの正本は配置補空間repo。旧資料の独自内容を回収する作業と、現行稿の数学的な未解決問題は別である。
+統合版全文と旧v0.12本文・検算16本を移行した。Libraryの全履歴と旧版固有内容の網羅的照合は未了。Post-trilogy noteの正本は配置補空間repo。
 
 ## 計算の再実行
 
-`scripts/run_checks.py`が元scriptsをbuild/certificate-runs/へコピーして実行する。Pythonのsympy、mpmath、scipyが必要。統合稿5本・旧neck関連11本は全てexit 0、出力にFAIL・AssertionErrorはなし。有限gallery、25,000点のcomplete-window診断、20,000点のframe-shear診断等と、解析証明を区別する。詳細はresearch/validation.json。今回の再実行結果と、原bundleに付属したcertificates/の記録は異なる。
+`scripts/run_checks.py`が元scriptsをbuild/certificate-runs/へコピーして実行する。PythonのNumPy、SymPy、mpmath、SciPyが必要。統合稿5本・旧v0.12の16本は全てexit 0、出力にFAIL・AssertionErrorはなし。有限gallery、25,000点のcomplete-window診断、20,000点のframe-shear診断等と、解析証明を区別する。詳細はresearch/validation.json。今回の再実行結果と、原bundleに付属したcertificates/の記録は異なる。
 
-## 残る旧資産
+## v0.12配布ZIPとの照合
 
-未回収：cubical_diameter_orbit_certificate.py、node_weight_identity_certificate.py、ordered_resolution_chamber_certificate.py、punctured_neck_charge_certificate.py、vertical_twist_tradeoff_certificate.py。Source-manifestに全リストと既知の元hashを記録する。Library検索は一部読み込み失敗を報告し、chargeの再試行も同じ状態だったため、ファイル不存在とは断定しない。旧mesh-orbit検査をexact gallery検査の代わりに実行したとは扱わない。
+元チャット「5平面への退化1」の `quintic_five_planes_KE_note_v12_bundle.zip` を取得した。ZIP内の元一覧と別途取得済みの一覧にある16本のSHA-256が一致し、コード本体もすべて一致した。未回収だった5本を追加し、cusp-indicialとsemistable-resolutionを配布時の版に差し替えた。原版コードはバイト単位で保持した。mesh-orbit検査は既定の分母12で実行した。
 
 今回の全主原稿の最終logに未解決参照・引用とoverfull/underfull boxはなし。各原稿の冒頭・中間・末尾を描画して確認した。全頁の目視監査は未実施。フォント置換・scale・PDF bookmarkの数式警告は残る。VS Codeは主原稿だけをroot候補とする設定を検査したがUI操作は未検証。

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Exact symbolic certificate for the cusp indicial analysis in v0.8.
+"""Exact symbolic certificate for the first logarithmic cusp layer and indicial analysis.
 
 Checks:
 1. H0 u_i = 0 and H0 v_i = u_i.
-2. The corrected eight-dimensional low-growth theta-zero defect basis.
+2. The eight-dimensional first logarithmic theta-zero layer (log degree <= 1).
 3. The discrete longitudinal eigenfunction at eigenvalue 2.
 4. The Hilbert-sector indicial roots and the central root-free strip.
 5. The algebraic coefficient in the weighted end coercivity estimate.
@@ -48,7 +48,8 @@ assert sp.simplify(H0(u1)) == 0
 assert sp.simplify(H0(v0) - u0) == 0
 assert sp.simplify(H0(v1) - u1) == 0
 
-# Corrected low-growth basis.  The last two modes were missing in v0.7.
+# First logarithmic layer. The last two modes were missing in v0.7;
+# this is not the full O(r log r) polyhomogeneous kernel (see v0.11 tower).
 defect_basis = {
     "u0*r": u0 * r,
     "u1*r": u1 * r,
@@ -98,8 +99,8 @@ assert sp.simplify(root_one_resonance_prefactor - 2 / sp.pi) == 0
 payload = {
     "H0_kernel_checked": ["u0", "u1"],
     "Jordan_partners_checked": ["v0", "v1"],
-    "corrected_low_growth_defect_dimension": len(defect_basis),
-    "corrected_low_growth_defect_basis": list(defect_basis),
+    "first_logarithmic_layer_dimension": len(defect_basis),
+    "first_logarithmic_layer_basis": list(defect_basis),
     "missing_v07_modes": [
         "u0*r*log(r)-v0*r",
         "u1*r*log(r)-v1*r",

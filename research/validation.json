@@ -57,9 +57,14 @@
       "source_sha256": "01ee42bc0babfa0a095c8e32770d75476d8f41942575a6cf3c396eca4b7b98cc"
     },
     {
+      "script": "neck/cubical_diameter_orbit_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "ac41b2d1209e0df6ef7c3a99e57706097ce0bba212409b292cbbf99147e27a04"
+    },
+    {
       "script": "neck/cusp_indicial_parametrix_certificate.py",
       "exit_code": 0,
-      "source_sha256": "bb61f4ebf6092570df7cd493d59aa4bd19200298d72b5425e28126c63e0cacca"
+      "source_sha256": "59388a9e2534321ba5864a28aa9b6399f8d562a70b1be2ee7abeb5ccaba64345"
     },
     {
       "script": "neck/defect_cohomology_certificate.py",
@@ -77,9 +82,24 @@
       "source_sha256": "abcb5a2dad6aaf40a60ae2c52a75bb9abec105e32194fb10ab58fce9cbae2287"
     },
     {
+      "script": "neck/node_weight_identity_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "db1e9cc46bafca251c69b22cebaca67f34d3d0d2ab9ee19d88601a3a22d548dd"
+    },
+    {
+      "script": "neck/ordered_resolution_chamber_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "2ea98cbf47e3f748a85e3bc3809cd62f1fb4cd6775407b2e2e6b588f13dca838"
+    },
+    {
       "script": "neck/punctured_mandel_factorization_certificate.py",
       "exit_code": 0,
       "source_sha256": "1e2c771b370e0e188297e7284f299e76cdb4d40a2b782171a5f3c243e9e99d14"
+    },
+    {
+      "script": "neck/punctured_neck_charge_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "6fcdca104aa92a9f12cf7ced93654e3f77601770597010498b6e8cc1020d9b28"
     },
     {
       "script": "neck/scale_degree_plumbing_certificate.py",
@@ -89,7 +109,12 @@
     {
       "script": "neck/semistable_resolution_certificate.py",
       "exit_code": 0,
-      "source_sha256": "56c7e50b5f485ff909653586df9a748e007d7c657b87a9dc7230425049395e4d"
+      "source_sha256": "c03e00c9f47eb48decf2140770e331911b083dc180ab5780562cd7b97d9e584e"
+    },
+    {
+      "script": "neck/vertical_twist_tradeoff_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "07d873f6223ecceb6993de126f321848552250e3d8e89c3d927fc8550aee61c5"
     },
     {
       "script": "relative_bishop_gromov_packing_audit_definitive_v1.py",

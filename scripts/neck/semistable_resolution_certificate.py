@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact finite checks for the v0.3 quintic-five-planes research note.
+"""Exact finite checks for the v0.4 quintic-five-planes research note.
 
 The script verifies only combinatorial/intersection-number bookkeeping.  It is
 not a computer-algebra proof of smoothness, projectivity, or crepancy; those
@@ -199,7 +199,7 @@ def build_certificate() -> dict[str, Any]:
     assert raw_t1_degree == 5
 
     return {
-        "certificate": "quintic-five-planes-small-resolution-and-colimit-v0.3",
+        "certificate": "quintic-five-planes-small-resolution-and-colimit-v0.4",
         "labels": list(LABELS),
         "raw_double_line": {
             "normal_degrees": [1, 1],
