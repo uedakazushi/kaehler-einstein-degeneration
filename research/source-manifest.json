@@ -6,18 +6,18 @@
     {
       "source": "04_hyperplane_degenerations_local_ja.tex",
       "destination": "papers/kaehler-einstein-degeneration.tex",
-      "sha256": "277dbe66165a3f1644c6623f1209f26d9a1104d1ffe509f2a3626dfd4078540a",
-      "bytes": 200778,
+      "sha256": "403ac3751e811d05be758e4a6f41ce635769c1a46d620904bd7178c2075824bd",
+      "bytes": 202071,
       "source_sha256": "cc0343cf295d26321d9c19e979c0181db34bd93de25673967c649b31cf13be3b",
-      "current_blob_sha": "dd82c50df479157464d859633b52f4aab89c07c2"
+      "current_blob_sha": "0e9c30465d37af4fca3d385c7c6d1cab1efb5639"
     },
     {
       "source": "05_hyperplane_degenerations_global_ja.tex",
       "destination": "papers/cubical-gh-limit.tex",
-      "sha256": "867ae4e4e82a3f68c3ded57bf7017f5312105fa2dcddd192443859e24c6e044e",
-      "bytes": 104144,
+      "sha256": "b8d4d90cc8cc9d233a4133f130d94c8458f49622974bbc0da6b093726505aeaa",
+      "bytes": 105393,
       "source_sha256": "fb14a1c2e4a7ee0f699a56c98e23ebe96ef4b1abac12a01d8f379c1ea25b4d4e",
-      "current_blob_sha": "c48f1ffa6b953f3a781dfdff5d4dff23760d0b64"
+      "current_blob_sha": "e58f5352f7ebd199448d7f2cb17fedfecb9b63c6"
     },
     {
       "source": "supplementary/intrinsic_complete_window_audit_definitive_v1.py",

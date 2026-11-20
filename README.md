@@ -8,7 +8,11 @@
 - [Source-free比較の研究ノート](papers/source-free-comparison.tex)（旧v0.21前付け）
 - [補助検算](scripts/)：統合稿5本と旧v0.12の16本を再実行し、全件成功。旧16本は配布時のSHA-256と一致。有限計算・式の診断であり解析証明の代用ではない。
 
+頁数は回収稿の記録。現行KE比較の改訂は、環境のLuaLaTeX基本資産不足により未組版。
+
 **現行の数学的到達点：** [Part V](papers/cubical-gh-limit.tex)に一般次数のcubical複体の位相・整数ホモロジーを証明。Lagrangian分岐基底からの人工PL計量収縮は次数5で $O(\varepsilon^2)$、次数6以上で $O(\varepsilon)$（厳密な証明の正本はLagrangian repo）。実際のKE計量に応用するには、no-shortcut、各squareのlift、分岐fiber/portal connectorに相当する定量条件が必要。(CP)$_d$+(PBE)$_d$は未証明であり、actual GH収束を確定させたわけではない。
+
+**Lagrangian fibrationとの関係：** 曲面全体の径の尺度のGH収束と、特定のfibrationのfiber収縮による実現は別の主張。[Part V](papers/cubical-gh-limit.tex)に近似写像の適合性条件を追加し、関連Lagrangian原稿へ証明を参照した。標準負KE尺度の非崩壊極限、Zhangの局所collapse定理とsource $xy=tz$ における適用障害は[研究ノート](research/notes.md)に整理。Actual適合性も解析仮定も未証明。
 
 最初に[研究方針](00_research_plan.md)、次に[研究ノート](research/notes.md)。[移行・検証範囲](research/migration.md)と[ソース対応](research/source-manifest.json)を参照する。
 

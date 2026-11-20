@@ -131,7 +131,7 @@
 \title{\bfseries 多重スケール Kähler--Einstein 幾何 V\\[3mm]
 \Large 超平面和への退化：定量的 pruning，立方体極限，および直径}
 \author{植田一石\\[-1mm]\small Kazushi Ueda}
-\date{2026年8月31日\\五部作・統合改訂稿 v1}
+\date{2026年11月20日\\五部作・統合改訂稿 v1.1}
 
 \begin{document}
 \maketitle
@@ -290,6 +290,27 @@ galleryによる距離誤差評価が成り立つ．
 \texttt{topo:finite-portal-criterion} を参照する．
 これらは $\mathrm{(CP)}_d,\mathrm{(PBE)}_d$ を
 actual KE metricについて証明したことにはならない．
+\end{remark}
+
+
+\begin{remark}[Lagrangian fiber 収縮としての解釈への十分条件]
+\label{rem:ke-lagrangian-compatibility}
+本稿の条件付き GH 極限は，特定の Lagrangian fibration の fibers が縮むという
+主張を自動的には含まない．適切にパラメータ化した全射
+$\pi_t:X_t\to B_d(T)$ と上の $p_T:B_d(T)\to\Cd$ を選び，
+本稿の GH 近似写像を $\Phi_t$ とすると，適合性を与える十分条件の一つは
+\[
+ b_t:=\sup_{x\in X_t}d_\square\bigl(\Phi_t(x),p_T\pi_t(x)\bigr)\longrightarrow0
+\]
+である．$\operatorname{dis}(\Phi_t)\le a_t\to0$ なら三角不等式から
+$\operatorname{dis}(p_T\pi_t)\le a_t+2b_t$．従って全正則・特異 fibers の
+$R_t^{-1}d_{g_t}$ に関する ambient diameterも零へ行く．
+詳細証明は関連Lagrangian原稿の
+\href{https://github.com/uedakazushi/lagrangian-torus-fibration/blob/main/papers/sections/paper/base_topology.tex}
+{命題 \texttt{topo:ke-map-compatibility}} に置いた．
+本稿の $\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ も，symplectic Moser 同定も，
+この特定の $\pi_t$ に対する $b_t\to0$ の証明の代用にはならない．
+$d\ge6$ では $p_T$ の木fiberに対応する追加の収縮も含む．
 \end{remark}
 
 以下の定数は固定した $d$ に依存してよいが，$t$ には依存しない．

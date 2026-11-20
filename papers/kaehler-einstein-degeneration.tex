@@ -58,7 +58,7 @@
 \large 超平面和への退化 I：完備局所模型，terminal-cusp adapted gauges，\\
 および raw co-Gram 剛性}
 \author{植田一石\\[-1mm]\small Kazushi Ueda}
-\date{2026年8月31日\\五部作・統合改訂稿 v1}
+\date{2026年11月20日\\五部作・統合改訂稿 v1.1}
 \begin{document}\maketitle
 
 \begin{abstract}
@@ -97,6 +97,20 @@ $\Ric(\omega_t)=-\omega_t$ で規格化した負 Kähler--Einstein 計量，$g_t
 本証明は relative five-source block，三 outlet の同時 framing，orbit-period matching，actual/relative long-corridor anchoring を用いない．三尖点に共通する一つの tame frame が存在しないという degree obstruction は，terminal cusp ごとの order-zero gauge を選ぶことで局所的に処理する．この選択を growing chart chains 上で一様かつ compatible に行えることが $\mathrm{(PBE)}_5$ の内容である．また，sharp differential statements は smooth raw map $q_t$ に対してのみ述べ，Lipschitz retraction $\Pi$ や $\Phi_t^{\mathrm{alg}}=\Pi\circ q_t$ は微分しない．
 
 Compact negative Kähler--Einstein metrics の存在一意性は Aubin--Yau 理論に基づく~\cite{Aubin,Yau}．準射影多様体上の完備負 Kähler--Einstein metrics については Cheng--Yau と Kobayashi~\cite{ChengYau,Kobayashi}，normal-crossing および toroidal degeneration については Ruan~\cite{RuanI,RuanII} を参照する．特異 Kähler--Einstein families と負曲率 compactness の背景には~\cite{DGG,SongSturmWang}，divisor 近傍の Poincaré 漸近には~\cite{Guenancia,RochonZhang}，局所 log-canonical geometry と neck/cusp closing には~\cite{DatarFuSong,Mandel,FuHeinJiang} がある．本稿の粗い距離論では有限長さ空間の標準事項を~\cite{BBI} の形で用いる．
+
+
+負KEの固定尺度と径の尺度を区別する必要がある．
+Song--Sturm--Wang\cite[Theorem~6.1]{SongSturmWang}のstable-family compactnessは，
+本稿の平面和退化で $d$ 個の配置補空間の四実次元非崩壊極限を与える．
+Zhang\cite[Theorem~2.4]{ZhangNegativeKE}の局所torus collapseは
+simple toroidalで全空間が $\mathbb Q$-factorial，相対canonicalがampleという仮定を持つ．
+本稿のsource $xy=tz$ は非 $\mathbb Q$-factorialで，小解消後の相対canonicalは
+exceptional curve上で次数零となるため，同定理を直接適用しない．
+また，第V篇の径の尺度のGH近似をLagrangian fibrationのfiber収縮と同定するには，
+両写像の一様な近接性が別に必要である．
+その正確な比較条件と初等的証明は
+\href{https://github.com/uedakazushi/lagrangian-torus-fibration/blob/main/papers/sections/paper/base_topology.tex}
+{関連Lagrangian原稿の命題 \texttt{topo:ke-map-compatibility}} に記す．
 
 \subsection{主結果}
 十分大きい固定定数 $A_0$ に対し
@@ -3299,6 +3313,13 @@ J.~Song, J.~Sturm and X.~Wang,
 S.-T.~Yau,
 \newblock On the Ricci curvature of a compact K\"ahler manifold and the complex Monge--Amp\`ere equation I,
 \newblock Comm. Pure Appl. Math. \textbf{31} (1978), 339--411.
+
+\bibitem{ZhangNegativeKE}
+Y.~Zhang,
+\newblock Collapsing of negative Kähler--Einstein metrics,
+\newblock Math. Res. Lett. \textbf{22} (2015), no.~6, 1843--1869.
+\newblock \url{https://doi.org/10.4310/MRL.2015.v22.n6.a16}.
+\newblock Theorems~1.1, 2.4 in arXiv:1505.04728v2.
 
 \end{thebibliography}
 
