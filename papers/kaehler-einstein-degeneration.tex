@@ -1,0 +1,133 @@
+% LuaLaTeX, settings in repo root
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs,booktabs}
+\usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{conjecture}[theorem]{予想}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{注意}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\cC}{\mathcal C}
+\DeclareMathOperator{\Ric}{Ric}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\diam}{diam}
+\title{5平面へ退化する5次曲面の負Kähler--Einstein幾何\\Cubical limitと解析的matching問題}
+\author{}
+\date{2026年11月20日 / GitHub移行用再構成草稿 v0.1}
+\begin{document}
+\maketitle
+\begin{abstract}
+5次曲面が5平面の和へ退化するときの負Kähler--Einstein計量を
+diameter scaleで調べる。元Libraryにある2026年8月21日付81頁の草稿
+\texttt{quintic\_five\_planes\_KE\_GH\_paper\_draft\_ja\_v12.tex}
+を核とするが、現状の本ファイルはその全証明を移したものではない。
+本稿ではcubical candidateの組合せと局所同期を直接証明し、
+actual KE metricへのglobal GH収束を未証明の予想として明示する。
+\end{abstract}
+\section{退化族と尺度}
+$L_0,\ldots,L_4$を$\PP^3$の一般位置にある一次形式、
+$F_5$を一般の五次形式として
+\[
+ X_t=\{L_0L_1L_2L_3L_4+tF_5=0\}\subset\PP^3
+\]
+とおく。$t\neq0$で$X_t$が滑らかなとき、
+canonical bundleは$K_{X_t}=\mathcal O_{X_t}(1)$であり
+$\Ric(\omega_t)=-\omega_t$のKE計量が存在する。
+第一の大域的な問題は$\diam(X_t,\omega_t)$で距離を正規化した
+Gromov--Hausdorff極限を決定することである。
+以下、$L_t=-\log|t|^2$、$R_t=\log L_t$とおく。
+\section{候補cubical complex}
+\begin{definition}
+\[
+ \cC_5=\left\{w=(w_0,\ldots,w_4)\in[0,1]^5:
+ \max_i w_i=1,\quad |\supp(w)|\le3\right\}.
+\]
+標準coordinate subcubesの貼合せによりintrinsic cubical length metric
+$d_\square$を入れる。
+\end{definition}
+\begin{proposition}[セル数と位相]
+$\cC_5$は25頂点、50辺、30個の2-dimensional unit squaresからなり、
+\[
+ \cC_5\cong\operatorname{Sk}_2(\Delta^4)
+ \simeq\bigvee^4 S^2.
+\]
+したがって$\chi(\cC_5)=5$、$H_2(\cC_5,\mathbb Z)=\mathbb Z^4$である。
+\end{proposition}
+\begin{proof}
+頂点は0--1 vectorsのsupport sizeが1,2,3のものなので
+$\binom51+\binom52+\binom53=25$個。
+辺は、1本のvariable coordinateと、1または2本の固定1-coordinateから定まり、
+$\binom51\binom41+\binom52\binom31=20+30=50$個。
+squareは固定1-coordinateを一本と残り4座標から二本のvariable coordinateを選んで
+$5\binom42=30$個。
+写像$w\mapsto w/(\sum_i w_i)$は標準単体の2-skeletonへのhomeomorphismであり、
+逆写像は$x\mapsto x/(\max_i x_i)$である。
+2-skeleton of a 4-simplexはsimply connectedで、
+そのreduced homologyは次数2の自由群rank 4のみ。
+通常のCW argumentにより$\bigvee^4S^2$とhomotopy equivalentである。
+\end{proof}
+\begin{remark}[直径]
+元のv0.12論文とcertificateでは$\diam(\cC_5,d_\square)=\sqrt{13}$と記録する。
+このGitHub移行草稿で距離最大化の全検算を再実行したわけではない。
+\end{remark}
+\section{三重点とleading synchronization}
+\begin{lemma}
+triple pointのanalytic coordinatesで
+$xyz=t\vartheta(x,y,z,t)$、$\vartheta(0)\neq0$という局所式があれば、
+$\ell_x=-\log|x|^2$等について
+\[
+ \ell_x+\ell_y+\ell_z=L_t+O(1).
+\]
+\end{lemma}
+\begin{proof}
+局所式の絶対値の二乗をとり対数をとると、
+$\ell_x+\ell_y+\ell_z=L_t-\log|\vartheta|^2$となる。
+$\vartheta$が零でないので最後の項は有界である。
+\end{proof}
+ここで$\Lambda_{xy}=\ell_x+\ell_y$、
+$p_z=\ell_z/L_t$とおけば
+$p_z\le1-\varepsilon$の範囲で
+\[
+ \log\Lambda_{xy}
+ =R_t+\log(1-p_z)+O(L_t^{-1}).
+\]
+この式はleading neck scaleを同期させるが、
+actual KE metricの$C^k$ matchingやglobal diameter estimateを単独では与えない。
+\section{Jacobi channelsと原稿の中間主張}
+Mandel-type exact reduced familyの微分で現れる二つのprofileは
+\[
+ u_0(w)=(1+w^2)^{-2},\qquad
+ u_1(w)=\frac{w+w^3/3}{(1+w^2)^2}.
+\]
+元v0.12草稿は前者をneck scale variation、後者をend-degree/asymmetry
+variationと同定し、five-source relative jump $a_+-a_-=5$と
+$5=(1+1)+(1+1+1)$というcharge balanceを記録している。
+これはcusp trivializationsに相対的で、absolute degreeと混同しない。
+この同定・scattering factorization・finite-dimensional certificatesは
+原草稿に証明と計算があるが、今回の移行草稿では独立検証をしていない。
+\section{主予想と残る証明問題}
+\begin{conjecture}[diameter-scale cubical GH limit]
+$X_t$上の負KE距離$d_t$に対して
+\[
+ \left(X_t,\diam(X_t,d_t)^{-1}d_t\right)
+ \longrightarrow
+ \left(\cC_5,\diam(\cC_5,d_\square)^{-1}d_\square\right)
+\]
+がGromov--Hausdorff位相で成立する。
+\end{conjecture}
+これを示すには、neck/cornerの全overlap上で
+KE metricのuniform comparison、nonlinear parametrix、
+relative shiftsとfiltered root-1 scale tracesの
+$\max_e|\tau_{e,t}|=o(R_t)$制御が必要である。
+Reference softmax cornerのexact translation symmetryは、
+actual corner Calderón operatorについての定理ではない。
+\section{先行研究との関係}
+Y.~Zhangによるnegative KE metricのtoroidal degenerationでの
+pointed GH collapse（arXiv:1505.04728）は局所的な重要入力である。
+J.~Songによるnegative KE degenerationのunrescaled pointed極限
+（arXiv:1706.01518）も、ここで問うdiameter正規化の大域計量とは異なる。
+関連する主張の正確な適用条件と本研究の新規部分は一次資料でさらに照合する。
+\end{document}
