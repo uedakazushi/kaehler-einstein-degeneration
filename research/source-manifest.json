@@ -14,10 +14,10 @@
     {
       "source": "05_hyperplane_degenerations_global_ja.tex",
       "destination": "papers/cubical-gh-limit.tex",
-      "sha256": "9cd7be5a5ddb1adcd5e413df783c2ba39291b802047dec9ae0d4654553d47671",
-      "bytes": 103308,
+      "sha256": "867ae4e4e82a3f68c3ded57bf7017f5312105fa2dcddd192443859e24c6e044e",
+      "bytes": 104144,
       "source_sha256": "fb14a1c2e4a7ee0f699a56c98e23ebe96ef4b1abac12a01d8f379c1ea25b4d4e",
-      "current_blob_sha": "a625955217eaa269525c41939be6e1110e82de6e"
+      "current_blob_sha": "c48f1ffa6b953f3a781dfdff5d4dff23760d0b64"
     },
     {
       "source": "supplementary/intrinsic_complete_window_audit_definitive_v1.py",
