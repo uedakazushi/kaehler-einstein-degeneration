@@ -13,6 +13,8 @@
 ## 候補基底の位相と計量的可能性
 Part V主稿には任意のd≥5についてC_dのセル数・Sk_2 Δ^{d-1}との同相・整数ホモロジーの一般次数証明がある。Lagrangianの分岐基底B_d(T)とはcell-like homotopy equivalenceで結ばれる。d≥6では非同相であるが、人工的に定めたpiecewise length metrics d_epsilonについて sup|d_epsilon-d_square∘p_T|≤C epsilon と d_GH≤C epsilon/2 を証明した（厳密な証明はlagrangian-torus-fibrationのbase_topology.tex、ここでは帰結と参照のみを記載）。これらはrealized KE metricのGH収束もLagrangianの作用計量の収束も保証しない。実際の解析課題は依然(CP)_d+(PBE)_dの確立である。独立の有限鎖階数検算はd=5,6,7,8で実施済み。
 
+六次ではKE候補C_6がS6座標置換対称なのに対し、Petersen分岐木系の選択はS6の6点軌道をなし、固定した一系の安定化群は位数120。ラベル付き比較では木系選択に依存することを明示する。実際の計量の対称性はこれだけで結論しない。
+
 ## 次の課題
 1. (PBE)_dのquantitative terminal trivialization、protected rectangular inclusion、uniform comparison、two-metric escapeをactual metricsで証明する。
 2. 一般次数の(CP)_dのcoarse realization/connectorsを監査する。
