@@ -139,8 +139,9 @@
   },
   "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested.",
   "current_math_audit_2026_11_20": {
-    "mathematical_check": "Proved a general-d cubical cell-count, skeleton homeomorphism and integral homology proposition; added a labelled topological comparison with the Lagrangian branched base. Actual GH remains conditional on (CP)_d+(PBE)_d.",
-    "finite_test": "Finite d=5..8 cellular chain ranks independently computed in characteristic zero and a finite field (equivalent script stored in Lagrangian repo).",
-    "latest_full_lualatex_build": "Not rerun after these edits; previous build evidence applies to pre-edit manuscripts."
+    "mathematical_results": "Artificial PL length-metric collapse B_d(T)→C_d with distortion at most C epsilon; cited proof located in lagrangian-torus-fibration base_topology.tex. This does not establish actual KE GH convergence, which still assumes CP_d+PBE_d.",
+    "independent_computation": "Integer-rational cellular ranks of B_d(T) checked for d=5,6,7,8 in Python/SymPy (r1,r2)=(4,6),(5,25),(6,57),(7,105). K6 Petersen factorisation enumeration also independently checked.",
+    "full_lualatex_after_edits": "not run; previously recorded builds predate the latest manuscript edits",
+    "source_hashes": "research/source-manifest.json updated with current digest and original source digest"
   }
 }
