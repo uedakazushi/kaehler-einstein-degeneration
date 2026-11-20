@@ -131,7 +131,7 @@
 \title{\bfseries 多重スケール Kähler--Einstein 幾何 V\\[3mm]
 \Large 超平面和への退化：定量的 pruning，立方体極限，および直径}
 \author{植田一石\\[-1mm]\small Kazushi Ueda}
-\date{2026年11月20日\\五部作・統合改訂稿 v1.5}
+\date{2026年11月20日\\五部作・統合改訂稿 v1.6}
 
 \begin{document}
 \maketitle
@@ -172,13 +172,19 @@ This is Part V of a five-paper series.  We first prove an unconditional quantita
 \texttt{coarse:prop:density-counterexample} によって排除し，
 exterior の粗い metric comparison を独立な $\mathrm{(TC)}_5$ に条件付けている．
 従って五次の場合にも $\mathrm{(CP)}_5$ の無条件な検証は完了していない．
-一方，第IV篇の \texttt{coarse:cor:open-square-tensor} は，開正方形の固定 compact 部分では
-明示的な volume barriers と Savin の定理から actual tensor 漸近を証明した．
+一方，第IV篇の \texttt{simplex:cor:actual-dominant-product} は，開正方形の固定 compact 部分では
+volume barriers と Savin の定理から actual tensor 漸近を $O(L_t^{-\eta})$ で証明する．
 関連 Lagrangian 原稿の \texttt{ke:open-cell-collapse} はその領域の内在距離に対する局所 GH 収束を与える．
 さらに第IV篇の \texttt{coarse:thm:full-triple-tensor} と
 関連 Lagrangian 原稿の \texttt{ke:actual-closed-corner} は，任意の固定 $d\ge5$ で
 全深部三重点の semi-flat 比較と閉 corner 全体の小さい actual Lagrangian fibers を与える．
-これらは source・core を含む大域 package と ambient shortcut の制御を代替しない．他方，\cref{thm:abstract-pruning} と有限計量 \cref{thm:intro-diameter-C5} はこれらの解析入力から独立である．
+同稿の \texttt{ke:closed-corner-gh} と第IV篇の
+\texttt{simplex:cor:actual-closed-corner-metric} は，全閉 corner の内在距離，および
+$\min\ell_i>R_t/2$ 内の経路を許した距離について，三枚の square への
+GH 収束を distortion $O((\log R_t)/R_t)$ で与える．
+標的はその三枚自身の内在距離であり，全複体の他の cells を経由する距離ではない．
+これらは source・core を含む大域 package と全曲面の ambient shortcut の制御を代替しない．
+他方，\cref{thm:abstract-pruning} と有限計量 \cref{thm:intro-diameter-C5} はこれらの解析入力から独立である．
 
 \tableofcontents
 

@@ -1,0 +1,480 @@
+% !TeX root = ../kaehler-einstein-degeneration.tex
+% Current content: 2026-11-20, v1.0.
+\section{Complete simplex 模型の境界幾何と積計量への漸近}
+\label{simplex:sec:boundary-geometry}
+
+本節では \cref{coarse:lem:simplex-model} の complete toric KE form $k_L$ を用い，
+三つの深度のうち二つが $L$ に比べ小さい領域と，一つの深度だけが小さい
+facet 領域を区別して調べる．前者では二つの cusp の積，後者では
+cusp と有限 annulus の積が比較模型になる．
+固定 toric 模型の存在・完備性は
+Zhang\cite[Theorem~2.1, Proposition~2.2]{ZhangNegativeKE}，
+微分評価は Yau の Schwarz lemma と
+Savin\cite[Theorem~1.3]{SavinSmall} の小摂動正則性に依存する．
+積領域の内外比較そのものは以下で証明する．本節の定量的結論の新規性は未確認である．
+
+以下の模型に関する定数は $L>0$ と角度に依存せず，正の深度に絶対的な下限を置かない．
+Actual family への系では \cref{ass:Gd} を満たす固定次数 $d\ge5$ の族を用い，
+\cref{coarse:thm:full-triple-tensor} に依存する．
+Actual estimates の定数には固定した $d$ と族への依存を許す．
+
+\subsection{角度の規格化と係数 $1$ の Schwarz 評価}
+
+$\ell_0+\ell_1+\ell_2=L$ とし，
+$w_i=\ell_i-2\sqrt{-1}\theta_i+\text{imaginary constant}$ を用いる．
+Actual chart では $\theta_i=\arg\zeta_i$ の周期は $2\pi$ であり，
+$\sum_i\theta_i=\arg t$ modulo $2\pi$ である．
+従って angular universal cover における $w_i$ の imaginary period は $4\pi$ である．
+独立な二座標を選べば，\eqref{coarse:eq:simplex-KE-form} に対応する実計量は
+\begin{equation}\label{simplex:eq:real-model-normalization}
+ g_L^{\mathrm{sf}}
+ =\sum_{j,k}(\phi_L)_{jk}
+       (d\ell_j\,d\ell_k+4d\theta_j\,d\theta_k)
+\end{equation}
+となる．半平面 $\Re w=s>0$ の曲率 $-1$ の計量は
+\[
+ g_{\mathbb H}=\frac{ds^2+4d\theta^2}{s^2},
+ \qquad
+ \omega_{\mathbb H}
+   =\frac{\sqrt{-1}}{2s^2}\,dw\wedge d\bar w
+\]
+であり，$\Ric(\omega_{\mathbb H})=-\omega_{\mathbb H}$ である．
+この規格化では周期 $2\pi$ の角度円の長さは $4\pi/s$ である．
+
+\begin{lemma}[Rank-one Schwarz 評価の正確な係数]
+\label{simplex:lem:rank-one-schwarz}
+各 $i=0,1,2$ について，simplex tube 上で二次形式の不等式
+\begin{equation}\label{simplex:eq:rank-one-schwarz}
+ \frac{d\ell_i^2+4d\theta_i^2}{\ell_i^2}
+       \le g_L^{\mathrm{sf}},
+ \qquad
+ |d\log\ell_i|_{g_L^{\mathrm{sf}}}\le1
+\end{equation}
+が成立する．これは全深度比および全 phase quotient 上で有効である．
+\end{lemma}
+
+\begin{proof}
+Complete tube から半平面への正則写像 $f_i(w)=w_i$ を考える．
+Source と target の Ricci forms はそれぞれ $-k_L$ と $-\omega_{\mathbb H}$ である．
+Rank one の trace
+\[
+ u_i=\operatorname{tr}_{k_L}f_i^*\omega_{\mathbb H}>0
+\]
+について，Yau\cite[Theorem~2 and its proof]{YauSchwarzThm2} の
+Schwarz 計算をこの規格化で書くと
+\begin{equation}\label{simplex:eq:rank-one-chern-lu}
+ \Delta_{k_L}\log u_i\ge u_i-1,
+ \qquad
+ \Delta_{k_L}u_i\ge u_i(u_i-1)
+\end{equation}
+となる．ここで $\Delta_{k_L}=k_L^{a\bar b}\partial_a\partial_{\bar b}$ は
+complex Laplacian である．Target が複素一次元なので curvature term は
+$u_i^2$ であり，source dimension に由来する係数は入らない．
+係数を直接確認するには target form を
+$\sqrt{-1}q(z)\,dz\wedge d\bar z$ と書く．
+$\Ric(\omega_{\mathbb H})=-\omega_{\mathbb H}$ は
+$\partial_z\partial_{\bar z}\log q=q$ を意味するので，
+$u_i=(q\circ f_i)|df_i|_{k_L}^2$ に対して
+$\Delta_{k_L}\log(q\circ f_i)=u_i$ である．
+Source Ricci が $-k_L$ である holomorphic one-form の Bochner 計算と
+Cauchy--Schwarz から
+$\Delta_{k_L}\log|df_i|_{k_L}^2\ge-1$ を得る．
+両式を加えれば \eqref{simplex:eq:rank-one-chern-lu} の第一式となる．
+
+\Cref{coarse:lem:simplex-model} の粗い tensor 比較から $u_i$ は上に有界である．
+完備性と Ricci 下界に対する同じ Schwarz lemma の最大値原理を
+\eqref{simplex:eq:rank-one-chern-lu} の第二式に用いる．
+すなわち $u_i$ の上限へ近づき，Laplacian の上極限が非正となる点列を取れば，
+$\sup u_i\le1$ を得る．Rank-one Hermitian form の唯一の非零固有値は
+$u_i$ なので $f_i^*\omega_{\mathbb H}\le k_L$ である．
+これは実計量についての第一式と同値である．
+任意の tangent vector $v$ に対して
+$|d\log\ell_i(v)|^2\le f_i^*g_{\mathbb H}(v,v)$ とすれば第二式も従う．
+評価は angular cover で示したが，両辺とも deck transformations に不変なので
+全 quotient に降りる．
+\end{proof}
+
+以下では実計量 $h$ に対する covariant norm を
+\[
+ \|T\|_{C^q(U,h)}
+   =\max_{0\le j\le q}\sup_U|\nabla_h^jT|_h
+\]
+とする．$\widetilde B_h(p,r)$ は angular universal cover 上の $h$-ball を表す．
+積双曲計量の固定半径の正規化された正則座標では，この norm と係数の $C^q$ norm は
+一様に同値である．従って以下の評価は，角度円の長さが小さい場合にも
+covering charts と covariant norms の両方で意味を持つ．
+
+\subsection{積領域の包含による volume 比較}
+
+有限 interval $I=(A,B)$ と半直線 $I=(A,\infty)$ に対して
+\begin{equation}\label{simplex:eq:interval-coefficient}
+ K_{A,B}(s)=\left(\frac{\pi}{B-A}\right)^2
+       \csc^2\left(\pi\frac{s-A}{B-A}\right),
+ \qquad
+ K_{A,\infty}(s)=\frac1{(s-A)^2}
+\end{equation}
+と置く．$K_I(s)(ds^2+4d\theta^2)$ は対応する annulus または punctured disc の
+complete curvature $-1$ metric である．実際，$(\log K_I)''=2K_I$ であり，
+各端までの距離は無限大である．独立な二座標 $(s,x)$ 上の product を
+$g_Q$，その K\"ahler form を $\omega_Q$ と書くと，
+$Q=I\times J$ 上で
+\begin{equation}\label{simplex:eq:product-volume}
+ \Ric(\omega_Q)=-\omega_Q,\qquad
+ \omega_Q^2=8K_I(s)K_J(x)\,dV_{\log}.
+\end{equation}
+この $dV_{\log}$ は独立な二つの $\eta_i=-dw_i/2$ から作る既出のものと一致する．
+以下で独立な二深度を取り替える線形変換の determinant は $\pm1$ である．
+
+\begin{lemma}[Simplex と product の volume monotonicity]
+\label{simplex:lem:product-volume-monotonicity}
+独立な二深度を用いて $\Delta_L$ を平面内の triangle とみなす．
+Product domain $Q$ が $\overline{\Delta_L}$ の近傍を含むならば，
+\[
+ \omega_Q^2\le k_L^2\qquad\text{on }\Delta_L.
+\]
+逆に有限 rectangle $Q$ が $\Delta_L$ に含まれるならば，
+その complete product form に対して
+\[
+ k_L^2\le\omega_Q^2\qquad\text{on }Q.
+\]
+後者では $\overline Q$ と $\partial\Delta_L$ が交わっていてもよい．
+\end{lemma}
+
+\begin{proof}
+両 metric が負 KE なので
+\[
+ \ddc\log\frac{k_L^2}{\omega_Q^2}=k_L-\omega_Q
+\]
+である．第一の場合，$\omega_Q$ は $\overline{\Delta_L}$ の近傍で滑らかであり，
+\eqref{coarse:eq:simplex-density-bounds} より $k_L^2$ は
+$\partial\Delta_L$ へ近づくと発散する．従って ratio の logarithm が負になれば，
+全位相の compact quotient 上で負の内部最小値を取る．その点では
+$k_L\ge\omega_Q$，従って $k_L^2\ge\omega_Q^2$ となり矛盾する．
+
+第二の場合，$Q=(A,B)\times(C,D)$ を
+\[
+ Q_\tau=(A+\tau,B-\tau)\times(C+\tau,D-\tau)
+\]
+へ縮める．十分小さい $\tau>0$ について
+$\overline{Q_\tau}\subset\Delta_L$ なので $k_L$ はその近傍で滑らかである．
+一方，$\omega_{Q_\tau}^2$ は全 boundary faces で発散する．
+$\log(k_L^2/\omega_{Q_\tau}^2)$ の正の内部最大値では
+$k_L\le\omega_{Q_\tau}$ となって矛盾するので，上比較を得る．
+$\tau\downarrow0$ とすれば $\omega_{Q_\tau}\to\omega_Q$ は内部で滑らかに収束する．
+これにより共通境界で二つの density の発散率を比較せずに結論を得る．
+\end{proof}
+
+\subsection{Dominant 領域の二重 cusp 比較}
+
+独立な深度を $s_1=\ell_1$, $s_2=\ell_2$ とし，
+\[
+ g_{\mathrm{prod}}
+   =\frac{ds_1^2+4d\theta_1^2}{s_1^2}
+    +\frac{ds_2^2+4d\theta_2^2}{s_2^2},
+ \qquad
+ \omega_{\mathrm{prod}}^2
+   =\frac8{s_1^2s_2^2}\,dV_{\log}
+\]
+と置く．これは \eqref{moving:eq:product-cusp} と同じ積計量である．
+
+\begin{proposition}[全正深度に対する dominant product 漸近]
+\label{simplex:prop:dominant-product}
+$p\in\Delta_L$ の独立深度を $(a,b)$ とし，
+$\delta=(a+b)/L\in(0,1)$ と置く．全点で正確な volume 評価
+\begin{equation}\label{simplex:eq:dominant-exact-volume}
+ 1\le\frac{k_L^2}{\omega_{\mathrm{prod}}^2}(p)
+   \le\left(\frac{\pi\delta}{\sin(\pi\delta)}\right)^4
+\end{equation}
+が成立する．任意の固定 $r>0$ と整数 $q\ge0$ に対して定数
+$\delta_r>0$, $C_{q,r}$ が存在し，$\delta\le\delta_r$ ならば
+\begin{equation}\label{simplex:eq:dominant-tensor}
+ \|g_L^{\mathrm{sf}}-g_{\mathrm{prod}}\|
+ _{C^q(\widetilde B_{g_{\mathrm{prod}}}(p,r),g_{\mathrm{prod}})}
+ \le C_{q,r}\delta^2.
+\end{equation}
+これらの定数は $L,a,b$，比 $a/b$，および全角度に依存しない．
+特に $O((a+b)/L)$ の比較も従い，$a,b$ に絶対的な正の下限を置く必要はない．
+\end{proposition}
+
+\begin{proof}
+下比較には expanded quadrant $Q_c=(-c,\infty)^2$，$c>0$ を用いる．
+これは $\overline{\Delta_L}$ の近傍を含むので，
+\cref{simplex:lem:product-volume-monotonicity} により
+\[
+ \frac8{(s_1+c)^2(s_2+c)^2}\,dV_{\log}\le k_L^2.
+\]
+$c\downarrow0$ とすれば $\omega_{\mathrm{prod}}^2\le k_L^2$ を得る．
+
+上比較について
+\[
+ A=\frac{La}{a+b},\qquad B=\frac{Lb}{a+b},\qquad A+B=L
+\]
+と取る．$Q=(0,A)\times(0,B)$ は $\Delta_L$ 内にあり，$p\in Q$ である．
+同補題の上比較から
+\[
+ \frac{k_L^2}{\omega_{\mathrm{prod}}^2}(p)
+ \le a^2K_{0,A}(a)\,b^2K_{0,B}(b)
+ =\left(\frac{\pi\delta}{\sin(\pi\delta)}\right)^4.
+\]
+Rectangle の上側 corner は $\partial\Delta_L$ にあるが，
+同補題の $Q_\tau$ による証明がこの場合も含んでいる．
+
+Tensor 評価のため，半径 $r+2$ の積計量の ball を考える．その点 $p'$ では
+$s_1(p')\le e^{r+2}a$，$s_2(p')\le e^{r+2}b$ なので
+$\delta(p')\le e^{r+2}\delta$ である．
+$\delta_r$ を十分小さくすればこの ball 全体が $\Delta_L$ に入り，
+点ごとの \eqref{simplex:eq:dominant-exact-volume} と
+$\log(x/\sin x)=O(x^2)$ から
+\[
+ 0\le v:=\log(k_L^2/\omega_{\mathrm{prod}}^2)
+       \le C_r\delta^2
+\]
+がそこで成立する．Angular cover 上の $g_{\mathrm{prod}}$ は双曲平面二つの積であり，
+各中心を等長な正則座標で正規化すると固定 ball 上で一様な全 $C^q$ bounds を持つ．
+また
+\[
+ \ddc v=k_L-\omega_{\mathrm{prod}},\qquad
+ (\omega_{\mathrm{prod}}+\ddc v)^2=e^v\omega_{\mathrm{prod}}^2.
+\]
+従って \cref{coarse:lem:small-volume-tensor} を適用できる．
+同補題で説明した Savin の定理，その後の一様楕円性，
+線形化した方程式の Schauder 評価により，$C^0$ potential と同じ
+$O(\delta^2)$ の率で全固定階の tensor 比較を得る．
+正規化された座標の norm を covariant norm へ移せば
+\eqref{simplex:eq:dominant-tensor} となる．
+\end{proof}
+
+\begin{corollary}[Actual dominant 領域と開正方形の改善された誤差]
+\label{simplex:cor:actual-dominant-product}
+\Cref{ass:Gd} を満たす固定次数 $d\ge5$ の族の exact triple chart を用いる．
+中心 $p$ で $a=\ell_1(p)$, $b=\ell_2(p)$,
+$m=\min_i\ell_i(p)$, $\delta=(a+b)/L_t$ とする．
+任意の固定 $r>0$ と $q\ge0$ について，$m$ が十分大きく，
+$\delta$ が十分小さければ
+\begin{equation}\label{simplex:eq:actual-dominant-tensor}
+ \|g_t-g_{\mathrm{prod}}\|
+ _{C^q(\widetilde B_{g_{\mathrm{prod}}}(p,r),g_{\mathrm{prod}})}
+ \le C_{q,r}\bigl(m^{-1}+\delta^2\bigr).
+\end{equation}
+評価は全角度と固定族の全三重点について一様である．
+特に $0<\eta<1/2$ を固定し，
+$a,b\in[\tfrac12L_t^\eta,2L_t^{1-\eta}]$ とすると，全域で
+\begin{equation}\label{simplex:eq:open-square-improved-rate}
+ \|g_t-g_{\mathrm{prod}}\|_{C^q(g_{\mathrm{prod}})}
+       \le C_{q,\eta}L_t^{-\eta}.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+固定半径の product balls 上では $s_1,s_2$ は中心深度と固定比の間にあり，
+$\ell_0=L_t-s_1-s_2\ge L_t/2$ とできる．
+従って全深度の最小値は $c_r m$ 以上である．
+\Cref{coarse:thm:full-triple-tensor} から actual/model error は $C_{q,r}/m$ であり，
+\cref{simplex:prop:dominant-product} により model/product error は
+$C_{q,r}\delta^2$ である．
+同じ model/product 比較を十分高い階まで用いれば両方の covariant norms を
+一様に比較できるので，二つを加えて \eqref{simplex:eq:actual-dominant-tensor} を得る．
+開正方形の範囲では $m\ge\tfrac12L_t^\eta$，
+$\delta\le4L_t^{-\eta}$ なので最後の評価が従う．
+\end{proof}
+
+\subsection{Facet 領域の cusp--annulus 比較}
+
+今度は $s=\ell_0$, $x=\ell_1$, $\ell_2=L-s-x$ を用いる．
+$K_L(x)=K_{0,L}(x)$ と略記し，product domain
+$\{s>0,\ 0<x<L\}$ 上で
+\begin{equation}\label{simplex:eq:facet-product}
+ p_L=\frac{ds^2+4d\theta_0^2}{s^2}
+       +K_L(x)(dx^2+4d\theta_1^2),
+ \qquad
+ \varpi_L^2=8s^{-2}K_L(x)\,dV_{\log}
+\end{equation}
+と置く．$p_L$ は実計量，$\varpi_L$ は対応する負 KE form である．
+Normal 方向の punctured-disc cusp と，幅 $L$ の有限 annulus の積になっている．
+
+\begin{proposition}[Facet の積漸近と actual metric への適用]
+\label{simplex:prop:facet-product}
+$p\in\Delta_L$ で $b=s(p)$, $a=x(p)$ とし，
+\[
+ d_*=\min(a,L-a),\qquad \varepsilon=b/d_*
+\]
+と置く．任意の固定 $r>0$ と $q\ge0$ に対して
+$\varepsilon_r>0$, $C_{q,r}$ が存在し，
+$\varepsilon\le\varepsilon_r$ ならば
+\begin{equation}\label{simplex:eq:facet-model-tensor}
+ \|g_L^{\mathrm{sf}}-p_L\|
+ _{C^q(\widetilde B_{p_L}(p,r),p_L)}
+ \le C_{q,r}\varepsilon^{2/3}.
+\end{equation}
+定数は $L,a,b$ と全角度に依存しない．
+$a/L$ が $(0,1)$ の固定 compact subset にあるという仮定も，
+$b$ の絶対的な下限も必要ない．
+
+さらに \cref{ass:Gd} の固定次数 $d\ge5$ の actual triple chart で
+$L=L_t$ とし，$b$ が十分大きいとする．このとき
+\begin{equation}\label{simplex:eq:facet-actual-tensor}
+ \|g_t-p_{L_t}\|_{C^q(\widetilde B_{p_{L_t}}(p,r),p_{L_t})}
+ \le C_{q,r}\left(b^{-1}+\varepsilon^{2/3}\right).
+\end{equation}
+十分小さい $\varepsilon$ では $b=\min_i\ell_i(p)$ であり，
+actual 側の追加誤差は既出の $O(1/\min_i\ell_i)$ である．
+Actual estimates は全角度と固定族の全三重点について一様で，
+定数は固定した $d$ と族に依存してよい．
+\end{proposition}
+
+\begin{proof}
+まず全 triangle 上の volume 下比較
+\begin{equation}\label{simplex:eq:facet-volume-lower}
+ \varpi_L^2\le k_L^2
+\end{equation}
+を示す．$c>0$ に対し expanded product
+$Q_c=(-c,\infty)\times(-c,L+c)$ を取れば，
+$\overline{\Delta_L}$ の近傍を含むので
+\cref{simplex:lem:product-volume-monotonicity} より
+\[
+ 8(s+c)^{-2}K_{-c,L+c}(x)\,dV_{\log}\le k_L^2.
+\]
+$c\downarrow0$ とすることで \eqref{simplex:eq:facet-volume-lower} を得る．
+
+上比較には parameter $\beta$ を $b\ll\beta\ll d_*$ と取り，
+\[
+ Q_\beta=(0,\beta)\times(0,L-\beta)\subset\Delta_L
+\]
+を用いる．同補題の上比較によって，この rectangle 上で
+\begin{equation}\label{simplex:eq:facet-volume-upper}
+ k_L^2
+ \le8K_{0,\beta}(s)K_{0,L-\beta}(x)\,dV_{\log}.
+\end{equation}
+ここでも共通境界は内部へ縮めた rectangle からの極限で扱っている．
+従って \eqref{simplex:eq:facet-volume-lower} と合わせて
+\begin{equation}\label{simplex:eq:facet-log-sandwich}
+ 0\le\log\frac{k_L^2}{\varpi_L^2}
+ \le 2\log\frac{\pi s/\beta}{\sin(\pi s/\beta)}
+       +\log\frac{K_{0,L-\beta}(x)}{K_{0,L}(x)}
+\end{equation}
+を得る．
+
+固定半径 $r+2$ の $p_L$-ball 上の値を評価する．Normal 因子では
+$e^{-(r+2)}b\le s\le e^{r+2}b$ である．
+Annulus 因子について
+\[
+ |d\log x|_{K_L(x)(dx^2+4d\theta_1^2)}
+  =\frac{\sin(\pi x/L)}{\pi x/L}\le1
+\]
+であり，$L-x$ に対しても同じ評価が成り立つ．
+従って ball 全体で
+\begin{equation}\label{simplex:eq:facet-ball-depths}
+ \min(x,L-x)\ge e^{-(r+2)}d_*.
+\end{equation}
+$\beta/d_*$ と $b/\beta$ が十分小さければ，この ball は $Q_\beta$ に含まれる．
+\eqref{simplex:eq:facet-log-sandwich} の第一項は $C_r(b/\beta)^2$ 以下である．
+第二項について，$W>x>0$ として
+\[
+ \partial_W\log K_{0,W}(x)
+  =-\frac2W+\frac{2\pi x}{W^2}\cot\frac{\pi x}{W},
+ \qquad
+ |\partial_W\log K_{0,W}(x)|
+  \le\frac{C}{\min(x,W-x)}
+\]
+を用いる．$W\in[L-\beta,L]$ の間で
+\eqref{simplex:eq:facet-ball-depths} の右辺の固定正倍の margin が保たれるので，
+$W$ について積分すると第二項は $C_r\beta/d_*$ 以下である．
+以上より
+\begin{equation}\label{simplex:eq:facet-small-potential}
+ 0\le\log(k_L^2/\varpi_L^2)
+ \le C_r\left((b/\beta)^2+\beta/d_*\right)
+\end{equation}
+が半径 $r+2$ の ball 上で成立する．
+
+ここで
+\[
+ \beta=(b^2d_*)^{1/3},\qquad
+ \frac b\beta=\varepsilon^{1/3},\qquad
+ \frac\beta{d_*}=\varepsilon^{2/3}
+\]
+と取る．十分小さい $\varepsilon_r$ に対して上述の全ての包含と margin が満たされ，
+\eqref{simplex:eq:facet-small-potential} の右辺は $C_r\varepsilon^{2/3}$ となる．
+Angular cover 上の $p_L$ は双曲平面二つの積であり，幅 $L$ と中心に依存せず
+固定 ball を等長な正則座標で正規化できる．
+$v=\log(k_L^2/\varpi_L^2)$ は
+$\ddc v=k_L-\varpi_L$ と負 KE Monge--Amp\`ere equation を満たすので，
+\cref{coarse:lem:small-volume-tensor} を用いれば
+\eqref{simplex:eq:facet-model-tensor} を得る．
+
+最後に actual family を考える．
+$\varepsilon_r$ をさらに小さくすれば，同じ固定 product balls 上で
+$s\ge c_r b$，$x\ge c_r d_*$，$L-s-x\ge c_r d_*$ であり，
+全深度の最小値は $c_r b$ 以上である．
+\Cref{coarse:thm:full-triple-tensor} による actual/model error は $C_{q,r}/b$ である．
+既に示した model/product 比較を十分高い階まで使って covariant norms を揃え，
+二つの誤差を加えれば \eqref{simplex:eq:facet-actual-tensor} となる．
+上比較の大きい rectangle 自体を actual chart に入れる必要はない．
+Rectangle 上の barrier は固定 complete 模型にのみ適用し，
+actual comparison は中心付近の深い ball 上で用いている．
+\end{proof}
+
+\begin{corollary}[小さい深度に対応する active co-Gram]
+\label{simplex:cor:active-cogram}
+$I\subset\{0,1,2\}$，$1\le|I|\le2$ とし，
+ある十分大きい $A$ に対して $\ell_i\le Le^{-A}$，$i\in I$ と仮定する．
+このとき
+\[
+ G_I=\left(
+   \langle d\log\ell_i,d\log\ell_j\rangle_{(g_L^{\mathrm{sf}})^{-1}}
+      \right)_{i,j\in I}
+\]
+は全正深度および全角度に一様に
+\begin{equation}\label{simplex:eq:active-cogram}
+ \|G_I-\mathrm{Id}_{|I|}\|\le Ce^{-A/2}
+\end{equation}
+を満たす．$|I|=2$ なら右辺を $Ce^{-2A}$ に改善できる．
+ここで matrix norm は Euclidean operator norm とする．
+
+固定次数 $d\ge5$ の actual triple chart でさらに
+$\min_i\ell_i\ge m\ge m_1$ を仮定すれば，$g_L^{\mathrm{sf}}$ を $g_t$ に置き換えた
+$G_I^t$ に対して
+\begin{equation}\label{simplex:eq:actual-active-cogram}
+ \|G_I^t-\mathrm{Id}_{|I|}\|
+       \le C\left(m^{-1}+e^{-A/2}\right)
+\end{equation}
+となる．$|I|=2$ の場合はここでも $e^{-A/2}$ を $e^{-2A}$ に置き換えられる．
+\end{corollary}
+
+\begin{proof}
+$|I|=2$ ならその二深度を独立に選ぶ．
+$\delta\le2e^{-A}$ なので \cref{simplex:prop:dominant-product} により，
+二重 cusp product と $g_L^{\mathrm{sf}}$ の tensor および inverse tensor の差は
+$O(e^{-2A})$ である．Product に関する $d\log\ell_i$ の co-Gram は identity なので，
+この場合の結論を得る．
+
+$|I|=1$ とし，active depth を $b$，残る二深度の小さい方を $a$ と書く．
+$a\le(L-b)/2\le L/2$ である．
+もし $a\le Le^{-A/4}$ なら $(a+b)/L\le2e^{-A/4}$ であり，
+\cref{simplex:prop:dominant-product} から
+$|d\log b|_{g_L^{\mathrm{sf}}}^2=1+O(e^{-A/2})$ を得る．
+逆に $a>Le^{-A/4}$ なら
+$d_*=\min(a,L-a)=a$ および $b/d_*\le e^{-3A/4}$ である．
+\Cref{simplex:prop:facet-product} による tensor と inverse tensor の差は
+$O((b/d_*)^{2/3})=O(e^{-A/2})$ であり，
+facet product の cusp 方向では $|d\log b|^2=1$ なので同じ結論を得る．
+これで全深度比を覆う．
+
+Actual estimate には \cref{coarse:thm:full-triple-tensor} を用いる．
+その $O(m^{-1})$ tensor 比較は inverse tensor にも成立する．
+\Cref{simplex:lem:rank-one-schwarz} より全 covectors $d\log\ell_i$ の
+model norm は $1$ 以下であるため，
+$\|G_I^t-G_I\|\le C/m$ である．これを model estimate に加えればよい．
+Actual 側の定数には固定した次数と族への依存を許す．
+\end{proof}
+
+\begin{remark}[適用範囲]
+\label{simplex:rem:boundary-scope}
+$a/L\in[c,1-c]$，$0<c<1/2$ を固定した facet 領域では $d_*\asymp L$ である．
+従って $b\to\infty$ かつ $b/L\to0$ なら actual metric は
+cusp--annulus product へ全固定階で近づく．
+例えば $b\in[\tfrac12L^\eta,2L^{1-\eta}]$，
+$0<\eta<1/2$ なら \eqref{simplex:eq:facet-actual-tensor} の誤差は
+$O(L^{-2\eta/3})$ である．
+これらは三重点内の模型と actual metric の局所比較であり，
+source，異なる三重点の接着，または領域外を経由する距離の shortcut を評価してはいない．
+\end{remark}

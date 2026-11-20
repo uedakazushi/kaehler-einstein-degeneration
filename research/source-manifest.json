@@ -6,18 +6,18 @@
     {
       "source": "04_hyperplane_degenerations_local_ja.tex",
       "destination": "papers/kaehler-einstein-degeneration.tex",
-      "sha256": "ccdadc5dfe9e7022a02f8178116ca73f99e999c013d8d8b12972fb001a8d95fb",
-      "bytes": 226020,
+      "sha256": "aeadc1bf986c1eb11337493310d53907af2b5ffccc796096112258f25089a151",
+      "bytes": 229003,
       "source_sha256": "cc0343cf295d26321d9c19e979c0181db34bd93de25673967c649b31cf13be3b",
-      "current_blob_sha": "cf9d9c9483ac073e74304598adba33b511a60be4"
+      "current_blob_sha": "1f47ff8f5ce116ed860c73bb400ef3c91c2b989d"
     },
     {
       "source": "05_hyperplane_degenerations_global_ja.tex",
       "destination": "papers/cubical-gh-limit.tex",
-      "sha256": "8bdf74974173b9ca9f6e5f30b7337db1408c24267a4ea7bc65be121636e834d9",
-      "bytes": 107028,
+      "sha256": "b8e0d094551eea58c5a98c558c8c363cba8f7e2621b094e92776b70e0a593bfe",
+      "bytes": 107470,
       "source_sha256": "fb14a1c2e4a7ee0f699a56c98e23ebe96ef4b1abac12a01d8f379c1ea25b4d4e",
-      "current_blob_sha": "51cdef2adde4f728c0df2f1a028ffbf322426bd1"
+      "current_blob_sha": "638b1d609aeb7d92b4b829ce334dea6e2c612753"
     },
     {
       "source": "supplementary/intrinsic_complete_window_audit_definitive_v1.py",
@@ -168,9 +168,9 @@
     "source_chat": "https://chatgpt.com/g/g-p-6a874b9c58a481918993aab64d09c7c2-duo-zhong-sukerukaehler-einsteinji-he/c/6a864137-0ff8-83e8-ac1f-98f48df7e5eb"
   },
   "audit_update_2026_11_20": {
-    "version": "v1.5",
-    "scope": "For every fixed degree d>=5: audited weighted-cap global density lower bound; full deep-triple actual semi-flat tensor asymptotics via translated complete-simplex barriers and Savin; closed-corner actual Lagrangian torus fibers with intrinsic and ambient diameter bounds; open-square intrinsic local GH collapse. Global distance control, relative gluing, and singular-fiber compatibility remain open; novelty is not confirmed.",
-    "verification": "Primary sources and new proof dependencies independently checked; recursive TeX inputs, references, citation keys, environment and brace balance checked. Revised PDFs are not compiled: lualatex.fmt and essential TeX assets are absent. No formal proof or new full audit of the pre-existing global constructions is claimed."
+    "version": "v1.6",
+    "scope": "For every fixed degree d>=5: full deep-triple actual semi-flat comparison; exact rank-one Schwarz bound; dominant O(delta^2), facet O(epsilon^(2/3)), and active co-Gram estimates; closed-corner intrinsic and protected-ambient GH collapse with distortion O(log R/R), realized by the same actual Lagrangian torus bundle. Open-square tensor and GH errors improve to O(L^(-eta)). Chain averaging preserves an already Lagrangian orbit collar as a fiber partition. Global X_t distances, actual neck matching, relative gluing, and singular-fiber compatibility remain open; novelty is unconfirmed.",
+    "verification": "Primary-source inputs and new proofs independently read, including normalizations, domain barriers, fixed-ball perturbation regularity, all-path pruning, finite galleries, Moser pullback, and protected-ambient endpoint control. Recursive TeX inputs, labels/references, citation keys, environments, braces, and newly introduced macros checked. Revised PDFs are not compiled: lualatex.fmt and essential LuaTeX-ja assets are unavailable. No formal proof, comprehensive novelty audit, or fresh full audit of the pre-existing global constructions is claimed."
   },
   "current_post_migration_sources": [
     {
@@ -190,6 +190,18 @@
       "sha256": "6d5d09ad05d78d2ea40c9d9f1eb566bffa675643576ace87724d6cc3ce1756b7",
       "bytes": 17285,
       "current_blob_sha": "3ae8d0cad5de8751fc000fb84912938f5013c42d"
+    },
+    {
+      "destination": "papers/sections/simplex_boundary_geometry.tex",
+      "sha256": "8f621f723f42aa92512e80a0daf462c5037cc85d9b10e4d83012d99d72790050",
+      "bytes": 21983,
+      "current_blob_sha": "3e4977399964c6b924d904bbb4b98ecbe6bf971f"
+    },
+    {
+      "destination": "papers/sections/closed_triple_metric.tex",
+      "sha256": "61ba5eb77e28e604178d57c90a5ea96e533458f2baeb8d3471253851422f1d51",
+      "bytes": 20380,
+      "current_blob_sha": "b58868d811cbccdedd31581ff7819042e14a777c"
     }
   ]
 }

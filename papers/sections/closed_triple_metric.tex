@@ -1,0 +1,453 @@
+% !TeX root = ../kaehler-einstein-degeneration.tex
+% Current content: 2026-11-20, v1.0.
+\section{閉三重点 corner の内在距離と三枚の正方形への収縮}
+\label{simplex:sec:closed-corner-metric}
+
+本節では complete simplex KE model の深部を，全位相を含む一つの閉領域として扱う．
+距離はこの領域内に留まる曲線で定める．極限は三枚の unit squares を共通辺で貼った
+一つの closed corner であり，その内部の seam を通る曲線にも一様な距離下界を与える．
+解析入力は \cref{simplex:lem:rank-one-schwarz} の係数 $1$ の一方向評価と，
+\cref{simplex:prop:dominant-product} の二方向の product 漸近である．
+全曲面に関する $\mathrm{(TC)}_d$，$\mathrm{(CP)}_d$，$\mathrm{(PBE)}_d$ は用いない．
+
+\subsection{Closed corner と softmax hexagon}
+
+三つの labels を $J=\{0,1,2\}$ と番号付けし，
+\[
+ \mathcal C_J=\{w\in[0,1]^3:\max_a w_a=1\},
+ \qquad
+ Q_i=\{w\in\mathcal C_J:w_i=1\}\quad(i=0,1,2)
+\]
+とする．各 $Q_i$ に unit square の Euclidean metric を入れ，
+共通 face で貼った内在的 polyhedral distance を $d_J$ と書く．
+これは $\mathcal C_J$ 自身の長さ距離である．
+より大きい複体 $\mathcal C_d$ の距離を $\mathcal C_J$ へ制限したものとは区別する．
+
+$L=-\log|t|^2$，$R=\log L$ とし，まず $L\ge6m$，$m\ge1$ とする．
+$T=L-3m$ に対して
+\begin{equation}\label{simplex:eq:softmax-hexagon}
+ \lambda_a(w)=\frac{L^{w_a}}{\sum_{b=0}^2L^{w_b}},
+ \qquad
+ r_a(w)=T\lambda_a(w),
+ \qquad
+ \ell_a(w)=m+r_a(w)
+\end{equation}
+を定める．対応する hexagon を
+\begin{equation}\label{simplex:eq:closed-hexagon-domain}
+ H_{L,m}
+ =\left\{\sum_a\ell_a=L,\quad
+       r_a=\ell_a-m,\quad
+       r_a\ge L^{-1}r_b\quad\text{for all }a,b\right\}
+\end{equation}
+とする．$T>0$ なので，この領域では全ての $r_a$ が正である．
+
+\begin{lemma}[Softmax parameter 化と有限 gallery]
+\label{simplex:lem:closed-corner-parameter}
+写像 \eqref{simplex:eq:softmax-hexagon} は $\mathcal C_J$ から $H_{L,m}$ への
+homeomorphism であり，各 square の内部で滑らかである．その逆は
+\begin{equation}\label{simplex:eq:softmax-hexagon-inverse}
+ w_a=1+\frac1R\log\frac{r_a}{\max_b r_b}
+\end{equation}
+である．また次が成立する．
+\begin{enumerate}[label=\textup{(H\arabic*)}]
+\item $H_{L,m}$ は $\{\ell_a>m,\ \sum\ell_a=L\}$ の内部にある compact hexagon であり，
+\begin{equation}\label{simplex:eq:softmax-depth-bounds}
+ \frac16 L^{w_a}\le r_a(w)\le L^{w_a},
+ \qquad
+ \left|\frac{\log\ell_a(w)}R-w_a\right|
+       \le \frac{C\log(m+1)}R
+\end{equation}
+が全 closed corner に一様に成立する．
+\item 任意の $w,w'\in\mathcal C_J$ に対し
+\begin{equation}\label{simplex:eq:corner-chord-comparison}
+ |w-w'|_{\RR^3}\le d_J(w,w')
+       \le\|w-w'\|_{\ell^1}\le\sqrt3\,|w-w'|_{\RR^3}.
+\end{equation}
+\item 任意の二点は，高々三枚の相異なる squares 内の直線分を順につないだ
+$d_J$-geodesic で結べる．Seam 上の区間や中心 $(1,1,1)$ を通る場合も含む．
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+$\max_a w_a=1$ から $L\le\sum_aL^{w_a}\le3L$ である．
+$L/2\le T<L$ なので最初の深度不等式を得る．
+また $r_a/r_b=L^{w_a-w_b}\ge L^{-1}$ であり，像は $H_{L,m}$ に入る．
+逆に \eqref{simplex:eq:softmax-hexagon-inverse} は $[0,1]^3$ に値を取り，
+最大成分は $1$ である．これを \eqref{simplex:eq:softmax-hexagon} へ戻すと
+$r_a$ を復元する．両写像は連続である．
+$r_{\min}$ に対して $T=\sum_a r_a\le(2L+1)r_{\min}$ であるから，
+$H_{L,m}$ は $\ell_a>m$ の内部にある．
+さらに
+\[
+ -\log6\le \log(m+r_a)-Rw_a\le\log(m+1)
+\]
+より残る深度評価が従う．
+
+内在距離は ambient Euclidean chord より小さくならない．
+上界について，$w\in Q_i$，$w'\in Q_j$ とする．$i=j$ なら直線分を使えばよい．
+$i\ne j$ なら，まず $Q_i$ 内で $w_j$ を $1$ へ増やし，
+続いて $Q_j$ 内で残る座標を $w'$ の値へ動かす．
+各座標はその始点と終点の差だけ動くので，全長は $\|w-w'\|_{\ell^1}$ 以下である．
+
+最後に，polyhedral length metric は各 closed square 内の有限本の直線分をつなぐ
+paths の長さの下限で与えられる．一つの square が再訪されたときは，
+最初の退出点と最後の再入点の間を，その square 内の直線分へ置き換える．
+その直線分の長さは二点間の ambient chord であり，取り除いた全 path の長さ以下である．
+有限回の置換により各 square は高々一度だけ現れる．
+従って square は高々三枚でよい．
+このような galleries は有限種類であり，各共通 face は compact である．
+各 gallery の portal points に関する長さの連続関数は最小値を持つから，
+全 galleries の最小値も実現される．これが所要 geodesic である．
+\end{proof}
+
+Exact toric fiber 上の complete model domain を
+\[
+ \mathscr T_t=\{\zeta_0\zeta_1\zeta_2=t,\ \ell_a>0\text{ for all }a\}
+\]
+と書き，$\mathscr H_{t,m}\subset\mathscr T_t$ を
+$\ell\in H_{L,m}$ の全 phase tori の和とする．
+$\theta_1,\theta_2\in\RR/(2\pi\ZZ)$ を独立な角変数，
+$\theta_0=\arg t-\theta_1-\theta_2$ として，
+\begin{equation}\label{simplex:eq:closed-corner-torus-parameter}
+ \mathfrak S_{t,m}:\mathcal C_J\times\mathbb T^2\longrightarrow\mathscr H_{t,m},
+ \qquad
+ \zeta_a=\exp(-\ell_a(w)/2+\sqrt{-1}\theta_a)
+\end{equation}
+と書く．ここで $\mathbb T^2=(\RR/(2\pi\ZZ))^2$ である．
+これは homeomorphism であり，$\mathscr H_{t,m}$ は radial hexagon の
+開近傍上の滑らかな torus bundle の制限である．その projection を
+\[
+ P_{t,m}=\operatorname{pr}_{\mathcal C_J}\circ\mathfrak S_{t,m}^{-1}
+\]
+とする．
+
+\subsection{固定位相の経路と sharp な内部領域}
+
+\begin{lemma}[Softmax による粗い長さ評価と square 内部の鋭い評価]
+\label{simplex:lem:softmax-path-metric}
+$g_L^{\mathrm{sf}}$ を complete simplex form $k_L$ の実計量とする．
+固定位相 $\vartheta$ の写像 $\mathfrak S_{t,m,\vartheta}(w)=
+\mathfrak S_{t,m}(w,\vartheta)$ は，各 square 上で
+\begin{equation}\label{simplex:eq:softmax-coarse-lipschitz}
+ R^{-2}\mathfrak S_{t,m,\vartheta}^*g_L^{\mathrm{sf}}
+ \le C\,g_{\mathrm{Eucl}}
+\end{equation}
+を満たす．定数は $L,m,\vartheta$ に依存しない．
+
+以下 $m=R$ とする．
+\begin{equation}\label{simplex:eq:protected-square-width}
+ \delta_R=\frac{4\log R}{R}
+\end{equation}
+と置き，$R$ を大きくして $\delta_R<1/4$ とする．
+$Q_i$ の独立座標 $w_j,w_k\in[\delta_R,1-\delta_R]$ 上で
+\begin{equation}\label{simplex:eq:softmax-sharp-interior}
+ (1-CR^{-3})g_{\mathrm{Eucl}}
+ \le R^{-2}\mathfrak S_{t,R,\vartheta}^*g_L^{\mathrm{sf}}
+ \le(1+CR^{-3})g_{\mathrm{Eucl}}.
+\end{equation}
+また $\mathscr H_{t,m}$ の各 phase torus 自身の
+$g_L^{\mathrm{sf}}$ に関する intrinsic diameter は $C/m$ 以下である．
+\end{lemma}
+
+\begin{proof}
+$\sigma_a=r_a/\ell_a\in(0,1)$ と書くと，
+\eqref{simplex:eq:softmax-hexagon} の微分は
+\begin{equation}\label{simplex:eq:softmax-logarithmic-derivative}
+ \frac1R\,d\log\ell_a
+ =\sigma_a\left(dw_a-\sum_b\lambda_b\,dw_b\right)
+\end{equation}
+である．$Q_i$ 上では $dw_i=0$ であり，
+$\lambda_b\ge0$，$\sum_b\lambda_b=1$ なので，右辺三成分の二乗和は
+$C(dw_j^2+dw_k^2)$ 以下である．固定位相の経路では角方向の項は零である．
+従って constrained cusp metric
+\[
+ g_L^{\mathrm{cusp}}
+ =\left.\sum_a
+       \frac{d\ell_a^2+4d\theta_a^2}{\ell_a^2}
+   \right|_{\sum\ell_a=L,\ \sum\theta_a=\arg t}
+\]
+に対して粗い評価が成立する．
+\Cref{coarse:lem:simplex-model} の $g_L^{\mathrm{sf}}\le Cg_L^{\mathrm{cusp}}$
+を用いれば \eqref{simplex:eq:softmax-coarse-lipschitz} を得る．
+
+内部領域では $L^{\delta_R}=R^4$ と
+\eqref{simplex:eq:softmax-depth-bounds} から
+\[
+ cR^4\le r_j,r_k,\qquad
+ \ell_j,\ell_k\le CR^{-4}L,\qquad
+ \ell_i=L-\ell_j-\ell_k.
+\]
+従って $1-\sigma_j,1-\sigma_k\le CR^{-3}$，
+$\lambda_j,\lambda_k\le CR^{-4}$ である．
+\eqref{simplex:eq:softmax-logarithmic-derivative} より
+\[
+ R^{-1}d\log\ell_j=dw_j+O(R^{-3})(|dw_j|+|dw_k|),
+ \qquad
+ R^{-1}d\log\ell_k=dw_k+O(R^{-3})(|dw_j|+|dw_k|).
+\]
+ここで $\varepsilon=(\ell_j+\ell_k)/L\le CR^{-4}$ なので，
+\cref{simplex:prop:dominant-product} により
+$g_L^{\mathrm{sf}}$ と独立二因子の cusp product の差は
+相対的に $O(\varepsilon^2)$ である．
+固定位相での product metric は
+$(d\log\ell_j)^2+(d\log\ell_k)^2$ なので，
+\eqref{simplex:eq:softmax-sharp-interior} が従う．
+
+最後に各 phase torus 上では $\ell_a\ge m$ である．
+周期 $1$ の二生成場の constrained cusp norm はそれぞれ
+$4\pi\sqrt{\ell_0^{-2}+\ell_b^{-2}}\le4\pi\sqrt2/m$，$b=1,2$ である．
+二つの circle directions に沿って結ぶと torus の intrinsic diameter は $C/m$ 以下となる．
+再び $g_L^{\mathrm{sf}}\le Cg_L^{\mathrm{cusp}}$ を用いればよい．
+\end{proof}
+
+\subsection{Pruning による全経路の距離下界}
+
+\begin{lemma}[Closed corner 上の一様 no-shortcut 評価]
+\label{simplex:lem:closed-corner-no-shortcut}
+$m=R$ とし，
+\[
+ A=\log R,\qquad S=R-\log m-A=R-2\log R
+\]
+と置き，$[s]_0^1=\max\{0,\min\{s,1\}\}$ と書く．
+$R$ が十分大きいとき，complete model domain $\mathscr T_t$ 上の写像
+\begin{equation}\label{simplex:eq:closed-corner-pruning}
+ \Psi_a(\ell)
+  =\left[\frac{\log(\ell_a/m)}S\right]_0^1
+  \quad(a=0,1,2)
+\end{equation}
+は $\mathcal C_J$ に値を取り，
+\begin{equation}\label{simplex:eq:pruning-close-softmax}
+ \sup_{x\in\mathscr H_{t,R}}
+ d_J\bigl(\Psi(x),P_{t,R}(x)\bigr)
+ \le C\frac{\log R}R
+\end{equation}
+を満たす．Complete model 全体の任意の piecewise smooth curve
+$\gamma\subset\mathscr T_t$ に対して
+\begin{equation}\label{simplex:eq:pruning-all-paths}
+ \Length_{d_J}(\Psi\circ\gamma)
+ \le \frac{\sqrt{1+CR^{-2}}}{S}\,
+                \Length_{g_L^{\mathrm{sf}}}(\gamma)
+\end{equation}
+が成立する．$\mathscr T_t$ 全体での $R^{-2}g_L^{\mathrm{sf}}$ の距離を
+$\mathscr H_{t,R}$ へ制限したものを $\bar d_{t,R}^{\mathrm{sf}}$ と書くと，
+任意の $x,y\in\mathscr H_{t,R}$ について
+\begin{equation}\label{simplex:eq:closed-corner-distance-lower}
+ \bar d_{t,R}^{\mathrm{sf}}(x,y)
+ \ge d_J(P_{t,R}(x),P_{t,R}(y))-C\frac{\log R}R
+\end{equation}
+である．特に，同じ下界は $\mathscr H_{t,R}$ 内の長さ距離
+$d_{t,R}^{\mathrm{sf}}\ge\bar d_{t,R}^{\mathrm{sf}}$ にも成立する．
+\end{lemma}
+
+\begin{proof}
+両端の clipping により $0\le\Psi_a\le1$ である．また
+$m e^S=L e^{-A}=L/R$ であり，$\max_a\ell_a\ge L/3$ である．
+$R>3$ なら少なくとも一つの $\Psi_a$ が $1$ となるため，
+$\Psi$ は $\mathcal C_J$ に値を取る．
+
+ここで値の近さを比較する点は $x\in\mathscr H_{t,R}$ とする．
+$q_a=(\log\ell_a)/R\in[0,1]$ と置く．Clipping は $1$-Lipschitz なので，
+\[
+ |\Psi_a-q_a|
+ \le\left|\frac{Rq_a-\log m}{S}-q_a\right|
+ \le\frac{\log m+A}{S}.
+\]
+\Cref{simplex:lem:closed-corner-parameter} の深度評価と
+chord comparison を使えば \eqref{simplex:eq:pruning-close-softmax} を得る．
+
+微分が非零となり得る active index は
+$m<\ell_a<L/R$ を満たすものだけであり，高々二個である．
+一個だけのときは \cref{simplex:lem:rank-one-schwarz} の係数 $1$ の評価
+\[
+ |d\log\ell_a|_{(g_L^{\mathrm{sf}})^{-1}}\le1
+\]
+を用いる．二個を $j,k$ とすると
+$\varepsilon=(\ell_j+\ell_k)/L\le2/R$ なので，
+\cref{simplex:prop:dominant-product} により，
+二つの covectors $(d\log\ell_j,d\log\ell_k)$ の co-Gram matrix は
+\[
+ \left(\langle d\log\ell_b,d\log\ell_c
+          \rangle_{(g_L^{\mathrm{sf}})^{-1}}\right)_{b,c=j,k}
+ \le(1+CR^{-2})I_2
+\]
+を満たす．Active index が零個なら derivative は零である．
+
+従って，曲線に沿ってほとんど至る所で
+\[
+ |(\Psi\circ\gamma)'|_{\RR^3}
+ \le S^{-1}\sqrt{1+CR^{-2}}\,|\gamma'|_{g_L^{\mathrm{sf}}}.
+\]
+Clipping level に曲線が留まる部分では，対応する coordinate の微分は
+ほとんど至る所で零であり，同じ評価が成立する．
+Polyhedral complex の内在長さは，各 Euclidean face での速度を積分した長さなので，
+\eqref{simplex:eq:pruning-all-paths} を得る．
+これは seam 上を長く走る曲線にも適用できる．
+
+Complete model 全体の曲線について下限を取ると
+\[
+ \bar d_{t,R}^{\mathrm{sf}}(x,y)
+ \ge \frac{S}{R\sqrt{1+CR^{-2}}}\,
+                d_J(\Psi(x),\Psi(y)).
+\]
+$S/R=1-2\log R/R$，
+\eqref{simplex:eq:pruning-close-softmax}，および $d_J$ の有限な直径から
+\eqref{simplex:eq:closed-corner-distance-lower} が従う．
+\end{proof}
+
+\subsection{模型と actual 計量の閉 corner 極限}
+
+\begin{theorem}[Closed triple corner の模型 GH 極限]
+\label{simplex:thm:closed-corner-model}
+$m=R=\log L$ とする．$\mathscr H_{t,R}$ に
+$R^{-2}g_L^{\mathrm{sf}}$ の内在長さ距離 $d_{t,R}^{\mathrm{sf}}$ を入れると，
+全射 $P_{t,R}:\mathscr H_{t,R}\to\mathcal C_J$ は
+\begin{equation}\label{simplex:eq:closed-corner-model-distortion}
+ \sup_{x,y\in\mathscr H_{t,R}}
+ \left|d_{t,R}^{\mathrm{sf}}(x,y)
+       -d_J(P_{t,R}(x),P_{t,R}(y))\right|
+ \le C\frac{\log R}R
+\end{equation}
+を満たす．特に
+\[
+ (\mathscr H_{t,R},d_{t,R}^{\mathrm{sf}})
+ \xrightarrow[t\to0]{\mathrm{GH}}(\mathcal C_J,d_J).
+\]
+全 phase tori，三枚の squares の共通辺と共通頂点，および
+hexagon の外側境界を含む一様な結論である．
+さらに $\mathscr T_t$ 全体の距離を制限した
+$\bar d_{t,R}^{\mathrm{sf}}$ についても
+\eqref{simplex:eq:closed-corner-model-distortion} と同じ distortion bound
+および GH 極限が成立する．
+\end{theorem}
+
+\begin{proof}
+下界は \cref{simplex:lem:closed-corner-no-shortcut} による．
+上界を示すため，$w=P_{t,R}(x)$，$w'=P_{t,R}(y)$ を取り，
+\cref{simplex:lem:closed-corner-parameter} の高々三本の
+straight segments からなる geodesic を選ぶ．
+各 segment が入る square $Q_i$ の独立座標を
+\[
+ \kappa_\delta^{(i)}(u,v)
+   =(\delta+(1-2\delta)u,\,
+      \delta+(1-2\delta)v),
+ \qquad \delta=\delta_R
+\]
+で内部へ移す．Segment の Euclidean length は $(1-2\delta)$ 倍となり，
+各 endpoint の移動量は $\sqrt2\delta$ 以下である．
+移した segment を固定した一つの位相で $\mathfrak S_{t,R}$ により持ち上げる．
+\Cref{simplex:lem:softmax-path-metric} の鋭い内部評価により，これらの
+normalized lengths の総和は
+\[
+ (1+CR^{-3})d_J(w,w')
+\]
+以下である．
+
+隣り合う移動済み endpoints は，元の共通 portal point を経由して結ぶ．
+各短い connector はそれぞれ元の square 内の直線分であり，
+始点と終点にも同じ correction を加える．
+Segment は高々三本なので，これらの target lengths の総和は $C\delta$ 以下である．
+粗い Lipschitz 評価 \eqref{simplex:eq:softmax-coarse-lipschitz} より，
+固定位相での持ち上げの normalized cost も $C\delta$ 以下である．
+全ての経路は $\mathscr H_{t,R}$ 内に留まる．
+
+位相は最初に $x$ のものを用い，最後の fiber 内で $y$ の位相へ合わせる．
+この最後の normalized cost は $C/(mR)=C/R^2$ 以下である．
+従って
+\[
+ d_{t,R}^{\mathrm{sf}}(x,y)
+ \le(1+CR^{-3})d_J(w,w')
+       +C\delta_R+C/R^2
+ \le d_J(w,w')+C\frac{\log R}R .
+\]
+これは中心を通る gallery や seam に沿う segment に対しても同じである．
+下界と合わせて distortion estimate を得る．
+また $\bar d_{t,R}^{\mathrm{sf}}\le d_{t,R}^{\mathrm{sf}}$ であり，
+\cref{simplex:lem:closed-corner-no-shortcut} は前者にも同じ下界を与えるから，
+complete model 全体の距離を用いる主張も従う．
+$P_{t,R}$ は全射なので，その graph は両 compact metric spaces の
+correspondence となり，GH 収束が従う．
+\end{proof}
+
+\begin{corollary}[Actual KE 計量に対する非変形 hexagon の内在極限]
+\label{simplex:cor:actual-closed-corner-metric}
+一般次数仮定 $\mathrm{(G)}_d$ の下で $d\ge5$ を固定し，
+$X_t^{(d)}$ の一つの source-free triple chart を exact coordinates
+$\zeta_0\zeta_1\zeta_2=t$ で表す．
+十分小さい $t$ に対し，$\mathscr H_{t,R}$ はこの chart に含まれる．
+そこへ actual metric $R^{-2}g_t$ の内在長さ距離
+$d_{t,R}^{\mathrm{KE}}$ を入れると，
+\begin{equation}\label{simplex:eq:actual-closed-corner-distortion}
+ \sup_{x,y\in\mathscr H_{t,R}}
+ \left|d_{t,R}^{\mathrm{KE}}(x,y)
+       -d_J(P_{t,R}(x),P_{t,R}(y))\right|
+ \le C_{d,\mathcal X}\frac{\log R}R .
+\end{equation}
+従って同じ projection により
+\[
+ (\mathscr H_{t,R},d_{t,R}^{\mathrm{KE}})
+ \xrightarrow[t\to0]{\mathrm{GH}}(\mathcal C_J,d_J).
+\]
+この段階の domain は元の phase tori の和であり，Moser 変形を施していない．
+その各 fiber が actual $\omega_t$-Lagrangian であることは本系の主張に含めない．
+
+さらに
+\[
+ \mathscr U_{t,R}^{\mathrm{out}}
+   =\{\zeta_0\zeta_1\zeta_2=t,\ \min_a\ell_a>R/2\}
+\]
+内の全曲線を許した $R^{-2}g_t$ の距離を
+$\mathscr H_{t,R}$ へ制限し，$\bar d_{t,R}^{\mathrm{KE,out}}$ と書く．
+この protected-ambient distance についても
+\eqref{simplex:eq:actual-closed-corner-distortion} と同じ distortion bound
+および GH 極限が成立する．
+\end{corollary}
+
+\begin{proof}
+$\min_a\ell_a>R\to\infty$ なので，domain は固定 source-free triple chart の内部に入る．
+\Cref{coarse:thm:full-triple-tensor} の $q=0$ により，全 domain 上で
+\[
+ (1-C/R)g_L^{\mathrm{sf}}\le g_t
+                  \le(1+C/R)g_L^{\mathrm{sf}} .
+\]
+従って，同じ domain 内の全曲線の長さを比較して
+\[
+ \sqrt{1-C/R}\,d_{t,R}^{\mathrm{sf}}
+ \le d_{t,R}^{\mathrm{KE}}
+ \le\sqrt{1+C/R}\,d_{t,R}^{\mathrm{sf}}
+\]
+を得る．前定理により $d_{t,R}^{\mathrm{sf}}$ の diameter は一様有界なので，
+両距離の一様な差は $C/R$ 以下である．
+\eqref{simplex:eq:closed-corner-model-distortion} を加えればよい．
+
+最後の主張については $\mathscr U_{t,R}^{\mathrm{out}}$ 全体が同じ固定 chart に入り，
+\cref{coarse:thm:full-triple-tensor} を最小深度 $R/2$ で用いることにより，
+この全領域でも $(1-C/R)g_L^{\mathrm{sf}}\le g_t$ が成立する．
+従って，$\mathscr U_{t,R}^{\mathrm{out}}$ 内の曲線の下限を取れば
+\[
+ \sqrt{1-C/R}\,\bar d_{t,R}^{\mathrm{sf}}(x,y)
+ \le\bar d_{t,R}^{\mathrm{KE,out}}(x,y)
+ \le d_{t,R}^{\mathrm{KE}}(x,y).
+\]
+左辺の model distance は $\mathscr T_t$ 全体の曲線を許しているので，
+この下比較はそのまま有効である．
+模型定理の ambient lower と既に示した actual intrinsic upper を合わせればよい．
+\end{proof}
+
+\begin{remark}[内在距離と大域の距離を区別する]
+\label{simplex:rem:closed-corner-metric-scope}
+本節の actual conclusion は，$\mathscr H_{t,R}$ 自身の内在距離，および
+$\mathscr U_{t,R}^{\mathrm{out}}$ 内の経路を許す protected-ambient distance に関する．
+$X_t^{(d)}$ 全体の距離をこの領域へ制限すると，外へ出る経路が許されるため，
+その距離は小さくなり得る．また $(\mathcal C_J,d_J)$ は三枚の squares 自身の
+内在距離を持つ．他の labels の cells を経由する
+$\mathcal C_d$ の経路まで比較したものではない．
+従って本節は全曲面の no-shortcut，異なる triple charts の接合，
+source・branch・core の singular fibers，または大域 GH 極限を結論しない．
+
+他方，complete model の全 simplex と actual の上記 protected domain では，
+multiple-max seams と中心を含む全経路の下界を
+\eqref{simplex:eq:pruning-all-paths} が保証している．
+Seam collar の横幅が小さいという事実だけを距離下界に用いてはいない．
+一方向の係数 $1$ の Schwarz 評価と，二方向が active な領域での
+sharp product comparison が，この下界の解析的入力である．
+\end{remark}
