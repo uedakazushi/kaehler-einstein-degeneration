@@ -10,8 +10,8 @@
 - 高次元ではmixed source–higher-stratum modelsの解析が残るためGH極限は予想。
 - Fixed arrangement complement側Part I–IIIの正本は[multiscale-kaehler-einstein](https://github.com/uedakazushi/multiscale-kaehler-einstein)。固定空間の結果から族の一様性を自動的に導かない。
 
-## 今回独立に確認した幾何・位相
-Part V主稿に一般次数 \(d\ge5\) の候補 \(\mathcal C_d\) のセル数、二次骨格への明示的同相、整数ホモロジーを命題として証明し、Lagrangian分岐基底とのcell-like homotopy equivalenceを説明した。\(d\ge6\) で同相ではなく、GH計量への同定でもない。有限次数 \(d=5,\ldots,8\) の鎖階数を独立に検算した（一般次数の整数係数証明は本文）。**(CP)_d+(PBE)_d のactual KEへの適用は依然として未証明**。
+## 候補基底の位相と計量的可能性
+Part V主稿には任意のd≥5についてC_dのセル数・Sk_2 Δ^{d-1}との同相・整数ホモロジーの一般次数証明がある。Lagrangianの分岐基底B_d(T)とはcell-like homotopy equivalenceで結ばれる。d≥6では非同相であるが、人工的に定めたpiecewise length metrics d_epsilonについて sup|d_epsilon-d_square∘p_T|≤C epsilon と d_GH≤C epsilon/2 を証明した（厳密な証明はlagrangian-torus-fibrationのbase_topology.tex、ここでは帰結と参照のみを記載）。これらはrealized KE metricのGH収束もLagrangianの作用計量の収束も保証しない。実際の解析課題は依然(CP)_d+(PBE)_dの確立である。独立の有限鎖階数検算はd=5,6,7,8で実施済み。
 
 ## 次の課題
 1. (PBE)_dのquantitative terminal trivialization、protected rectangular inclusion、uniform comparison、two-metric escapeをactual metricsで証明する。
