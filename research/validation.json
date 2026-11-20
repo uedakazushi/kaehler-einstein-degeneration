@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-20",
+  "engine": "LuaHBTeX 1.24.0 / TeX Live 2026",
+  "manuscripts": [
+    {
+      "source": "papers/cubical-gh-limit.tex",
+      "pages": 34,
+      "pdf_sha256": "4bf21717f52909f78567bb7b6fd37f723b1e1620e124cfad1fbef483c3498d8d",
+      "unresolved_or_box_warnings": [],
+      "other_warnings": "Font substitution/scaling and PDF bookmark math warnings may remain."
+    },
+    {
+      "source": "papers/kaehler-einstein-degeneration.tex",
+      "pages": 66,
+      "pdf_sha256": "e14171ddcf55aafccc8ac94305f6627f6ae0382a09c86c9d03e5eb5b69cb09e4",
+      "unresolved_or_box_warnings": [],
+      "other_warnings": "Font substitution/scaling and PDF bookmark math warnings may remain."
+    },
+    {
+      "source": "papers/punctured-neck-scattering.tex",
+      "pages": 92,
+      "pdf_sha256": "27bd2adfb55e7fd6682dd8eb8809c98cf16f61a38213d289789cb6c605f2d8e5",
+      "unresolved_or_box_warnings": [],
+      "other_warnings": "Font substitution/scaling and PDF bookmark math warnings may remain."
+    }
+  ],
+  "scope": "Build and representative-page visual checks; not independent mathematical validation.",
+  "certificate_runs": [
+    {
+      "script": "cubical_diameter_exact_gallery_certificate_definitive_v1.py",
+      "exit_code": 0,
+      "source_sha256": "b44fe4feedd8be20939027a27892fb56c92f849b5cd9e41d6c79ebb6b669946e"
+    },
+    {
+      "script": "intrinsic_complete_window_audit_definitive_v1.py",
+      "exit_code": 0,
+      "source_sha256": "4499d910b07982f11fc03017b5a09cbf4680d591a528e618825f815e96105550"
+    },
+    {
+      "script": "neck/balanced_punctured_neck_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "b996903ccb00d02c287ec699b75d27e8bf3b491f4a56853a4830d719951694d6"
+    },
+    {
+      "script": "neck/calderon_network_coercivity_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "220d58dbc7f9e00df231c7415ce4e272a2fafb85b55d9e312ef5f78147261d5f"
+    },
+    {
+      "script": "neck/complex_phase_orientation_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "9385ec35cc51859cfd2328f828cabb1617a335c59f41dc6b0b15e98696dc7661"
+    },
+    {
+      "script": "neck/cubical_diameter_exact_gallery_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "01ee42bc0babfa0a095c8e32770d75476d8f41942575a6cf3c396eca4b7b98cc"
+    },
+    {
+      "script": "neck/cusp_indicial_parametrix_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "bb61f4ebf6092570df7cd493d59aa4bd19200298d72b5425e28126c63e0cacca"
+    },
+    {
+      "script": "neck/defect_cohomology_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "4a7d3d53747b039f69b614110e4d1147aa3398e62a71bc24b146b58f76afcdab"
+    },
+    {
+      "script": "neck/filtered_scattering_tower_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "c441afe964c46d8b0b91de46f94ad4594853870118e1e936094cf5b2faebbb01"
+    },
+    {
+      "script": "neck/gamma2_scattering_jordan_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "abcb5a2dad6aaf40a60ae2c52a75bb9abec105e32194fb10ab58fce9cbae2287"
+    },
+    {
+      "script": "neck/punctured_mandel_factorization_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "1e2c771b370e0e188297e7284f299e76cdb4d40a2b782171a5f3c243e9e99d14"
+    },
+    {
+      "script": "neck/scale_degree_plumbing_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "d93171362f10885bd2a8837c61ced275918e12cea7c2c02f010968c1ed05bc47"
+    },
+    {
+      "script": "neck/semistable_resolution_certificate.py",
+      "exit_code": 0,
+      "source_sha256": "56c7e50b5f485ff909653586df9a748e007d7c657b87a9dc7230425049395e4d"
+    },
+    {
+      "script": "relative_bishop_gromov_packing_audit_definitive_v1.py",
+      "exit_code": 0,
+      "source_sha256": "e58e3ffd433829c05a7534e396fc95cfdbc872df2a5b15d470867cd36ca1a6d3"
+    },
+    {
+      "script": "slow_box_frame_shear_audit_definitive_v1.py",
+      "exit_code": 0,
+      "source_sha256": "607caa30e6ccb8deef235863effa34856e629d246e0f5cb5c991283f3463b2ec"
+    },
+    {
+      "script": "terminal_cusp_adapted_gauge_audit_definitive_v1.py",
+      "exit_code": 0,
+      "source_sha256": "02faecb64877ddacdc0f78c7561b838cfdbd6c235fd4e5784dff64e0c4b58d49"
+    }
+  ],
+  "visual_check": {
+    "sample": "First, middle and last pages of each manuscript (38 distinct pages across the three repositories).",
+    "result": "Reviewed rendered contact sheets; no visible clipping or overlap in sampled pages.",
+    "full_page_review": false
+  },
+  "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested."
+}

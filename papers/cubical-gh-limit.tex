@@ -1,0 +1,2059 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[margin=27mm,headheight=16pt]{geometry}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm,mathrsfs,aliascnt}
+\usepackage{booktabs,array,longtable,tabularx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{fancyhdr}
+
+\allowdisplaybreaks
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.14em}
+\setlength{\emergencystretch}{3em}
+\setlist[enumerate]{leftmargin=2.55em,itemsep=.25em,topsep=.45em}
+\setlist[itemize]{leftmargin=2.25em,itemsep=.22em,topsep=.4em}
+\numberwithin{equation}{section}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}[section]
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{命題}
+\aliascntresetthe{proposition}
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{補題}
+\aliascntresetthe{lemma}
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{系}
+\aliascntresetthe{corollary}
+\newaliascnt{claim}{theorem}
+\newtheorem{claim}[claim]{主張}
+\aliascntresetthe{claim}
+\newaliascnt{conjecture}{theorem}
+\newtheorem{conjecture}[conjecture]{予想}
+\aliascntresetthe{conjecture}
+\theoremstyle{definition}
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{定義}
+\aliascntresetthe{definition}
+\newaliascnt{hypothesis}{theorem}
+\newtheorem{hypothesis}[hypothesis]{仮定}
+\aliascntresetthe{hypothesis}
+\newaliascnt{assumption}{theorem}
+\newtheorem{assumption}[assumption]{仮定}
+\aliascntresetthe{assumption}
+\newaliascnt{example}{theorem}
+\newtheorem{example}[example]{例}
+\aliascntresetthe{example}
+\theoremstyle{remark}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{注意}
+\aliascntresetthe{remark}
+\renewcommand{\proofname}{証明}
+
+\crefname{theorem}{定理}{定理}
+\crefname{proposition}{命題}{命題}
+\crefname{lemma}{補題}{補題}
+\crefname{corollary}{系}{系}
+\crefname{claim}{主張}{主張}
+\crefname{conjecture}{予想}{予想}
+\crefname{definition}{定義}{定義}
+\crefname{hypothesis}{仮定}{仮定}
+\crefname{assumption}{仮定}{仮定}
+\crefname{example}{例}{例}
+\crefname{remark}{注意}{注意}
+\crefname{section}{節}{節}
+\crefname{table}{表}{表}
+\crefname{equation}{式}{式}
+
+\newcommand{\PP}{\mathbf P}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\RR}{\mathbf R}
+\newcommand{\ZZ}{\mathbf Z}
+\newcommand{\NN}{\mathbf N}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cK}{\mathcal K}
+\newcommand{\cT}{\mathcal T}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cN}{\mathcal N}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cM}{\mathcal M}
+\newcommand{\cE}{\mathcal E}
+\newcommand{\cU}{\mathcal U}
+\newcommand{\cR}{\mathcal R}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ddc}{\sqrt{-1}\,\partial\bar\partial}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\Ric}{\operatorname{Ric}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\vol}{\operatorname{Vol}}
+\newcommand{\Length}{\operatorname{Length}}
+\newcommand{\GH}{\mathrm{GH}}
+\newcommand{\Hess}{\operatorname{Hess}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\osc}{\operatorname{osc}}
+\newcommand{\Norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\Abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\inner}[2]{\left\langle #1,#2\right\rangle}
+\newcommand{\Cfive}{\mathcal C_5}
+\newcommand{\Cd}{\mathcal C_d}
+\newcommand{\Cnd}{\mathcal C_{d,N}}
+\newcommand{\dsq}{d_{\square}}
+\newcommand{\Lt}{L_t}
+\newcommand{\Rt}{R_t}
+\newcommand{\rawq}{q_t}
+\newcommand{\Phialg}{\Phi_t^{\mathrm{alg}}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small 多重スケール Kähler--Einstein 幾何 V}
+\fancyhead[R]{\small 立方体極限と直径}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{16pt}
+
+\hypersetup{
+  pdftitle={多重スケール Kähler--Einstein 幾何 V: 超平面和への退化，立方体極限と直径},
+  pdfauthor={Kazushi Ueda},
+  pdfsubject={Conditional cubical Gromov--Hausdorff limits for fixed-degree hyperplane degenerations and the exact diameter of C5}
+}
+
+\title{\bfseries 多重スケール Kähler--Einstein 幾何 V\\[3mm]
+\Large 超平面和への退化：定量的 pruning，立方体極限，および直径}
+\author{植田一石\\[-1mm]\small Kazushi Ueda}
+\date{2026年8月31日\\五部作・統合改訂稿 v1}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+本稿は五部作の第V篇である．まず有限 Euclid 多面体複体に対する quantitative pruning--transport criterionを，解析的退化から独立な無条件の距離論として証明する．次に，$\PP^3$ で一般位置の $d$ 平面の和へ退化する次数 $d\ge5$ の標準負 Kähler--Einstein 曲面族を考える．第IV篇の粗い局所・大域 package $\mathrm{(CP)}_d$ と，Product--Box Exhaustion 仮定 $\mathrm{(PBE)}_d$ の下で得られる finite-depth raw co-Gram modulusを明示的な解析入力とする．Raw coordinatesの座標ごとの剪定，全 target distance functionsによる scalar calibration，affinely protected galleries，および canonical minimal-horizontal transportを組み合わせ，
+\[
+ d_{\mathrm{GH}}\bigl((X_t^{(d)},R_t^{-2}g_t),(\mathcal C_d,d_\square)\bigr)
+ \le C_d\inf_A\left\{\mathfrak m_{d,t}(2A)+\frac{A+1}{R_t}\right\}
+\]
+を得る．従って同じ二入力の下で $(X_t^{(d)},R_t^{-2}g_t)\to(\mathcal C_d,d_\square)$ が部分列なしに成り立つ．解析入力と独立に有限正方形複体 $\mathcal C_5$ の内在距離を厳密に計算し，無条件に $\operatorname{diam}(\mathcal C_5,d_\square)=\sqrt{13}$ を証明する．よって $d=5$ では，$\mathrm{(CP)}_5+\mathrm{(PBE)}_5$ の下で $\operatorname{diam}(X_t,g_t)/R_t\to\sqrt{13}$ となる．高次元 $\PP^N$ の候補 $\mathcal C_{d,N}=\{\max w_i=1,\ |\operatorname{supp}w|\le N\}$ は予想としてのみ提示し，正の次元を持つ source locus と higher strata の混合模型を未解決入力として分離する．
+\end{abstract}
+
+\begin{center}
+\begin{minipage}{0.93\textwidth}\small
+\textbf{Abstract.}
+This is Part V of a five-paper series.  We first prove an unconditional quantitative pruning--transport criterion for finite Euclidean polyhedral complexes.  We then consider degree-$d$ surfaces in $\mathbb P^3$, $d\ge5$, degenerating to $d$ hyperplanes.  The analytic application explicitly assumes the coarse package $\mathrm{(CP)}_d$ from Part IV and the finite-depth raw co-Gram modulus supplied there under the Product--Box Exhaustion hypothesis $\mathrm{(PBE)}_d$.  Coordinatewise raw-depth pruning, scalar target-distance calibrations, affinely protected galleries, and canonical minimal-horizontal transport give a quantitative Gromov--Hausdorff estimate and, under these two inputs, the full non-subsequential convergence to $\mathcal C_d=\{w\in[0,1]^d:\max w_i=1,\ |\operatorname{supp}w|\le3\}$.  Independently of all analytic hypotheses, we compute $\operatorname{diam}(\mathcal C_5,d_\square)=\sqrt{13}$.  Thus the quintic diameter asymptotic follows under $\mathrm{(CP)}_5+\mathrm{(PBE)}_5$.  For hypersurfaces in $\mathbb P^N$ we state only a conjectural candidate $\mathcal C_{d,N}$, because positive-dimensional source loci create new mixed source--higher-stratum models.
+
+\medskip
+\textbf{Keywords:} Gromov--Hausdorff convergence, negative Kähler--Einstein metric, hyperplane degeneration, polyhedral pruning, asymptotic submetry, cubical complex, diameter.
+\end{minipage}
+\end{center}
+
+\section*{五部作の規約と本稿の位置}
+一般位置にある五超平面 $H_i=\{L_i=0\}\subset\mathbf P^3$ $(0\le i\le4)$ と
+\[
+ X_t=\{L_0L_1L_2L_3L_4+tF_5=0\}\subset\mathbf P^3
+\]
+を考える．$\omega_t$ は $\operatorname{Ric}(\omega_t)=-\omega_t$ を満たす標準負 Kähler--Einstein 計量，$g_t$ は対応する実計量である．本稿を通じて
+\[
+ L_t=-\log|t|^2,\qquad R_t=\log L_t,
+\]
+\[
+ \mathcal C_5=\{w\in[0,1]^5:\max_iw_i=1,\ |\operatorname{supp}w|\le3\}
+\]
+とし，各 maximal squareを unit Euclidean squareとする内在的長さ計量を $d_\square$ と書く．本稿の解析的適用は，第IV篇~\cite{SeriesIV} の粗い package $\mathrm{(CP)}_5$ と，そこで $\mathrm{(PBE)}_5$ の下に導かれる raw co-Gram coefficient-one theoremを入力とする．$\mathrm{(PBE)}_5$ 自体を本稿が証明したとはみなさない．他方，\cref{thm:abstract-pruning} と有限計量 \cref{thm:intro-diameter-C5} はこれらの解析入力から独立である．
+
+\tableofcontents
+
+\section{序論}\label{main2:intro}
+局所的な係数1定理だけでは，大域的 Gromov--Hausdorff極限は決まらない．特に法線幅が $o(R_t)$ の seam collarであっても，測地線がその内部を接線方向に $O(R_t)$ 走る可能性は残る．本稿の下距離証明は collar decompositionを用いず，targetの全距離関数
+\[
+ x\longmapsto d_\square(\Psi_{t,A}(x),b),\qquad b\in\mathcal C_5,
+\]
+を直接較正する．上距離証明では有限複体の凸性を用いて near-geodesicを有限個の protected square segmentsへ還元し，smooth raw active mapの minimal-horizontal right inverseを積分する．
+
+\subsection{五部作における論理的位置}
+第I篇~\cite{SeriesI} は，超平面配置補集合の完備負 Kähler--Einstein 計量の空間的無限遠を，互いに両立する horospherical depthsで記述する．本稿の $\Cd$ の star $\{w_i=1\}$ は，中心成分
+\[
+ H_i^\circ=H_i\setminus\bigcup_{j\ne i}H_j
+ \simeq\PP^2\setminus\bigcup_{j\ne i}(H_i\cap H_j)
+\]
+に対する第I篇の orthant complexを unit depthで切り，surfaceの normal-crossing bound $|\supp w|\le3$ を課したものとみなせる．第II篇~\cite{SeriesII} の secondary periodsは，$d\ge6$ では residual arrangementの scale-one geometryを区別し得るが，$\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ から first logarithmic scaleを導く本稿の抽象推論には追加入力として現れない．局所 source germ $xy=tz$ は第III篇~\cite{SeriesIII} の conifold modelsとの形式的な橋をなし，本稿の \cref{thm:abstract-pruning} はその local-to-global距離論を有限複体向けに自己完結化したものである．第IV篇~\cite{SeriesIV} が raw coordinates，粗い connector package，および $\mathrm{(PBE)}_d$ 下の sharp co-Gram入力を供給し，本稿はそれらを大域 metric-space limitへ変換する．
+
+\subsection{固定次数の解析入力}
+固定した $d\ge5$ に対し，一般位置の平面 $H_i=\{L_i=0\}\subset\PP^3$ $(0\le i\le d-1)$ と次数 $d$ の斉次式 $F_d$ から
+\begin{equation}\label{eq:degree-d-family}
+ X_t^{(d)}=\left\{\prod_{i=0}^{d-1}L_i+tF_d=0\right\}\subset\PP^3
+\end{equation}
+を作る．$0<|t|\ll1$ で fibreが滑らか，各二重線 $D_{ij}$ 上の $F_d|_{D_{ij}}$ が $d$ 個の単純零点を持ち，それらが三重点を避ける，という第IV篇の一般性条件 $\mathrm{(G)}_d$ を課す．従って source pointsの総数は $d\binom d2$ であり，各 $D_{ij}$ には $d-2$ 個の triple cuspsがある．$d\ge5$ なので residual curve $D_{ij}$ から triple cuspsを除いたものは双曲的である．Adjunctionにより
+\[
+ K_{X_t^{(d)}}\simeq\mathcal O_{X_t^{(d)}}(d-4).
+\]
+$\Ric(\omega_t^{(d)})=-\omega_t^{(d)}$，従って $[\omega_t^{(d)}]=2\pi(d-4)H|_{X_t^{(d)}}$ とし，対応する実計量を $g_t^{(d)}$ と書く．Unit edgeを持つ \eqref{eq:Cd-definition-intro} はこの Ricci normalizationに対応する．代わりに class $2\pi H$ へ計量を $1/(d-4)$ 倍して規格化すれば，極限距離も $1/\sqrt{d-4}$ 倍される．候補複体は
+\begin{equation}\label{eq:Cd-definition-intro}
+ \Cd=\left\{w\in[0,1]^d:\max_iw_i=1,\ |\supp w|\le3\right\},
+ \qquad
+ Q_{i;jk}=e_i+[0,1]e_j+[0,1]e_k,
+\end{equation}
+であり，各 $Q_{i;jk}$ を unit squareとする内在距離を $d_\square$ とする．ここで $i,j,k$ は相異なり，$\{j,k\}$ は unorderedである．従って maximal squaresの数は
+\begin{equation}\label{eq:Nd-squares}
+ N_d=d\binom{d-1}{2}
+\end{equation}
+である．以下の定数は固定した $d$ に依存してよいが，$t$ には依存しない．
+
+\begin{hypothesis}[第IV篇の coarse package $\mathrm{(CP)}_d$]\label{hyp:CPd}
+第IV篇で構成される smooth raw map $q_t^{(d)}:X_t^{(d)}\to\RR^d$，固定近傍 retraction $\Pi_d$，および $\Phi_t^{\mathrm{alg},(d)}=\Pi_d\circ q_t^{(d)}:X_t^{(d)}\to\Cd$ が，次を満たすと仮定する：
+\begin{enumerate}[label=\textup{(CP\arabic*)}]
+\item $q_t^{(d)}(X_t^{(d)})$ は $\Cd$ の $O_d(R_t^{-1})$-近傍に入り，$\Phi_t^{\mathrm{alg},(d)}(X_t^{(d)})$ は $O_d(R_t^{-1})$-denseである．
+\item Source coresを除く部分は有限個の labelled complete local typesで覆われ，source cores上の raw labelsは対応する support-$2$ vertexから $O_d(R_t^{-1})$ だけずれる．Raw depthsの chart changesは unscaled depthに $O_d(1)$ の誤差しか与えない．
+\item $R_t d_\square$ と $d_{g_t^{(d)}}$ の粗い二側比較，および target length $\ell$ を actual length $O_d(R_t\ell+1)$ で実現する有限 connector libraryが成り立つ．
+\end{enumerate}
+これは鋭い係数を主張せず，pruningの値制御，source-core貼合せ，image density，および portal costだけを供給する．
+\end{hypothesis}
+
+\begin{hypothesis}[Product--Box Exhaustion $\mathrm{(PBE)}_d$]\label{hyp:PBEd}
+第IV篇の全 moving flag-starsに対し，terminal cuspで order zeroを持つ gaugeの有限選択，protected rectangular inclusion，actual/global/box metricsの一様比較，および actual metricと global product metricの双方に関する boundary escapeを備えた compatible product-box exhaustionが存在すると仮定する．この仮定は局所 chartの存在だけでなく，box半径に独立な transition controlと compatible exhaustionを含む．
+\end{hypothesis}
+
+第IV篇の条件付き co-Gram定理によれば，\cref{hyp:CPd,hyp:PBEd} の下で，非空な admissible flag $I$，$|I|\le2$ に対し
+\[
+ \mathcal R_{d,t}(I;A)=
+ \left\{x\in X_t^{(d)}:\frac A{R_t}\le q_{i,t}^{(d)}(x)\le1-\frac A{R_t}\ (i\in I)\right\}
+\]
+と置いた有限深さ modulus
+\begin{equation}\label{eq:general-degree-modulus}
+ \mathfrak m_{d,t}(A)=
+ \max_I\sup_{x\in\mathcal R_{d,t}(I;A)}
+ \left\|R_t^2\bigl(\langle dq_{i,t}^{(d)},dq_{j,t}^{(d)}\rangle_{(g_t^{(d)})^{-1}}\bigr)_{i,j\in I}-I_I\right\|_{\mathrm{op}}
+\end{equation}
+は
+\begin{equation}\label{eq:general-degree-modulus-limit}
+ \lim_{A\to\infty}\limsup_{t\to0}\mathfrak m_{d,t}(A)=0
+\end{equation}
+を満たす．本稿では \eqref{eq:general-degree-modulus-limit} を $\mathrm{(PBE)}_d$ なしに使用しない．
+
+\subsection{主定理}
+
+\begin{theorem}[固定次数 $d\ge5$ の条件付き立方体極限]\label{thm:degree-d-limit}
+固定した $d\ge5$ に対し，$\mathrm{(G)}_d$，$\mathrm{(CP)}_d$，$\mathrm{(PBE)}_d$ を仮定する．一様定数 $A_{*,d},C_d>0$ が存在し，十分小さい $t$ と
+\[
+ A_{*,d}\le A\le R_t/20,
+ \qquad \mathfrak m_{d,t}(2A)\le\frac12
+\]
+に対して，raw pruning map $\Psi_{t,A}^{(d)}:X_t^{(d)}\to\Cd$ は
+\begin{align}
+ &\sup_{x,y\in X_t^{(d)}}
+ \left|R_t^{-1}d_{g_t^{(d)}}(x,y)
+ -d_\square(\Psi_{t,A}^{(d)}(x),\Psi_{t,A}^{(d)}(y))\right|
+ \le C_d\left(\mathfrak m_{d,t}(2A)+\frac{A+1}{R_t}\right),\label{eq:degree-d-distortion}\\
+ &d_H^{d_\square}\bigl(\Psi_{t,A}^{(d)}(X_t^{(d)}),\Cd\bigr)
+ \le C_d\frac{A+1}{R_t}\label{eq:degree-d-density}
+\end{align}
+を満たす．従って slow diagonalを選ぶと，部分列を取らず
+\begin{equation}\label{eq:degree-d-GH}
+ (X_t^{(d)},R_t^{-2}g_t^{(d)})\xrightarrow{\GH}(\Cd,d_\square)
+\end{equation}
+が成り立つ．
+\end{theorem}
+
+\begin{theorem}[定量的 raw almost-isometry と厳密立方体極限]
+\label{thm:intro-exact}\label{main2:exact-limit}
+$d=5$ とし，一般性条件 \textup{(G1)--(G3)}，$\mathrm{(CP)}_5$，$\mathrm{(PBE)}_5$ を仮定する．
+一様定数 $A_*,C_*>0$ が存在し，十分小さい $t$ と
+\[
+ A_*\le A\le \frac{R_t}{20},
+ \qquad
+ \mathfrak m_t(2A)\le\frac12
+\]
+に対して，$\delta_{t,A}=2A/R_t$，$\Psi_{t,A}=\Psi_{t,\delta_{t,A}}$ と置けば
+\begin{align}
+ \sup_{x,y\in X_t}
+ \left|R_t^{-1}d_{g_t}(x,y)
+ -d_\square(\Psi_{t,A}(x),\Psi_{t,A}(y))\right|
+ &\le C_*\mathfrak E_t(A),
+ \label{eq:intro-quantitative-Psi}\\
+ d_H^{d_\square}\bigl(\Psi_{t,A}(X_t),\cC_5\bigr)
+ &\le C_*\frac{A+1}{R_t},
+ \label{eq:intro-quantitative-density}\\
+ \sup_{x,y\in X_t}
+ \left|R_t^{-1}d_{g_t}(x,y)
+ -d_\square(\Phi_t^{\mathrm{alg}}(x),\Phi_t^{\mathrm{alg}}(y))\right|
+ &\le C_*\mathfrak E_t(A),
+ \label{eq:intro-distortion}
+\end{align}
+ここで
+\[
+ \mathfrak E_t(A)=\mathfrak m_t(2A)+\frac{A+1}{R_t}.
+\]
+特に $A_t\to\infty$，$A_t=o(R_t)$，$\mathfrak m_t(2A_t)\to0$ となる slow diagonalを選べ，
+$\Psi_t:=\Psi_{t,A_t}$ は Gromov--Hausdorff approximationとなる．従って部分列を取らず
+\begin{equation}\label{eq:intro-GH}
+ (X_t,R_t^{-2}g_t)\xrightarrow{\GH}(\cC_5,d_\square)
+\end{equation}
+が成り立つ．
+\end{theorem}
+
+\begin{remark}[論理的射程]\label{rem:relative-status}
+\Cref{thm:intro-exact} は明示的に $\mathrm{(CP)}_5+\mathrm{(PBE)}_5$ の下の条件付き解析定理である．本稿単独の論理構造を明確にするため，その特殊化を \cref{thm:partI-package,thm:partII-package} として再掲する．Relative Mandel block，complex period matching，actual/relative anchoring，seam-diameter hypothesis，global three-cusp frameは本稿の抽象距離論には用いない．$\mathrm{(PBE)}_5$ の検証を pruning--transport argumentが代替することもない．無条件に証明するのは，有限複体の \cref{thm:abstract-pruning} と $\cC_5$ の \cref{thm:intro-diameter-C5} である．
+\end{remark}
+
+\begin{theorem}[有限尺度の大域 raw scalar calibration]\label{thm:intro-scalar}
+\Cref{thm:intro-exact} と同じ $\mathrm{(CP)}_5+\mathrm{(PBE)}_5$ の仮定および上の $t,A$ に対し，任意の $b\in\cC_5$ について
+\begin{align}
+ F_{b,t,A}(x)&=d_\square(\Psi_{t,A}(x),b),\label{eq:intro-Fbt}\\
+ \Lip_{g_t}(F_{b,t,A})
+ &\le\frac{\lambda_{t,A}\sqrt{1+\mathfrak m_t(2A)}}{R_t},
+ \qquad \lambda_{t,A}=\left(1-\frac{4A}{R_t}\right)^{-1},
+ \label{eq:intro-F-lip}\\
+ \sup_x\left|F_{b,t,A}(x)-d_\square(\Phi_t^{\mathrm{alg}}(x),b)\right|
+ &\le C\frac{A+1}{R_t}.
+ \label{eq:intro-F-value}
+\end{align}
+定数は $b$ に依存しない．
+\end{theorem}
+
+
+
+\begin{theorem}[有限尺度の漸近 submetryと quasi-inverse]\label{thm:intro-submetry}
+\Cref{thm:intro-exact} の仮定の下で，その $t,A$ に対し
+\[
+ \bar d_t=R_t^{-1}d_{g_t},\qquad
+ \Delta_t(A)=C_*\mathfrak E_t(A),\qquad
+ \rho_t(A)=C_*\frac{A+1}{R_t}
+\]
+と置く．任意の $x\in X_t$，$r\ge0$ について
+\begin{align}
+ \Psi_{t,A}(B_{\bar d_t}(x,r))
+ &\subset B_{d_\square}(\Psi_{t,A}(x),r+\Delta_t(A)),\label{eq:intro-submetry-upper}\\
+ B_{d_\square}(\Psi_{t,A}(x),(r-\Delta_t(A)-\rho_t(A))_+)
+ &\subset N_{\rho_t(A)}\!\left(\Psi_{t,A}(B_{\bar d_t}(x,r))\right).
+ \label{eq:intro-submetry-lower}
+\end{align}
+また各 $q\in\cC_5$ に対し $s_{t,A}(q)\in X_t$ を
+$d_\square(\Psi_{t,A}(s_{t,A}(q)),q)\le\rho_t(A)$ となるよう任意に選べば
+\begin{align}
+ \left|\bar d_t(s_{t,A}(p),s_{t,A}(q))-d_\square(p,q)\right|
+ &\le\Delta_t(A)+2\rho_t(A),\label{eq:intro-quasi-inverse-dist}\\
+ \sup_{x\in X_t}\bar d_t\bigl(x,s_{t,A}(\Psi_{t,A}(x))\bigr)
+ &\le\Delta_t(A)+\rho_t(A).\label{eq:intro-quasi-inverse-section}
+\end{align}
+選択 $s_{t,A}$ の連続性は必要ない．
+\end{theorem}
+
+\begin{theorem}[有限計量：無条件部分]\label{thm:intro-diameter-C5}
+\begin{equation}\label{eq:intro-diam-C5}
+ \diam(\cC_5,d_\square)=\sqrt{13}.
+\end{equation}
+等号を与える点対は，互いに補集合をなす support $2$ と support $3$ の頂点対に限る．
+\end{theorem}
+
+\begin{corollary}[直径漸近]\label{cor:intro-diameter}
+$\mathrm{(G)}_5$，$\mathrm{(CP)}_5$，$\mathrm{(PBE)}_5$ の下で
+\begin{equation}\label{eq:intro-diam-asymptotic}
+ \frac{\diam(X_t,g_t)}{R_t}\longrightarrow\sqrt{13}.
+\end{equation}
+さらに asymptotic diameter pairsの cubical imagesは complementary support $2/3$ vertex pairsへ近づく．
+\end{corollary}
+
+
+本稿の pruning--transport theoremは有限 Euclidean polyhedral complexesに対する抽象原理としても定式化する．
+\section{設定と第IV篇からの条件付き入力}\label{sec:inputs}
+
+\subsection{Cells と一般性条件}
+
+互いに異なる $i,j,k\in\{0,1,2,3,4\}$ に対して
+\begin{equation}\label{eq:Qijk-input}
+ Q_{i;jk}=e_i+[0,1]e_j+[0,1]e_k
+\end{equation}
+と置く．$j<k$ とすれば maximal squaresは30枚である．標準 coordinatesを $(w_j,w_k)$ とする．
+
+$D_{ij}=H_i\cap H_j$，$q_{ijk}=H_i\cap H_j\cap H_k$ とし，次を仮定する．
+\begin{enumerate}[label=\textup{(G\arabic*)}]
+\item $0<|t|\ll1$ で $X_t$ は滑らかである．
+\item 各二重線 $D_{ij}$ 上で $F_5|_{D_{ij}}$ は五つの単純零点を持つ．
+\item それらの零点は全三重点 $H_i\cap H_j\cap H_k$ を避ける．
+\end{enumerate}
+異なる二重線の交点は三重点だけなので，\textup{(G3)} の下で異なる二重線上の source points は互いに衝突しない．第IV篇と本稿はこの同一の一般性条件を用いる．
+
+\subsection{Raw logarithmic depths と algebraic cubical map}
+
+第IV篇で固定した Hermitian normsに対し $s_i=\|L_i\|^2$ とし，$A_0\gg1$ を固定して
+\begin{equation}\label{eq:raw-depth-definition}
+ \epsilon_t=|t|,\qquad
+ \alpha_{i,t}=A_0-\log(s_i+\epsilon_t),\qquad
+ q_{i,t}=R_t^{-1}\log\alpha_{i,t}
+\end{equation}
+と置く．$q_t=(q_{0,t},\ldots,q_{4,t})$ は smooth map $X_t\to\RR^5$ である．本稿では第IV篇で任意に許されていた
+fixed-width smooth clippingを施す前の functionsを用いる．Clippingの有無は値の $O(R_t^{-1})$ 比較には影響しないが，
+本稿の differential argumentでは \eqref{eq:raw-depth-definition} を固定する．
+第IV篇の $\mathrm{(CP)}_5$ は固定 Lipschitz retraction
+\[
+ \Pi:N_\eta(\cC_5)\longrightarrow\cC_5
+\]
+を選び，
+\begin{equation}\label{eq:alg-map-raw}
+ \Phi_t^{\mathrm{alg}}=\Pi\circ q_t
+\end{equation}
+と定める．$\iota:\cC_5\hookrightarrow\RR^5$ を inclusionとする．
+
+\begin{hypothesis}[第IV篇の coarse package $\mathrm{(CP)}_5$]\label{thm:partI-package}
+一様定数 $C,C_0$ と有限個の labelled local typesが存在し，次が成り立つ．
+\begin{enumerate}[label=\textup{(I\arabic*)}]
+\item Raw labelsは
+      \begin{equation}\label{eq:raw-near-C5}
+       \dist_{\RR^5}(q_t(X_t),\cC_5)\le CR_t^{-1}
+      \end{equation}
+      を満たす．
+\item Algebraic imageは
+      \begin{equation}\label{eq:alg-image-density}
+       d_H^{d_\square}(\Phi_t^{\mathrm{alg}}(X_t),\cC_5)\le CR_t^{-1}
+      \end{equation}
+      を満たす．
+\item Source-free exterior $E_t$ は component，pair，triple，source-arm complete inner envelopesで覆われ，
+      labelled local universal covers上で $g_t$ と model metricsは fixed ballsにおいて全階一様 bounded geometryを持つ．
+      各 source core $B_{p,t}$ の algebraic imageは対応する pair vertex $v_p$ の $CR_t^{-1}$-近傍に入る．
+\item 全 $x,y\in X_t$ に対して
+      \begin{equation}\label{eq:coarse-distance}
+       C_0^{-1}R_t d_\square(\Phi_t^{\mathrm{alg}}(x),\Phi_t^{\mathrm{alg}}(y))-C_0
+       \le d_{g_t}(x,y)
+       \le C_0R_t d_\square(\Phi_t^{\mathrm{alg}}(x),\Phi_t^{\mathrm{alg}}(y))+C_0
+      \end{equation}
+      が成り立つ．下側は flagged fixed ballsが source coresや異なる labelled gatesから逃げることの確認にのみ用い，
+      exact lower coefficientには用いない．
+\item Raw depths $q_{i,t}$ とその unscaled versions $\log\alpha_{i,t}$ は各 labelled toroidal chartで smoothであり，
+      bounded holomorphic unitsによる変更は unscaled raw depthに $O(1)$ の加法誤差を与える．Local typesは有限である．
+\end{enumerate}
+\end{hypothesis}
+
+\begin{lemma}[raw map と cubical map の値比較]\label{lem:raw-alg-value-close}
+一様定数 $C_1$ に対して
+\begin{equation}\label{eq:raw-alg-ambient-close}
+ \sup_{x\in X_t}\left|q_t(x)-\iota\Phi_t^{\mathrm{alg}}(x)\right|_{\RR^5}\le C_1R_t^{-1}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+$x\in X_t$ に対し $p\in\cC_5$ を $|q_t(x)-p|=\dist(q_t(x),\cC_5)$ となるよう取る．$\Pi(p)=p$ なので
+\[
+ |q_t(x)-\Pi(q_t(x))|
+ \le |q_t(x)-p|+|\Pi(p)-\Pi(q_t(x))|
+ \le(1+\Lip\Pi)|q_t(x)-p|.
+\]
+\eqref{eq:raw-near-C5} を用いればよい．
+\end{proof}
+
+\begin{lemma}[粗い target realization と connector]\label{lem:coarse-realization}
+一様定数 $C_2$ が存在して次が成り立つ．
+\begin{enumerate}[label=\textup{(C\arabic*)}]
+\item 任意の $q\in\cC_5$ に対し $z_{q,t}\in X_t$ を
+      $d_\square(\Phi_t^{\mathrm{alg}}(z_{q,t}),q)\le C_2R_t^{-1}$ となるよう選べる．
+\item 任意の $x,y\in X_t$ に対し
+      \[
+       d_{g_t}(x,y)\le C_2R_t d_\square(\Phi_t^{\mathrm{alg}}(x),\Phi_t^{\mathrm{alg}}(y))+C_2.
+      \]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(C1) は \eqref{eq:alg-image-density}，(C2) は \eqref{eq:coarse-distance} である．
+\end{proof}
+
+\subsection{$\mathrm{(PBE)}_5$ 下の raw co-Gram入力}
+
+第IV篇は，ordinary pair，pair--triple cusp，triple，component--pair transition，および二つの oriented source arms を含む全 moving flag-starsを解析し，approached cuspで order zeroを持つ cusp-adapted tame frameを構成する．ただし，局所 intrinsic-window metric，大域 product metric，有限 box intrinsic metricを一つの compatible exhaustion上で比較する段階は $\mathrm{(PBE)}_5$ を仮定している．本稿ではその条件付き帰結だけを次の形で輸入する．
+
+\begin{theorem}[$\mathrm{(PBE)}_5$ 下の raw co-Gram package]\label{thm:partII-package}
+$\mathrm{(CP)}_5$ と $\mathrm{(PBE)}_5$ を仮定する．
+非空な admissible flag $I\subset\{0,\ldots,4\}$，$|I|\le2$ に対して
+\[
+ \mathcal R_t(I;A)=
+ \{x\in X_t:A/R_t\le q_{i,t}(x)\le1-A/R_t\ (i\in I)\}
+\]
+と置き，
+\begin{equation}\label{eq:partII-modulus-input}
+ \mathfrak m_t(A)=
+ \max_I\sup_{x\in\mathcal R_t(I;A)}
+ \left\|
+ R_t^2\bigl(\langle dq_{i,t},dq_{j,t}\rangle_{g_t^{-1}}\bigr)_{i,j\in I}
+ -I_I
+ \right\|_{\mathrm{op}}
+\end{equation}
+とする．空集合上の上限は $0$ とする．このとき
+\begin{equation}\label{eq:partII-modulus-limit}
+ \boxed{\displaystyle
+ \lim_{A\to\infty}\limsup_{t\to0}\mathfrak m_t(A)=0.}
+\end{equation}
+さらに $\mathfrak m_t(A)<1$ の領域では，各 active raw map
+$(q_{i,t})_{i\in I}$ は submersionであり，その canonical minimal-horizontal right inverseは smoothである．
+\end{theorem}
+
+\begin{remark}[以後の解析節の仮定]\label{rem:standing-analytic-hypotheses}
+\Cref{sec:pruning,sec:scalar,sec:upper,sec:exact-GH} の $X_t$ に関する全主張は，明記した有限尺度条件に加えて $\mathrm{(CP)}_5+\mathrm{(PBE)}_5$ を standing hypothesesとする．それらは \cref{thm:partI-package,thm:partII-package} を通じてのみ用いられる．これに対し \cref{sec:finite-diameter,sec:general-principle} の有限複体に関する結果はこの standing hypothesesを必要としない．
+\end{remark}
+
+\begin{lemma}[第IV篇の flag conventionとの一致]\label{lem:partIII-flag-convention}
+$A\ge A_{\mathrm{src}}$ なら，本稿で $X_t$ 上に定義する raw-deep flag locusは第IV篇の同名 locusと一致し，central source coresと交わらない．
+従って $\mathfrak m_t(A)$ の supremumに source-core pointsを追加しても値は変わらない．
+\end{lemma}
+
+\begin{proof}
+第IV篇の source-exclusion lemmaによる．$\mathrm{(CP)}_5$ の source localizationと raw-label oscillationから，各 source core上の全 raw coordinatesは
+対応する support-$2$ vertexの $0/1$ valuesから $C/R_t$ 以内にある．$A_{\mathrm{src}}>2C$ とすれば middle intervalへ入らない．
+\end{proof}
+
+\begin{remark}\label{rem:partII-import-scope}
+この定理の証明には，global raw covectorsと local horospherical covectorsの $C^k_{\mathrm{ad}}$ 比較，maximal active flag reduction，residual universal-cover exhaustion，source-arm escape，terminal-type frame-shear と cusp-adapted gaugeによる local/global product metric 比較，相対 Bishop--Gromov chart count，および bounded-ratio bidisc rigidityが含まれる．本稿はそれらを再証明しない．また $d\Phi_t^{\mathrm{alg}}$ や $d\Pi$ は輸入しない．
+\end{remark}
+
+\section{Raw logarithmic depths の polyhedral pruning}\label{sec:pruning}
+
+\subsection{座標ごとの clipping}
+
+$0<\delta<1/4$ に対し
+\begin{equation}\label{eq:tau-delta}
+ \tau_\delta(s)=
+ \begin{cases}
+ 0,&s\le\delta,\\[1mm]
+ \dfrac{s-\delta}{1-2\delta},&\delta\le s\le1-\delta,\\[3mm]
+ 1,&s\ge1-\delta
+ \end{cases}
+\end{equation}
+と置き，$\lambda_\delta=(1-2\delta)^{-1}$ と書く．
+
+\begin{definition}[raw pruned map]\label{def:raw-pruned-map}
+\begin{equation}\label{eq:raw-pruned-map}
+ \Psi_{t,\delta}(x)=
+ \bigl(\tau_\delta(q_{0,t}(x)),\ldots,\tau_\delta(q_{4,t}(x))\bigr).
+\end{equation}
+Slow diagonalを固定した後は $\Psi_t=\Psi_{t,\delta_t}$ と略記する．
+\end{definition}
+
+\begin{lemma}[有限複体における ambient distance と内在距離]\label{lem:finite-complex-local-metric}
+有限 Euclidean polyhedral complex $K\subset\RR^N$ には $r_K,C_K>0$ が存在し，
+$p,q\in K$，$|p-q|<r_K$ なら
+\[
+ d_K(p,q)\le C_K|p-q|
+\]
+である．
+\end{lemma}
+
+\begin{proof}
+互いに交わらない closed cellsの距離の正の最小値を用い，$r_K$ を十分小さく取る．$|p-q|<r_K$ なら，
+$p,q$ を含む cellsは共通 faceを持つ一つの closed starに含まれる．その starは有限個の Euclidean conesの和であり，
+$p$ と $q$ を共通 faceへの直線分二本と face内の直線分で結べる．有限個の starsについて最大定数を取ればよい．
+\end{proof}
+
+\begin{proposition}[target membership と値比較]\label{prop:raw-pruning}
+$\delta R_t>4C_1$ とする．このとき
+\[
+ \Psi_{t,\delta}(X_t)\subset\cC_5
+\]
+であり，一様定数 $C$ により
+\begin{equation}\label{eq:raw-pruning-comparison}
+ \sup_{x\in X_t}d_\square(\Psi_{t,\delta}(x),\Phi_t^{\mathrm{alg}}(x))
+ \le C(\delta+R_t^{-1})
+\end{equation}
+が成り立つ．
+\end{proposition}
+
+\begin{proof}
+$x\in X_t$ を固定し，\cref{eq:raw-near-C5} により $p\in\cC_5$ を $|q_t(x)-p|\le CR_t^{-1}$ となるよう取る．
+ある $i_*$ について $p_{i_*}=1$ なので $q_{i_*,t}\ge1-CR_t^{-1}>1-\delta$，従って
+$\tau_\delta(q_{i_*,t})=1$ である．一方 $\tau_\delta(q_{i,t})>0$ なら
+$q_{i,t}>\delta$，ゆえに $p_i>\delta-CR_t^{-1}>0$ である．$p$ の supportは高々3だから，
+$\Psi_{t,\delta}$ の supportも高々3である．従って $\Psi_{t,\delta}(x)\in\cC_5$ である．
+
+また \cref{lem:raw-alg-value-close} と，$q_t(x)$ の各 coordinateが $[-CR_t^{-1},1+CR_t^{-1}]$ に入ることから
+\[
+ |\Psi_{t,\delta}(x)-\iota\Phi_t^{\mathrm{alg}}(x)|\le C(\delta+R_t^{-1}).
+\]
+十分小さい $t$ では右辺は $r_{\cC_5}$ より小さい．\Cref{lem:finite-complex-local-metric} を適用して結論を得る．
+\end{proof}
+
+\subsection{Polyhedral speed と plateau chain rule}
+
+\begin{lemma}[finite Euclidean complex の ambient speed]\label{lem:polyhedral-speed}
+$K\subset\RR^N$ を有限 Euclidean polyhedral complexとする．任意の absolutely continuous curve
+$\eta:[a,b]\to K$ に対し
+\[
+ |\eta'(s)|_{d_K}=|\eta'(s)|_{\RR^N}
+ \quad\text{a.e.}
+\]
+である．
+\end{lemma}
+
+\begin{proof}
+$d_K$ は各 cell上の ambient Euclidean normから作る path metricである．従って任意の subinterval $[s_0,s_1]$ について
+\[
+ d_K(\eta(s_0),\eta(s_1))
+ \le \Length_{\RR^N}(\eta|_{[s_0,s_1]}).
+\]
+Partitionについて和を取り supremumを取ると
+$\Length_{d_K}(\eta)\le\Length_{\RR^N}(\eta)$ を得る．逆に ambient chord lengthは常に intrinsic distance以下なので，
+任意の partitionに対して
+\[
+ \sum_r|\eta(s_r)-\eta(s_{r-1})|_{\RR^N}
+ \le\sum_r d_K(\eta(s_r),\eta(s_{r-1})),
+\]
+ゆえに逆向きの length inequalityも成り立つ．同じ議論は全 subintervalに適用できる．
+両 length functionsは absolutely continuousで，その a.e. derivativesがそれぞれ
+$|\eta'|_{\RR^N}$ と $|\eta'|_{d_K}$ であるから，両者は a.e. に一致する~\cite{AGS}．
+この証明は branching face上を正の時間走る場合もそのまま含む．
+\end{proof}
+
+\begin{lemma}[plateau chain rule]\label{lem:plateau-chain-rule}
+$u:[a,b]\to\RR$ を absolutely continuousとする．このとき $\tau_\delta\circ u$ は absolutely continuousで，
+\[
+ (\tau_\delta\circ u)'=
+ \begin{cases}
+ 0,&u<\delta\text{ または }u>1-\delta,\\
+ \lambda_\delta u',&\delta<u<1-\delta
+ \end{cases}
+ \quad\text{a.e.}
+\]
+Kink level sets $\{u=\delta\}$，$\{u=1-\delta\}$ 上でも derivativeは a.e. 零である．
+\end{lemma}
+
+\begin{proof}
+Lipschitz chain ruleと，実数値 absolutely continuous functionが各 level set上で derivative zeroを持つことによる．
+\end{proof}
+
+\begin{definition}[raw active set]\label{def:raw-active-set}
+\[
+ I_{t,\delta}(x)=\{i:\delta<q_{i,t}(x)<1-\delta\}.
+\]
+\end{definition}
+
+\begin{lemma}[active directionsは高々二つ]\label{lem:raw-active-finite-type}
+$\delta R_t>4C$ なら $|I_{t,\delta}(x)|\le2$ である．さらに各 $i\in I_{t,\delta}(x)$ は unscaled raw depth
+$R_tq_{i,t}(x)$ が $\delta R_t$ と $R_t-\delta R_t$ の間にある．
+\end{lemma}
+
+\begin{proof}
+\Cref{prop:raw-pruning} の証明で取った $p\in\cC_5$ を用いる．Active indexでは $p_i>0$ であり，
+さらに少なくとも一つの coordinateは upper plateauへ送られる．Support sizeが高々3なので middle coordinatesは高々2である．
+また，nearest point $p$ の supportに upper plateau indexと active indicesが同時に含まれるため，active setは一つの cubical cellの
+標識集合であり，第IV篇の admissible raw flagをなす．後半は定義から明らかである．
+\end{proof}
+
+
+
+\begin{lemma}[定数 core を跨ぐ upper-gradient の貼合せ]\label{lem:constant-core-upper-gradient}
+$(M,d)$ を length space，$B_1,\ldots,B_N\subset M$ を互いに素な compact setsとし，
+$\Psi:M\to K$ を各 $B_\nu$ 上で定数な連続写像とする．
+$M\setminus\bigcup_\nu\operatorname{int}B_\nu$ 内の任意の absolutely continuous subcurve $\eta$ に対して
+\[
+ \Length_K(\Psi\circ\eta)\le L\Length_d(\eta)
+\]
+が成り立つなら，同じ不等式は $M$ 内の任意の absolutely continuous curveに対して成立する．
+\end{lemma}
+
+\begin{proof}
+各 $B_\nu$ を一点へ潰した集合を $\bar M$ とし，商写像を $q:M\to\bar M$ とする．$\bar M$ 上の length metricを，
+$M$ 内の rectifiable arcs と，同じ $B_\nu$ に属する二点間の zero-cost jumpsを交互に並べた有限 chainsの正の長さの infimumで定める．
+すると $q$ は $1$-Lipschitzであり，$\Psi=\bar\Psi\circ q$ と因子化する．
+
+任意の有限 chainを取り，各 positive arc $\gamma$ を次の手順で正規化する．$\gamma$ がある core $B_\nu$ に入るなら，
+最初の接触点と最後の接触点の間を zero-cost jumpへ置き換える．置換後の正の部分から同じ coreは消える．Coreは有限個なので，
+高々 $N$ 回で，正の部分が全て exteriorに含まれる chainを得る．総正長は増加せず，正の arcsは高々 $N+1$ 本である．
+各 exterior arcに仮定を適用し，zero-cost jumpsでは $\Psi$ が定数であることを用いると，$\bar\Psi$ は $L$-Lipschitzとなる．
+
+Absolutely continuous curve $\gamma$ に対し，metric derivativeの単調性から
+$\Length_{\bar d}(q\circ\gamma)\le\Length_d(\gamma)$ である．従って
+\[
+ \Length_K(\Psi\circ\gamma)
+ =\Length_K(\bar\Psi\circ q\circ\gamma)
+ \le L\Length_{\bar d}(q\circ\gamma)
+ \le L\Length_d(\gamma).
+\]
+この商 length-space 証明は，coreへの進入時刻が無限に蓄積する場合にも同じである．
+\end{proof}
+
+\begin{theorem}[global pruned co-metric estimate]\label{thm:global-pruned-cometric}
+$A\ge A_{\mathrm{src}}$，$A\le R_t/20$，$\mathfrak m_t(2A)<1$ とし，
+$\delta=2A/R_t$ と置く．任意の absolutely continuous path $\gamma$ に対して
+\begin{equation}\label{eq:pruned-speed}
+ \left|(\Psi_{t,A}\circ\gamma)'(s)\right|_{d_\square}
+ \le
+ \frac{\lambda_{t,A}\sqrt{1+\mathfrak m_t(2A)}}{R_t}
+ |\gamma'(s)|_{g_t}
+ \quad\text{a.e.},
+ \qquad
+ \lambda_{t,A}=\left(1-\frac{4A}{R_t}\right)^{-1}.
+\end{equation}
+特に $\Psi_{t,A}$ は全 $X_t$ 上で右辺の係数を Lipschitz constant とする．
+\end{theorem}
+
+\begin{proof}
+A.e. pointで clipping の微分が残る index setを $I=I_{t,\delta}(x)$ とする．
+\Cref{lem:raw-active-finite-type} により $|I|\le2$ で，各 $i\in I$ は unscaled depth $2A$ だけ両 gates から離れる．
+$G_I=R_t^2(\langle dq_i,dq_j\rangle_{g_t^{-1}})_{i,j\in I}$ と書けば，
+\cref{thm:partII-package} から $\|G_I-I_I\|\le\mathfrak m_t(2A)$ である．従って任意の tangent vector $v$ に対し
+\[
+ \sum_{i\in I}dq_i(v)^2
+ \le\frac{1+\mathfrak m_t(2A)}{R_t^2}|v|_{g_t}^2.
+\]
+Plateau chain ruleにより $d\Psi_{t,A}(v)=\lambda_{t,A}(dq_i(v))_{i\in I}$ であり，
+\cref{lem:polyhedral-speed} が ambient Euclidean speedを $d_\square$-speedへ移す．
+Central source coresでは $\mathrm{(CP)}_5$ の source localizationと $A\ge A_{\mathrm{src}}$ により全 raw coordinatesが対応する pair vertexの plateauに入り，$\Psi_{t,A}$ は定数である．Exterior subcurvesに対する上の微分評価を \cref{lem:constant-core-upper-gradient} で貼り合わせれば，source coreへの反復進入や boundary上を走る区間を含む任意の pathについて全域の評価を得る．
+\end{proof}
+
+\begin{lemma}[slow diagonal]\label{lem:flagged-diagonal}
+\cref{eq:partII-modulus-limit} の下で
+\[
+ A_t\longrightarrow\infty,
+ \qquad A_t=o(R_t),
+ \qquad \mathfrak m_t(2A_t)\longrightarrow0
+\]
+となる選択が存在する．
+\end{lemma}
+
+\begin{proof}
+\eqref{eq:partII-modulus-limit} から，十分大きい整数 $n$ ごとに
+\[
+ \limsup_{t\to0}\mathfrak m_t(2A_n)\le n^{-1}
+\]
+となる増加列 $A_n\to\infty$ を選ぶ．さらに $0<|t|\le\tau_n$ なら
+$\mathfrak m_t(2A_n)\le2n^{-1}$ かつ $R_t\ge nA_n$ となるよう，減少列 $\tau_n\downarrow0$ を取る．
+$\tau_{n+1}<|t|\le\tau_n$ では $A_t=A_n$ と置く．すると
+\[
+ \mathfrak m_t(2A_t)\le2n^{-1},
+ \qquad
+ \frac{A_t}{R_t}\le n^{-1}.
+\]
+従って三つの結論が成り立つ．Double-limitから全整数 $n$ に対する pointwise thresholdを直接仮定していない．
+\end{proof}
+
+\section{入力の要約と微分規約}\label{sec:first-paper-inputs}
+粗い入力として第IV篇の $\mathrm{(CP)}_5$ から用いるのは，smooth raw map $q_t$，$O(R_t^{-1})$-cubical image control，image density，source-core localization，粗い二側距離比較，および有限 connector libraryである．鋭い解析入力は $\mathrm{(PBE)}_5$ の下の \cref{thm:partII-package} の raw co-Gram modulusだけである．
+
+以下，$\Phi_t^{\mathrm{alg}}=\Pi\circ q_t$ と Lipschitz retraction $\Pi$ は値の比較にのみ用いる．全微分計算と horizontal transportは smooth raw coordinates $q_{i,t}$ に対して行う．従って $d\Pi$ や $d\Phi_t^{\mathrm{alg}}$ は一切現れない．
+
+\section{Global scalar no-shortcut}\label{sec:scalar}
+
+$b\in\cC_5$ と有限深さ $A$ に対して
+\begin{equation}\label{eq:Fbt}
+ F_{b,t,A}(x)=d_\square(\Psi_{t,A}(x),b)
+\end{equation}
+と置く．
+
+\begin{theorem}[finite-scale global scalar calibration]\label{thm:global-scalar-calibration}
+$A\ge A_{\mathrm{src}}$，$A\le R_t/20$，$\mathfrak m_t(2A)<1$ とする．任意の $b\in\cC_5$ に対し
+\begin{align}
+ \Lip_{g_t}(F_{b,t,A})
+ &\le\frac{1+\eps^-_t(A)}{R_t},
+ \label{eq:F-global-lip}\\
+ \sup_{x\in X_t}\left|F_{b,t,A}(x)-d_\square(\Phi_t^{\mathrm{alg}}(x),b)\right|
+ &\le\chi_t(A),
+ \qquad
+ \chi_t(A)=C\frac{A+1}{R_t}.
+ \label{eq:F-global-value}
+\end{align}
+定数は $b,t,A$ に依存しない．
+\end{theorem}
+
+\begin{proof}
+距離関数は1-Lipschitzである．\Cref{thm:global-pruned-cometric} を任意の pathに積分して第一式を得る．
+\Cref{prop:raw-pruning} に $\delta=2A/R_t$ を代入すると
+\[
+ \sup_x d_\square(\Psi_{t,A}(x),\Phi_t^{\mathrm{alg}}(x))
+ \le C\left(\frac{2A}{R_t}+\frac1{R_t}\right),
+\]
+なので第二式が従う．
+\end{proof}
+
+\begin{theorem}[finite-scale scalar no-shortcut]\label{thm:scalar-no-shortcut}
+上と同じ仮定の下で，全 $x,y\in X_t$ に対し
+\begin{align}
+ d_\square(\Psi_{t,A}(x),\Psi_{t,A}(y))
+ &\le\frac{1+\eps^-_t(A)}{R_t}d_{g_t}(x,y),
+ \label{eq:raw-global-lower}\\
+ d_\square(\Phi_t^{\mathrm{alg}}(x),\Phi_t^{\mathrm{alg}}(y))
+ &\le\frac{1+\eps^-_t(A)}{R_t}d_{g_t}(x,y)+2\chi_t(A).
+ \label{eq:global-lower}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+第一式では $b=\Psi_{t,A}(y)$ として \cref{thm:global-scalar-calibration} の Lipschitz estimateを用いる．
+第二式は両端で \cref{eq:F-global-value} を用いる．
+\end{proof}
+
+\begin{lemma}[lower-error linearization]\label{lem:lower-error-linearization}
+$A\le R_t/20$，$\mathfrak m_t(2A)\le1/2$ なら
+\begin{equation}\label{eq:lower-error-linearization}
+ \eps^-_t(A)+\chi_t(A)
+ \le C\left(\mathfrak m_t(2A)+\frac{A+1}{R_t}\right).
+\end{equation}
+従って $D_5=\diam(\cC_5,d_\square)$ とすると
+\begin{equation}\label{eq:lower-additive-Psi}
+ d_\square(\Psi_{t,A}(x),\Psi_{t,A}(y))-R_t^{-1}d_{g_t}(x,y)
+ \le C(D_5+1)\left(\mathfrak m_t(2A)+\frac{A+1}{R_t}\right).
+\end{equation}
+同じ評価は $\Psi_{t,A}$ を $\Phi_t^{\mathrm{alg}}$ に置き換えても成り立つ．
+\end{lemma}
+
+\begin{proof}
+$0\le u\le1/2$ では $\sqrt{1+u}-1\le u/2$，$0\le4A/R_t\le1/5$ では
+$(1-4A/R_t)^{-1}-1\le C A/R_t$ である．これと \cref{eq:pruned-speed} と \cref{eq:F-global-value} から最初の評価を得る．
+\Cref{eq:raw-global-lower} を $1+\eps^-_t(A)$ で割り，$d_\square\le D_5$ を用いると \eqref{eq:lower-additive-Psi} が従う．
+$\Phi_t^{\mathrm{alg}}$ についてはさらに $2\chi_t(A)$ を加える．
+\end{proof}
+
+\begin{proof}[\Cref{thm:intro-scalar} の証明]
+\Cref{thm:global-scalar-calibration} をそのまま適用する．
+\end{proof}
+
+\begin{remark}
+この証明は seam内の pathを分類しない．$\Pi$ の differentialも用いない．Smooth raw depthsに対する clippingと，
+全 target distance functionsの scalar dualityだけで arbitrary shortcutを排除する．
+\end{remark}
+
+\section{Raw proper horizontal transport と鋭い上界}\label{sec:upper}
+
+\subsection{Cell convexity と finite galleries}
+
+\begin{lemma}[maximal squares の大域凸性]\label{lem:global-cell-convexity}
+$Q_{i;jk}=e_i+[0,1]e_j+[0,1]e_k$ に対し
+\[
+ \pi_{i;jk}(w)=e_i+w_je_j+w_ke_k
+\]
+は $(\cC_5,d_\square)$ から $Q_{i;jk}$ への $1$-Lipschitz retractionである．従って maximal squaresとその Euclidean convex subsetsは
+$\cC_5$ 内で大域的に凸である．
+\end{lemma}
+
+\begin{proof}
+各 Euclidean cell上で $\dd\pi_{i;jk}$ は ambient coordinates $j,k$ への直交射影である．
+\Cref{lem:polyhedral-speed} を任意の absolutely continuous curveとその像へ適用して長さを比較する．
+\end{proof}
+
+
+\begin{lemma}[finite polygonal near-geodesic]\label{lem:finite-polygonal-neargeodesic}
+有限 Euclidean polyhedral complex $(K,d_K)$ の任意の二点 $p,q$ と $\varepsilon>0$ に対し，
+長さ $d_K(p,q)+\varepsilon$ 以下の finite piecewise linear pathが存在する．固定 finite triangulationに対し，
+各 relative-open simplexとの交差 interval数も有限にできる．
+\end{lemma}
+
+\begin{proof}
+$d_K$ の定義から長さ $d_K(p,q)+\varepsilon/2$ 以下の rectifiable pathを取る．Finite open-star coverの Lebesgue numberより小さい
+image diameterを持つ有限 partitionを選ぶ．各小区間は有限個の Euclidean conesの和に含まれるので，その端点を有限本の直線分で
+元の長さに任意に近く結べる．誤差の総和を $\varepsilon/2$ 以下に取る．最後に finite segmentsを任意に小さく摂動し，
+triangulation wallsとの交差を有限にする．
+\end{proof}
+
+\begin{lemma}[相異なる maximal squaresからなる reduced carrier]\label{lem:reduced-square-carrier}
+任意の $p,q\in\cC_5$ と $\varepsilon>0$ に対し，長さ $d_\square(p,q)+\varepsilon$ 以下の finite polygonal path $\gamma$ と，
+相異なる maximal squares
+\[
+ Q_1,\ldots,Q_m,\qquad m\le30,
+\]
+および partition $0=s_0\le s_1\le\cdots\le s_m=1$ を
+\[
+ \gamma([s_{r-1},s_r])\subset Q_r
+\]
+となるよう選べる．Lower-dimensional skeleton内を走る pieceは，それを含む maximal squareの一つへ割り当てる．
+\end{lemma}
+
+\begin{proof}
+\Cref{lem:finite-polygonal-neargeodesic} の pathを固定 triangulationに沿って細分し，各 linear pieceをそれを含む maximal squareへ割り当てる．
+これにより有限 square wordを得る．同じ square $Q$ が互いに離れた二つの blocksに現れるとする．最初の $Q$-blockへの entry pointを $a$，
+最後の $Q$-blockからの exit pointを $b$ とする．\Cref{lem:global-cell-convexity} により $Q$ は大域的に凸なので，$a$ から $b$ までの
+subpathを Euclidean segment $[a,b]\subset Q$ で置き換えても長さは増えない．この置換は square wordの block数を真に減らし，新しい squareを作らない．
+有限回反復して同じ squareが二度現れない pathを得る．最後に各 $Q_r$-blockをその両端を結ぶ Euclidean segmentで置き換える．
+大域凸性により長さは増えず，carrier wordも変わらない．従って各 carrier pieceは一本の Euclidean segmentとしてよい．
+Maximal squaresは30枚なので $m\le30$ である．
+\end{proof}
+
+\begin{lemma}[squarewise affine protection]\label{lem:square-affine-protection}
+$Q=Q_{i;jk}=e_i+[0,1]e_j+[0,1]e_k$ と $0<\sigma<1/2$ に対し
+\begin{equation}\label{eq:square-affine-protection}
+ \mathscr A_{Q,\sigma}(e_i+u e_j+v e_k)
+ =e_i+\bigl(\sigma+(1-2\sigma)u\bigr)e_j
+       +\bigl(\sigma+(1-2\sigma)v\bigr)e_k
+\end{equation}
+と置く．このとき
+\begin{align}
+ \mathscr A_{Q,\sigma}(Q)
+ &\subset\{z\in Q:\dist_Q(z,\partial Q)\ge\sigma\},\label{eq:affine-protected-image}\\
+ \Lip(\mathscr A_{Q,\sigma})&=1-2\sigma\le1,\label{eq:affine-protected-lip}\\
+ \sup_{z\in Q}d_Q(z,\mathscr A_{Q,\sigma}(z))&\le\sqrt2\,\sigma.
+ \label{eq:affine-protected-displacement}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+各 affine coordinateが $[\sigma,1-\sigma]$ に入る．微分は二つの tangent coordinates上で $(1-2\sigma)I_2$ であり，
+変位の各 coordinateの絶対値は $\sigma$ 以下である．
+\end{proof}
+
+\begin{lemma}[affinely protected finite gallery]\label{lem:reduced-gallery}
+一様定数 $C_{\mathrm{gal}}$ が存在し，任意の $p,q\in\cC_5$ と $0<\sigma<1/2$ に対して，$p$ から $q$ への target pathを
+次の piecesの連結として構成できる．
+\begin{enumerate}[label=\textup{(T\arabic*)}]
+\item 高々30本の protected square segments $\beta_r\subset Q_r$．各 $Q_r$ は相異なり，
+      $\dist_{Q_r}(\beta_r,\partial Q_r)\ge\sigma$ である．
+\item 高々31本の portal paths．その target lengthsの総和は $C_{\mathrm{gal}}\sigma$ 以下である．
+\item Protected lengthsの総和は
+      \[
+       \sum_r\Length(\beta_r)\le d_\square(p,q)+\sigma
+      \]
+      である．
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\Cref{lem:reduced-square-carrier} を $\varepsilon=\sigma$ で用い，carrier piecesを $\gamma_r\subset Q_r$ とする．
+\[
+ \beta_r=\mathscr A_{Q_r,\sigma}\circ\gamma_r
+\]
+と置けば，\cref{eq:affine-protected-image,eq:affine-protected-lip} により protectednessと length estimateを得る．
+隣接 piecesの共通 carrier endpointを $z_r\in Q_r\cap Q_{r+1}$ とする．$\beta_r$ の終点から $z_r$ へ $Q_r$ 内で戻り，
+$z_r$ から $\beta_{r+1}$ の始点へ $Q_{r+1}$ 内で進む pathを portalとする．その長さは
+\cref{eq:affine-protected-displacement} により $2\sqrt2\sigma$ 以下である．始点 $p$ と最初の protected endpoint，最後の protected endpointと $q$ も
+それぞれ長さ $\sqrt2\sigma$ 以下の portalsで結ぶ．$m\le30$ なので portal数は $m+1\le31$，総長は一様定数倍の $\sigma$ 以下である．
+\end{proof}
+
+\subsection{Raw support separation}
+
+$Q=Q_{i;jk}$ を固定する．$C_{\mathrm{raw}}$ を \eqref{eq:raw-near-C5} と
+\cref{lem:raw-alg-value-close} の全値比較を同時に支配する十分大きい定数とする．
+以下，一様定数
+\begin{equation}\label{eq:A-star-choice}
+ A_*\ge\max\{A_{\mathrm{src}},8C_{\mathrm{raw}},10\}
+\end{equation}
+を固定し，必要なら finite galleryと endpoint matchingの有限個の固定閾値も $A_*$ へ吸収する．
+
+\begin{lemma}[二つの deep raw coordinates は dominant labelを決める]\label{lem:raw-chamber-separation}
+$A>4C_{\mathrm{raw}}$ とし，
+\[
+ \frac{A}{R_t}<q_{j,t}(x),q_{k,t}(x)<1-\frac{A}{R_t}
+\]
+とする．このとき $\{j,k\}$ の外に一意な index $\nu_{jk,t}(x)$ が存在して
+\begin{equation}\label{eq:raw-dominant-label}
+ |q_{\nu_{jk,t}(x),t}(x)-1|\le C_{\mathrm{raw}}R_t^{-1},\qquad
+ |q_{\ell,t}(x)|\le C_{\mathrm{raw}}R_t^{-1}
+ \quad(\ell\notin\{j,k,\nu_{jk,t}(x)\})
+\end{equation}
+を満たす．さらに $\nu_{jk,t}$ はこの raw-deep locusの各 connected component上で局所一定である．
+\end{lemma}
+
+\begin{proof}
+$p\in\cC_5$ を $|q_t(x)-p|\le C_{\mathrm{raw}}R_t^{-1}$ となるよう取る．$A>4C_{\mathrm{raw}}$ なので
+$0<p_j,p_k<1$ である．実際，下側の strict positivityは $q_j,q_k>A/R_t$ から，上側の strict inequalityは
+$q_j,q_k<1-A/R_t$ から従う．$p$ の supportは高々3で max coordinateは1だから，$\{j,k\}$ の外に一意な $i'$ があり
+$p_{i'}=1$，他の support外 coordinatesは0である．これが \eqref{eq:raw-dominant-label} を与える．
+異なる二つの dominant indicesが同時に候補になれば，$q_j,q_k$ と合わせて四 coordinatesが
+$C_{\mathrm{raw}}R_t^{-1}$ より大きくなり，\eqref{eq:raw-near-C5} に矛盾する．一意性と連続性から局所一定性が従う．
+\end{proof}
+
+\begin{definition}[raw maximal-square chamber]\label{def:raw-square-chamber}
+$Q=Q_{i;jk}$ に対し，$\Omega_{Q,t}(A)$ を
+\[
+ \left\{x:\frac A{R_t}<q_{j,t},q_{k,t}<1-\frac A{R_t}\right\}
+\]
+の connected componentsのうち，\cref{lem:raw-chamber-separation} の dominant labelが $i$ であるものの和とする．また
+\[
+ \varphi_{Q,t}=(q_{j,t},q_{k,t}):\Omega_{Q,t}(A)\longrightarrow\RR^2
+\]
+と置く．
+\end{definition}
+
+\begin{lemma}[finite-scale raw chamber submersion]\label{lem:deep-square-submersion}
+$A\ge A_*$，$A\le R_t/20$，$\mathfrak m_t(2A)<1$ とする．十分小さい $t$ で
+$\varphi_{Q,t}:\Omega_{Q,t}(2A)\to\RR^2$ は smooth submersionであり，
+\begin{equation}\label{eq:horizontal-cogram}
+ G_{Q,t}(x)=R_t^2\dd\varphi_{Q,t}\dd\varphi_{Q,t}^{*}
+\end{equation}
+の固有値は
+\begin{equation}\label{eq:horizontal-cogram-spectrum}
+ 1-\mathfrak m_t(2A)\le\lambda(G_{Q,t}(x))\le1+\mathfrak m_t(2A)
+\end{equation}
+を満たす．
+\end{lemma}
+
+\begin{proof}
+$q_{j,t},q_{k,t}$ は smoothである．$\Omega_{Q,t}(2A)$ では $\{j,k\}$ が $2A$-raw-deep flagをなし，
+\cref{eq:partII-modulus-input} が \eqref{eq:horizontal-cogram-spectrum} を与える．下端が正なので rankは2である．
+\end{proof}
+
+\begin{lemma}[protected raw carrierの compactness]\label{lem:protected-raw-carrier}
+$A>4C_{\mathrm{raw}}$ とし，$\beta:[0,\ell]\to\RR^2$ を compact pathで
+\[
+ \beta([0,\ell])\subset
+ \left[\frac{3A}{R_t},1-\frac{3A}{R_t}\right]^2
+\]
+を満たすものとする．$x_0\in\Omega_{Q,t}(2A)$，$\varphi_{Q,t}(x_0)=\beta(0)$ とする．
+\[
+ K=\{x\in X_t:\varphi_{Q,t}(x)\in\beta([0,\ell]),\ 
+       3A/R_t\le q_{j,t},q_{k,t}\le1-3A/R_t\}
+\]
+の $x_0$ を含む connected componentを $\cP_{Q,t}(\beta,A;x_0)$ とする．この集合は compactで
+\[
+ \cP_{Q,t}(\beta,A;x_0)\Subset\Omega_{Q,t}(2A)
+\]
+であり，その dominant labelは全体で $i$ である．
+\end{lemma}
+
+\begin{proof}
+$K$ は compact $X_t$ の closed subsetであるから compactであり，その connected componentも compactである．
+$K$ 上では $q_j,q_k$ が $3A$-deepなので，\cref{lem:raw-chamber-separation} の dominant labelは局所一定である．
+Connectednessと始点の labelから全体で $i$ である．$3A$-marginは $2A$-chamber boundaryから正の余裕を持つため compact inclusionが従う．
+\end{proof}
+
+\subsection{Minimal-horizontal lift}
+
+\begin{lemma}[canonical minimal-horizontal identity]\label{lem:minimal-horizontal-identity}
+$(V,g)$ を有限次元実内積空間，$A:V\to\RR^d$ を全射とする．
+\[
+ \mathcal H=A^*(AA^*)^{-1}
+\]
+と置けば
+\begin{equation}\label{eq:minimal-horizontal-exact}
+ A\mathcal H=\id,\qquad
+ |\mathcal H v|_g^2=\langle(AA^*)^{-1}v,v\rangle.
+\end{equation}
+特に $G=R^2AA^*$ の固有値が $[1-m,1+m]$ に入り $m<1$ なら
+\[
+ |\mathcal H v|_g\le \frac{R}{\sqrt{1-m}}|v|.
+\]
+\end{lemma}
+
+\begin{proof}
+$AA^*$ は正定値であり，直接計算である．
+\end{proof}
+
+\begin{theorem}[raw deep segment の proper horizontal transport]\label{thm:proper-horizontal-transport}
+$A\ge A_*$，$A\le R_t/20$，$m=\mathfrak m_t(2A)<1$ とする．
+$\beta:[0,\ell]\to\RR^2$ を finite piecewise linear pathとし，その像が
+\[
+ \left[\frac{3A}{R_t},1-\frac{3A}{R_t}\right]^2
+\]
+に含まれるとする．$x_0\in\Omega_{Q,t}(2A)$ が $\varphi_{Q,t}(x_0)=\beta(0)$ を満たすなら，
+absolutely continuous lift $\widetilde\beta$ が全区間で存在し，
+\begin{align}
+ \varphi_{Q,t}(\widetilde\beta(s))&=\beta(s),\label{eq:horizontal-exact-lift}\\
+ \widetilde\beta([0,\ell])&\subset \cP_{Q,t}(\beta,A;x_0),\label{eq:horizontal-trapping}\\
+ \Length_{g_t}(\widetilde\beta)
+ &\le \frac{R_t}{\sqrt{1-m}}\Length_{\RR^2}(\beta)
+ \label{eq:horizontal-lift-length}
+\end{align}
+を満たす．
+\end{theorem}
+
+\begin{proof}
+$B=\dd\varphi_{Q,t}$ とし，\cref{lem:minimal-horizontal-identity} の
+$\mathcal H_{Q,t}=B^*(BB^*)^{-1}$ を用いて，各 linear piece上で
+\[
+ \widetilde\beta'=\mathcal H_{Q,t}|_{\widetilde\beta}\,\beta'
+\]
+を解く．局所解は \eqref{eq:horizontal-exact-lift} と速度評価を満たす．
+\Cref{lem:protected-raw-carrier} により，局所解は連続性と exact-lift identityから始点を含む compact component
+$\cP_{Q,t}(\beta,A;x_0)\Subset\Omega_{Q,t}(2A)$ に留まる．従って vector fieldはその compact setの一様な open neighborhood上で smoothかつ boundedである．
+Standard ODE continuation theoremにより，各 linear pieceの終点まで解が存在する．Cornersでは同じ点から次の constant velocity fieldを解き直す．
+有限個の piecesについて反復すれば全区間の liftを得る．長さ評価は
+\cref{eq:horizontal-cogram-spectrum} と \cref{eq:minimal-horizontal-exact} を積分したものである．
+\end{proof}
+
+\subsection{Image density と raw endpoint matching}
+
+\begin{proposition}[maximal-square deep segment の sharp raw recovery]\label{prop:sharp-horizontal-recovery}
+$A\ge A_*$，$A\le R_t/20$，$m=\mathfrak m_t(2A)<1$ とする．
+$a,b\in Q$ を結ぶ Euclidean segmentが square boundaryから距離 $5A/R_t$ 以上離れるとする．
+Actual path $\Gamma_{a,b,t,A}$ を
+\begin{align}
+ d_\square(\Phi_t^{\mathrm{alg}}(\Gamma_{a,b,t,A}(0)),a)
+ +d_\square(\Phi_t^{\mathrm{alg}}(\Gamma_{a,b,t,A}(1)),b)
+ &\le CR_t^{-1},\label{eq:horizontal-recovery-label}\\
+ \Length_{g_t}(\Gamma_{a,b,t,A})
+ &\le \frac{R_t}{\sqrt{1-m}}d_Q(a,b)+C
+ \label{eq:horizontal-recovery-length}
+\end{align}
+となるよう構成できる．
+\end{proposition}
+
+\begin{proof}
+\Cref{lem:coarse-realization}(C1) により $x_a,x_b$ を $\Phi_t^{\mathrm{alg}}(x_a),\Phi_t^{\mathrm{alg}}(x_b)$ が
+$a,b$ の $CR_t^{-1}$-近傍に入るよう選ぶ．$A_*$ を十分大きく取れば，
+\cref{lem:raw-alg-value-close} と \cref{lem:raw-chamber-separation} から $x_a,x_b\in\Omega_{Q,t}(3A)$ であり，
+\[
+ a^{\mathrm{raw}}=\varphi_{Q,t}(x_a),\qquad b^{\mathrm{raw}}=\varphi_{Q,t}(x_b)
+\]
+はそれぞれ $a,b$ から $O(R_t^{-1})$ しか離れない．Raw segment
+$[a^{\mathrm{raw}},b^{\mathrm{raw}}]$ は
+$[3A/R_t,1-3A/R_t]^2$ に含まれるので，\cref{thm:proper-horizontal-transport} で $x_a$ から持ち上げる．終点を $y_b$ とする．
+
+$y_b$ と $x_b$ は同じ active raw coordinatesを持ち，dominant indexも $i$ である．
+\Cref{lem:raw-chamber-separation} により残る三 coordinatesは双方とも同じ $0/1$ vectorから $O(R_t^{-1})$ しか離れない．
+従って \cref{lem:raw-alg-value-close} と \cref{lem:finite-complex-local-metric} から
+\[
+ d_\square(\Phi_t^{\mathrm{alg}}(y_b),\Phi_t^{\mathrm{alg}}(x_b))\le CR_t^{-1}.
+\]
+\Cref{lem:coarse-realization}(C2) で $y_b$ と $x_b$ を $O(1)$ で結ぶ．また
+$|a^{\mathrm{raw}}-b^{\mathrm{raw}}|\le d_Q(a,b)+CR_t^{-1}$ であるから \eqref{eq:horizontal-recovery-length} を得る．
+\end{proof}
+
+\subsection{Portal と大域上界}
+
+\begin{lemma}[finite-scale portal cost]\label{lem:portal-cost}
+$\sigma_{t,A}=6A/R_t$ とし，\cref{lem:reduced-gallery} の affinely protected galleryを用いる．Protected segmentsを
+\cref{prop:sharp-horizontal-recovery} で持ち上げ，隣接 pieces，portals，actual endpointsを
+\cref{lem:coarse-realization}(C2) で接続すると，追加 actual lengthは
+\begin{equation}\label{eq:portal-cost-quantitative}
+ C(A+1)
+\end{equation}
+以下である．
+\end{lemma}
+
+\begin{proof}
+Portal lengthsの総和は $C_{\mathrm{gal}}\sigma_{t,A}$，protected pieces数は30以下，portal数は31以下である．
+一つの target length $\ell$ の connector costは $C_2R_t\ell+C_2$ なので，全 portal costは
+$C(R_t\sigma_{t,A}+1)=C(A+1)$ である．
+Endpoint displacement $O(\sigma_{t,A})$ と raw recovery endpointsの $O(R_t^{-1})$ errorも同じ評価に吸収される．
+\end{proof}
+
+\begin{theorem}[finite-scale sharp upper recovery]\label{thm:sharp-upper}
+$A\ge A_*$，$A\le R_t/20$，$m=\mathfrak m_t(2A)\le1/2$ とする．全 $x,y\in X_t$ に対して
+\begin{equation}\label{eq:global-upper}
+ R_t^{-1}d_{g_t}(x,y)
+ \le d_\square(\Phi_t^{\mathrm{alg}}(x),\Phi_t^{\mathrm{alg}}(y))+\zeta_t(A)
+\end{equation}
+が一様に成り立ち，
+\begin{equation}\label{eq:upper-error-bound}
+ \zeta_t(A)
+ \le C\left((1-m)^{-1/2}-1+\frac{A+1}{R_t}\right)
+ \le C\left(m+\frac{A+1}{R_t}\right).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+$p=\Phi_t^{\mathrm{alg}}(x)$，$q=\Phi_t^{\mathrm{alg}}(y)$ とし，
+\cref{lem:reduced-gallery} を $\sigma_{t,A}=6A/R_t$ で適用する．各 protected square segmentは
+\cref{prop:sharp-horizontal-recovery} で $(1-m)^{-1/2}R_t$ 倍の長さで持ち上がる．Portalsと endpointsは
+\cref{lem:portal-cost} で接続する．従って
+\[
+ d_{g_t}(x,y)
+ \le \frac{R_t}{\sqrt{1-m}}
+       \bigl(d_\square(p,q)+\sigma_{t,A}\bigr)+C(A+1).
+\]
+$d_\square(p,q)\le D_5$ と $m\le1/2$ を用いると最初の評価を得る．
+$0\le m\le1/2$ では $(1-m)^{-1/2}-1\le Cm$ なので第二の評価が従う．
+\end{proof}
+
+\subsection{誤差の一括管理}
+
+有限尺度の master errorを
+\begin{equation}\label{eq:master-error}
+ \mathfrak E_t(A)=\mathfrak m_t(2A)+\frac{A+1}{R_t}
+\end{equation}
+と置く．\Cref{lem:lower-error-linearization} と \cref{thm:sharp-upper} により，下側と上側の additive errorsはともに
+$C\mathfrak E_t(A)$ で抑えられる．同じ $A$ を全30 maximal squaresと全 source typesに用いる．
+
+\section{$\mathrm{(CP)}_5+\mathrm{(PBE)}_5$ 下の定量的 Gromov--Hausdorff 極限}\label{sec:exact-GH}
+
+\subsection{Finite-scale distortion theorem}
+
+\begin{theorem}[finite-scale raw almost-isometry]\label{thm:finite-scale-distortion}
+一様定数 $A_*,C_*>0$ が存在し，十分小さい $t$ と
+\[
+ A_*\le A\le R_t/20,
+ \qquad m=\mathfrak m_t(2A)\le1/2
+\]
+に対して，
+\begin{align}
+ \Delta_t^\Psi(A)
+ &:={\sup}_{x,y\in X_t}
+ \left|R_t^{-1}d_{g_t}(x,y)
+ -d_\square(\Psi_{t,A}(x),\Psi_{t,A}(y))\right|
+ \le C_*\mathfrak E_t(A),
+ \label{eq:finite-distortion-Psi}\\
+ \Delta_t^\Phi(A)
+ &:={\sup}_{x,y\in X_t}
+ \left|R_t^{-1}d_{g_t}(x,y)
+ -d_\square(\Phi_t^{\mathrm{alg}}(x),\Phi_t^{\mathrm{alg}}(y))\right|
+ \le C_*\mathfrak E_t(A),
+ \label{eq:finite-distortion-Phi}\\
+ \rho_t^\Psi(A)
+ &:=d_H^{d_\square}(\Psi_{t,A}(X_t),\cC_5)
+ \le C_*\frac{A+1}{R_t}.
+ \label{eq:finite-density-Psi}
+\end{align}
+従って
+\begin{equation}\label{eq:finite-GH-bound}
+ d_{\GH}\bigl((X_t,R_t^{-1}d_{g_t}),(\cC_5,d_\square)\bigr)
+ \le C_*\mathfrak E_t(A).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\Cref{lem:lower-error-linearization} が $\Psi_{t,A}$ と $\Phi_t^{\mathrm{alg}}$ の双方に対する下側の additive errorを
+$C\mathfrak E_t(A)$ で与える．$\Phi_t^{\mathrm{alg}}$ に対する上側は \cref{thm:sharp-upper} である．
+また \cref{prop:raw-pruning} より
+\begin{equation}\label{eq:Psi-Phi-finite-displacement}
+ \sup_x d_\square(\Psi_{t,A}(x),\Phi_t^{\mathrm{alg}}(x))
+ \le C\frac{A+1}{R_t}.
+\end{equation}
+従って $\Phi_t^{\mathrm{alg}}$ の上側を両端で移し替えると $\Psi_{t,A}$ の上側を得る．これで
+\eqref{eq:finite-distortion-Psi} と \eqref{eq:finite-distortion-Phi} が従う．
+
+Image densityについては，任意の $p\in\cC_5$ を取り，\cref{thm:partI-package}(I2) により
+$d_\square(\Phi_t^{\mathrm{alg}}(x),p)\le C/R_t$ となる $x$ を選ぶ．
+\eqref{eq:Psi-Phi-finite-displacement} から
+$d_\square(\Psi_{t,A}(x),p)\le C(A+1)/R_t$ であり，\eqref{eq:finite-density-Psi} を得る．
+最後に
+\[
+ \mathscr R_{t,A}
+ =\{(x,p):d_\square(p,\Psi_{t,A}(x))\le\rho_t^\Psi(A)\}
+\]
+は両因子へ全射な correspondenceで，その distortionは
+$\Delta_t^\Psi(A)+2\rho_t^\Psi(A)$ 以下である．Correspondence characterization of GH distance
+\cite[Chapter~7]{BBI} を用いて \eqref{eq:finite-GH-bound} を得る．
+\end{proof}
+
+\begin{corollary}[quantitative microfibre collapse]\label{cor:raw-microfibre-collapse}
+上の $t,A$ と $r\ge0$ に対して
+\begin{equation}\label{eq:microfibre-collapse}
+ \sup_{b\in\cC_5}
+ \diam_{R_t^{-1}d_{g_t}}
+ \Psi_{t,A}^{-1}\bigl(B_{d_\square}(b,r)\bigr)
+ \le 2r+C_*\mathfrak E_t(A).
+\end{equation}
+特に各 fibre $\Psi_{t,A}^{-1}(b)$ の normalized ambient diameterは $C_*\mathfrak E_t(A)$ 以下である．
+\end{corollary}
+
+\begin{proof}
+同じ target ballの逆像に属する $x,y$ について
+$d_\square(\Psi_{t,A}(x),\Psi_{t,A}(y))\le2r$ である．
+\Cref{eq:finite-distortion-Psi} の上側を用いる．
+\end{proof}
+
+
+\begin{theorem}[finite-scale asymptotic submetry]\label{thm:finite-scale-submetry}
+\Cref{thm:finite-scale-distortion} の仮定の下で
+\[
+ \bar d_t=R_t^{-1}d_{g_t},\qquad
+ \Delta_t(A)=C_*\mathfrak E_t(A),\qquad
+ \rho_t(A)=C_*\frac{A+1}{R_t}
+\]
+と置く．任意の $x\in X_t$，$r\ge0$ について
+\begin{align}
+ \Psi_{t,A}(B_{\bar d_t}(x,r))
+ &\subset B_{d_\square}(\Psi_{t,A}(x),r+\Delta_t(A)),\label{eq:finite-submetry-upper}\\
+ B_{d_\square}(\Psi_{t,A}(x),(r-\Delta_t(A)-\rho_t(A))_+)
+ &\subset N_{\rho_t(A)}\!\left(\Psi_{t,A}(B_{\bar d_t}(x,r))\right).
+ \label{eq:finite-submetry-lower}
+\end{align}
+さらに任意の $q\in\cC_5$，$s\ge0$ に対し
+\begin{equation}\label{eq:finite-fibre-ball-collapse}
+ \diam_{\bar d_t}\Psi_{t,A}^{-1}(B_{d_\square}(q,s))
+ \le2s+\Delta_t(A).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+$y\in B_{\bar d_t}(x,r)$ なら \cref{eq:finite-distortion-Psi} から
+$d_\square(\Psi_{t,A}(x),\Psi_{t,A}(y))\le r+\Delta_t(A)$ である．
+次に $q$ が左辺の target ballに属するとする．$r\le\Delta_t(A)+\rho_t(A)$ なら左辺は中心一点であり，
+$x\in B_{\bar d_t}(x,r)$ から包含は自明である．以下 $r>\Delta_t(A)+\rho_t(A)$ とする．Image densityにより $y\in X_t$ を
+$d_\square(\Psi_{t,A}(y),q)\le\rho_t(A)$ となるよう選べる．すると
+\[
+ d_\square(\Psi_{t,A}(x),\Psi_{t,A}(y))\le r-\Delta_t(A),
+\]
+従って distortionの上側から $\bar d_t(x,y)\le r$ である．最後の式は同じ target ballの逆像に属する二点へ
+\cref{eq:finite-distortion-Psi} の上側を適用する．
+\end{proof}
+
+\begin{corollary}[finite-scale quantitative quasi-inverse]\label{cor:finite-quasi-inverse}
+各 $q\in\cC_5$ に対し $s_{t,A}(q)\in X_t$ を
+$d_\square(\Psi_{t,A}(s_{t,A}(q)),q)\le\rho_t(A)$ となるよう任意に選ぶ．このとき
+\begin{align}
+ \left|\bar d_t(s_{t,A}(p),s_{t,A}(q))-d_\square(p,q)\right|
+ &\le\Delta_t(A)+2\rho_t(A),\label{eq:finite-quasi-inverse-dist}\\
+ \sup_{x\in X_t}\bar d_t\bigl(x,s_{t,A}(\Psi_{t,A}(x))\bigr)
+ &\le\Delta_t(A)+\rho_t(A).\label{eq:finite-quasi-inverse-section}
+\end{align}
+選択 $s_{t,A}$ の連続性は不要である．
+\end{corollary}
+
+\begin{proof}
+第一式は target endpoint errorsと \cref{eq:finite-distortion-Psi} の三角不等式による．
+第二式では
+\[
+ d_\square\!\left(
+  \Psi_{t,A}(x),
+  \Psi_{t,A}(s_{t,A}(\Psi_{t,A}(x)))
+ \right)\le\rho_t(A)
+\]
+を同じ distortion estimateへ代入する．
+\end{proof}
+
+\begin{corollary}[raw co-Gram modulusからの rate extraction]\label{cor:rate-extraction}
+\[
+ \mathscr A_t
+ =\left\{A:\ A_*\le A\le R_t/20,
+                 \ \mathfrak m_t(2A)\le\frac12\right\}
+\]
+と置く．十分小さい $t$ で $\mathscr A_t\ne\varnothing$ であり，
+\begin{equation}\label{eq:optimized-GH-rate}
+ d_{\GH}\bigl((X_t,R_t^{-1}d_{g_t}),(\cC_5,d_\square)\bigr)
+ \le C_*\inf_{A\in\mathscr A_t}
+ \left\{\mathfrak m_t(2A)+\frac{A+1}{R_t}\right\}.
+\end{equation}
+例えば一様関数 $M(A)\downarrow0$ と $r_t\downarrow0$ が存在して
+\[
+ \mathfrak m_t(A)\le M(A)+r_t
+\]
+なら
+\begin{equation}\label{eq:abstract-rate-optimization}
+ d_{\GH}\le C_*\inf_{A_*\le A\le R_t/20}
+ \left\{M(2A)+r_t+\frac{A+1}{R_t}\right\}.
+\end{equation}
+特に $M(A)\le C e^{-cA}$ なら
+\begin{equation}\label{eq:exponential-rate-corollary}
+ d_{\GH}\le C'\left(r_t+\frac{\log R_t}{R_t}\right).
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+\Cref{thm:partII-package} により，十分大きい固定 $A$ は十分小さい $t$ で $\mathscr A_t$ に属する．
+\eqref{eq:optimized-GH-rate} は \cref{eq:finite-GH-bound} の infimumである．
+二つ目の主張は modulus boundを代入するだけでよい．指数減衰の場合は
+$A=c^{-1}\log R_t$ を，必要なら $[A_*,R_t/20]$ に切って取る．
+\end{proof}
+
+\subsection{Slow diagonal と主定理}
+
+\begin{proof}[\Cref{thm:intro-exact} の証明]
+\Cref{lem:flagged-diagonal} により
+$A_t\to\infty$，$A_t=o(R_t)$，$\mathfrak m_t(2A_t)\to0$ となる diagonalを取る．
+十分小さい $t$ で $A_t\in\mathscr A_t$ であり，
+\[
+ \mathfrak E_t(A_t)=\mathfrak m_t(2A_t)+\frac{A_t+1}{R_t}\longrightarrow0.
+\]
+\Cref{thm:finite-scale-distortion} を $A=A_t$ に適用すると
+\eqref{eq:intro-quantitative-Psi}--\eqref{eq:intro-distortion} を得る．
+\eqref{eq:finite-GH-bound} から \eqref{eq:intro-GH} が従う．
+\end{proof}
+
+\begin{corollary}[quantitative GH approximation]\label{cor:quantitative-GH}
+Diagonal $A_t$ に対して
+\[
+ \Delta_t^\Psi=\Delta_t^\Psi(A_t),\qquad
+ \rho_t^\Psi=\rho_t^\Psi(A_t)
+\]
+と置けば
+\begin{equation}\label{eq:quantitative-GH-bound}
+ d_{\GH}\bigl((X_t,R_t^{-1}d_{g_t}),(\cC_5,d_\square)\bigr)
+ \le\frac12\bigl(\Delta_t^\Psi+2\rho_t^\Psi\bigr)
+ \le C_*\mathfrak E_t(A_t).
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+第一の不等式は \cref{thm:finite-scale-distortion} の proofで構成した correspondenceによる．第二は
+\cref{eq:finite-distortion-Psi} と \cref{eq:finite-density-Psi} である．
+\end{proof}
+
+\subsection{Diameter と extremal pairs}
+
+\begin{proof}[\Cref{cor:intro-diameter} の証明]
+Uniform distortion \eqref{eq:intro-distortion} と $o(1)$-densityから
+\[
+ \frac{\diam(X_t,g_t)}{R_t}\longrightarrow\diam(\cC_5,d_\square).
+\]
+\cref{thm:intro-diameter-C5} を適用して \eqref{eq:intro-diam-asymptotic} を得る．
+Almost-diameter pairの主張は \cref{cor:diameter-pair-stability} から従う．
+\end{proof}
+
+\subsection{最短路像と直径対の安定性}
+
+Rescaled metricを $\bar d_t=R_t^{-1}d_{g_t}$ と書く．
+
+\begin{theorem}[有限尺度の almost-geodesic image]\label{thm:finite-geodesic-image}
+$A_\ast\le A\le R_t/20$，$\mathfrak m_t(2A)\le1/2$ とし，
+$\gamma:[0,1]\to X_t$ を $\bar d_t$ に関する定速最短路とする．
+\[
+ D_{t,A}=d_\square(\Psi_{t,A}(\gamma(0)),\Psi_{t,A}(\gamma(1)))
+\]
+と置くと，一様定数 $C$ により
+\begin{equation}\label{eq:finite-geodesic-profile}
+ \sup_{s,u\in[0,1]}
+ \left|
+ d_\square(\Psi_{t,A}(\gamma(s)),\Psi_{t,A}(\gamma(u)))
+ -|s-u|D_{t,A}
+ \right|
+ \le C\mathfrak E_t(A).
+\end{equation}
+さらに
+\begin{equation}\label{eq:finite-geodesic-length-excess}
+ 0\le
+ \Length_{d_\square}(\Psi_{t,A}\circ\gamma)-D_{t,A}
+ \le C\mathfrak E_t(A).
+\end{equation}
+従って $\Psi_{t,A}\circ\gamma$ は endpoint distanceと全 subsegment distanceの双方に関して
+$C\mathfrak E_t(A)$-almost constant-speed geodesicである．
+\end{theorem}
+
+\begin{proof}
+$\ell_t=\bar d_t(\gamma(0),\gamma(1))$ とする．定速最短性により
+\[
+ \bar d_t(\gamma(s),\gamma(u))=|s-u|\ell_t.
+\]
+\Cref{eq:finite-distortion-Psi} を $\gamma(s),\gamma(u)$ と endpointsへ適用すると
+\[
+ \left|d_\square(\Psi_{t,A}\gamma(s),\Psi_{t,A}\gamma(u))
+       -|s-u|D_{t,A}\right|
+ \le C\mathfrak E_t(A)+|s-u|C\mathfrak E_t(A),
+\]
+ゆえに \eqref{eq:finite-geodesic-profile} を得る．
+一方 \cref{thm:global-pruned-cometric} を $\gamma$ に積分して
+\[
+ \Length_{d_\square}(\Psi_{t,A}\circ\gamma)
+ \le(1+\eps_t^-(A))\ell_t.
+\]
+Endpoint distortion $|\ell_t-D_{t,A}|\le C\mathfrak E_t(A)$，
+\cref{lem:lower-error-linearization}，および $\ell_t\le D_5+C\mathfrak E_t(A)$ を用いると上側を得る．
+下側は lengthが endpoint distance以上であることによる．
+\end{proof}
+
+\begin{theorem}[最短路像の収束]\label{thm:geodesic-image-convergence}
+$x_t,y_t\in X_t$ とし，
+$\Phi_t^{\mathrm{alg}}(x_t)\to p$，$\Phi_t^{\mathrm{alg}}(y_t)\to q$ とする．
+$\gamma_t:[0,1]\to X_t$ を $\bar d_t$ に関する定速最短路とする．このとき任意の列から部分列を取り，
+\[
+ \Psi_t\circ\gamma_t\longrightarrow\gamma_\infty
+\]
+を一様収束させられる．極限 $\gamma_\infty:[0,1]\to\cC_5$ は $p$ から $q$ への定速最短路である．
+$\Phi_t^{\mathrm{alg}}\circ\gamma_t$ も同じ極限へ一様収束する．
+\end{theorem}
+
+\begin{proof}
+$\ell_t=\bar d_t(x_t,y_t)$ とし，$D=d_\square(p,q)$ と置く．Uniform distortionから $\ell_t\to D$ である．
+\Cref{thm:global-pruned-cometric} を定速最短路 $\gamma_t$ に直接適用する．$\bar d_t$ に関する速度は $\ell_t$ であり，
+\[
+ |(\Psi_t\circ\gamma_t)'|
+ \le \lambda_{t,A_t}\sqrt{1+\mathfrak m_t(2A_t)}\,\ell_t
+ =D+o(1)
+\]
+が a.e. に成り立つ．従って像曲線族は一様 Lipschitzであり，Arzelà--Ascoliにより一様収束部分列を持つ．さらに \cref{thm:finite-geodesic-image} は全 subsegment distance profileが定速 profileから $o(1)$ しかずれないことを与える．
+$\sup d_\square(\Psi_t,\Phi_t^{\mathrm{alg}})\to0$ なので極限 $\gamma_\infty$ の両端は $p,q$ であり，
+$\Lip(\gamma_\infty)\le D$ である．従って
+\[
+ \Length(\gamma_\infty)\le D=d_\square(p,q),
+\]
+ゆえに等号が成立して $\gamma_\infty$ は最短路である．さらに $0\le s<t\le1$ に対し
+\begin{align*}
+ D
+ &\le d_\square(p,\gamma_\infty(s))
+      +d_\square(\gamma_\infty(s),\gamma_\infty(t))
+      +d_\square(\gamma_\infty(t),q)\\
+ &\le Ds+d_\square(\gamma_\infty(s),\gamma_\infty(t))+D(1-t),
+\end{align*}
+一方 $D$-Lipschitz性から中央項は $D(t-s)$ 以下である．従って
+\[
+ d_\square(\gamma_\infty(s),\gamma_\infty(t))=D(t-s),
+\]
+すなわち極限は定速である．最後の主張は
+$\sup d_\square(\Psi_t,\Phi_t^{\mathrm{alg}})=O(\delta_t)\to0$ による．
+\end{proof}
+
+非空な $A\subset\{0,1,2,3,4\}$ に対し，support $A$ の $0$--$1$ 頂点を
+$v_A=\sum_{a\in A}e_a$ と書く．Extremal ordered pairsの有限集合を
+\begin{equation}\label{eq:extremal-pair-set}
+ \mathscr E
+ =\bigl\{(v_A,v_{A^c}),(v_{A^c},v_A): |A|=2\bigr\}
+ \subset\cC_5\times\cC_5
+\end{equation}
+と定める．
+
+\begin{corollary}[almost-diameter pairsの定量的安定性]\label{cor:diameter-pair-stability}
+任意の $\varepsilon>0$ に対し $\kappa(\varepsilon)>0$ が存在し，十分小さい $t$ について
+\[
+ \frac{d_{g_t}(x,y)}{R_t}\ge\sqrt{13}-\kappa(\varepsilon)
+ \quad\Longrightarrow\quad
+ \dist_{d_\square\oplus d_\square}
+ \bigl((\Phi_t^{\mathrm{alg}}(x),\Phi_t^{\mathrm{alg}}(y)),\mathscr E\bigr)<\varepsilon.
+\]
+逆に，任意の $(v_A,v_{A^c})\in\mathscr E$ に対して点列 $x_t,y_t$ を選び，
+$\Phi_t^{\mathrm{alg}}(x_t)\to v_A$，$\Phi_t^{\mathrm{alg}}(y_t)\to v_{A^c}$，
+$d_{g_t}(x_t,y_t)/R_t\to\sqrt{13}$ とできる．
+\end{corollary}
+
+\begin{proof}
+$\mathscr E$ は有限で，\cref{thm:intro-diameter-C5} により距離 $\sqrt{13}$ の ordered point pairs全体に等しい．
+Compact set
+\[
+ K_\varepsilon
+ =\{(p,q):\dist((p,q),\mathscr E)\ge\varepsilon\}
+\]
+を考える．$K_\varepsilon=\varnothing$ なら前半は自明なので，以下 $K_\varepsilon\ne\varnothing$ とする．
+\[
+ g_\varepsilon
+ :=\sqrt{13}-\max_{K_\varepsilon}d_\square(p,q)>0
+\]
+と置き，$\kappa(\varepsilon)=g_\varepsilon/3$ とする．
+\eqref{eq:intro-distortion} の一様誤差を $\Delta_t$ と書けば，十分小さい $t$ で
+$\Delta_t<g_\varepsilon/3$ である．もし image pairが $K_\varepsilon$ に属すれば
+\[
+ \frac{d_{g_t}(x,y)}{R_t}
+ \le d_\square(\Phi_t^{\mathrm{alg}}(x),\Phi_t^{\mathrm{alg}}(y))+\Delta_t
+ \le\sqrt{13}-\frac{2g_\varepsilon}{3}
+ <\sqrt{13}-\kappa(\varepsilon),
+\]
+となり仮定に矛盾する．これで前半を得る．
+後半は \cref{thm:partI-package}(I2) により $v_A,v_{A^c}$ をそれぞれ
+$O(R_t^{-1})$ 以内で実現し，uniform distortionと
+$d_\square(v_A,v_{A^c})=\sqrt{13}$ を適用すればよい．
+\end{proof}
+
+
+\begin{corollary}[直径規格化極限]\label{cor:diameter-normalized}
+\begin{equation}\label{eq:diameter-normalized-GH}
+ \left(X_t,\diam(X_t,g_t)^{-2}g_t\right)
+ \xrightarrow{\GH}
+ \left(\cC_5,\frac1{\sqrt{13}}d_\square\right).
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+\cref{eq:intro-GH} と \cref{eq:intro-diam-asymptotic} を組み合わせる．
+\end{proof}
+
+\section{有限立方体複体の厳密直径}\label{sec:finite-diameter}
+
+本節では解析的退化とは独立に，$(\cC_5,d_\square)$ の直径を完全に計算する．
+この計算は解析的退化とは独立であり，付属の有限列挙 certificate によって組合せ部分を監査する．
+
+\subsection{Square表示と対称性}
+
+互いに異なる $i,j,k\in\{0,1,2,3,4\}$ に対して
+\begin{equation}\label{eq:square-Qijk}
+ Q_{i;jk}=e_i+[0,1]e_j+[0,1]e_k\subset\RR^5
+\end{equation}
+と置く．$j<k$ と約束すれば
+\begin{equation}\label{eq:C5-square-union}
+ \cC_5=\bigcup_{\substack{i,j,k\text{ distinct}\\j<k}}Q_{i;jk}
+\end{equation}
+であり，squareは30枚ある．各 $Q_{i;jk}$ には $(a,b)\in[0,1]^2$ を
+$e_i+ae_j+be_k$ へ送る標準座標を入れる．二枚のsquareが一辺を共有するとき，その一辺を固定して一方を反転すれば，
+両者を Euclidean planeへ等長に展開できる．
+
+$S_5$ は座標を置換して $(\cC_5,d_\square)$ に等長に作用する．30枚のsquareの重複を許す unordered pairは
+$30\cdot31/2=465$ 個あり，$S_5$ の下で九つの軌道に分かれる．代表元と以下で用いる上界を
+\cref{tab:nine-square-orbits} に示す．
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{$S_5$ による unordered square pairs の九軌道．}
+\label{tab:nine-square-orbits}
+\begin{tabular}{@{}c r c c@{}}
+\toprule
+軌道 & 大きさ & 代表元 & 距離の上界\\
+\midrule
+1 & 30  & $(Q_{0;12},Q_{0;12})$ & $\sqrt2$\\
+2 & 30  & $(Q_{0;12},Q_{1;02})$ & $\sqrt5$\\
+3 & 60  & $(Q_{0;12},Q_{0;13})$ & $\sqrt5$\\
+4 & 60  & $(Q_{0;12},Q_{1;03})$ & $2\sqrt2$\\
+5 & 120 & $(Q_{0;12},Q_{3;01})$ & $\sqrt{10}$\\
+6 & 15  & $(Q_{0;12},Q_{0;34})$ & $2\sqrt2$\\
+7 & 60  & $(Q_{0;12},Q_{3;04})$ & $\sqrt{13}$\\
+8 & 30  & $(Q_{0;12},Q_{3;12})$ & $\sqrt{10}$\\
+9 & 60  & $(Q_{0;12},Q_{3;14})$ & $\sqrt{13}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+軌道1は一枚のsquareである．軌道2,3では二枚を $2\times1$ rectangleへ展開すればよい．
+軌道4の二枚は頂点 $\{0,1\}$ を共有し，軌道6の二枚は頂点 $\{0\}$ を共有するので，
+各点から共有頂点へ進む折線により $2\sqrt2$ 以下である．残る軌道を以下で扱う．
+
+\subsection{Shuffle gallery補題}
+
+\begin{lemma}[monotone shuffle gallery]\label{lem:shuffle-gallery}
+始点squareと終点squareを平面格子上の unit squaresとして展開したとき，終点へ至るために
+$p$ 回の水平 stepと $q$ 回の垂直 stepが必要であるとする．これら $p+q$ 個の stepの全ての shuffleが
+$\cC_5$ 内の edge-adjacent galleryとして実現されるなら，任意の始点 $x$ と終点 $y$ に対し，
+両点を結ぶ Euclidean segmentを含むshuffle galleryが存在する．従ってそのsegmentの長さは
+$d_\square(x,y)$ の上界を与える．
+\end{lemma}
+
+\begin{proof}
+始点squareと終点squareを含む最小の axis-parallel rectangleを考える．$x$ と $y$ を結ぶsegmentが
+内部格子辺を横切る順序は，水平辺を横切る $q$ 回と垂直辺を横切る $p$ 回の一つのshuffleを定める．
+Segmentが格子頂点を通る場合は，そこで二つの順序のどちらを選んでもよい．仮定によりそのshuffleに対応する
+square galleryが $\cC_5$ に存在し，逐次反転による展開の中にsegment全体が含まれる．
+展開は各square上で等長なので結論を得る．
+\end{proof}
+
+\subsection{非臨界軌道}
+
+軌道5ではgallery
+\begin{equation}\label{eq:orbit5-gallery}
+ Q_{0;12},\quad Q_{0;13},\quad Q_{3;01}
+\end{equation}
+を $1\times3$ stripへ展開する．$x=(a,b)\in Q_{0;12}$，$y=(c,d)\in Q_{3;01}$ と書けば，
+終点squareの展開座標は $(d,c-2)$ と取れる．従って
+\begin{equation}\label{eq:orbit5-bound}
+ d_\square(x,y)^2
+ \le (a-d)^2+(b-c+2)^2
+ \le 1+9=10.
+\end{equation}
+
+軌道8では二つのstraight strips
+\begin{align}
+ &Q_{0;12},\ Q_{1;02},\ Q_{1;23},\ Q_{3;12},\label{eq:orbit8-right}\\
+ &Q_{0;12},\ Q_{0;23},\ Q_{3;02},\ Q_{3;12}\label{eq:orbit8-left}
+\end{align}
+を用いる．$x=(a,b)$，$y=(c,d)$，$s=a+c\in[0,2]$ とすると，二つの展開で得られる長さは
+\begin{equation}\label{eq:orbit8-lengths}
+ L_+^2=(4-s)^2+(b-d)^2,
+ \qquad
+ L_-^2=(s+2)^2+(b-d)^2.
+\end{equation}
+区間 $0\le s\le2$ では
+\begin{equation}\label{eq:orbit8-min}
+ \min\{(4-s)^2,(s+2)^2\}\le9,
+ \qquad (b-d)^2\le1,
+\end{equation}
+ゆえに $d_\square(x,y)\le\sqrt{10}$ である．以上から軌道1--6および8の距離はすべて
+$\sqrt{13}$ より真に小さい．
+
+\subsection{臨界軌道7}
+
+$x=(a,b)\in Q_{0;12}$，$y=(c,d)\in Q_{3;04}$ とする．終点squareを
+\begin{equation}\label{eq:orbit7-endmap}
+ [ -1,0]\times[-2,-1],
+ \qquad y\longmapsto(-d,c-2)
+\end{equation}
+へ展開する．一回のleft stepと二回のdown stepの三つのshuffleは
+\begin{align}
+ LDD:&\quad Q_{0;12},Q_{0;24},Q_{0;34},Q_{3;04},\label{eq:orbit7-LDD}\\
+ DLD:&\quad Q_{0;12},Q_{0;13},Q_{0;34},Q_{3;04},\label{eq:orbit7-DLD}\\
+ DDL:&\quad Q_{0;12},Q_{0;13},Q_{3;01},Q_{3;04}\label{eq:orbit7-DDL}
+\end{align}
+として全て存在する．\cref{lem:shuffle-gallery} により
+\begin{equation}\label{eq:orbit7-bound}
+ d_\square(x,y)^2
+ \le(a+d)^2+(b-c+2)^2
+ \le 2^2+3^2=13.
+\end{equation}
+等号には $a=d=1$ および $b=1,c=0$ が必要である．従って等号点対は
+$x=\{0,1,2\}$ と $y=\{3,4\}$，すなわち互いに補集合をなす support $3$ と support $2$ の頂点である．
+
+\subsection{臨界軌道9とridge短縮}
+
+$x=(a,b)\in Q_{0;12}$，$y=(c,d)\in Q_{3;14}$ とする．三回のright stepと一回のdown stepの全shuffleは
+\begin{align*}
+ RRRD:&\ Q_{0;12},Q_{1;02},Q_{1;23},Q_{3;12},Q_{3;14},\\
+ RRDR:&\ Q_{0;12},Q_{1;02},Q_{1;23},Q_{1;34},Q_{3;14},\\
+ RDRR:&\ Q_{0;12},Q_{1;02},Q_{1;04},Q_{1;34},Q_{3;14},\\
+ DRRR:&\ Q_{0;12},Q_{0;14},Q_{1;04},Q_{1;34},Q_{3;14}
+\end{align*}
+として存在する．同様に三回のleft stepと一回のdown stepの全shuffleは
+\begin{align*}
+ LLLD:&\ Q_{0;12},Q_{0;23},Q_{3;02},Q_{3;12},Q_{3;14},\\
+ LLDL:&\ Q_{0;12},Q_{0;23},Q_{3;02},Q_{3;04},Q_{3;14},\\
+ LDLL:&\ Q_{0;12},Q_{0;23},Q_{0;34},Q_{3;04},Q_{3;14},\\
+ DLLL:&\ Q_{0;12},Q_{0;14},Q_{0;34},Q_{3;04},Q_{3;14}
+\end{align*}
+として存在する．二つの展開における終点座標はそれぞれ $(4-c,-d)$ と $(-2-c,-d)$ である．
+$s=a+c$，$u=b+d$ と置けば
+\begin{equation}\label{eq:orbit9-lengths}
+ L_+^2=(4-s)^2+u^2,
+ \qquad
+ L_-^2=(s+2)^2+u^2.
+\end{equation}
+$0\le s,u\le2$ なので
+\begin{equation}\label{eq:orbit9-bound}
+ d_\square(x,y)^2
+ \le\min\{L_+^2,L_-^2\}
+ \le9+4=13.
+\end{equation}
+この粗い等号条件は $u=2$，$s=1$ という一次元ridgeを残す．しかしridgeの内部点は別のgalleryで短縮できる．
+実際，$0<a<1$ で候補点対をparametrizeすると，gallery
+\begin{equation}\label{eq:orbit9-ridge-gallery}
+ Q_{0;12},\quad Q_{1;02},\quad Q_{1;03},\quad Q_{1;34},\quad Q_{3;14}
+\end{equation}
+の展開における両端は
+\begin{equation}\label{eq:orbit9-ridge-points}
+ p_a=(a,1),
+ \qquad q_a=(3,-1-a)
+\end{equation}
+となる．従って
+\begin{equation}\label{eq:orbit9-ridge-sharp}
+ d_\square(p_a,q_a)^2
+ \le(3-a)^2+(2+a)^2
+ =13-2a+2a^2
+ =13-2a(1-a)<13.
+\end{equation}
+よって軌道9で等号を与えるのは $a=0,1$ の端点だけであり，いずれも互いに補集合をなす
+support $2$/support $3$ 頂点対である．
+
+\subsection{Piecewise linear calibrationによる下界}
+
+上のgallery計算で $\diam(\cC_5,d_\square)\le\sqrt{13}$ を得た．逆向きの評価を一つの
+piecewise linear functionで与える．
+
+$P=\{0,1\}$，$Q=\{2,3,4\}$ とし，$\cC_5$ の頂点，すなわち空でない support
+$I\subset\{0,1,2,3,4\}$，$|I|\le3$ に
+\begin{equation}\label{eq:ab-support}
+ a(I)=|I\cap P|,
+ \qquad b(I)=|I\cap Q|
+\end{equation}
+を対応させる．各squareを singleton vertexとtriple vertexを結ぶdiagonalで二つのright trianglesへ分割する．
+頂点値を \cref{tab:PL-calibration} で定め，各triangle上affineに延長して $h:\cC_5\to\RR$ を得る．
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Piecewise linear calibrationの頂点値．}
+\label{tab:PL-calibration}
+\begin{tabular}{@{}c c c c c c c c c@{}}
+\toprule
+$(a,b)$ & $(2,0)$ & $(1,0)$ & $(2,1)$ & $(1,1)$ & $(1,2)$ & $(0,1)$ & $(0,2)$ & $(0,3)$\\
+\midrule
+$\sqrt{13}\,h$ & $0$ & $2$ & $3$ & $5$ & $7$ & $8$ & $10$ & $13$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+各right triangleはsubset chain
+\begin{equation}\label{eq:subset-chain-triangle}
+ I_1\subset I_2\subset I_3,
+ \qquad |I_r|=r
+\end{equation}
+に対応する．\cref{tab:PL-calibration} を調べると，chainに沿う二つのincrementは符号を除いて常に
+$2/\sqrt{13}$ と $3/\sqrt{13}$ である．標準 unit right triangleの二つの直交方向に関するincrementなので
+\begin{equation}\label{eq:PL-gradient-one}
+ |\nabla h|^2=\frac{2^2+3^2}{13}=1
+\end{equation}
+である．従って $h$ は各triangle上1-Lipschitzであり，貼り合わせたlength metricについても1-Lipschitzである．
+一方，頂点 $A=P$ と $B=Q$ に対して
+\begin{equation}\label{eq:PL-difference}
+ h(B)-h(A)=\frac{13}{\sqrt{13}}=\sqrt{13}.
+\end{equation}
+従って $d_\square(A,B)\ge\sqrt{13}$ である．
+
+\begin{proof}[\cref{thm:intro-diameter-C5} の証明]
+\cref{tab:nine-square-orbits} と軌道5,7,8,9の明示的gallery評価により，任意の二点間距離は
+$\sqrt{13}$ 以下である．\cref{eq:PL-difference} は補集合頂点対に対して逆向きの評価を与える．
+非臨界軌道では上界が真に小さく，軌道7の等号条件と軌道9のridge短縮
+\eqref{eq:orbit9-ridge-sharp} により，等号点対は補集合をなす support $2$/support $3$ 頂点対に限る．
+\end{proof}
+
+
+
+
+
+
+\section{定量的 raw-pruning 原理}\label{sec:general-principle}
+
+次の抽象定理は，解析的 local modelの役割と有限 polyhedral recoveryの役割を分離する．
+
+\begin{theorem}[quantitative pruning--transport criterion]\label{thm:abstract-pruning}
+$K$ を直径 $D_K$ の有限 Euclidean polyhedral complex，$(M_t,g_t)$ を compact Riemannian manifolds，$R_t\to\infty$ とする．
+Continuous maps $\Phi_t:M_t\to K$ と，parameter $A$ に依存する continuous maps $\Psi_{t,A}:M_t\to K$ があるとする．
+$A_*\le A\le R_t/c_*$ の範囲で，非負量
+\[
+ a_t(A),\quad b_t(A),\quad \chi_t(A),\quad u_t(A),\quad \rho_t(A)
+\]
+が次を満たすと仮定する．
+\begin{enumerate}[label=\textup{(A\arabic*)}]
+\item $\sup_xd_K(\Psi_{t,A}(x),\Phi_t(x))\le\chi_t(A)$，かつ
+      $d_H^K(\Phi_t(M_t),K)\le\rho_t(A)$．
+\item 任意の absolutely continuous curve $\gamma$ に対し
+      \[
+       |(\Psi_{t,A}\circ\gamma)'|_K
+       \le\frac{1+a_t(A)}{R_t}|\gamma'|_{g_t}
+       \quad\text{a.e.}
+      \]
+      が成り立つ．
+\item 任意の top-cell deep segment $\beta$ は，endpointsの $K$-error $\rho_t(A)$ 以下で，
+      \[
+       \Length_{g_t}(\widetilde\beta)
+       \le R_t(1+b_t(A))\Length_K(\beta)+R_tu_t(A)
+      \]
+      を満たす actual pathへ持ち上がる．
+\item 任意の二点を結ぶ $K$-pathを，一様有限個の deep segmentsと portalsへ分解でき，
+      deep lengthsの総和は $d_K+u_t(A)$ 以下，portalsと全 endpoint correctionsの normalized actual costは $u_t(A)$ 以下である．
+\end{enumerate}
+このとき一様定数 $C_K$ により
+\begin{align}
+ \sup_{x,y\in M_t}
+ \left|R_t^{-1}d_{g_t}(x,y)-d_K(\Psi_{t,A}(x),\Psi_{t,A}(y))\right|
+ &\le C_K\bigl(a_t(A)+b_t(A)+\chi_t(A)+u_t(A)+\rho_t(A)\bigr),
+ \label{eq:abstract-distortion}\\
+ d_H^K(\Psi_{t,A}(M_t),K)
+ &\le\chi_t(A)+\rho_t(A).
+ \label{eq:abstract-density}
+\end{align}
+従って右辺が零へ行く diagonalがあれば $(M_t,R_t^{-2}g_t)\to K$ である．
+\end{theorem}
+
+\begin{proof}
+(A2) を $x$ から $y$ への近似最短路に積分すると
+\[
+ d_K(\Psi_{t,A}(x),\Psi_{t,A}(y))
+ \le(1+a_t(A))R_t^{-1}d_{g_t}(x,y).
+\]
+従って $d_K\le D_K$ を用いれば
+\[
+ d_K(\Psi_{t,A}(x),\Psi_{t,A}(y))-R_t^{-1}d_{g_t}(x,y)
+ \le D_Ka_t(A).
+\]
+
+上側では $p=\Phi_t(x)$，$q=\Phi_t(y)$ を結ぶ (A4) の galleryを取り，各 deep segmentに (A3) を適用する．
+Deep lengthsの総和，有限個の additive errors，portals，endpoint correctionsを加えると
+\[
+ R_t^{-1}d_{g_t}(x,y)
+ \le(1+b_t(A))\bigl(d_K(p,q)+u_t(A)\bigr)+C_Ku_t(A).
+\]
+$d_K(p,q)\le D_K$ より，右辺と $d_K(p,q)$ の差は $C_K(b_t(A)+u_t(A))$ 以下である．
+(A1) から
+\[
+ |d_K(p,q)-d_K(\Psi_{t,A}(x),\Psi_{t,A}(y))|\le2\chi_t(A),
+\]
+なので \eqref{eq:abstract-distortion} を得る．Densityは三角不等式である．最後に correspondence criterionを適用する．
+\end{proof}
+
+\begin{remark}[本稿への代入]
+本稿では
+\[
+ a_t(A)=\lambda_{t,A}\sqrt{1+\mathfrak m_t(2A)}-1,
+ \qquad
+ b_t(A)=(1-\mathfrak m_t(2A))^{-1/2}-1,
+\]
+\[
+ \chi_t(A)+u_t(A)+\rho_t(A)\le C\frac{A+1}{R_t}.
+\]
+従って \cref{thm:abstract-pruning} は \cref{thm:finite-scale-distortion} の誤差構造をそのまま再現する．
+\end{remark}
+
+\begin{proof}[\Cref{thm:degree-d-limit} の証明]
+固定した $d$ について，\cref{hyp:CPd} の $q_t^{(d)}$ を座標ごとに
+$\tau_{2A/R_t}$ で剪定し，$\Psi_{t,A}^{(d)}$ を作る．$q_t^{(d)}$ が $\Cd$ の
+$O_d(R_t^{-1})$-近傍にあることと $|\supp w|\le3$ から，\cref{prop:raw-pruning} と同じ証明で
+\[
+ \Psi_{t,A}^{(d)}(X_t^{(d)})\subset\Cd,
+ \qquad
+ \sup_xd_\square(\Psi_{t,A}^{(d)}(x),\Phi_t^{\mathrm{alg},(d)}(x))
+ \le C_d\frac{A+1}{R_t}
+\]
+を得る．Upper plateau coordinateが少なくとも一つあるため，middle coordinatesは高々二つである．従って
+\eqref{eq:general-degree-modulus} と plateau chain ruleは全 actual curvesに対して
+\[
+ |(\Psi_{t,A}^{(d)}\circ\gamma)'|_{d_\square}
+ \le \frac{(1-4A/R_t)^{-1}\sqrt{1+\mathfrak m_{d,t}(2A)}}{R_t}
+ |\gamma'|_{g_t^{(d)}}
+\]
+を与える．有限個の source cores上では $\Psi_{t,A}^{(d)}$ が定数であり，商 length-spaceによる
+\cref{lem:constant-core-upper-gradient} がこの評価を全域へ貼り合わせる．
+
+各 maximal square $Q_{i;jk}$ への写像
+\[
+ w\longmapsto e_i+w_je_j+w_ke_k
+\]
+は各 cell上で直交射影の微分を持つ $1$-Lipschitz retractionである．従って $Q_{i;jk}$ は大域凸である．
+Maximal squaresは \eqref{eq:Nd-squares} の有限個なので，\cref{lem:reduced-square-carrier,lem:reduced-gallery} の
+carrier reductionと affine protectionは，高々 $N_d$ 本の protected segmentsと高々 $N_d+1$ 本の portalsを与える．
+$\mathrm{(PBE)}_d$ 下の co-Gram下端により active raw mapの canonical minimal-horizontal right inverseを protected compact carrier上で積分でき，各 deep segmentの normalized length excessは
+\[
+ (1-\mathfrak m_{d,t}(2A))^{-1/2}-1
+\]
+以下である．Portalと endpoint correctionの normalized costは $\mathrm{(CP)}_d$ の connector libraryにより
+$C_d(A+1)/R_t$ 以下である．
+
+以上を \cref{thm:abstract-pruning} に
+\begin{align*}
+ a_t(A)&=(1-4A/R_t)^{-1}\sqrt{1+\mathfrak m_{d,t}(2A)}-1,\\
+ b_t(A)&=(1-\mathfrak m_{d,t}(2A))^{-1/2}-1,\\
+ \chi_t(A)+u_t(A)+\rho_t(A)&\le C_d(A+1)/R_t
+\end{align*}
+として代入すると \eqref{eq:degree-d-distortion} と
+\eqref{eq:degree-d-density} を得る．
+\eqref{eq:general-degree-modulus-limit} から
+$A_t\to\infty$，$A_t=o(R_t)$，$\mathfrak m_{d,t}(2A_t)\to0$ となる slow diagonalを選べるため，
+\eqref{eq:degree-d-GH} が従う．全定数は固定した $d$ に依存し得るので，この証明は $d\to\infty$ に一様な主張を含まない．
+\end{proof}
+
+\subsection{高次元候補：定理ではなく予想}
+Ambient dimensionを $N$ とし，一般型範囲 $d\ge N+2$ で
+\[
+ X_t^{(N,d)}=\left\{\prod_{i=0}^{d-1}L_i+tF_d=0\right\}\subset\PP^N,
+ \qquad K_{X_t^{(N,d)}}\simeq\mathcal O_{X_t^{(N,d)}}(d-N-1)
+\]
+を考える．Surface caseとの添字の混同を避け，候補を
+\begin{equation}\label{eq:higher-dimensional-candidate}
+ \Cnd=
+ \left\{w\in[0,1]^d:\max_iw_i=1,\ |\supp w|\le N\right\}
+\end{equation}
+と書く．その maximal cellsは $(N-1)$-cubesであり，$N=3$ では \eqref{eq:Cd-definition-intro} と一致する．
+
+\begin{conjecture}[高次元 first-logarithmic limit]\label{conj:higher-dimensional-limit}
+$N\ge4$，$d\ge N+2$ の一般の族に対し，$\Ric(\omega_t)=-\omega_t$ と $R_t=\log(-\log|t|^2)$ を用いれば
+\[
+ (X_t^{(N,d)},R_t^{-2}g_t)\xrightarrow{\GH}(\Cnd,d_\square)
+\]
+が成り立つ．
+\end{conjecture}
+
+これは本稿の定理ではない．$N\ge4$ では二重 strata $D_{ij}\simeq\PP^{N-2}$ 上の source locus
+$\{F_d|_{D_{ij}}=0\}$ が正の次元を持ち，三重およびより深い strataとの交差を一般には避けない．従って
+pure normal-crossing chartだけでなく mixed source--higher-stratum modelが必要になる．研究課題は，これらの模型に対して
+$\mathrm{(CP)}_{N,d}$ の coarse connectors，$\mathrm{(PBE)}_{N,d}$ に相当する compatible product boxes，および最大
+$N-1$ 本の active raw covectorsの co-Gram coefficient-one theoremを構成することである．それらが得られれば
+\cref{thm:abstract-pruning} の高次元版は形式的に適用できるが，本稿はその解析入力を仮定した「定理」を追加しない．
+
+\section{論理依存，証明状況，および結論}\label{sec:status}
+
+Sublinear seam collarの法線幅だけから arbitrary no-shortcutは従わない．本稿の新しい大域距離機構は，座標ごとに剪定した smooth raw mapと全 target distance functionsの upper-gradientにより seam内部の接線方向 shortcutを排除し，minimal-horizontal transportにより逆向きの距離を回収する．ただしこの機構は sharp local coefficientを自ら証明せず，第IV篇の条件付き入力を消去しない．
+
+論理依存は次の一方向鎖である．
+\begin{enumerate}[label=\textup{(R\arabic*)}]
+\item 第I--III篇は arrangement ends，secondary data，および local-to-global gluingの幾何学的枠組みを与える．本稿の証明で直接引用する解析入力は第IV篇のものに限る．
+\item $\mathrm{(CP)}_d$ から smooth raw map，$O_d(R_t^{-1})$ image density，source-core localization，coarse two-sided distance，および有限 connector libraryを得る．
+\item $\mathrm{(PBE)}_d$ を追加した第IV篇の条件付き co-Gram定理から，finite-depth modulus $\mathfrak m_{d,t}(A)$ と active raw mapの一様 submersion非退化性を得る．
+\item 本稿の coordinatewise pruningと scalar target-distance calibrationから no-shortcutを，affinely protected carrierと canonical minimal-horizontal transportから sharp upper recoveryを得る．
+\item 無条件の pruning--transport criterionへ前二入力を代入して，固定 $d\ge5$ の条件付き GH極限を得る．$d=5$ の有限複体の直径計算はこの鎖から独立である．
+\end{enumerate}
+
+\subsection{定理の status table}
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{@{}p{0.31\textwidth}p{0.19\textwidth}X@{}}
+\toprule
+結論 & 状況 & 必要な入力 \\
+\midrule
+Quantitative pruning--transport criterion
+ & 無条件 & 有限 Euclid 多面体複体について本稿内で証明．\\
+$\diam(\cC_5,d_\square)=\sqrt{13}$ と等号点対
+ & 無条件 & 有限 gallery分類，ridge短縮，PL calibrationのみ．\\
+固定 $d\ge5$ の $X_t^{(d)}\to\Cd$
+ & 条件付き定理 & $\mathrm{(G)}_d+\mathrm{(CP)}_d+\mathrm{(PBE)}_d$；定数は固定 $d$ に依存．\\
+$d=5$ の直径・最短路像・submetry
+ & 条件付き系 & $\mathrm{(CP)}_5+\mathrm{(PBE)}_5$ と上の有限計量．\\
+Ambient $N\ge4$ の $X_t^{(N,d)}\to\Cnd$
+ & 予想 & Mixed source--higher-stratum modelsと高階 co-Gram packageは未構成．\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{結論}
+本稿の無条件な成果は，局所 co-Gram制御を有限複体への almost-isometryへ変換する抽象定理と，$\cC_5$ の厳密直径である．解析的 familyへの適用は，固定次数 $d\ge5$ まで同一の有限次元 pruning--transport proofで一般化されるが，その結論は $\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ に条件付けられる．この区別により，今後必要な仕事は明確である：surface caseでは $\mathrm{(PBE)}_d$ の完全な検証，高次元では mixed source--higher-stratum local modelsの構成である．
+
+\appendix
+
+
+\section{尺度と norm の監査}\label{app:normalization}
+
+$\widehat g_t=R_t^{-2}g_t$ とすると covector normは
+\[
+ |\alpha|_{\widehat g_t^{-1}}^2=R_t^2|\alpha|_{g_t^{-1}}^2.
+\]
+$\mathrm{(PBE)}_5$ 下の raw coefficient-one statement
+\[
+ R_t^2\langle\dd q_i,\dd q_j\rangle_{g_t^{-1}}\to\delta_{ij}
+\]
+は，$\widehat g_t$ に関する raw differentialの co-metricが Euclidean co-metricへ収束することと同値である．
+
+Full-active chamberで $A=\dd\varphi_{Q,t}$，$G=R_t^2AA^*$ とすると
+\[
+ \widetilde v=A^*(AA^*)^{-1}v,
+ \qquad
+ |\widetilde v|_{g_t}^2=R_t^2\langle G^{-1}v,v\rangle.
+\]
+$G\to I$ なら $|\widetilde v|=R_t(1+o(1))|v|$ である．ここでは $\Phi_t^{\mathrm{alg}}$，$\Pi$，
+complex structure，section tangentを用いない．
+
+有限深さ $A$ における raw pruning の middle slopeは
+\[
+ \lambda_{t,A}=\left(1-\frac{4A}{R_t}\right)^{-1}.
+\]
+$m=\mathfrak m_t(2A)\le1/2$ とすると，下側と上側の multiplicative excessはそれぞれ
+\[
+ a_t(A)=\lambda_{t,A}\sqrt{1+m}-1,
+ \qquad
+ b_t(A)=(1-m)^{-1/2}-1
+\]
+である．$A\le R_t/20$ の範囲では一様定数 $C$ により
+\[
+ a_t(A)+b_t(A)
+ \le C\left(m+\frac{A}{R_t}\right).
+\]
+一方，raw pruning の値変位，image-density error，square regularization，portal と endpoint corrections の normalized costは
+すべて $C(A+1)/R_t$ 以下である．従って master errorは
+\[
+ \mathfrak E_t(A)=\mathfrak m_t(2A)+\frac{A+1}{R_t}
+\]
+に集約される．$\mathrm{(PBE)}_5$ から得る slow diagonal $A=A_t$ では $\mathfrak E_t(A_t)\to0$ であり，portal costは
+$O(A_t+1)=o(R_t)$ である．
+
+
+Flag-star separationでは，active raw coordinateの target wall distanceが $A/R_t-O(R_t^{-1})$ であり，
+$\mathrm{(CP)}_5$ の粗い下距離を一度だけ用いて actual separation $cA-O(1)$ へ変換する．この入力は exact coefficientの決定には使わず，
+fixed ballsが active labelを失わないことだけに使う．
+
+Finite-scale submetry defectは distance distortion $\Delta_t(A)=C\mathfrak E_t(A)$ と image-density defect
+$\rho_t(A)=C(A+1)/R_t$ の和である．同じ二量が quasi-inverse，microfibre，ball liftingの全誤差を支配する．
+
+\section{Finite gallery certificate}\label{app:gallery-certificate}
+
+付属ファイル
+\begin{center}
+\texttt{cubical\_diameter\_exact\_gallery\_certificate\_definitive\_v1.py}
+\end{center}
+は exact integer/rational arithmeticで次を検査する．
+\begin{enumerate}
+\item maximal squaresが30枚であること；
+\item unordered square pairsが465個であること；
+\item $S_5$-orbitsが9個で，その大きさの multisetが
+\[
+ \{15,30,30,30,60,60,60,60,120\}
+\]
+であること；
+\item \cref{tab:nine-square-orbits} の代表に対する listed galleriesが edge-adjacentであること；
+\item 全60 subset-chain trianglesについて PL incrementの二乗和が $13/13=1$ であること．
+\end{enumerate}
+Scriptは有限計量部分を監査するものであり，第IV篇の解析入力や $\mathrm{(PBE)}_5$ を検査するものではない．
+
+
+\begin{thebibliography}{99}
+\bibitem{BBI}
+D.~Burago, Y.~Burago and S.~Ivanov,
+\newblock \emph{A Course in Metric Geometry},
+\newblock Graduate Studies in Mathematics 33, AMS, 2001.
+
+\bibitem{AGS}
+L.~Ambrosio, N.~Gigli and G.~Savar\'e,
+\newblock \emph{Gradient Flows in Metric Spaces and in the Space of Probability Measures},
+\newblock 2nd ed., Lectures in Mathematics ETH Z\"urich, Birkh\"auser, 2008.
+
+\bibitem{SeriesI}
+K.~Ueda,
+\newblock \emph{Multiscale Kähler--Einstein Geometry I: Spatial Infinity, Metrized Dual Complexes, and Volume Asymptotics},
+\newblock 五部作第I篇, 2026.
+
+\bibitem{SeriesII}
+K.~Ueda,
+\newblock \emph{Multiscale Kähler--Einstein Geometry II: Secondary Periods, Torelli Theory, and Weil--Petersson Geometry},
+\newblock 五部作第II篇, 2026.
+
+\bibitem{SeriesIII}
+K.~Ueda,
+\newblock \emph{Multiscale Kähler--Einstein Geometry III: Canonical Conifold Models, Conditional Actual pGH Gluing, Metrized Bergman Cones, and Residual Torelli Theory},
+\newblock 五部作第III篇, 2026.
+
+\bibitem{SeriesIV}
+K.~Ueda,
+\newblock \emph{多重スケール Kähler--Einstein 幾何 IV：超平面和への退化 I，完備局所模型，terminal-cusp adapted gauges，および conditional raw co-Gram 剛性},
+\newblock 五部作第IV篇, 2026.
+
+\end{thebibliography}
+
+\end{document}

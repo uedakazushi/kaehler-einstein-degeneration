@@ -1,0 +1,17 @@
+{
+  "version": "definitive-v1",
+  "real_dimension": 4,
+  "ricci_lower_bound_used": "Ric(g_t)=-g_t",
+  "small_ball_radius": "r",
+  "large_comparison_radius": "2R+3",
+  "inclusions": [
+    "B(x,R+1) subset B(y_alpha,2R+3)",
+    "disjoint B(y_alpha,r) subset B(x,R+1+r)"
+  ],
+  "relative_lower_bound": "Vol B(y_alpha,r) >= c(R,r) Vol B(x,R+1)",
+  "relative_upper_bound": "Vol B(x,R+1+r) <= C(R,r) Vol B(x,R+1)",
+  "packing_bound": "N <= C(R,r)/c(R,r)",
+  "absolute_noncollapsing_used": false,
+  "status": "PASS",
+  "note": "Bookkeeping audit only; the proof uses the standard relative Bishop--Gromov theorem."
+}

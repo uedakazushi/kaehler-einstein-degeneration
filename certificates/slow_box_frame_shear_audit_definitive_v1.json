@@ -1,0 +1,11 @@
+{
+  "angular_identity": true,
+  "max_condition_number": 1.0000016731151662,
+  "max_frobenius_error_from_identity": 1.6730959857964156e-06,
+  "note": "Diagnostic only; analytic derivative estimates are proved in Part II.",
+  "radial_identity": true,
+  "samples": 20000,
+  "status": "PASS",
+  "version": "definitive-v1",
+  "violations": 0
+}

@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "annulus_samples": 25000,
+  "annulus_ratio_min": 1.0000000044362725,
+  "annulus_ratio_max": 1.5238621610907137,
+  "annulus_fixed_window_convergence": [
+    [
+      4,
+      0.18691179526818819
+    ],
+    [
+      6,
+      0.02259500026609121
+    ],
+    [
+      8,
+      0.003013695387161248
+    ],
+    [
+      10,
+      0.0004070613802886989
+    ],
+    [
+      12,
+      5.507518106915603e-05
+    ],
+    [
+      16,
+      1.0086960907580297e-06
+    ]
+  ],
+  "residual_samples": 25000,
+  "residual_ratio_min": 1.0000012641880867,
+  "residual_ratio_max": 20.419179725119925,
+  "disclaimer": "Numerical transcription audit only; not a proof of the analytic theorem."
+}

@@ -3,7 +3,7 @@
 
 ## Cubical modelと有限計算
 \(\mathcal C_5=\{w\in[0,1]^5:\max_iw_i=1,\ |\operatorname{supp}w|\le3\}\)。
-25 vertices、50 edges、30 squares、Euler characteristic 5、\(H_2=\mathbb Z^4\)。標準cubical metricのdiameter \(\sqrt{13}\) はLibrary v0.12内の計算結果であり、この移行時点で独立には再計算していない。
+25 vertices、50 edges、30 squares、Euler characteristic 5、\(H_2=\mathbb Z^4\)。標準cubical metricのdiameter \(\sqrt{13}\) はLibrary v0.12内の計算結果であり、今回回収したPart Vに有限gallery証明があり、対応するexact gallery scriptを再実行した。下限・等号分類と解析全体を機械検証したことは意味しない。
 
 ## Leading synchronization
 \(L_t=-\log|t|^2,\ R_t=\log L_t\)。三重点の \(xyz=t\vartheta\) から \(\ell_x+\ell_y+\ell_z=L_t+O(1)\)。Neck/corner incidenceでは
@@ -16,4 +16,4 @@
 \(u_0(w)=(1+w^2)^{-2}\) はscale、\(u_1(w)=(w+w^3/3)(1+w^2)^{-2}\) はend-degree/asymmetryのJacobi方向。Five-source relative jump \(a_+-a_-=5\) はcusp trivializationに依存し、balance \(5=2+3\) と整合させる。Filtered root-1 tracesを含むnonlinear Lyapunov–Schmidt/scattering matchingのuniform controlが主障害。
 
 ## 再現性
-旧Libraryの `README_v12.md`、`MANIFEST_v12.json`、16 certificate scriptsが参照資料。今回元source scriptsのGitHub復元・再実行は未了。原資料のupLaTeXからLuaLaTeXへの変更は、実際のビルド検証とは区別する。
+旧Libraryの `README_v12.md`、`MANIFEST_v12.json`、16 certificate scriptsが参照資料。旧v0.12全文はpapers/punctured-neck-scattering.texへ移植済み。16 scripts中11本を回収・再実行し、5本は未回収、2本は元manifestとhashが異なる。統合稿の五つの補助scriptsは回収・再実行済みだが、旧16本を代替したとは扱わない。原資料のupLaTeXからLuaLaTeXへの変更は、実際のビルド検証とは区別する。

@@ -1,134 +1,3306 @@
-% LuaLaTeX, settings in repo root
+% !TEX program = lualatex
 \documentclass[a4paper,11pt]{ltjsarticle}
-\usepackage[margin=27mm]{geometry}
-\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs,booktabs}
-\usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage[margin=27mm,headheight=16pt]{geometry}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm,mathrsfs,aliascnt}
+\usepackage{booktabs,array,longtable,tabularx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{fancyhdr}
+\allowdisplaybreaks
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.14em}
+\setlength{\emergencystretch}{3em}
+\setlist[enumerate]{leftmargin=2.55em,itemsep=.25em,topsep=.45em}
+\setlist[itemize]{leftmargin=2.25em,itemsep=.22em,topsep=.4em}
+\numberwithin{equation}{section}
+
+\theoremstyle{plain}
 \newtheorem{theorem}{定理}[section]
-\newtheorem{proposition}[theorem]{命題}
-\newtheorem{lemma}[theorem]{補題}
-\newtheorem{conjecture}[theorem]{予想}
-\theoremstyle{definition}\newtheorem{definition}[theorem]{定義}
-\theoremstyle{remark}\newtheorem{remark}[theorem]{注意}
-\newcommand{\PP}{\mathbb P}
-\newcommand{\RR}{\mathbb R}
-\newcommand{\cC}{\mathcal C}
-\DeclareMathOperator{\Ric}{Ric}
-\DeclareMathOperator{\supp}{supp}
-\DeclareMathOperator{\diam}{diam}
-\title{5平面へ退化する5次曲面の負Kähler--Einstein幾何\\Cubical limitと解析的matching問題}
-\author{}
-\date{2026年11月20日 / GitHub移行用再構成草稿 v0.1}
-\begin{document}
-\maketitle
+\newaliascnt{proposition}{theorem}\newtheorem{proposition}[proposition]{命題}\aliascntresetthe{proposition}
+\newaliascnt{lemma}{theorem}\newtheorem{lemma}[lemma]{補題}\aliascntresetthe{lemma}
+\newaliascnt{corollary}{theorem}\newtheorem{corollary}[corollary]{系}\aliascntresetthe{corollary}
+\newaliascnt{claim}{theorem}\newtheorem{claim}[claim]{主張}\aliascntresetthe{claim}
+\newaliascnt{conjecture}{theorem}\newtheorem{conjecture}[conjecture]{予想}\aliascntresetthe{conjecture}
+\theoremstyle{definition}
+\newaliascnt{definition}{theorem}\newtheorem{definition}[definition]{定義}\aliascntresetthe{definition}
+\newaliascnt{assumption}{theorem}\newtheorem{assumption}[assumption]{仮定}\aliascntresetthe{assumption}
+\newaliascnt{hypothesis}{theorem}\newtheorem{hypothesis}[hypothesis]{仮定}\aliascntresetthe{hypothesis}
+\newaliascnt{example}{theorem}\newtheorem{example}[example]{例}\aliascntresetthe{example}
+\theoremstyle{remark}
+\newaliascnt{remark}{theorem}\newtheorem{remark}[remark]{注意}\aliascntresetthe{remark}
+\renewcommand{\proofname}{証明}
+
+\crefname{theorem}{定理}{定理}\crefname{proposition}{命題}{命題}\crefname{lemma}{補題}{補題}
+\crefname{corollary}{系}{系}\crefname{claim}{主張}{主張}\crefname{conjecture}{予想}{予想}
+\crefname{definition}{定義}{定義}\crefname{assumption}{仮定}{仮定}\crefname{hypothesis}{仮定}{仮定}
+\crefname{example}{例}{例}\crefname{remark}{注意}{注意}\crefname{section}{節}{節}\crefname{table}{表}{表}\crefname{equation}{式}{式}
+
+\newcommand{\PP}{\mathbf P}\newcommand{\CC}{\mathbf C}\newcommand{\RR}{\mathbf R}\newcommand{\ZZ}{\mathbf Z}\newcommand{\NN}{\mathbf N}
+\newcommand{\cC}{\mathcal C}\newcommand{\cK}{\mathcal K}\newcommand{\cT}{\mathcal T}\newcommand{\cD}{\mathcal D}
+\newcommand{\cF}{\mathcal F}\newcommand{\cN}{\mathcal N}\newcommand{\cL}{\mathcal L}\newcommand{\cP}{\mathcal P}
+\newcommand{\cA}{\mathcal A}\newcommand{\cM}{\mathcal M}\newcommand{\cE}{\mathcal E}\newcommand{\cU}{\mathcal U}\newcommand{\cR}{\mathcal R}
+\newcommand{\eps}{\varepsilon}\newcommand{\dd}{\,\mathrm d}\newcommand{\ddc}{\sqrt{-1}\,\partial\bar\partial}
+\newcommand{\supp}{\operatorname{supp}}\newcommand{\diam}{\operatorname{diam}}\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\Ric}{\operatorname{Ric}}\newcommand{\tr}{\operatorname{tr}}\newcommand{\osc}{\operatorname{osc}}\newcommand{\vol}{\operatorname{Vol}}
+\newcommand{\Length}{\operatorname{Length}}\newcommand{\Lip}{\operatorname{Lip}}\newcommand{\GH}{\mathrm{GH}}\newcommand{\id}{\mathrm{id}}
+\newcommand{\Hess}{\operatorname{Hess}}\newcommand{\rank}{\operatorname{rank}}\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\Norm}[1]{\left\lVert #1\right\rVert}\newcommand{\Abs}[1]{\left\lvert #1\right\rvert}\newcommand{\inner}[2]{\left\langle #1,#2\right\rangle}
+\newcommand{\Cfive}{\mathcal C_5}\newcommand{\dsq}{d_{\square}}\newcommand{\Lt}{L_t}\newcommand{\Rt}{R_t}
+\newcommand{\rawq}{q_t}\newcommand{\Phialg}{\Phi_t^{\mathrm{alg}}}
+
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Multiscale Kähler--Einstein Geometry IV}
+\fancyhead[R]{\small 超平面和への退化 I：局所模型と raw co-Gram}\fancyfoot[C]{\thepage}
+\hypersetup{pdftitle={Multiscale Kahler--Einstein Geometry IV: Hyperplane Degenerations I, Complete Local Models and Conditional Raw Co-Gram Rigidity},pdfauthor={Kazushi Ueda}}
+\title{\bfseries 多重スケール Kähler--Einstein 幾何 IV\\[1mm]
+\large 超平面和への退化 I：完備局所模型，terminal-cusp adapted gauges，\\
+および raw co-Gram 剛性}
+\author{植田一石\\[-1mm]\small Kazushi Ueda}
+\date{2026年8月31日\\五部作・統合改訂稿 v1}
+\begin{document}\maketitle
+
 \begin{abstract}
-5次曲面が5平面の和へ退化するときの負Kähler--Einstein計量を
-diameter scaleで調べる。元Libraryにある2026年8月21日付81頁の草稿
-\texttt{quintic\_five\_planes\_KE\_GH\_paper\_draft\_ja\_v12.tex}
-を核とするが、現状の本ファイルはその全証明を移したものではない。
-本稿ではcubical candidateの組合せと局所同期を直接証明し、
-actual KE metricへのglobal GH収束を未証明の予想として明示する。
+本稿は五部作の第IV篇であり，第I--III篇の超平面配置補集合の完備負 Kähler--Einstein 幾何を，射影曲面が超平面の和へ退化する問題へ接続する．一般位置の五平面の和へ退化する五次曲面について，$R_t=\log(-\log|t|^2)$ の尺度で smooth raw logarithmic depths，有限正方形複体 $\mathcal C_5$ への $O(R_t^{-1})$-dense な粗い立方体写像，六つの intrinsic complete local models，capped determinant lower bound，および source-core packingを構成する．さらに固定次数 $d\ge5$ の $d$ 平面退化に対し，候補複体 $\mathcal C_d$，source と cusp の全代数データ，terminal cusp で order zero を持つ有限 gauge family，および正規化を決定する．Sharp raw co-Gram 係数1定理は，compatible product boxes の存在・一様比較・二重 boundary escape・compatible exhaustion をまとめた仮定 $\mathrm{(PBE)}_d$ の下で証明する．五次の場合の詳細な局所構成はこの仮定を検証するための全要素を与えるが，本稿では監査可能性を保つため，$\mathrm{(PBE)}_d$ を鋭い結論の論理的入力として明示する．第V篇は同じ仮定の下で scalar no-shortcut と protected horizontal recovery により厳密 Gromov--Hausdorff 極限を導く．高次元では pure normal-crossing determinant までは一般化する一方，mixed source--higher-stratum models が不可避であるため，厳密極限は予想として述べる．
 \end{abstract}
-\section{退化族と尺度}
-$L_0,\ldots,L_4$を$\PP^3$の一般位置にある一次形式、
-$F_5$を一般の五次形式として
+
+\begin{center}
+\begin{minipage}{0.93\textwidth}\small
+\textbf{Abstract.}
+This is Part IV of a five-paper series and the first paper on degenerations to unions of hyperplanes.  For a quintic surface degenerating to five hyperplanes in general position, with $\operatorname{Ric}(\omega_t)=-\omega_t$, we construct smooth raw logarithmic depths, an $O(R_t^{-1})$-dense map to the square complex $\mathcal C_5$, coarse two-sided metric control, and six intrinsic complete local models.  For every fixed degree $d\ge5$ in $\mathbb P^3$, we determine the candidate complex $\mathcal C_d$, the source and cusp data, terminal-cusp order-zero gauges, and the normalization.  We isolate a Product-Box Exhaustion hypothesis $\mathrm{(PBE)}_d$, consisting of quantitative terminal trivialization, protected rectangular inclusion, uniform local/global/actual comparison, and compatible exhaustion with two-metric boundary escape.  Under $\mathrm{(PBE)}_d$, all marked pointed limits are Poincaré bidiscs and the raw co-Gram matrices converge uniformly to the identity.  Part V converts this conditional sharp input into the exact cubical Gromov--Hausdorff limit.  In higher dimension we establish the candidate complex, adjunction and the pure normal-crossing determinant package, while leaving the mixed source--higher-stratum analysis as a conjectural extension.
+\end{minipage}
+\end{center}
+
+\tableofcontents
+
+\section{序論}\label{sec:intro}
+
+\subsection{五部作における本稿の位置}
+一般位置にある五枚の平面 $H_i=\{L_i=0\}\subset\PP^3$ $(0\le i\le4)$ と一般の五次形式 $F_5$ に対し，
 \[
  X_t=\{L_0L_1L_2L_3L_4+tF_5=0\}\subset\PP^3
 \]
-とおく。$t\neq0$で$X_t$が滑らかなとき、
-canonical bundleは$K_{X_t}=\mathcal O_{X_t}(1)$であり
-$\Ric(\omega_t)=-\omega_t$のKE計量が存在する。
-第一の大域的な問題は$\diam(X_t,\omega_t)$で距離を正規化した
-Gromov--Hausdorff極限を決定することである。
-以下、$L_t=-\log|t|^2$、$R_t=\log L_t$とおく。
-\section{候補cubical complex}
-\begin{definition}
+を考える．$0<|t|\ll1$ では $X_t$ を滑らかとし，$\omega_t\in2\pi c_1(K_{X_t})$ を
+$\Ric(\omega_t)=-\omega_t$ で規格化した負 Kähler--Einstein 計量，$g_t$ を対応する実計量とする．
 \[
- \cC_5=\left\{w=(w_0,\ldots,w_4)\in[0,1]^5:
- \max_i w_i=1,\quad |\supp(w)|\le3\right\}.
+ L_t=-\log|t|^2,\qquad R_t=\log L_t
 \]
-標準coordinate subcubesの貼合せによりintrinsic cubical length metric
-$d_\square$を入れる。
-\end{definition}
-\begin{proposition}[セル数と位相]
-$\cC_5$は25頂点、50辺、30個の2-dimensional unit squaresからなり、
+と置く．本稿は五部作の第IV篇である．第I--III篇は超平面配置補集合の空間無限遠，二次周期，および conifold gluing を扱う．第IV--V篇はそれらの局所模型を，滑らかな射影超曲面が超平面の和へ退化する compact family に移植する．退化二部作の最終目標は，$R_t$ で距離を規格化した空間を，有限 Euclid 正方形複体
 \[
- \cC_5\cong\operatorname{Sk}_2(\Delta^4)
- \simeq\bigvee^4 S^2.
+ \Cfive=\{w\in[0,1]^5:\max_iw_i=1,\ |\supp w|\le3\}
 \]
-したがって$\chi(\cC_5)=5$、$H_2(\cC_5,\mathbb Z)=\mathbb Z^4$である。
-\end{proposition}
-\begin{proof}
-頂点は0--1 vectorsのsupport sizeが1,2,3のものなので
-$\binom51+\binom52+\binom53=25$個。
-辺は、1本のvariable coordinateと、1または2本の固定1-coordinateから定まり、
-$\binom51\binom41+\binom52\binom31=20+30=50$個。
-squareは固定1-coordinateを一本と残り4座標から二本のvariable coordinateを選んで
-$5\binom42=30$個。
-写像$w\mapsto w/(\sum_i w_i)$は標準単体の2-skeletonへのhomeomorphismであり、
-逆写像は$x\mapsto x/(\max_i x_i)$である。
-2-skeleton of a 4-simplexはsimply connectedで、
-そのreduced homologyは次数2の自由群rank 4のみ。
-通常のCW argumentにより$\bigvee^4S^2$とhomotopy equivalentである。
-\end{proof}
-\begin{remark}[直径]
-元のv0.12論文とcertificateでは$\diam(\cC_5,d_\square)=\sqrt{13}$と記録する。
-このGitHub移行草稿で距離最大化の全検算を再実行したわけではない。
+へ部分列なしに収束させ，その距離を厳密に決定することである．
+
+証明の内部構造は三段階である．第一に smooth raw-depth functions と intrinsic complete local models から粗い立方体幾何を得る．第二に compatible product-box exhaustion の下で全 moving flag-star 上の pointed limits を Poincaré product と同定し，active raw covectors の co-Gram matrix の係数を厳密に $1$ と決める．第三に，第V篇で scalar target-distance calibration と protected horizontal transport を用い，局所係数を大域的な metric-space limit へ変換する．本稿は第一段階を五次曲面について無条件に実行し，第二段階に必要な局所解析を構成するとともに，その残余の大域整合条件を $\mathrm{(PBE)}_d$ として分離する．
+
+本証明は relative five-source block，三 outlet の同時 framing，orbit-period matching，actual/relative long-corridor anchoring を用いない．三尖点に共通する一つの tame frame が存在しないという degree obstruction は，terminal cusp ごとの order-zero gauge を選ぶことで局所的に処理する．この選択を growing chart chains 上で一様かつ compatible に行えることが $\mathrm{(PBE)}_5$ の内容である．また，sharp differential statements は smooth raw map $q_t$ に対してのみ述べ，Lipschitz retraction $\Pi$ や $\Phi_t^{\mathrm{alg}}=\Pi\circ q_t$ は微分しない．
+
+Compact negative Kähler--Einstein metrics の存在一意性は Aubin--Yau 理論に基づく~\cite{Aubin,Yau}．準射影多様体上の完備負 Kähler--Einstein metrics については Cheng--Yau と Kobayashi~\cite{ChengYau,Kobayashi}，normal-crossing および toroidal degeneration については Ruan~\cite{RuanI,RuanII} を参照する．特異 Kähler--Einstein families と負曲率 compactness の背景には~\cite{DGG,SongSturmWang}，divisor 近傍の Poincaré 漸近には~\cite{Guenancia,RochonZhang}，局所 log-canonical geometry と neck/cusp closing には~\cite{DatarFuSong,Mandel,FuHeinJiang} がある．本稿の粗い距離論では有限長さ空間の標準事項を~\cite{BBI} の形で用いる．
+
+\subsection{主結果}
+十分大きい固定定数 $A_0$ に対し
+\[
+ q_{i,t}=R_t^{-1}\log\!\left(A_0-\log(\|L_i\|^2+|t|)\right)
+\]
+と置く．各 maximal square を unit Euclid square として貼り合わせた $\Cfive$ の内在距離を $d_\square$ とする．
+
+\begin{theorem}[粗い raw-depth 幾何]\label{thm:coarse-intro}
+連続写像 $\Phi_t^{\mathrm{alg}}:X_t\to\Cfive$ と一様定数 $C\ge1$ が存在し，
+\[
+ C^{-1}R_t d_\square(\Phi_t^{\mathrm{alg}}x,\Phi_t^{\mathrm{alg}}y)-C
+ \le d_{g_t}(x,y)
+ \le CR_t d_\square(\Phi_t^{\mathrm{alg}}x,\Phi_t^{\mathrm{alg}}y)+C
+\]
+が全 $x,y\in X_t$ に対して成り立つ．さらに
+\[
+ d_H^{d_\square}(\Phi_t^{\mathrm{alg}}(X_t),\Cfive)\le CR_t^{-1}.
+\]
+\end{theorem}
+
+\begin{theorem}[$\mathrm{(PBE)}_5$ の下での Flag-star coefficient-one theorem]\label{thm:cogram-intro}
+$\mathrm{(PBE)}_5$ を仮定する．
+$1\le |I|\le2$ とし，raw flag region
+\[
+ \mathcal R_t(I;A)=\left\{x:\frac A{R_t}\le q_{i,t}(x)\le1-\frac A{R_t}\ (i\in I)\right\}
+\]
+を考える．
+\[
+ \mathfrak m_t(A)=
+ \max_I\sup_{x\in\mathcal R_t(I;A)}
+ \left\|
+ R_t^2\bigl(\langle dq_{i,t},dq_{j,t}\rangle_{g_t^{-1}}\bigr)_{i,j\in I}-I_I
+ \right\|_{\mathrm{op}}
+\]
+と置くと
+\[
+ \lim_{A\to\infty}\limsup_{t\to0}\mathfrak m_t(A)=0.
+\]
+この収束は component--pair，ordinary pair，pair--triple cusp，triple chart，および二つの oriented source arms の全 moving local types を含む．
+\end{theorem}
+
+第一の定理は\cref{coarse:thm:main}として無条件に証明する．第二の定理は\cref{sec:fixed-degree-extension}で定義する $\mathrm{(PBE)}_5$ の下で，\cref{sharp:thm:partII-raw-cogram}として証明する．第V篇はこれら二定理を解析入力として，同じ仮定の下で厳密 Gromov--Hausdorff 極限と直径係数を導く．
+
+\subsection{証明状況}
+本稿の主張は次の三層に分かれる．
+\begin{enumerate}[label=\textup{(S\arabic*)}]
+\item 五次曲面に対する closed-cell realization，六局所型の capped determinant，intrinsic complete windows，source-core packing，粗い二側距離比較は無条件である．
+\item 固定 $d\ge5$ に対する source 数，relative divisor，$(d-2)$-punctured residual curve，cusp-adapted $\mathcal O(1)$ frames，adjunction，および pure local product models は無条件である．
+\item Moving flag-star の sharp product convergence，raw co-Gram 係数1，および第V篇の厳密 pGH 結論は $\mathrm{(PBE)}_d$ の下での定理である．五次の場合の後半各節は $\mathrm{(PBE)}_5$ の四要件を検証するための局所証明を与えるが，論理的にはこの仮定を sharp theorem の入力として保持する．
+\end{enumerate}
+
+\subsection{論文の構成}
+まず固定次数 $d\ge5$ と高次元候補を独立の節で整理する．第I部では五次曲面に対し closed-cell realization，六局所型の capped determinant，intrinsic complete windows，central source packing，finite connectors を構成する．第II部では向き付き conic charts，three-cusp degree obstruction，terminal-cusp adapted gauges，product-box construction，bounded-ratio rigidity を展開し，$\mathrm{(PBE)}_5$ の下で係数1定理を証明する．補遺では六型 matrix certificate，closed-cell boundary regimes，規格化，frame degree，slow diagonal，chart-chain と adapted derivative の監査をまとめる．
+
+\section{固定次数と高次元への拡張範囲}\label{sec:fixed-degree-extension}
+
+\subsection{固定次数 $d\ge5$ の設定}
+
+整数 $d\ge5$ を固定する．一般位置の超平面
+\[
+ H_i=\{L_i=0\}\subset\PP^3,
+ \qquad 1\le i\le d,
+\]
+と $F_d\in H^0(\PP^3,\mathcal O(d))$ に対して
+\begin{equation}\label{eq:degree-d-family}
+ X_t^{(d)}=
+ \left\{\prod_{i=1}^dL_i+tF_d=0\right\}\subset\PP^3
+\end{equation}
+を考える．以下を一般次数仮定と呼ぶ．
+
+\begin{assumption}[一般次数仮定 $\mathrm{(G)}_d$]\label{ass:Gd}
+次の条件を仮定する．
+\begin{enumerate}[label=\textup{(G$_d$\arabic*)}]
+\item 任意の三超平面は横断的に一点で交わり，任意の四超平面は共通点を持たない．
+\item $0<|t|\ll1$ に対して $X_t^{(d)}$ は滑らかである．
+\item 各二重線 $D_{ij}=H_i\cap H_j\simeq\PP^1$ 上で
+      $F_d|_{D_{ij}}$ は $d$ 個の相異なる単純零点
+      $p_{ij,1},\ldots,p_{ij,d}$ を持つ．
+\item 全三重点 $q_{ijk}=H_i\cap H_j\cap H_k$ において
+      $F_d(q_{ijk})\ne0$ である．
+\end{enumerate}
+\end{assumption}
+
+最後の条件により source points と triple points は分離される．異なる二重線は，添字を共有すれば三重点で交わり，添字を共有しなければ一般位置の下で交わらない．従って source points は相互にも衝突しない．各 $D_{ij}$ 上に $d$ 個あるので，source の総数は
+\begin{equation}\label{eq:degree-d-source-count}
+ N_{\mathrm{src}}(d)=d\binom d2=\frac{d^2(d-1)}2
+\end{equation}
+である．各 source の局所方程式は，holomorphic units を吸収して
+\begin{equation}\label{eq:degree-d-source-model}
+ xy=tz
+\end{equation}
+となる．したがって central source と二つの oriented arms という局所分解は次数によらない．
+
+候補複体を
+\begin{equation}\label{eq:Cd-definition}
+ \mathcal C_d
+ =\{w\in[0,1]^d:\max_iw_i=1,\ |\supp w|\le3\}
+\end{equation}
+とする．相異なる $i,j,k$ に対する
+\[
+ Q_{i;jk}=e_i+[0,1]e_j+[0,1]e_k
+\]
+を unit Euclidean square とし，共通 faces に沿って貼った内在距離を
+$d_{\square,d}$ と書く．最大正方形数は
+$d\binom{d-1}{2}$ である．写像
+$w\mapsto w/(\sum_iw_i)$ とその逆 $u\mapsto u/(\max_i u_i)$ により
+\begin{equation}\label{eq:Cd-topology}
+ \mathcal C_d\cong\operatorname{sk}_2\Delta^{d-1}
+ \simeq\bigvee^{\binom{d-1}{3}}S^2
+\end{equation}
+である．
+
+固定 Hermitian norm と十分大きい $A_0$ に対し
+\begin{equation}\label{eq:degree-d-raw-depths}
+ \alpha_{i,t}=A_0-\log(\|L_i\|^2+|t|),
+ \qquad q_{i,t}=R_t^{-1}\log\alpha_{i,t}
+\end{equation}
+と置く．四超平面が共通点を持たないため，一点で小さくなれる
+$\|L_i\|$ は高々三個である．また積方程式から
+$\min_i\|L_i\|^2\le C_d|t|^{2/d}$ である．従って
+\begin{equation}\label{eq:degree-d-raw-target}
+ \dist_{\RR^d}(q_t(X_t^{(d)}),\mathcal C_d)=O_d(R_t^{-1})
+\end{equation}
+となる．Maximal square の closed-cell realization は，三重点の同じ局所方程式
+$z_iz_jz_k=tU$ と soft radii を用いて五次の場合と全く同様に得られる．
+
+\subsection{Residual curve，relative divisor，および cusp gauges}
+
+二重線上の residual curve は
+\begin{equation}\label{eq:degree-d-residual-curve}
+ \Sigma_{ij}^{(d)}
+ =D_{ij}\setminus\{q_{ijk}:k\notin\{i,j\}\}
+\end{equation}
+であり，$(d-2)$-punctured sphere である．$d\ge5$ では双曲的であり，その conformal class には完備 Gaussian curvature $-1$ metric が一意に存在する．その面積は
+\begin{equation}\label{eq:degree-d-residual-area}
+ \operatorname{Area}(\Sigma_{ij}^{(d)})=2\pi(d-4)
+\end{equation}
+である．Source points はこの曲面の通常点であり，metric はそこで滑らかである．
+
+二重線上で
+\begin{equation}\label{eq:degree-d-zeta}
+ \zeta_{ij}^{(d)}
+ =-\left.\frac{F_d}{\prod_{k\notin\{i,j\}}L_k}\right|_{D_{ij}}
+\end{equation}
+と置く．分子は $\mathcal O_{\PP^1}(d)$，分母は
+$\mathcal O_{\PP^1}(d-2)$ の section なので，$\zeta_{ij}^{(d)}$ は次数によらず
+$\mathcal O_{\PP^1}(2)$ の meromorphic sectionであり，
+\begin{equation}\label{eq:degree-d-zeta-divisor}
+ \operatorname{div}(\zeta_{ij}^{(d)})
+ =\sum_{a=1}^d p_{ij,a}
+  -\sum_{k\notin\{i,j\}}q_{ijk}
+\end{equation}
+を満たす．
+
+$D_{ij}$ の一方の成分内での normal line bundle は
+$N_{D_{ij}/H_i}\simeq\mathcal O_{\PP^1}(1)$ である．
+$\Sigma_{ij}^{(d)}$ は open Riemann surface なので $\Pic(\Sigma_{ij}^{(d)})=0$ である．Cusp において meromorphic orderを持つ tame frame の ordersを $a_k$ とすれば
+\begin{equation}\label{eq:degree-d-frame-degree}
+ \sum_{k\notin\{i,j\}}a_k=1.
+\end{equation}
+一つの frame を全 cusps で同時に order zero にすることはできない．しかし terminal cusp $k$ を固定し，別の cusp $\ell(k)$ を一つ選べば，
+\begin{equation}\label{eq:degree-d-adapted-orders}
+ a_k^{(k)}=0,\qquad a_{\ell(k)}^{(k)}=1,
+ \qquad a_r^{(k)}=0\quad
+ (r\notin\{k,\ell(k)\})
+\end{equation}
+を持つ frame $e_{ij}^{(k)}$ が存在する．実際，
+$\mathcal O(1)\simeq\mathcal O(q_{ij\ell(k)})$ の canonical sectionを用いればよい．Approached cusp $k$ で order zero であることにより，fast residual cusp depth は active annulus depthへ integral shearを生じない．Cusp の個数が三から $d-2$ に増えても，必要な gauge family は有限である．
+
+\subsection{Adjunction，canonical normalization，および capped density}
+
+Adjunction により
+\begin{equation}\label{eq:degree-d-adjunction}
+ K_{X_t^{(d)}}\simeq\mathcal O_{X_t^{(d)}}(d-4),
+ \qquad K_{X_t^{(d)}}^2=d(d-4)^2.
+\end{equation}
+従って $\Ric(\omega_t^{(d)})=-\omega_t^{(d)}$ と規格化すると
+\begin{equation}\label{eq:degree-d-normalization}
+ [\omega_t^{(d)}]=2\pi(d-4)H,
+ \qquad
+ \vol(X_t^{(d)},g_t^{(d)})=2\pi^2d(d-4)^2.
+\end{equation}
+この規格化では各 hyperbolic curve factor の曲率は常に $-1$ であり，raw co-Gram の leading coefficient に $d-4$ は現れない．一方
+\begin{equation}\label{eq:degree-d-primitive-normalization}
+ \bar\omega_t^{(d)}=(d-4)^{-1}\omega_t^{(d)}
+\end{equation}
+と primitive class $2\pi H$ に移れば
+\[
+ \Ric(\bar\omega_t^{(d)})=-(d-4)\bar\omega_t^{(d)},
+ \qquad \bar g_t^{(d)}=(d-4)^{-1}g_t^{(d)}.
+\]
+したがって距離は $1/\sqrt{d-4}$ 倍，inverse-metric co-Gram は
+$d-4$ 倍となる．
+
+一般次数の capped density は，$K_{X_t^{(d)}}$ の固定正 Hermitian metricから得る canonical densityを $\Omega_{0,t}^{(d)}$ として
+\begin{equation}\label{eq:degree-d-capped-density}
+ \Omega_{t,d}^{\mathrm{low}}
+ =L_t^2\prod_{i=1}^d\alpha_{i,t}^{-2}\Omega_{0,t}^{(d)}
+\end{equation}
+である．Prefactor は $L_t^d$ ではなく $L_t^2$ である．各点で active labels は高々三個であり，残りの $\alpha_{i,t}$ は上下有界なので，component，pair，triple，source の determinant calculation は五次の場合と同一である．$K_{X_t^{(d)}}$ の正値性，$A_0$，および比較定数だけが固定 $d$ に依存する．従って closed-cell raw geometry，六つの局所型，capped determinant，および cusp-adapted gauges までは，固定 $d\ge5$ に新しい解析模型なしで一般化する．
+
+\subsection{Product-Box Exhaustion 仮定}
+
+前項までの局所入力を moving flag-star の全域で一つの pointed product limitへまとめるには，次の仮定を要する．これは単に product chart が各点で存在するという主張ではなく，growing chart chains 上の定量的一様性を含む．ここで raw-deep flag-star sequence とは，ある非空 $I\subset\{1,\ldots,d\}$，$|I|\le2$ と $A_\nu\to\infty$ に対して
+\[
+ x_\nu\in X_{t_\nu}^{(d)},\qquad
+ \frac{A_\nu}{R_{t_\nu}}\le q_{i,t_\nu}(x_\nu)
+ \le1-\frac{A_\nu}{R_{t_\nu}}\quad(i\in I)
+\]
+を満たす点列をいう．
+
+\begin{assumption}[Product-Box Exhaustion $\mathrm{(PBE)}_d$]\label{ass:PBEd}
+$\mathrm{(G)}_d$ を満たす族について，任意の raw-deep flag-star sequence
+$t_\nu\to0$，$x_\nu\in X_{t_\nu}^{(d)}$ に対し，有限個の labelsを固定する部分列と labelled coversを選べ，次が成り立つと仮定する．
+\begin{enumerate}[label=\textup{(PBE$_d$\arabic*)}]
+\item \textbf{Quantitative terminal product trivialization.}
+      One-active thick/source，one-active terminal cusp $k$，two-active triple の各 terminal typeで holomorphic product coordinatesが source-arm transitionsを含めて構成される．Local algebraic coframeを $\Theta^{\mathrm{alg}}_{y,\nu}$，terminal gauge coframeを $\Theta^{\mathrm{gauge}}_\nu$ とすると
+      \[
+       \Theta^{\mathrm{alg}}_{y,\nu}
+       =T_{y,\nu}\Theta^{\mathrm{gauge}}_\nu,
+       \qquad
+       \|T_{y,\nu}\|_{C^k_{\mathrm{ad}}}
+       +\|T_{y,\nu}^{-1}\|_{C^k_{\mathrm{ad}}}\le C_k,
+      \]
+      かつ protected parts 上で $T_{y,\nu}\to I$ が全固定階で成り立つ．Terminal cuspでは $e_{ij}^{(k)}$ を用い，この収束は residual cusp depthの大きさに依存しない．
+\item \textbf{Protected rectangular inclusion.}
+      Terminal protection depthを $P_\nu\to\infty$ とする．
+      $\Lambda_\nu\to\infty$，$\Lambda_\nu=o(P_\nu)$ なら，任意の fixed actual ballを覆う有限 chart chain の二 factor projectionsを $\Lambda_\nu$ だけ厚くした rectangular hullは，同じ flag-star と同じ terminal cusp-starに含まれ，central source cores と incompatible triple markingsを避ける．この包含は後続の actual/global tensor comparisonを仮定せずに得られる．
+\item \textbf{Uniform local/global/actual comparison.}
+      前号の protected hull 上で，一つの $C_{\mathrm{cmp}}(d)\ge1$ が存在し，$\nu$，pointed radius，chart-chain長に依存せず
+      \[
+       C_{\mathrm{cmp}}(d)^{-1}h_\nu^{\mathrm{glob}}
+       \le h_{y,\nu}^{\mathrm{loc}},\ g_{t_\nu}^{(d)}
+       \le C_{\mathrm{cmp}}(d)h_\nu^{\mathrm{glob}}
+      \]
+      が成り立つ．Factor boundariesまでの global marginが発散するとき，
+      $h_{y,\nu}^{\mathrm{loc}}/h_\nu^{\mathrm{glob}}\to I$ が全固定 $C^k_{\mathrm{ad}}$ で成り立つ．
+\item \textbf{Compatible exhaustion and two-metric escape.}
+      全 fixed radiusに対し，同じ terminal gaugeで nested product boxesを選べる．Finite boundariesまでの
+      $d_{g_{t_\nu}^{(d)}}$-距離と $d_{h_\nu^{\mathrm{glob}}}$-距離はともに発散し，factorwise normalized uniformizationsは $\mathbb D^2$ の compatible marked exhaustionを与える．Pulled-back actual metricsは全階 precompactで，任意の極限は completeかつ一つの global constantで Poincaré productと双 Lipschitz同値である．
+\end{enumerate}
+\end{assumption}
+
+\begin{remark}\label{rem:PBE-status}
+五次の場合に本稿後半で構成する terminal gauges，intrinsic windows，relative Bishop--Gromov chart count，frame-shear estimates，rectangular hulls，および artificial-boundary escape は $\mathrm{(PBE)}_5$ を検証するための要素である．本稿では，局所 gauge の存在と growing product boxes の大域的一様性を混同しないため，\cref{ass:PBEd}を sharp conclusions の明示的仮定として残す．
 \end{remark}
-\section{三重点とleading synchronization}
-\begin{lemma}
-triple pointのanalytic coordinatesで
-$xyz=t\vartheta(x,y,z,t)$、$\vartheta(0)\neq0$という局所式があれば、
-$\ell_x=-\log|x|^2$等について
+
+\subsection{一般次数版 raw co-Gram 定理}
+
+非空 $I\subset\{1,\ldots,d\}$，$1\le|I|\le2$ に対し
+\begin{equation}\label{eq:degree-d-raw-region}
+ \mathcal R_{d,t}(I;A)
+ =\left\{x\in X_t^{(d)}:
+ \frac A{R_t}\le q_{i,t}(x)\le1-\frac A{R_t}
+ \quad(i\in I)\right\}
+\end{equation}
+とし，空集合上の上限を $0$ と約束して
+\begin{equation}\label{eq:degree-d-cogram-modulus}
+ \mathfrak m_{d,t}(A)
+ =\max_{1\le|I|\le2}\sup_{x\in\mathcal R_{d,t}(I;A)}
+ \left\|
+ R_t^2
+ \bigl(\langle dq_{i,t},dq_{j,t}\rangle_{(g_t^{(d)})^{-1}}\bigr)_{i,j\in I}
+ -I_I
+ \right\|_{\mathrm{op}}
+\end{equation}
+と置く．
+
+\begin{theorem}[固定次数版 sharp raw co-Gram]\label{thm:degree-d-cogram}
+$d\ge5$ を固定し，$\mathrm{(G)}_d$ と $\mathrm{(PBE)}_d$ を仮定する．このとき
+\begin{equation}\label{eq:degree-d-cogram-limit}
+ \lim_{A\to\infty}\limsup_{t\to0}\mathfrak m_{d,t}(A)=0.
+\end{equation}
+特に $\Ric(\omega_t^{(d)})=-\omega_t^{(d)}$ 規格化では，各 cubical directionの係数は $1$ であり，二つの active directions は漸近直交する．Primitive normalization
+$\bar g_t^{(d)}=(d-4)^{-1}g_t^{(d)}$ では，左辺の co-Gram matrixの極限は $(d-4)I_I$ となる．
+\end{theorem}
+
+\begin{proof}
+$\mathrm{(PBE)}_d$ により任意の raw-deep反例列は，labelled covers上で $\mathbb D^2$ の compatible exhaustionを持つ．Actual metricsの極限は completeで Poincaré productと一様双 Lipschitz同値である．\Cref{sharp:thm:complete-product-rigidity} の bounded-ratio uniquenessにより極限は Poincaré productそのものである．Terminal cusp order-zero gaugesと raw/local covector comparisonにより
+$R_t\,dq_{i,t}$ は標準 horospherical covectorsへ収束する．反例列による contradictionを取れば
+\eqref{eq:degree-d-cogram-limit} が従う．Primitive normalizationでは inverse metricが $d-4$ 倍される．
+\end{proof}
+
+第V篇の scalar no-shortcut と protected horizontal recovery は targetが有限 square complexであることと\eqref{eq:degree-d-cogram-limit}を鋭い入力とし，さらに raw image density，粗い二側距離比較，source-core localization，有限 connector libraryをまとめた $\mathrm{(CP)}_d$ を粗い大域入力とする．従ってその有限複体部分を $\mathcal C_d$ に対して行えば，$\mathrm{(G)}_d+\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ の下で
+\begin{equation}\label{eq:degree-d-conditional-GH}
+ (X_t^{(d)},R_t^{-2}g_t^{(d)})
+ \xrightarrow{\mathrm{GH}}(\mathcal C_d,d_{\square,d})
+\end{equation}
+を得る．ただし $d=5$ の $\diam(\mathcal C_5)=\sqrt{13}$ という有限計算はそのまま保持される一方，一般 $d$ の直径の閉形式は別の有限組合せ問題である．
+
+\subsection{高次元：確定部分と予想部分}
+
+ambient dimensionを $N\ge4$ とし，$X_t\subset\PP^N$ を $d$ 次 hypersurface，
+$d\ge N+2$ とする．形式的候補は
+\begin{equation}\label{eq:high-dimensional-candidate}
+ \mathcal C_{d,N}
+ =\{w\in[0,1]^d:\max_iw_i=1,\ |\supp w|\le N\}
+ \cong\operatorname{sk}_{N-1}\Delta^{d-1}.
+\end{equation}
+各 maximal $(N-1)$-cube に unit Euclidean metricを入れ，共通 facesに沿って貼った内在距離を候補距離 $d_{\square,d,N}$ とする．
+Adjunction と canonical volumeは無条件に
+\begin{equation}\label{eq:high-dimensional-adjunction}
+ K_{X_t}\simeq\mathcal O_{X_t}(d-N-1),
+ \qquad
+ K_{X_t}^{N-1}=d(d-N-1)^{N-1},
+\end{equation}
+\begin{equation}\label{eq:high-dimensional-volume}
+ \vol(X_t,g_t)
+ =\frac{(2\pi)^{N-1}}{(N-1)!}
+ d(d-N-1)^{N-1}
+\end{equation}
+である．
+
+Pure normal-crossing chart
 \[
- \ell_x+\ell_y+\ell_z=L_t+O(1).
+ z_1\cdots z_r=tU,
+ \qquad 1\le r\le N,
+\]
+では $r-1$ 個の radial directionsがある．Cap coefficientsを
+$\mu_1,\ldots,\mu_r$ とすれば radial determinantは，bounded frame changesを除いて
+$e_{r-1}(\mu_1,\ldots,\mu_r)$ である．実際，$s_1\cdots s_r\asymp|t|^2$ かつ $s_a\le C$ なので，十分小さい固定 $c>0$ に対し二つの $s_a$ が同時に $c|t|$ 未満となることはない．そのような唯一の添字 $k$ があれば $\alpha_k\ge L_t/2-C$ で，他の全 $\chi_a$ は一様に下から抑えられる．そのような添字がなければ，全 $\chi_a$ が下から抑えられ，積条件から $s_k\le C|t|^{2/r}$ となる $k$ を選べば $\alpha_k\ge L_t/r-C$ である．いずれの場合も
+$\prod_{a\ne k}\mu_a\ge c\prod_{a\ne k}\alpha_a^{-2}$ なので
+\begin{equation}\label{eq:high-dimensional-pure-NC-determinant}
+ e_{r-1}(\mu_1,\ldots,\mu_r)
+ \ge c\frac{L_t^2}{\alpha_1^2\cdots\alpha_r^2}.
+\end{equation}
+従って高次元でも capped densityの prefactorは $L_t^2$ であり，pure normal-crossing determinant packageまでは確定する．
+
+しかし source geometryは三次元 ambientの場合と本質的に異なる．二重 stratum
+$D_{ij}\simeq\PP^{N-2}$ 上で $F_d|_{D_{ij}}=0$ は次元 $N-3$ の正次元 divisorである．Triple stratum
+$D_{ijk}\simeq\PP^{N-3}$ との交わりは，$N=4$ でも $d$ 個の点を持ち，一般に次元 $N-4$ の degree-$d$ hypersurfaceなので避けられない．その近傍には
+\begin{equation}\label{eq:mixed-source-higher-stratum}
+ x_1\cdots x_r=tz
+\end{equation}
+型の mixed source--higher-stratum models が現れる．さらに one-active neck の residual factorは
+\[
+ \PP^{N-2}\setminus\{d-2\text{ hyperplanes}\}
+\]
+という高次元 hyperplane-arrangement complementであり，その多重スケール完備 KE 幾何，すなわち第I--III篇の入力を再帰的に用いる必要がある．
+
+\begin{conjecture}[高次元 cubical limit]\label{conj:high-dimensional-cubical-limit}
+$\PP^N$ の一般位置 $d$ 超平面への十分一般な退化に対し，mixed source--higher-stratum models の bounded-core theoremと高次元版 product-box exhaustionが成立するなら，
+\[
+ (X_t,R_t^{-2}g_t)
+ \xrightarrow{\mathrm{GH}}
+ (\mathcal C_{d,N},d_{\square,d,N})
+\]
+である．
+\end{conjecture}
+
+本稿では\cref{eq:high-dimensional-candidate,eq:high-dimensional-adjunction,eq:high-dimensional-volume,eq:high-dimensional-pure-NC-determinant}を確定結果とし，\cref{conj:high-dimensional-cubical-limit}は予想に留める．
+
+\part{粗い raw-depth 幾何と intrinsic complete local models}
+\section{設定と主定理}\label{coarse:sec:setup}
+
+\subsection{退化族}
+一般位置の線形形式 $L_0,\ldots,L_4\in H^0(\PP^3,\mathcal O(1))$ と一般の quintic form $F_5$ を取り，
+\begin{equation}\label{coarse:eq:family}
+ X_t=\{L_0L_1L_2L_3L_4+tF_5=0\}\subset\PP^3
+\end{equation}
+とする．以下を仮定する．
+\begin{enumerate}[label=\textup{(G\arabic*)}]
+\item $0<|t|\ll1$ で $X_t$ は滑らかである．
+\item 各二重線 $D_{ij}=H_i\cap H_j\simeq\PP^1$ 上で $F_5|_{D_{ij}}$ は五つの単純零点を持つ．
+\item それらの零点は三重点 $H_i\cap H_j\cap H_k$ を避ける．これを以下では source--triple separation と呼ぶ．異なる二重線の交点は三重点だけなので，この条件の下で異なる二重線上の source points は互いに衝突しない．
+\end{enumerate}
+このとき全二重線上に合計 $50$ 個の source points があり，その局所方程式は unitを吸収して $xy=tz$ と書ける．$K_{X_t}\simeq\mathcal O_{X_t}(1)$，$K_{X_t}^2=5$ であり，一意な $\omega_t$ が
+\begin{equation}\label{coarse:eq:KE}
+ \Ric(\omega_t)=-\omega_t,
+ \qquad [\omega_t]=2\pi c_1(K_{X_t})
+\end{equation}
+を満たす．$g_t$ を対応する実計量とする．
+
+\subsection{候補複体}
+\begin{definition}\label{coarse:def:C5}
+\[
+ \Cfive=\{w\in[0,1]^5:\max_iw_i=1,\ |\supp w|\le3\}.
+\]
+互いに異なる $i,j,k$ に対し
+\[
+ Q_{i;jk}=e_i+[0,1]e_j+[0,1]e_k
+\]
+を unit Euclidean squareとし，共通 faceに沿って貼った内在的 length metricを $d_\square$ とする．
+\end{definition}
+
+\begin{theorem}[粗い raw-depth 立方体幾何]\label{coarse:thm:main}
+ある $t$ に依存しない定数 $C\ge1$ と連続写像
+\[
+ \Phi_t^{\mathrm{alg}}:X_t\longrightarrow\Cfive
+\]
+が存在し，十分小さい $t\ne0$ と全 $x,y\in X_t$ に対し
+\begin{equation}\label{coarse:eq:coarse-main}
+ C^{-1}R_t d_\square(\Phi_t^{\mathrm{alg}}x,\Phi_t^{\mathrm{alg}}y)-C
+ \le d_{g_t}(x,y)
+ \le CR_t d_\square(\Phi_t^{\mathrm{alg}}x,\Phi_t^{\mathrm{alg}}y)+C
+\end{equation}
+が成り立つ．さらに
+\begin{equation}\label{coarse:eq:image-density-main}
+ d_H^{d_\square}(\Phi_t^{\mathrm{alg}}(X_t),\Cfive)\le CR_t^{-1}.
+\end{equation}
+\end{theorem}
+
+\begin{corollary}\label{coarse:cor:coarse-GH}
+$(X_t,R_t^{-2}g_t)$ は compact Gromov--Hausdorff topologyで precompactである．任意の部分極限は $\Cfive$ と bi-Lipschitz 同相である．従って
+\[
+ Y\cong\Cfive\simeq\bigvee^4S^2,
+ \qquad \diam(X_t,g_t)\asymp R_t.
+\]
+\end{corollary}
+
+\section{Raw logarithmic depths と有限 support}\label{coarse:sec:raw}
+
+$\mathcal O_{\PP^3}(1)$ に固定 Hermitian metricを選び，$s_i=\|L_i\|^2$ とする．十分大きい固定定数 $A_0$ に対し
+\begin{equation}\label{coarse:eq:raw-definition}
+ \epsilon_t=|t|,
+ \qquad \alpha_{i,t}=A_0-\log(s_i+\epsilon_t),
+ \qquad q_{i,t}=R_t^{-1}\log\alpha_{i,t}
+\end{equation}
+と置き，$q_t=(q_{0,t},\ldots,q_{4,t})$ とする．$q_t$ は滑らかである．
+
+\begin{lemma}[一般位置配置の定量的 separation]\label{coarse:lem:four-plane-separation}
+任意の相異なる四添字 $J\subset\{0,\ldots,4\}$ に対し，一様定数 $c_J>0$ が存在して
+\[
+ \sum_{j\in J}\|L_j(x)\|^2\ge c_J
+ \qquad (x\in\PP^3)
+\]
+が成り立つ．従って，一様定数 $c_{\mathrm{sep}}>0$ が存在して，任意の点で
+$\|L_i\|^2<c_{\mathrm{sep}}$ となる添字は高々三個である．
+\end{lemma}
+
+\begin{proof}
+一般位置条件より，四超平面 $\{L_j=0\}_{j\in J}$ は共通点を持たない．従って連続関数
+$\sum_{j\in J}\|L_j\|^2$ は compact space $\PP^3$ 上で正の最小値を持つ．有限個の $J$ について最小値を取り，
+$c_{\mathrm{sep}}$ をその十分小さい共通部分として選べばよい．
+\end{proof}
+
+\begin{lemma}[有限 support]\label{coarse:lem:raw-near-C5}
+一様定数 $C$ が存在して
+\begin{equation}\label{coarse:eq:raw-near-C5}
+ \dist_{\RR^5}(q_t(X_t),\Cfive)\le CR_t^{-1}
+\end{equation}
+が成り立つ．
+\end{lemma}
+
+\begin{proof}
+式 \eqref{coarse:eq:family} の絶対値を取り，固定 Hermitian trivializationsの unit factorsをまとめると
+\[
+ \prod_{i=0}^4s_i=|t|^2|F_5|^2\cdot U,
+\]
+ただし $U,U^{-1}$ は一様有界である．$F_5$ は compactな $\PP^3$ 上で一様有界なので，少なくとも一つの $s_i$ は
+$C|t|^{2/5}$ 以下である．その添字について
+\[
+ \alpha_{i,t}\ge \frac15L_t-O(1)
+\]
+である．他方，$s_i+|t|\ge |t|$ より
+\[
+ \alpha_{i,t}\le A_0+\frac12L_t
+ \qquad(0\le i\le4)
+\]
+であるから，すべての $i$ について $q_{i,t}\le1+O(R_t^{-1})$ である．従って
+$\max_iq_{i,t}=1+O(R_t^{-1})$ を得る．$F_5(x)=0$ の場合には積方程式から少なくとも一つの
+$L_i(x)$ が零であり，同じ結論はさらに直接的である．
+
+一方，\cref{coarse:lem:four-plane-separation} により $s_i<c_{\mathrm{sep}}$ となる添字は高々三個である．残りの添字では
+$\alpha_{i,t}=O(1)$，従って $q_{i,t}=O(R_t^{-1})$ である．最大座標を $1$ に切り直し，$O(R_t^{-1})$ の座標を零へ落とせば
+$\Cfive$ の点を得るため，\eqref{coarse:eq:raw-near-C5} が従う．
+\end{proof}
+
+有限 polyhedronの regular-neighbourhood theoremにより，ある $\eta>0$ と Lipschitz retraction
+\[
+ \Pi:N_\eta(\Cfive)\longrightarrow\Cfive
+\]
+を固定できる．十分小さい $t$ に対し
+\begin{equation}\label{coarse:eq:Phi-alg}
+ \Phi_t^{\mathrm{alg}}=\Pi\circ q_t
+\end{equation}
+と置く．
+
+\begin{lemma}[Parameter-uniform product equation lemma]\label{coarse:lem:uniform-product-solve}
+$\Delta^3\times\Delta_t$ 上の holomorphic unit $U(z_i,z_j,z_k,t)$ が
+\[
+ C_U^{-1}\le |U|\le C_U,
+ \qquad
+ \|U\|_{C^1}\le C_U
+\]
+を満たすとする．$z_j,z_k$ を parameter とし，
+\[
+ a=\frac{t}{z_jz_k},
+ \qquad |a|\le e^{-cL_t}
+\]
+とする．十分小さい $t$ に対し
+\begin{equation}\label{coarse:eq:uniform-fixed-point}
+ z_i=a\,U(z_i,z_j,z_k,t)
+\end{equation}
+は disc $|z_i|\le2C_U|a|$ に一意解を持つ．解は $(z_j,z_k,t)$ に holomorphic，従って全閉 parameter set 上で連続であり，
+\[
+ C_U^{-1}|a|\le |z_i|\le C_U|a|,
+ \qquad
+ -\log|z_i|^2=-\log|a|^2+O(1)
+\]
+を一様に満たす．
+\end{lemma}
+
+\begin{proof}
+$T_a(z)=aU(z,z_j,z_k,t)$ と置く．$|z|\le2C_U|a|$ 上で
+$|T_a(z)|\le C_U|a|$ であり，
+\[
+ |T_a'(z)|\le |a|\,\|\partial_{z_i}U\|_{C^0}
+ \le C_Ue^{-cL_t}<\frac12
+\]
+である．従って Banach の不動点定理から一意解を得る．Holomorphic parameter dependenceは一様収束する Picard iteration，または holomorphic implicit-function theoremから従う．Unit の上下界を \eqref{coarse:eq:uniform-fixed-point} に代入すれば最後の評価を得る．
+\end{proof}
+
+\begin{theorem}[Closed-cell toroidal realization]\label{coarse:thm:closed-cell-realization}
+$Q\subset\Cfive$ を任意の closed cubical cell とする．十分小さい $t$ に対し連続写像
+\[
+ \sigma_{Q,t}:Q\longrightarrow X_t
+\]
+を選べ，cell と $t$ に依存しない定数 $C$ により
+\begin{equation}\label{coarse:eq:closed-cell-realization}
+ \sup_{w\in Q}\left|q_t(\sigma_{Q,t}(w))-\iota(w)\right|_{\RR^5}
+ \le \frac{C}{R_t}
+\end{equation}
+が成り立つ．特にこの評価は，$w$ が support-drop face，multiple-max face，またはそれらの交わりへ $t$ に依存する速さで近づく場合にも一様である．
+\end{theorem}
+
+\begin{proof}
+まず maximal square
+\[
+ Q=Q_{i;jk}=e_i+[0,1]e_j+[0,1]e_k
+\]
+を扱う．$Q$ に対応する triple chart を source points を避けて選び，bounded nonvanishing unit を含む局所方程式を
+\begin{equation}\label{coarse:eq:closed-cell-local-product}
+ z_i z_j z_k=t\,U(z_i,z_j,z_k,t),
+ \qquad C_U^{-1}\le |U|\le C_U
+\end{equation}
+と書く．三重交点は零次元であり，独立な residual coordinate は存在しない．固定 $S_0\gg A_0+1$ を取り，$w=e_i+u e_j+v e_k\in Q$ に対し
+\begin{equation}\label{coarse:eq:closed-cell-soft-radii}
+ \ell_a(w)=S_0+(L_t-3S_0)
+ \frac{e^{R_t w_a}}{e^{R_t w_i}+e^{R_t w_j}+e^{R_t w_k}},
+ \qquad a\in\{i,j,k\}.
+\end{equation}
+すると $\sum_a\ell_a=L_t$ であり，closed square 全体で
+\begin{equation}\label{coarse:eq:closed-cell-softmax}
+ \left|R_t^{-1}\log\ell_a(w)-w_a\right|\le \frac{C}{R_t}.
+\end{equation}
+実際，$w_i=1$ であり，$0\le w_j,w_k\le1$ なので，分母は $e^{R_t}$ と一様比較できる．$w_a=0$ のときは $\ell_a=S_0+O(1)$，$0<w_a<1$ のときは $\ell_a=e^{R_t w_a+O(1)}$，$w_a=1$ のときは $\ell_a=c_aL_t+O(1)$，$c_a\in[1/3,1]$ である．この三場合の評価は境界で連続し，\eqref{coarse:eq:closed-cell-softmax} を与える．
+
+$|z_j|=e^{-\ell_j/2}$，$|z_k|=e^{-\ell_k/2}$ とし，その二つの位相を固定する．
+$\ell_i+\ell_j+\ell_k=L_t$ と $w_i=1$ から $\ell_i\ge cL_t$ であり，
+\[
+ a(w,t)=\frac{t}{z_jz_k},
+ \qquad |a(w,t)|=e^{-\ell_i/2}\le e^{-cL_t}.
+\]
+従って \cref{coarse:lem:uniform-product-solve} を用いて
+$z_i=a(w,t)U(z_i,z_j,z_k,t)$ を一意に解く．解は $w\in Q$ に連続であり，
+\[
+ -\log|z_i|^2=\ell_i+O(1)
+\]
+を全閉 square 上で一様に満たす．他の二座標には補正を加えない．従って
+\[
+ \log\alpha_{a,t}=\log\ell_a+O(1)
+\]
+が $Q$ 全体で一様に成立する．Inactive labels は separation により $O(1)$ である．これで maximal square に対する \eqref{coarse:eq:closed-cell-realization} を得る．
+
+任意の closed cell $Q'$ は有限個の maximal squares の face である．その一つを固定して上の $\sigma_{Q,t}$ を $Q'$ へ制限すればよい．Support が落ちる face では対応する $\ell_a$ は $S_0+O(1)$ となり，multiple-max face では二つまたは三つの $\ell_a$ が $c_aL_t+O(1)$ となるため，別の chart へ切り替える必要はない．Pair vertices は対応する double line の generic pointで実現できるため，closed-cell realization のために source chartへ入る必要はない．有限個の maximal squaresについて最大の定数を取れば，一様な $C$ を得る．
+\end{proof}
+
+\begin{corollary}[一様 image density]\label{coarse:cor:uniform-image-density}
+一様定数 $C$ により
+\begin{align}
+ \sup_{x\in X_t}|q_t(x)-\iota\Phi_t^{\mathrm{alg}}(x)|_{\RR^5}
+ &\le CR_t^{-1},\label{coarse:eq:value-close}\\
+ d_H^{d_\square}(\Phi_t^{\mathrm{alg}}(X_t),\Cfive)
+ &\le CR_t^{-1}.\label{coarse:eq:image-density}
+\end{align}
+\end{corollary}
+
+\begin{proof}
+第一式は $\Pi|_{\Cfive}=\id$ と \cref{coarse:lem:raw-near-C5} から従う．第二式について，任意の $w\in\Cfive$ を含む closed cell $Q$ を一つ選び，
+$x_w=\sigma_{Q,t}(w)$ とする．\Cref{coarse:thm:closed-cell-realization} により
+$|q_t(x_w)-w|\le C/R_t$ であり，第一式を用いて
+$d_\square(\Phi_t^{\mathrm{alg}}(x_w),w)\le C/R_t$ を得る．この証明は fixed compact exhaustion と wall-neighbourhood の二分法を使わないため，例えば
+$\dist(w_t,\partial Q)=R_t^{-1/2}$ の中間領域も直接含む．
+\end{proof}
+
+\begin{remark}\label{coarse:rem:no-diff-Pi}
+本稿後半と第V篇は $\Phi_t^{\mathrm{alg}}$ を値の比較にのみ用いる．微分するのは滑らかな $q_{i,t}$ であり，Lipschitz retraction $\Pi$ を微分しない．
+\end{remark}
+
+\section{六型の有限局所アトラス}\label{coarse:sec:atlas}
+
+\subsection{Source の三分割}
+Source point近傍を
+\begin{equation}\label{coarse:eq:source-model}
+ xy=tz
+\end{equation}
+と書く．$t=\tau^2$ の一つの枝を選び，
+\begin{equation}\label{coarse:eq:source-rescaling}
+ (x,y,z)=(\tau X,\tau Y,XY)
+\end{equation}
+とする．$\CC^2_{X,Y}$ の同心領域 $\Omega^-\Subset\Omega^0\Subset\Omega^+$ を固定し，$B_{p,t}^\bullet$ をその像とする．$X\ne0$ では
+\begin{equation}\label{coarse:eq:x-arm}
+ t=xu,\qquad y=uz
+\end{equation}
+と書け，$Y\ne0$ では対称に
+\begin{equation}\label{coarse:eq:y-arm}
+ t=ya,\qquad x=az
+\end{equation}
+と書ける．固定 $0<r_-<r_0<r_+\ll1$ と
+\[
+ A_t(r)=\{|t|/r<|\zeta|<r\}
+\]
+を用いる．Complete ambient domain は $A_t(r_+)\times\Delta_{r_+}$ とするが，actual $x$-arm の nested region は
+\[
+ \cA_{p,t}^{x,+}(r_0)
+ =\{(x,z):c_0|t|^{1/2}\le |x|\le r_0,
+       \ |z|\le r_0\}
+\]
+に取り，$y$-arm は $x,y$ を交換して定める．ここで $c_0>0$ は固定である．したがって $x$-arm では
+$|y|\le C|t|^{1/2}$，$y$-arm では $|x|\le C|t|^{1/2}$ が一様に成り立つ．Complete annulus の反対側半分は解析的 boundary buffer としてのみ用いる．
+
+\begin{lemma}[Source trichotomy と gates]\label{coarse:lem:source-trichotomy}
+Source polydiscを固定割合だけ縮小すれば，その $X_t$ 上の部分は
+\[
+ B_{p,t}^0\cup\cA_{p,t}^{x,+}(r_0)\cup\cA_{p,t}^{y,+}(r_0)
+\]
+で覆われる．$\partial B_{p,t}^-$ は $x$-gateと $y$-gateで覆われ，両 gatesは交わる．各 gateは対応する oriented half-arm の内側領域に含まれる．全定数は $\tau$ の枝に依存しない．
+\end{lemma}
+
+\begin{proof}
+$\Omega^0$ の外では $|X|$ または $|Y|$ が固定正数以上である．前者では $|x|\ge c|\tau|$ で
+$u=t/x=\tau/X$ は小さく，$y=uz$ から $|y|\le C|\tau|$ である．従って点は $x$-oriented half-arm に入る．後者は対称である．$\tau$ を $-\tau$ に替えると $(X,Y)$ は $(-X,-Y)$ となるだけで，radial estimatesは不変である．
+\end{proof}
+
+\begin{theorem}[有限適合アトラス]\label{coarse:thm:atlas}
+十分小さい $|t|$ に対し $X_t$ は，個数が $t$ に依存しない次の六局所型で覆われる．
+\begin{enumerate}[label=\textup{(\ensuremath{\mathsf{\Alph*}})}]
+\item Component graph型：他の四つの $L_j$ が unitで，$z=tf_t(w_1,w_2)$ と書ける．$f_t$ は零を持ってよい．
+\item Ordinary pair型：sourceとtriple pointsを避ける二重線上で $uv=t$ と書ける．
+\item Triple型：三重点近傍で $uvw=t$ と書ける．
+\item Central source型：$B_{p,t}^+$ 上で \eqref{coarse:eq:source-rescaling} を用いる．
+\item $x$-arm型：\eqref{coarse:eq:x-arm} を用いる．
+\item $y$-arm型：\eqref{coarse:eq:y-arm} を用いる．
+\end{enumerate}
+各型には三重の nested domainsがあり，overlap上の canonical-frame transition，unit functions，その逆，および任意の固定階の adapted derivativesは一様に有界である．
+\end{theorem}
+
+\begin{proof}
+Source-free strataの compactnessと special pointsの有限性から有限部分被覆を取る．Unit $U$ は enlarged domain上で零を持たず，像を単連結な小円板に入るよう領域を縮小すれば，$uv=tU$ の $U$ を一方の座標へ一価に吸収できる．Source polydiscは \cref{coarse:lem:source-trichotomy} で処理する．
+\end{proof}
+
+\begin{remark}
+有限欠陥として後で潰すのは中央 cores $B_{p,t}^-$ だけである．二つの armsは pair cellの巨視的内部を掃くため，欠陥へ押し込めてはならない．
+\end{remark}
+
+\section{Capped canonical density と型別 determinant}\label{coarse:sec:density}
+
+$K_{X_t}\cong\mathcal O_{X_t}(1)$ に固定正 Hermitian metricを入れ，対応する canonical densityを $\Omega_{0,t}$ とする．
+\begin{definition}\label{coarse:def:Omega-low}
+\begin{equation}\label{coarse:eq:Omega-low}
+ \Omega_t^{\mathrm{low}}
+ =L_t^2\prod_{i=0}^4\alpha_{i,t}^{-2}\Omega_{0,t},
+ \qquad h_t^{\mathrm{low}}=\ddc\log\Omega_t^{\mathrm{low}}.
+\end{equation}
+\end{definition}
+
+\begin{lemma}[Capped curvature の正値性]\label{coarse:lem:capped-positivity}
+$A_0$ を退化族と固定 Hermitian metrics のみに依存して十分大きく取れば，
+$h_t^{\mathrm{low}}$ は全 $X_t$ 上で K\"ahler form であり，一様な固定正形式 $h_{0,t}$ に対して
+\begin{equation}\label{coarse:eq:capped-positivity}
+ h_t^{\mathrm{low}}\ge \frac12 h_{0,t}
+\end{equation}
+が成り立つ．
+\end{lemma}
+
+\begin{proof}
+$\Omega_{0,t}$ は $K_{X_t}\simeq\mathcal O_{X_t}(1)$ の固定正 Hermitian metricから取り，
+$h_{0,t}:=\ddc\log\Omega_{0,t}$ は Fubini--Study formと一様比較可能な正形式とする．
+局所 frameで $s=|f|^2e^{-\varphi}$ と書くと，regularized logarithmについて
+\[
+ \ddc\log(s+|t|)\ge -C h_{0,t}
+\]
+が $t$ に一様に成り立つ．実際，$\log(|f|^2+|t|e^{\varphi})-\varphi$ と書けば，
+第一項の Levi formの負部分と $\varphi$ の固定曲率は一つの定数へ吸収できる．
+一方
+\begin{equation}\label{coarse:eq:one-cap-curvature}
+ \ddc(-2\log\alpha)
+ =\frac{2}{\alpha}\ddc\log(s+|t|)
+ +\frac{2}{\alpha^2}d\log(s+|t|)\wedge d^c\log(s+|t|)
+\end{equation}
+で，第二項は半正である．$\alpha\ge A_0-C$ と五個の sectionsの有限性から，
+$A_0$ を大きくすれば第一項の負部分の総和は $\frac12h_{0,t}$ 以下である．
+従って \eqref{coarse:eq:capped-positivity} を得る．
+\end{proof}
+
+一変数の capped curvature を正確に記録する．局所 unitary frameで $s=|f|^2$，
+\[
+ \alpha=A_0-\log(s+|t|),\qquad
+ \chi=\frac{s}{s+|t|},\qquad
+ \eta=\partial\log s
+\]
+とする．固定 background curvatureを $\mathcal R$ と書けば
+\begin{equation}\label{coarse:eq:exact-cap-curvature}
+ \ddc(-2\log\alpha)
+ =\frac{2\chi}{\alpha}\mathcal R
+ +2\left(
+     \frac{\chi(1-\chi)}{\alpha}
+     +\frac{\chi^2}{\alpha^2}
+   \right)\sqrt{-1}\,\eta\wedge\bar\eta .
+\end{equation}
+第一項の負部分は \cref{coarse:lem:capped-positivity} で background に吸収済みである．以下
+\begin{equation}\label{coarse:eq:mu-cap}
+ \mu(s,\alpha)=2\left(
+     \frac{\chi(1-\chi)}{\alpha}
+     +\frac{\chi^2}{\alpha^2}
+   \right)
+\end{equation}
+を cap の正の radial coefficient と呼ぶ．
+
+\begin{lemma}[Capped pair inequality]\label{coarse:lem:capped-pair}
+$C_0^{-1}|t|^2\le s_us_v\le C_0|t|^2$ とし，$s_u,s_v\le C_0$ とする．対応する
+$\alpha_u,\alpha_v,\chi_u,\chi_v,\mu_u,\mu_v$ について，一様定数 $c>0$ が存在して
+\begin{equation}\label{coarse:eq:capped-pair}
+ \mu_u+\mu_v
+ \ge c\frac{L_t^2}{\alpha_u^2\alpha_v^2}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+$x=s_u/|t|$，$y=s_v/|t|$ とすれば $xy\asymp1$ である．従って少なくとも一方，例えば $x$ は固定正数以上であり，$\chi_u\ge c_1$ である．そのとき $y\le C$ なので
+\[
+ \alpha_v=A_0+\frac12L_t-\log(1+y)\ge \frac12L_t-C.
+\]
+よって $\mu_u\ge2\chi_u^2\alpha_u^{-2}\ge c\alpha_u^{-2}$ であり，
+$\alpha_v^2\ge cL_t^2$ を用いれば \eqref{coarse:eq:capped-pair} が従う．$y$ が下から抑えられる場合は対称である．
+\end{proof}
+
+\begin{lemma}[Capped triple inequality]\label{coarse:lem:capped-triple}
+$C_0^{-1}|t|^2\le s_1s_2s_3\le C_0|t|^2$，$s_a\le C_0$ とする．すると，ある異なる二添字 $r,s$ と残りの添字 $k$ が存在して
+\[
+ \chi_r,\chi_s\ge c_1,
+ \qquad
+ \alpha_k\ge c_1L_t-C,
+\]
+したがって
+\begin{equation}\label{coarse:eq:capped-triple}
+ \mu_1\mu_2+\mu_1\mu_3+\mu_2\mu_3
+ \ge c\frac{L_t^2}{\alpha_1^2\alpha_2^2\alpha_3^2}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+$c_1>0$ を十分小さく固定する．二つの $s_a$ が $c_1|t|$ 未満なら，第三の $s_a\le C_0$ と合わせて積が $C_0^{-1}|t|^2$ 未満となるので矛盾する．従って少なくとも二つの $\chi_a$ は固定正数以上である．一方，積条件より少なくとも一つ，$s_k\le C|t|^{2/3}$ であり，
+$\alpha_k\ge L_t/3-C$ である．$k$ をそのように選ぶと，残り二つが同時に $c_1|t|$ 未満となることはない．必要なら三添字を入れ替え，$\chi_r,\chi_s\ge c_1$ と $\alpha_k\ge c_1L_t-C$ を同時に満たす組を得る．すると
+$\mu_r\mu_s\ge c(\alpha_r\alpha_s)^{-2}$ であり，$\alpha_k^2\ge cL_t^2$ から \eqref{coarse:eq:capped-triple} が従う．
+\end{proof}
+
+\begin{theorem}[六局所型における完全 determinant 計算]\label{coarse:thm:global-determinant}
+一様定数 $c,C>0$ が存在して
+\begin{equation}\label{coarse:eq:global-determinant}
+ (h_t^{\mathrm{low}})^2\ge c\Omega_t^{\mathrm{low}},
+ \qquad
+ \log\frac{\Omega_t^{\mathrm{low}}}{(h_t^{\mathrm{low}})^2}\le C
+\end{equation}
+が全 $X_t$ で成り立つ．
+\end{theorem}
+
+\begin{proof}
+\Cref{coarse:lem:capped-positivity} により $h_t^{\mathrm{low}}$ は正である．各 enlarged chart上で，canonical logarithmic coframeから adapted coframeへの変換行列とその逆は一様に有界である．従って以下では bounded units と off-diagonal bounded termsを一様定数へ吸収し，正の principal minorsだけを記録すれば十分である．
+
+\medskip\noindent
+\textbf{(A) Component graph.}
+一つの plane label $i$ だけが small であり，局所 graph equationは $z_i=t f_t(w_1,w_2)$ である．従って
+$\alpha_i=L_t/2+O(1)$，他の四つの $\alpha_a=O(1)$ である．よって
+$L_t^2\prod_a\alpha_a^{-2}\asymp1$ であり，\cref{coarse:lem:capped-positivity} の固定 background determinantだけで所要下界を与える．$f_t=0$ を通過する場合も graph coordinatesは滑らかで，この結論は変わらない．
+
+\medskip\noindent
+\textbf{(B) Ordinary pair.}
+$uv=tU(\zeta,t)$，$C^{-1}\le|U|\le C$ とする．$s_u s_v\asymp|t|^2$ である．Residual direction $d\zeta$ に background の一様正下界があり，normal logarithmic directionの係数は $\mu_u+\mu_v$ である．従って
+\[
+ \det h_t^{\mathrm{low}}
+ \ge c(\mu_u+\mu_v)
+ \ge c\frac{L_t^2}{\alpha_u^2\alpha_v^2}
+\]
+である．残る三 cap factorsは $O(1)$ なので，\cref{coarse:lem:capped-pair} から所要 weightを得る．ここでは uncapped relation $a+b=L_t$ を仮定せず，$\chi_u,\chi_v$ を含む capped inequalityを直接使っている．
+
+\medskip\noindent
+\textbf{(C) Triple.}
+$x_1x_2x_3=tU$ とし，$x_3$ を従属座標とする．Coframe $(\eta_1,\eta_2)=(d\log x_1,d\log x_2)$ において，三つの positive rank-one cap terms の radial matrixは
+\begin{equation}\label{coarse:eq:triple-radial-matrix}
+ M=
+ \mu_1\begin{pmatrix}1&0\\0&0\end{pmatrix}
+ +\mu_2\begin{pmatrix}0&0\\0&1\end{pmatrix}
+ +\mu_3\begin{pmatrix}1&1\\1&1\end{pmatrix}.
+\end{equation}
+従って
+\begin{equation}\label{coarse:eq:triple-radial-det}
+ \det M=\mu_1\mu_2+\mu_1\mu_3+\mu_2\mu_3.
+\end{equation}
+$|x_1x_2x_3|^2\asymp|t|^2$ なので，\cref{coarse:lem:capped-triple} により
+\[
+ \det M\ge c\frac{L_t^2}{\alpha_1^2\alpha_2^2\alpha_3^2}.
+\]
+Inactive two labelsは boundedである．Bounded unit $U$ は $d\log U$ による一様有界な triangular coframe changeしか生じないため，下界を変えない．
+
+\medskip\noindent
+\textbf{(D) Central source.}
+$t=\tau^2$，$(x,y,z)=(\tau X,\tau Y,XY)$ とする．固定 rescaling domain上で
+\[
+ \alpha_X=A_0+\frac12L_t-\log(1+|X|^2),
+ \qquad
+ c_X=\frac{2(\alpha_X+|X|^2)}{\alpha_X^2(1+|X|^2)^2},
+\]
+および $c_Y$ を定める．これは \eqref{coarse:eq:exact-cap-curvature} を $dX,dY$ frameへ書き直した正確な係数である．固定 backgroundの pullback は
+\[
+ \epsilon_t(|dX|^2+|dY|^2)+|YdX+XdY|^2+O(\epsilon_t^{1/2})
+\]
+と一様比較可能である．従って主要 Hermitian matrixの determinantは，一様定数を除いて
+\begin{equation}\label{coarse:eq:source-determinant}
+ c_Xc_Y+c_X|X|^2+c_Y|Y|^2+\epsilon_t(c_X+c_Y)+\epsilon_t^2
+\end{equation}
+を支配する．$|X|,|Y|\le C$ では $c_X,c_Y\ge cL_t^{-1}(1+|X|^2)^{-2}$ なので，\eqref{coarse:eq:source-determinant} は $cL_t^{-2}$ 以上である．一方 residue canonical formは
+\[
+ \frac{dx\wedge dy}{\partial(xy-tz)/\partial z}
+ =-dX\wedge dY
+\]
+であり，$L_t^2\alpha_X^{-2}\alpha_Y^{-2}\asymp L_t^{-2}$ である．従って source centerを含めて所要 determinant下界が成り立つ．
+
+\medskip\noindent
+\textbf{(E) $x$-oriented source arm.}
+$t=xu$，$y=uz$ とし，$|x|\ge c|t|^{1/2}$，$|z|\le r_0$ とする．反対側 capは
+$\alpha_y=L_t/2+O(1)$ であり，$x$-cap の $\chi_x$ は gateまで一様に正の下界を持つ．$d\log x$ directionの coefficientは $\mu_x\ge c\alpha_x^{-2}$，residual $dz$ directionには固定 backgroundの正下界がある．従って
+\[
+ \det h_t^{\mathrm{low}}
+ \ge c\alpha_x^{-2}
+ \asymp c\frac{L_t^2}{\alpha_x^2\alpha_y^2}.
+\]
+他の三 labelsは boundedである．Transition $y=(t/x)z$ の cross termは bounded triangular changeに含まれる．
+
+\medskip\noindent
+\textbf{(F) $y$-oriented source arm.}
+(E) の $x,y$ を交換した計算である．
+
+六型の enlarged chartsは有限であり，frame matrices，units，その逆の normは一様である．従って一つの $c>0$ を全 $X_t$ に取れる．
+\end{proof}
+
+\begin{lemma}[片側 Monge--Amp\`ere 最小値原理]\label{coarse:lem:one-sided-volume}
+$\omega$ が $\Ric(\omega)=-\omega$ を満たし，正形式 $h=\ddc\log\Omega$ が $h^2\ge c\Omega$ を満たすとする．このとき
+\[
+ \omega^2\ge c'\Omega
+\]
+である．
+\end{lemma}
+
+\begin{proof}
+$r=\log(\omega^2/\Omega)$ の最小点では $\ddc r=\omega-h\ge0$，従って $\omega\ge h$ がその点でのみ成立する．したがって $e^r\Omega=\omega^2\ge h^2\ge c\Omega$ であり，$r\ge\log c$ を得る．
+\end{proof}
+
+\begin{corollary}[大域 volume 下界]\label{coarse:cor:global-volume-lower}
+\begin{equation}\label{coarse:eq:actual-volume-lower}
+ \omega_t^2\ge c\Omega_t^{\mathrm{low}}
+\end{equation}
+が全 $X_t$ で成立する．
+\end{corollary}
+
+\section{Complete envelopes と source-arm fixed balls}\label{coarse:sec:envelopes}
+
+有限 annulus $A_t(r)=\{|t|/r<|z|<r\}$ に曲率 $-1$ の complete hyperbolic metricを入れる．対数幅を $M_t=L_t+O(1)$，$s=-\log|z|^2+O(1)$ とすると，$d\log z$ frameの係数は
+\begin{equation}\label{coarse:eq:annulus-coeff}
+ k_{M_t}(s)=\left(\frac{\pi}{M_t}\right)^2
+ \sin^{-2}\left(\frac{\pi s}{M_t}\right).
+\end{equation}
+
+\begin{lemma}[Pair と oriented arm の density comparison]\label{coarse:lem:pair-arm-density}
+Ordinary pair regionでは
+\[
+ k_{M_t}(s)\asymp\frac{L_t^2}{\alpha_u^2\alpha_v^2}
+\]
+が内側 nested annulus上で成り立つ．$x$-oriented half-arm では
+\[
+ \alpha_y=\frac12L_t+O(1),\qquad
+ k_{M_t}(s_x)\asymp\alpha_x^{-2}
+ \asymp\frac{L_t^2}{\alpha_x^2\alpha_y^2},
+\]
+$y$-oriented half-armも同様である．定数は central-core boundary gate に近づく場合も一様である．
+\end{lemma}
+
+\begin{proof}
+$uv=t$ では $s_u+s_v=L_t+O(1)$ である．$\sin q\asymp\min\{q,\pi-q\}$ と
+$\alpha_u\asymp A_0+\min\{s_u,L_t/2\}$ を用いれば ordinary pair の式を得る．
+$x$-oriented half-arm では $|x|\ge c_0|t|^{1/2}$ かつ $y=(t/x)z$，$|z|\le r_0$ なので
+$|y|^2+|t|\asymp|t|$ である．従って $\alpha_y=L_t/2+O(1)$．一方，$x$ は complete annulus の
+$x$-endpoint 側半分にあり，endpoint expansionから $k_{M_t}(s_x)\asymp\alpha_x^{-2}$ である．
+Central-core boundary gate $|x|\asymp|t|^{1/2}$ に近づいても両比較定数は変わらない．$y$-arm は対称である．
+\end{proof}
+
+\begin{lemma}[Source arm の固定 quasi-coordinate 球]\label{coarse:lem:arm-fixed-ball}
+$x$-arm の積計量を
+\[
+ h_t^x=h_{A_t(r_+)}\oplus h_{\Delta_{r_+}}
+\]
+とする．入れ子半径のみに依存する $\rho_0>0$ があり，任意の固定 $0<\rho\le\rho_0$，十分小さい $t$，および内側 $x$-armの任意の中心 $q$ に対し
+\[
+ B_{h_t^x}(q,2\rho)\Subset\cA_{p,t}^{x,0}
+\]
+かつ球全体で
+\begin{equation}\label{coarse:eq:arm-fixed-ball-density}
+ C_\rho^{-1}(h_t^x)^2
+ \le\Omega_t^{\mathrm{low}}
+ \le C_\rho(h_t^x)^2
+\end{equation}
+が成立する．定数は $q,t,p$ と $t=\tau^2$ の枝に依存しない．球が central-core boundary gate $|x|\asymp|\tau|$ に接する場合も，同じ enlarged oriented half-arm 内で比較が成立する．$y$-armも同様である．
+\end{lemma}
+
+\begin{proof}
+外側境界を原点とする深度を
+\[
+ \widetilde s=-\log\frac{|x|^2}{r_+^2}\in(0,M_t),
+ \qquad
+ \xi(\widetilde s)=\log\tan\frac{\pi\widetilde s}{2M_t}
+\]
+とする．Annulus metricは
+\[
+ d\xi^2+\left(\frac{\pi}{M_t}\right)^2\cosh^2\xi\,d\theta^2
+\]
+である．従って固定 metric ball上では $|\xi-\xi(q)|\le2\rho$ であり，$\sin(\pi\widetilde s/M_t)$ の中心値との比は一様に上下から抑えられる．入れ子 annuliと disksの complete-boundary marginは一様正なので，$\rho_0$ を小さく取れば球の包含を得る．
+
+この球上で annulus係数は中心値と一様比較可能である．Central gate collar に入っても，oriented half-arm の範囲では反対側の cap は $\alpha_y=L_t/2+O(1)$ を保つ．Residual disk方向の fixed backgroundと unit factorsも一様であるから \eqref{coarse:eq:arm-fixed-ball-density} が従う．
+\end{proof}
+
+\begin{lemma}[Explicit complete envelope の volume upper comparison]\label{coarse:lem:complete-volume-upper}
+$\pi_D:D\to X_t$ を，本節で用いる labelled covering domain（strongly pseudoconvex ball，annulus--disc product，または product-annulus window）とし，
+$h$ を $D$ 上の complete negative K\"ahler--Einstein metricとする．$\omega_t^D=\pi_D^*\omega_t$ を pullback actual metricとする．
+このとき
+\[
+ (\omega_t^D)^2\le h^2
+\]
+が $D$ 上で成り立つ．
+\end{lemma}
+
+\begin{proof}
+$u=\log((\omega_t^D)^2/h^2)$ とすると $\ddc u=\omega_t^D-h$ である．Covering mapは人工境界を含む neighbourhoodまで local biholomorphismであり，
+$\omega_t^D$ の densityは各 finite windowの closure上で有界である．一方 $h$ は全人工境界で Poincar\'e 型に発散するので，その方向では $u\to-\infty$ である．Angular universal coverの非 compact 方向では両 metrics と $u$ は deck-periodicであり，residual universal coverについては $h$ が completeで $u$ は上に有界である．従って quotient上の最大値原理，または complete metric $h$ に対する Hessian 型 Omori--Yau 原理を適用できる．
+
+後者を用いると，$\sup_Du$ に近づく点列 $p_m$ を
+\[
+ u(p_m)\to\sup_Du,
+ \qquad
+ \ddc u(p_m)\le m^{-1}h(p_m)
+\]
+となるように選べる．従って $p_m$ で
+$\omega_t^D\le(1+m^{-1})h$ であり，
+\[
+ e^{u(p_m)}
+ =\frac{(\omega_t^D)^2}{h^2}(p_m)
+ \le(1+m^{-1})^2.
+\]
+$m\to\infty$ として $\sup_Du\le0$，すなわち
+$(\omega_t^D)^2\le h^2$ を得る．有限 quotient上で最大値が実現する場合は同じ計算を最大点で行えばよい．
+\end{proof}
+
+\begin{lemma}[Bounded-density interior K\"ahler--Einstein comparison]\label{coarse:lem:nested-metric}
+$B_1\Subset B_{3/2}\Subset B_2\subset\CC^2$ とし，$h_\nu$ を $B_2$ 上の complete K\"ahler--Einstein metrics，
+$\omega_\nu$ を $B_2$ の近傍まで定義された K\"ahler--Einstein metrics とする：
+\[
+ \Ric(h_\nu)=-h_\nu,\qquad \Ric(\omega_\nu)=-\omega_\nu.
+\]
+$h_\nu$ は $B_2$ 上で一様有界幾何を持ち，ある $C_0\ge1$ に対して
+\begin{equation}\label{coarse:eq:bounded-density-ratio}
+ C_0^{-1}h_\nu^2\le\omega_\nu^2\le C_0h_\nu^2
+\end{equation}
+が成り立つとする．このとき $B_1$ 上で
+\[
+ C_1^{-1}h_\nu\le\omega_\nu\le C_1h_\nu
+\]
+が成り立ち，全固定階の quasi-coordinate bounds も一様である．定数は $C_0$，nested radii，および
+$h_\nu$ の有界幾何定数のみに依存する．
+\end{lemma}
+
+\begin{proof}
+\[
+ u_\nu=\log\frac{\omega_\nu^2}{h_\nu^2}
+\]
+と置く．\eqref{coarse:eq:bounded-density-ratio} により $|u_\nu|\le\log C_0$ であり，Ricci forms の差から
+\begin{equation}\label{coarse:eq:local-potential-identity}
+ \ddc u_\nu=\omega_\nu-h_\nu,
+ \qquad
+ (h_\nu+\ddc u_\nu)^2=e^{u_\nu}h_\nu^2
+\end{equation}
+を得る．従って metric comparison は，bounded potential を持つ局所 complex Monge--Amp\`ere 方程式の内点二階評価へ帰着する．
+
+具体的には，$h_\nu$-quasi-coordinate chart 上で $S_\nu=\tr_{h_\nu}\omega_\nu$ とする．
+$h_\nu$ の曲率とその固定階微分は一様に有界なので，標準 Chern--Lu--Yau 計算は
+\[
+ \Delta_{\omega_\nu}\log S_\nu\ge-C\tr_{\omega_\nu}h_\nu-C
+\]
+を与える．一方，\eqref{coarse:eq:local-potential-identity} から
+\[
+ \Delta_{\omega_\nu}u_\nu=2-\tr_{\omega_\nu}h_\nu.
+\]
+$B_1\Subset B_{3/2}\Subset B_2$ に適合する cutoff $\chi$ を取り，
+$Q=\log S_\nu-Au_\nu+\log\chi$ に最大値原理を適用する．Cutoff の $\omega_\nu$-微分は
+$C\tr_{\omega_\nu}h_\nu$ で抑えられるため，$A$ を一様に大きく選ぶと正の
+$\tr_{\omega_\nu}h_\nu$ 項へ吸収できる．最大点で
+$\tr_{\omega_\nu}h_\nu\le C$ を得る．$h_\nu$-固有値を $\lambda_1,\lambda_2$ とすれば
+\[
+ \tr_{\omega_\nu}h_\nu
+ =\lambda_1^{-1}+\lambda_2^{-1}
+ =\frac{\lambda_1+\lambda_2}{\lambda_1\lambda_2}
+ =\frac{S_\nu}{\det_{h_\nu}\omega_\nu}.
+\]
+従って determinant bound と $u_\nu$ の有界性から最大点で $S_\nu\le C$ である．
+$Q$ の最大性，$|u_\nu|\le\log C_0$，および $\chi=1$ on $B_1$ から，この bound は $B_1$ 全体へ移る．
+再び determinant boundを用いると両固有値は一様な正の上下界を持ち，
+$C^{-1}h_\nu\le\omega_\nu\le Ch_\nu$ が従う．これは局所 Yau 二階評価の標準的な形である
+\cite{Yau,DatarFuSong}．一様楕円性が得られた後は，\eqref{coarse:eq:local-potential-identity} に Evans--Krylov と
+Schauder bootstrap を適用して全固定階の bounds を得る．
+\end{proof}
+
+\begin{definition}[Intrinsic complete envelope windows]\label{coarse:def:adapted-windows}
+曲率 $-1$ の complete annulus
+\[
+ A(M)=\{0<s<M\},\qquad
+ g_M=\left(\frac{\pi}{M}\right)^2
+ \frac{ds^2+d\theta^2}{\sin^2(\pi s/M)}
+\]
+に signed coordinate
+\[
+ \xi_M(s)=\log\tan\frac{\pi s}{2M}
+\]
+を入れる．中心 $s_*$，半幅 $\rho>0$ に対し
+\[
+ \mathcal A_M(\rho;s_*)
+ =\{s:|\xi_M(s)-\xi_M(s_*)|<\rho\}
+\]
+とする．その両端を $s_-(\rho)<s_+(\rho)$，幅を
+$\Delta s(\rho)=s_+(\rho)-s_-(\rho)$ と書く．
+
+この有限 subannulus 上では，$g_M$ の制限ではなく，domain 自身の complete curvature $-1$ metric
+\begin{equation}\label{coarse:eq:intrinsic-window-metric}
+ \widehat g_{M,\rho,s_*}
+ =\left(\frac{\pi}{\Delta s(\rho)}\right)^2
+ \frac{ds^2+d\theta^2}
+ {\sin^2\!\left(\pi\frac{s-s_-(\rho)}{\Delta s(\rho)}\right)}
+\end{equation}
+を用いる．これは二つの人工境界で Poincar\'e 型に発散する．
+
+固定 $R\ge1$ に対して
+\[
+ \rho_-(R)=R+1,\quad
+ \rho_0(R)=R+2,\quad
+ \rho_+(R)=R+3,\quad
+ \rho_W(R)=2R+8
+\]
+と置き，$\mathcal A_M^\bullet(s_*)=\mathcal A_M(\rho_\bullet(R);s_*)$ と書く．
+
+Residual factor $(S,h_S)$ については labelled universal cover
+$\pi:\mathbb D\to S$ を取り，basepoint liftを $0$ に規格化する．
+$h_{\mathbb D}=4|dz|^2/(1-|z|^2)^2$ とし，
+\[
+ r_\rho=\tanh(\rho/2),\qquad
+ \mathbb D_\rho=\{|z|<r_\rho\}
+\]
+と置く．Finite residual window は $\mathbb D_\rho$，その intrinsic complete metric は
+\begin{equation}\label{coarse:eq:intrinsic-residual-window-metric}
+ \widehat h_\rho
+ =\frac{4r_\rho^2|dz|^2}{(r_\rho^2-|z|^2)^2}
+\end{equation}
+とする．Disc，three-punctured sphere の thick part，punctured-disc cusp，および source-arm residual discは，すべてこの normalized residual universal coverで扱う．以下の envelope comparisonは labelled universal cover上の pullback metricsに対して行い，windowの $X_t$ への射影が単射であることは要求しない．Annulus windowsと residual windowsの積を intrinsic complete product window と呼ぶ．
+\end{definition}
+
+\begin{lemma}[Finite annulus window の complete metric comparison]\label{coarse:lem:intrinsic-annulus-window}
+$0<\rho_+<\rho_W$ とする．全 $M>0$，全中心 $s_*\in(0,M)$ に対し，
+\begin{equation}\label{coarse:eq:annulus-window-comparison}
+ g_M\le \widehat g_{M,\rho_W,s_*}
+ \le C(\rho_+,\rho_W)g_M
+ \qquad\text{on }\mathcal A_M(\rho_+;s_*).
+\end{equation}
+比較は normalized angular universal cover 上で全固定階微分について成り立つ．さらに，任意の固定 $r>0$ に対し
+\begin{equation}\label{coarse:eq:annulus-window-exhaustion}
+ \sup_{M,s_*}
+ \left\|
+ \widehat g_{M,\rho_W,s_*}-g_M
+ \right\|_{C^k(\{|\xi_M-\xi_M(s_*)|\le r\},g_M)}
+ \longrightarrow0
+\end{equation}
+が $\rho_W-r\to\infty$ のとき成り立つ．
+\end{lemma}
+
+\begin{proof}
+$u=\pi s/M\in(0,\pi)$，$\eta=\pi\theta/M$ と置くと，angular universal cover上で
+\[
+ g_M=\frac{du^2+d\eta^2}{\sin^2u},
+ \qquad
+ u(\xi)=2\arctan e^\xi.
+\]
+$u_\pm=u(\xi_*\pm\rho_W)$，$\Delta u=u_+-u_-$ とすれば
+\[
+ \widehat g_{M,\rho_W,s_*}
+ =\left(\frac{\pi}{\Delta u}\right)^2
+ \frac{du^2+d\eta^2}
+ {\sin^2\!\left(\pi\frac{u-u_-}{\Delta u}\right)}.
+\]
+従って比は scalar function
+\begin{equation}\label{coarse:eq:annulus-ratio-explicit}
+ \mathscr R_{\xi_*,\rho_W}(x)
+ =\left(\frac{\pi}{\Delta u}\right)^2
+ \frac{\sin^2u(\xi_*+x)}
+ {\sin^2\!\left(\pi\frac{u(\xi_*+x)-u_-}{\Delta u}\right)}
+\end{equation}
+である．Poincar\'e metricの domain monotonicityから $\mathscr R\ge1$ である．
+
+固定 $\rho_+<\rho_W$ について $|x|\le\rho_+$ とする．
+$\xi_*$ が有界な領域では
+$(\xi_*,x)\mapsto\mathscr R_{\xi_*,\rho_W}(x)$ は compact set上の smooth positive functionである．
+$\xi_*\to+\infty$ では
+\[
+ u(\xi_*+x)=\pi-2e^{-\xi_*-x}+O(e^{-3\xi_*+3|x|})
+\]
+を \eqref{coarse:eq:annulus-ratio-explicit} に代入すると，$\mathscr R$ は
+\begin{equation}\label{coarse:eq:annulus-upper-end-limit}
+ \mathscr R^+_{\rho_W}(x)
+ =\frac{\pi^2e^{-2x}}
+ {4\sinh^2\rho_W\,
+  \sin^2\!\left(
+   \pi\frac{e^{\rho_W}-e^{-x}}
+   {e^{\rho_W}-e^{-\rho_W}}
+  \right)}
+\end{equation}
+へ，全固定 $x$-derivativesとともに一様収束する．$\xi_*\to-\infty$ の極限は
+$\mathscr R^-_{\rho_W}(x)=\mathscr R^+_{\rho_W}(-x)$ である．従って
+$\xi_*\in\mathbb R\cup\{\pm\infty\}$ への連続延長により，
+$|x|\le\rho_+$ 上で一様上界を得る．
+
+最後に固定 $r$ と $|x|\le r$ を取る．
+$|\xi_*|\le\rho_W/2$ なら，二つの ambient endsまでの $\xi$-marginは
+$\rho_W/2$ 以上であり，
+$u_-=O(e^{-\rho_W/2})$，$\pi-u_+=O(e^{-\rho_W/2})$ である．
+式 \eqref{coarse:eq:annulus-ratio-explicit} の Taylor 展開から
+$\|\mathscr R-1\|_{C^k(|x|\le r)}\le C_{k,r}e^{-\rho_W/2}$ を得る．
+$\xi_*\ge\rho_W/2$ では上端展開を用い，
+\eqref{coarse:eq:annulus-upper-end-limit} とその有限 $\xi_*$ 誤差の双方が
+$1+O_{k,r}(e^{-(\rho_W-r)})$ である．下端も対称である．
+従って
+\[
+ \sup_{M,s_*}
+ \|\widehat g_{M,\rho_W,s_*}-g_M\|_{C^k(|\xi-\xi_*|\le r,g_M)}
+ \le C_{k,r}e^{-c(\rho_W-r)},
+\]
+となり，\eqref{coarse:eq:annulus-window-exhaustion} が従う．
+\end{proof}
+
+\begin{lemma}[Residual window comparison]\label{coarse:lem:residual-window-comparison}
+$0<r<\rho$ とする．Normalized residual universal cover $\mathbb D$ 上で，ambient metricを
+$h_{\mathbb D}$，finite window $\mathbb D_\rho$ 自身の complete metricを
+$\widehat h_\rho$ とする．このとき
+\begin{equation}\label{coarse:eq:residual-window-comparison}
+ h_{\mathbb D}\le \widehat h_\rho
+ \le C(r,\rho)h_{\mathbb D}
+ \qquad\text{on }B_{h_{\mathbb D}}(0,r)
+\end{equation}
+が成り立つ．さらに全固定 $k$ に対し
+\begin{equation}\label{coarse:eq:residual-window-exhaustion}
+ \|\widehat h_\rho-h_{\mathbb D}\|_{C^k(B_{h_{\mathbb D}}(0,r),h_{\mathbb D})}
+ \le C_{k,r}e^{-(\rho-r)}.
+\end{equation}
+従って 本稿前半の全 residual modelsに対し，同じ比較と exhaustion convergenceが basepoint，局所型，および $t$ に一様に成り立つ．
+\end{lemma}
+
+\begin{proof}
+$r_\rho=\tanh(\rho/2)$ とすると
+\[
+ h_{\mathbb D}=\frac{4|dz|^2}{(1-|z|^2)^2},
+ \qquad
+ \widehat h_\rho=\frac{4r_\rho^2|dz|^2}{(r_\rho^2-|z|^2)^2}.
+\]
+従って ratio は
+\begin{equation}\label{coarse:eq:residual-ratio-explicit}
+ \frac{\widehat h_\rho}{h_{\mathbb D}}
+ =r_\rho^2\frac{(1-|z|^2)^2}{(r_\rho^2-|z|^2)^2}.
+\end{equation}
+Domain monotonicityから ratio は $1$ 以上である．
+$B_{h_{\mathbb D}}(0,r)=\{|z|\le r_r\}$ 上では
+$r_\rho-r_r\ge c_r(1-e^{-(\rho-r)})$ であり，
+$1-r_\rho=O(e^{-\rho})$ である．
+\eqref{coarse:eq:residual-ratio-explicit} を微分すれば，任意の固定階で
+ratio$-1$ は $C_{k,r}e^{-(\rho-r)}$ 以下となる．
+全 residual modelsは basepoint liftを $0$ に送る normalized universal coverでこの式へ帰着するため，定数は一様である．
+\end{proof}
+
+\begin{lemma}[Terminal-type finite reduction]\label{coarse:lem:terminal-reduction}
+中央 source coresを除く任意の点 $x$ と任意の固定 adapted radius $R$ に対し，有限アトラスの chartを高々二回切り替えることで，$B_{h^{\mathrm{mod}}}(x,R)$ を一つの terminal-type adapted product windowに含められる．Terminal typeは
+\[
+ \mathsf C,\quad \mathsf P,\quad \mathsf T,
+ \quad \mathsf A_x,\quad \mathsf A_y
+\]
+のいずれかである．切替えは residual coordinateが fixed thick coreから triple puncture または source punctureへ出る場合にのみ起こり，各切替えで support stratumの次元が真に下がるか，source centerへの oriented distanceが真に減る．従って無限反復は起こらない．
+\end{lemma}
+
+\begin{proof}
+Component chartの residual coordinateが一つの double lineへ近づけば pair chartへ移る．Pair-of-pants residual factorが三つの puncturesの一つへ出れば pair--triple chartへ，五つの source discsの一つへ出れば対応する oriented source-arm chartへ移る．Triple chartでは二つの独立 annulus factorsが既に terminalである．Source armでは central gateを越えない限り oriented annulus--disc modelが terminalであり，gateを越える部分は中央 coreに属する．一般位置と source--triple separationにより，triple punctureと source punctureが同時に現れることはない．Supportは高々三なので，componentからpair，pairからtripleまたはarmという高々二回の切替えで終了する．各遷移は fixed finite atlas内で起こるため，切替え領域の multiplicative幅は一様である．
+\end{proof}
+
+\begin{theorem}[明示的 intrinsic complete-envelope package]\label{coarse:thm:complete-envelope}
+中央 source cores $B_{p,t}^-$ を除く任意の点 $x$ と任意の固定 $R>0$ に対し，labelled covering domain $W_{x,t}(R)$，nested domains
+\[
+ V^-_{x,t}(R)\Subset V^0_{x,t}(R)\Subset
+ V^+_{x,t}(R)\Subset W_{x,t}(R)
+\]
+および $W_{x,t}(R)$ 自身の人工境界で発散する complete negative K\"ahler--Einstein product metric $\widehat h_{x,t,R}$ が存在し，次を満たす．
+\begin{enumerate}[label=\textup{(E\arabic*)}]
+\item $B_{\widehat h_{x,t,R}}(x,R)\subset V^-_{x,t}(R)$ であり，各 nested boundary間の $\widehat h_{x,t,R}$-距離は $R$ と fixed marginsのみに依存する正定数以上である．
+\item 型ごとの domain と metric は次である：
+\[
+\begin{array}{c|c|c}
+\text{type}&W_{x,t}(R)&\widehat h_{x,t,R}\\ \hline
+\mathsf C&\Delta^{W}_1\times\Delta^{W}_2&\widehat h_{\Delta_1^W}\oplus\widehat h_{\Delta_2^W}\\
+\mathsf P&\mathcal A_{M_t}^{W}(s_*)\times\Sigma^{W}&
+ \widehat g_{M_t,\rho_W,s_*}\oplus\widehat h_{\Sigma^W}\\
+\mathsf T&\mathcal A_{M_{1,t}}^{W}(s_{1,*})\times
+             \mathcal A_{M_{2,t}}^{W}(s_{2,*})&
+ \widehat g_{M_{1,t},\rho_W,s_{1,*}}\oplus
+ \widehat g_{M_{2,t},\rho_W,s_{2,*}}\\
+\mathsf A_x&\mathcal A_{M_t}^{W}(s_{x,*})\times\Delta_z^W&
+ \widehat g_{M_t,\rho_W,s_{x,*}}\oplus\widehat h_{\Delta_z^W}\\
+\mathsf A_y&\mathcal A_{M_t}^{W}(s_{y,*})\times\Delta_z^W&
+ \widehat g_{M_t,\rho_W,s_{y,*}}\oplus\widehat h_{\Delta_z^W}.
+\end{array}
+\]
+ここで $\Delta_a^W,\Sigma^W,\Delta_z^W$ は normalized labelled universal cover上の residual hyperbolic balls $\mathbb D_{\rho_W}$ を表し，各 hat metric は corresponding finite factor 自身の complete curvature $-1$ metricである．従って product metric は completeで，$\Ric(\widehat h_{x,t,R})=-\widehat h_{x,t,R}$ を満たす．
+\item Triple型では従属座標 $x_i=tU/(x_jx_k)$ が $W_{x,t}(R)$ 全体で同じ labelled triple chartに留まる．Source-arm型では $W_{x,t}(R)$ が対応する central gateまで oriented half-arm chartに含まれる．
+\item Labelled universal cover上で，$V^+_{x,t}(R)$ に制限した $\widehat h_{x,t,R}$ の injectivity radius，曲率，全固定階共変微分は，$R$ と有限アトラスのみに依存する定数で制御される．Transition units $U_{\lambda\mu}$ は normalized quasi-coordinates上で
+\[
+ C_{k,R}^{-1}\le |U_{\lambda\mu}|\le C_{k,R},
+ \qquad
+ \|U_{\lambda\mu}^{\pm1}\|_{C^k}\le C_{k,R}
+\]
+を満たす．
+\item $V^0_{x,t}(R)$ 上で
+\begin{equation}\label{coarse:eq:envelope-volume}
+ C_R^{-1}\widehat h_{x,t,R}^2\le\Omega_t^{\mathrm{low}}
+ \le C_R\widehat h_{x,t,R}^2
+\end{equation}
+が成り立つ．
+\item Outer marginを発散させる nested exhaustionでは，$\widehat h_{x,t,R}$ は各 fixed inner marked compactum上で ambient annulus/cusp product modelへ $C^\infty$ 収束する．
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{Step 1: domain construction.}
+\Cref{coarse:lem:terminal-reduction} により，所要 ballを一つの terminal chartへ移す．各 labelled universal-cover factorで \cref{coarse:def:adapted-windows} の radiiを用い，外側から $W,V^+,V^0,V^-$ を定める．Component型では二つの finite discs，pair型では normal finite annulus windowと residual finite window，triple型では二つの independent finite annulus windows，arm型では oriented finite annulus windowと source-divisor discを用いる．各 factorにはその domain 自身の complete Poincar\'e metricを入れる．従って $W$ の人工境界は無限距離である．
+
+\textbf{Step 2: dependent coordinate.}
+Triple型で $x_i=tU/(x_jx_k)$ である．$\xi$-windowsの幅は有限で，basepointから outer boundaryまでの labelled raw marginsは固定されている．従って $|x_j|,|x_k|$ は中心値から prescribed multiplicative rangeにあり，raw finite-support separationと \cref{coarse:lem:uniform-product-solve} により $x_i$ は enlarged window全体で同じ triple chartに留まる．Pair--triple boundaryへ達する場合は terminal reductionで punctured residual chartへ切り替える．Arm型では $t=xu$, $y=uz$ に同じ議論を適用する．
+
+\textbf{Step 3: completeness と bounded geometry.}
+各 factor metric は finite factor自身の complete curvature $-1$ metricなので productは complete negative KEである．Annulus factorsについて \cref{coarse:lem:intrinsic-annulus-window}，residual factorsについて \cref{coarse:lem:residual-window-comparison} を $V^+$ 上で用いると，intrinsic complete metricは ambient complete modelと全固定階で一様比較可能である．Ambient annulusを angular universal coverへ引き上げ，$\xi$ と normalized angleを用いれば bounded geometryが従う．Transition-unit estimatesは enlarged normalized chartsに Cauchy estimatesを適用して得る．
+
+\textbf{Step 4: volume comparison.}
+Component，pair，triple，armsの各型で \cref{coarse:thm:global-determinant,coarse:lem:pair-arm-density} の exact cap coefficientsを ambient product densityと比較する．\Cref{coarse:lem:intrinsic-annulus-window,coarse:lem:residual-window-comparison} により，$V^0$ 上では ambient product densityと $\widehat h_{x,t,R}^2$ が一様比較可能である．Bounded unitsと frame changesは Step 3で制御される．これで \eqref{coarse:eq:envelope-volume} を得る．最後の収束主張は両 window comparison lemmasの exhaustion statementを factorwiseに適用すればよい．
+\end{proof}
+
+\begin{corollary}[Exterior tensor comparison]\label{coarse:cor:exterior-comparison}
+各 $V^-_{x,t}(R)$ の固定 quasi-coordinate balls上で
+\[
+ C^{-1}\widehat h_{x,t,R}\le\omega_t\le C\widehat h_{x,t,R}
+\]
+が成り立ち，全固定階の boundsも一様である．
+\end{corollary}
+
+\begin{proof}
+$\widehat h_{x,t,R}$ は $W_{x,t}(R)$ 自身の complete metricで人工境界において Poincar\'e 型に発散するため，\cref{coarse:lem:complete-volume-upper} により
+$\omega_t^2\le \widehat h_{x,t,R}^2$ である．一方，
+\cref{coarse:cor:global-volume-lower,coarse:thm:complete-envelope} の volume comparison から
+$\omega_t^2\ge c \widehat h_{x,t,R}^2$ を得る．従って density ratio は一様に上下から抑えられ，
+\cref{coarse:lem:nested-metric} を適用できる．
+\end{proof}
+
+\begin{proposition}[型別 coarse raw co-Gram と局所 submetry]\label{coarse:prop:coarse-raw-submetry}
+ある一様定数 $A_{\mathrm{raw}}>0$ が存在する．固定 $A\ge A_{\mathrm{raw}}$，admissible flag $I$，$1\le|I|\le2$ を取る．中央 source coresを除く
+\[
+ \mathcal R_t(I;A)=\left\{x:\frac A{R_t}\le q_{i,t}(x)
+ \le1-\frac A{R_t}\ (i\in I)\right\}
+\]
+の各 labelled connected component上で，十分小さい $t$ に対し
+\begin{equation}\label{coarse:eq:coarse-cogram}
+ c_A I_I\le
+ R_t^2\bigl(\langle dq_{i,t},dq_{j,t}\rangle_{g_t^{-1}}\bigr)_{i,j\in I}
+ \le C_A I_I
+\end{equation}
+が成り立つ．定数は ordinary pair，pair--triple transition，triple，および二つの source-arm gatesを含む全有限局所型に一様である．
+\end{proposition}
+
+\begin{proof}
+まず model metricに対して計算する．局所 normal coordinate $z_a$ に
+$S_a=-\log|z_a|^2$，$\rho_a=\log S_a$ を入れる．Raw $A$-deep regionでは
+\begin{equation}\label{coarse:eq:coarse-raw-local}
+ R_t\,dq_{a,t}=d\rho_a+E_{a,t},
+ \qquad |E_{a,t}|_{\widehat h_{x,t,R}^{-1}}\le C_A
+\end{equation}
+であり，$d\rho_a$ は complete annulusまたは cusp factorの unit horospherical covectorである．固定 $A$ では endpoint transitionの Poincar\'e coefficientは正の上下界を持つ．
+
+型別 matrixは次である．Ordinary pairと一つの active armでは $[1]+O_A(1)$ の一座標 matrixである．Triple型で二つの independent labels $j,k$ を取れば product metricに関して
+\[
+ \bigl(\langle d\rho_a,d\rho_b\rangle\bigr)_{a,b=j,k}=I_2.
+\]
+Pair--triple transitionで一方が residual cuspへ移る場合も，対応する coframeは bounded triangular matrix
+\[
+ \begin{pmatrix}1&0\\c&1\end{pmatrix},\qquad |c|\le C_A,
+\]
+で product horospherical coframeへ移る．Source $x$-armでは $t=xu$, $y=uz$ から active normal covectorは $d\rho_x$ であり，residual $z$ directionとの cross termは bounded unit derivativeにより $O_A(1)$ である．$y$-armも同様である．Finite-dimensional compactnessにより，各 model co-Gram matrixの固有値は $c_A,C_A$ の間にある．
+
+\Cref{coarse:thm:complete-envelope,coarse:cor:exterior-comparison} により actual metricと model metricは fixed quasi-coordinate balls上で一様双 Lipschitz同値である．Inverse metricsの比較により model co-Gram boundsは actual co-Gram boundsへ移る．Chart overlapでは raw functions自体が global smooth functionsなので，異なる local coframesで得た matricesは同じ intrinsic matrixを表す．これで \eqref{coarse:eq:coarse-cogram} を得る．
+\end{proof}
+
+\begin{corollary}[固定深度 minimal-horizontal lift]\label{coarse:cor:coarse-horizontal-lift}
+$A\ge A_{\mathrm{raw}}$ とする．Raw active map $q_{I,t}$ は各 labelled component上で submersionであり，compact raw segment $\beta$ の minimal-horizontal liftは
+\[
+ \Length_{g_t}(\widetilde\beta)
+ \le C_A R_t\Length_{\RR^I}(\beta)
+\]
+を満たす．同じ labelled fixed-depth chamber内で
+$|q_{I,t}(x)-q_{I,t}(y)|\le C/R_t$ かつ residual model coordinatesが同じ fixed compact setに入るなら
+$d_{g_t}(x,y)\le C_{A,C}$ である．
+\end{corollary}
+
+\begin{proof}
+$H=dq_{I,t}^*(dq_{I,t}dq_{I,t}^*)^{-1}$ とすれば $dq_{I,t}H=\id$ であり，\eqref{coarse:eq:coarse-cogram} から
+$|Hv|_{g_t}\le C_AR_t|v|$ を得る．Residual・angular fibreの fixed compactnessの下では complete model内の直径が一様であり，\cref{coarse:cor:exterior-comparison} で actual pathへ移せる．Source-arm gateでは \cref{coarse:lem:arm-fixed-ball} を用いる．
+\end{proof}
+
+\section{Central source の escape と有界直径}\label{coarse:sec:source-core}
+
+固定 rescaling domain $\Omega^+$ に complete complex-hyperbolic metric $h_{\mathrm{src}}$ を入れる．
+
+\begin{lemma}[Localized Chern--Lu estimate]\label{coarse:lem:localized-chern-lu}
+$(B_g(p,2\sigma),g)$ を $\Ric(g)=-g$ を満たす K\"ahler ball，$h$ を同じ複素領域上の K\"ahler metricで，
+$h$ の holomorphic sectional curvatureが $-\kappa<0$ 以下，かつ固定座標で全階有界とする．このとき
+\[
+ \sup_{B_g(p,\sigma)}\tr_g h\le C_{\sigma,\kappa,h}.
 \]
 \end{lemma}
+
 \begin{proof}
-局所式の絶対値の二乗をとり対数をとると、
-$\ell_x+\ell_y+\ell_z=L_t-\log|\vartheta|^2$となる。
-$\vartheta$が零でないので最後の項は有界である。
+Identity mapに対する Chern--Lu--Royden 不等式は，定数の規格化を吸収して
+\[
+ \Delta_g\log\tr_g h\ge \kappa_0\tr_g h-C_0
+\]
+を与える．$g$-距離に関する cutoff $\chi$ を $B_g(p,2\sigma)$ 上に取り，
+$|\nabla\chi|^2+|\Delta_g\chi|\le C_\sigma$ とする．$\chi^2\tr_g h$ の最大点で上式と cutoff項を評価すれば
+$\chi^2\tr_g h\le C_{\sigma,\kappa,h}$ を得る．内側球では $\chi=1$ である．
 \end{proof}
-ここで$\Lambda_{xy}=\ell_x+\ell_y$、
-$p_z=\ell_z/L_t$とおけば
-$p_z\le1-\varepsilon$の範囲で
+
+\begin{proposition}[Actual-deep source comparison]\label{coarse:prop:deep-source}
+任意の固定 $\sigma>0$ に対し，$q\in\Omega^-$ が actual metricで人工境界から距離 $2\sigma$ 以上なら，actual $\sigma$-ball全体で
 \[
- \log\Lambda_{xy}
- =R_t+\log(1-p_z)+O(L_t^{-1}).
+ C_\sigma^{-1}h_{\mathrm{src}}
+ \le\Psi_{p,t}^*\omega_t
+ \le C_\sigma h_{\mathrm{src}}
 \]
-この式はleading neck scaleを同期させるが、
-actual KE metricの$C^k$ matchingやglobal diameter estimateを単独では与えない。
-\section{Jacobi channelsと原稿の中間主張}
-Mandel-type exact reduced familyの微分で現れる二つのprofileは
+が成り立つ．
+\end{proposition}
+
+\begin{proof}
+$q$ の人工境界までの actual 距離が $2\sigma$ 以上なので，
+$B_{\Psi_{p,t}^*g_t}(q,2\sigma)$ は $\Omega^+$ に含まれる．
+Identity map
 \[
- u_0(w)=(1+w^2)^{-2},\qquad
- u_1(w)=\frac{w+w^3/3}{(1+w^2)^2}.
+ (B_{\Psi_{p,t}^*g_t}(q,2\sigma),\Psi_{p,t}^*g_t)
+ \longrightarrow (\Omega^+,h_{\mathrm{src}})
 \]
-元v0.12草稿は前者をneck scale variation、後者をend-degree/asymmetry
-variationと同定し、five-source relative jump $a_+-a_-=5$と
-$5=(1+1)+(1+1+1)$というcharge balanceを記録している。
-これはcusp trivializationsに相対的で、absolute degreeと混同しない。
-この同定・scattering factorization・finite-dimensional certificatesは
-原草稿に証明と計算があるが、今回の移行草稿では独立検証をしていない。
-\section{主予想と残る証明問題}
-\begin{conjecture}[diameter-scale cubical GH limit]
-$X_t$上の負KE距離$d_t$に対して
+に \cref{coarse:lem:localized-chern-lu} を適用する．
+$\Ric(\Psi_{p,t}^*g_t)=-\Psi_{p,t}^*g_t$，かつ固定 complex-hyperbolic metric
+$h_{\mathrm{src}}$ の holomorphic sectional curvatureは一様な負定数以下なので，内側の actual
+$\sigma$-ball上で
+\begin{equation}\label{coarse:eq:source-inverse-trace}
+ \tr_{\Psi_{p,t}^*g_t}h_{\mathrm{src}}\le C_\sigma
+\end{equation}
+を得る~\cite{Royden,Yau}．従って
+$\Psi_{p,t}^*g_t\ge C_\sigma^{-1}h_{\mathrm{src}}$ である．
+
+他方，$h_{\mathrm{src}}$ は $\Omega^+$ 上で completeであり，
+\cref{coarse:lem:complete-volume-upper} を適用して
+$(\Psi_{p,t}^*\omega_t)^2\le h_{\mathrm{src}}^2$ を得る．
+$h_{\mathrm{src}}$-unitary frameにおける
+$\Psi_{p,t}^*\omega_t$ の固有値を $\lambda_1,\lambda_2$ とすると，
+\eqref{coarse:eq:source-inverse-trace} は $\lambda_1^{-1}+\lambda_2^{-1}\le C_\sigma$，
+volume上界は $\lambda_1\lambda_2\le1$ を与える．従って両固有値は一様な正の上下界を持つ．
+これで actual $\sigma$-ball全体における表示の二側比較が従う．
+\end{proof}
+
+\begin{theorem}[中央 source の一様 escape]\label{coarse:thm:source-escape}
+一様定数 $C_{\mathrm{esc}}$ が存在して，全 $50$ sourcesに対し
+\begin{equation}\label{coarse:eq:source-escape}
+ \sup_{x\in B_{p,t}^-}d_{g_t}(x,X_t\setminus B_{p,t}^-)\le C_{\mathrm{esc}}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+反対に inradiusが発散するとする．中心から最初の exitまでの最短路上に，互いの距離が $3$ 以上で境界から距離 $2$ 以上の点を極大に取る．それらを中心とする actual unit ballsは互いに素で，\cref{coarse:prop:deep-source} により各球は固定半径の $h_{\mathrm{src}}$-ballを含む．従って各 actual ballの volumeは一様正数 $v_0$ 以上である．一方
 \[
- \left(X_t,\diam(X_t,d_t)^{-1}d_t\right)
+ \vol(X_t,g_t)=\frac12\int_{X_t}\omega_t^2
+ =\frac{(2\pi)^2}{2}K_{X_t}^2=10\pi^2
+\]
+は一定である．互いに素な ballsの個数は一様有界となり，inradiusの発散に矛盾する．
+\end{proof}
+
+\begin{corollary}[Source core の直径と label oscillation]\label{coarse:cor:source-diameter}
+一様定数 $C$ に対し
+\[
+ \diam_{g_t}(B_{p,t}^-)\le C,
+ \qquad
+ \max_i\osc_{B_{p,t}^-}\log\alpha_{i,t}\le C.
+\]
+さらに $\Phi_t^{\mathrm{alg}}(B_{p,t}^-)$ は対応する support-$2$ vertexの $CR_t^{-1}$-近傍に含まれる．
+\end{corollary}
+
+\begin{proof}
+Source boundaryは二つの gatesで覆われ，\cref{coarse:lem:arm-fixed-ball,coarse:cor:exterior-comparison} により各 gateは一様個数の有界径 ballsで覆われる．Gatesは交わるので boundary diameterは一様有界である．Interior pointsを \cref{coarse:thm:source-escape} で boundaryへ移す．Raw labelsは固定 $\Omega^-$ 上の明示式から $O(1)$ だけしか振れない．
+\end{proof}
+
+\section{有限 source 欠陥を越える scalar calibration}\label{coarse:sec:calibration}
+
+$E_t=X_t\setminus\bigcup_p\operatorname{int}B_{p,t}^-$ とし，$\sigma_{i,t}=\log\alpha_{i,t}$ とする．Exterior comparisonと product formulasから
+\begin{equation}\label{coarse:eq:exterior-depth-lip}
+ |\sigma_{i,t}(\gamma(1))-\sigma_{i,t}(\gamma(0))|
+ \le C\Length_{g_t}(\gamma)
+\end{equation}
+が $E_t$ 内の rectifiable pathに対して成り立つ．Source cores上の oscillationは \cref{coarse:cor:source-diameter} で一様である．
+
+\begin{lemma}[有限欠陥 scalar 補完]\label{coarse:lem:finite-defect-extension}
+$(Z,d)$ を length space，$B_1,\ldots,B_N\subset Z$ を互いに素な compact connected setsとする．
+連続関数 $f:Z\to\RR$ が次を満たすとする．
+\begin{enumerate}[label=\textup{(D\arabic*)}]
+\item $Z\setminus\bigcup_{\nu=1}^N\operatorname{int}B_\nu$ 内の任意の rectifiable pathに沿って $f$ は $L$-Lipschitzである．
+\item $\osc_{B_\nu}f\le M$ が全 $\nu$ で成り立つ．
+\end{enumerate}
+このとき全 $x,y\in Z$ に対して
+\begin{equation}\label{coarse:eq:finite-defect-coarse-lip}
+ |f(x)-f(y)|\le Ld(x,y)+2(N+1)M
+\end{equation}
+が成り立つ．さらに
+\begin{equation}\label{coarse:eq:finite-defect-infconv}
+ \widehat f(x)=\inf_{z\in Z}\{f(z)+Ld(x,z)\}
+\end{equation}
+と置けば，$\widehat f$ は全域で $L$-Lipschitzであり，
+\begin{equation}\label{coarse:eq:finite-defect-close}
+ 0\le f-\widehat f\le2(N+1)M
+\end{equation}
+を満たす．
+\end{lemma}
+
+\begin{proof}
+$x,y$ を結ぶ長さ $d(x,y)+\varepsilon$ 以下の pathを取る．同じ defectへの反復訪問があれば，
+最初の入口から最後の出口までを一つの scalar jumpとして扱い，その間の itineraryを捨てる．
+これを有限回繰り返すと，各 $B_\nu$ は高々一度しか現れない．Exterior subarcs上の変化の総和は
+$L(d(x,y)+\varepsilon)$ 以下であり，各 defectでの入口・出口値の差は $M$ 以下である．
+Endpointsが defects内にある場合の二つの誤差も含めれば
+\eqref{coarse:eq:finite-defect-coarse-lip} を得る．$\varepsilon\downarrow0$ とする．
+
+\eqref{coarse:eq:finite-defect-infconv} は標準的な infimal convolutionであるから $L$-Lipschitzで，$z=x$ と取れば
+$\widehat f\le f$ である．一方 \eqref{coarse:eq:finite-defect-coarse-lip} を $x,z$ に適用すると
+$f(x)\le f(z)+Ld(x,z)+2(N+1)M$ である．$z$ について infimumを取れば
+$f(x)-2(N+1)M\le\widehat f(x)$ となり，\eqref{coarse:eq:finite-defect-close} が従う．
+\end{proof}
+
+五つの $\sigma_{i,t}$ に \cref{coarse:lem:finite-defect-extension} を適用し，$R_t$ で割った vectorを $\widehat q_t$ とする．固定 Lipschitz retraction $\Pi$ で $\widehat\Phi_t=\Pi\circ\widehat q_t$ とする．
+
+\begin{proposition}[粗い距離下界]\label{coarse:prop:coarse-lower}
+一様定数 $C$ により
+\begin{equation}\label{coarse:eq:coarse-lower}
+ R_t d_\square(\widehat\Phi_t(x),\widehat\Phi_t(y))
+ \le C d_{g_t}(x,y)+C
+\end{equation}
+が全 $x,y\in X_t$ に対して成立する．また
+\[
+ \sup_xd_\square(\widehat\Phi_t(x),\Phi_t^{\mathrm{alg}}(x))\le CR_t^{-1}.
+\]
+\end{proposition}
+
+\begin{proof}
+$\widehat q_t$ の各座標は $C/R_t$-Lipschitzである．有限 Euclidean complex $\Cfive$ の各 closed starでは内在距離が ambient coordinate distanceに一様比較可能であり，有限個の starsを連結する際の additive costも一様である．$\Pi$ の Lipschitz性を用いて \eqref{coarse:eq:coarse-lower} を得る．値の近さは source cores上の $O(1)$ unscaled oscillationから従う．
+\end{proof}
+
+\section{有限 section 系と粗い上距離}\label{coarse:sec:sections}
+
+$\Cfive$ の固定 barycentric subdivision $\cK$ を選び，各 simplex上で supportと dominant-index orderが一定となるようにする．
+
+\begin{lemma}[有限 gallery]\label{coarse:lem:finite-gallery}
+任意の $a,b\in\Cfive$ は，各 simplexを高々一度横切る piecewise Euclidean pathで結べ，その長さは $d_\square(a,b)$ である．従って通過 simplex数には一様上限がある．
+\end{lemma}
+
+\begin{proof}
+最小 combinatorial complexityを持つ測地線を取る．同じ simplexへ再入すれば，最初の entryと最後の exitの間を simplex内の直線分で置き換えられる．
+\end{proof}
+
+\begin{lemma}[Toroidal simplicial sections]\label{coarse:lem:toroidal-sections}
+固定 barycentric subdivision $\cK$ の各 simplex $\tau$ と十分小さい $t$ に対し，連続 section
+$s_{\tau,t}:\tau\to X_t$ を選べる．各 labelled toroidal chartでは，その logarithmic radiiは
+\eqref{coarse:eq:soft-depths} で与えられ，phasesと residual coordinatesは固定有限データから選ばれる．
+隣接 simplicesの共通 face上では二つの sectionsの raw labelsは $O(1)$，actual distanceは $O(1)$ で異なる．
+\end{lemma}
+
+\begin{proof}
+各 simplexでは support，dominant label，source-arm orientationを固定できる．Normal-crossing product equation
+$\prod z_i=tU$ の bounded unitは，simplexの contractibilityにより一価 logarithmを持つ．$|I|-1$ 個の phasesを固定し，最後の phaseを
+$\arg(tU)$ に合わせる．Residual coordinateは，各 pair-of-pantsから special pointsを除いた部分に固定した finite tree上に置く．
+Source armsでは $(z,v)$ または $(z,u)$ の labelled coordinateを使い，central-core boundary gate に接する共通 collar では 本稿前半の fixed-ball theorem と central source connector により二 choicesを接続する．
+有限個の simplicesと incidencesしかないので，raw-label discrepancyと connector lengthの最大値は一様である．
+\end{proof}
+
+Simplex $\tau$ の supportを $I$ とし，固定 $S_0\gg1$ に対して
+\begin{equation}\label{coarse:eq:soft-depths}
+ \ell_i(w)=S_0+(L_t-|I|S_0)
+ \frac{e^{R_tw_i}}{\sum_{j\in I}e^{R_tw_j}},
+ \qquad i\in I
+\end{equation}
+と置く．$\sum_{i\in I}\ell_i=L_t$ である．\Cref{coarse:lem:toroidal-sections} により，これらの radiiを持つ
+section $s_{\tau,t}:\tau\to X_t$ を固定する．
+
+\begin{lemma}[Finite connector library]\label{coarse:lem:connector-library}
+固定 subdivisionの全 incidencesに対し，次の六種類の transitionを実現する connectorを選べる：component--pair，pair--triple，pair内 residual tree，central source--arm，arm--ordinary pair，$x$-gate--$y$-gate．各 connector $\Gamma$ は
+\[
+ \Length_{g_t}(\Gamma)\le C,
+ \qquad
+ \max_i\osc_\Gamma\log\alpha_{i,t}\le C
+\]
+を満たし，target variationは $CR_t^{-1}$ 以下である．
+\end{lemma}
+
+\begin{proof}
+最初の三種類は有限 atlasの固定 compact overlapsと，各二重線から special pointsの小近傍を除いて選んだ有限 tree上にある．Central source transitionsは \cref{coarse:cor:source-diameter}，arm transitionsは \cref{coarse:lem:arm-fixed-ball,coarse:cor:exterior-comparison} を用いる．Finite typeにより最大定数を取る．
+\end{proof}
+
+\begin{proposition}[Section lifting]\label{coarse:prop:section-lifting}
+$\beta$ を一つの simplex内の Euclidean segmentとする．Section $s_{\tau,t}\circ\beta$ は
+\[
+ \Length_{g_t}(s_{\tau,t}\circ\beta)
+ \le CR_t\Length_{d_\square}(\beta)+C
+\]
+を満たす．隣接 simplices間は \cref{coarse:lem:connector-library} の $O(1)$ connectorでつなげる．
+\end{proposition}
+
+\begin{proof}
+\eqref{coarse:eq:soft-depths} を微分すると，active radial componentsについて
+$|d\log\ell_i|\le CR_t|dw|$ である．Sectionの phasesは各 simplexで固定し，積方程式が決める最後の phaseと
+bounded unitの微分も $O(R_t|dw|)$ である．Residual tree coordinateは fixed finite tree上にあり，同じ boundを持つ．
+従って complete-envelope の full adapted coframeで $R_t^{-1}ds_{\tau,t}$ の全成分が一様有界である．
+\Cref{coarse:cor:exterior-comparison} を用いて actual lengthへ移すと主評価を得る．同値に，active partは
+\cref{coarse:prop:coarse-raw-submetry} の coarse horizontal liftで実現し，bounded vertical correctionを加えて prescribed sectionへ移せる．
+\end{proof}
+
+\begin{lemma}[Residual finite reduction]\label{coarse:lem:residual-finite-reduction}
+任意の $x\in X_t$ に対し，$x=x_0,x_1,\ldots,x_N$，$N\le2$，および局所型
+$\lambda_0,\ldots,\lambda_N$ を選べ，次を満たす．
+\begin{enumerate}[label=\textup{(R\arabic*)}]
+\item $d_{g_t}(x_{r},x_{r+1})\le C$．
+\item $q_t(x_r)$ と $q_t(x_{r+1})$ は $C/R_t$ 以内で，同じ cubical face-starに属する．
+\item 最終点 $x_N$ の residual coordinate と angular coordinateは，型 $\lambda_N$ の fixed compact model fibreに入る．
+\item 型変更は component$\to$pair，pair$\to$triple，または pair$\to$oriented source arm のいずれかであり，central source coreに入った場合はその coreの固定 gateを最終点とする．
+\end{enumerate}
+全定数は $t$ と $x$ に依存しない．
+\end{lemma}
+
+\begin{proof}
+初めに $x$ を含む有限アトラスの chartを取る．Residual coordinateがその chartの fixed thick coreにあれば終了する．そうでなければ，有限個の puncturesの一つへ入る．Triple punctureなら対応する triple chartへ，source punctureなら $x$-armまたは $y$-armへ移る．各 overlapは fixed quasi-coordinate widthを持ち，\cref{coarse:cor:exterior-comparison} により actual distanceは $O(1)$ である．型変更後も residual coordinateが compactでなければ同じ操作を一度だけ繰り返す．Supportは高々三であり，source--triple separationにより triple punctureと source punctureは衝突しないので，高々二回で terminal typeに達する．Central coreへ入る場合は \cref{coarse:thm:source-escape} により固定 gateまで $O(1)$ で移動できる．
+\end{proof}
+
+\begin{lemma}[Terminal active/plateau separation]\label{coarse:lem:terminal-active-plateau}
+Terminal point $x_N$ を取り，固定 $A_{\mathrm{raw}}$ に対し
+\[
+ I_{\mathrm{act}}(x_N)=
+ \left\{i:\frac{A_{\mathrm{raw}}}{R_t}\le q_{i,t}(x_N)
+ \le1-\frac{A_{\mathrm{raw}}}{R_t}\right\}
+\]
+と置く．このとき simplex $\tau$ と点 $w\in\tau$ を，次を満たすように選べる．
+\begin{enumerate}[label=\textup{(AP\arabic*)}]
+\item $i\in I_{\mathrm{act}}(x_N)$ に対し $|w_i-q_{i,t}(x_N)|\le C/R_t$．
+\item $I_{\mathrm{act}}(x_N)$ の外の座標は，対応する lower または upper plateau face に固定される．
+\item Plateau directions にだけ finite connector library を適用した後，$x_N$ と $s_{\tau,t}(w)$ は一つの labelled fixed-depth chamberに入り，residual/angular variablesは同じ fixed compact model fibreに入る．
+\end{enumerate}
+Connector の総費用は $t$ に一様に $O(1)$ である．
+\end{lemma}
+
+\begin{proof}
+Lower-plateau coordinates は fixed outer-gate window に入り，唯一の upper-plateau coordinate が dominant labelを定める．Terminal reductionにより，逃げる residual variableは既に triple cusp，oriented source arm，または fixed thick coreへ移されている．従って finite connector libraryが必要なのは有限個の terminal gate windows間だけであり，actual costは $O(1)$，unscaled raw oscillationも $O(1)$ である．残る座標は active coordinatesで，両 gatesから固定 unscaled depthだけ離れる．固定 barycentric subdivisionの対応する faceを取れば $\tau,w$ を得る．
+\end{proof}
+
+\begin{proposition}[Endpoint anchoring]\label{coarse:prop:endpoint-anchor}
+任意の $x\in X_t$ に対し，ある simplex $\tau\in\cK$ と $w\in\tau$ が存在して
+\[
+ d_\square(w,\Phi_t^{\mathrm{alg}}(x))\le CR_t^{-1},
+ \qquad
+ d_{g_t}(x,s_{\tau,t}(w))\le C
+\]
+が成り立つ．
+\end{proposition}
+
+\begin{proof}
+\Cref{coarse:lem:residual-finite-reduction} により $x$ を $O(1)$ で terminal point $x_N$ へ移す．次に \cref{coarse:lem:terminal-active-plateau} を適用し，plateau directionsは finite connector libraryで対応する terminal gateへ移し，active directionsだけを残す．Active raw coordinatesは $C/R_t$ 以内で，両 gatesから fixed depthだけ離れているため，\cref{coarse:cor:coarse-horizontal-lift} を active mapにのみ適用して一致させる．その後，同じ fixed compact residual/angular fibre内を $O(1)$ で結ぶ．これにより，coarse horizontal theoremを plateau endpointsに適用する循環を避ける．$x$ から $x_N$ までの reduction pathsと plateau connectorsを加えても全費用は $O(1)$ である．Central sourceの場合は section endpointを対応する gateに選び，\cref{coarse:thm:source-escape} を用いる．
+\end{proof}
+
+\begin{proposition}[粗い距離上界]\label{coarse:prop:coarse-upper}
+一様定数 $C$ により
+\begin{equation}\label{coarse:eq:coarse-upper}
+ d_{g_t}(x,y)
+ \le CR_t d_\square(\Phi_t^{\mathrm{alg}}x,\Phi_t^{\mathrm{alg}}y)+C
+\end{equation}
+が成立する．
+\end{proposition}
+
+\begin{proof}
+Endpointsを \cref{coarse:prop:endpoint-anchor} で sectionsへ移し，\cref{coarse:lem:finite-gallery} の target pathを各 simplex上で \cref{coarse:prop:section-lifting} により持ち上げ，incidencesを \cref{coarse:lem:connector-library} で接続する．通過 simplex数は一様有限である．
+\end{proof}
+
+\begin{proof}[\Cref{coarse:thm:main} の証明]
+下側は \cref{coarse:prop:coarse-lower}，上側は \cref{coarse:prop:coarse-upper}，像の密度は \cref{coarse:cor:uniform-image-density} である．$\widehat\Phi_t$ と $\Phi_t^{\mathrm{alg}}$ の値の差は $O(R_t^{-1})$ なので同じ定数を調整すればよい．
+\end{proof}
+
+\section{粗い Gromov--Hausdorff 帰結と鋭い局所解析への interface}\label{coarse:sec:interface}
+
+\begin{lemma}[Coarse model compactness]\label{coarse:lem:coarse-compactness}
+Compact metric space $K$ と写像 $f_n:Z_n\to K$ が，一様な粗い二側距離比較と $o(1)$ image densityを満たすとする．このとき $(Z_n)$ は GH precompactであり，任意の部分極限は $K$ と bi-Lipschitz 同相である．
+\end{lemma}
+
+\begin{proof}
+$K$ の有限 netsを持ち上げて一様 covering numbersを得る．Gromov compactnessの後，二側不等式を極限へ渡せば，極限写像の injectivity，surjectivity，bi-Lipschitz性が従う．
+\end{proof}
+
+\begin{proof}[\Cref{coarse:cor:coarse-GH} の証明]
+\Cref{coarse:thm:main,coarse:lem:coarse-compactness} を適用する．$\Cfive$ の topologyは $4$-simplexの $2$-skeletonのものと同じである．
+\end{proof}
+
+\begin{theorem}[本稿前半 raw/coarse interface]\label{coarse:thm:partI-interface}
+本稿後半と第V篇へ渡すデータは次である．
+\begin{enumerate}[label=\textup{(I\arabic*)}]
+\item 同一の Hermitian norms，$A_0$，$L_t$，$R_t$ で定義された smooth raw map $q_t$．
+\item $\dist(q_t(X_t),\Cfive)=O(R_t^{-1})$，$O(R_t^{-1})$ image density，および値レベルの $\Phi_t^{\mathrm{alg}}=\Pi\circ q_t$．
+\item 六型の finite labelled atlasと，central-core boundary gate に接する二つの oriented source-arm fixed-ball theorem．
+\item 有限 window 自身の complete-envelope metrics，inner-window comparison，exhaustion convergence，および fixed balls上の actual/model tensor comparison．
+\item Source-core diameter $O(1)$ と support-$2$ vertexへの $O(R_t^{-1})$ localization．
+\item 粗い二側距離比較，endpoint anchoring，有限 connector library，および固定深度の coarse raw co-Gram／局所 submetry \cref{coarse:prop:coarse-raw-submetry}．
+\item Local algebraic frames間の transition units，その全固定 adapted derivative bounds，および double line 上の tame frame orders $a_k$．これらは局所 metric packageの入力であり，一つの global product metricとの一様比較は本稿後半の terminal-type gauge selection と frame-shear theoremで別に証明する．特に pair--triple terminal cuspでは approached cuspで order zeroを持つ cusp-adapted tame frameを用いる．
+\item 非空 $I\subset\{0,\ldots,4\}$，$|I|\le2$ に対する flag-star separation：
+\[
+ \mathcal R_t(I;A)=\{x:A/R_t\le q_{i,t}(x)\le1-A/R_t\ (i\in I)\}
+\]
+と $Z_I=\Cfive\setminus\{0<w_i<1\ (i\in I)\}$ に対し
+\begin{equation}\label{coarse:eq:flag-star-separation}
+ d_{g_t}\bigl(x,(\Phi_t^{\mathrm{alg}})^{-1}(N_{C/R_t}(Z_I))\bigr)
+ \ge cA-C.
+\end{equation}
+\end{enumerate}
+本稿後半では $q_t$ のみを微分し，$\Pi$ または $\Phi_t^{\mathrm{alg}}$ を微分しない．また本定理の actual/model comparisonは各 recentered intrinsic window上の局所比較であり，chart-chain universal cover上の global product metricとの比較を主張しない．その定量的移送は本稿後半の terminal-cusp adapted gauge theoremに委ねる．
+\end{theorem}
+
+\begin{proof}
+前七項は本文の各定理をまとめたものである．最後の flag-star separation は target上の polyhedral separation
+$d_\square(\Phi_t^{\mathrm{alg}}x,Z_I)\ge cA/R_t-C/R_t$ と \cref{coarse:thm:main} の下側距離比較から従う．
+\end{proof}
+
+\part{$\mathrm{(PBE)}_5$ の下での flag-star product rigidity と係数1定理}
+\section{第I部からの入力と二重線の幾何}\label{sharp:sec:partI-input}
+
+\subsection{Double lines，triple points，sources}
+
+$D_{ij}=H_i\cap H_j$ とし，
+\[
+ K_{ij}=\{0,1,2,3,4\}\setminus\{i,j\}
+\]
+と置く．$k\in K_{ij}$ に対して $q_{ijk}=D_{ij}\cap H_k$ と書く．
+$F_5|_{D_{ij}}$ の五つの零点を $p_{ij,a}$ $(1\le a\le5)$ と書く．一般性条件を次の形で固定する．
+\begin{enumerate}[label=\textup{(G\arabic*)}]
+\item $0<|t|\ll1$ で $X_t$ は滑らかである．
+\item 各二重線 $D_{ij}$ 上で $F_5|_{D_{ij}}$ は五つの単純零点を持つ．
+\item それらの零点は全三重点 $H_i\cap H_j\cap H_k$ を避ける．
+\end{enumerate}
+異なる二重線の交点は三重点だけなので，\textup{(G3)} の下で異なる二重線上の source points は互いに衝突しない．本稿はこれより強い一般性条件を仮定しない．
+
+Double line上で
+\begin{equation}\label{sharp:eq:zeta-def}
+ \zeta_{ij}
+ =-\left.\frac{F_5}{\prod_{k\in K_{ij}}L_k}\right|_{D_{ij}}
+\end{equation}
+と置く．これは二つの normal line bundlesの積の meromorphic sectionである．
+
+\begin{proposition}[relative divisor]\label{sharp:prop:relative-divisor}
+$\zeta_{ij}$ は degree $2$ の meromorphic sectionで
+\begin{equation}\label{sharp:eq:zeta-divisor}
+ \operatorname{div}(\zeta_{ij})
+ =\sum_{a=1}^5p_{ij,a}-\sum_{k\in K_{ij}}q_{ijk}
+\end{equation}
+を満たす．
+\end{proposition}
+
+\begin{proof}
+$F_5|_{D_{ij}}$ は $\mathcal O_{\PP^1}(5)$ の sectionであり，
+$\prod_{k\in K_{ij}}L_k|_{D_{ij}}$ は $\mathcal O_{\PP^1}(3)$ の sectionで，三つの triple pointsに単純零を持つ．
+従って商は $\mathcal O_{\PP^1}(2)$ の meromorphic sectionであり，式が従う．
+\end{proof}
+
+\subsection{Source-free exteriorと coarse cubical geometry}
+
+本稿前半で構成された central source coresを $B_{p,t}$ と書き，
+\[
+ \mathcal B_t=\bigcup_{p=1}^{50}B_{p,t},\qquad
+ E_t=X_t\setminus\bigcup_{p=1}^{50}\operatorname{int}B_{p,t}
+\]
+とする．
+
+\subsection{Scale-adapted pointed convergence}
+
+\begin{definition}[Scale-adapted vector fields と norm]\label{sharp:def:adapted-chart}
+各 labelled complete-envelope chartに次の adapted frameを入れる．
+\begin{enumerate}[label=\textup{(A\arabic*)}]
+\item Poincar\'e cusp $z=e^{-S+i\theta}$，$\rho=\log S$ では
+\[
+ E_\rho=\partial_\rho,
+ \qquad E_\theta=e^\rho\partial_\theta.
+\]
+\item Complete annulus
+$g_A=ds^2+\lambda(s)^2d\theta^2$，
+$\lambda(s)=(\pi/m)\cosh s$ では
+\[
+ E_s=\partial_s,
+ \qquad E_\theta=\lambda(s)^{-1}\partial_\theta.
+\]
+\item Smooth disc factorには fixed Poincar\'e quasi-coordinateを取り，その unitary frameを用いる．積 chartでは各因子の adapted framesを合わせる．
+\end{enumerate}
+Tensor $T$ に対し
+\begin{equation}\label{sharp:eq:Cad-definition}
+ \|T\|_{C^k_{\mathrm{ad}}(U)}
+ =\max_{0\le\ell\le k}
+   \max_{a_1,\ldots,a_\ell}
+   \sup_U |E_{a_1}\cdots E_{a_\ell}T|
+\end{equation}
+と定める．H\"older normでは最後の差分を adapted distanceで測る．Collapsed angular directionは labelled local universal cover上で unwrapする．
+\end{definition}
+
+\begin{lemma}[Adapted bounded geometry]\label{sharp:lem:adapted-bounded-geometry}
+本稿前半の各 terminal envelopeの labelled universal cover上で，model metricは adapted frameに関して Euclidean metricと一様に二側比較可能であり，metric coefficients，complex structure，curvature，および全固定階共変微分は一様に有界である．Nested windowの fixed compact subset上では $C^k_{\mathrm{ad}}$ norm と通常の quasi-coordinate $C^k$ normは一様同値である．
+\end{lemma}
+
+\begin{proof}
+本稿前半の intrinsic complete-window comparisonにより，各 inner window上の complete envelope metricは ambient cusp/annulus product metricと全固定階で一様比較可能である．Ambient cusp formula $g_P=d\rho^2+e^{-2\rho}d\theta^2$ と annulus formula
+$g_A=ds^2+\lambda(s)^2d\theta^2$ に対して表示した adapted framesは unitaryであり，intrinsic window metricでも一様 quasi-unitaryである．Fixed windowでは $(\log\lambda)^{(r)}$ が全固定階で一様に有界である．積と有限個の residual factorsについて最大を取ればよい．Outer boundary marginsを発散させると intrinsic window metricsは fixed inner compacta上で ambient modelsへ $C^\infty$ 収束する．
+\end{proof}
+
+\begin{proposition}[Transition-unit estimates]\label{sharp:prop:transition-unit-estimates}
+二つの labelled envelope chartsの overlapで同じ active divisorを定める normal coordinatesを $z$，$z'$ とすると
+\begin{equation}\label{sharp:eq:transition-unit}
+ z'=u z,
+ \qquad C^{-1}\le|u|\le C,
+ \qquad \|u^{\pm1}\|_{C^k_{\mathrm{ad}}}\le C_k.
+\end{equation}
+$S=-\log|z|^2$，$\rho=\log S$，$S'=-\log|z'|^2$，$\rho'=\log S'$ とすれば，$S\ge e^A$ の領域で
+\begin{equation}\label{sharp:eq:transition-rho}
+ \|\rho'-\rho\|_{C^k_{\mathrm{ad}}}
+ +\|d\rho'-d\rho\|_{C^{k-1}_{\mathrm{ad}}}
+ \le C_ke^{-A}.
+\end{equation}
+この評価は component--pair，ordinary pair，pair--triple cusp，triple，および二つの oriented source-arm transitionsに一様である．
+\end{proposition}
+
+\begin{proof}
+本稿前半の enlarged normalized charts上で $u$ は零を持たない bounded holomorphic functionである．Cauchy estimatesと \cref{sharp:lem:adapted-bounded-geometry} から \eqref{sharp:eq:transition-unit} を得る．さらに
+\[
+ S'=S-\log|u|^2,
+ \qquad
+ \rho'-\rho=\log\left(1-\frac{\log|u|^2}{S}\right).
+\]
+$S^{-1}\le e^{-A}$ であり，adapted derivativesを取ると各項は bounded derivatives of $u$ と少なくとも一つの $S^{-1}$ factorを含む．Fa\`a di Bruno公式により \eqref{sharp:eq:transition-rho} が従う．Pair--triple chartでは $z'=u z$ に加えて residual cusp coordinateの bounded triangular changeが現れるが，active logarithmic covectorに対する同じ estimateを保つ．Source armでは $t=xu$, $y=uz$ またはその対称形を用い，oriented active normal coordinateを固定するため，同じ計算が central gateまで成立する．
+\end{proof}
+
+\begin{definition}[Compatible pointed exhaustion]\label{sharp:def:compatible-exhaustion}
+Pointed domains $(\widetilde U_\nu,\tilde x_\nu)$ が $\mathbb D^2$ を compatible marked exhaustionするとは，任意の整数 $R\ge1$ に対しある $\nu(R)$ が存在し，$\nu\ge\nu(R)$ で
+\[
+ \Psi_{\nu,R}:\Omega_R\longrightarrow\widetilde U_\nu,
+ \qquad \Omega_R\Subset\Omega_{R+1}\Subset\mathbb D^2,
+ \qquad \bigcup_R\Omega_R=\mathbb D^2
+\]
+が存在し，$\Psi_{\nu,R}(0)=\tilde x_\nu$，かつ $R<R'$ では deck transformationを一つ調整した後
+$\Psi_{\nu,R'}|_{\Omega_R}=\Psi_{\nu,R}$ となることをいう．Active labels，two-end orientations，および horospherical originsもこの包含で保存する．
+\end{definition}
+
+\section{向き付き conic charts と frame obstruction}\label{sharp:sec:oriented-gauge}
+
+\subsection{Pair of pants上の line bundle}
+
+\[
+ \Sigma_{ij}=D_{ij}\setminus\{q_{ijk}:k\in K_{ij}\}
+\]
+は open Riemann surfaceである．
+
+\begin{lemma}[holomorphic triviality]\label{sharp:lem:picard-zero}
+$\Pic(\Sigma_{ij})=0$ である．従って $N_j|_{\Sigma_{ij}}$ は holomorphically trivialである．
+\end{lemma}
+
+\begin{proof}
+Open Riemann surfaceは Steinである~\cite{Forster}．指数完全列と Cartanの定理Bより
+$\Pic(\Sigma_{ij})\cong H^2(\Sigma_{ij};\ZZ)$ であり，open Riemann surfaceは1次元 CW complexの homotopy typeを持つので右辺は零である．
+\end{proof}
+
+
+\begin{definition}[tame frame]\label{sharp:def:tame-frame}
+$N_j|_{\Sigma_{ij}}$ の nowhere-zero holomorphic frame $e$ が tameであるとは，三 puncturesで meromorphic orderを持つことをいう．
+$q_{ijk}$ における orderを $a_k\in\ZZ$ と書く．
+\end{definition}
+
+\begin{proposition}[three-cusp frame obstruction]\label{sharp:prop:frame-obstruction}
+$N_j\cong\mathcal O_{\PP^1}(1)$ である．任意の tame frameに対し
+\begin{equation}\label{sharp:eq:frame-degree}
+ \sum_{k\in K_{ij}}a_k=1.
+\end{equation}
+従って三つの algebraic cusp framesすべてと unit倍で一致する tame global frameは存在しない．
+局所 algebraic frame $e_k$ に対し $e=z_k^{a_k}u_k e_k$ と書けば，flat-frame annulus variableと algebraic normal variableの raw logarithmic depthsは
+\begin{equation}\label{sharp:eq:frame-shear}
+ r_e=r_{\mathrm{alg}}-a_k\rho_k+O(1)
+\end{equation}
+だけ異なる．
+\end{proposition}
+
+\begin{proof}
+$D_{ij}$ は平面 $H_i\cong\PP^2$ 内の直線なので $N_{D_{ij}/H_i}\cong\mathcal O_{\PP^1}(1)$ である．
+Tame frameは $\mathcal O_{\PP^1}(1)$ の meromorphic sectionで，divisorは三 puncturesにのみ支持される．
+Meromorphic sectionの divisor degreeは line bundle degreeに等しいから \eqref{sharp:eq:frame-degree} を得る．
+局所表示の絶対値の logarithmを取れば \eqref{sharp:eq:frame-shear} が従う．
+\end{proof}
+
+
+\begin{proposition}[cusp-adapted tame-frame family]\label{sharp:prop:cusp-adapted-frame-family}
+各 $k\in K_{ij}$ に対し，$k$ と異なる一つの index $\ell(k)\in K_{ij}$ を固定する．$N_j|_{\Sigma_{ij}}$ には tame frame $e^{(k)}_{ij}$ が存在し，三 cusp orders $a_r^{(k)}$ は
+\begin{equation}\label{sharp:eq:cusp-adapted-orders}
+ a_k^{(k)}=0,\qquad a_{\ell(k)}^{(k)}=1,\qquad
+ a_r^{(k)}=0\quad(r\notin\{k,\ell(k)\})
+\end{equation}
+を満たす．従って approached cusp $q_{ijk}$ の algebraic frame $e_k$ に対し
+\[
+ e^{(k)}_{ij}=u_k^{(k)}e_k
+\]
+であり，$u_k^{(k)}$ は cusp horodisk上で零点も極も持たない bounded holomorphic unitである．
+\end{proposition}
+
+\begin{proof}
+$N_j\cong\mathcal O_{\PP^1}(1)\cong\mathcal O_{\PP^1}(q_{ij\ell(k)})$ である．右辺の canonical meromorphic sectionを選ぶと，その divisorは $q_{ij\ell(k)}$ のみである．三 cuspを除いた $\Sigma_{ij}$ 上では nowhere zeroであり，\eqref{sharp:eq:cusp-adapted-orders} を持つ tame frameを与える．$q_{ijk}$ における orderが零なので，その cusp algebraic frameとの比は holomorphic unitである．Fixed horodiskを小さく取れば unitと逆 unitおよび全固定 adapted derivativesは一様有界である．
+\end{proof}
+
+\begin{remark}[有限 gauge family]
+One-active sequenceに対しては，一つの固定 tame frameを全 residual regimesに用いない．Residual pointが thick/source regimeに留まる場合は任意に固定した tame frame $e^{\mathrm{th}}_{ij}$ を用い，唯一の cusp $q_{ijk}$ へ逃げる場合は $e^{(k)}_{ij}$ を用いる．この有限選択は moving sequenceの部分列ごとに一度だけ行い，product-box exhaustionの全半径にわたって固定する．
+\end{remark}
+
+\begin{remark}
+Global flat product metricを選ぶこと自体は可能である．問題は，その metricを三 outletsの algebraic cubical markingsへ
+同時に係数1で同定できないことである．本稿は一つの global frameを使わず，観測する cellに応じた marked local frameを使う．
+\end{remark}
+
+\subsection{Fixed marked chartの relative Morse form}
+
+\begin{proposition}[labelled relative conic normal form]\label{sharp:prop:conic-normal-form}
+$K\Subset\Sigma_{ij}\setminus\{p_{ij,1},\dots,p_{ij,5}\}$ を simply connected compact bordered domainとする．
+十分小さい $t$ に対し，$D_{ij}$ の $K$-近傍にある $X_t$ の部分は，labelled normal coordinatesを保つ形で
+\begin{equation}\label{sharp:eq:conic-normal-form}
+ x_i x_j=t\,\zeta_{ij,t}(p)
+\end{equation}
+と biholomorphicである．ここで $\zeta_{ij,t}$ は nowhere-zero holomorphic sectionで，固定 markingにおいて
+$\zeta_{ij,t}=\zeta_{ij}(1+O_K(t))$ が全階微分込みで成り立つ．
+さらに $j$-normal frameを固定し
+\begin{equation}\label{sharp:eq:oriented-coordinates}
+ v_j=x_j,\qquad u_{i\mid j}=x_i/\zeta_{ij,t}
+\end{equation}
+と置けば $u_{i\mid j}v_j=t$ である．
+\end{proposition}
+
+\begin{proof}
+$D_{ij}$ に沿う二 normal variablesに関する defining functionの Hessianは，$t=0$ で labelled nondegenerate bilinear form $x_ix_j$ である．
+Parameter付き holomorphic Morse--Bott lemmaを適用し，critical locusを基底とする local conic formsを得る．
+基底 $K$ は simply connected Stein domainであり，labelled normal line bundlesは trivialである．
+二つの local normal formsの overlap mapは基底と二 endsを保つ．各 conic fibreは $\CC^*$ であり，二 endsを固定する holomorphic automorphismは
+$v\mapsto a(p,t)v$，$u\mapsto a(p,t)^{-1}u$ に限る．従って transitionは $\mathcal O_K^*$-cocycleであり，
+$\Pic(K)=0$ により消せる．Critical value sectionの holomorphic dependenceから最後の評価を得る．
+\end{proof}
+
+\subsection{Triple chartと source arms}
+
+\begin{lemma}[marked local forms]\label{sharp:lem:local-oriented-forms}
+次が成り立つ．
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item Triple point $q_{ijk}$ の近傍で
+      \[
+       x_ix_jx_k=t\,a(x,t),\qquad a(0,0)\ne0
+      \]
+      と書く．$i\mid j$ markingでは $v_j=x_j$ とし，unitを dominant coordinateへ吸収して
+      \[
+       u_{i\mid j}=x_ix_k/a,\qquad u_{i\mid j}v_j=t
+      \]
+      とできる．Active marked variablesは $x_j,x_k$ である．
+\item Source近傍で $x_ix_j=tz\,a(x,y,z,t)$ と書く．$j$-normalが非零な armでは
+      \[
+       v_j=x_j,\qquad u_{i\mid j}=t/v_j
+      \]
+      が $z=0$ を跨いで正則座標を与える．逆向き armでは $v_i=x_i$ とする．二 armの共通欠損は balanced central source coreに局在する．
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Triple caseは $a$ を $u$ 側へ吸収する．Source caseでは $x_i=tz\,a/x_j$ であり，$x_j\ne0$ の arm上で $(z,x_j)$ が holomorphic coordinatesになる．
+$u=t/x_j$ は正則で，$uv=t$ を満たす．$x_j=0$ 側は逆向き chartで扱う．
+\end{proof}
+
+\begin{definition}[marked local product model]\label{sharp:def:marked-product-model}
+Ordinary pair，triple cusp，または source armの labelled local universal cover上で，選んだ non-dominant normal coordinateを $v$ とし，
+$uv=t$ と書く．Baseには $\Sigma_{ij}$ の curvature $-1$ metricを，$v$-fibreには complete hyperbolic annulus metricを入れ，
+その積を $\omega^{\mathrm{prod}}_{i\mid j,t}$ と書く．異なる markingsの modelは同一視せず，marked transitionを明記して比較する．
+\end{definition}
+
+\begin{definition}[local oriented conic]\label{sharp:def:oriented-domain}
+Marked local universal cover上で
+\[
+ \cE_{i\mid j,t}^{\mathrm{loc}}(\eps)
+ =\{(p,u,v):uv=t,\ |u|<\eps,\ |v|<\eps\}
+\]
+と置く．これは global quotient objectではなく，選んだ markingに付随する exact local modelである．
+\end{definition}
+
+\section{双曲 annulusの厳密係数}\label{sharp:sec:annulus}
+
+\subsection{完全計量の公式}
+
+$0<|q|<\eps^2$ とし，
+\[
+ A_{q,\eps}=\{v\in\CC:|q|/\eps<|v|<\eps\}
+\]
+と置く．
+\begin{equation}\label{sharp:eq:m-def}
+ m=m(q,\eps)=\log\frac{\eps^2}{|q|}
+\end{equation}
+とし，
+\[
+ r=\log\frac{\eps}{|v|}\in(0,m),\qquad \theta=\arg v\in\RR/2\pi\ZZ
+\]
+を用いる．
+
+\begin{proposition}[hyperbolic annulus formula]\label{sharp:prop:annulus-formula}
+$A_{q,\eps}$ の complete curvature $-1$ metricは
+\begin{equation}\label{sharp:eq:annulus-metric}
+ g_{A_m}
+ =\left(\frac{\pi}{m}\right)^2
+  \csc^2\left(\frac{\pi r}{m}\right)(\dd r^2+\dd\theta^2)
+\end{equation}
+である．
+\begin{equation}\label{sharp:eq:s-coordinate}
+ s=\log\tan\left(\frac{\pi r}{2m}\right)
+\end{equation}
+と置けば
+\begin{equation}\label{sharp:eq:annulus-mandel}
+ g_{A_m}=\dd s^2+\left(\frac{\pi}{m}\right)^2\cosh^2s\,\dd\theta^2.
+\end{equation}
+特に core geodesic $r=m/2$ の長さは $2\pi^2/m$ である．
+\end{proposition}
+
+\begin{proof}
+Strip $0<r<m$ の Poincaré metricを指数写像で annulusへ降ろすと \eqref{sharp:eq:annulus-metric} を得る．
+直接計算しても，conformal factor
+\[
+ \lambda(r)=\frac{\pi}{m}\csc\frac{\pi r}{m}
+\]
+に対して $-\lambda^{-2}(\log\lambda)''=-1$ である．また
+\[
+ \frac{\dd s}{\dd r}=\lambda(r),\qquad
+ \sin\frac{\pi r}{m}=\operatorname{sech}s
+\]
+より \eqref{sharp:eq:annulus-mandel} が従う．
+\end{proof}
+
+\subsection{Half-edge length}
+
+\begin{proposition}[厳密 half-length]\label{sharp:prop:half-length}
+$0<B<m/2$ に対し
+\begin{equation}\label{sharp:eq:half-length-exact}
+ d_{A_m}(r=B,r=m/2)
+ =-\log\tan\left(\frac{\pi B}{2m}\right).
+\end{equation}
+$B/m\to0$ なら
+\begin{equation}\label{sharp:eq:half-length-asymptotic}
+ d_{A_m}(B,m/2)
+ =\log m-\log B+\log\frac{2}{\pi}
+  +O\left(\frac{B^2}{m^2}\right).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Radial lineは geodesicであり，\eqref{sharp:eq:s-coordinate} によって距離は $s(m/2)-s(B)=-s(B)$ である．
+Taylor展開 $\tan x=x+O(x^3)$ を用いれば後半を得る．
+\end{proof}
+
+$q=t$ のとき
+\begin{equation}\label{sharp:eq:m-vs-L}
+ m_t=\log\frac{\eps^2}{|t|}=\frac12L_t+2\log\eps,
+ \qquad \log m_t=R_t-\log2+o(1).
+\end{equation}
+従って固定 $B$ から coreまでの距離は $R_t+O_B(1)$ である．
+
+\subsection{Poincaré endpointと係数1}
+
+\begin{lemma}[endpoint expansion]\label{sharp:lem:endpoint-expansion}
+$r/m\le e^{-A}$ とする．任意の $k\ge0$ に対し
+\begin{equation}\label{sharp:eq:endpoint-expansion}
+ \left|(r\partial_r)^k\left[
+ r^2\left(\frac{\pi}{m}\right)^2
+ \csc^2\left(\frac{\pi r}{m}\right)-1\right]\right|
+ \le C_k e^{-2A}.
+\end{equation}
+従ってこの領域で
+\[
+ g_{A_m}=\frac{\dd r^2+\dd\theta^2}{r^2}
+ \left(1+O_{C^k}(e^{-2A})\right).
+\]
+\end{lemma}
+
+\begin{proof}
+$x=\pi r/m$ と置く．$x^2\csc^2x=1+\frac13x^2+O(x^4)$ であり，$x\partial_x=r\partial_r$ である．
+\end{proof}
+
+\begin{lemma}[Poincar\'e horospherical normalization]\label{sharp:lem:poincare-horospherical-normalization}
+Poincar\'e punctured-disc metricを
+\[
+ g_{\mathrm P}=\frac{|dz|^2}{|z|^2(\log|z|)^2}
+\]
+とし，$s=-\log|z|>0$，$\rho=\log s$ と置く．このとき
+\[
+ g_{\mathrm P}=d\rho^2+e^{-2\rho}d\theta^2,
+ \qquad |d\rho|_{g_{\mathrm P}^{-1}}^2=1.
+\]
+本稿の K\"ahler form conventionでは Gaussian curvatureが $-1$ の曲線因子は
+$\Ric(\omega_{\mathrm P})=-\omega_{\mathrm P}$ を満たす．従って raw covectorの係数 $1$ に $2$ または $1/2$ の補正は入らない．
+\end{lemma}
+
+\begin{proof}
+$z=e^{-s+i\theta}$ を代入すると $|dz|^2/|z|^2=ds^2+d\theta^2$ であり，$ds=s\,d\rho$ である．
+従って表示式が得られる．Ricci規格化は複素次元一で Ricci formが Gaussian curvature times K\"ahler formであることによる．
+\end{proof}
+
+\begin{proposition}[logarithmic co-Gram coefficient]\label{sharp:prop:annulus-cogram}
+$R=\log m$，$w=R^{-1}\log r$ と置く．$1\le r\le me^{-A}$ 上で
+\begin{equation}\label{sharp:eq:annulus-cogram}
+ R^2\Abs{\dd w}_{g_{A_m}^{-1}}^2
+ =1+O(e^{-2A}).
+\end{equation}
+また circle orbitの直径は $O(1)$ であり，$R^{-1}$ 倍した metricでは一様に零へ行く．
+\end{proposition}
+
+\begin{proof}
+$\dd w=R^{-1}\dd r/r$ である．\Cref{sharp:lem:endpoint-expansion} を inverse metricへ適用すれば前半を得る．
+Circle lengthは
+\[
+ 2\pi\frac{\pi}{m}\csc\frac{\pi r}{m}
+\]
+であり，$r\ge1$ では一様有界である．
+\end{proof}
+
+\begin{remark}[pair vertex collar]
+$r$ が $m$ の固定割合である central bandでは \eqref{sharp:eq:annulus-cogram} の係数は1ではない．しかし
+$\log r=\log m+O(1)$ なので，この bandの cubical imageは pair vertexの $O(R^{-1})$-近傍へ入る．
+より一般に $r\ge me^{-A}$ の layerの径は $O(A+1)$ である．$A=o(R)$ と選べば first scaleでは消える．
+\end{remark}
+
+\section{完備三尖点の向き付き exact product neck}\label{sharp:sec:exact-neck}
+
+\subsection{基底の双曲計量}
+
+$\Sigma_{ij}$ に complete curvature $-1$ metric $g_{\Sigma_{ij}}$ を入れる．三尖点球面の uniformizationにより一意である．
+各 cusp $q_{ijk}$ の近傍には座標 $z_k$ があり，適切な horodiskを選べば
+\begin{equation}\label{sharp:eq:base-cusp}
+ g_{\Sigma_{ij}}
+ =\frac{|\dd z_k|^2}{|z_k|^2(\log|z_k|)^2}
+\end{equation}
+と書ける．五つの source points $p_{ij,a}$ は $\Sigma_{ij}$ の interiorにあり，この metricはそこで滑らかである．
+
+\subsection{Product construction}
+
+$e$ を $N_j|_{\Sigma_{ij}}$ の局所 holomorphic frameとする．その frameで
+向き付き conic は $\Sigma_{ij}\times A_{t,\eps}$ と局所同型である．以下の積 metricは
+marked local universal cover上で用いる．一つの tame global frameで三つの cusp markingsを同時に標準化できないことは
+\cref{sharp:prop:frame-obstruction} で示す．
+
+\begin{theorem}[marked exact product neck]\label{sharp:thm:exact-oriented-neck}
+局所 universal cover上で frameを固定すると
+\begin{equation}\label{sharp:eq:product-neck-metric}
+ \omega_{i\mid j,t}^{\mathrm{prod}}
+ =\pi^*\omega_{\Sigma_{ij}}+\omega_{A_{m_t}}
+\end{equation}
+は well-defined Kähler metricであり，
+\begin{equation}\label{sharp:eq:product-KE}
+ \Ric(\omega_{i\mid j,t}^{\mathrm{prod}})
+ =-\omega_{i\mid j,t}^{\mathrm{prod}}
+\end{equation}
+を満たす．三つの triple cusp方向と二つの annulus ends方向には完備である．Source pointは基底の通常点であり，
+product model自体はそこを滑らかに横切る．Actual familyとの marked identificationから除かれるのは，
+各 sourceの balanced central coreだけである．
+\end{theorem}
+
+\begin{proof}
+Marked universal cover上では frameを一つ固定しているので局所積は一価である．
+Complex dimension一の各因子で $\Ric(\omega)=-\omega$ である．積 metricの determinantは二因子の determinantの積なので
+\[
+ \Ric(\pi^*\omega_{\Sigma}+\omega_A)
+ =\pi^*\Ric(\omega_{\Sigma})+\Ric(\omega_A)
+ =-\pi^*\omega_{\Sigma}-\omega_A.
+\]
+完備性は各因子の完備性から従う．Source pointsでは基底 metricが滑らかであり，model metricはその点を滑らかに横切る．
+\end{proof}
+
+\begin{remark}[Mandel source-free solution]
+Moment coordinateを $z=T^{-1}\sinh s$ と置けば，\eqref{sharp:eq:annulus-mandel} の longitudinal coefficientは
+$h_0=(z^2+T^{-2})^{-1}$ の形になる．従って \eqref{sharp:eq:product-neck-metric} は Mandelの reduced systemの
+source-free exact solutionに一致する．本稿では delta sourcesを解いて defectを fillせず，本稿前半の bounded-source theoremを用いる．
+\end{remark}
+
+\subsection{Ordinary half-edge}
+
+$K\Subset\Sigma_{ij}$ 上では base diameterは一様有界である．$i$-component gateを $r=B$，pair coreを $r=m_t/2$ と取る．
+
+\begin{corollary}[half-edge coefficient 1]\label{sharp:cor:half-edge-one}
+固定 $B$ に対して
+\begin{equation}\label{sharp:eq:half-edge-length}
+ d_{\omega_{i\mid j,t}^{\mathrm{prod}}}
+ (\text{$i$-component gate},\text{pair core})
+ =R_t+O_B(1).
+\end{equation}
+Opposite orientationと合わせると，一本の ordinary double-line neckの component-to-component lengthは
+$2R_t+O(1)$ である．
+\end{corollary}
+
+\begin{proof}
+Basepointを固定して annulus radial geodesicを取れば上界を得る．下界は product projectionが1-Lipschitzであることから annulus距離で評価される．
+\Cref{sharp:prop:half-length} と \eqref{sharp:eq:m-vs-L} を適用する．
+\end{proof}
+
+\subsection{Triple cuspと maximal square}
+
+$q_{ijk}$ の cuspで base depthを
+\[
+ \rho_k=-\log|z_k|
+\]
+とする．$i\mid j$ gaugeでは \cref{sharp:lem:local-oriented-forms} により $v_j=x_j$ であり，annulus endpoint depthを
+\[
+ r_j=\log\frac{\eps}{|x_j|}
+\]
+と取れる．Dominant coordinate $x_i$ は積方程式から決まる．
+
+\begin{theorem}[oriented cusp square]\label{sharp:thm:oriented-square}
+$R=\log m_t$ とし，
+\begin{equation}\label{sharp:eq:square-map}
+ w_j=R^{-1}\log r_j,
+ \qquad w_k=R^{-1}\log\rho_k
+\end{equation}
+と置く．$1\le r_j,\rho_k\le m_te^{-A}$ の sectorでは
+\begin{equation}\label{sharp:eq:square-cogram}
+ R^2\left(\inner{\dd w_a}{\dd w_b}\right)_{(\omega_{i\mid j,t}^{\mathrm{prod}})^{-1}}
+ =I_2+O_{C^k}(e^{-2A})
+\end{equation}
+が任意の $k$ について成り立つ．Circle phasesの直径は $o(R)$ である．
+従って $A\to\infty$，$A=o(R)$ の slow diagonalに沿って，この sectorは distinguished component $i$ を持つ unit squareへ収束する．
+\end{theorem}
+
+\begin{proof}
+Cusp coordinateでは base metricが \eqref{sharp:eq:base-cusp} であり，\cref{sharp:lem:poincare-horospherical-normalization} により
+\[
+ \Abs{\dd\log\rho_k}_{g_{\Sigma}^{-1}}^2=1
+\]
+が厳密に成り立つ．Annulus方向には \cref{sharp:prop:annulus-cogram} を適用する．Metricは積なので cross termは零である．
+Angular directionsの長さは一様有界であり，$R^{-1}$ scalingで collapseする．
+\end{proof}
+
+\begin{remark}[squareの二重被覆]
+Triple $\{i,j,k\}$ における distinguished-$i$ squareは，$i\mid j$ neckの $k$-cuspと，$i\mid k$ neckの $j$-cuspの双方から現れる．
+従って20個の oriented half-necksは60個の oriented cusp incidencesを持ち，30枚の maximal squaresを各2回ずつ覆う．
+二つの local markings の actual pointed limitsは \cref{sharp:thm:partII-flag-star-product,sharp:prop:triple-marking-audit} により同じ product Poincar\'e metricへ収束する．
+\end{remark}
+
+\subsection{Source arms}
+
+Source近傍で $x_ix_j=tz$ とする．$j$-normalが非零な armでは
+\[
+ v=x_j,\qquad u=t/v
+\]
+と置けば $uv=t$ であり，この表示は $z=0$ を跨いで正則である．逆向き armでは $v=x_i$ とする．
+Base metric $g_{\Sigma_{ij}}$ は $z=0$ を跨いで滑らかである．従って balanced source coreを除く各 oriented armでは
+marked exact product modelが成立する．
+
+\begin{proposition}[source-arm invisibility]\label{sharp:prop:source-arm}
+固定 rescaled central source coreを除いた $i\mid j$ source arm上で，$z$-directionの model diameterは一様有界であり，
+唯一の macroscopic directionは annulus longitudinal directionである．Central source coreを一点へ置換したときの
+$R_t^{-1}$-scaled additive distortionは零へ行く．
+\end{proposition}
+
+\begin{proof}
+$g_{\Sigma_{ij}}$ は source point近傍で smoothであるから，固定 diskの diameterは一様有界である．
+Annulus方向は \cref{sharp:prop:half-length} で制御される．最後の主張は \cref{coarse:cor:source-diameter} と source数の有限性から従う．
+\end{proof}
+
+
+\section{Moving marked envelopes}\label{sharp:sec:moving-envelopes}
+
+本節以降では，五次の場合の local gauge，frame shear，rectangular hull，および boundary escapeを詳述する．これらは\cref{ass:PBEd}の四項目に対応する．Sharp pointed convergenceを述べる箇所では，それらの growing-chain compatibilityをまとめた $\mathrm{(PBE)}_5$ を明示的に仮定する．従って fixed-window の無条件比較と，global compatible exhaustion の条件付き使用を区別する．
+
+\subsection{Cell-deep sequences}
+
+\begin{definition}[cell-deep sequence]\label{sharp:def:cell-deep}
+$t_\nu\to0$，$x_\nu\in E_{t_\nu}$ とする．正次元 open cell $Q\subset\cC_5$ に対し，
+$\Phi_{t_\nu}^{\mathrm{alg}}(x_\nu)$ が $Q^\circ$ の一つの compact subsetに含まれるとき，$(x_\nu)$ を $Q$-deepと呼ぶ．
+\end{definition}
+
+\Cref{coarse:eq:coarse-main} により，$Q$-deep sequenceから source cores，cell vertices，および異なる cell typesまでの actual distanceは
+$cR_{t_\nu}-O(1)$ 以上である．従って任意の固定半径 ballは同じ labelled typeに留まる．
+
+\subsection{Flag-star product boxes，terminal-cusp adapted gauges と compatible exhaustion}
+
+\begin{definition}[active protection depth と terminal residual type]\label{sharp:def:active-protection-depth}
+$(x_\nu)$ を cell-deep，または raw-deep flag-star sequenceとし，$\widehat I$ を maximal active flagとする．
+\begin{equation}\label{sharp:eq:active-protection-depth}
+ A_\nu^{\mathrm{act}}
+ :=\frac14\min_{a\in\widehat I}
+ \left\{R_{t_\nu}q_{a,t_\nu}(x_\nu),
+ R_{t_\nu}\bigl(1-q_{a,t_\nu}(x_\nu)\bigr)\right\}.
+\end{equation}
+Cell-deep caseでは open cellの compactnessにより $A_\nu^{\mathrm{act}}\asymp R_{t_\nu}$，raw-deep caseでは maximalityにより $A_\nu^{\mathrm{act}}\to\infty$ である．One-active caseの residual projectionについて，部分列を取れば次のいずれか一つが起こる：
+\begin{enumerate}[label=\textup{(T\arabic*)}]
+\item residual thick/source type：三 cusp horodistancesは basepointで一様有界である；
+\item terminal cusp type $k$：唯一の $q_{ijk}$ に対する residual cusp depth
+      \[
+       B_{k,\nu}:=d_{g_{\Sigma_{ij}}}\bigl(p_\nu,\partial\mathcal H_k\bigr)
+       =\rho_k(p_\nu)-\rho_{k,0}\longrightarrow\infty
+      \]
+      である．ここで $\mathcal H_k$ は固定した標準 horodisk，$\rho_k=\log(-\log|z_k|^2)$ である．
+\end{enumerate}
+Two-active caseを terminal triple typeと呼ぶ．Terminal protection depthを
+\begin{equation}\label{sharp:eq:terminal-protection-depth}
+ P_\nu:=
+ \begin{cases}
+ A_\nu^{\mathrm{act}},&\text{thick/source type または terminal triple type},\\
+ \min\{A_\nu^{\mathrm{act}},B_{k,\nu}\},&\text{terminal cusp type }k
+ \end{cases}
+\end{equation}
+と置く．常に $P_\nu\to\infty$ である．
+\end{definition}
+
+\begin{proposition}[Labelled cover 上の terminal-type adapted gauges]\label{sharp:prop:canonical-global-gauges}
+Maximal active flag，dominant label，source-arm orientation，および terminal residual typeを固定する．次の有限 gauge selectionを用いる．
+\begin{enumerate}[label=\textup{(G\arabic*)}]
+\item One-active thick/source typeでは，double line $D_{ij}$ ごとに固定した tame frame $e^{\mathrm{th}}_{ij}$ を residual labelled universal coverへ引き上げる．
+\item One-active terminal cusp type $k$ では，\cref{sharp:prop:cusp-adapted-frame-family} の $e^{(k)}_{ij}$ を用いる．その orderは approached cuspで零であり，normal coefficientと residual cusp coordinateが maximal cusp-star continuation上の global factorsを与える．
+\item Two-active terminal triple typeでは，flag-star separationが選ぶ一つの triple pointと dominant labelに適合する algebraic coordinates $(x_j,x_k)$ を global factorsとする．
+\end{enumerate}
+各 gaugeは basepoint markingを定数倍で正規化できる．Universal cover上の cocycle trivializationは一価性だけを保証し，定量的 derivative controlは後の gauge-adapted frame lemmaで与える．
+\end{proposition}
+
+\begin{proof}
+Thick/source typeでは residual fixed ballsが三 cuspから有界距離の coreと有限個の source-arm starsを通るため，一つの tame frameで continuationできる．Terminal cusp type $k$ では residual fixed ballsは $q_{ijk}$ の cusp-star内に留まり，$e^{(k)}_{ij}$ はその cuspで order zeroなので algebraic frameとの間に monomial shearを持たない．Source zeroは punctureではなく，oriented arm transitionは bounded triangular unitである．Two-active caseでは一つの triple chartの independent coordinatesが既に global holomorphic functionsである．異なる terminal cuspまたは incompatible triple markingへ移るには，active flagを失うか residual cusp-starを出る必要がある．後述の protection estimateにより protected boxes内では起こらない．
+\end{proof}
+
+\begin{lemma}[固定 tame gauge の fast-cusp obstruction]\label{sharp:lem:fast-cusp-fixed-gauge-obstruction}
+$E_{ik;j}^{\circ}=\{e_i+ue_j+e_k:0<u<1\}$ に収束する one-active sequenceを取り，$q_j\to s\in(0,1)$，$q_i,q_k\to1$ とする．Cusp $k$ の algebraic active coefficientを $\xi_k^{\mathrm{alg}}$，固定 tame gauge coefficientを $\xi^{\mathrm g}$ とし
+\[
+ \xi_k^{\mathrm{alg}}=z_k^{a_k}u_k\xi^{\mathrm g}
+\]
+と書く．Algebraic normal depth $S_k=-\log|\xi_k^{\mathrm{alg}}|^2$ と residual cusp depth $T_k=-\log|z_k|^2$ は
+\[
+ \log S_k=sR_{t_\nu}+O(1),\qquad
+ \log T_k=R_{t_\nu}+O(1)
+\]
+を満たす．$a_k\ne0$ なら，一つの固定 tame gaugeはこの列に対して algebraic markingと一様に比較可能な positive-depth annulus factorを与えない．特に $a_k>0$ なら gauge depth $S_{\mathrm g}=S_k-a_kT_k+O(1)$ は最終的に負となり，$a_k<0$ なら $S_{\mathrm g}\sim |a_k|T_k$ となって algebraic/gauge coframe changeまたはその逆が退化する．
+\end{lemma}
+
+\begin{proof}
+関係式から
+\[
+ S_k=S_{\mathrm g}+a_kT_k+b_k,
+ \qquad b_k=-\log|u_k|^2=O(1)
+\]
+である．$T_k/S_k=\exp\{(1-s)R_{t_\nu}+O(1)\}\to\infty$ なので，$a_k>0$ では $S_{\mathrm g}>0$ を保てず，固定 gaugeの annulus horosphereそのものが当該点列を含まない．$a_k<0$ では $S_{\mathrm g}/S_k\to\infty$ であり，後の exact coframe formulaに現れる diagonal ratioは一方向で零，他方向で無限大となる．従って near-identity comparisonは不可能である．Cusp-adapted frame $e^{(k)}_{ij}$ では $a_k=0$ であり，この obstructionは消える．
+\end{proof}
+
+\begin{definition}[局所・大域・有限 box の三つの metric]\label{sharp:def:three-product-metrics}
+Raw-deep flag-star component の labelled universal cover上で，次の三種類の reference metricを区別する．
+\begin{enumerate}[label=\textup{(M\arabic*)}]
+\item $h^{\mathrm{loc}}_{y,\nu}$ は，点 $y$ を中心とする 本稿前半の intrinsic complete-window product metricである．これは各有限 window自身の完備 Poincar\'e metricを用いる．
+\item $h^{\mathrm{glob}}_{\nu}$ は，one-active caseでは固定 tame frame，two-active caseでは固定 triple algebraic markingにより得られる maximal global factor domains 自身の complete Poincar\'e metricsの積である．同じ global gaugeにおける標準 annulus/cusp product modelを $h^{\mathrm{amb}}_{\nu}$ と書く．
+\item $h^{\mathrm{box}}_{\nu,R}$ は，有限 factor domains $D^{(1)}_{\nu,R},D^{(2)}_{\nu,R}$ 自身の intrinsic complete Poincar\'e metricsの積である．
+\end{enumerate}
+$h^{\mathrm{glob}}_\nu$ の距離を $d^{\mathrm{glob}}_\nu$，$h^{\mathrm{box}}_{\nu,R}$ の距離を $d^{\mathrm{box}}_{\nu,R}$ と書く．有限 factor domain の topological boundary は $d^{\mathrm{box}}_{\nu,R}$ に関して無限遠なので，以下で ``box boundaryまでの margin'' と言うときは常に $d^{\mathrm{glob}}_\nu$ で測る．Factorwise normalized uniformizationの下で $h^{\mathrm{glob}}_\nu$ は標準積 metric $h^{\mathrm{std}}=\omega_{\mathbb D}\oplus\omega_{\mathbb D}$ へ送られる．
+\end{definition}
+
+\begin{definition}[terminal-type protected box]\label{sharp:def:slow-protected-box}
+$P_\nu$ を \eqref{sharp:eq:terminal-protection-depth} の protection depthとする．$\Lambda_\nu\to\infty$ を
+\[
+ \Lambda_\nu=o(P_\nu)
+\]
+と選ぶ．Terminal-type protected boxとは，同じ maximal active flag，dominant label，source-arm orientation，terminal residual type，および \cref{sharp:prop:canonical-global-gauges} の gaugeを保つ connected continuation regionで，次を満たすものをいう．
+\begin{enumerate}[label=\textup{(P\arabic*)}]
+\item active gate depthsは $4A_\nu^{\mathrm{act}}-C\Lambda_\nu$ 以上である；
+\item thick/source typeでは residual factor projectionの diameterを $B_\nu$ とし，$B_\nu+\Lambda_\nu=o(A_\nu^{\mathrm{act}})$ とする；
+\item terminal cusp type $k$ では residual cusp depthが $B_{k,\nu}-C\Lambda_\nu$ 以上であり，boxは同じ $k$-cusp starに留まる；
+\item terminal triple typeでは同じ protected triple chartに留まる．
+\end{enumerate}
+全 one-active regimes に $B_\nu+\Lambda_\nu=o(A_\nu)$ を要求しない．Terminal cusp typeでは $B_{k,\nu}$ は $A_\nu^{\mathrm{act}}$ と同じ orderでも，より大きくてもよい．
+\end{definition}
+
+\begin{lemma}[Gauge-adapted frame-shear lemma]\label{sharp:lem:slow-box-frame-shear}
+Terminal-type protected box上で，各 本稿前半 local algebraic markingの標準 horospherical adapted coframeを $\Theta^{\mathrm{alg}}_{y,\nu}$，同じ点で terminal-type gaugeから得る coframeを $\Theta^{\mathrm{gauge}}_\nu$ とする．向きを
+\begin{equation}\label{sharp:eq:coframe-direction}
+ \Theta^{\mathrm{alg}}_{y,\nu}=T_{y,\nu}\Theta^{\mathrm{gauge}}_\nu
+\end{equation}
+と固定する．全固定 $k$ に対し
+\[
+ \|T_{y,\nu}\|_{C^k_{\mathrm{ad}}}
+ +\|T_{y,\nu}^{-1}\|_{C^k_{\mathrm{ad}}}\le C_k
+\]
+が box全体で成り立ち，さらに $\|T_{y,\nu}-I\|_{C^k_{\mathrm{ad}}}\to0$ である．より定量的には，
+\begin{equation}\label{sharp:eq:gauge-adapted-shear-error}
+ \|T_{y,\nu}-I\|_{C^k_{\mathrm{ad}}}
+ \le
+ \begin{cases}
+ C_k\exp\{-A_\nu^{\mathrm{act}}+C_k(B_\nu+\Lambda_\nu+1)\},&\text{thick/source type},\\
+ C_k\exp\{-A_\nu^{\mathrm{act}}+C_k(\Lambda_\nu+1)\},&\text{terminal cusp type},\\
+ C_k\exp\{-A_\nu^{\mathrm{act}}+C_k(\Lambda_\nu+1)\},&\text{terminal triple type}.
+ \end{cases}
+\end{equation}
+従って one-active/two-dominant pair--triple edgesを含め，global coframeと cubical local markingsの Jacobianおよび逆 Jacobianは一様に制御される．
+\end{lemma}
+
+\begin{proof}
+One-active caseで係数の向きを明記する．Gauge frame $e^{\mathrm g}$ と cusp algebraic frame $e_k$ を
+\[
+ e^{\mathrm g}=z_k^{a_k}u_ke_k,
+ \qquad
+ \xi^{\mathrm g}e^{\mathrm g}=\xi_k^{\mathrm{alg}}e_k
+\]
+と書くと
+\begin{equation}\label{sharp:eq:coefficient-direction}
+ \xi_k^{\mathrm{alg}}=z_k^{a_k}u_k\xi^{\mathrm g}.
+\end{equation}
+従って
+\[
+ S_{\mathrm g}:=-\log|\xi^{\mathrm g}|^2,
+ \quad T_k:=-\log|z_k|^2,
+ \quad b_k:=-\log|u_k|^2,
+ \quad S_k:=S_{\mathrm g}+a_kT_k+b_k.
+\]
+Gauge radial/angular covectorsを
+$\rho_{\mathrm g}=\log S_{\mathrm g}$，
+$\eta_{\mathrm g}=S_{\mathrm g}^{-1}d\arg\xi^{\mathrm g}$，
+residual cusp covectorsを $\rho_k=\log T_k$，$\eta_k=T_k^{-1}d\arg z_k$ とする．Algebraic normal covectors $\rho_k^{\mathrm{alg}}=\log S_k$，$\eta_k^{\mathrm{alg}}=S_k^{-1}d\arg\xi_k^{\mathrm{alg}}$ は厳密に
+\begin{align}
+ d\rho_k^{\mathrm{alg}}
+ &=\frac{S_{\mathrm g}}{S_k}d\rho_{\mathrm g}
+   +\frac{a_kT_k}{S_k}d\rho_k
+   +\frac{db_k}{S_k},\label{sharp:eq:radial-shear-exact}\\
+ \eta_k^{\mathrm{alg}}
+ &=\frac{S_{\mathrm g}}{S_k}\eta_{\mathrm g}
+   +\frac{a_kT_k}{S_k}\eta_k
+   +\frac{d\arg u_k}{S_k}.\label{sharp:eq:angular-shear-exact}
+\end{align}
+これは \eqref{sharp:eq:coframe-direction} の one-active radial/angular blockであり，その determinantは $S_{\mathrm g}/S_k$ である．
+
+Thick/source typeでは protected box上で
+$S_{\mathrm g}\ge c\exp(A_\nu^{\mathrm{act}}-C\Lambda_\nu)$，
+$T_k\le C\exp(B_\nu+C\Lambda_\nu)$ である．従って $|a_k|T_k/S_{\mathrm g}$，$S_{\mathrm g}^{-1}$，bounded-unit termsとその全固定 adapted derivativesは第一行の右辺で抑えられる．
+
+Terminal cusp type $k$ では $e^{\mathrm g}=e^{(k)}_{ij}$ を選んだので $a_k=0$ である．従って residual cusp size $T_k$ は \eqref{sharp:eq:radial-shear-exact}--\eqref{sharp:eq:angular-shear-exact} に現れず，$S_k=S_{\mathrm g}+b_k$ である．$B_{k,\nu}$ が $A_\nu^{\mathrm{act}}$ と同じ orderまたはより大きくても，errorは $S_{\mathrm g}^{-1}$ と bounded-unit derivativesだけから第二行の右辺で抑えられる．Boxは同じ cusp-starから出ないため，orderが非零な他の cuspsの monomial factorsは現れない．
+
+Source-arm transitionsは punctureを跨がず bounded triangular unitsだけを持つ．Two-active caseでは一つの triple algebraic gaugeを固定し，local markingsとの差は bounded unitsだけである．Active uncapped depthsが $\exp(A_\nu^{\mathrm{act}}-C\Lambda_\nu)$ 以上なので第三行を得る．十分大きい $\nu$ で $T_{y,\nu}=I+E_{y,\nu}$，$\|E\|<1/2$ とし，Neumann seriesで逆行列も同じ orderに制御する．
+\end{proof}
+
+\begin{corollary}[局所 metric，大域 product metric，box metricの三段比較]\label{sharp:cor:three-metric-comparison}
+Terminal-type protected boxの protected part上で，一つの定数 $C_0>1$ が存在して
+\begin{equation}\label{sharp:eq:three-metric-uniform}
+ C_0^{-1}h^{\mathrm{glob}}_\nu
+ \le h^{\mathrm{loc}}_{y,\nu}
+ \le C_0h^{\mathrm{glob}}_\nu
+\end{equation}
+が全中心 $y$ について成り立つ．$C_0$ は chart数，box diameter，$\nu$ に依存しない．
+さらに compact set $K$ が各 factor boundaryから $d^{\mathrm{glob}}_\nu$-距離 $\Lambda$ 以上離れていれば
+\begin{equation}\label{sharp:eq:box-global-comparison}
+ h^{\mathrm{glob}}_\nu
+ \le h^{\mathrm{box}}_{\nu,R}
+ \le \coth^2(\Lambda/2)\,h^{\mathrm{glob}}_\nu
+ \qquad\text{on }K
+\end{equation}
+が factorwise に成り立つ．Outer marginが発散する fixed pointed compacta上では，\eqref{sharp:eq:three-metric-uniform} と \eqref{sharp:eq:box-global-comparison} の change-of-metric tensorsは全固定 $C^k_{\mathrm{ad}}$ で恒等写像へ収束する．
+\end{corollary}
+
+\begin{proof}
+本稿前半の intrinsic complete-window theoremは，$h^{\mathrm{loc}}_{y,\nu}$ を同じ local algebraic markingの ambient annulus/cusp product metricと fixed inner window上で一様比較する．\Cref{sharp:lem:slow-box-frame-shear} は，その local ambient coframeを global gaugeの ambient product metric $h^{\mathrm{amb}}_\nu$ の coframeへ chart-chain長に依存せず移す．さらに terminal typeごとの protection estimateにより，protected partから maximal global factor boundaryまでの $h^{\mathrm{amb}}_\nu$-marginは発散する．Thick/source typeでは $A_\nu^{\mathrm{act}}-O(B_\nu+\Lambda_\nu)$，terminal cusp typeでは $\min\{A_\nu^{\mathrm{act}},B_{k,\nu}\}-O(\Lambda_\nu)$，terminal triple typeでは $A_\nu^{\mathrm{act}}-O(\Lambda_\nu)$ である．一変数 domain monotonicityを factorwiseに用いて $h^{\mathrm{glob}}_\nu\asymp h^{\mathrm{amb}}_\nu$ を同じ inner regionで得る．これが \eqref{sharp:eq:three-metric-uniform} を与える．
+
+一変数 hyperbolic domain $D\Subset\Omega$ において，$p\in D$ から $\partial D$ までの $\Omega$-Poincar\'e距離が $\Lambda$ 以上なら
+\[
+ h_\Omega(p)\le h_D(p)\le \coth^2(\Lambda/2)h_\Omega(p)
+\]
+である．左辺は domain monotonicity，右辺は $B_{h_\Omega}(p,\Lambda)\subset D$ と Poincar\'e ballの中心密度の明示式から従う．二因子へ適用して \eqref{sharp:eq:box-global-comparison} を得る．Derivative convergenceは fixed compacta上の normalized covering mapsの normal-family argumentと 本稿前半の finite-window $C^\infty$ comparisonによる．
+\end{proof}
+
+\begin{definition}[Marked product box]\label{sharp:def:marked-product-box}
+$\mathscr S_{\nu}(I)$ を，active flag，dominant label，source-arm orientation，terminal residual type，および terminal-type gaugeを固定した flag-star componentとし，$\widetilde{\mathscr S}_{\nu}(I)$ を labelled universal coverとする．半径 $R$ の marked product boxとは，global factor domains $\mathscr D^{(1)}_\nu,\mathscr D^{(2)}_\nu$ の relatively compact simply connected subdomainsに対する holomorphic embedding
+\[
+ \mathfrak p_{\nu,R}:D_{\nu,R}^{(1)}\times D_{\nu,R}^{(2)}
+ \longrightarrow \widetilde{\mathscr S}_{\nu}(I)
+\]
+であって，relevant actual $R$-ballを含み，その ballから finite factor boundariesまでの marginを $d^{\mathrm{glob}}_\nu$ と actual distanceの双方で制御するものをいう．Finite factors自身には $h^{\mathrm{box}}_{\nu,R}$ を入れる．
+\end{definition}
+
+\begin{lemma}[Terminal-type rectangular hull]\label{sharp:lem:flag-star-rectangular-hull}
+$P_\nu\to\infty$ を terminal protection depthとし，$R\ge1$ を固定する．$B_{g_{t_\nu}}(x_\nu,3R+10)$ を覆う labelled chart chainの factor projectionsを $P_\nu^{(1)},P_\nu^{(2)}$ とする．$\Lambda_\nu\to\infty$ を $\Lambda_\nu=o(P_\nu)$ と選ぶ．Thick/source typeではさらに residual projection diameter $B_\nu$ を $B_\nu+\Lambda_\nu=o(A_\nu^{\mathrm{act}})$ と選ぶ．十分大きい $\nu$ で
+\begin{equation}\label{sharp:eq:rectangular-hull-inclusion}
+ \widehat P_\nu^{(1)}(\Lambda_\nu)\times
+ \widehat P_\nu^{(2)}(\Lambda_\nu)
+ \subset \widetilde{\mathscr S}_{\nu}(I)
+\end{equation}
+とできる．
+\end{lemma}
+
+\begin{proof}
+Fixed-ball chart数は相対 Bishop--Gromov lemmaにより $N(R)$ 以下である．Terminal typeに応じて \cref{sharp:prop:canonical-global-gauges} の gaugeを選ぶ．所要 hullから最初に出る axis-parallel pathを考える．
+
+Thick/source typeでは，flag-loss locusまたは central source coreまでの actual distanceは $cA_\nu^{\mathrm{act}}-C$ 以上である．一方，first exit以前の global product lengthは $C_R(B_\nu+\Lambda_\nu+1)$ 以下であり，\cref{sharp:lem:slow-box-frame-shear,sharp:cor:three-metric-comparison} と 本稿前半 comparisonにより actual lengthも同じ orderである．矛盾する．
+
+Terminal cusp type $k$ では二種類の exitがある．Active flagを失うか central source coreへ達するなら下界は $cA_\nu^{\mathrm{act}}-C$ である．同じ $k$-cusp starを出て thick coreへ向かうなら residual Poincaré distanceは $B_{k,\nu}-C$ 以上である．Hull pathの長さは $C_R(\Lambda_\nu+1)$ 以下なので，$\Lambda_\nu=o(\min\{A_\nu^{\mathrm{act}},B_{k,\nu}\})$ に矛盾する．この caseでは cusp-adapted order $a_k=0$ により frame comparisonは residual depthに依存しない．
+
+Terminal triple typeでは incompatible triple markingへ移るには active flagまたは dominant labelを失い，距離 $cA_\nu^{\mathrm{act}}-C$ を要する．$\Lambda_\nu=o(A_\nu^{\mathrm{act}})$ に矛盾する．
+\end{proof}
+
+\begin{lemma}[Protected hull 上の一様 product comparison]\label{sharp:lem:protected-global-comparison}
+\Cref{sharp:lem:flag-star-rectangular-hull} の hullのうち finite factor boundaryから $d^{\mathrm{glob}}_\nu$-距離 $2$ 以上の部分で，一つの $C_1>1$ により
+\[
+ C_1^{-1}h^{\mathrm{glob}}_\nu\le h^{\mathrm{loc}}_{y,\nu}\le C_1h^{\mathrm{glob}}_\nu,
+ \qquad
+ C_1^{-1}h^{\mathrm{glob}}_\nu\le g_{t_\nu}\le C_1h^{\mathrm{glob}}_\nu
+\]
+が成り立つ．$C_1$ は terminal type，box radius，chart-chain長，$\nu$ に依存しない．Fixed pointed compacta上では第一比較の change-of-metric tensorは恒等写像へ収束する．
+\end{lemma}
+
+\begin{proof}
+本稿前半の local intrinsic-window metricと local algebraic ambient modelの比較，\cref{sharp:lem:slow-box-frame-shear} による algebraic/gauge coframe comparison，および同じ global factor coordinates内の Poincaré domain monotonicityを順に用いる．Terminal cusp typeでは approached cusp orderが零なので，residual depth $B_{k,\nu}$ は比較定数に入らない．Actual metricとの比較は 本稿前半の $g_{t_\nu}\asymp h^{\mathrm{loc}}_{y,\nu}$ を合成する．
+\end{proof}
+
+\begin{lemma}[Finite chart chain に対する product-box lemma]\label{sharp:lem:product-box}
+$x_\nu$ を cell-deep，または raw-deep flag-star sequenceとし，$A_\nu^{\mathrm{act}}$，terminal type，$P_\nu$ を \cref{sharp:def:active-protection-depth} のように定める．任意の fixed $R\ge1$ に対し，$\Lambda_{\nu,R}\to\infty$ を $\Lambda_{\nu,R}=o(P_\nu)$ と選べ，十分大きい $\nu$ で marked product boxが存在して次を満たす．
+\begin{enumerate}[label=\textup{(PB\arabic*)}]
+\item $B_{g_{t_\nu}}(x_\nu,R)$ は boxの像に含まれる．
+\item Liftされた ballから finite factor boundaryまでの $d^{\mathrm{glob}}_\nu$-distanceは $\Lambda_{\nu,R}$ 以上である．
+\item 各 finite box boundaryまでの actual distanceは $R$ 以上である．
+\item $R<R'$ の boxesは同じ terminal-type global coordinatesの制限として nestedに選べる．
+\item $h^{\mathrm{box}}_{\nu,R}$ は finite factor boundaryで completeで，protected inner partでは $h^{\mathrm{glob}}_\nu$ へ全固定階で収束する．
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+まず \eqref{sharp:eq:active-protection-depth} により cell-deep branchでも $A_\nu^{\mathrm{act}}$ を明示的に定義する．Fixed actual ballを finite chart chainで覆い，terminal residual typeを固定する．Thick/source typeでは residual hull radius $B_{\nu,R}$ を chart projection diameterより大きく，かつ $B_{\nu,R}+\Lambda_{\nu,R}=o(A_\nu^{\mathrm{act}})$ となるよう選ぶ．Terminal cusp type $k$ では basepoint cusp depth $B_{k,\nu}\to\infty$ を用い，$\Lambda_{\nu,R}=o(\min\{A_\nu^{\mathrm{act}},B_{k,\nu}\})$ とする．Terminal triple typeでは $\Lambda_{\nu,R}=o(A_\nu^{\mathrm{act}})$ とする．
+
+\Cref{sharp:lem:flag-star-rectangular-hull} が product inclusionを与え，\cref{sharp:lem:protected-global-comparison} が actual/global metricを一様比較する．Finite factor boundaryへ component内で達する pathは actual length $C^{-1}\Lambda_{\nu,R}$ 以上を持つ．Componentから出る pathは active flag loss，central source，または terminal cusp star exitを横切り，それぞれ $A_\nu^{\mathrm{act}}$ または $B_{k,\nu}$ に比例する距離を要する．これで (PB3) を得る．Global gaugeを terminal typeごとに最初に一度固定し，factor hullsを inclusionで増やせば nestednessが従う．
+\end{proof}
+
+\begin{theorem}[$\mathrm{(PBE)}_5$ の下での compatible marked product-box exhaustion]\label{sharp:prop:complex-exhaustion}
+$\mathrm{(PBE)}_5$ を仮定する．
+$(x_\nu)$ を cell-deep，または raw-deep flag-star sequenceとする．適切な terminal-type labelled universal covers $(\widetilde U_\nu,\tilde x_\nu)$ は bidiscを compatible marked exhaustionする．より正確には，次が成り立つ．
+\begin{enumerate}[label=\textup{(X\arabic*)}]
+\item 任意の fixed $R$ に対し，一つの marked product boxが $B_{g_{t_\nu}}(x_\nu,R)$ を含む．
+\item Finite box boundariesは actual metricと $d^{\mathrm{glob}}_\nu$ の双方で pointed ballから逃げる．
+\item One-active thick/source gauge，one-active terminal-cusp adapted gauge，または two-active triple gaugeが global factorsを定め，local algebraic markingsとの coframe changeは \cref{sharp:lem:slow-box-frame-shear} を満たす．
+\item Factorwise normalized uniformization後，固定 domains $\Omega_R=B_{\mathbb D}(0,R)^2$ を用いる compatible embeddingsが存在し，$\bigcup_R\Omega_R=\mathbb D^2$ となる．
+\item Pulled-back complex structuresと active logarithmic covectorsは標準 product markingへ全固定 $C^k_{\mathrm{ad}}$ で収束する．
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+$P_\nu\to\infty$ である．Fixed-ball projection diameterを $D_R$ とし，$R_\nu\to\infty$ を
+\[
+ D_{R_\nu}+R_\nu=o(P_\nu)
+\]
+となるよう十分遅く選ぶ．$R\le R_\nu$ で $\Lambda_{\nu,R}=R+10+D_R$ をさらに必要なら遅く増やし，\cref{sharp:lem:product-box} の nested factorsを取る．Thick/source typeでは residual hull radiusも $o(A_\nu^{\mathrm{act}})$ に選ぶ．Terminal cusp typeでは boxは $B_{k,\nu}$ より遅く拡大し，cusp-adapted gaugeの order-zero性により fast residual depthを許す．
+
+Nested finite factorsの unionを global factor domains $\mathscr D_\nu^{(a)}$ とする．Basepointと positive tangent directionを固定して各 factorを一度だけ $\mathbb D$ へ uniformizeする．Boundary marginsにより finite factor imagesは $B_{\mathbb D}(0,R+1)$ を含み，その inverseを $\Omega_R$ に制限すれば compatible embeddingsを得る．Actual/model boundary escapeは product-box lemma，marking convergenceは gauge-adapted frame lemmaと 本稿前半 transition-unit estimatesによる．
+\end{proof}
+
+\subsection{Envelope convergenceと metric compactness}
+
+\begin{lemma}[Global bounded-ratio constant]\label{sharp:lem:global-comparison-recentering}
+Product-box exhaustionから得られる $\mathbb D^2$ 上の pointed limitを $\omega_\infty$ とする．Exhaustion radiusと点に依存しない一つの定数 $C_*>1$ が存在して
+\[
+ C_*^{-1}h_{\mathrm{prod}}\le \omega_\infty\le C_*h_{\mathrm{prod}}
+ \qquad\text{on all }\mathbb D^2
+\]
+が成り立つ．
+\end{lemma}
+
+\begin{proof}
+任意の $p\in\mathbb D^2$ を固定し，対応する点列 $p_\nu$ を product boxes内に取る．十分大きい $\nu$ で $p_\nu$ は protected partにあり，\cref{sharp:lem:protected-global-comparison} により
+\[
+ C_1^{-1}h^{\mathrm{glob}}_\nu\le g_{t_\nu}\le C_1h^{\mathrm{glob}}_\nu
+\]
+が $p_\nu$ の固定近傍で成り立つ．Normalized global factor uniformizationは $h^{\mathrm{glob}}_\nu$ を厳密に $h_{\mathrm{prod}}$ へ送るので，極限を取れば同じ $C_1$ を得る．$C_1$ は chart-chain長，$p$，exhaustion radiusに依存しない．これは
+\[
+ g_{t_\nu}\asymp h^{\mathrm{loc}}_{p_\nu,\nu}
+ \asymp h^{\mathrm{glob}}_\nu
+ =h^{\mathrm{std}}
+\]
+という三段比較であり，recentringだけで local/global frame changeを省略してはいない．
+\end{proof}
+
+\begin{proposition}[complete envelopesの marked limit]\label{sharp:prop:envelope-limit}
+\Cref{sharp:prop:complex-exhaustion} の embeddings上で，global product metricsは $h_{\mathrm{prod}}=\omega_{\mathbb D}\oplus\omega_{\mathbb D}$ に一致し，本稿前半の local intrinsic-window metricsは任意の fixed compact subsetで
+\begin{equation}\label{sharp:eq:envelope-product-limit}
+ h^{\mathrm{loc}}_{x_\nu,\nu}\longrightarrow h_{\mathrm{prod}}
+\end{equation}
+と $C^\infty$ 収束する．Actual metricsの任意の pointed subsequential limit $\omega_\infty$ は completeで，
+\begin{equation}\label{sharp:eq:limit-comparison}
+ C_*^{-1}h_{\mathrm{prod}}\le\omega_\infty\le C_*h_{\mathrm{prod}},
+ \qquad \Ric(\omega_\infty)=-\omega_\infty
+\end{equation}
+を満たす．
+\end{proposition}
+
+\begin{proof}
+Normalized global factor uniformizationにより $h^{\mathrm{glob}}_\nu=h_{\mathrm{prod}}$ である．\Cref{sharp:lem:slow-box-frame-shear,sharp:cor:three-metric-comparison} と outer-margin divergenceから local intrinsic-window metricsは fixed compacta上で $h^{\mathrm{glob}}_\nu$ へ全階収束する．本稿前半の actual/local comparisonと adapted bounded geometryから actual metricsは各 $\Omega_R$ 上で全階 precompactである．Diagonal subsequenceにより $\mathbb D^2$ 全体の $\omega_\infty$ を得る．Global comparisonは \cref{sharp:lem:global-comparison-recentering} による．特に $\omega_\infty\ge C_*^{-1}h_{\mathrm{prod}}$ と $h_{\mathrm{prod}}$ の completenessから $\omega_\infty$ も completeである．K\"ahler--Einstein equationは $C^\infty$ 極限へ移る．
+\end{proof}
+
+\section{Massive density-ratio rigidity}\label{sharp:sec:massive}
+
+\subsection{Exact density equation}
+
+\begin{lemma}[density-ratio equation]\label{sharp:lem:density-ratio}
+$\omega_0,\omega_1$ を同じ complex $n$-fold上の Kähler metricsとし，
+$\Ric(\omega_0)=-\omega_0$，$\Ric(\omega_1)=-\omega_1$ とする．
+\[
+ u=\log\frac{\omega_1^n}{\omega_0^n},\qquad
+ \omega_s=(1-s)\omega_0+s\omega_1
+\]
+と置くと
+\begin{equation}\label{sharp:eq:ddcu}
+ \ddc u=\omega_1-\omega_0
+\end{equation}
+および
+\begin{equation}\label{sharp:eq:massive-equation}
+ \left(\int_0^1\Delta_{\omega_s}\,\dd s-1\right)u=0
+\end{equation}
+が成り立つ．
+\end{lemma}
+
+\begin{proof}
+Ricci formsの差から \eqref{sharp:eq:ddcu} を得る．また
+\[
+ u=\int_0^1\tr_{\omega_s}(\omega_1-\omega_0)\,\dd s
+  =\int_0^1\Delta_{\omega_s}u\,\dd s
+\]
+である．
+\end{proof}
+
+\subsection{Bidisc上の bounded-ratio uniqueness}
+
+\begin{theorem}[complete product rigidity]\label{sharp:thm:complete-product-rigidity}
+$h=\omega_{\mathbb D}\oplus\omega_{\mathbb D}$ とする．$\omega$ を $\mathbb D^2$ 上の complete Kähler metricで
+\[
+ \Ric(\omega)=-\omega,\qquad C^{-1}h\le\omega\le Ch
+\]
+を満たすものとする．このとき $\omega=h$ である．
+\end{theorem}
+
+\begin{proof}
+$u=\log(\omega^2/h^2)$ と置く．一様比較から $u$ は boundedであり，\cref{sharp:lem:density-ratio} により
+$\bar\Delta u-u=0$，$\bar\Delta=\int_0^1\Delta_{(1-s)h+s\omega}\dd s$ を満たす．
+Disc上の標準 proper potentialを $\psi_1=-\log(1-|z_1|^2)$，$\psi_2=-\log(1-|z_2|^2)$ とし，
+$\psi=\psi_1+\psi_2$ と置く．規格化定数を除けば $\ddc\psi=h$ であり，一様比較から
+$\bar\Delta\psi\le C_1$ である．
+
+$\eps>0$ に対し $u-\eps\psi$ は最大値を取る．最大点で $\ddc u\le\eps\ddc\psi$ だから
+$u=\bar\Delta u\le C_1\eps$ である．任意の固定点で
+$u\le\eps\psi+C_1\eps$ となり，$\eps\downarrow0$ から $u\le0$ を得る．同じ議論を $-u$ に適用して $u\ge0$．
+従って $u=0$ であり，\eqref{sharp:eq:ddcu} から $\omega=h$ である．
+\end{proof}
+
+\begin{remark}
+ここで completenessのみからの無条件 uniquenessを用いていない．本稿前半から継承した bounded-ratio class内での uniquenessであり，
+本稿の limit identificationに必要十分である．Zeroth-order term $-1$ が bounded density ratioを消すため，これを massive rigidityと呼ぶ．
+\end{remark}
+
+\subsection{Moving limitの同定}
+
+\begin{proof}[\Cref{sharp:thm:partII-flag-star-product} の証明]
+\Cref{sharp:prop:envelope-limit} により任意の subsequenceはさらに pointed smooth limit $\omega_\infty$ を持ち，
+\eqref{sharp:eq:limit-comparison} を満たす．\Cref{sharp:thm:complete-product-rigidity} から $\omega_\infty=h_{\mathrm{prod}}$ である．
+Limitが subsequenceに依存しないので全 sequenceが収束する．Marked complex exhaustionの構成は active logarithmic covectorsを保つため，
+marked convergenceも従う．
+\end{proof}
+
+\section{Raw-depth flag-star rigidity}\label{sharp:sec:partII-raw-flag-star}
+本節では第V篇に必要な moving-wall statement を，$\mathrm{(PBE)}_5$ の下で本稿の局所解析の帰結として定理化する．本稿前半の Raw-depth 粗幾何定理の記号を用いる．
+
+\begin{definition}[raw-deep flag]\label{sharp:def:partII-raw-flag}
+非空集合 $I\subset\{0,\ldots,4\}$，$|I|\le2$ と $A>0$ に対し
+\begin{equation}\label{sharp:eq:partII-raw-flag}
+ \mathcal R_t(I;A)=
+ \left\{x\in X_t:\frac{A}{R_t}\le q_{i,t}(x)\le1-\frac{A}{R_t}
+ \ \text{for every }i\in I\right\}
+\end{equation}
+と置く．空でないこの形の $I$ を admissible raw flag と呼ぶ．
+\end{definition}
+
+\begin{lemma}[Central source cores は raw-deep locus に入らない]\label{sharp:lem:partII-source-exclusion}
+一様定数 $A_{\mathrm{src}}$ が存在して，$A\ge A_{\mathrm{src}}$ なら
+\[
+ \mathcal R_t(I;A)\cap\bigcup_p B_{p,t}=\varnothing
+\]
+が全 admissible $I$ について成り立つ．従ってこの範囲では \eqref{sharp:eq:partII-raw-flag} を $E_t$ 上で定義しても同じ集合を得る．
+\end{lemma}
+
+\begin{proof}
+本稿前半の source localizationにより，各 $B_{p,t}$ の cubical imageは対応する support-$2$ vertexの $CR_t^{-1}$-近傍にあり，
+各 $\log\alpha_{i,t}$ の oscillationは $O(1)$ である．従って各 raw coordinateは，その vertexでの値 $0$ または $1$ から
+$C/R_t$ 以内にある．$A_{\mathrm{src}}>2C$ とすれば，いずれの coordinateも両 gatesから $A/R_t$ だけ離れることはない．
+\end{proof}
+
+\subsection{Global raw covector と local horospherical covector}
+Local algebraic frame で $L_a=z_a e_a$，$\|e_a\|^2=e^{h_a}$ と書き，
+\[
+ S_a=-\log|z_a|^2,\qquad \rho_a^{\mathrm{loc}}=\log S_a,
+ \qquad \beta_a=|t|e^{-h_a}|z_a|^{-2}
+\]
+と置く．すると
+\[
+ A_0-\log(\|L_a\|^2+|t|)
+ =S_a+(A_0-h_a)-\log(1+\beta_a).
+\]
+
+\begin{lemma}[Raw/local covector comparison]\label{sharp:lem:partII-raw-local-covector}
+$a$-方向が raw depth $A$ だけ両 gates から離れる任意の labelled complete envelope 上で，$A\ge A_*$，全固定 $k$ に対して
+\[
+ \bigl\|R_t\,dq_{a,t}-d\rho_a^{\mathrm{loc}}\bigr\|_{C^k_{\mathrm{ad}}}
+ \le C_k e^{-cA}
+\]
+が成り立つ．定数は ordinary pair，triple，component--pair transition，pair--triple cusp，および二つの oriented source arms の有限全型について一様である．
+\end{lemma}
+
+\begin{proof}
+$\alpha_a=A_0-\log(e^{h_a}|z_a|^2+|t|)$ と置けば $q_{a,t}=R_t^{-1}\log\alpha_a$ である．
+二つの raw gateから $A$-deep であることは
+\[
+ e^A\le\alpha_a\le e^{R_t-A}=L_te^{-A}
+\]
+を意味する．$\beta_a=|t|e^{-h_a}|z_a|^{-2}$ とすると厳密に
+\[
+ \alpha_a=S_a+(A_0-h_a)-\log(1+\beta_a),
+ \qquad
+ \alpha_a=A_0+\frac12L_t-\log(1+\beta_a^{-1})
+\]
+である．第二式と upper-gate boundから
+\[
+ \log(1+\beta_a^{-1})\ge L_t\left(\frac12-e^{-A}\right)-C,
+ \qquad
+ \beta_a\le C\exp\!\left[-L_t\left(\frac12-e^{-A}\right)\right].
+\]
+第一式と lower-gate boundから $S_a\ge c e^A$ を得る．微分すると
+\[
+ R_t\,dq_{a,t}-d\rho_a^{\mathrm{loc}}
+ =d\log\alpha_a-d\log S_a
+ =d\log\!\left(1+\frac{(A_0-h_a)-\log(1+\beta_a)}{S_a}\right).
+\]
+Complete-envelope adapted chartsでは $h_a$ と bounded units の全固定 adapted derivativesが一様有界である．
+ここで $\log\beta_a=-L_t/2-h_a+S_a$ 自体の adapted derivativesは有界とは限らないので，$\beta_a$ を直接微分する．
+任意の固定 adapted differential operator $D^\ell$ に対して
+\[
+ |D^\ell\beta_a|\le C_\ell\beta_a(1+S_a)^\ell
+\]
+である．上の super-exponential boundと第一式から得る $S_a\le C L_te^{-A}$ を合わせれば，
+$|D^\ell\beta_a|\le C_\ell e^{-cL_t}$ である．一方，$S_a^{-1}$ の全固定 adapted derivativesは
+$O(S_a^{-1})=O(e^{-A})$ である．従って Leibniz則と chain ruleを反復すると
+$C^k_{\mathrm{ad}}$ 評価が従う．Source armsでは oriented half-arm conventionにより反対側 capが $L_t/2+O(1)$ に固定されるので，同じ式を central gate collarまで使用できる．
+\end{proof}
+
+\subsection{Flag-star exhaustion}
+非空な $I\subset\{0,\ldots,4\}$，$|I|\le2$ とし，$x_\nu\in\mathcal R_{t_\nu}(I;A_\nu)$，$t_\nu\to0$，$A_\nu\to\infty$ とする．本稿前半の flag-star separation により，$x_\nu$ を中心とする任意の fixed metric ball は，active flag が消える locus と central source cores を最終的に避ける．
+
+\begin{lemma}[maximal active flag]\label{sharp:lem:partII-maximal-active-flag}
+部分列を取れば，$I$ を含む集合 $\widehat I$ を次のように一意に選べる：$a\in\widehat I$ であることは，
+$x_\nu$ における $a$-coordinate の二つの gatesまでの unscaled raw depthsがともに発散することと同値である．
+このとき $|\widehat I|\le2$ である．
+\end{lemma}
+
+\begin{proof}
+五座標について近い gateまでの depthが boundedか divergentかを対角的に固定する．三つの coordinatesが同時に両 gatesから divergentなら，$q_t(X_t)$ の $O(R_t^{-1})$-近接性と $|\supp w|\le3$ により，max-coordinateを担う labelを含めて supportが少なくとも四となり矛盾する．
+\end{proof}
+
+\begin{proposition}[Moving local types の exhaustive classification]\label{sharp:prop:flag-star-model-cover}
+$A_\nu\to\infty$，$x_\nu\in\mathcal R_{t_\nu}(I;A_\nu)$ とする．部分列を取ると，任意の固定 actual radius $R$ を覆う compatible chart chainは次の有限表の一行に属する：
+\[
+\begin{array}{c|c|c|c}
+|\widehat I|&\text{dominant data}&\text{normal form}&\text{residual factor}\\ \hline
+2&i\notin\widehat I&x_ix_jx_k=tU&\text{none}\\
+1&i\ne j&uv=tU&\PP^1\setminus\{3\text{ points}\}\\
+1&i\ne j&uvw=tU&\text{punctured disc cusp; gauge }e^{(k)}_{ij},\ a_k^{(k)}=0\\
+1&i\ne j&t=xu,\ y=uz&x\text{-oriented source disc}\\
+1&i\ne j&t=ya,\ x=az&y\text{-oriented source disc}.
+\end{array}
+\]
+この表は moving basepointの全場合を尽くし，各行の chart chainは active labels，dominant label，および source orientationを保存する．
+\end{proposition}
+
+\begin{proof}
+$|\widehat I|=2$ なら support boundにより外側に一意な dominant label $i$ があり，flag-star separationで fixed ball上一定である．従って triple normal formの第一行となる．
+
+$|\widehat I|=1$，active labelを $j$ とする．非 active labelsの近い gate depthを bounded/divergentに分類する．Dominant labelが active labelと異なり，residual pointが pair-of-pants thick coreに留まれば ordinary pair行である．Residual pointが三つの triple puncturesの一つ $q_{ijk}$ へ divergent rateで入れば pair--triple cusp行となる．この場合 residual cusp depth $B_{k,\nu}\to\infty$ を terminal protectionに用い，固定 tame frameではなく $a_k^{(k)}=0$ の cusp-adapted frame $e^{(k)}_{ij}$ を選ぶ．五つの source puncturesの一つへ入れば，source--triple separationにより triple punctureとは区別され，$x$-または $y$-oriented arm行となる．Active label $j$ 自身は $q_{j,t}\le1-A_\nu/R_{t_\nu}$ を満たす一方，ある dominant labelは $1+O(R_{t_\nu}^{-1})$ を担うので，十分大きい $\nu$ では両者は異なる．従って $i=j$ component-graph case は空であり，分類表には現れない．これ以外の patternは finite-support relationと max-coordinate conditionに反する．
+
+Fixed ballが二つの表の境界を跨ぐ場合は \cref{sharp:prop:complex-exhaustion} の chart chainが両 chartsを含む．Overlap cocycleは \cref{sharp:prop:transition-unit-estimates} により boundedで，labelと orientationを変えない．従って表は単一 chartの分類ではなく，compatible chainの terminal residual typeを分類しており，moving wallを含めて exhaustiveである．
+\end{proof}
+
+\begin{theorem}[$\mathrm{(PBE)}_5$ の下での flag-star compatible bidisc exhaustion]\label{sharp:thm:flag-star-compatible-exhaustion}
+$\mathrm{(PBE)}_5$ を仮定する．
+上の任意の列に対し terminal-type labelled universal covers $(\widetilde U_\nu,\tilde x_\nu)$ を選べ，次を満たす．
+\begin{enumerate}[label=\textup{(F\arabic*)}]
+\item $\widetilde U_\nu$ は $\mathbb D^2$ を compatible marked exhaustionする．
+\item 任意の fixed actual ballは十分大きい $\nu$ で exhaustion domainに含まれる．
+\item Artificial boundariesまでの actual距離と global-model距離はともに発散する．
+\item Active raw covectorsは標準 horospherical covectorsへ $C^k_{\mathrm{ad}}$ 収束する．
+\end{enumerate}
+特に，one-active/two-dominant pair--triple edge $E_{ik;j}^{\circ}$ も terminal cusp gauge $e^{(k)}_{ij}$ により含まれる．
+\end{theorem}
+
+\begin{proof}
+Maximal active flagから $A_\nu^{\mathrm{act}}$ を \eqref{sharp:eq:active-protection-depth} により定義し，\cref{sharp:prop:flag-star-model-cover} の terminal typeを固定する．各 fixed $R$ に対して \cref{sharp:lem:product-box} を適用する．Two-active caseでは二つの unwrapped triple stripsの積，one-active thick/source caseでは active stripと slowly expanding residual factorの積，one-active terminal cusp caseでは active stripと $k$-cusp universal coverの積になる．最後の caseでは $B_{k,\nu}=O(R_{t_\nu})$ が $A_\nu^{\mathrm{act}}$ と同じ orderまたはより大きくてもよく，必要なのは box radiusが $\min(A_\nu^{\mathrm{act}},B_{k,\nu})$ より遅いことだけである．Cusp-adapted order $a_k=0$ により frame shearは residual depthに依存しない．
+
+Product-box marginsから actual/model boundary escapeを得る．Residual line-bundle cocycleは terminal-type gaugeにより labelled universal cover上で一価化され，nested factor domainsを与える．Factorwise uniformizationは actual ballsを含む genuine compatible bidisc exhaustionを与える．Transition-unit estimates，\cref{sharp:lem:slow-box-frame-shear}，raw/local covector comparisonから active markingsの $C^k_{\mathrm{ad}}$ 収束が従う．
+\end{proof}
+
+\begin{theorem}[$\mathrm{(PBE)}_5$ の下での flag-star marked product rigidity]\label{sharp:thm:partII-flag-star-product}
+$\mathrm{(PBE)}_5$ を仮定する．
+上の任意の列に対し，有限個の labels の一つを固定して部分列を取れば，labelled universal covers 上で
+\[
+ (X_{t_\nu},x_\nu,g_{t_\nu},J_{t_\nu})
  \longrightarrow
- \left(\cC_5,\diam(\cC_5,d_\square)^{-1}d_\square\right)
+ (\mathbb D^2,0,h_{\mathrm P}\oplus h_{\mathrm P},J_{\mathrm{prod}})
 \]
-がGromov--Hausdorff位相で成立する。
-\end{conjecture}
-これを示すには、neck/cornerの全overlap上で
-KE metricのuniform comparison、nonlinear parametrix、
-relative shiftsとfiltered root-1 scale tracesの
-$\max_e|\tau_{e,t}|=o(R_t)$制御が必要である。
-Reference softmax cornerのexact translation symmetryは、
-actual corner Calderón operatorについての定理ではない。
-\section{先行研究との関係}
-Y.~Zhangによるnegative KE metricのtoroidal degenerationでの
-pointed GH collapse（arXiv:1505.04728）は局所的な重要入力である。
-J.~Songによるnegative KE degenerationのunrescaled pointed極限
-（arXiv:1706.01518）も、ここで問うdiameter正規化の大域計量とは異なる。
-関連する主張の正確な適用条件と本研究の新規部分は一次資料でさらに照合する。
+が pointed $C^\infty$ で成り立つ．さらに $i\in I$ に対して
+\[
+ R_{t_\nu}dq_{i,t_\nu}\longrightarrow d\rho_i^{\mathrm{mod}}
+\]
+が全固定階で成り立つ．極限は部分列の選択に依存しない．
+\end{theorem}
+
+\begin{proof}
+\Cref{sharp:thm:flag-star-compatible-exhaustion} と 本稿前半の complete-envelope bounded geometryにより pointed compactnessを得る．Terminal pair--triple cuspでは cusp-adapted gaugeを用いるため，fast residual depthでも一つの bounded-ratio product modelが fixed pointed boxes上で得られる．Artificial boundariesが actual/modelの双方で逃げるため，極限は全 bidisc上の complete negative K\"ahler--Einstein metricであり，product Poincar\'e metricと一様双 Lipschitz同値である．\Cref{sharp:thm:complete-product-rigidity} により極限は product metricに等しい．Raw covector convergenceは \cref{sharp:lem:partII-raw-local-covector,sharp:prop:transition-unit-estimates} から従う．極限の一意性により元の列全体が収束する．
+\end{proof}
+
+\subsection{有限深さ co-Gram modulus}
+\begin{definition}\label{sharp:def:partII-raw-modulus}
+Admissible flags $I$（$1\le|I|\le2$）について
+\[
+ \mathfrak m_t(A):=
+ \max_I\sup_{x\in\mathcal R_t(I;A)}
+ \left\|
+ R_t^2\bigl(\langle dq_{i,t},dq_{j,t}\rangle_{g_t^{-1}}\bigr)_{i,j\in I}
+ -I_I
+ \right\|_{\mathrm{op}}
+\]
+と置く．空集合上の上限は $0$ とする．
+\end{definition}
+
+\begin{theorem}[$\mathrm{(PBE)}_5$ の下での raw co-Gram coefficient-one theorem]\label{sharp:thm:partII-raw-cogram}
+$\mathrm{(PBE)}_5$ を仮定する．
+\[
+ \boxed{\displaystyle
+ \lim_{A\to\infty}\limsup_{t\to0}\mathfrak m_t(A)=0.}
+\]
+特に各正次元 open cell の horizontal coefficient は厳密に $1$ へ収束し，maximal square の二つの cubical directions は漸近直交する．この主張は moving walls，pair--triple cusps，および二つの source-arm orientations を含む．
+\end{theorem}
+
+\begin{proof}
+結論が偽なら，ある $\varepsilon>0$ と $A_\nu\to\infty$，$t_\nu\to0$，admissible flags $I_\nu$，点 $x_\nu\in\mathcal R_{t_\nu}(I_\nu;A_\nu)$ があり，co-Gram discrepancy が $\varepsilon$ 以上である．Finite type により $I_\nu=I$ と labels を固定できる．定理~\ref{sharp:thm:partII-flag-star-product} と raw covector convergence により，co-Gram matrix は product Poincaré metric の標準 horospherical co-Gram $I_I$ へ収束し，矛盾する．
+\end{proof}
+
+\begin{corollary}[一様 modulus の抽出]\label{sharp:cor:partII-uniform-modulus}
+非増加関数 $\mu:[A_*,\infty)\to(0,\infty)$ と閾値 $t_A>0$ を選んで
+\[
+ \mu(A)\longrightarrow0,
+ \qquad
+ \mathfrak m_t(A)\le\mu(A)\quad(0<|t|\le t_A)
+\]
+とできる．
+\end{corollary}
+
+\begin{proof}
+$M(A)=\limsup_{t\to0}\mathfrak m_t(A)$ と置き，$\mu(A)=\sup_{B\ge A}M(B)+A^{-1}$ を取る．
+\Cref{sharp:thm:partII-raw-cogram} により $\mu(A)\to0$．Limsupの定義から各 $A$ に対する閾値 $t_A$ を取れる．
+\end{proof}
+
+\begin{remark}[第V篇への唯一の sharp analytic input]\label{sharp:rem:partII-only-sharp-input}
+第V篇の大域 metric argument が本稿から用いるのは，$\mathrm{(PBE)}_5$ の下での定理~\ref{sharp:thm:partII-raw-cogram} と，その証明で確立した raw chamber の submersion 非退化性だけである．相対 five-source block，三 outlet の同時 framing，複素周期整合は first logarithmic scale の証明には不要である．
+\end{remark}
+
+
+\section{Open-cell一様化と係数1}\label{sharp:sec:actual-localization}
+
+\subsection{Sequential uniquenessから uniform convergenceへ}
+
+\begin{theorem}[$\mathrm{(PBE)}_5$ の下での uniform marked convergence]\label{sharp:thm:uniform-marked}
+$\mathrm{(PBE)}_5$ を仮定する．
+$Q$ を正次元 open cell，$K\Subset Q^\circ$ とする．任意の固定 adapted radius $R$ と $k$ に対し，
+$X_t(K)$ の全 basepointsで取った marked universal-cover balls上で
+\begin{equation}\label{sharp:eq:uniform-product-convergence}
+ \omega_t\longrightarrow h_{\mathrm{prod}}
+\end{equation}
+が一様 $C^k$ で成り立つ．
+\end{theorem}
+
+\begin{proof}
+一様性が破れると仮定すれば，$t_\nu\to0$ と $x_\nu\in X_{t_\nu}(K)$ を選び，固定 ball上の discrepancyを正定数以上にできる．
+しかし $(x_\nu)$ は $Q$-deepであり，\cref{sharp:thm:partII-flag-star-product} が product convergenceを与えるので矛盾する．
+Cell typesは有限であるから marking choicesも一様に取れる．
+\end{proof}
+
+\subsection{Horizontal raw co-Gram}
+
+\begin{proof}[Open-cell compacta における一様係数1の帰結]
+Open cell compactum $K$ 上では active labels は一定であり，各 $q_{i_a,t}$ は両 gates から unscaled depth $\to\infty$ だけ離れる．
+\Cref{sharp:thm:partII-raw-cogram} を $A=A(K,t)\to\infty$ に適用すると
+open-cell compactum 上の一様 co-Gram 収束を得る．Local marked coordinatesでは
+$R_t\,dq_{i_a,t}$ は標準 horospherical covector $d\rho_a$ へ収束するので，product Poincar\'e metricに関して
+$\langle d\rho_a,d\rho_b\rangle=\delta_{ab}$ である．
+Residual compact directionsと angular directionsの $R_t$-scaled collapseは 本稿前半 complete-envelope packageと annulus formulaから従う．
+\end{proof}
+
+\subsection{二つの cusp markingsの整合}
+
+\begin{proposition}[triple marking audit]\label{sharp:prop:triple-marking-audit}
+Triple $\{i,j,k\}$ の distinguished-$i$ maximal squareを，$i\mid j$ markingと $i\mid k$ markingで見る．
+前者の active variablesは $(x_j,x_k)$，後者は $(x_k,x_j)$ である．Unit absorptionと local algebraic coordinate changesは
+raw depthsに $O(1)$ の加法誤差しか与えない．従って normalized affine coordinatesの差は $O(R_t^{-1})$ であり，
+両 markingsは同じ Euclidean form $\dd w_j^2+\dd w_k^2$ を与える．
+\end{proposition}
+
+\begin{proof}
+\Cref{sharp:lem:local-oriented-forms}(i) で non-dominant normal coordinateはそれぞれ $x_j$，$x_k$ そのものであり，unitは dominant variableへ吸収される．
+Algebraic cusp coordinatesの変更は $x'_a=c_ax_a(1+O(x_j,x_k))$ の形であるから
+$-\log|x'_a|=-\log|x_a|+O(1)$ である．さらに logarithmを取り $R_t$ で割れば差は $O(R_t^{-1})$ である．
+二 markingsは順序を交換するだけなので Euclidean formは一致する．
+\end{proof}
+
+\subsection{Slow exhaustionと seamに関する正確な主張}
+
+\begin{proof}[Slow open-cell exhaustion の構成]
+Open cellsは有限個である．各 $Q$ に compact exhaustion $K_{Q,n}\Subset Q^\circ$ を取る．
+固定 $n,k$ について \cref{sharp:thm:partII-raw-cogram} の誤差は $t\to0$ で零へ行く．Finite diagonalにより
+$n(t)\to\infty$ を，全 $k\le n(t)$ と全 cellsについて誤差が零へ行くよう十分遅く選ぶ．
+Polyhedral collarの widthは $n(t)\to\infty$ により零へ行く．Source diameterは \cref{coarse:cor:source-diameter} による．
+\end{proof}
+
+\begin{remark}[sublinear collarと no-shortcutの区別]\label{sharp:rem:no-shortcut-warning}
+Targetで幅 $\delta_t\to0$ の collarは，標準 finite galleryを持ち上げる際には $O(\delta_tR_t)+O(1)=o(R_t)$ の追加費用で横断できる．
+これは upper-distance recoveryには十分である．しかし collar内部を接線方向に走る任意の source pathの長さを下から制御しない．
+従って本稿は seam collarの intrinsic diameterが $o(R_t)$ であるとは主張せず，大域下界を第V篇へ送る．
+\end{remark}
+
+\section{結論と第V篇への入力}\label{sharp:sec:transfer-partIII}
+
+本稿は五部作の第I--III篇で構成された hyperplane-arrangement complement の complete local geometryを，退化族の normal neck と residual curveへ接続した．五次の場合には coarse raw geometry，intrinsic complete windows，capped determinant，source-core diameterを無条件に得た．固定 $d\ge5$ についても，候補複体 $\mathcal C_d$，$d\binom d2$ 個の sources，$(d-2)$-punctured residual curves，degree-$2$ relative sections，および terminal-cusp order-zero gaugesは同じ証明で得られる．一方，moving chart chainsを一つの product exhaustionへ統合する段階は $\mathrm{(PBE)}_d$ として分離した．
+
+第V篇へ渡す sharp analytic input は，$\mathrm{(PBE)}_5$ の下での\cref{sharp:thm:partII-raw-cogram}，一般次数では $\mathrm{(PBE)}_d$ の下での\cref{thm:degree-d-cogram}である．
+有限深さ $A$ において
+\[
+ \mathfrak m_t(A)=
+ \max_I\sup_{x\in\mathcal R_t(I;A)}
+ \left\|
+ R_t^2\bigl(\langle dq_{i,t},dq_{j,t}\rangle_{g_t^{-1}}\bigr)_{i,j\in I}-I_I
+ \right\|_{\mathrm{op}}
+\]
+と置けば，$\mathrm{(PBE)}_5$ の下で
+\[
+ \lim_{A\to\infty}\limsup_{t\to0}\mathfrak m_t(A)=0.
+\]
+第V篇は smooth functions $q_{i,t}$ を座標ごとに clipping し，その differential に上式を適用する．
+したがって $d\Phi_t^{\mathrm{alg}}$，$d\Pi$，あるいは open-cell distance function
+$d_K(\Phi_t^{\mathrm{alg}},b)$ の微分は用いない．この点は Lipschitz retraction の regularity と sharp metric argumentを分離するために不可欠である．
+
+\begin{equation}\label{sharp:eq:diptych-dependency}
+\begin{gathered}
+\text{本稿前半: smooth raw map, complete envelopes, coarse geometry}\\
+{}+\ \mathrm{(PBE)}_5\\
+{}+\ \text{本稿後半: moving flag-star product rigidity and raw coefficient one}\\
+{}+\ \text{第V篇: raw pruning, scalar no-shortcut, protected horizontal recovery}\\[1mm]
+\Longrightarrow
+(X_t,R_t^{-2}g_t)\xrightarrow{\GH}(\cC_5,d_\square).
+\end{gathered}
+\end{equation}
+
+
+本稿で無条件に得た大域的粗幾何は\cref{coarse:thm:main}，$\mathrm{(PBE)}_5$ の下で得る鋭い局所解析は\cref{sharp:thm:partII-raw-cogram}に集約される．すなわち，第V篇が用いるのは
+\[
+ \operatorname{dist}(q_t(X_t),\Cfive)=O(R_t^{-1}),\qquad
+ d_H(\Phi_t^{\mathrm{alg}}(X_t),\Cfive)=O(R_t^{-1}),
+\]
+source cores の $O(1)$-直径，有限 connector library，および
+\[
+ \lim_{A\to\infty}\limsup_{t\to0}\mathfrak m_t(A)=0
+\]
+である．Relative five-source block，complex period matching，三つの outlets に共通する global flat frame，actual/relative anchoring はこの入力に含まれない．第V篇では smooth raw coordinates を直接剪定し，全 target distance functions による scalar calibration と maximal-square 上の canonical minimal-horizontal transport を組み合わせる．一般 $d$ についても同じ有限複体論が適用できるが，直径の閉形式は別の有限組合せ問題として残る．高次元 $N\ge4$ では pure normal-crossing determinantまでは本稿で確定した一方，mixed source--higher-stratum models と residual arrangement complements の解析が必要であり，\cref{conj:high-dimensional-cubical-limit}を第I--III篇と退化二部作を結ぶ次の課題とする．
+
+\appendix
+\section{六型 Hermitian matrix certificate}\label{coarse:app:model-table}
+
+本付録では \cref{coarse:thm:global-determinant} の principal matricesを同一の記号で一覧化する．各 chartで $b\ge b_0>0$ は fixed residual background coefficient，$\mu_a$ は \eqref{coarse:eq:mu-cap}，$T$ は operator normと逆行列の operator normが一様に有界な coframe changeを表す．$T^*HT$ の determinantは $H$ の determinantと一様比較可能なので，以下の matricesだけを監査すればよい．
+
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{@{}p{0.16\textwidth}p{0.24\textwidth}X@{}}
+\toprule
+型 & adapted coframe & 正の principal matrix \\
+\midrule
+Component
+ & $(dw_1,dw_2)$
+ & $H\ge bI_2$．ここで $L_t^2\prod\alpha_a^{-2}\asymp1$．\\[1mm]
+Ordinary pair
+ & $(d\log u,d\zeta)$
+ & $H\ge T^*\begin{psmallmatrix}\mu_u+\mu_v&0\\0&b\end{psmallmatrix}T$，
+ $\det H\ge cb(\mu_u+\mu_v)$．\\[1mm]
+Triple
+ & $(d\log x_1,d\log x_2)$
+ & $H\ge T^*MT$，
+ $M=\begin{psmallmatrix}\mu_1+\mu_3&\mu_3\\\mu_3&\mu_2+\mu_3\end{psmallmatrix}$，
+ $\det M=\sum_{a<b}\mu_a\mu_b$．\\[1mm]
+Central source
+ & $(dX,dY)$
+ & $H\ge
+ \begin{psmallmatrix}c_X+|Y|^2+\epsilon_t&X\bar Y\\\bar X Y&c_Y+|X|^2+\epsilon_t\end{psmallmatrix}+O(\epsilon_t^{1/2})$．\\[1mm]
+$x$-arm
+ & $(d\log x,dz)$
+ & $H\ge T^*\begin{psmallmatrix}\mu_x&0\\0&b\end{psmallmatrix}T$，
+ $\alpha_y=L_t/2+O(1)$．\\[1mm]
+$y$-arm
+ & $(d\log y,dz)$
+ & $x,y$ を交換した同じ matrix．\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Central source matrixの determinantは
+\begin{align*}
+ &(c_X+|Y|^2+\epsilon_t)(c_Y+|X|^2+\epsilon_t)-|X|^2|Y|^2+O(\epsilon_t^{1/2}L_t^{-1})\\
+ &\qquad =c_Xc_Y+c_X|X|^2+c_Y|Y|^2
+   +\epsilon_t(c_X+c_Y+|X|^2+|Y|^2)+\epsilon_t^2
+   +O(\epsilon_t^{1/2}L_t^{-1}).
+\end{align*}
+Fixed rescaling domainを少し縮め，$t$ を十分小さく取れば誤差は正の主項の半分以下である．$X=Y=0$ では $c_Xc_Y\asymp L_t^{-2}$ が支配し，中心から離れると $c_X|X|^2+c_Y|Y|^2$ が支配する．これにより中心と armsの間に determinant gapは生じない．
+
+\section{Closed-cell realization の境界 regimes}\label{coarse:app:closed-cell-regimes}
+
+\Cref{coarse:eq:closed-cell-soft-radii} の一様性を明示する．$Q_{i;jk}$ 上で $w_i=1$ とし，
+\[
+ D=e^{R_t}+e^{R_tw_j}+e^{R_tw_k}.
+\]
+各 $a\in\{i,j,k\}$ について次の三 regimesがある．
+\begin{enumerate}[label=\textup{(B\arabic*)}]
+\item $w_a=0$：$e^{R_tw_a}/D=O(L_t^{-1})$ なので $\ell_a=S_0+O(1)$，$R_t^{-1}\log\ell_a=O(R_t^{-1})$．
+\item $0<w_a<1$：$D=e^{R_t}c(w)$，$1\le c(w)\le3$ なので
+$\ell_a=e^{R_tw_a+O(1)}+S_0$．この評価は $w_a\downarrow0$，$w_a\uparrow1$ と整合する．
+\item $w_a=1$：$\ell_a=c_a(w)L_t+O(1)$，$1/3\le c_a(w)\le1$．従って
+$R_t^{-1}\log\ell_a=1+O(R_t^{-1})$．
+\end{enumerate}
+この場合分けは $w_t$ が wallへ $R_t^{-1/2}$，$1/\log R_t$，または任意の中間速度で近づく場合を含む．従って closed-cell theoremは fixed compact exhaustionを必要としない．
+
+\section{規格化の監査}\label{sharp:app:normalization}
+
+\subsection{Ricci formと積 metric}
+
+Kähler metricを $\omega=\sqrt{-1}g_{a\bar b}\dd z^a\wedge\dd\bar z^b$ と書き
+\[
+ \Ric(\omega)=-\sqrt{-1}\partial\bar\partial\log\det(g_{a\bar b})
+\]
+とする．Complex dimension一で Gaussian curvatureが $-1$ なら $\Ric(\omega)=-\omega$ である．
+二つの曲線の積では determinantが積になるため，二因子とも曲率 $-1$ なら積 metricも $\Ric=-\omega$ を満たす．
+
+\subsection{\texorpdfstring{$L_t$}{Lt} と annulus modulus}
+
+$L_t:=-\log|t|^2=2(-\log|t|)$ であり，固定 cutoff $\eps$ に対し
+\[
+ m_t=-\log|t|+2\log\eps=\frac12L_t+O(1),\qquad
+ \log m_t=R_t-\log2+o(1).
+\]
+従って annulus endpointから central coreまでの leading distanceは $R_t$ で，係数は1である．
+
+\section{Frame degreeの補足}\label{sharp:app:frame-degree}
+
+\begin{lemma}[ordersと logarithmic shear]\label{sharp:lem:orders-shear}
+Tame frame $e$ と algebraic cusp frame $e_k$ の比を $e=z_k^{a_k}u_ke_k$ とする．
+$u_k$ が punctured diskで上下有界な unitなら，$v=\xi e=\xi_k e_k$ に対し
+\[
+ -\log|\xi|=-\log|\xi_k|-a_k(-\log|z_k|)+O(1).
+\]
+従って $a_k\ne0$ の outletでは global flat-frame annulus depthは algebraic square coordinatesに integral shearを持つ．
+\end{lemma}
+
+\begin{proof}
+$\xi_k=z_k^{a_k}u_k\xi$ を絶対値の logarithmへ代入する．
+\end{proof}
+
+\section{Slow diagonal}\label{sharp:app:diagonal}
+
+\begin{lemma}[Fréchet slow diagonal]\label{sharp:lem:slow-diagonal}
+有限個の open cells $Q$ と compact exhaustions $K_{Q,n}\Subset Q^\circ$ があり，固定 $n,k$ ごとの誤差
+$\eps_{Q,n,k}(t)\to0$ が与えられているとする．このとき $n(t)\to\infty$ を選び，
+全 $Q$ と $k\le n(t)$ について $\eps_{Q,n(t),k}(t)\to0$ とできる．
+\end{lemma}
+
+\begin{proof}
+$n$ ごとに有限個の誤差の最大が $n^{-1}$ 以下となる閾値 $t_n$ を取り，$t_{n+1}<t_n$ とする．
+$t_{n+1}\le|t|<t_n$ で $n(t)=n$ と置けばよい．
+\end{proof}
+
+\section{Compatible chart-chain certificate}\label{sharp:app:chart-chain-certificate}
+
+本付録では \cref{sharp:prop:complex-exhaustion,sharp:thm:flag-star-compatible-exhaustion} で用いた chart-chain の有限性，transition cocycle，および artificial boundary escapeを一覧化する．
+
+\begin{lemma}[Fixed-ball chart count]\label{sharp:lem:fixed-ball-chart-count}
+任意の固定 $R>0$ に対し整数 $N(R)$ が存在する．Flag-star separationを満たす任意の moving basepoint $x_t$ について，
+$B_{g_t}(x_t,R)$ は高々 $N(R)$ 個の 本稿前半 inner envelope balls $B_{g_t}(x_{t,\nu},\rho)$ で覆われる．各 ballは enlarged envelope内に fixed marginを持ち，overlap nerveは connectedに選べる．
+\end{lemma}
+
+\begin{proof}
+絶対的 non-collapsing は用いない．$0<r<\rho/8$ を固定し，$B_{g_t}(x_t,R+1)$ に maximal disjoint $r$-net $\{y_\alpha\}$ を取る．$y_\alpha\in B(x_t,R+1)$ なので
+\[
+ B(x_t,R+1)\subset B(y_\alpha,2R+3).
+\]
+実次元 $4$ で $\Ric(g_t)=-g_t$ であるから，相対 Bishop--Gromov comparisonにより，$R,r$ のみに依存する $c(R,r)>0$ が存在して
+\[
+ \vol B(y_\alpha,r)
+ \ge c(R,r)\,\vol B(y_\alpha,2R+3)
+ \ge c(R,r)\,\vol B(x_t,R+1).
+\]
+一方，disjoint balls $B(y_\alpha,r)$ は $B(x_t,R+1+r)$ に含まれ，再び相対 Bishop--Gromov comparisonを中心 $x_t$ に適用すると
+\[
+ \vol B(x_t,R+1+r)
+ \le C(R,r)\,\vol B(x_t,R+1).
+\]
+従って netの個数は $C(R,r)/c(R,r)$ 以下である．Maximalityにより $2r$-ballsが $B(x_t,R+1)$ を覆う．$2r$ を 本稿前半 inner-envelope radius以下に選び，各中心で inner envelopeを取る．Ball $B(x_t,R)$ と交わる nerve componentだけを残せば connected coverを得る．Collapseする quotient ballsの絶対 volume lower boundは一切仮定していない．
+\end{proof}
+
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{@{}p{0.19\textwidth}p{0.27\textwidth}X@{}}
+\toprule
+transition & local equations & active marking と cocycle \\
+\midrule
+Component--pair
+ & $z_i=t f(w)$，$uv=tU$
+ & $u'=a(w)u$；$a$ は bounded unit．Active $d\rho_u$ は \eqref{sharp:eq:transition-rho} の誤差で保存．\\[1mm]
+Pair thick--triple cusp
+ & $uv=tU(\zeta)$，$\zeta=z_k$
+ & Residual Poincar\'e coordinate $z_k$ を第二 factorへ昇格．Normal coordinateは $u'=a(\zeta)u$．\\[1mm]
+Pair thick--source arm
+ & $uv=t\zeta U$，$t=xu_0$，$y=u_0z$
+ & $x$-armでは $v=x$ を active normalとして固定；反対 orientationでは $u=y$．Balanced coreを跨がない．\\[1mm]
+Triple--triple
+ & $x_ix_jx_k=tU$
+ & Independent pair $(x_j,x_k)$ の変更は bounded triangular unit matrix；dominant variableへ $U$ を吸収．\\[1mm]
+Source $x$--$y$ gate
+ & $xy=tz$
+ & 両 chartsは gate overlap上で存在するが，orientationは一つの chain内で固定．Orientation交換は central coreを介するため flag-star chainには現れない．\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{lemma}[Cocycle normalization：存在部分]\label{sharp:lem:cocycle-normalization}
+Connected chart chainの overlap graphから spanning treeを選ぶ．Active transition units $u_{\lambda\mu}$ に対し，tree edges上で holomorphic logarithmsを再帰的に選べる．Tree外 edgesの積は labelled annulusまたは residual curveの monodromyを表し，chainの universal coverへ引き上げると零になる．従って universal cover上で active normal lineは一つの nowhere-zero holomorphic frameを持つ．
+
+この補題は global frameの\emph{存在}だけを述べ，その adapted derivativesを chart-chain長に独立に制御するものではない．本稿では one-active thick/source caseの固定 tame frame，terminal cusp $k$ の cusp-adapted frame $e^{(k)}_{ij}$，および two-active caseの固定 triple markingを global gaugeとして選ぶ．定量制御は \cref{sharp:lem:slow-box-frame-shear} から得る．
+\end{lemma}
+
+\begin{proof}
+Tree上には cocycle conditionを課す loopがないため，root chartの frameから再帰的に framesを定める．非 tree edgeで生じる比は nowhere-zero holomorphic functionであり，loopの multiplicative holonomyを表す．Universal coverでは loopが消え，その logarithmを一価に選べる．Residual baseの universal coverは simply connected open Riemann surfaceであり，指数完全列と Cartan Bから Picard groupも零である．ただし，この議論だけでは積み重なった gaugeの derivative estimateは与えない．また fixed tame gaugeは fast terminal cuspで退化し得るため，terminal typeに応じた有限 gauge familyと \cref{sharp:lem:slow-box-frame-shear} を別に用いる．
+\end{proof}
+
+\begin{lemma}[Artificial-boundary escape：ambient と intrinsic の区別]\label{sharp:lem:artificial-boundary-escape}
+$A_t\to\infty$ の flag-star sequenceと固定 $R$ に対し，compatible chart chainから finite product boxes
+\[
+ U^-_{t,R}\Subset U^0_{t,R}\Subset U^+_{t,R}
+\]
+を選べる．$h_t^{\mathrm{glob}}$ を global factor coordinatesの ambient product metric，$h_{t,R}^{\mathrm{box}}$ を $U^+_{t,R}$ 自身の intrinsic complete product metricとすると
+\begin{equation}\label{sharp:eq:two-sided-boundary-escape}
+ d_{g_t}(U^-_{t,R},\partial U^+_{t,R})\ge R,
+ \qquad
+ d_{h_t^{\mathrm{glob}}}(U^-_{t,R},\partial U^+_{t,R})\ge R
+\end{equation}
+が成り立つ．一方 $d_{h_{t,R}^{\mathrm{box}}}(U^-_{t,R},\partial U^+_{t,R})=\infty$ であり，これは finite factor自身の completenessを表す．
+\end{lemma}
+
+\begin{proof}
+\Cref{sharp:lem:fixed-ball-chart-count} の coverを $B(x_t,3R+10)$ まで構成し，global factor projectionsへ $d^{\mathrm{glob}}$-margin $\Lambda_{t,R}$ を加える．\Cref{sharp:lem:slow-box-frame-shear,sharp:cor:three-metric-comparison} により protected region上で $g_t$ と $h_t^{\mathrm{glob}}$ は一つの定数で比較される．従って $\Lambda_{t,R}$ を固定倍だけ大きく取れば \eqref{sharp:eq:two-sided-boundary-escape} を得る．Componentから出る pathは，thick/source または triple typeでは flag-loss locusか central source coreを横切り，terminal cusp typeではさらに同じ cusp-starの境界を横切る．前二者には 本稿前半 separation による $cA_t^{\mathrm{act}}-C$，後者には residual cusp depth $B_{k,t}-C$ の下界がある．Finite factor自身の intrinsic Poincar\'e metricは topological boundaryで発散するので最後の等式が従う．
+\end{proof}
+
+\section{Adapted derivative transition audit}\label{sharp:app:adapted-transition-audit}
+
+Source arm $t=xu$，$y=uz$ では，$x$-oriented chartの adapted fieldsを
+\[
+ E_\rho=\partial_{\rho_x},\quad
+ E_\theta=e^{\rho_x}\partial_{\theta_x},\quad
+ E_z=(1-|z|^2)\partial_z
+\]
+と取る．Transition unit $a(x,z,t)$ に対して Cauchy estimatesは
+\[
+ |E_{a_1}\cdots E_{a_k}\log a|\le C_k
+\]
+を与える．Pair--triple cuspでは residual coordinate $\zeta=e^{-S+i\phi}$ に
+$E_{\rho_\zeta}=\partial_{\log S}$，$E_\phi=S\partial_\phi$ を加える．Normal change
+$u'=a(\zeta)u$ であり，正確に
+\begin{equation}\label{sharp:eq:appendix-rho-transition}
+ d\rho_{u'}-d\rho_u
+ =d\log\left(1-\frac{\log|a|^2}{S_u}\right)
+\end{equation}
+となる．
+右辺の任意の fixed adapted derivativeは $C_ke^{-A}$ 以下である．この calculation は本文の \cref{sharp:prop:transition-unit-estimates} に用いた全 transitionを覆う．
+
+
+\begin{thebibliography}{99}
+
+\bibitem{Aubin}
+T.~Aubin,
+\newblock \emph{\'Equations du type Monge--Amp\`ere sur les vari\'et\'es k\"ahleriennes compactes},
+\newblock Bull. Sci. Math. \textbf{102} (1978), 63--95.
+
+\bibitem{BBI}
+D.~Burago, Y.~Burago and S.~Ivanov,
+\newblock \emph{A Course in Metric Geometry},
+\newblock Graduate Studies in Mathematics 33, AMS, 2001.
+
+\bibitem{ChengYau}
+S.-Y.~Cheng and S.-T.~Yau,
+\newblock On the existence of a complete K\"ahler metric on noncompact complex manifolds and the regularity of Fefferman's equation,
+\newblock Comm. Pure Appl. Math. \textbf{33} (1980), 507--544.
+
+\bibitem{DGG}
+E.~Di Nezza, V.~Guedj and H.~Guenancia,
+\newblock Families of singular K\"ahler--Einstein metrics,
+\newblock J. Eur. Math. Soc. \textbf{25} (2023), 2697--2762.
+
+\bibitem{DatarFuSong}
+V.~Datar, X.~Fu and J.~Song,
+\newblock K\"ahler--Einstein metrics near an isolated log-canonical singularity,
+\newblock J. Reine Angew. Math. \textbf{797} (2023), 79--116.
+
+\bibitem{Forster}
+O.~Forster,
+\newblock \emph{Lectures on Riemann Surfaces},
+\newblock Graduate Texts in Mathematics 81, Springer, 1981.
+
+\bibitem{FuHeinJiang}
+X.~Fu, H.-J.~Hein and X.~Jiang,
+\newblock A continuous cusp closing process for negative K\"ahler--Einstein metrics,
+\newblock Geom. Funct. Anal. \textbf{35} (2025), 542--632.
+
+\bibitem{Guenancia}
+H.~Guenancia,
+\newblock Kähler--Einstein metrics with mixed Poincaré and cone singularities along a normal crossing divisor,
+\newblock \emph{Ann. Inst. Fourier (Grenoble)} \textbf{64} (2014), 1291--1330.
+
+\bibitem{Kobayashi}
+R.~Kobayashi,
+\newblock Kähler--Einstein metric on an open algebraic manifold,
+\newblock \emph{Osaka J. Math.} \textbf{21} (1984), 399--418.
+
+\bibitem{Mandel}
+H.~Mandel,
+\newblock Degenerations of negative K\"ahler--Einstein surfaces,
+\newblock J. London Math. Soc. \textbf{109} (2024), e12818.
+
+\bibitem{RochonZhang}
+F.~Rochon and Z.~Zhang,
+\newblock Asymptotics of complete Kähler metrics of finite volume on quasiprojective manifolds,
+\newblock \emph{Adv. Math.} \textbf{231} (2012), 2892--2952.
+
+\bibitem{Royden}
+H.~L.~Royden,
+\newblock The Ahlfors--Schwarz lemma in several complex variables,
+\newblock Comment. Math. Helv. \textbf{55} (1980), 547--558.
+
+\bibitem{RuanI}
+W.-D.~Ruan,
+\newblock Degeneration of K\"ahler--Einstein manifolds I: the normal crossing case,
+\newblock Commun. Contemp. Math. \textbf{6} (2004), 301--313.
+
+\bibitem{RuanII}
+W.-D.~Ruan,
+\newblock Degeneration of K\"ahler--Einstein manifolds II: the toroidal case,
+\newblock Comm. Anal. Geom. \textbf{14} (2006), 1--24.
+
+\bibitem{SongSturmWang}
+J.~Song, J.~Sturm and X.~Wang,
+\newblock Riemannian geometry of K\"ahler--Einstein currents III: compactness of K\"ahler--Einstein manifolds of negative scalar curvature,
+\newblock arXiv:2003.04709.
+
+\bibitem{Yau}
+S.-T.~Yau,
+\newblock On the Ricci curvature of a compact K\"ahler manifold and the complex Monge--Amp\`ere equation I,
+\newblock Comm. Pure Appl. Math. \textbf{31} (1978), 339--411.
+
+\end{thebibliography}
+
 \end{document}

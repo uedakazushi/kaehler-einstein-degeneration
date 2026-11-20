@@ -1,0 +1,159 @@
+{
+  "bundle": "Multiscale_KE_Geometry_I-V_ja_v1_source_and_pdfs.zip",
+  "library_url": "https://chatgpt.com/space/file/libfile_6f1952b368608191ae2f93dda8b76f0d",
+  "bundle_sha256": "506bfcc1342bebf18d29f5e8d440e499a3123347db9c09ef19453dcbced3e0b0",
+  "files": [
+    {
+      "source": "04_hyperplane_degenerations_local_ja.tex",
+      "destination": "papers/kaehler-einstein-degeneration.tex",
+      "sha256": "cc0343cf295d26321d9c19e979c0181db34bd93de25673967c649b31cf13be3b",
+      "bytes": 200804
+    },
+    {
+      "source": "05_hyperplane_degenerations_global_ja.tex",
+      "destination": "papers/cubical-gh-limit.tex",
+      "sha256": "fb14a1c2e4a7ee0f699a56c98e23ebe96ef4b1abac12a01d8f379c1ea25b4d4e",
+      "bytes": 99955
+    },
+    {
+      "source": "supplementary/intrinsic_complete_window_audit_definitive_v1.py",
+      "destination": "scripts/intrinsic_complete_window_audit_definitive_v1.py",
+      "sha256": "4499d910b07982f11fc03017b5a09cbf4680d591a528e618825f815e96105550",
+      "bytes": 2660
+    },
+    {
+      "source": "supplementary/slow_box_frame_shear_audit_definitive_v1.py",
+      "destination": "scripts/slow_box_frame_shear_audit_definitive_v1.py",
+      "sha256": "607caa30e6ccb8deef235863effa34856e629d246e0f5cb5c991283f3463b2ec",
+      "bytes": 3350
+    },
+    {
+      "source": "supplementary/relative_bishop_gromov_packing_audit_definitive_v1.py",
+      "destination": "scripts/relative_bishop_gromov_packing_audit_definitive_v1.py",
+      "sha256": "e58e3ffd433829c05a7534e396fc95cfdbc872df2a5b15d470867cd36ca1a6d3",
+      "bytes": 1479
+    },
+    {
+      "source": "supplementary/cubical_diameter_exact_gallery_certificate_definitive_v1.py",
+      "destination": "scripts/cubical_diameter_exact_gallery_certificate_definitive_v1.py",
+      "sha256": "b44fe4feedd8be20939027a27892fb56c92f849b5cd9e41d6c79ebb6b669946e",
+      "bytes": 12631
+    },
+    {
+      "source": "supplementary/terminal_cusp_adapted_gauge_audit_definitive_v1.py",
+      "destination": "scripts/terminal_cusp_adapted_gauge_audit_definitive_v1.py",
+      "sha256": "02faecb64877ddacdc0f78c7561b838cfdbd6c235fd4e5784dff64e0c4b58d49",
+      "bytes": 2095
+    }
+  ],
+  "additional_sources": [
+    {
+      "source": "quintic_five_planes_KE_GH_paper_draft_ja_v12.tex",
+      "library_url": "https://chatgpt.com/space/file/libfile_a26dd5d3af148191ba9c54bef1823793",
+      "destination": "papers/punctured-neck-scattering.tex",
+      "source_sha256": "b2ce5b1481b9484abcecb8b506a4e8f90f59cbc7872972eab7138a6872fe9367",
+      "sha256": "612312bb88e7e720c23cbade8104a9fb7f8486fd13e31d3fa5c680d72e0c1fe8",
+      "original_manifest_match": true,
+      "changes": "Converted upLaTeX-specific class/font/hyperref setup to LuaLaTeX; added scope/status preface; complete mathematical body retained."
+    }
+  ],
+  "neck_certificates": {
+    "original_manifest_library_url": "https://chatgpt.com/space/file/libfile_58f1eef8e1b88191a6567c79cc4ef867",
+    "expected_count": 16,
+    "files": [
+      {
+        "destination": "scripts/neck/balanced_punctured_neck_certificate.py",
+        "sha256": "b996903ccb00d02c287ec699b75d27e8bf3b491f4a56853a4830d719951694d6",
+        "v12_sha256": "b996903ccb00d02c287ec699b75d27e8bf3b491f4a56853a4830d719951694d6",
+        "v12_match": true
+      },
+      {
+        "destination": "scripts/neck/calderon_network_coercivity_certificate.py",
+        "sha256": "220d58dbc7f9e00df231c7415ce4e272a2fafb85b55d9e312ef5f78147261d5f",
+        "v12_sha256": "220d58dbc7f9e00df231c7415ce4e272a2fafb85b55d9e312ef5f78147261d5f",
+        "v12_match": true
+      },
+      {
+        "destination": "scripts/neck/complex_phase_orientation_certificate.py",
+        "sha256": "9385ec35cc51859cfd2328f828cabb1617a335c59f41dc6b0b15e98696dc7661",
+        "v12_sha256": "9385ec35cc51859cfd2328f828cabb1617a335c59f41dc6b0b15e98696dc7661",
+        "v12_match": true
+      },
+      {
+        "destination": "scripts/neck/cubical_diameter_exact_gallery_certificate.py",
+        "sha256": "01ee42bc0babfa0a095c8e32770d75476d8f41942575a6cf3c396eca4b7b98cc",
+        "v12_sha256": "01ee42bc0babfa0a095c8e32770d75476d8f41942575a6cf3c396eca4b7b98cc",
+        "v12_match": true
+      },
+      {
+        "destination": "scripts/neck/cusp_indicial_parametrix_certificate.py",
+        "sha256": "bb61f4ebf6092570df7cd493d59aa4bd19200298d72b5425e28126c63e0cacca",
+        "v12_sha256": "59388a9e2534321ba5864a28aa9b6399f8d562a70b1be2ee7abeb5ccaba64345",
+        "v12_match": false
+      },
+      {
+        "destination": "scripts/neck/defect_cohomology_certificate.py",
+        "sha256": "4a7d3d53747b039f69b614110e4d1147aa3398e62a71bc24b146b58f76afcdab",
+        "v12_sha256": "4a7d3d53747b039f69b614110e4d1147aa3398e62a71bc24b146b58f76afcdab",
+        "v12_match": true
+      },
+      {
+        "destination": "scripts/neck/filtered_scattering_tower_certificate.py",
+        "sha256": "c441afe964c46d8b0b91de46f94ad4594853870118e1e936094cf5b2faebbb01",
+        "v12_sha256": "c441afe964c46d8b0b91de46f94ad4594853870118e1e936094cf5b2faebbb01",
+        "v12_match": true
+      },
+      {
+        "destination": "scripts/neck/gamma2_scattering_jordan_certificate.py",
+        "sha256": "abcb5a2dad6aaf40a60ae2c52a75bb9abec105e32194fb10ab58fce9cbae2287",
+        "v12_sha256": "abcb5a2dad6aaf40a60ae2c52a75bb9abec105e32194fb10ab58fce9cbae2287",
+        "v12_match": true
+      },
+      {
+        "destination": "scripts/neck/punctured_mandel_factorization_certificate.py",
+        "sha256": "1e2c771b370e0e188297e7284f299e76cdb4d40a2b782171a5f3c243e9e99d14",
+        "v12_sha256": "1e2c771b370e0e188297e7284f299e76cdb4d40a2b782171a5f3c243e9e99d14",
+        "v12_match": true
+      },
+      {
+        "destination": "scripts/neck/scale_degree_plumbing_certificate.py",
+        "sha256": "d93171362f10885bd2a8837c61ced275918e12cea7c2c02f010968c1ed05bc47",
+        "v12_sha256": "d93171362f10885bd2a8837c61ced275918e12cea7c2c02f010968c1ed05bc47",
+        "v12_match": true
+      },
+      {
+        "destination": "scripts/neck/semistable_resolution_certificate.py",
+        "sha256": "56c7e50b5f485ff909653586df9a748e007d7c657b87a9dc7230425049395e4d",
+        "v12_sha256": "c03e00c9f47eb48decf2140770e331911b083dc180ab5780562cd7b97d9e584e",
+        "v12_match": false
+      }
+    ],
+    "missing": [
+      {
+        "name": "cubical_diameter_orbit_certificate.py",
+        "bytes": 9293,
+        "sha256": "ac41b2d1209e0df6ef7c3a99e57706097ce0bba212409b292cbbf99147e27a04"
+      },
+      {
+        "name": "node_weight_identity_certificate.py",
+        "bytes": 2558,
+        "sha256": "db1e9cc46bafca251c69b22cebaca67f34d3d0d2ab9ee19d88601a3a22d548dd"
+      },
+      {
+        "name": "ordered_resolution_chamber_certificate.py",
+        "bytes": 5148,
+        "sha256": "2ea98cbf47e3f748a85e3bc3809cd62f1fb4cd6775407b2e2e6b588f13dca838"
+      },
+      {
+        "name": "punctured_neck_charge_certificate.py",
+        "bytes": 3021,
+        "sha256": "6fcdca104aa92a9f12cf7ced93654e3f77601770597010498b6e8cc1020d9b28"
+      },
+      {
+        "name": "vertical_twist_tradeoff_certificate.py",
+        "bytes": 4301,
+        "sha256": "07d873f6223ecceb6993de126f321848552250e3d8e89c3d927fc8550aee61c5"
+      }
+    ]
+  }
+}

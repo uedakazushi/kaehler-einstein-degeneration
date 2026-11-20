@@ -1,9 +1,12 @@
-# Kähler–Einstein degeneration of general-type hypersurfaces
+# Kähler–Einstein degeneration
 
-更新：2026-11-20 / GitHub移行版 v1.0
+2026-08-31五篇連作の退化二部作を、元の全文TeXから移行した。
 
-一般型超曲面が超平面和へ退化するときの負Kähler–Einstein計量の大域的なdiameter-scale極限を研究する。特に5次曲面の5平面退化、SNC局所模型、cubical limit、gluing・scattering障害を扱う。
+- [Part IV：局所模型](papers/kaehler-einstein-degeneration.tex)：66頁。Sharp co-Gramは(PBE)_d付き。
+- [Part V：cubical GH](papers/cubical-gh-limit.tex)：34頁。Actual GH適用は(CP)_d+(PBE)_d付き。
+- [Punctured-neck技術稿](papers/punctured-neck-scattering.tex)：旧81頁の証明全文をLuaLaTeXへ移植（92頁）。現行の条件付き化を冒頭に明記。
+- [補助検算](scripts/)：統合稿5本と旧neck関連11本を回収・再実行。旧16本中5本は未回収、2本は元一覧とhashの異なる取得版。有限計算・式の診断であり解析証明の代用ではない。
 
-最初に [研究方針](00_research_plan.md) を読み、続いて [研究ノート](research/notes.md) と `papers/kaehler-einstein-degeneration.tex` を参照する。
+最初に[研究方針](00_research_plan.md)、次に[研究ノート](research/notes.md)。[移行・検証範囲](research/migration.md)と[ソース対応](research/source-manifest.json)を参照する。旧v0.12独自資産の回収照合は残る。
 
-候補となるcubical metric complexの具体的な計算と、actual KE metricの無条件GH収束の証明は区別する。独立の正本は `main`、全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
+ルートで `latexmk`。PDF/SyncTeXはbuild/、正本はmain。[research-hub](https://github.com/uedakazushi/research-hub)。
