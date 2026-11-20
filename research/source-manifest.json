@@ -6,14 +6,18 @@
     {
       "source": "04_hyperplane_degenerations_local_ja.tex",
       "destination": "papers/kaehler-einstein-degeneration.tex",
-      "sha256": "cc0343cf295d26321d9c19e979c0181db34bd93de25673967c649b31cf13be3b",
-      "bytes": 200804
+      "sha256": "277dbe66165a3f1644c6623f1209f26d9a1104d1ffe509f2a3626dfd4078540a",
+      "bytes": 200778,
+      "source_sha256": "cc0343cf295d26321d9c19e979c0181db34bd93de25673967c649b31cf13be3b",
+      "current_blob_sha": "dd82c50df479157464d859633b52f4aab89c07c2"
     },
     {
       "source": "05_hyperplane_degenerations_global_ja.tex",
       "destination": "papers/cubical-gh-limit.tex",
-      "sha256": "fb14a1c2e4a7ee0f699a56c98e23ebe96ef4b1abac12a01d8f379c1ea25b4d4e",
-      "bytes": 99955
+      "sha256": "f5b2b84656734712f3cfa3a0b43b5c5a9b7278ca3f042b8a4b521e59a38ae215",
+      "bytes": 102312,
+      "source_sha256": "fb14a1c2e4a7ee0f699a56c98e23ebe96ef4b1abac12a01d8f379c1ea25b4d4e",
+      "current_blob_sha": "7a433031a5586fc28a91614941115483a2eb9532"
     },
     {
       "source": "supplementary/intrinsic_complete_window_audit_definitive_v1.py",
@@ -162,5 +166,6 @@
     "bundle": "quintic_five_planes_KE_note_v12_bundle.zip",
     "bundle_sha256": "3373ff04a81ae87b5376dd522c7f105075d6882de76dd4e487a582ecf47b531b",
     "source_chat": "https://chatgpt.com/g/g-p-6a874b9c58a481918993aab64d09c7c2-duo-zhong-sukerukaehler-einsteinji-he/c/6a864137-0ff8-83e8-ac1f-98f48df7e5eb"
-  }
+  },
+  "audit_update_2026_11_20": "Current sha256/bytes and Git blob reflect mathematical additions or repository entrypoint fixes; source_sha256 preserves original Library-bundle provenance. This update does not imply complete independent proof verification."
 }
