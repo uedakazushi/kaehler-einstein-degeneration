@@ -205,7 +205,58 @@ $\Ric(\omega_t^{(d)})=-\omega_t^{(d)}$，従って $[\omega_t^{(d)}]=2\pi(d-4)H|
 \begin{equation}\label{eq:Nd-squares}
  N_d=d\binom{d-1}{2}
 \end{equation}
-である．以下の定数は固定した $d$ に依存してよいが，$t$ には依存しない．
+である．
+
+\begin{proposition}[候補立方体複体のセル数と整数ホモロジー]\label{prop:degree-d-cubical-topology}
+$d\ge5$ とする．$\Cd$ の標準立方体セル構造の
+零・一・二次セル数はそれぞれ
+\[
+ f_0=\binom d1+\binom d2+\binom d3,\qquad
+ f_1=d\binom d2,\qquad
+ f_2=d\binom{d-1}{2}.
+\]
+また座標の正規化によって自然な同相
+\[
+ \rho_d:\Cd\xrightarrow{\;\sim\;}\operatorname{Sk}_2\Delta^{d-1},
+ \qquad w\longmapsto\frac{w}{\sum_iw_i}
+\]
+があり，$\widetilde H_k(\Cd;\mathbb Z)$ は $k=2$ のとき
+$\mathbb Z^{\binom{d-1}{3}}$，それ以外では零である．
+\end{proposition}
+\begin{proof}
+零次セルは，成分が零または一で support の大きさが $1,2,3$ の点である．
+一次セルは，一つの可変座標と，互いに異なる固定値一の座標 $1$ 本または $2$ 本で
+指定されるので，
+\[
+ f_1=d(d-1)+\binom d2(d-2)=d\binom d2
+\]
+となる．二次セルは固定値一の座標一本と，残る $d-1$ 座標中の
+相異なる二本の可変座標を選んで指定される．
+$\sum_iw_i\ge1$ なので $\rho_d$ は全域で連続であり，
+標準単体の二次骨格上で逆写像
+\[
+ x\longmapsto \frac{x}{\max_i x_i}
+\]
+を持つ．単体の二次骨格の簡約ホモロジーは次数二でのみ非零で，
+その階数は $\binom{d-1}{3}$ である．これは頂点一つを基点とした
+単体鎖複体の収縮，または三次元単体の境界サイクルを用いて従う．
+\end{proof}
+
+\begin{remark}[Lagrangian 分岐基底との比較]\label{rem:degree-d-lagrangian-base}
+別の研究で用いる，$d-2$ 葉の三価木 $T_{ij}$ を各二重辺に
+配した分岐二次元複体 $B_d(T)$ は，
+$\operatorname{Sk}_2\Delta^{d-1}$ への点逆像が木となる写像 $q$
+を持つ．従って $\rho_d^{-1}\circ q:B_d(T)\to\Cd$ は
+label を保つ cell-like homotopy equivalence となる．
+$d=5$ では同相だが，$d\ge6$ では一般に同相ではない：
+$B_d(T)$ の辺内では三枚の面が集まる一方，
+$\Cd$ の対応する辺内では $d-2$ 枚が集まる．
+この比較は位相および整数ホモロジーについてのものであり，
+$fibration$ の作用アフィン計量と $d_\square$ の同一性，
+実際の KE 計量の GH 収束，または special Lagrangian 性を含意しない．
+\end{remark}
+
+以下の定数は固定した $d$ に依存してよいが，$t$ には依存しない．
 
 \begin{hypothesis}[第IV篇の coarse package $\mathrm{(CP)}_d$]\label{hyp:CPd}
 第IV篇で構成される smooth raw map $q_t^{(d)}:X_t^{(d)}\to\RR^d$，固定近傍 retraction $\Pi_d$，および $\Phi_t^{\mathrm{alg},(d)}=\Pi_d\circ q_t^{(d)}:X_t^{(d)}\to\Cd$ が，次を満たすと仮定する：
