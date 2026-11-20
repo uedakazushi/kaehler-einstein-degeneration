@@ -29,3 +29,14 @@
 
 ## 再現性
 旧v0.12原稿の16検算は元の配布ZIPに基づきSHA-256を照合し、全件再実行した。統合稿の補助検算5本も再実行済み。出典・ハッシュは `source-manifest.json`、結果は `validation.json`。
+## 人工基底計量の定量的GH収縮
+分岐木の系 T を固定し、Lagrangian基底の p_T:B_d(T)→C_d に対し、任意の補助PL Euclidean計量 h と \varepsilon>0 から
+\[
+|v|_\varepsilon^2=|dp_T(v)|_\square^2+\varepsilon^2|v|_h^2
+\]
+という内在的長さ計量を構成できる。有限木fiberの一様径と、unit squareがambient R^dで凸であることを用いる有限gallery liftingから
+\[
+0\le d_\varepsilon(x,y)-d_\square(p_Tx,p_Ty)\le C(d,T,h)\varepsilon
+\]
+が得られ、d_GH≤C\varepsilon/2。d≥6でも基底の非同相性と収束が両立する。厳密な証明は lagrangian-torus-fibration/papers/sections/paper/base_topology.tex の topo:metric-collapse。本研究Part Vには帰結と出典を示した。これは人工的な距離についての定理であり、actual KE距離と作用アフィン基底距離の比較のための解析入力を与えない。一般的な新規性は未確認。
+
