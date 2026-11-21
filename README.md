@@ -1,12 +1,14 @@
 # Kähler–Einstein degeneration
 
-更新：2026-11-22 / v1.9
+更新：2026-11-22 / v1.10（研究資料。Part IV–V本文はv1.9）
 
 最初に[現行研究方針](00_research_plan.md)、次に[研究ノート](research/notes.md)を読む。固定次数d≥5の一般型曲面の全平面退化について、actual KE計量の径の尺度の極限とLagrangian torus fibrationによる実現を研究する。正本はGitHubのmain、研究全体の入口は[research-hub](https://github.com/uedakazushi/research-hub)。
 
 ## 三研究を一体で進める方針
 
 [固定配置補空間・Part I–III](https://github.com/uedakazushi/multiscale-kaehler-einstein)、本repoの退化族局所解析・Part IVと条件付き距離論・Part V、[曲面のactual KE Lagrangian構成と大域GH実現](https://github.com/uedakazushi/surface-lagrangian-torus-fibration)を共同で編集・監査する。各repoと主論文の正本はこの責任分担で維持する。証明を重複収録せず、仮定・定理ラベル・尺度・確認版を揃える。固定空間の漸近と退化族の一様性、Part IIのcomplex periodsとsymplectic actions、曲面の直接評価と本稿のCP/PBE/TCを区別する。詳しい方針は[現行研究方針](00_research_plan.md)、共有局所入力は[研究ノートの依存表](research/notes.md)を参照する。
+
+Part I v1.2は、固定SNC空間のexact collarsへRZの評価を移す全残余一様な比較を別補題で証明する。曲面改訂33は、P0の同じ全射のdistortionとtarget上の基点変位を吸収する中間尺度で、component coreと変更collarの任意基点から成分錐へのpointed GH収束を与える。利用条件と正本のラベルは研究ノートに集約する。
 
 ## 現行の解析結果
 
@@ -35,7 +37,7 @@
 
 本repoのSourceを含むexterior全体の(TC)_5と、全域の(CP)_d+(PBE)_dは未検証のまま保持する。曲面稿の直接証明はこのpackage自体の検証を与えない。保護領域内の距離と全曲面ambient距離を区別し、targetの三枚のcorner距離が全C_dの距離の制限と一致することは曲面稿の `topo:coordinate-retraction` に委ねる。
 
-次は**共有局所入力の量化と曲面K1–K5への適用を共同監査する**。固定component・固定residual compact・固定endの結果、fixed-stage buffer、遅い対角選択の順を照合する。本稿の `pair:lem:diagonal-fixed-end` は選んだ遅いmoving exhaustionへの移行と有限予算の吸収を証明し、任意速度での一様性を主張しない。これと並行してCP/PBE/TCの強い解析課題と一次文献比較を進める。Bounded-densityの反例とsource orientationの障害は研究ノートに保持する。旧証明全体の再監査、新規性の包括的確認、外部査読、形式証明は未実施である。
+共有局所入力の量化、曲面K2の全交わりの飽和・共通葉、K3のlink→adapted primitive→相対葉族→補間後trim→全域被覆の指定鎖を重点点検した。次は**この確認範囲を起点に、未確認の依存入力と一次文献・主定理のscopeを公表前監査する**。本稿の `pair:lem:diagonal-fixed-end` は選んだ遅いmoving exhaustionへの移行と有限予算の吸収を証明し、任意速度での一様性を主張しない。曲面の一般基点での中間尺度にはdistortionだけでなくtarget変位の予算も要る。CP/PBE/TCの強い解析課題は独立に残し、bounded-densityの反例とsource orientationの障害を研究ノートに保持する。全原稿・全外部入力の包括的再監査、新規性確認、外部査読、形式証明は未実施である。
 
 ## 論文と再現資産
 
@@ -53,6 +55,8 @@
 
 2026-11-22にv1.9のPart IVを117頁、Part Vを37頁へLuaLaTeXで組版した。最終logには未解決参照・引用、重複ラベル、欠字、overfull/underfull boxはない。日本語フォントの代替・featureとPDF bookmark内の数式に関する警告は残る。Part IVの1、6–7、70–71、117頁、Part Vの2、4–5、37頁を画像で確認した。全頁の逐頁点検ではない。環境のformatとfont mapの欠落を既存のTeX Live環境で解消し、PDF/SyncTeXの出力先がbuildであることを確認した。
 
-今回の数学的作業は、共有する局所入力の仮定・量化の重点照合と `pair:lem:diagonal-fixed-end` の証明・別の読み手による独立内部点検である。既存証明全体の再監査、網羅的新規性調査、外部査読、形式証明とは区別する。2026-11-20の有限検算成功記録を保持するが、今回再実行していない。詳しい実行状態は[検証状態](research/validation.json)。
+Part IV–Vの現行v1.9で確認した数学的内容は、共有する局所入力の仮定・量化の重点照合と `pair:lem:diagonal-fixed-end` の証明・別の読み手による独立内部点検である。既存証明全体の再監査、網羅的新規性調査、外部査読、形式証明とは区別する。2026-11-20の有限検算成功記録を保持するが、今回再実行していない。詳しい実行状態は[検証状態](research/validation.json)。
+
+研究資料v1.10では、外部正本の新結果と上記の限定監査を同期した。Part IV–VのTeXは変更しておらず、本文の現行版と組版確認はv1.9のままである。文書同期に伴う組版・有限検算の再実行は行っていない。
 
 再生成はルートで `latexmk`、PDF/SyncTeXの出力先は `build/`。LuaLaTeX、luatexja、Harano Ajiと数学フォントの有効なmapを備えたTeX Liveを用いる。[移行・検証範囲](research/migration.md)と[ソース対応](research/source-manifest.json)を参照する。通常のcommitとmainへのpushで保存し、研究成果の保存とresearch-hubの更新を別々に確認する。

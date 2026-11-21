@@ -1,12 +1,12 @@
 # 研究ノート：一般型超曲面のKE退化
 
-更新：2026-11-22 / v1.9
+更新：2026-11-22 / v1.10（Part IV–V本文はv1.9）
 
 ## 共同編集の正本と共有局所入力
 
 `multiscale-kaehler-einstein` は固定配置補空間のPart I–III、本repoは退化族局所解析のPart IVと条件付き距離論のPart V、`surface-lagrangian-torus-fibration` はactual KE Lagrangian構成と同じ射影の全曲面GH実現を所有する。三研究の方針・Introduction・証明依存を共同で点検するが、証明全文を相互に複製しない。共有する結果を変更したら、利用側の定理ラベルと仮定も照合し、各repoの保存後にhubへ反映する。
 
-2026-11-22に照合した外部正本は、[固定配置稿](https://github.com/uedakazushi/multiscale-kaehler-einstein/tree/15c76a7f93c64e08c3944c98f15efb6a502d95ea)と[曲面稿・改訂31](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/tree/2a374e735c1a9598e78e7c539087418980eb2c4b)。以下は利用箇所と量化の照合であり、外部全文の再検証ではない。
+2026-11-22に照合した外部正本は、[固定配置Part I](https://github.com/uedakazushi/multiscale-kaehler-einstein/blob/0e3094a2e2c71fcac420f927039c19977b3f613f/papers/multiscale-kaehler-einstein.tex) v1.2の統合ソースと、[曲面稿・改訂33](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/tree/68c7e3751e2de8f44c9ade062461fe150f21265c)。Part Iの確認commitは `0e3094a2e2c71fcac420f927039c19977b3f613f`。以下の利用条件の照合と指定証明鎖の内部点検を、外部全文の包括的再検証と区別する。
 
 | 本repoの共有入力 | 仮定・量化と証明の所在 | 曲面稿での利用と適用限界 |
 | --- | --- | --- |
@@ -23,7 +23,13 @@
 
 **二つの大域経路。** Part Vの全曲面適用はCP/PBE付きで、quinticのCP検証はTC5に依存する。曲面稿 `ke:global-metric-realization` には同じf_t=p_Tπ_tの直接scalar/portal証明があり、neck/core/sourceの接続もそこで別に扱う。したがって全曲面のGH問題自体を本稿の局所入力だけから「未解決」と記さず、CP/PBE/TCという追加packageの未検証部分を明記する。Part Vの特定のΦ_tとf_tとの一様近接性を新たに示したことにもならない。Part IIのsecondary complex periodsと第二symplectic action、Part IIIのH_loc/H_ancもそれぞれ別の入力である。
 
-**固定補空間との新しい尺度接続。** 曲面の共同編集稿・改訂32 `topo:component-cone-germ` は、cubical targetの成分頂点e_iの小球を$C_{2,d-1}$の小球と等長同定する。`ke:intermediate-component-cone` はP0のdistortion ε_t→0を使い、a_t→∞、a_t/R_t→0、R_t ε_t/a_t→0の尺度で、f_t⁻¹(e_i)上の基点から(X_t,a_t⁻¹d_gt)が同じ錐へpointed GH収束することを示す。例えばa_t=R_t√(ε_t+1/R_t)と選べる。これはPart Iの固定成分の漸近錐との具体的な接点だが、Part Iの証明を退化族へ直接適用せず、任意の中間尺度・極限交換・tensor収束を結論しない。本repoには証明を複製せず、その利用条件と正本だけを記す。
+**固定補空間のexact collar入力。** Part I v1.2の `lem:SNC-compatible-collars` は同一Hermitian depthsを保つ実有向collarsと段階的商を構成し、`lem:fc-collar-transfer` はRZの局所正則射影による延長とそのexact pullbackの全残余一様な比較を与える。`lem:RZ-collar-tensor` がRZ Theorem 5.1を選んだcollarの一面tensor評価へ移す。一般のlog-smooth collarだけでは不十分な障害は `rem:log-collar-obstruction`。証明の正本は上記Part Iであり、指定collar構成と延長比較を独立内部点検した。これらは固定SNC空間の結果で、退化parameterに一様なbuffer、任意速度のmoving比較、CP/PBE/TCの証明を与えるものではない。
+
+**固定補空間との尺度接続と基点の範囲。** 曲面改訂33の `topo:component-cone-germ` は、cubical targetの成分頂点e_iの小球を$C_{2,d-1}$の小球と等長同定する。`ke:intermediate-component-cone` は同じP0のdistortion $\epsilon_t\to0$ と、非空領域 $A_t$ のtarget変位 $\eta_t=\sup_{y\in A_t}d_\square(f_t(y),e_i)\to0$ に対し、$a_t\to\infty$、$a_t/R_t\to0$、$R_t(\epsilon_t+\eta_t)/a_t\to0$ なら、任意の $y_t\in A_t$ を基点として $(X_t,a_t^{-1}d_{g_t},y_t)\to(C_{2,d-1},0)$ となることを示す。固定半径の球の近似誤差は基点の選択に一様で、$a_t=R_t\sqrt{\epsilon_t+\eta_t+R_t^{-1}}$ と選べる。$A_t=f_t^{-1}(e_i)$ は $\eta_t=0$ の場合である。
+
+同じP0の共通anchorで選んだ一成分のcoreと変更collarには、`ke:global-base-parameterization` から $\eta_t\le Cq_t$、$q_t=(1+\log(N_{j(t)}+1))/R_t\to0$ が成り立つ。従って $a_t=R_t\sqrt{\epsilon_t+q_t}$ はその全領域の任意基点に使える。距離は全曲面ambient距離であり、core内在距離やLiouville軌道長の評価を要求しない。これはPart Iの固定成分の漸近錐との接点だが、Part Iの証明を退化族へ直接適用せず、任意の中間尺度・極限交換・tensor収束・有効な収束速度を結論しない。証明は曲面稿 `ke_global_metric_realization.tex` に置き、本repoには利用条件だけを記す。
+
+**K2/K3の限定した接続監査。** 曲面改訂33の [研究ノート](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/68c7e3751e2de8f44c9ade062461fe150f21265c/research/notes.md) と [依存表](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/68c7e3751e2de8f44c9ade062461fe150f21265c/research/ke-dependencies.md) を正本とする。K2は `ke:quantitative-order-hamiltonian` と `ke:neck-corner-saturated-union` のcutoff・逆flow・moment・同じ全torusの順序、K3は `ke:closed-component-link`、`ke:star-cover-adapted-primitive`、`ke:saddle-moving-relative-interpolation`、`ke:link-relative-collar-gluing`、`ke:actual-global-fibration` の支持と選択順序を独立内部点検した。全K2交わりを含む恒等collar、補間後partitionに対するwhole-fiber trim、固定compactを保持した全域被覆を確認し、対象内で訂正を要するギャップは見つからなかった。任意に指定したcore germの延長や任意の第二actionの一致を仮定した議論ではない。全上流入力・全文献の再検証やCP/PBE/TCの検証とは区別する。
 
 ## Source-free neck：正則作用とactual metricの接続
 
@@ -145,7 +151,7 @@ Complete modelでは、さらに全simplexの経路を許す距離にも同じ�
 
 `ke:relative-neck-matching` は、別のactual neck fibrationとorbit partitionが一致するcollarで、基底座標をその分割によって同定すれば両fibrationが一致して接着できることを示す。定数係数monomial変更ζ'=c(t)ζ^A、A∈GL(2,Z)は分割を保つが、非定数holomorphic unitを含む変更は一般に分割を変える。同じoverlapに二つのtorus actionsがあるだけでは適用できない。任意の別のprimitiveへ取り替えてもverticalでの消滅は自動的に保たれない。
 
-共同監査ではactual neck–triple overlapのorbit partition・action periods・quantitative bufferを曲面K1–K2と照合し、source・branch・coreとの相対接着とglobal scalar/portal評価の前段入力を確認する。これらの構成の正本は曲面稿である。閉cornerの局所結果は大域(CP)_d+(PBE)_dの検証を代替しない。新結果の新規性の包括的確認は未完了である。
+共同監査ではactual neck–triple overlapの全fiber一致と、source・branch・coreへ至る指定K2/K3鎖の支持・量化を重点点検した。具体的なラベルと確認範囲は冒頭の「K2/K3の限定した接続監査」を参照する。これらの構成の正本は曲面稿であり、閉cornerの局所結果単独から大域接着が従うという意味ではない。大域(CP)_d+(PBE)_dの検証と、新結果の新規性の包括的確認は未完了である。
 
 ## 局所windowと残るtensor仮定
 
@@ -275,7 +281,7 @@ $\mathcal C_6$ は全 $S_6$ の座標置換で不変だが、六つの同時Pete
 
 保存された16本の旧原稿由来の検算と統合稿の5本は、2026-11-20に再実行され、元入力のSHA-256も照合されている。現在も有効な再現資産を保持するが、v1.9で再実行していない。出典・ハッシュは `source-manifest.json`、実行状態は `validation.json` に記す。
 
-今回の数学的点検は冒頭の共有局所入力表の量化・規格化と、`pair:lem:diagonal-fixed-end` の証明を対象とし、新補題は別の読み手も独立内部点検した。既存の全高階解析証明・一次文献全体の再監査、新規性の包括的確認、外部査読、形式証明とは区別する。
+本repoの数学的点検は冒頭の共有局所入力表の量化・規格化と、`pair:lem:diagonal-fixed-end` の証明を対象とし、同補題は別の読み手も独立内部点検した。管理文書v1.10ではPart Iの指定collar/延長比較と曲面改訂33の基点拡張・指定K2/K3鎖の確認状態を同期した。Part IV–Vの本文は変更しておらず、この同期に伴う組版・有限検算の再実行はしていない。既存の全高階解析証明・一次文献全体の再監査、新規性の包括的確認、外部査読、形式証明とは区別する。
 
 2026-11-22にv1.9のPart IVを117頁、Part Vを37頁へ `latexmk` で組版し、PDFとSyncTeXをbuildに生成した。最終logの未解決参照・引用、重複ラベル、欠字、overfull/underfull boxは0。日本語フォントの代替・featureとbookmark数式に関する警告は残る。IVの1、6–7、70–71、117頁、Vの2、4–5、37頁を画像化して、本文・数式・新補題・文献の欠落、重なり、はみ出しがないことを確認した。全頁の画像点検ではない。初期環境のformat/font map不足は利用可能なTeX Live環境で補い、主稿の設定は保持した。GitHubへの反映とhub更新は組版から独立に確認する。
 

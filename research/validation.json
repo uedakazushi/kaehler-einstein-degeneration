@@ -61,7 +61,7 @@
       "current_revision_rebuilt": false
     }
   ],
-  "scope": "v1.9 coordinated editing, selected shared-input audit, independently reviewed diagonal lemma, successful IV/V LuaLaTeX builds and 10 selected-page visual checks. Other manuscripts/certificates retain their stated verification dates.",
+  "scope": "Research documentation v1.10 synchronizes the selected Part I collar/transfer results and surface revision 33 basepoint extension and K2/K3 audit. IV/V TeX remains at v1.9; its successful LuaLaTeX builds and 10 selected-page visual checks remain applicable. Other manuscripts/certificates retain their stated verification dates.",
   "certificate_runs": [
     {
       "script": "cubical_diameter_exact_gallery_certificate_definitive_v1.py",
@@ -176,7 +176,7 @@
     "scope": "Recovered manuscript editions; the separate current-main sample is recorded under manuscripts."
   },
   "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested.",
-  "version": "1.9",
+  "version": "1.10",
   "certificate_runs_date": "2026-11-20",
   "certificate_runs_repeated_current_revision": false,
   "current_math_audit": {
@@ -190,6 +190,32 @@
     "new_lemma": "pair:lem:diagonal-fixed-end in papers/sections/source_free_neck_coordinates.tex (Part IV Lemma 13.9, pp.70-71)",
     "independent_review": "A second agent read the new lemma statement and proof and checked the K_j -> r_j -> finite errors/costs -> parameter thresholds order, end signs, and absence of a fixed positive interval or arbitrary prescribed moving speed claim.",
     "primary_source_scope": "No new comprehensive primary-source retrieval in v1.9; existing precise Song/Rochon-Zhang/Savin/Yau/Zhang reference checks are retained in the current text and notes."
+  },
+  "current_documentation_update": {
+    "date": "2026-11-22",
+    "version": "1.10",
+    "manuscript_sources_changed": false,
+    "lualatex_repeated": false,
+    "computational_certificates_repeated": false,
+    "surface_reference": {
+      "revision": 33,
+      "commit": "68c7e3751e2de8f44c9ade062461fe150f21265c",
+      "scope": "Read ke:intermediate-component-cone including the uniform basepoint-displacement budget and the component core/changed-collar application. Independently read the four K3 sections on link, adapted primitive, relative reduced foliations and actual core gluing; synchronize the separately audited K2 chain from the surface notes and dependency table."
+    },
+    "part_i_reference": {
+      "version": "1.2",
+      "commit": "0e3094a2e2c71fcac420f927039c19977b3f613f",
+      "status": "Owning repository main saved and verified; reference pinned to the Part I v1.2 source commit.",
+      "labels": [
+        "lem:SNC-compatible-collars",
+        "lem:fc-collar-transfer",
+        "lem:RZ-collar-tensor",
+        "rem:log-collar-obstruction"
+      ],
+      "scope": "Independently checked the compatible real-oriented collar construction and residual-uniform transfer proof. The one-face tensor lemma is linked at its source; no proof is duplicated in this repository."
+    },
+    "claims_not_established": "The fixed-space collar results and the surface direct-route consequences do not establish CP/PBE/TC, an arbitrary prescribed moving speed, a universal effective intermediate scale, tensor convergence, or an exchange of limits. This is not a complete audit of all upstream proofs or primary sources.",
+    "validation": "No manuscript edit or new mathematical result in IV/V. Documentation links, theorem labels, JSON syntax and diff whitespace are checked separately from the existing manuscript builds."
   },
   "build_environment": "Stock LuaLaTeX first lacked its format, and the first recovered environment lacked the rsfs font map. Existing TeX Live dependencies and valid font maps resolved both. The repository latexmk/SyncTeX configuration is unchanged; successful outputs are in build/. No GitHub Actions used."
 }
