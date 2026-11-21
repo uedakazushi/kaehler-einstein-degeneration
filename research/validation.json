@@ -61,7 +61,7 @@
       "current_revision_rebuilt": false
     }
   ],
-  "scope": "Research documentation v1.12 synchronizes Part I v1.4 measured translation, bounded-primitive Stokes/face-mass normalization and full-face Mellin results. The direct audit in this update concerns translation: measure cutoff, ambient metric balls, connection, basepoint offsets and strip/ball total variation. Stokes, Mellin and the ordinary all-face volume-IRFA input for exact tail/joint law/Laplace transform are recorded as shared audits. Selected collar/transfer, contraction, LDP and surface revision 33 checks also remain applicable. IV/V TeX remains at v1.9; its successful LuaLaTeX builds and 10 selected-page visual checks remain applicable. Other manuscripts/certificates retain their stated verification dates.",
+  "scope": "Research documentation v1.13 synchronizes Part I v1.5 / research set v1.6 moving-basepoint classification and metric-link scope. The direct audit concerns incidence copies, the positive-face star, the m>2A ambient-ball isometry, bounded transverse coordinates, exhaustive subsequential limits and realizability. Metric-link reconstruction and Leuzinger/Bridson-Haefliger overlap are recorded as shared audits. The selected collar/transfer, contraction, measured translation, LDP/tail, Stokes/Mellin and surface revision 33 checks remain applicable. IV/V TeX and its successful builds remain at v1.9; no new IV/V typesetting or certificate run is claimed.",
   "certificate_runs": [
     {
       "script": "cubical_diameter_exact_gallery_certificate_definitive_v1.py",
@@ -176,7 +176,7 @@
     "scope": "Recovered manuscript editions; the separate current-main sample is recorded under manuscripts."
   },
   "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested.",
-  "version": "1.12",
+  "version": "1.13",
   "certificate_runs_date": "2026-11-20",
   "certificate_runs_repeated_current_revision": false,
   "current_math_audit": {
@@ -193,7 +193,7 @@
   },
   "current_documentation_update": {
     "date": "2026-11-22",
-    "version": "1.12",
+    "version": "1.13",
     "manuscript_sources_changed": false,
     "lualatex_repeated": false,
     "computational_certificates_repeated": false,
@@ -203,9 +203,9 @@
       "scope": "Read ke:intermediate-component-cone including the uniform basepoint-displacement budget and the component core/changed-collar application. Independently read the four K3 sections on link, adapted primitive, relative reduced foliations and actual core gluing; synchronize the separately audited K2 chain from the surface notes and dependency table."
     },
     "part_i_reference": {
-      "version": "1.4",
-      "commit": "e0fcd38db2df7b41b951a23aa0035eba830e1bce",
-      "status": "Verified source-repository main commit; current Part I v1.4 with successful LuaLaTeX build and selected visual QA.",
+      "version": "1.5",
+      "commit": "b6e21b6406671fc567aa77d2156a8f7e1c64ef3d",
+      "status": "Verified final main commit of the source repository: Part I/overview v1.5, research set v1.6; successful LuaLaTeX builds and current visual QA are recorded below.",
       "labels": [
         "lem:SNC-compatible-collars",
         "lem:fc-collar-transfer",
@@ -239,22 +239,68 @@
         "thm:Mellin",
         "thm:Mellin-recursion",
         "prop:Mellin-incidence",
-        "rem:Mellin-continuation"
+        "rem:Mellin-continuation",
+        "def:incidence-link",
+        "eq:cone-coordinate-barrier",
+        "lem:positive-star-product",
+        "rem:closed-star-obstruction",
+        "lem:star-ball-isometry",
+        "prop:cone-limits",
+        "eq:cone-moving-ball-bound",
+        "cor:moving-limit-classification",
+        "lem:cone-link-metric",
+        "eq:cone-polar-distance",
+        "prop:link",
+        "eq:link-uniform-divergence",
+        "rem:link-metric-scope"
       ],
       "scope": "Independently checked compatible real-oriented collars and residual-uniform transfer. Independently read the co-Gram -> contraction -> ambient-ball correspondence chain: deep common collars, residual covector bounds in the full inverse metric, integrable cutoff, local single-cell length argument, H composed with Psi surjectivity, ambient fibre bound and all-centres/all-radii 3K/(2R) GH bound. No proof is duplicated in this repository.",
       "direct_translation_audit": "Directly audited and expanded thm:translation for arbitrary normal-centre vectors with minimum tending to infinity. Ordinary volume-IRFA gives total variation on a bounded normal strip over the entire residual space; metric-IRFA gives the scale-one product and total variation of pushed-forward ambient-ball measures at every radius. Checked the full-residual cutoff, short-path escape, recursive bundle/connection model, torus endpoint correction, basepoint offsets and zero mass of all product spheres. Smooth volume-IRFA is unnecessary. No family-uniform conclusion is inferred.",
       "shared_measure_audit": "Shared audit covers the ambient-open LDP. The shared conditional actual-residual moment bound yields vertex tightness, exact tail, joint law and distance Laplace transform under ordinary all-face volume-IRFA without an exponential-volume hypothesis. Synchronize bounded-primitive Stokes from a smooth reference curvature, its KE applicability and normal-torus normalization. For Mellin, record all-face conditional moments with essential supremum in normal depths, Holder weighted-TV interpolation on compact subcritical parameter sets, residue/adjunction recursion without a weighted hypothesis on the chosen dominator, and mixed component coefficients m_G times the incidence indicator. Critical-limit order and meromorphic-continuation conditions remain explicit. These are shared audits; the reviewer of translation does not claim an independent audit of every other proof or primary source.",
       "upstream_build_and_visual_check": {
         "date": "2026-11-22",
-        "part_i_pages": 57,
-        "overview_pages": 11,
-        "part_i_selected_visual_pages": 28,
-        "overview_visual_pages": 11,
-        "scope": "Source-repository build and shared visual checks: Part I selected pages, overview all pages. These are separate from the unchanged IV/V v1.9 builds recorded above."
-      }
+        "version": "1.5",
+        "part_i_pages": 62,
+        "overview_pages": 12,
+        "part_i_selected_visual_pages": 19,
+        "overview_visual_pages": 12,
+        "part_i_visual_page_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          36,
+          48,
+          61,
+          62
+        ],
+        "log_check_counts_for_each_manuscript": {
+          "undefined_references_or_citations": 0,
+          "duplicate_labels": 0,
+          "missing_characters": 0,
+          "overfull_boxes": 0,
+          "underfull_boxes": 0,
+          "latex_errors": 0
+        },
+        "scope": "Verified final source-repository builds: Part I pages 1-8 in 90 dpi four-page sheets; pages 21-27 and 61-62 individually at 150 dpi by an independent internal reviewer; pages 36 and 48 individually at 120 dpi. All 12 overview pages were viewed in 90 dpi four-page sheets. No visible clipping, overlap or missing glyphs was reported. Small math-font/class and Japanese-font notices remain. These shared upstream checks are separate from the unchanged IV/V v1.9 builds above."
+      },
+      "direct_moving_basepoint_audit": "Independently audited thm:moving and prop:cone-limits. Defined the residual link by cofaces and face maps retaining the chosen face copy; established the intrinsic product only on positive face coordinates. If the minimum weighted face coordinate m exceeds 2A, first exit and last re-entry cost at least 2(m-A)>2A, giving an exact isometry of ambient closed A-balls. Checked repeated coface copies, finite/divergent coordinate extraction, bounded residual basepoint convergence, the empty-link convention, exhaustiveness and realization of every listed pointed limit for any prescribed scaling sequence by surjectivity of S. Closed-star shortcut and boundary-identification counterexamples are retained upstream.",
+      "shared_metric_link_and_literature_audit": "Read the integrated metric-link statement and scope and synchronized the shared audit: uniform O(1/r) radial divergence for coarse sections, recovery of the extended spherical length metric including infinity between components, and metric isometry type only. Divisor labels, a chosen cell subdivision, depth-coordinate weights and a genuine geodesic-ray boundary are not reconstructed. Leuzinger Lemma 5.1, Theorem 5.2 and Corollary 6.3 cover overlapping locally symmetric results; Bridson-Haefliger I.5 Definition 5.6 and Remarks 5.7 cover standard cone geometry. Detailed primary-source checks and bibliography are owned by the Part I Introduction and source-audit, not claimed as a new comprehensive independent review here.",
+      "research_set_version": "1.6"
     },
-    "claims_not_established": "Uniformity in all centres and radii of one fixed space does not supply degeneration-parameter-uniform constants or buffers. CP/PBE/TC, arbitrarily prescribed moving rates in the degenerating family, a universal effective intermediate scale, tensor convergence and an exchange of limits remain unestablished by these results. This is not a complete independent audit of all upstream proofs or primary sources.",
-    "validation": "No manuscript edit or new mathematical result in IV/V. JSON parsed; all 33 referenced labels exist in the pinned Part I v1.4 source; 18 local Markdown links exist; git diff --check passed. Documentation versions, unchanged-build flags, IV/V TeX SHA-256 hashes and the v1.9 audit/build records are consistent. The Part I v1.4 reference is fixed to its verified final main commit. No LuaLaTeX or certificate rerun in this repository for this documentation update."
+    "claims_not_established": "The fixed-space moving classification and realization do not supply degeneration-parameter-uniform constants or buffers. CP/PBE/TC, arbitrarily prescribed moving rates in the degenerating family, a universal effective intermediate scale, tensor convergence and an exchange of limits remain unestablished by these results. Metric-link reconstruction does not recover labelled cells, depth normalizations or a genuine geodesic-ray boundary. This is not a complete independent audit of all upstream proofs or primary sources.",
+    "validation": "No manuscript edit or new mathematical result in IV/V. JSON parsed; all 46 referenced labels exist in the pinned Part I v1.5 source; 18 local Markdown links exist; git diff --check passed. Both upstream TeX SHA-256 hashes match the verified final main commit. Documentation versions, unchanged-build flags, IV/V TeX SHA-256 hashes and the v1.9 audit/build/certificate records are consistent. The Part I reference and current upstream build/visual status are fixed to the verified final main commit. No LuaLaTeX or certificate rerun in this repository."
   },
   "build_environment": "Stock LuaLaTeX first lacked its format, and the first recovered environment lacked the rsfs font map. Existing TeX Live dependencies and valid font maps resolved both. The repository latexmk/SyncTeX configuration is unchanged; successful outputs are in build/. No GitHub Actions used."
 }

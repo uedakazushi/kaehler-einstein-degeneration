@@ -1,6 +1,6 @@
 # 現行研究方針：一般型超曲面の負Kähler–Einstein退化
 
-更新：2026-11-22 / v1.12・現行研究方針（Part IV–V本文はv1.9）
+更新：2026-11-22 / v1.13・現行研究方針（Part IV–V本文はv1.9）
 
 ## 研究固有の目標
 
@@ -18,7 +18,9 @@
 
 共有入力は [研究ノート](research/notes.md) の依存表と曲面側の `research/ke-dependencies.md` で、定理・仮定・尺度・固定/可動領域・確認版を照合する。Part IIのsecondary complex periodsと第二symplectic actionは同一視しない。Part IIIの(H_loc)/(H_anc)も別模型の仮定として残す。方針・本文・ノートを先に保存し、その結果をhubの短い要約へ反映する。
 
-固定補空間側のPart I v1.4は、Hermitian depthsを保つ可換collars・全残余一様なRZ延長比較・一面tensor評価を保持し、metric-IRFAからproperな1-Lipschitz全射Sと有界加法誤差Kを構成する。固定したSについて、中心oと半径Aに一様に、ambient閉球のGH誤差は3K/(2R)以下で、比較先の中心はS(o)/Rである。指定compact集合をSで零へ送る選択もでき、その場合Kはその集合に依存してよい。LDP、exact tail、joint law、distance Laplace transformは通常の全face volume-IRFAで成立し、指数的volume remainderを追加仮定しない。正本・ラベル・独立点検と共同監査の範囲は研究ノートに記す。
+固定補空間側のPart I v1.5（研究一式v1.6）は、Hermitian depthsを保つ可換collars・全残余一様なRZ延長比較・一面tensor評価を保持し、metric-IRFAからproperな1-Lipschitz全射Sと有界加法誤差Kを構成する。固定したSについて、中心oと半径Aに一様に、ambient閉球のGH誤差は3K/(2R)以下で、比較先の中心はS(o)/Rである。指定compact集合をSで零へ送る選択もでき、その場合Kはその集合に依存してよい。LDP、exact tail、joint law、distance Laplace transformは通常の全face volume-IRFAで成立し、指数的volume remainderを追加仮定しない。正本・ラベル・独立点検と共同監査の範囲は研究ノートに記す。
+
+同じ固定空間のmoving-basepoint blow-downは、cone内の有界基点極限、または面αに沿うEuclidean因子とincidence link coneの積に分類され、任意に指定した拡大列に対して全て実現する。正のα座標を持つstarと、最小weighted座標m>2Aでのambient閉A球の厳密な積同定を用いる。Closed star全体のambient積表示は一般に成り立たない。距離だけから復元するのはmetric linkの等長型であり、標識付きcell分割・depth重み・geodesic-ray boundaryの復元は含めない。Leuzingerのlocally symmetric cone比較・radial公式、Bridson–Haefligerの標準cone幾何との重なりを正本Introductionに明記する。
 
 同稿の面ごとの測度付き平行移動は、任意のnormal中心vectorでmin T_i→∞なら、通常volume-IRFAから全残余strip上の全変動収束を得る。Metric-IRFAと収束するbasepoint offsetも仮定すると、固定gのscale-one積極限と全半径のambient閉球測度の全変動収束が成立する。Smooth volume-IRFAを必要としない。滑らかな基準曲率からの有界primitiveを用いる直接Stokes・face mass規格化、および全faceのvolume漸近に基づくMellinの一様momentとincidenceは共同点検として同期する。これらの証明は固定空間のものであり、退化族の一様bufferやCP/PBE/TCへ移さない。
 
@@ -110,7 +112,7 @@ Actual計量への大域適用には(N) global no-shortcut、(S) square path lif
 ## 次の課題
 
 1. 共有するcapped volume下界→full-triple比較→固定成分収束・fixed-end momentの量化と、曲面K2の全交わり・K3のlinkから補間後trimまでの指定証明鎖は重点点検済み。研究ノートの依存表と曲面側の監査範囲から再開し、未確認の入力・一次資料・Introductionのscopeを主定理から逆向きに照合する。固定段階で有限個の誤差・費用を確定した後にのみ対角選択を行う（`pair:lem:diagonal-fixed-end`）。
-2. Part Iのcollar/tensor入力、全射収縮・閉球近似、測度付き平行移動の点検済み範囲を起点に、曲面改訂33の中間尺度との接続で固定量・尺度予算・測度規格化を照合する。固定空間内の一様性を退化parameter一様性へ移さず、一般基点ではtarget変位も尺度予算へ入れる。曲面の直接scalar/portal経路とCP/PBE/TC経路を区別し、Stokes・Mellin等の共同監査も全原稿・全外部入力の包括的独立再検証と扱わない。
+2. Part Iのcollar/tensor入力、全射収縮・閉球近似、測度付き平行移動と移動基点分類の点検済み範囲を起点に、曲面改訂33の中間尺度との接続で固定量・尺度予算・測度規格化を照合する。固定空間で全てのmoving limitsを実現できても退化parameter一様性は従わず、曲面の一般基点ではtarget変位も尺度予算へ入れる。Metric linkの等長型と標識付きincidence情報、曲面の直接scalar/portal経路とCP/PBE/TC経路を区別し、既知のcone幾何との比較を踏まえて未確認の外部入力と公表上のscopeを監査する。
 3. 独立の解析課題としてsourceを含むexteriorの(TC)_5、(PBE)_dのquantitative terminal trivialization・protected rectangular inclusion・uniform comparison・two-metric escape、および(CP)_dのconnectorsを検証する。固定baseの定理を任意速度のmoving領域へ拡張せず、bounded densityをtensor比較へ読み替えない。これらの強いpackageの解決を曲面global結果の完成条件へ戻さない。
 4. 一次文献との比較と新規性確認を続ける。高次元mixed source modelsや一般のsecondary completionは、現在の固定次数曲面の監査と別の優先順位で扱う。
 
@@ -122,7 +124,7 @@ Actual計量への大域適用には(N) global no-shortcut、(S) square path lif
 
 2026-11-22にv1.9のPart IVを117頁、Part Vを37頁にLuaLaTeX組版した。未定義参照・引用、重複ラベル、欠字、overfull/underfull boxはなく、フォント・PDF bookmark警告は残る。IVの1、6–7、70–71、117頁とVの2、4–5、37頁を画像で確認した。全頁の表示確認と有限検算の再実行は行っていない。実行環境はTeX Liveのformat・font mapを補完して使用し、通常のlatexmk設定とbuild出力を保持した。証明記載、内部点検、計算、組版、GitHub反映、hub更新を別々の状態として扱う。
 
-管理文書v1.12ではPart I v1.4の測度付き平行移動・Stokes規格化・Mellinを同期した。今回の直接点検は平行移動極限のambient距離と測度の量化であり、Stokes・Mellinは共同点検として記録する。距離収縮等の指定証明鎖も確認範囲に含む。外部正本のPart I v1.4は57頁、総説v1.4は11頁に組版され、共同作業でPart Iの指定28頁と総説全11頁を画像確認した。IV–Vの本文・仮定・版は変更しておらず、本repoの組版と計算は再実行していない。証明は所有repoを参照する。
+管理文書v1.13はPart I v1.5（研究一式v1.6）の移動基点分類・metric linkの復元範囲・先行研究比較に同期する。直接点検はpositive incidence star、ambient閉球の2A条件、全極限の分類と実現であり、metric linkとLeuzinger/Bridson–Haefliger比較は共同監査として記録する。距離収縮・測度付き平行移動・Stokes・Mellinの指定証明鎖も確認範囲に保持する。外部稿はPart I v1.5が62頁、総説v1.5が12頁に組版され、共同作業でPart Iの指定19頁と総説全12頁を画像確認した。これはIV–Vのv1.9の組版記録と区別する。IV–Vの本文・仮定・版は変更しておらず、本repoの組版と計算は再実行していない。
 
 ## 共通研究原則と保存許可（研究固有方針から独立）
 
