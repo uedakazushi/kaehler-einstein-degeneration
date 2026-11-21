@@ -1,6 +1,6 @@
 # Kähler–Einstein degeneration
 
-更新：2026-11-22 / v1.11（研究資料。Part IV–V本文はv1.9）
+更新：2026-11-22 / v1.12（研究資料。Part IV–V本文はv1.9）
 
 最初に[現行研究方針](00_research_plan.md)、次に[研究ノート](research/notes.md)を読む。固定次数d≥5の一般型曲面の全平面退化について、actual KE計量の径の尺度の極限とLagrangian torus fibrationによる実現を研究する。正本はGitHubのmain、研究全体の入口は[research-hub](https://github.com/uedakazushi/research-hub)。
 
@@ -8,7 +8,9 @@
 
 [固定配置補空間・Part I–III](https://github.com/uedakazushi/multiscale-kaehler-einstein)、本repoの退化族局所解析・Part IVと条件付き距離論・Part V、[曲面のactual KE Lagrangian構成と大域GH実現](https://github.com/uedakazushi/surface-lagrangian-torus-fibration)を共同で編集・監査する。各repoと主論文の正本はこの責任分担で維持する。証明を重複収録せず、仮定・定理ラベル・尺度・確認版を揃える。固定空間の漸近と退化族の一様性、Part IIのcomplex periodsとsymplectic actions、曲面の直接評価と本稿のCP/PBE/TCを区別する。詳しい方針は[現行研究方針](00_research_plan.md)、共有局所入力は[研究ノートの依存表](research/notes.md)を参照する。
 
-Part I v1.3は、固定SNC空間のexact collar/tensor入力からproperな1-Lipschitz全射と有界加法誤差Kを与える。固定した写像について、全中心・全半径のambient閉球のGH誤差は3K/(2R)以下である。測度仮定下のLDPのambient-open下界とexact tailも共同監査した。Kは固定空間の定数であり、退化parameterに一様な評価を意味しない。曲面改訂33は、P0の同じ全射のdistortionとtarget上の基点変位を吸収する中間尺度で、component coreと変更collarの任意基点から成分錐へのpointed GH収束を与える。利用条件・監査範囲・正本のラベルは研究ノートに集約する。
+Part I v1.4は、固定SNC空間のexact collar/tensor入力からproperな1-Lipschitz全射と有界加法誤差Kを与える。固定した写像について、全中心・全半径のambient閉球のGH誤差は3K/(2R)以下である。LDPのambient-open下界に加え、exact tail・joint law・distance Laplace transformも通常の全face volume-IRFAで扱い、指数的volume remainderを追加仮定しない。Kは固定空間の定数であり、退化parameterに一様な評価を意味しない。曲面改訂33は、P0の同じ全射のdistortionとtarget上の基点変位を吸収する中間尺度で、component coreと変更collarの任意基点から成分錐へのpointed GH収束を与える。利用条件・監査範囲・正本のラベルは研究ノートに集約する。
+
+固定空間の測度付き平行移動は、全normal中心の最小値が無限大へ進む任意の列について、通常のvolume-IRFAからstrip上の全変動収束を、metric-IRFAも用いて全半径のambient閉球上の測度付き積極限を与える。Smooth volume-IRFAは不要である。滑らかな基準曲率と有界primitiveによる直接Stokes、および全faceのvolume漸近を用いるMellinの一様性とincidenceの確認範囲も、正本への参照とともに研究ノートへ記す。
 
 ## 現行の解析結果
 
@@ -57,6 +59,6 @@ Part I v1.3は、固定SNC空間のexact collar/tensor入力からproperな1-Lip
 
 Part IV–Vの現行v1.9で確認した数学的内容は、共有する局所入力の仮定・量化の重点照合と `pair:lem:diagonal-fixed-end` の証明・別の読み手による独立内部点検である。既存証明全体の再監査、網羅的新規性調査、外部査読、形式証明とは区別する。2026-11-20の有限検算成功記録を保持するが、今回再実行していない。詳しい実行状態は[検証状態](research/validation.json)。
 
-研究資料v1.11では、Part I v1.3の全射収縮・閉球近似と、測度論の共同監査を同期した。今回独立に再読した指定鎖はco-Gram→収縮写像→閉球近似であり、LDP・exact tailの全証明を同じ読み手が独立再検証したという意味ではない。Part IV–VのTeXは変更しておらず、本文の現行版と組版確認はv1.9のままである。文書同期に伴う組版・有限検算の再実行は行っていない。
+研究資料v1.12では、Part I v1.4の測度付き平行移動・Stokes規格化・Mellinの共同監査を同期した。今回直接点検したのは平行移動極限のmeasure cutoff・full ambient球・connection・基点と極限測度の量化であり、Stokes・Mellinは共同点検として記録する。Co-Gram→収縮写像→閉球近似の独立点検も確認範囲に含む。外部正本のPart I v1.4は57頁、総説v1.4は11頁にLuaLaTeXで組版され、共同作業でPart Iの指定28頁と総説全11頁を画像確認した。Part IV–VのTeXは変更しておらず、本文の現行版と組版確認はv1.9のままである。本repoの組版・有限検算は文書同期に伴って再実行していない。
 
 再生成はルートで `latexmk`、PDF/SyncTeXの出力先は `build/`。LuaLaTeX、luatexja、Harano Ajiと数学フォントの有効なmapを備えたTeX Liveを用いる。[移行・検証範囲](research/migration.md)と[ソース対応](research/source-manifest.json)を参照する。通常のcommitとmainへのpushで保存し、研究成果の保存とresearch-hubの更新を別々に確認する。

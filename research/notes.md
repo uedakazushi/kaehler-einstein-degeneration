@@ -1,12 +1,12 @@
 # 研究ノート：一般型超曲面のKE退化
 
-更新：2026-11-22 / v1.11（Part IV–V本文はv1.9）
+更新：2026-11-22 / v1.12（Part IV–V本文はv1.9）
 
 ## 共同編集の正本と共有局所入力
 
 `multiscale-kaehler-einstein` は固定配置補空間のPart I–III、本repoは退化族局所解析のPart IVと条件付き距離論のPart V、`surface-lagrangian-torus-fibration` はactual KE Lagrangian構成と同じ射影の全曲面GH実現を所有する。三研究の方針・Introduction・証明依存を共同で点検するが、証明全文を相互に複製しない。共有する結果を変更したら、利用側の定理ラベルと仮定も照合し、各repoの保存後にhubへ反映する。
 
-2026-11-22に照合した外部正本は、[固定配置Part I](https://github.com/uedakazushi/multiscale-kaehler-einstein/blob/de1bd02daf78105c60ae9e9f4b1dac2d8e3c88e6/papers/multiscale-kaehler-einstein.tex) v1.3の統合ソースと、[曲面稿・改訂33](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/tree/68c7e3751e2de8f44c9ade062461fe150f21265c)。Part Iの確認commitは `de1bd02daf78105c60ae9e9f4b1dac2d8e3c88e6`で、main保存後のbranch/tree読戻しの一致も共同確認した。以下の利用条件の照合と指定証明鎖の内部点検を、外部全文の包括的再検証と区別する。
+2026-11-22に照合した外部正本は、[固定配置Part I v1.4](https://github.com/uedakazushi/multiscale-kaehler-einstein/blob/e0fcd38db2df7b41b951a23aa0035eba830e1bce/papers/multiscale-kaehler-einstein.tex)と、[曲面稿・改訂33](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/tree/68c7e3751e2de8f44c9ade062461fe150f21265c)。Part Iの確認commitは `e0fcd38db2df7b41b951a23aa0035eba830e1bce`。Part Iは57頁、総説v1.4は11頁にLuaLaTeXで組版され、共同作業でPart Iの指定28頁と総説全11頁を画像確認した。以下の利用条件の照合と指定証明鎖の内部点検を、外部全文の包括的再検証と区別する。
 
 | 本repoの共有入力 | 仮定・量化と証明の所在 | 曲面稿での利用と適用限界 |
 | --- | --- | --- |
@@ -25,9 +25,17 @@
 
 **固定補空間のexact collar入力。** Part Iの `lem:SNC-compatible-collars` は同一Hermitian depthsを保つ実有向collarsと段階的商を構成し、`lem:fc-collar-transfer` はRZの局所正則射影による延長とそのexact pullbackの全残余一様な比較を与える。`lem:RZ-collar-tensor` がRZ Theorem 5.1を選んだcollarの一面tensor評価へ移す。一般のlog-smooth collarだけでは不十分な障害は `rem:log-collar-obstruction`。証明の正本は上記Part Iであり、指定collar構成と延長比較を独立内部点検した。これらは固定SNC空間の結果で、退化parameterに一様なbuffer、任意速度で指定した退化族のmoving比較、CP/PBE/TCの証明を与えるものではない。
 
-**固定補空間の全射収縮と閉球近似。** Part I v1.3の `prop:cogram`、`lem:lambda-choice`、`thm:contract`、`thm:rough` は、clean finite-depth構造とmetric-IRFAの下で、properな1-Lipschitz全射 $S:X\to\mathcal C$ と $d_{\mathcal C}(Sp,Sq)\le d_g(p,q)\le d_{\mathcal C}(Sp,Sq)+K$ を与える。`cor:based-ball-approximation` は、固定したSについて全中心o・全半径A・全R>0で、ambient距離を制限した閉球 $\overline B_{(X,R^{-1}d_g)}(o,A)$ と $\overline B_{\mathcal C}(S(o)/R,A)$ の間に基点対を含む歪み3K/R以下の対応を構成する。通常のGH距離は3K/(2R)以下である。`cor:GH` と `thm:moving` はその帰結で、指定compact集合を零へ送る選択ではKがその集合に依存してよい。今回の独立内部点検は、十分深い共通collar、全逆計量と残余covector norm、可積分収縮、局所一セル化、全射性、fiberのambient直径と閉球対応を対象とした。固定空間内では任意のmoving centerに一様だが、退化族に一様なKや中間尺度の有効な速度を与えない。
+**固定補空間の全射収縮と閉球近似。** Part Iの `prop:cogram`、`lem:lambda-choice`、`thm:contract`、`thm:rough` は、clean finite-depth構造とmetric-IRFAの下で、properな1-Lipschitz全射 $S:X\to\mathcal C$ と $d_{\mathcal C}(Sp,Sq)\le d_g(p,q)\le d_{\mathcal C}(Sp,Sq)+K$ を与える。`cor:based-ball-approximation` は、固定したSについて全中心o・全半径A・全R>0で、ambient距離を制限した閉球 $\overline B_{(X,R^{-1}d_g)}(o,A)$ と $\overline B_{\mathcal C}(S(o)/R,A)$ の間に基点対を含む歪み3K/R以下の対応を構成する。通常のGH距離は3K/(2R)以下である。`cor:GH` と `thm:moving` はその帰結で、指定compact集合を零へ送る選択ではKがその集合に依存してよい。独立内部点検では、十分深い共通collar、全逆計量と残余covector norm、可積分収縮、局所一セル化、全射性、fiberのambient直径と閉球対応を対象とした。固定空間内では任意のmoving centerに一様だが、退化族に一様なKや中間尺度の有効な速度を与えない。
 
-**LDPとexact tailの共同監査。** Part Iの `thm:LDP` はmetric-IRFAとvolume-IRFAを仮定する。`lem:deep-sector-partition` の深いnormal directionsによる可測分割、`lem:cellwise-LDP` のcompact上界・ambient-open下界、`lem:exp-tight` の一面評価によるexponential tightnessを用い、LDP本体に追加仮定を置かない。下界は正の質量を持つ固定residual compactを使い、exact-support sectorへの制限だけで全ての下位faceの正の質量を要求しない。`lem:level`、`lem:calibration`、`lem:vertex-tightness`、`thm:tail` の指定鎖では、level crossing、固定residual compactでの距離校正、残余無限遠のtightnessとactual metric-ball tailへの移行を直接監査した。Exact-tail係数にはexponential volume-IRFAを用いる。これらは三研究の共同監査として記録し、今回co-Gramから閉球近似を再読した読み手が測度節全体も独立再検証したとはしない。証明・修復の詳細と確認状態の正本はPart Iおよび同repoの研究ノートである。
+**LDPとexact tailの共同監査。** Part Iの `thm:LDP` はmetric-IRFAとvolume-IRFAを仮定する。`lem:deep-sector-partition` の深いnormal directionsによる可測分割、`lem:cellwise-LDP` のcompact上界・ambient-open下界、`lem:exp-tight` の一面評価によるexponential tightnessを用い、LDP本体に追加仮定を置かない。下界は正の質量を持つ固定residual compactを使い、exact-support sectorへの制限だけで全ての下位faceの正の質量を要求しない。`lem:level`、`lem:calibration`、`lem:vertex-tightness`、`thm:tail` の指定鎖では、level crossing、固定residual compactでの距離校正、残余無限遠のtightnessとactual metric-ball tailへの移行を直接監査した。全faceのconditional residual momentsを共通入力とすれば通常のvolume-IRFAでvertex tightnessが閉じ、exact tail、joint law、distance Laplace transformにも指数的volume remainderは不要となる（`thm:joint`、`cor:Laplace`）。これらは三研究の共同監査として記録し、距離・平行移動極限を担当した読み手が測度節全体も独立再検証したとはしない。証明・修復の詳細と確認状態の正本はPart Iおよび同repoの研究ノートである。
+
+**固定空間の測度付き平行移動。** Part I v1.4の `thm:translation` は、非空face Iについてmin T_i→∞であれば中心vectorの相対速度によらず、重みe^{ΣT_i}と平行移動射影Π_Tによる測度が $e^{-\sum s_i}\,ds_I\otimes\lambda_F$ へ収束することを示す。通常volume-IRFAのL1支配により、固定normal strip×全residual space上で全変動誤差を明示する（`eq:translation-TV-strip`）。Metric-IRFAに加えnormal offsetとresidual basepointが収束すれば、固定gのscale-one極限は $\mathbb R^I_{\boldsymbol c}\times F^\circ$ で、全半径のambient閉球の押出し測度も全変動収束する（`eq:translation-TV-ball`）。Smooth volume-IRFAは不要である。今回直接点検したのは、全残余上で深部1となるcutoff、短いambient経路のnormal/residual退出排除、段階的torus connectionと終点補正、基点offset、およびnormal Lebesgue方向による全球面の零測度性である。退化族のt一様な測度極限やtensor比較の証明としては使わない。
+
+**Stokesとface massの規格化の共同点検。** Part Iの `lem:CW` は、滑らかなHermitian基準曲率Θに対するω−Θ=dβと、Poincaré型計量でのω・βの有界性を仮定する。有限体積cutoffを用いる直接Stokesで積分を滑らかな基準曲率へ戻し、potential自体の有界性は要求しない。KE pairへの適用条件は `app:CW`、残余strataへのadjunctionとnormal torusの規格化は `thm:facemass` が正本である。Period 2πのnormal circlesを既に積分した $\lambda_F=(2\pi)^{|I|}dV_{g_F}$ を用いるため、face massの式にnormal torus係数を二重に掛けない。この適用条件と規格化は共同点検として記録し、今回平行移動極限を担当した読み手による全一次文献の独立再検証とは区別する。
+
+**全faceのvolume-IRFAとMellinの共同点検。** Part Iの `lem:Mellin-conditional-moments` は全full faceの整合するvolume-IRFAから、条件付き残余測度のsubcritical exponential momentsを、normal深度Tに関するessential supremumで一様に抑える。この共通入力は上記のvertex tightnessにも用いる。`lem:Mellin-weighted-TV` は非加重TV誤差δ(T)とHölder補間から、compact subcritical parameter set上で $C\delta(T)^{1-\tau_*/q}$（$\tau_*<q<1$）のweighted TV評価を与える。任意に選んだ支配関数b_F自体のweighted momentを追加仮定せず、`thm:Mellin` と `thm:Mellin-recursion` のAbel residueとadjunction recursionを得る。一様性はcritical boundaryから離したparameter集合についてのもので、残余parameterもcriticalへ動かす場合の極限順序は正本に従う。
+
+Component-labelled mixed transformの係数は、I⊂J、F⊂D_I、G⊂D_Jについて $\mathfrak m_G\mathbf1_{\{G\subset F\}}$ であり、正のface massesとともにincidenceを検出する（`prop:Mellin-incidence`）。Face massの数値列だけからincidenceを決める主張ではない。複素meromorphic continuationには別のpolyhomogeneous条件を用いる（`rem:Mellin-continuation`）。これらは共同点検として同期し、一面だけの非加重L1評価や退化族の評価へ適用範囲を広げない。
 
 **固定補空間との尺度接続と基点の範囲。** 曲面改訂33の `topo:component-cone-germ` は、cubical targetの成分頂点e_iの小球を$C_{2,d-1}$の小球と等長同定する。`ke:intermediate-component-cone` は同じP0のdistortion $\epsilon_t\to0$ と、非空領域 $A_t$ のtarget変位 $\eta_t=\sup_{y\in A_t}d_\square(f_t(y),e_i)\to0$ に対し、$a_t\to\infty$、$a_t/R_t\to0$、$R_t(\epsilon_t+\eta_t)/a_t\to0$ なら、任意の $y_t\in A_t$ を基点として $(X_t,a_t^{-1}d_{g_t},y_t)\to(C_{2,d-1},0)$ となることを示す。固定半径の球の近似誤差は基点の選択に一様で、$a_t=R_t\sqrt{\epsilon_t+\eta_t+R_t^{-1}}$ と選べる。$A_t=f_t^{-1}(e_i)$ は $\eta_t=0$ の場合である。
 
@@ -285,7 +293,7 @@ $\mathcal C_6$ は全 $S_6$ の座標置換で不変だが、六つの同時Pete
 
 保存された16本の旧原稿由来の検算と統合稿の5本は、2026-11-20に再実行され、元入力のSHA-256も照合されている。現在も有効な再現資産を保持するが、v1.9で再実行していない。出典・ハッシュは `source-manifest.json`、実行状態は `validation.json` に記す。
 
-本repoの数学的点検は冒頭の共有局所入力表の量化・規格化と、`pair:lem:diagonal-fixed-end` の証明を対象とし、同補題は別の読み手も独立内部点検した。管理文書v1.11ではPart I v1.3の全射収縮・閉球近似とLDP・exact tailの共同監査を同期し、既存のcollar/延長比較と曲面改訂33の基点拡張・指定K2/K3鎖の確認状態を保持する。今回独立に再読した指定鎖はco-Gram→収縮写像→閉球近似である。Part IV–Vの本文は変更しておらず、この同期に伴う組版・有限検算の再実行はしていない。既存の全高階解析証明・一次文献全体の再監査、新規性の包括的確認、外部査読、形式証明とは区別する。
+本repoの数学的点検は冒頭の共有局所入力表の量化・規格化と、`pair:lem:diagonal-fixed-end` の証明を対象とし、同補題は別の読み手も独立内部点検した。管理文書v1.12ではPart I v1.4の測度付き平行移動・Stokes規格化・Mellinの確認状態を同期し、既存のcollar/延長比較・距離収縮・測度論および曲面改訂33の基点拡張・指定K2/K3鎖の確認状態を保持する。今回直接点検したのは平行移動極限であり、Stokes・Mellinは共同点検として記録する。Part IV–Vの本文は変更しておらず、この同期に伴う組版・有限検算の再実行はしていない。既存の全高階解析証明・一次文献全体の再監査、新規性の包括的確認、外部査読、形式証明とは区別する。
 
 2026-11-22にv1.9のPart IVを117頁、Part Vを37頁へ `latexmk` で組版し、PDFとSyncTeXをbuildに生成した。最終logの未解決参照・引用、重複ラベル、欠字、overfull/underfull boxは0。日本語フォントの代替・featureとbookmark数式に関する警告は残る。IVの1、6–7、70–71、117頁、Vの2、4–5、37頁を画像化して、本文・数式・新補題・文献の欠落、重なり、はみ出しがないことを確認した。全頁の画像点検ではない。初期環境のformat/font map不足は利用可能なTeX Live環境で補い、主稿の設定は保持した。GitHubへの反映とhub更新は組版から独立に確認する。
 
