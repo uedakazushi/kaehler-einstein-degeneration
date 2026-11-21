@@ -1,6 +1,6 @@
 # 現行研究方針：一般型超曲面の負Kähler–Einstein退化
 
-更新：2026-11-20 / v1.7・現行研究方針
+更新：2026-11-21 / v1.8・現行研究方針
 
 ## 研究固有の目標
 
@@ -8,8 +8,8 @@
 
 ## 論文と証明の状態
 
-- `papers/kaehler-einstein-degeneration.tex`：Part IV、66頁（回収時）。局所模型、source packing、固定次数d≥5の代数・残差packageに、全深部三重点のactual tensor比較、simplex境界の積漸近、全閉cornerのGH定理を統合。Sourceを含むquintic exteriorのcoarse metric geometryは独立な(TC)_5付き。全域のsharp co-Gramは粗い比較に加えて(PBE)_d付きであり、証明済みの三重点内のactive co-Gramと区別する。Bounded-densityからtensor比較を導く一般的推論は反例により排除した。
-- `papers/cubical-gh-limit.tex`：Part V、34頁（回収時）。Abstract pruning–transportとdiam(C_5)=sqrt(13)は解析仮定と独立。全曲面のactual degree-d GH適用は(CP)_d+(PBE)_d付きであり、無条件の大域actual GH収束は未証明。
+- `papers/kaehler-einstein-degeneration.tex`：Part IV、現行v1.8は116頁。局所模型、source packing、固定次数d≥5の代数・残差packageに、全深部三重点のactual tensor比較、simplex境界の積漸近、全閉cornerのGH定理を統合。Sourceを含むquintic exteriorのcoarse metric geometryは独立な(TC)_5付き。全域のsharp co-Gramは粗い比較に加えて(PBE)_d付きであり、証明済みの三重点内のactive co-Gramと区別する。Bounded-densityからtensor比較を導く一般的推論は反例により排除した。
+- `papers/cubical-gh-limit.tex`：Part V、34頁（回収時）。Abstract pruning–transportとdiam(C_5)=sqrt(13)は解析仮定と独立。本稿の全曲面actual degree-d GHへの適用経路は(CP)_d+(PBE)_d付きであり、このpackageの検証は未完。関連する[曲面fibration研究](https://github.com/uedakazushi/surface-lagrangian-torus-fibration)の `ke:global-metric-realization` は別の直接scalar/portal評価で同じ族の大域GH実現を与えるが、このpackage自体の検証を結論しない。
 - 高次元ではmixed source–higher-stratum modelsの解析が残るためGH極限は予想。
 - Fixed arrangement complement側Part I–IIIの正本は[multiscale-kaehler-einstein](https://github.com/uedakazushi/multiscale-kaehler-einstein)。固定空間の結果から族の一様性を自動的に導かない。
 
@@ -24,7 +24,9 @@
 
 固定toric模型の存在・完備性にはZhang (2015), §2.1, Theorem 2.1 / Proposition 2.2を用いる（退化族のTheorem 2.4とQ-factorial仮定は使わない）。ψ_L=log L−Σlog ell_iに対してψ_L−(log3)/2≤φ_L≤ψ_L、V_L/3≤k_L²≤V_Lを内外にずらした障壁で証明する。Complete模型から三つの半平面へのYau Schwarz lemma、determinant比較、内部正則性により一様cusp geometryを得る。凸性からfacet shiftのlog-density差をO(1/min ell)とし、actual計量を内外のsimplex KE metricsでvolume比較する。Savinの小摂動定理でtensor・全高階誤差へ移る。Actual metric bufferや(TC)/(PBE)を前提としない。
 
-Actual側の大域入力は `coarse:cor:degree-d-volume-lower`。Adjunction residueでcanonical densityを固定し、backgroundによるHermitian frame errorの吸収と各正のcap方向のminorから六型のdeterminant下界を証明する。Sourceでは元のplane coordinatesを保つexact xy=tzとrescalingにより二つのcap係数≥c_d/Lを使う。Compact minimum原理からactual volume下界を得る。今回この依存部分も再点検して明示化した。
+Actual側の大域入力は `coarse:cor:degree-d-volume-lower`。Adjunction residueでcanonical densityを固定し、backgroundによるHermitian frame errorの吸収と各正のcap方向のminorから六型のdeterminant下界を証明する。Sourceでは元のplane coordinatesを保つexact xy=tzとrescalingにより二つのcap係数≥c_d/Lを使う。Compact minimum原理からactual volume下界を得る。
+
+Full tripleの証明に必要なのは、この大域入力が供給する固定face ∂D_{t,m0}上の全phase・t一様なdensity下界だけである（`coarse:rem:full-triple-face-input`）。各固定tのradial closure×phase quotientがchartにcompactに含まれ、actual metricが近傍で滑らかなら、内外simplexのmaximum principleからinteriorのvolume sandwichを得る。Interiorのdensity下界、t一様な境界上界、actual tensor比較、actual距離の境界逃避を別に仮定しない。Shift評価で小さくなるv=log(ω_t²/k_L²)自身が、Ricci恒等式dd^cv=ω_t−k_Lによって小さい相対potentialとなる。今回の独立監査では大域capped densityを前段入力として分離し、それから先の領域・境界・全深度比・Savin/Schauderの連鎖を確認した。
 
 ## 全閉cornerの距離と同じLagrangian bundleによるGH収縮
 
@@ -55,6 +57,8 @@ Actual chart内でexpanding product annuliとshifted-sinh下barrierを直接使�
 Source gateのfixed model ballはoriented half-armを越える。Full source-coordinate extension上でdensity比較を行い、(TC)_5は**その点で有効なorientation**のmodelに対する下界として定式化する。全ての拡大窓で同じmodelのtensor比較を要求しない。任意半径のexhaustionはcoarse小窓構成の結論に含めず、dominant tripleでの証明と一般の(PBE)_dを分ける。
 
 ## 体積密度とtensor比較：現行の解析条件
+
+`coarse:lem:complete-volume-upper` は、complete負KE背景hに対するu=log(ω²/h²)が上に有界という仮定の下で、Ricci下界に対するLaplacian型Omori–Yauとtr_hω=2+Δ_hu、算術幾何平均からω²≤h²を得る。Hessian型最大値原理は用いない。本稿のfinite ball、annulus–disc、product-annulus windowsでは、各固定tの有限angular quotient上でactual densityが人工境界を越えて有限に延長し、explicit complete modelのdensityが全人工境界で発散するのでu→−∞となる。周期的coverにはその上界を引き戻し、residual universal coverでは内部のfinite disc windowを使う。完備性だけから上有界性は導かず、非周期な無限coverへの適用には別の確認を要する。
 
 主稿 `coarse:prop:density-counterexample` は、固定ball上で滑らかな負KE計量列の体積密度が正に一様有界でも、内側ballでtensorが一様有界とは限らないことを証明する。したがってvolume lower/upper estimatesだけを用いた局所tensor比較は使えない。
 
@@ -95,7 +99,9 @@ Actual計量への大域適用には(N) global no-shortcut、(S) square path lif
 
 全文TeXのSHA-256は `research/source-manifest.json`、元監査は `research/source-audit.md`。回収時に3原稿のLuaLaTeX組版と、統合稿5 scripts・旧v0.12の16 scriptsの再実行を行った。検査は有限組合せ・式・bookkeepingに限られ、未完成の解析証明を代替しない。詳細は `research/migration.md`。
 
-今回追加したexplicit bundle coordinates、canonical momentのpatchingと周期1の係数、Songのstable-family仮定、Rochon–ZhangのSNC potential remainder、rank-one determinant、residual-boundary例、complete KE uniquenessを原典および証明で点検した。二段階averageのexact primitive transport、Hamiltonian path homotopy、指定subgroupでのclosed-corner GHも関連稿で独立に再読した。現行の解析監査では、全固定次数のweighted cap determinant、source residue規格化、complete simplexの内外barriers、convex shift評価、expanding product domains、shifted-sinh barriers、Savinの原典のH1/H2/H4とTheorem 1.3を点検した。さらに正確な係数1のBochner計算、積領域の包含と内部近似によるvolume比較、dominant/facetの誤差率、active co-Gram、全閉cornerのpruningと有限gallery、modelを基準とするMoser pullbackおよびprotected-ambient GHの証明を独立に再読した。Bounded-density推論の反例とその依存先、GuanのDirichlet存在定理、Bedford–Taylorの比較・pluripolar massの一次資料も確認した。局所GH定理の原稿内の証明・今回の監査と、未完成の大域解析、新規性の未確認、未実施の形式証明を区別する。現環境では `lualatex.fmt`・LuaTeX-ja等の基本資産がなく、LuaLaTeX組版の試行は本文処理前に停止した。回収時の組版成功と現行改訂の未組版を区別する。
+現行資料にはexplicit bundle coordinates、canonical moment、fixed-end漸近、weighted cap determinant、source residue、全三重点比較、simplex境界漸近、閉corner評価の証明と参照先を保持する。今回の独立監査は、complete volume upperに必要なuの上有界性・Laplacian型最大値原理と、固定face入力からの内外simplex barriers、convex shift、小potential、Savin/Schauder、dominant/facetとactive co-Gramの連鎖を対象とした。SavinのH1/H2/H4とTheorem 1.3、YauのTheorems 1–2、ZhangのTheorem 2.1・Proposition 2.2を一次資料で確認した。Cheng–Yau 1982原典自体は未取得で、Zhangによる明示再掲の確認と区別する。大域capped densityを含む旧証明全体の再監査、外部査読、形式証明、新規性の包括的確認は行っていない。
+
+現行v1.8の主稿は2026-11-21にLuaLaTeXで組版し、116頁のPDF生成を確認した。未定義参照・引用とoverfull/underfullの警告はなく、フォント・PDF bookmarkの警告は残る。28–29、51、78–79頁の画像で欠落・重なり・数式のはみ出しがないことを確認した。現行PDF全頁の画像確認と有限検算の再実行は未実施。証明の記載、独立監査、有限計算、組版、mainへの保存、hub更新を別々の確認状態として扱う。
 
 ## 共通研究原則と保存許可（研究固有方針から独立）
 

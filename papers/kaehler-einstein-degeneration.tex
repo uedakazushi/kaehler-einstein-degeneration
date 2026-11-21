@@ -58,7 +58,7 @@
 \large 超平面和への退化 I：完備局所模型，terminal-cusp adapted gauges，\\
 および raw co-Gram 剛性}
 \author{植田一石\\[-1mm]\small Kazushi Ueda}
-\date{2026年11月20日\\五部作・統合改訂稿 v1.7}
+\date{2026年11月21日\\五部作・統合改訂稿 v1.8}
 \begin{document}\maketitle
 
 \begin{abstract}
@@ -1356,34 +1356,73 @@ $y$-arm は対称である．
 \end{proof}
 
 \begin{lemma}[Explicit complete envelope の volume upper comparison]\label{coarse:lem:complete-volume-upper}
-$\pi_D:D\to X_t$ を，本節で用いる labelled covering domain（strongly pseudoconvex ball，annulus--disc product，または product-annulus window）とし，
-$h$ を $D$ 上の complete negative K\"ahler--Einstein metricとする．$\omega_t^D=\pi_D^*\omega_t$ を pullback actual metricとする．
-このとき
+$\pi_D:D\to X_t$ を正則局所同型とし，$h$ を $D$ 上の
+$\Ric(h)=-h$ を満たす complete K\"ahler metric とする．
+$\omega_t^D=\pi_D^*\omega_t$ に対して
+\[
+ u=\log\frac{(\omega_t^D)^2}{h^2},\qquad \sup_Du<\infty
+\]
+を仮定する．このとき
 \[
  (\omega_t^D)^2\le h^2
 \]
-が $D$ 上で成り立つ．
+が $D$ 上で成り立つ．本稿で用いる finite strongly pseudoconvex ball，
+annulus--disc product，product-annulus window とその labelled covers では，
+この上有界性は下の有限境界の議論で検証できる．
+検証の際の上界は $t$ と選んだ finite window に依存してよい．
 \end{lemma}
 
 \begin{proof}
-$u=\log((\omega_t^D)^2/h^2)$ とすると $\ddc u=\omega_t^D-h$ である．Covering mapは人工境界を含む neighbourhoodまで local biholomorphismであり，
-$\omega_t^D$ の densityは各 finite windowの closure上で有界である．一方 $h$ は全人工境界で Poincar\'e 型に発散するので，その方向では $u\to-\infty$ である．Angular universal coverの非 compact 方向では両 metrics と $u$ は deck-periodicであり，residual universal coverについては $h$ が completeで $u$ は上に有界である．従って quotient上の最大値原理，または complete metric $h$ に対する Hessian 型 Omori--Yau 原理を適用できる．
-
-後者を用いると，$\sup_Du$ に近づく点列 $p_m$ を
+$\ddc u=\omega_t^D-h$ である．Complete metric $h$ の Ricci 曲率は下から有界なので，
+上に有界な $u$ に Laplacian 型 Omori--Yau 最大値原理
+\cite[Theorem~1, p.~200]{YauSchwarzThm2} を適用する．
+複素 Laplacian を $\Delta_hu=\tr_h(\ddc u)$ と規格化すれば，点列 $p_m$ を
 \[
  u(p_m)\to\sup_Du,
  \qquad
- \ddc u(p_m)\le m^{-1}h(p_m)
+ \Delta_hu(p_m)\le m^{-1}
 \]
-となるように選べる．従って $p_m$ で
-$\omega_t^D\le(1+m^{-1})h$ であり，
+となるように取れる．ここで必要なのは Laplacian の上界だけである．
+実際，固定基点からの $h$-距離を $r$ とすれば，Ricci 下界の距離比較により
+$\Delta_h\sqrt{1+r^2}\le C$ が barrier の意味で成立する．
+上に有界な $u$ から $\varepsilon\sqrt{1+r^2}$ を引いた函数の最大点を取り，
+cut locus では通常の support-function argument を使うと，
+$\varepsilon\downarrow0$ により上の点列を得る．
+
+$h$ に対する $\omega_t^D$ の二つの正の固有値を $\lambda_1,\lambda_2$ とすると，
+$p_m$ で $\lambda_1+\lambda_2=2+\Delta_hu\le2+m^{-1}$ である．
+算術幾何平均により
 \[
  e^{u(p_m)}
  =\frac{(\omega_t^D)^2}{h^2}(p_m)
- \le(1+m^{-1})^2.
+  =\lambda_1\lambda_2
+ \le\left(\frac{\lambda_1+\lambda_2}{2}\right)^2
+ \le\left(1+\frac1{2m}\right)^2.
 \]
 $m\to\infty$ として $\sup_Du\le0$，すなわち
-$(\omega_t^D)^2\le h^2$ を得る．有限 quotient上で最大値が実現する場合は同じ計算を最大点で行えばよい．
+$(\omega_t^D)^2\le h^2$ を得る．Hessian 型最大値原理や sectional curvature の下界は不要である．
+
+本稿の使用領域における上有界性を確認する．各 $t\ne0$ を固定する．
+Finite ball と有限 annulus--disc 又は product-annulus の angular quotient では，
+射影 $\pi_D$ は人工境界を含む近傍まで正則局所同型として定義される．
+従って pullback actual density はその compact closure 上で有限の上界を持つ．
+比較に用いる explicit complete ball metric，又は各有限因子自身の complete
+hyperbolic metrics の積の density は，全ての人工境界で発散する．
+よって $u\to-\infty$ であり，$u$ は上に有界である．
+Angular cover では両 metrics と $u$ が deck-periodic なので同じ上界が持ち上がる．
+Residual universal cover について本稿が用いるのは，完全な disc 全体ではなく，
+その内部の finite window $\mathbb D_\rho\Subset\mathbb D$ である．
+その closure を越えて射影が定義されることから，同じ有限境界の議論を適用できる．
+
+特に source の上比較では，$xy=tz$ の enlarged annulus--disc
+$\{|t|/r<|x|<r,\ |z|<b\}$ と $y=tz/x$ を使う．
+$r,b$ を source chart の半径より小さく固定すると，その closure 上でも
+$|y|\le rb$ であり，射影は少し大きい chart まで延長する．
+この有限 angular quotient 上では $u$ が最大値を取り，最大点で
+$\ddc u\le0$，従ってその点で $\omega_t^D\le h$ である．
+よって $\max u\le0$，すなわち全領域で $(\omega_t^D)^2\le h^2$ と直接結論してもよい．
+一般の非周期な無限 cover に拡張する場合は，$\sup_Du<\infty$ を別に検証する．
+$h$ の完備性だけからこの仮定を導くことはしない．
 \end{proof}
 
 \begin{lemma}[Tensor comparison の下での内点高階評価]\label{coarse:lem:nested-metric}
@@ -1854,7 +1893,9 @@ $|Hv|_{g_t}\le C_AR_t|v|$ を得る．Residual・angular fibreの fixed compactn
 
 \section{Central source の escape と有界直径}\label{coarse:sec:source-core}
 
-固定 rescaling domain $\Omega^+$ に complete complex-hyperbolic metric $h_{\mathrm{src}}$ を入れる．
+固定 rescaling domain $\Omega^+$ は Euclidean ball に取り，その closure の像が
+source chart 内に入るように固定する．$\Omega^+$ に $\Ric(h_{\mathrm{src}})=-h_{\mathrm{src}}$
+と規格化した complete complex-hyperbolic metric $h_{\mathrm{src}}$ を入れる．
 
 \begin{lemma}[Localized Chern--Lu estimate]\label{coarse:lem:localized-chern-lu}
 $(B_g(p,2\sigma),g)$ を $\Ric(g)=-g$ を満たす K\"ahler ball，$h$ を同じ複素領域上の K\"ahler metricで，
@@ -1904,7 +1945,10 @@ $h_{\mathrm{src}}$ の holomorphic sectional curvatureは一様な負定数以�
 を得る~\cite{Royden,Yau}．従って
 $\Psi_{p,t}^*g_t\ge C_\sigma^{-1}h_{\mathrm{src}}$ である．
 
-他方，$h_{\mathrm{src}}$ は $\Omega^+$ 上で completeであり，
+他方，$\Psi_{p,t}(X,Y)=(\tau X,\tau Y,XY)$ は各固定 $t\ne0$ で
+$\overline{\Omega^+}$ を越えて延長し，pullback actual density はそこまで有限である．
+$h_{\mathrm{src}}$ は $\Omega^+$ 上で complete で，その density は人工境界で発散する．
+従って $\log((\Psi_{p,t}^*\omega_t)^2/h_{\mathrm{src}}^2)$ は上に有界であり，
 \cref{coarse:lem:complete-volume-upper} を適用して
 $(\Psi_{p,t}^*\omega_t)^2\le h_{\mathrm{src}}^2$ を得る．
 $h_{\mathrm{src}}$-unitary frameにおける
@@ -3821,7 +3865,7 @@ Corrigendum to ``Families of singular K\"ahler--Einstein metrics'',
 S.-T.~Yau,
 A general Schwarz lemma for K\"ahler manifolds,
 \emph{Amer. J. Math.} \textbf{100} (1978), no.~1, 197--203,
-Theorem~2.
+Theorems~1--2.
 \href{https://doi.org/10.2307/2373880}{doi:10.2307/2373880}.
 \href{https://archive.ymsc.tsinghua.edu.cn/pacm_download/59/11034-Shing-Tung_Yau_30.pdf}{Original article PDF}.
 

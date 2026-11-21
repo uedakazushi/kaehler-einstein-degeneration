@@ -353,6 +353,32 @@ $m_1\ge4c$ をさらに十分大きく固定すれば，
 \eqref{coarse:eq:full-triple-small-tensor} を得る．
 \end{proof}
 
+\begin{remark}[Actual 比較の最小境界入力]
+\label{coarse:rem:full-triple-face-input}
+上の exact triple chart と負 KE 規格化の下では，証明で用いる density 下界は
+\eqref{coarse:eq:actual-simplex-density-floor} のうち，固定した $m_0,c_*>0$ に対する
+\[
+ \omega_t^2\ge c_*\mathcal V_{L_t}
+ \qquad\text{on }\partial D_{t,m_0}
+\]
+だけでよい．この下界は全 angular phases と十分小さい $t$ に一様とする．
+各固定 $t\ne0$ について radial closure と phase quotient の積が chart に compact に含まれ，
+actual metric がその近傍で滑らかなら，外側 model との境界下比較と
+内側 model の全人工境界での発散から
+\eqref{coarse:eq:full-simplex-volume-sandwich} が得られる．
+Interior の density 下界は別途仮定する必要がなく，固定 $t$ における
+actual density の境界上界を $t$ に一様に取る必要もない．
+この段階では actual tensor 比較，actual distance に関する境界逃避，
+または actual 領域の完備性を用いない．
+\Cref{coarse:cor:degree-d-volume-lower} は，この一様な face 下界を供給する前段入力である．
+
+その後の小さい potential は，shift 評価で小さくなった
+$v_t=\log(\omega_t^2/k_{L_t}^2)$ 自身である．
+同じ負 KE 規格化による Ricci 恒等式
+$\ddc v_t=\omega_t-k_{L_t}$ が相対 potential を正確に与えるので，
+有界な density だけから potential の振幅を小さく選び直す議論は含まれない．
+\end{remark}
+
 \begin{remark}[この比較が解決する範囲]
 \label{coarse:rem:full-triple-scope}
 \Cref{coarse:lem:simplex-model,coarse:thm:full-triple-tensor} を合わせると，

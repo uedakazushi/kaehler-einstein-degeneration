@@ -1,6 +1,6 @@
 # 研究ノート：一般型超曲面のKE退化
 
-更新：2026-11-20 / v1.7
+更新：2026-11-21 / v1.8
 
 ## Source-free neck：正則作用とactual metricの接続
 
@@ -30,6 +30,8 @@
 固定toric模型k_Lの存在・一意性・完備性にはZhang (2015), 第2.1節、Theorem 2.1 / Proposition 2.2を用いる。退化族のTheorem 2.4やQ-factorial仮定は使わない。ψ_L=log L−Σlog ell_iと内外translated-simplex barriersによりψ_L−(log3)/2≤φ_L≤ψ_L、V_L/3≤k_L²≤V_Lを得る。半平面へのSchwarz評価とdeterminant上界からtensor二側比較を先に確保し、内部正則性で全高階を制御する。Log-densityの凸性から固定量のfacet shiftによる誤差O(1/min ell)を得て、actual volumeを内外の模型で挟み、小さいpotentialへSavinを適用する。証明の所在は `coarse:lem:simplex-model` / `coarse:lem:simplex-shift` / `coarse:lem:small-volume-tensor`。
 
 Actual側の大域入力 `coarse:cor:degree-d-volume-lower` は、adjunction residueによるcanonical densityの規格化、backgroundによるHermitian frame errorの吸収、各正のcap方向のminorから得る六型のdeterminant下界である。固定dについてh0=(d−4)FS、A0をdに対し十分大きく取り、active supportは高々三つ、inactive capsは有界となる。Sourceでは元のplane coordinatesを保つexact xy=tzとrescalingを用い、二つのcap係数≥c_d/Lを確保する。Compact minimum原理からactual volume下界へ進む。この入力は全固定次数について点検済みであり、三重点のtensor比較に(TC)/(PBE)やactual metric bufferを仮定しない。
+
+**Complete envelopeの上比較。** `coarse:lem:complete-volume-upper` の一般形は、complete負KE形式hに対するlog-volume ratio uが上に有界であることを仮定する。Ricci下界によるLaplacian型Omori–Yauを使い、複素次元2でtr_hω=2+Δ_huと算術幾何平均からω²≤h²を得る。Hessian型原理は不要で、完備性だけからsup u<∞を推論しない。本稿のfinite ball、annulus–disc、product-annulus windowsでは、各固定tでactual densityが人工境界を越えて有限に延長し、explicit complete modelのdensityが全人工境界で発散するためu→−∞となる。Angular coversは周期性で同じ上界を持ち、residual universal coverには内部のfinite disc windowを使う。Source xy=tzのenlarged annulus–discはy=tz/xにより固定chartへ延長するので、有限quotient上の直接の最大値原理だけでも上比較が閉じる。非周期な無限coverへ適用する場合の上有界性は別の確認事項である。
 
 ## Simplexの境界における鋭い模型
 
@@ -250,7 +252,9 @@ $\mathcal C_6$ は全 $S_6$ の座標置換で不変だが、六つの同時Pete
 
 旧v0.12原稿の16検算は元の配布ZIPに基づきSHA-256を照合し、全件再実行した。統合稿の補助検算5本も再実行済み。出典・ハッシュは `source-manifest.json`、結果は `validation.json`。
 
-全固定次数のdensity下界、全三重点比較、simplex境界のbarriers、rank-oneの規格化、Savin適用、全閉cornerのpruning・有限gallery、Moser pullbackとprotected-ambient GHの新証明を独立に再読した。Labels・参照・環境対応も静的確認したが、外部査読・形式証明は未実施。回収時の組版成功とは別に、現行改訂は `lualatex.fmt`・LuaTeX-ja等の基本資産不足により未組版であり、組版の試行は本文処理前に停止した。証明の記載、今回の監査、有限計算、組版、mainへの保存、hub更新は別の確認状態として扱う。
+全固定次数のdensity下界、全三重点比較、simplex境界のbarriers、rank-oneの規格化、Savin適用、全閉cornerのpruning・有限gallery、Moser pullbackとprotected-ambient GHの新証明を独立に再読した。Labels・参照・環境対応も静的確認したが、外部査読・形式証明は未実施。
+
+現行v1.8は2026-11-21に `latexmk papers/kaehler-einstein-degeneration.tex` でLuaLaTeX組版し、116頁のPDFを生成した。最終logのoverfull hbox/vbox、未定義参照・引用、未定義control sequenceはいずれも0で、再組版要求もない。既存のフォントサイズ代替とPDF bookmark内の数式に関する警告は残る。表示確認はPDFを画像化して28–29頁（complete volume上比較）、51頁（actual比較の最小境界入力）、78–79頁（deep source比較と後続部分）を実際に確認し、本文・数式の欠落、重なり、はみ出しは認めなかった。全116頁の表示確認を行ったものではない。証明の記載、今回の監査、有限計算、組版・表示確認、mainへの保存、hub更新は別の確認状態として扱う。
 
 ## 人工基底計量とactual退化計量の比較
 

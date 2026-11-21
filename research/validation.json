@@ -1,30 +1,51 @@
 {
-  "date": "2026-11-20",
-  "engine": "LuaHBTeX 1.24.0 / TeX Live 2026",
+  "date": "2026-11-21",
+  "engine": "LuaHBTeX 1.18.0 / TeX Live 2025/dev/Debian (current main manuscript)",
   "manuscripts": [
     {
       "source": "papers/cubical-gh-limit.tex",
       "pages": 34,
       "pdf_sha256": "4bf21717f52909f78567bb7b6fd37f723b1e1620e124cfad1fbef483c3498d8d",
       "unresolved_or_box_warnings": [],
-      "other_warnings": "Font substitution/scaling and PDF bookmark math warnings may remain."
+      "other_warnings": "Font substitution/scaling and PDF bookmark math warnings may remain.",
+      "verified_date": "2026-11-20",
+      "engine": "LuaHBTeX 1.24.0 / TeX Live 2026",
+      "current_revision_rebuilt": false
     },
     {
       "source": "papers/kaehler-einstein-degeneration.tex",
-      "pages": 66,
-      "pdf_sha256": "e14171ddcf55aafccc8ac94305f6627f6ae0382a09c86c9d03e5eb5b69cb09e4",
+      "pages": 116,
+      "pdf_sha256": "f9a18a3dbf3361be6c967cdbf11b78023fbea8216e4cc63eccf139024f18f1ad",
       "unresolved_or_box_warnings": [],
-      "other_warnings": "Font substitution/scaling and PDF bookmark math warnings may remain."
+      "other_warnings": "Japanese-font scaling/feature and PDF bookmark token warnings remain; no undefined references/citations or overfull/underfull boxes in the checked log.",
+      "verified_date": "2026-11-21",
+      "version": "1.8",
+      "build_exit_code": 0,
+      "engine": "LuaHBTeX 1.18.0 / TeX Live 2025/dev/Debian",
+      "visual_review_current_pdf": {
+        "pages": [
+          28,
+          29,
+          51,
+          78,
+          79
+        ],
+        "result": "Rendered pages inspected: no visible omissions, overlaps, or equation overflow; principal notation and references displayed normally.",
+        "full_page_review": false
+      }
     },
     {
       "source": "papers/punctured-neck-scattering.tex",
       "pages": 92,
       "pdf_sha256": "27bd2adfb55e7fd6682dd8eb8809c98cf16f61a38213d289789cb6c605f2d8e5",
       "unresolved_or_box_warnings": [],
-      "other_warnings": "Font substitution/scaling and PDF bookmark math warnings may remain."
+      "other_warnings": "Font substitution/scaling and PDF bookmark math warnings may remain.",
+      "verified_date": "2026-11-20",
+      "engine": "LuaHBTeX 1.24.0 / TeX Live 2026",
+      "current_revision_rebuilt": false
     }
   ],
-  "scope": "Build and representative-page visual checks; not independent mathematical validation.",
+  "scope": "Current main-manuscript build and selected proof-dependency audit; other build and certificate records retain their stated verification dates. Not a re-audit of all proofs or a formal proof.",
   "certificate_runs": [
     {
       "script": "cubical_diameter_exact_gallery_certificate_definitive_v1.py",
@@ -135,13 +156,22 @@
   "visual_check": {
     "sample": "First, middle and last pages of each manuscript (38 distinct pages across the three repositories).",
     "result": "Reviewed rendered contact sheets; no visible clipping or overlap in sampled pages.",
-    "full_page_review": false
+    "full_page_review": false,
+    "scope": "Recovered manuscript editions; the separate current-main sample is recorded under manuscripts."
   },
   "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested.",
-  "current_math_audit_2026_11_20": {
-    "mathematics_verified": "Recorded precise artificial B_d(T)->C_d collapse rates d=5 O(epsilon^2), d>=6 O(epsilon), including the no-shortcut/square lifts/fibre portal criterion and necessity of the portal condition for this correspondence. The proof is maintained in the Lagrangian repository.",
-    "independent_computations_executed": "Independent finite cellular ranks for d=5..8 and exact K6 Petersen matching counts.",
-    "post_edit_lualatex_rerun": false,
-    "claims_not_established": "Actual Kähler–Einstein GH convergence requires proof of (CP)_d and (PBE)_d; synthetic base collapse does not supply these analytic inputs."
+  "version": "1.8",
+  "certificate_runs_date": "2026-11-20",
+  "certificate_runs_repeated_current_revision": false,
+  "current_math_audit": {
+    "date": "2026-11-21",
+    "version": "1.8",
+    "mathematics_verified": "Separated bounded-above log-volume ratio in coarse:lem:complete-volume-upper; checked Laplacian Omori-Yau plus arithmetic-geometric mean and boundedness on fixed finite angular quotients. Checked the full-triple chain from a uniform all-phase fixed-face density floor through shifted-simplex barriers, small Ricci potential, Savin/Schauder, and dominant/facet/active co-Gram estimates.",
+    "prior_verified_assets": "Recorded precise artificial B_d(T)->C_d collapse rates d=5 O(epsilon^2), d>=6 O(epsilon), including the no-shortcut/square lifts/fibre portal criterion and necessity of the portal condition for this correspondence. The proof is maintained in the Lagrangian repository.",
+    "independent_computations_executed": "Independent finite cellular ranks for d=5..8 and exact K6 Petersen matching counts. These finite checks were not repeated for v1.8.",
+    "post_edit_lualatex_rerun": true,
+    "primary_sources_checked": "Savin 2007 Theorem 1.3 and H1/H2/H4; Yau 1978 Theorems 1-2; Zhang arXiv:1505.04728v2 Theorem 2.1 and Proposition 2.2. Cheng-Yau 1982 original was not obtained; its explicit statement in Zhang was checked.",
+    "audit_limitations": "The global capped-density theorem is a separated upstream input for this audit. No complete re-audit of older proofs, external peer review, novelty survey, formal proof, or full-page visual review of the current PDF.",
+    "claims_not_established": "(TC)_5 and the global (CP)_d+(PBE)_d package remain unverified in this repository; local full-triple and protected-corner estimates do not establish them."
   }
 }

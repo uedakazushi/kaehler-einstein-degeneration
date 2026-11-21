@@ -1,6 +1,6 @@
 # Kähler–Einstein degeneration
 
-更新：2026-11-20 / v1.7
+更新：2026-11-21 / v1.8
 
 最初に[現行研究方針](00_research_plan.md)、次に[研究ノート](research/notes.md)を読む。固定次数d≥5の一般型曲面の全平面退化について、actual KE計量の径の尺度の極限とLagrangian torus fibrationによる実現を研究する。正本はGitHubのmain、研究全体の入口は[research-hub](https://github.com/uedakazushi/research-hub)。
 
@@ -13,7 +13,9 @@
 - **境界の鋭い積漸近。** δ=(a+b)/Lなら二重cusp productへのmodel誤差はO(δ²)、actual誤差はO(1/min ell_i+δ²)。0<η<1/2の開正方形a,b∈[L^η/2,2L^(1−η)]ではO(L^−η)。Facetではb=ell_0、a=ell_1、d_*=min(a,L−a)としてcusp×finite-annulusへのmodel誤差O((b/d_*)^(2/3))、actualにはO(1/b)を加える。すべて全固定階・全角度の評価である。正本は[simplex境界節](papers/sections/simplex_boundary_geometry.tex)の `simplex:prop:dominant-product` / `simplex:cor:actual-dominant-product` / `simplex:prop:facet-product`。
 - **正確な係数1とactive co-Gram。** 各iについて |d log ell_i|_{g_L^sf}≤1。ell_i≤Le^−Aのactive indicesが一つまたは二つならco-GramはId+O(e^(−A/2))、二つならO(e^−2A)。ActualにはO(1/min ell_i)を加える。正本は同節の `simplex:lem:rank-one-schwarz` / `simplex:cor:active-cogram`。
 
-関連[Lagrangian主稿](https://github.com/uedakazushi/lagrangian-torus-fibration/blob/main/papers/lagrangian-torus-fibration.tex)の `ke:closed-corner-gh` / `ke:closed-corner-protected-gh` により、**同じactual Lagrangian torus bundleの同じ射影**が上記二つの距離についてGH近似となる。全fiberの非正規化intrinsic/ambient diameterはO(1/R)、正規化後はO(1/R²)、raw cubical mapとの誤差はO(log R/R)。継目でもfibersはregular T²である。開正方形の固定長方形Kη=[η,1−η]²でも、actual Lagrangian fibrationによる平坦長方形への内在GH収束とprojection distortion O(L^−η)を得ている。
+**Volume比較の入力。** `coarse:lem:complete-volume-upper` はcomplete負KE背景hに対し、u=log(ω²/h²)の上有界性を明示的に仮定し、Laplacian型Omori–Yauと算術幾何平均で上比較を得る。本稿のfinite windowsでは、固定tの有限angular quotient上でactual densityが人工境界まで有限に延長し、complete model densityが全人工境界で発散するため、この仮定を確認できる。完備性だけからuの上有界性を推論しない。Full tripleの下比較は固定face上の全phase・t一様なdensity下界で足りる（`coarse:rem:full-triple-face-input`）。Interiorの下界はmaximum principleで得られ、actual tensor比較やactual距離の境界逃避は前提としない。小potentialはRicci恒等式によるlog-volume ratio自身である。
+
+関連[Lagrangian主稿](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/main/papers/surface-lagrangian-torus-fibration.tex)の `ke:closed-corner-gh` / `ke:closed-corner-protected-gh` により、**同じactual Lagrangian torus bundleの同じ射影**が上記二つの距離についてGH近似となる。全fiberの非正規化intrinsic/ambient diameterはO(1/R)、正規化後はO(1/R²)、raw cubical mapとの誤差はO(log R/R)。継目でもfibersはregular T²である。開正方形の固定長方形Kη=[η,1−η]²でも、actual Lagrangian fibrationによる平坦長方形への内在GH収束とprojection distortion O(L^−η)を得ている。
 
 ## Source-free neckで得た接続の入力
 
@@ -31,11 +33,13 @@
 
 Sourceを含むexterior全体の(TC)_5と、大域の(CP)_d+(PBE)_dは未検証のまま保持する。Bounded densityだけからtensor比較が従わない反例、任意半径product窓の障害、source orientationの区別は[研究ノート](research/notes.md)に残す。新結果の新規性の包括的確認、外部査読、形式証明は未実施。
 
+関連する[曲面fibration研究](https://github.com/uedakazushi/surface-lagrangian-torus-fibration)の主稿 `ke:global-metric-realization` には、同じ一般性条件の固定次数d≥5について、actual全域fibrationと全曲面ambient距離のGH実現を直接のscalar下界・portal上界で示す証明がある。同研究のsource全moment退出はO(1)。これは本repoのCP/PBE/TC package自体の検証とは区別し、詳しい適用条件・内部点検範囲は同repoの現行方針と依存表を正本とする。
+
 ## 論文と再現資産
 
 2026-08-31五篇連作の退化二部作を元の全文TeXから移行し、有効な内容を現行稿に保持している。
 
-- [Part IV：局所模型](papers/kaehler-einstein-degeneration.tex)：主たる公表用原稿。66頁は回収時の記録。全深部三重点・閉cornerの無条件結果と、sourceを含むquintic exteriorの(TC)_5付き結果を分ける。全域のsharp co-Gramは粗い比較と(PBE)_d付き。
+- [Part IV：局所模型](papers/kaehler-einstein-degeneration.tex)：主たる公表用原稿。現行v1.8は116頁。全深部三重点・閉cornerの無条件結果と、sourceを含むquintic exteriorの(TC)_5付き結果を分ける。全域のsharp co-Gramは粗い比較と(PBE)_d付き。
 - [Part V：cubical GH](papers/cubical-gh-limit.tex)：34頁は回収時の記録。一般次数のcubical複体の位相・整数ホモロジー、abstract pruning–transport、diam(C_5)=sqrt(13)を含む。全曲面のactual GH適用は(CP)_d+(PBE)_d付き。
 - [Punctured-neck技術稿](papers/punctured-neck-scattering.tex)：旧81頁の証明全文をLuaLaTeXへ移植した稿（回収時92頁）。条件付きの解析入力を冒頭に明記。
 - [Source-free比較の研究ノート](papers/source-free-comparison.tex)：source-free領域の補助原稿。
@@ -45,6 +49,6 @@ Sourceを含むexterior全体の(TC)_5と、大域の(CP)_d+(PBE)_dは未検証�
 
 ## 保存と検証
 
-局所conic overlapの旧論証を明示的なprojective bundle変換で修復した。Source-free neckの座標・canonical moment・fixed-end評価と、二段階平均のexact periods・Hamiltonian比較の証明を独立に再読し、参照・labels・環境対応を静的確認した。回収稿の組版成功とは別に、**現行改訂はLuaLaTeX基本資産不足により未組版**である。`lualatex.fmt`・LuaTeX-ja等がなく、組版の試行は本文処理前に停止した。
+現行v1.8の主稿を2026-11-21にLuaLaTeXで組版し、116頁のPDF生成を確認した。未定義参照・引用とoverfull/underfullの警告はなく、フォント・PDF bookmarkの警告は残る。28–29、51、78–79頁を画像で確認し、欠落・重なり・数式のはみ出しは見られなかった。今回の数学的監査はcomplete volume upperの上有界性とLaplacian型最大値原理、固定faceからのfull triple比較、Savin適用・simplex境界漸近の依存鎖を対象とした。旧証明全体の再監査・外部査読・形式証明・現行PDF全頁の画像確認とは区別する。有限検算の既存成功記録は保持するが、今回再実行したとはしない。
 
 再生成はルートで `latexmk`、PDF/SyncTeXの出力先は `build/`。[移行・検証範囲](research/migration.md)と[ソース対応](research/source-manifest.json)を参照する。通常のcommitとmainへのpushで保存し、研究成果の保存とresearch-hubの更新を別々に確認する。
