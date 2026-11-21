@@ -61,7 +61,7 @@
       "current_revision_rebuilt": false
     }
   ],
-  "scope": "Research documentation v1.10 synchronizes the selected Part I collar/transfer results and surface revision 33 basepoint extension and K2/K3 audit. IV/V TeX remains at v1.9; its successful LuaLaTeX builds and 10 selected-page visual checks remain applicable. Other manuscripts/certificates retain their stated verification dates.",
+  "scope": "Research documentation v1.11 synchronizes Part I v1.3 surjective contraction and uniform ambient-ball approximation, together with the shared LDP and exact-tail audit. The independently reread chain in this update is co-Gram -> contraction -> ball correspondence. Existing collar/transfer and surface revision 33 basepoint/K2/K3 checks are retained. IV/V TeX remains at v1.9; its successful LuaLaTeX builds and 10 selected-page visual checks remain applicable. Other manuscripts/certificates retain their stated verification dates.",
   "certificate_runs": [
     {
       "script": "cubical_diameter_exact_gallery_certificate_definitive_v1.py",
@@ -176,7 +176,7 @@
     "scope": "Recovered manuscript editions; the separate current-main sample is recorded under manuscripts."
   },
   "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested.",
-  "version": "1.10",
+  "version": "1.11",
   "certificate_runs_date": "2026-11-20",
   "certificate_runs_repeated_current_revision": false,
   "current_math_audit": {
@@ -193,7 +193,7 @@
   },
   "current_documentation_update": {
     "date": "2026-11-22",
-    "version": "1.10",
+    "version": "1.11",
     "manuscript_sources_changed": false,
     "lualatex_repeated": false,
     "computational_certificates_repeated": false,
@@ -203,19 +203,35 @@
       "scope": "Read ke:intermediate-component-cone including the uniform basepoint-displacement budget and the component core/changed-collar application. Independently read the four K3 sections on link, adapted primitive, relative reduced foliations and actual core gluing; synchronize the separately audited K2 chain from the surface notes and dependency table."
     },
     "part_i_reference": {
-      "version": "1.2",
-      "commit": "0e3094a2e2c71fcac420f927039c19977b3f613f",
-      "status": "Owning repository main saved and verified; reference pinned to the Part I v1.2 source commit.",
+      "version": "1.3",
+      "commit": "de1bd02daf78105c60ae9e9f4b1dac2d8e3c88e6",
+      "status": "Part I v1.3 source saved to the owning repository main; the coordinating reviewer verified matching branch/tree readback. The source reference is pinned to that saved commit.",
       "labels": [
         "lem:SNC-compatible-collars",
         "lem:fc-collar-transfer",
         "lem:RZ-collar-tensor",
-        "rem:log-collar-obstruction"
+        "rem:log-collar-obstruction",
+        "prop:cogram",
+        "lem:lambda-choice",
+        "thm:contract",
+        "thm:rough",
+        "cor:based-ball-approximation",
+        "cor:GH",
+        "thm:moving",
+        "lem:deep-sector-partition",
+        "lem:cellwise-LDP",
+        "lem:exp-tight",
+        "thm:LDP",
+        "lem:level",
+        "lem:calibration",
+        "lem:vertex-tightness",
+        "thm:tail"
       ],
-      "scope": "Independently checked the compatible real-oriented collar construction and residual-uniform transfer proof. The one-face tensor lemma is linked at its source; no proof is duplicated in this repository."
+      "scope": "Retain the independent compatible real-oriented collar and residual-uniform transfer checks. Independently reread the integrated co-Gram -> contraction -> ambient-ball correspondence chain: deep common collars, residual covector bounds in the full inverse metric, integrable cutoff, local single-cell length argument, H composed with Psi surjectivity, ambient fibre bound and all-centres/all-radii 3K/(2R) GH bound. No proof is duplicated in this repository.",
+      "shared_measure_audit": "Synchronize the three-repository audit of the ambient-open LDP lower-bound repair under metric-IRFA and volume-IRFA, and the direct level/calibration/vertex-tightness/exact-tail chain under exponential volume-IRFA. This does not assert that the reviewer of the distance chain independently rechecked the whole measure section."
     },
-    "claims_not_established": "The fixed-space collar results and the surface direct-route consequences do not establish CP/PBE/TC, an arbitrary prescribed moving speed, a universal effective intermediate scale, tensor convergence, or an exchange of limits. This is not a complete audit of all upstream proofs or primary sources.",
-    "validation": "No manuscript edit or new mathematical result in IV/V. Documentation links, theorem labels, JSON syntax and diff whitespace are checked separately from the existing manuscript builds."
+    "claims_not_established": "Uniformity in all centres and radii of one fixed space does not supply degeneration-parameter-uniform constants or buffers. CP/PBE/TC, arbitrarily prescribed moving rates in the degenerating family, a universal effective intermediate scale, tensor convergence and an exchange of limits remain unestablished by these results. This is not a complete independent audit of all upstream proofs or primary sources.",
+    "validation": "No manuscript edit or new mathematical result in IV/V. JSON parsed; 19 Part I labels resolved in the integrated source; 18 local Markdown links exist; documentation/manuscript versions and unchanged-build flags are consistent; git diff --check passed. SHA-256 checks confirm both IV/V main TeX sources are unchanged. The external Part I source pin is fixed to the saved main commit, with no pending placeholder."
   },
   "build_environment": "Stock LuaLaTeX first lacked its format, and the first recovered environment lacked the rsfs font map. Existing TeX Live dependencies and valid font maps resolved both. The repository latexmk/SyncTeX configuration is unchanged; successful outputs are in build/. No GitHub Actions used."
 }

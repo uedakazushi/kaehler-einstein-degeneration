@@ -1,6 +1,6 @@
 # 現行研究方針：一般型超曲面の負Kähler–Einstein退化
 
-更新：2026-11-22 / v1.10・現行研究方針（Part IV–V本文はv1.9）
+更新：2026-11-22 / v1.11・現行研究方針（Part IV–V本文はv1.9）
 
 ## 研究固有の目標
 
@@ -18,7 +18,9 @@
 
 共有入力は [研究ノート](research/notes.md) の依存表と曲面側の `research/ke-dependencies.md` で、定理・仮定・尺度・固定/可動領域・確認版を照合する。Part IIのsecondary complex periodsと第二symplectic actionは同一視しない。Part IIIの(H_loc)/(H_anc)も別模型の仮定として残す。方針・本文・ノートを先に保存し、その結果をhubの短い要約へ反映する。
 
-固定補空間側のPart I v1.2には、Hermitian depthsを保つ可換collars、RZの延長からそのpullbackへの全残余一様な比較、一面tensor評価を担う3補題がある。正本とラベルは研究ノートに記す。曲面改訂33の `ke:intermediate-component-cone` は、同じP0のdistortionと基点のtarget変位を尺度に吸収し、component coreと変更collarの任意基点にも成分錐へのpointed GH収束を与える。これは固定空間の定理を退化族へ直接適用した結論ではなく、CP/PBE/TCや任意速度のmoving解析の検証状況も変えない。
+固定補空間側のPart I v1.3は、Hermitian depthsを保つ可換collars・全残余一様なRZ延長比較・一面tensor評価を保持し、metric-IRFAからproperな1-Lipschitz全射Sと有界加法誤差Kを構成する。固定したSについて、中心oと半径Aに一様に、ambient閉球のGH誤差は3K/(2R)以下で、比較先の中心はS(o)/Rである。指定compact集合をSで零へ送る選択もでき、その場合Kはその集合に依存してよい。Volume-IRFA下のLDPのambient-open下界と、exponential volume-IRFA下のexact tailは共同監査の対象とした。正本・ラベル・独立点検の範囲は研究ノートに記す。
+
+曲面改訂33の `ke:intermediate-component-cone` は、同じP0のdistortionと基点のtarget変位を尺度に吸収し、component coreと変更collarの任意基点にも成分錐へのpointed GH収束を与える。Part Iの全中心一様性は一つの固定空間内の主張であり、退化parameterに一様なKやbufferを供給しない。曲面の中間尺度も固定空間の定理を退化族へ直接適用した結論ではなく、CP/PBE/TCや任意速度で指定した退化族のmoving解析の検証状況を変えない。
 
 ## 論文と証明の状態
 
@@ -106,7 +108,7 @@ Actual計量への大域適用には(N) global no-shortcut、(S) square path lif
 ## 次の課題
 
 1. 共有するcapped volume下界→full-triple比較→固定成分収束・fixed-end momentの量化と、曲面K2の全交わり・K3のlinkから補間後trimまでの指定証明鎖は重点点検済み。研究ノートの依存表と曲面側の監査範囲から再開し、未確認の入力・一次資料・Introductionのscopeを主定理から逆向きに照合する。固定段階で有限個の誤差・費用を確定した後にのみ対角選択を行う（`pair:lem:diagonal-fixed-end`）。
-2. Part Iの新しいcollar/tensor入力と曲面改訂33の中間尺度について、利用箇所ごとの固定量・尺度予算を点検する。一般基点ではtarget変位も尺度予算へ入れる。曲面の直接scalar/portal経路とCP/PBE/TC経路を区別し、各指定鎖の内部点検を全原稿・全外部入力の包括的再検証と扱わない。
+2. Part Iのcollar/tensor入力とco-Gram→全射収縮→閉球近似の点検済み範囲を起点に、曲面改訂33の中間尺度との接続で固定量・尺度予算を照合する。固定空間内の全中心・全半径一様性を退化parameter一様性へ移さず、一般基点ではtarget変位も尺度予算へ入れる。曲面の直接scalar/portal経路とCP/PBE/TC経路を区別し、測度論を含む共同監査も全原稿・全外部入力の包括的独立再検証と扱わない。
 3. 独立の解析課題としてsourceを含むexteriorの(TC)_5、(PBE)_dのquantitative terminal trivialization・protected rectangular inclusion・uniform comparison・two-metric escape、および(CP)_dのconnectorsを検証する。固定baseの定理を任意速度のmoving領域へ拡張せず、bounded densityをtensor比較へ読み替えない。これらの強いpackageの解決を曲面global結果の完成条件へ戻さない。
 4. 一次文献との比較と新規性確認を続ける。高次元mixed source modelsや一般のsecondary completionは、現在の固定次数曲面の監査と別の優先順位で扱う。
 
@@ -118,7 +120,7 @@ Actual計量への大域適用には(N) global no-shortcut、(S) square path lif
 
 2026-11-22にv1.9のPart IVを117頁、Part Vを37頁にLuaLaTeX組版した。未定義参照・引用、重複ラベル、欠字、overfull/underfull boxはなく、フォント・PDF bookmark警告は残る。IVの1、6–7、70–71、117頁とVの2、4–5、37頁を画像で確認した。全頁の表示確認と有限検算の再実行は行っていない。実行環境はTeX Liveのformat・font mapを補完して使用し、通常のlatexmk設定とbuild出力を保持した。証明記載、内部点検、計算、組版、GitHub反映、hub更新を別々の状態として扱う。
 
-管理文書v1.10では外部正本の進展と限定監査の範囲を更新した。IV–Vの本文・仮定・版は変更しておらず、組版と計算を再実行する変更はない。新しい証明は所有repoを参照する。
+管理文書v1.11ではPart I v1.3の全射収縮・閉球近似とLDP・exact tailの共同監査を同期した。今回独立に再読した指定鎖はco-Gram→収縮写像→閉球近似である。IV–Vの本文・仮定・版は変更しておらず、組版と計算を再実行する変更はない。新しい証明は所有repoを参照する。
 
 ## 共通研究原則と保存許可（研究固有方針から独立）
 
