@@ -1,8 +1,12 @@
 # Kähler–Einstein degeneration
 
-更新：2026-11-21 / v1.8
+更新：2026-11-22 / v1.9
 
 最初に[現行研究方針](00_research_plan.md)、次に[研究ノート](research/notes.md)を読む。固定次数d≥5の一般型曲面の全平面退化について、actual KE計量の径の尺度の極限とLagrangian torus fibrationによる実現を研究する。正本はGitHubのmain、研究全体の入口は[research-hub](https://github.com/uedakazushi/research-hub)。
+
+## 三研究を一体で進める方針
+
+[固定配置補空間・Part I–III](https://github.com/uedakazushi/multiscale-kaehler-einstein)、本repoの退化族局所解析・Part IVと条件付き距離論・Part V、[曲面のactual KE Lagrangian構成と大域GH実現](https://github.com/uedakazushi/surface-lagrangian-torus-fibration)を共同で編集・監査する。各repoと主論文の正本はこの責任分担で維持する。証明を重複収録せず、仮定・定理ラベル・尺度・確認版を揃える。固定空間の漸近と退化族の一様性、Part IIのcomplex periodsとsymplectic actions、曲面の直接評価と本稿のCP/PBE/TCを区別する。詳しい方針は[現行研究方針](00_research_plan.md)、共有局所入力は[研究ノートの依存表](research/notes.md)を参照する。
 
 ## 現行の解析結果
 
@@ -21,26 +25,24 @@
 
 [束座標とnormal moment](papers/sections/source_free_neck_coordinates.tex)では、固定compact base上の射影的法線束からexact uv=tと共通の正則S¹を構成した。Canonical primitiveを一つ固定でき、actual KE formの円平均η_tに対するmomentが加法定数なしに大域化する。固定した両endでは、周期1のmomentが±4π/(−log r²)を主項に持つ。Songの固定gauge収束とRochon–ZhangのSNC cusp漸近により、rを固定してからt→0とすればη_tの共通moment intervalを得る。全neckのMoser flow bufferはこの結果に含まれない。
 
-関連Lagrangian稿の[二段階平均](https://github.com/uedakazushi/lagrangian-torus-fibration/blob/main/papers/sections/paper/ke_staged_neck_averaging.tex)は、normal circleを先に平均して、同じactual circleと全marked cycleの作用周期を保つ。指定primitive subgroupに適合するclosed-corner bundleにも同じO(log R/R)のGH評価を与え、一段階bundleとはHamiltonian mapで比較する。
+関連Lagrangian稿の[二段階平均](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/main/papers/sections/paper/ke_staged_neck_averaging.tex)は、normal circleを先に平均して、同じactual circleと全marked cycleの作用周期を保つ。指定primitive subgroupに適合するclosed-corner bundleにも同じO(log R/R)のGH評価を与え、一段階bundleとはHamiltonian mapで比較する。
 
 [Neckの解析比較](papers/sections/source_free_neck_comparison.tex)では、無条件のbounded volume envelope、固定residual境界の非消失誤差、mixed termsを許すrank-one下界によるnormal circle長の評価を整理した。後者にはactual bufferが必要。Small log-densityを用いる比較背景はcoupled KE metricでもよく、source-freeという条件だけでproduct asymptoticsを結論しない。
 
 ## 残る核心と次の着手
 
-閉cornerのd_JはC_J自身の距離であり、full complex C_dの他のcellsを経由する距離ではない。Protected-ambient距離も全曲面X_tの距離とは異なる。全X_tのshortcut、異なるtriple chartsとneckの接着、source・branch・coreを含む既存大域fibrationとの同定は未解決である。
+曲面repoの `ke:global-metric-realization` には、各固定d≥5・既存の一般性条件の族について、actual全域Lagrangian fibrationと同じ f_t=p_Tπ_t の全曲面ambient距離のGH実現を示す証明がある。Normal Moser buffer、全交わりのmatching、core filling、sourceの全moment退出O(1)、global scalar下界とportal上界はそこで別に構成する。本repoの局所closed-corner評価だけからこれらが従うという意味ではない。
 
-次は**neck全体のnormal Moser flowの一様bufferと、複数のtriple endsの整合**を扱う。固定baseでの正則作用・primitive・moment intervalは得たので、residual方向のrank-one下界とactual bufferを独立に調べる。Triple overlapでは同じnormal actionとreduced foliationを合わせ、非定数holomorphic unitによるfull orbit partitionの変化を確認する。その後、sourceの正しいorientationでtensor・connector評価を進め、global no-shortcutとportal費用を検証する。
+本repoのSourceを含むexterior全体の(TC)_5と、全域の(CP)_d+(PBE)_dは未検証のまま保持する。曲面稿の直接証明はこのpackage自体の検証を与えない。保護領域内の距離と全曲面ambient距離を区別し、targetの三枚のcorner距離が全C_dの距離の制限と一致することは曲面稿の `topo:coordinate-retraction` に委ねる。
 
-Sourceを含むexterior全体の(TC)_5と、大域の(CP)_d+(PBE)_dは未検証のまま保持する。Bounded densityだけからtensor比較が従わない反例、任意半径product窓の障害、source orientationの区別は[研究ノート](research/notes.md)に残す。新結果の新規性の包括的確認、外部査読、形式証明は未実施。
-
-関連する[曲面fibration研究](https://github.com/uedakazushi/surface-lagrangian-torus-fibration)の主稿 `ke:global-metric-realization` には、同じ一般性条件の固定次数d≥5について、actual全域fibrationと全曲面ambient距離のGH実現を直接のscalar下界・portal上界で示す証明がある。同研究のsource全moment退出はO(1)。これは本repoのCP/PBE/TC package自体の検証とは区別し、詳しい適用条件・内部点検範囲は同repoの現行方針と依存表を正本とする。
+次は**共有局所入力の量化と曲面K1–K5への適用を共同監査する**。固定component・固定residual compact・固定endの結果、fixed-stage buffer、遅い対角選択の順を照合する。本稿の `pair:lem:diagonal-fixed-end` は選んだ遅いmoving exhaustionへの移行と有限予算の吸収を証明し、任意速度での一様性を主張しない。これと並行してCP/PBE/TCの強い解析課題と一次文献比較を進める。Bounded-densityの反例とsource orientationの障害は研究ノートに保持する。旧証明全体の再監査、新規性の包括的確認、外部査読、形式証明は未実施である。
 
 ## 論文と再現資産
 
 2026-08-31五篇連作の退化二部作を元の全文TeXから移行し、有効な内容を現行稿に保持している。
 
-- [Part IV：局所模型](papers/kaehler-einstein-degeneration.tex)：主たる公表用原稿。現行v1.8は116頁。全深部三重点・閉cornerの無条件結果と、sourceを含むquintic exteriorの(TC)_5付き結果を分ける。全域のsharp co-Gramは粗い比較と(PBE)_d付き。
-- [Part V：cubical GH](papers/cubical-gh-limit.tex)：34頁は回収時の記録。一般次数のcubical複体の位相・整数ホモロジー、abstract pruning–transport、diam(C_5)=sqrt(13)を含む。全曲面のactual GH適用は(CP)_d+(PBE)_d付き。
+- [Part IV：局所模型](papers/kaehler-einstein-degeneration.tex)：主たる公表用原稿。現行v1.9は117頁。全深部三重点・閉cornerの無条件結果と、sourceを含むquintic exteriorの(TC)_5付き結果を分ける。全域のsharp co-Gramは粗い比較と(PBE)_d付き。
+- [Part V：cubical GH](papers/cubical-gh-limit.tex)：現行v1.9は37頁。一般次数のcubical複体の位相・整数ホモロジー、abstract pruning–transport、diam(C_5)=sqrt(13)を含む。全曲面のactual GH適用は(CP)_d+(PBE)_d付き。
 - [Punctured-neck技術稿](papers/punctured-neck-scattering.tex)：旧81頁の証明全文をLuaLaTeXへ移植した稿（回収時92頁）。条件付きの解析入力を冒頭に明記。
 - [Source-free比較の研究ノート](papers/source-free-comparison.tex)：source-free領域の補助原稿。
 - [補助検算](scripts/)：統合稿5本と旧v0.12の16本を再実行し、全件成功。旧16本は配布時のSHA-256と一致。有限計算・式の診断であり解析証明の代用ではない。
@@ -49,6 +51,8 @@ Sourceを含むexterior全体の(TC)_5と、大域の(CP)_d+(PBE)_dは未検証�
 
 ## 保存と検証
 
-現行v1.8の主稿を2026-11-21にLuaLaTeXで組版し、116頁のPDF生成を確認した。未定義参照・引用とoverfull/underfullの警告はなく、フォント・PDF bookmarkの警告は残る。28–29、51、78–79頁を画像で確認し、欠落・重なり・数式のはみ出しは見られなかった。今回の数学的監査はcomplete volume upperの上有界性とLaplacian型最大値原理、固定faceからのfull triple比較、Savin適用・simplex境界漸近の依存鎖を対象とした。旧証明全体の再監査・外部査読・形式証明・現行PDF全頁の画像確認とは区別する。有限検算の既存成功記録は保持するが、今回再実行したとはしない。
+2026-11-22にv1.9のPart IVを117頁、Part Vを37頁へLuaLaTeXで組版した。最終logには未解決参照・引用、重複ラベル、欠字、overfull/underfull boxはない。日本語フォントの代替・featureとPDF bookmark内の数式に関する警告は残る。Part IVの1、6–7、70–71、117頁、Part Vの2、4–5、37頁を画像で確認した。全頁の逐頁点検ではない。環境のformatとfont mapの欠落を既存のTeX Live環境で解消し、PDF/SyncTeXの出力先がbuildであることを確認した。
 
-再生成はルートで `latexmk`、PDF/SyncTeXの出力先は `build/`。[移行・検証範囲](research/migration.md)と[ソース対応](research/source-manifest.json)を参照する。通常のcommitとmainへのpushで保存し、研究成果の保存とresearch-hubの更新を別々に確認する。
+今回の数学的作業は、共有する局所入力の仮定・量化の重点照合と `pair:lem:diagonal-fixed-end` の証明・別の読み手による独立内部点検である。既存証明全体の再監査、網羅的新規性調査、外部査読、形式証明とは区別する。2026-11-20の有限検算成功記録を保持するが、今回再実行していない。詳しい実行状態は[検証状態](research/validation.json)。
+
+再生成はルートで `latexmk`、PDF/SyncTeXの出力先は `build/`。LuaLaTeX、luatexja、Harano Ajiと数学フォントの有効なmapを備えたTeX Liveを用いる。[移行・検証範囲](research/migration.md)と[ソース対応](research/source-manifest.json)を参照する。通常のcommitとmainへのpushで保存し、研究成果の保存とresearch-hubの更新を別々に確認する。

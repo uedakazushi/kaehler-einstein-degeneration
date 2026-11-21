@@ -1,5 +1,5 @@
 # kaehler-einstein-degeneration — 研究・保存指示
-2026-11-20 / v1.0
+2026-11-22 / v1.1
 
 ## 入口と正本
 - 研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目を確認し、最初にこのrepoの `00_research_plan.md`、次に本書、`research/notes.md` と必要な原稿を読む。
@@ -19,6 +19,12 @@
 - 研究の区切りでは追加の承諾なしに通常コミットで `main` へpush。長時間作業時は15〜30分で区切り保存する。他の作業者の変更を保護し、force push・GitHub Actionsの追加/起動は行わない。
 - `latexmk` と VS Code LaTeX Workshopで組版し、SyncTeXとPDFを `build/` に整合させる。PDF・中間生成物は通常Git追跡しない。実行した数学的点検、計算、組版、pushは別々に報告する。
 - GitHub管理後はLibraryへの定常的二重保存/ZIP作成をしない。push不能時は緊急保存する。既存Libraryファイルは明示指示なしに削除しない。
+
+## KE三研究の共同編集
+- `multiscale-kaehler-einstein`（固定配置補空間・Part I–III）、本repo（退化族の局所一様解析・Part IVと条件付き距離論・Part V）、`surface-lagrangian-torus-fibration`（actual KE Lagrangian構成と同じ射影の全域GH実現）を一つの研究計画の下で編集・検証する。リポジトリと本文の正本はこの分担で維持し、同一証明を複製しない。論文の統合・分割は中心結果と論理的まとまりに基づいて判断する。
+- 外部結果を使う箇所には定理ラベル、仮定、次数と族の固定、計量と距離の規格化、固定領域とmoving領域の区別、確認した版を記す。共同作業の現在の依存表は本repoの `research/notes.md` と曲面repoの `research/ke-dependencies.md`、全体の短い分担はhubを正本とする。
+- 曲面repoの直接scalar/portal証明を、本repoの(CP)/(PBE)/(TC)自体の検証と読み替えない。局所結果が与えないglobal入力と、別稿で証明を持つglobal結果を区別する。固定配置の空間無限遠から退化族の一様性を推論せず、固定段階の証明と遅い対角選択の順を守る。
+- 優先順は、共有する局所入力の仮定・量化の照合、曲面の大域証明の利用箇所の監査、シリーズ総説とIntroductionの同期、公表前の一次文献比較。実質的な訂正は利用側にも反映してからhubを更新し、三次元研究は独立した未完成の課題として保持する。
 
 ## research-hub 更新義務
 1. まず本repoの方針・原稿・ノート・READMEを最新の内容へ整理し、`main`へ保存する。

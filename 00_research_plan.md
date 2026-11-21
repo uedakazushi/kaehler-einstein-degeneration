@@ -1,15 +1,27 @@
 # 現行研究方針：一般型超曲面の負Kähler–Einstein退化
 
-更新：2026-11-21 / v1.8・現行研究方針
+更新：2026-11-22 / v1.9・現行研究方針
 
 ## 研究固有の目標
 
-固定次数d≥5の一般型曲面の全平面退化について、径の尺度のactual KE極限をcubical複体と同定し、Lagrangian torus fibrationのfiber収縮として実現することを目指す。全深部三重点の解析比較と全閉cornerの局所GH収縮は証明済みであり、Source-freeな固定compact baseで正則normal action、canonical primitive、円平均後の共通moment intervalを得た。次の核心はneck全体のMoser flow bufferと複数のtriple endsの同時整合、sourceでの解析、全曲面のshortcut制御である。高次元の超平面退化は、mixed source–higher-stratum modelsの解析を含む後続課題とする。
+固定次数d≥5の一般型曲面の全平面退化について、actual KE計量の局所一様解析と、それを大域的な径尺度の極限へ接続するための正確な入力を整える。本稿には全深部三重点のtensor比較、全閉cornerの局所GH収縮、source-freeな固定compact baseの正則normal action・canonical primitive・共通moment intervalの証明がある。全曲面のGH極限とactual Lagrangian射影による実現には曲面repoに別の直接scalar/portal証明があるため、その共有局所入力と量化の接続を最優先で監査する。本repoの(CP)/(PBE)/(TC)という強い解析package自体の検証は残る。高次元のmixed source–higher-stratum modelsは後続課題とする。
+
+## 三研究の共同方針と正本
+
+研究・編集・証明監査は一体で進め、以下の正本分担を保つ。三つの本文を一つに機械的に統合せず、重複する証明は所有repoへ集約して具体的な定理を参照する。
+
+| 正本 | 担当する結果 | 本repoとの接続 |
+| --- | --- | --- |
+| [multiscale-kaehler-einstein](https://github.com/uedakazushi/multiscale-kaehler-einstein) | 固定配置補空間の空間無限遠・residual complex periods・conifold localization（Part I–III） | 固定成分は P² から d−1 本の直線を除いたもの。固定空間の漸近を退化族のmoving領域へ直接適用しない。 |
+| 本repo | 退化族の局所一様解析（Part IV）、条件付きpruning–transportと有限target距離（Part V） | Capped density、full triple、fixed-end momentを曲面側へ供給する。CP/PBE/TCの未検証部分を保持する。 |
+| [surface-lagrangian-torus-fibration](https://github.com/uedakazushi/surface-lagrangian-torus-fibration) | Actual KE Lagrangian構成と同じ合成写像の全曲面GH実現 | 固定段階buffer・同一moment接着・core filling・scalar/portal評価の証明を所有する。作用atlasとの同時成立は別問題。 |
+
+共有入力は [研究ノート](research/notes.md) の依存表と曲面側の `research/ke-dependencies.md` で、定理・仮定・尺度・固定/可動領域・確認版を照合する。Part IIのsecondary complex periodsと第二symplectic actionは同一視しない。Part IIIの(H_loc)/(H_anc)も別模型の仮定として残す。方針・本文・ノートを先に保存し、その結果をhubの短い要約へ反映する。
 
 ## 論文と証明の状態
 
-- `papers/kaehler-einstein-degeneration.tex`：Part IV、現行v1.8は116頁。局所模型、source packing、固定次数d≥5の代数・残差packageに、全深部三重点のactual tensor比較、simplex境界の積漸近、全閉cornerのGH定理を統合。Sourceを含むquintic exteriorのcoarse metric geometryは独立な(TC)_5付き。全域のsharp co-Gramは粗い比較に加えて(PBE)_d付きであり、証明済みの三重点内のactive co-Gramと区別する。Bounded-densityからtensor比較を導く一般的推論は反例により排除した。
-- `papers/cubical-gh-limit.tex`：Part V、34頁（回収時）。Abstract pruning–transportとdiam(C_5)=sqrt(13)は解析仮定と独立。本稿の全曲面actual degree-d GHへの適用経路は(CP)_d+(PBE)_d付きであり、このpackageの検証は未完。関連する[曲面fibration研究](https://github.com/uedakazushi/surface-lagrangian-torus-fibration)の `ke:global-metric-realization` は別の直接scalar/portal評価で同じ族の大域GH実現を与えるが、このpackage自体の検証を結論しない。
+- `papers/kaehler-einstein-degeneration.tex`：Part IV、現行v1.9は117頁。局所模型、source packing、固定次数d≥5の代数・残差packageに、全深部三重点のactual tensor比較、simplex境界の積漸近、全閉cornerのGH定理を統合。Sourceを含むquintic exteriorのcoarse metric geometryは独立な(TC)_5付き。全域のsharp co-Gramは粗い比較に加えて(PBE)_d付きであり、証明済みの三重点内のactive co-Gramと区別する。Bounded-densityからtensor比較を導く一般的推論は反例により排除した。
+- `papers/cubical-gh-limit.tex`：Part V、現行v1.9は37頁。Abstract pruning–transportとdiam(C_5)=sqrt(13)は解析仮定と独立。本稿の全曲面actual degree-d GHへの適用経路は(CP)_d+(PBE)_d付きであり、このpackageの検証は未完。関連する[曲面fibration研究](https://github.com/uedakazushi/surface-lagrangian-torus-fibration)の `ke:global-metric-realization` は別の直接scalar/portal評価で同じ族の大域GH実現を与えるが、このpackage自体の検証を結論しない。
 - 高次元ではmixed source–higher-stratum modelsの解析が残るためGH極限は予想。
 - Fixed arrangement complement側Part I–IIIの正本は[multiscale-kaehler-einstein](https://github.com/uedakazushi/multiscale-kaehler-einstein)。固定空間の結果から族の一様性を自動的に導かない。
 
@@ -36,7 +48,7 @@ Full tripleの証明に必要なのは、この大域入力が供給する固定
 
 距離下界は両端をclippingしたdepth写像をcomplete simplex全体で定義し、active coordinateが一つなら係数1のSchwarz評価、二つならdominant product漸近を用いて全経路を制御する。上界は高々三枚のsquaresを通るgeodesicを内部へずらし、固定位相で持ち上げる。Seam collarが狭いという事実だけに依存しない。
 
-C_Jの距離はfull complex C_dの他のcellsを経由する距離ではなく、protected-ambient距離は全曲面X_tの距離ではない。X_t全体のshortcut、異なる三重点・neckとの接着、source・branch・coreのsingular fibersとの同定は未解決である。新規性の包括的確認と外部査読・形式証明は未実施。
+C_Jには三枚自身の内在距離を用い、protected-ambient距離は全曲面X_tの距離とは区別する。曲面稿の `topo:coordinate-retraction` はtarget側の距離が全C_dの距離の制限と一致することを示すが、source側の保護領域外のshortcutを排除する定理ではない。全曲面のshortcutとsource・branch・coreを含む相対接着は曲面稿の直接評価で別に扱われ、本局所定理単独の帰結ではない。新規性の包括的確認と外部査読・形式証明は未実施。
 
 ## Simplex境界の鋭い積漸近とactive co-Gram
 
@@ -69,11 +81,11 @@ Source gateのfixed model ballはoriented half-armを越える。Full source-coo
 ## 位相・人工計量とactual metricの区別
 
 候補\(\mathcal C_d\)の一般次数のセル数・\(\operatorname{Sk}_2\Delta^{d-1}\)との同相・整数ホモロジーはPart Vに証明がある。Lagrangian分岐基底\(B_d(T)\)からのcell-like写像は\(d\ge6\)では同相でないが、人工PL長さ距離によるdistortionは\(d=5\)で\(\Theta(\varepsilon^2)\)、\(d\ge6\)で\(\Theta(\varepsilon)\)であり、GH距離には各々対応する上界がある。証明の正本はLagrangian repoの`topo:metric-collapse-sharp`。
-Actual計量への大域適用には(N) global no-shortcut、(S) square path lifts、(F) small fiber/portal connectorsを全域で検証する必要があり、(F)は前二条件からは従わない（同repoの`topo:portal-counterexample`）。三重点内の(N),(S)とregular fibersの径評価は上記の閉corner定理で得たが、他の領域との大域的な接続は含まれない。Part IV–Vの\((CP)_d+(PBE)_d\)は依然未証明。六次Petersen木系は6点の\(S_6\)軌道をなすが、これはrealized KE計量の対称性を決めない。
+Actual計量への大域適用には(N) global no-shortcut、(S) square path lifts、(F) small fiber/portal connectorsが一つの十分条件であり、(F)は前二条件からは従わない（同repoの`topo:portal-counterexample`）。曲面稿の現行証明は、厳密な(S)の代わりに共通momentのendpoint portal比較を使う。閉corner定理単独は他の領域との大域的接続を含まない。Part IV–Vの\((CP)_d+(PBE)_d\)自体は依然未証明。六次Petersen木系は6点の\(S_6\)軌道をなすが、これはrealized KE計量の対称性を決めない。
 
 ## Lagrangian fibrationとの接続
 
-標準負KE尺度での四実次元非崩壊極限と、$R_t^{-2}g_t$ のcubical候補を区別する。Zhang (MRL, 2015)の局所torus collapse定理はQ-factorialなtoroidal全空間を仮定するため、我々のsource $xy=tz$ へ直接適用しない。主稿序論に先行比較を統合した。閉corner内では同じactual Lagrangian fibrationの射影がGH近似となることを証明した。一方、Part Vの大域GH近似を既存大域fibrationのfiber収縮と同定するには、$\sup_x d_\square(\Phi_t(x),p_T\pi_t(x))\to0$ を全X_tで検証する必要がある。関連Lagrangian主原稿の `topo:ke-map-compatibility` がその十分性を示すが、この大域適合性は未証明である。
+標準負KE尺度での四実次元非崩壊極限と、$R_t^{-2}g_t$ のcubical候補を区別する。Zhang (MRL, 2015)の局所torus collapse定理はQ-factorialなtoroidal全空間を仮定するため、我々のsource $xy=tz$ へ直接適用しない。主稿序論に先行比較を統合した。閉corner内では同じactual Lagrangian fibrationの射影がGH近似となることを証明した。一方、Part Vの大域GH近似を既存大域fibrationのfiber収縮と同定するには、$\sup_x d_\square(\Phi_t(x),p_T\pi_t(x))\to0$ を全X_tで検証する必要がある。関連Lagrangian主原稿の `topo:ke-map-compatibility` がその十分性を示す。本稿Part Vの特定の写像Φ_tとの一様近接性を別途証明したとはしない。一方、曲面稿は `ke:global-metric-realization` において同じ f_t=p_Tπ_t 自体のdistortionを直接評価し、この比較条件を経由せずに大域実現する。
 
 ## Source-free neckの座標・作用周期・解析条件
 
@@ -84,24 +96,25 @@ Actual計量への大域適用には(N) global no-shortcut、(S) square path lif
 - `pair:cor:global-primitive`：open base上の非消滅正則1-form τを選び、Ω=dlog v∧τ、λ_t=d^c log(ω_t²/|Ω|²)を一つの大域primitiveとする。τの変更ではnormal momentは不変だが、residual periodsのためにprimitiveの選択は保持する。
 - `pair:thm:fixed-end-moment` / `pair:cor:actual-common-moment`：s_r=−log r²として両固定endのmomentは±4π/s_r+O(s_r^(−1−δ))+o_t(1)。rを小さく固定した後でt→0とする。Song, arXiv:1706.01518, Definition 2.3 / Lemmas 4.4–4.5とRochon–Zhang, arXiv:1106.0873, (5.5)–(5.6) / Theorem 5.1を用い、η_tのreductionsに共通のintervalを得る。
 - `neck:prop:volume-envelope`：固定residual compact上でc h_t²≤ω_t²≤h_t²。ただし誤差はO(1)である。`neck:prop:residual-boundary-obstruction`はexact negative KE productでも固定residual境界の影響が消えないことを示す。Actual compact familyへの反例ではない。
-- `neck:lem:rank-one-circle`：p*h_D≤Aωかつω²≤B(h_A+h_D)²ならnormal real vectorsについてg_ω≤AB g_A。Mixed termsを許す。Actual metric ballの一様bufferを別途仮定すればnormal circleの長さはO(1/min(s,M−s))となる。Buffer自体は未証明。
+- `neck:lem:rank-one-circle`：p*h_D≤Aωかつω²≤B(h_A+h_D)²ならnormal real vectorsについてg_ω≤AB g_A。Mixed termsを許す。Actual metric ballの一様bufferを別途仮定すればnormal circleの長さはO(1/min(s,M−s))となる。この補題自体はbufferを証明しない。必要な固定段階bufferは曲面稿K1–K2の別結果である。
 - `neck:prop:small-density-coupled`：一般のsmooth negative KE背景h_tに対しsmall log-volume errorから同率のtensor誤差を得る。積分離は要求しない。Complete strip×curve上への延長・完備性・global bounded log-ratioがあればproductを同定できるが、そのglobal仮定は未検証である。
 
-関連Lagrangian主稿 `ke:staged-neck-averaging` は、一つのnormal circleを先に平均し、endで残る円を平均することで、同じactual normal actionと全marked action periodsを保つ。共通のdomain/image bufferの下で一段階構成や整数基底変更とHamiltonian比較できる。`ke:staged-closed-corner-gh` は指定primitive subgroupに適合するactual triple bundleにも同じGH誤差O(log R/R)を与える。旧bundleと同一のfiber分割は主張しない。固定base上のprimitiveとmoment intervalがあっても、neck全体のflow生存、tripleとの同一作用、reduced foliationの同時整合はまだ必要である。
+関連Lagrangian主稿 `ke:staged-neck-averaging` は、一つのnormal circleを先に平均し、endで残る円を平均することで、同じactual normal actionと全marked action periodsを保つ。共通のdomain/image bufferの下で一段階構成や整数基底変更とHamiltonian比較できる。`ke:staged-closed-corner-gh` は指定primitive subgroupに適合するactual triple bundleにも同じGH誤差O(log R/R)を与える。旧bundleと同一のfiber分割は主張しない。固定base上のprimitiveとmoment intervalだけからは、neck全体のflow生存、tripleとの同一作用、reduced foliationの同時整合は従わない。曲面稿のK1–K2がこれらを固定段階で別に構成する。本稿の `pair:lem:diagonal-fixed-end` は、固定K・固定endの結果を選んだ遅い対角列に適用する量化と有限予算の吸収だけを定式化し、bufferそのものは供給しない。
 
 ## 次の課題
 
-1. 最優先はsource-free neck全体のnormal Moser flowの生存と一様buffer。まず `neck:lem:rank-one-circle` に必要なresidual方向の下界を、欲しい距離比較を先取りせず証明する。指定productへの漸近を仮定せずcoupledな背景も許す。同時に射影的normal actionとtriple側の指定subgroupの実際のoverlapを比較し、複数endの作用・reduced leaves・primitive markingsを合わせる。二段階構成はこの入力があれば同じnormal circleとperiodsを保つが、非定数unitによるorbit partitionの変化は別に処理する。
-2. Sourceの正しいorientationでactual tensor・connector評価を進め、source・branch・coreと既存大域fibrationへの相対接着を扱う。三重点のcusp–annulus漸近は利用できるが、sourceでの比較やsingular fibersのmetric制御を代替しない。
-3. 全曲面のno-shortcutとglobal portal費用を検証する。(PBE)_dのquantitative terminal trivialization、protected rectangular inclusion、uniform comparison、two-metric escapeをactual metricsで証明し、一般次数の(CP)_dのconnectorsを監査する。C_J内の距離と、他のlabelsを通るC_dの距離を明確に分ける。
+1. 共有するcapped volume下界→full-triple比較→固定成分収束・fixed-end moment→曲面K1/K2の依存を、正本の定理ラベルと固定量の選択順まで照合する。固定段階で有限個の誤差・費用を確定した後にのみ対角選択を行う（`pair:lem:diagonal-fixed-end`）。今回の重点点検は研究ノートの依存表を参照する。
+2. 曲面の `ke:global-metric-realization` が用いるscalar下界・共通moment portals・全fiber合併を共有局所結果から逆向きに監査し、CP/PBE/TC経路との違いを公表原稿とシリーズ総説に同期する。主張の証明状況・仮定の変更は三repoとhubへ反映する。既存原稿のproof recordと今回の点検を区別する。
+3. 独立の解析課題としてsourceを含むexteriorの(TC)_5、(PBE)_dのquantitative terminal trivialization・protected rectangular inclusion・uniform comparison・two-metric escape、および(CP)_dのconnectorsを検証する。固定baseの定理を任意速度のmoving領域へ拡張せず、bounded densityをtensor比較へ読み替えない。これらの強いpackageの解決を曲面global結果の完成条件へ戻さない。
+4. 一次文献との比較と新規性確認を続ける。高次元mixed source modelsや一般のsecondary completionは、現在の固定次数曲面の監査と別の優先順位で扱う。
 
 ## 保存・検証
 
 全文TeXのSHA-256は `research/source-manifest.json`、元監査は `research/source-audit.md`。回収時に3原稿のLuaLaTeX組版と、統合稿5 scripts・旧v0.12の16 scriptsの再実行を行った。検査は有限組合せ・式・bookkeepingに限られ、未完成の解析証明を代替しない。詳細は `research/migration.md`。
 
-現行資料にはexplicit bundle coordinates、canonical moment、fixed-end漸近、weighted cap determinant、source residue、全三重点比較、simplex境界漸近、閉corner評価の証明と参照先を保持する。今回の独立監査は、complete volume upperに必要なuの上有界性・Laplacian型最大値原理と、固定face入力からの内外simplex barriers、convex shift、小potential、Savin/Schauder、dominant/facetとactive co-Gramの連鎖を対象とした。SavinのH1/H2/H4とTheorem 1.3、YauのTheorems 1–2、ZhangのTheorem 2.1・Proposition 2.2を一次資料で確認した。Cheng–Yau 1982原典自体は未取得で、Zhangによる明示再掲の確認と区別する。大域capped densityを含む旧証明全体の再監査、外部査読、形式証明、新規性の包括的確認は行っていない。
+現行資料にはexplicit bundle coordinates、canonical moment、fixed-end漸近、weighted cap determinant、source residue、全三重点比較、simplex境界漸近、閉corner評価を保持する。今回の重点点検はcapped density→full-triple固定face→fixed-endとcanonical moment→選んだ遅い対角列という共有入力の量化を対象とした。新補題 `pair:lem:diagonal-fixed-end` は本文に証明を置き、別の読み手も量化と証明を内部点検した。既存のSavin H1/H2/H4・Theorem 1.3、Yau Theorems 1–2、Zhang Theorem 2.1・Proposition 2.2の一次照合記録を保持するが、今回全てを再取得・再監査したとはしない。Cheng–Yau 1982原典全証明、外部査読、形式証明、新規性の包括的確認は未了。
 
-現行v1.8の主稿は2026-11-21にLuaLaTeXで組版し、116頁のPDF生成を確認した。未定義参照・引用とoverfull/underfullの警告はなく、フォント・PDF bookmarkの警告は残る。28–29、51、78–79頁の画像で欠落・重なり・数式のはみ出しがないことを確認した。現行PDF全頁の画像確認と有限検算の再実行は未実施。証明の記載、独立監査、有限計算、組版、mainへの保存、hub更新を別々の確認状態として扱う。
+2026-11-22にv1.9のPart IVを117頁、Part Vを37頁にLuaLaTeX組版した。未定義参照・引用、重複ラベル、欠字、overfull/underfull boxはなく、フォント・PDF bookmark警告は残る。IVの1、6–7、70–71、117頁とVの2、4–5、37頁を画像で確認した。全頁の表示確認と有限検算の再実行は行っていない。実行環境はTeX Liveのformat・font mapを補完して使用し、通常のlatexmk設定とbuild出力を保持した。証明記載、内部点検、計算、組版、GitHub反映、hub更新を別々の状態として扱う。
 
 ## 共通研究原則と保存許可（研究固有方針から独立）
 

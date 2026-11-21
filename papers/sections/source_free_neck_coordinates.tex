@@ -1,5 +1,5 @@
 % !TeX root = ../kaehler-einstein-degeneration.tex
-% 2026-11-20 / v1.0
+% 2026-11-22 / v1.9
 \section{Source-free neck の束座標と normal moment}
 \label{pair:sec:source-free-neck-coordinates}
 
@@ -387,6 +387,56 @@ fixed-end convergence の誤差も $\pi/s_r$ 以下にする．
 例えば $c=\pi/s_r$ とすれば \eqref{pair:eq:end-signs} が成立するので，
 \cref{pair:prop:common-moment-interval} を適用できる．
 \end{proof}
+
+\begin{lemma}[固定 end 入力の遅い対角選択]
+\label{pair:lem:diagonal-fixed-end}
+一つの固定退化族について，$D^\circ$ の compact exhaustion
+$K_1\Subset K_2\Subset\cdots$ を選ぶ．各段階に有限個の二重線の compact sets を
+まとめる場合も同様とする．$r_j\downarrow0$ は各 $K_j$ に対して十分小さく固定でき，
+$s_j=-\log r_j^2$ と置く．各固定段階で既に証明された有限個の評価について，
+その誤差の最大値を $E_j(t)\ge0$ とし，$t\to0$ の全複素 parameter に対して
+$E_j(t)\to0$ と仮定する．また $t$ の閾値を選ぶ前に有限な定数 $B_j\ge1$ を固定し，
+$\varepsilon_j\downarrow0$ を与える．
+
+このとき $a_j\downarrow0$ を選び，
+$j(t)=\max\{j\ge1:0<|t|<a_j\}$ と置けば，十分小さい全 $t\ne0$ に対して
+\begin{equation}\label{pair:eq:diagonal-fixed-stage}
+ j(t)\longrightarrow\infty,\qquad
+ E_{j(t)}(t)\le\varepsilon_{j(t)},\qquad
+ \frac{B_{j(t)}}{R_t}\le\varepsilon_{j(t)}
+\end{equation}
+が成立する．さらに同じ選択で，各段階の両 end cuts において
+\begin{equation}\label{pair:eq:diagonal-end-signs}
+ \mu_t|_{\{\Norm v=r_{j(t)}\}}\ge\frac{2\pi}{s_{j(t)}},
+ \qquad
+ \mu_t|_{\{\Norm u=r_{j(t)}\}}\le-\frac{2\pi}{s_{j(t)}}
+\end{equation}
+を全 base points・全 phase で満たせる．従って円平均後の形式には
+$I_{j(t)}=(-\pi/s_{j(t)},\pi/s_{j(t)})$ 上の共通 reduction がある．
+ここで interval は段階に依存してよく，$t$ に独立な正の幅は主張しない．
+\end{lemma}
+
+\begin{proof}
+まず各 $j$ で \cref{pair:thm:fixed-end-moment} の固定成分上の remainder が
+$\pi/s_j$ 以下となるよう $r_j$ を取り，前段階の半分以下に縮める．
+この選択は $K_j$ を固定した後で行う．定理の fixed-end convergence より，
+十分小さい全複素 $t\ne0$ でその収束誤差も $\pi/s_j$ 以下となる．
+そこで \eqref{pair:eq:diagonal-end-signs} が得られる．
+有限個の $E_j$ の誤差条件と，$R_t\to\infty$ による
+$B_j/R_t\le\varepsilon_j$ を同時に課すと，ある正の閾値 $b_j$ が存在する．
+帰納的に $0<a_j<\min\{b_j,2^{-j},a_{j-1}/2\}$ と選ぶ
+（$j=1$ では最後の条件を除く）．
+固定した $t\ne0$ に対して $a_j\to0$ だから最大値 $j(t)$ は有限であり，
+$t\to0$ なら任意の固定段階を越える．$|t|<a_{j(t)}<b_{j(t)}$ より
+全ての評価が同じ $j(t)$ で成立する．Reduction の結論には
+\cref{pair:prop:common-moment-interval} を適用する．
+\end{proof}
+
+この補題は，例えば固定成分 compact 上の smooth convergence の誤差を $E_j$ に，
+先に確定した接続費用や $1+\log$ cut の和を $B_j$ に含めるために使える．
+固定段階で未証明の tensor 比較，Moser buffer，orbit matching を供給するものではなく，
+任意に指定した $r(t)$，$K(t)$ または cut の成長率への一様性も与えない．
+固定配置補空間の漸近を退化族へ移す際には，固定段階で必要な収束を先に証明する．
 
 \begin{remark}[この結論と neck 全体の比較との違い]
 共通 interval は各 conic fibre の全 phase を含むが，その証明は二つの固定 end cuts の

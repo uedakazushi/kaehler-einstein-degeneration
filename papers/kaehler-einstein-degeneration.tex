@@ -58,7 +58,7 @@
 \large 超平面和への退化 I：完備局所模型，terminal-cusp adapted gauges，\\
 および raw co-Gram 剛性}
 \author{植田一石\\[-1mm]\small Kazushi Ueda}
-\date{2026年11月21日\\五部作・統合改訂稿 v1.8}
+\date{2026年11月22日\\五部作・統合改訂稿 v1.9}
 \begin{document}\maketitle
 
 \begin{abstract}
@@ -100,6 +100,30 @@ $\Ric(\omega_t)=-\omega_t$ で規格化した負 Kähler--Einstein 計量，$g_t
 
 証明の内部構造は三段階である．第一に smooth raw-depth functions と intrinsic complete local models を構成し，独立の tensor-comparison 仮定 $\mathrm{(TC)}_5$ の下で粗い立方体幾何を得る．第二に compatible product-box exhaustion の下で全 moving flag-star 上の pointed limits を Poincaré product と同定し，active raw covectors の co-Gram matrix の係数を厳密に $1$ と決める．第三に，第V篇で scalar target-distance calibration と protected horizontal transport を用い，局所係数を大域的な metric-space limit へ変換する．局所模型と volume bounds は actual metric の tensor bounds と区別する．前者から後者への推論には負 KE 条件だけでは不十分であり，\cref{coarse:prop:density-counterexample} の反例がその障害を具体化する．大域的な粗幾何を $\mathrm{(CP)}_d$，moving product boxes の定量的整合性を $\mathrm{(PBE)}_d$ として明示的に分離する．
 
+共同研究における証明の分担を明確にする．第I--III篇の固定配置補空間，
+本稿の退化族の局所一様解析，第V篇の条件付き距離論，および曲面稿
+\cite{LagrangianCurrent}の actual Lagrangian 構成は，それぞれの本文を正本とする．
+固定成分は
+\[
+ H_i^\circ=H_i\setminus\bigcup_{j\ne i}(H_i\cap H_j)
+ \simeq\PP^2\setminus\{d-1\text{ 本の一般位置直線}\}
+\]
+である．その固定空間の空間的無限遠と，$t\to0$ の退化族における一様性は別に証明する．
+曲面稿の定理 \texttt{ke:global-metric-realization} には，各固定 $d\ge5$ と
+\cref{ass:Gd} の族について，同じ $f_t=p_T\pi_t$ の全曲面 ambient distortion を
+直接の scalar 下界と共通 moment portals で評価する証明がある．
+本稿から用いるのは capped volume 下界，全深部 triple 比較，固定成分・固定 end の入力であり，
+曲面稿が必要な fixed-stage buffer，source 退出，core 接着と全域評価を別に供給する．
+この別経路は本稿の $\mathrm{(CP)}_d,\mathrm{(PBE)}_d,\mathrm{(TC)}_5$ 自体を検証しない．
+同稿の \texttt{topo:component-cone-germ} は $\mathcal C_d$ の成分頂点の
+局所計量錐を，第I篇の固定成分の漸近錐 $C_{2,d-1}$ と同定する．
+さらに \texttt{ke:intermediate-component-cone} は大域 distortion
+$\epsilon_t\to0$ の下で，$a_t\to\infty$，$a_t/R_t\to0$，
+$R_t\epsilon_t/a_t\to0$ を満たす選択した中間尺度における pointed GH 極限を同じ錐とする．
+任意の中間尺度や，固定空間の無限遠と族の退化の極限交換を主張するものではない．
+固定段階で既に得られた入力を，選んだ遅い対角列と有限費用へ適用する量化は
+\cref{pair:lem:diagonal-fixed-end} にまとめる．
+
 本証明は relative five-source block，三 outlet の同時 framing，orbit-period matching，actual/relative long-corridor anchoring を用いない．三尖点に共通する一つの tame frame が存在しないという degree obstruction は，terminal cusp ごとの order-zero gauge を選ぶことで局所的に処理する．この選択を growing chart chains 上で一様かつ compatible に行えることが $\mathrm{(PBE)}_5$ の内容である．また，sharp differential statements は smooth raw map $q_t$ に対してのみ述べ，Lipschitz retraction $\Pi$ や $\Phi_t^{\mathrm{alg}}=\Pi\circ q_t$ は微分しない．
 
 Compact negative Kähler--Einstein metrics の存在一意性は Aubin--Yau 理論に基づく~\cite{Aubin,Yau}．準射影多様体上の完備負 Kähler--Einstein metrics については Cheng--Yau と Kobayashi~\cite{ChengYau,Kobayashi}，normal-crossing および toroidal degeneration については Ruan~\cite{RuanI,RuanII} を参照する．特異 Kähler--Einstein families と負曲率 compactness の背景には~\cite{DGG,SongSturmWang}，divisor 近傍の Poincaré 漸近には~\cite{Guenancia,RochonZhang}，局所 log-canonical geometry と neck/cusp closing には~\cite{DatarFuSong,Mandel,FuHeinJiang} がある．本稿の粗い距離論では有限長さ空間の標準事項を~\cite{BBI} の形で用いる．
@@ -115,7 +139,7 @@ exceptional curve上で次数零となるため，同定理を直接適用しな
 また，第V篇の径の尺度のGH近似をLagrangian fibrationのfiber収縮と同定するには，
 両写像の一様な近接性が別に必要である．
 その正確な比較条件と初等的証明は
-\href{https://github.com/uedakazushi/lagrangian-torus-fibration/blob/main/papers/sections/paper/base_topology.tex}
+\href{https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/main/papers/sections/paper/base_topology.tex}
 {関連Lagrangian原稿の命題 \texttt{topo:ke-map-compatibility}} に記す．
 
 
@@ -181,7 +205,7 @@ $r$ を先に固定してから $t\to0$ とする点が本結論の範囲を決�
 共通の actual circle と全 marked action periods を保つ．
 同稿の \texttt{ke:staged-closed-corner-gh} は，指定した primitive circle に適合する
 triple bundle にも同じ局所 GH 誤差を与える．
-Neck 全体の flow buffer と，複数の end における作用・reduced leaves の同時一致は残る．
+Neck 全体の flow buffer と複数 end の同時一致は，これらの固定 end の結果だけからは従わず，曲面稿の固定段階の構成で別に扱う．
 
 \Cref{neck:prop:volume-envelope} の source-free volume 比較は有界誤差に留まる．
 \Cref{neck:prop:residual-boundary-obstruction} は normal 深度が発散しても，
@@ -3871,11 +3895,11 @@ Theorems~1--2.
 
 \bibitem{LagrangianCurrent}
 K.~Ueda,
-\newblock 一般型射影曲面の Lagrangian torus fibration と作用適合 matroidal atlas，
-\newblock 現行未公表原稿，2026年11月20日，第25稿・現行改訂7．
+\newblock 一般型射影曲面の Lagrangian torus fibration と負Kähler--Einstein極限，
+\newblock 現行未公表原稿，2026年11月22日，現行改訂32．
 \newblock \texttt{ke:closed-corner-gh}, \texttt{ke:closed-corner-protected-gh},
-\texttt{ke:relative-fiber-preserving}.
-\newblock \url{https://github.com/uedakazushi/lagrangian-torus-fibration/blob/main/papers/lagrangian-torus-fibration.tex}.
+\texttt{ke:relative-fiber-preserving}, \texttt{ke:global-metric-realization}.
+\newblock \url{https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/main/papers/surface-lagrangian-torus-fibration.tex}.
 
 \end{thebibliography}
 

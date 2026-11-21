@@ -131,7 +131,7 @@
 \title{\bfseries 多重スケール Kähler--Einstein 幾何 V\\[3mm]
 \Large 超平面和への退化：定量的 pruning，立方体極限，および直径}
 \author{植田一石\\[-1mm]\small Kazushi Ueda}
-\date{2026年11月20日\\五部作・統合改訂稿 v1.6}
+\date{2026年11月22日\\五部作・統合改訂稿 v1.9}
 
 \begin{document}
 \maketitle
@@ -182,8 +182,14 @@ volume barriers と Savin の定理から actual tensor 漸近を $O(L_t^{-\eta}
 \texttt{simplex:cor:actual-closed-corner-metric} は，全閉 corner の内在距離，および
 $\min\ell_i>R_t/2$ 内の経路を許した距離について，三枚の square への
 GH 収束を distortion $O((\log R_t)/R_t)$ で与える．
-標的はその三枚自身の内在距離であり，全複体の他の cells を経由する距離ではない．
+標的の距離はその三枚自身の内在距離として定義する．曲面稿の命題 \texttt{topo:coordinate-retraction} は，これが全複体の距離の制限と一致することを示すが，source 側の保護領域外の経路を制御する結論ではない．
 これらは source・core を含む大域 package と全曲面の ambient shortcut の制御を代替しない．
+曲面稿\cite{SurfaceCurrent}の定理 \texttt{ke:global-metric-realization} は，
+同じ一般性条件の各固定 $d\ge5$ について，同じ $f_t=p_T\pi_t$ を用いる
+全曲面の ambient GH 実現を直接の scalar/portal 評価で扱う．
+同稿には source・branch・core の接着を含む証明があるが，
+本稿の特定の raw map や $\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ の検証を与えたとはしない．
+本稿の条件付き定理はそのまま保持し，別経路による到達点と区別する．
 他方，\cref{thm:abstract-pruning} と有限計量 \cref{thm:intro-diameter-C5} はこれらの解析入力から独立である．
 
 \tableofcontents
@@ -201,7 +207,15 @@ GH 収束を distortion $O((\log R_t)/R_t)$ で与える．
  H_i^\circ=H_i\setminus\bigcup_{j\ne i}H_j
  \simeq\PP^2\setminus\bigcup_{j\ne i}(H_i\cap H_j)
 \]
-に対する第I篇の orthant complexを unit depthで切り，surfaceの normal-crossing bound $|\supp w|\le3$ を課したものとみなせる．第II篇~\cite{SeriesII} の secondary periodsは，$d\ge6$ では residual arrangementの scale-one geometryを区別し得るが，$\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ から first logarithmic scaleを導く本稿の抽象推論には追加入力として現れない．局所 source germ $xy=tz$ は第III篇~\cite{SeriesIII} の conifold modelsとの形式的な橋をなし，本稿の \cref{thm:abstract-pruning} はその local-to-global距離論を有限複体向けに自己完結化したものである．第IV篇~\cite{SeriesIV} が raw coordinates と，明示したtensor比較・exhaustion仮定の下での粗い connector package および sharp co-Gram入力を扱い，本稿はそれらを大域 metric-space limitへ変換する．
+という $d-1$ 本の直線配置補空間に対する第I篇の orthant complexを unit depthで切り，surfaceの normal-crossing bound $|\supp w|\le3$ を課したものとみなせる．第II篇~\cite{SeriesII} の secondary periodsは，$d\ge6$ では residual arrangementの scale-one geometryを区別し得るが，$\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ から first logarithmic scaleを導く本稿の抽象推論には追加入力として現れない．局所 source germ $xy=tz$ は第III篇~\cite{SeriesIII} の conifold modelsとの形式的な橋をなし，本稿の \cref{thm:abstract-pruning} はその local-to-global距離論を有限複体向けに自己完結化したものである．第IV篇~\cite{SeriesIV} が raw coordinates と，明示したtensor比較・exhaustion仮定の下での粗い connector package および sharp co-Gram入力を扱い，本稿はそれらを大域 metric-space limitへ変換する．
+
+ここで固定成分の空間的 blow-down と，変動する $X_t$ の $R_t$ 尺度の極限を
+同じ定理と扱わない．固定成分から退化族への入力には，固定 compact 上の収束と，
+固定段階の比較を先に証明する必要がある．第IV篇の
+\texttt{pair:lem:diagonal-fixed-end} は，その後の遅い対角選択だけを定式化する．
+第II篇の secondary periods は residual curve の marked complex/hyperbolic geometry を表し，
+曲面稿の第二 symplectic action と同一視しない．第III篇の conifold localization の
+$\mathrm{(H_{loc})}$，$\mathrm{(H_{anc})}$ も，模型と結論が異なる仮定として保持する．
 
 \subsection{固定次数の解析入力}
 固定した $d\ge5$ に対し，一般位置の平面 $H_i=\{L_i=0\}\subset\PP^3$ $(0\le i\le d-1)$ と次数 $d$ の斉次式 $F_d$ から
@@ -287,7 +301,7 @@ square galleryを用いると，その内在距離$d_\varepsilon$は
 を満たす．従って $d\ge6$ の非同相性は，
 \emph{適当に選んだ基底計量の}GH収束そのものを妨げない．
 詳細証明は
-\href{https://github.com/uedakazushi/lagrangian-torus-fibration/blob/main/papers/sections/paper/base_topology.tex}
+\href{https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/main/papers/sections/paper/base_topology.tex}
 {関連するLagrangian研究の基底位相論，定理 \texttt{topo:metric-collapse}}
 に記した．この区分的長さ計量と，actual KE計量や
 Lagrangian fibrationのaction metricとの比較は未証明である．
@@ -323,17 +337,17 @@ $\pi_t:X_t\to B_d(T)$ と上の $p_T:B_d(T)\to\Cd$ を選び，
 $\operatorname{dis}(p_T\pi_t)\le a_t+2b_t$．従って全正則・特異 fibers の
 $R_t^{-1}d_{g_t}$ に関する ambient diameterも零へ行く．
 詳細証明は関連Lagrangian原稿の
-\href{https://github.com/uedakazushi/lagrangian-torus-fibration/blob/main/papers/sections/paper/base_topology.tex}
+\href{https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/main/papers/sections/paper/base_topology.tex}
 {命題 \texttt{topo:ke-map-compatibility}} に置いた．
 本稿の $\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ も，symplectic Moser 同定も，
 この特定の $\pi_t$ に対する $b_t\to0$ の証明の代用にはならない．
 $d\ge6$ では $p_T$ の木fiberに対応する追加の収縮も含む．
 同関連原稿の
-\href{https://github.com/uedakazushi/lagrangian-torus-fibration/blob/main/papers/sections/paper/ke_fiber_compatibility.tex}
+\href{https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/main/papers/sections/paper/ke_fiber_compatibility.tex}
 {定理 \texttt{ke:triple-moving-fibration}} は，
 全phaseを含む moving triple domain 上での一様 tensor 比較を仮定して，
 actual KE 形式に関する局所 Lagrangian fibration と小さい ambient fibers を与える．
-これは全域での $b_t\to0$ や特異 fibers への接着をまだ含まない．
+この局所定理は全域での $b_t\to0$ や特異 fibers への接着を含まない．同稿の別の大域定理 \texttt{ke:global-metric-realization} は，$b_t$ の比較を経由せず $f_t=p_T\pi_t$ 自体の distortion を直接評価する．
 \end{remark}
 
 以下の定数は固定した $d$ に依存してよいが，$t$ には依存しない．
@@ -2076,7 +2090,7 @@ Ambient $N\ge4$ の $X_t^{(N,d)}\to\Cnd$
 \end{center}
 
 \subsection{結論}
-本稿の無条件な成果は，局所 co-Gram制御を有限複体への almost-isometryへ変換する抽象定理と，$\cC_5$ の厳密直径である．解析的 familyへの適用は，固定次数 $d\ge5$ まで同一の有限次元 pruning--transport proofで一般化されるが，その結論は $\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ に条件付けられる．この区別により，今後必要な仕事は明確である：surface caseでは $\mathrm{(CP)}_d$ に必要な非循環のtensor比較と $\mathrm{(PBE)}_d$ の完全な検証，高次元では mixed source--higher-stratum local modelsの構成である．
+本稿の無条件な成果は，局所 co-Gram制御を有限複体への almost-isometryへ変換する抽象定理と，$\cC_5$ の厳密直径である．解析的 familyへの適用は，固定次数 $d\ge5$ まで同一の有限次元 pruning--transport proofで一般化されるが，その結論は $\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ に条件付けられる．この経路自体に残る課題は，surface caseでは $\mathrm{(CP)}_d$ に必要な非循環のtensor比較と $\mathrm{(PBE)}_d$ の完全な検証，高次元では mixed source--higher-stratum local modelsの構成である．曲面稿の直接大域証明との共同監査では，固定領域の入力と moving 領域の量化を照合し，本稿の強い package の検証と混同しない．
 
 \appendix
 
@@ -2184,6 +2198,13 @@ K.~Ueda,
 K.~Ueda,
 \newblock \emph{多重スケール Kähler--Einstein 幾何 IV：超平面和への退化 I，完備局所模型，terminal-cusp adapted gauges，および conditional raw co-Gram 剛性},
 \newblock 五部作第IV篇, 2026.
+
+\bibitem{SurfaceCurrent}
+K.~Ueda,
+\newblock 一般型射影曲面の Lagrangian torus fibration と負Kähler--Einstein極限，
+\newblock 現行未公表原稿，2026年11月22日，現行改訂32．
+\newblock \texttt{ke:global-metric-realization} と \texttt{topo:ke-map-compatibility}.
+\newblock \href{https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/main/papers/surface-lagrangian-torus-fibration.tex}{現行主原稿}.
 
 \end{thebibliography}
 
