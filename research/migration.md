@@ -2,7 +2,7 @@
 
 2026-11-20。Libraryの `Multiscale_KE_Geometry_I-V_ja_v1_source_and_pdfs.zip`（2026-08-31）を取得した。これは旧配置補空間三部作と旧退化二部作を再監査・統合した五篇連作である。元資料のREADME・数学的監査と本文の仮定を照合し、短い再構成稿を全文のTeXへ置換した。旧稿への誤り訂正・条件付き化を引き継ぐ。元Libraryファイルは削除していない。
 
-ソースの対応、バイト数、SHA-256は `source-manifest.json`。五篇統合稿のTeX本文は移行時に元ファイルとのバイト一致を確認した。その後の一般次数の位相命題追加やビルド設定の修正を施した現行ファイルでは、`source-manifest.json` の `source_sha256` が元資料、`sha256` が現在の本文を表す。旧v0.12全文も回収し、元manifestとSHA-256が一致することを確認。upLaTeX固有のclass・font・hyperref設定をLuaLaTeXへ変更し、現行の条件付き化を冒頭に明記した。全数学本文は保持する（papers/punctured-neck-scattering.tex、今回92頁）。Part I–IIIと総説の正本はmultiscale-kaehler-einstein、Part IV–Vと五つの補助スクリプトの正本はkaehler-einstein-degeneration。元の統合PDFと旧版ZIPはGitへ重複保存しない。新しい定理の証明や文献の再監査を今回実施したことを意味しない。
+ソースの対応、バイト数、SHA-256は `source-manifest.json`。五篇統合稿のTeX本文は移行時に元ファイルとのバイト一致を確認した。その後の一般次数の位相命題追加やビルド設定の修正を施した現行ファイルでは、`source-manifest.json` の `source_sha256` が元資料、`sha256`・`bytes`・`current_blob_sha` が記載した確認日の本文を表す。2026-11-23に現行destinationの値を更新し、元の `source_sha256` は保持した。分割TeXと組版PDFの現行hashは `validation.json` に置く。旧v0.12全文も回収し、元manifestとSHA-256が一致することを確認。upLaTeX固有のclass・font・hyperref設定をLuaLaTeXへ変更し、現行の条件付き化を冒頭に明記した。全数学本文は保持する（papers/punctured-neck-scattering.tex、今回92頁）。Part I–IIIと総説の正本はmultiscale-kaehler-einstein、Part IV–Vと五つの補助スクリプトの正本はkaehler-einstein-degeneration。元の統合PDFと旧版ZIPはGitへ重複保存しない。新しい定理の証明や文献の再監査を今回実施したことを意味しない。
 
 ## 組版
 

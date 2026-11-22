@@ -1,5 +1,5 @@
 % !TeX root = ../kaehler-einstein-degeneration.tex
-% Current content: 2026-11-20, v1.0.
+% Current content: 2026-11-23, v1.1.
 \section{Source を避ける二重交差 neck：体積包絡と計量比較の追加入力}
 \label{neck:sec:comparison-inputs}
 
@@ -214,8 +214,8 @@ actual ball 上の cutoff を用いる．具体的には
 $f=\tr_{\omega_t}(p^*h_{D_R})$ に対し，$\Ric(\omega_t)=-\omega_t$ と
 target の曲率 $-1$ から
 $\Delta_{\omega_t}\log f\ge c f-C$ を得る．
-\Cref{coarse:lem:localized-chern-lu} と同じ距離 cutoff の証明をこの射影に
-適用すると，中心で $f(q)\le C_\sigma$，従って
+\Cref{coarse:lem:localized-chern-lu} をこの射影に
+適用すると，中心で $f(q)\le C(1+\sigma^{-2})$，従って
 $p^*h_{D_R}\le C_\sigma\omega_t$ を得る
 \cite[Section~1 and Theorem~2 の証明]{YauSchwarzThm2}．
 \Cref{neck:prop:volume-envelope} の上界と
@@ -229,6 +229,38 @@ Period $1$ の generator を $V=2\pi\partial_\theta$ とすれば
 \]
 この評価は円周の全点に成り立つので，flow parameter $\tau\in[0,1]$ で積分する．
 \end{proof}
+
+\begin{corollary}[縮む actual buffer と normal 深度の十分条件]
+\label{neck:cor:shrinking-buffer-circle}
+前系で，固定半径に代えて各 $t$ の $0<\sigma_t\le1$ に対し
+\[
+ \overline{B_{g_t}(q,2\sigma_t)}\Subset U_t
+ \quad\text{for every }q\in\Gamma_t
+\]
+を仮定する．$C$ を $t,\sigma_t,s$ に依存させずに
+\begin{equation}\label{neck:eq:shrinking-buffer-circle}
+ \Length_{g_t}(\Gamma_t)
+ \le \frac{C(1+\sigma_t^{-1})}{m_t},
+ \qquad m_t=\min(s,M_t-s)
+\end{equation}
+と評価できる．従って $m_t\sigma_t\to\infty$ ならば円周長は $0$ へ行く．
+より一般に径尺度 $R_t\to\infty$ で割った円周長には，
+$R_tm_t\sigma_t\to\infty$ が十分である．
+\end{corollary}
+
+\begin{proof}
+\Cref{coarse:lem:localized-chern-lu} は
+$p^*h_{D_R}\le C(1+\sigma_t^{-2})\omega_t$ を与える．
+体積上界 $\omega_t^2\le h_t^2$ と \cref{neck:lem:rank-one-circle} により，
+normal vector の長さは模型の長さの $C\sqrt{1+\sigma_t^{-2}}$ 倍以下である．
+前系の $4\pi\sqrt{K_{M_t}(s)}\le2\pi^2/m_t$ を使い，
+$\sqrt{1+\sigma_t^{-2}}\le1+\sigma_t^{-1}\le2\sigma_t^{-1}$ を積分する．
+\end{proof}
+
+この系は局所 Schwarz 評価と既存の rank-one 計算の定量的な帰結であり，
+新しい Schwarz lemma としての優先権は主張しない．Actual buffer の半径を
+別の議論で与えた場合に，法線深度との必要な予算を読み取るための十分条件である．
+条件を外した円周収縮，full tensor 比較，又は Moser flow の生存は結論しない．
 
 \eqref{neck:eq:actual-circle-buffer} は追加仮定であり，本節の入力だけでは actual family
 の全 source-free neck に一様には証明できない．関連曲面稿\cite{LagrangianCurrent}の

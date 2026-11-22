@@ -57,7 +57,7 @@
 \title{\bfseries 多重スケール Kähler--Einstein 幾何 IV\\[1mm]
 \large 超平面和退化の局所安定性と閉 corner の収縮}
 \author{植田一石\\[-1mm]\small Kazushi Ueda}
-\date{2026年11月22日\\五部作・統合改訂稿 v1.12}
+\date{2026年11月23日\\五部作・統合改訂稿 v1.13}
 \begin{document}\maketitle
 
 \begin{abstract}
@@ -2197,24 +2197,47 @@ $|Hv|_{g_t}\le C_AR_t|v|$ を得る．Residual・angular fibreの fixed compactn
 source chart 内に入るように固定する．$\Omega^+$ に $\Ric(h_{\mathrm{src}})=-h_{\mathrm{src}}$
 と規格化した complete complex-hyperbolic metric $h_{\mathrm{src}}$ を入れる．
 
-\begin{lemma}[Localized Chern--Lu estimate]\label{coarse:lem:localized-chern-lu}
-$(B_g(p,2\sigma),g)$ を $\Ric(g)=-g$ を満たす K\"ahler ball，$h$ を同じ複素領域上の K\"ahler metricで，
-$B_g(p,2\sigma)$ の閉包はその領域内で compact とし，$h$ の holomorphic sectional curvatureが $-\kappa<0$ 以下とする．このとき
-\[
- \sup_{B_g(p,\sigma)}\tr_g h\le C_{\sigma,\kappa}.
-\]
+\begin{lemma}[Buffer 半径を明示した localized Chern--Lu estimate]
+\label{coarse:lem:localized-chern-lu}
+複素 $n$ 次元の K\"ahler metric $g$ が $\Ric(g)=-g$ を満たし，
+$\overline{B_g(p,2\sigma)}$ はその定義域内で compact とする．
+その球の近傍で定義された正則写像 $F$ の target に K\"ahler metric $h$ があり，
+その holomorphic sectional curvature は $-\kappa<0$ 以下とする．このとき
+\begin{equation}\label{coarse:eq:localized-chern-lu-radius}
+ \sup_{B_g(p,\sigma)}\tr_g(F^*h)
+ \le \frac{C_n}{\kappa}(1+\sigma^{-2}).
+\end{equation}
+Target の完備性，source の injectivity radius の下界，$dF$ の単射性は要らない．
+恒等写像の場合が二つの計量の比較であり，曲線への射影の場合も含む．
 \end{lemma}
 
 \begin{proof}
-Identity mapに対する Chern--Lu--Royden 不等式\cite{Royden}は，定数の規格化を吸収して
+\(u=\tr_g(F^*h)\) と置く．Chern--Lu--Royden 不等式\cite{Royden}は，
+次元と Laplacian の規格化を吸収した $c_n,C_n>0$ に対し，$u>0$ 上で
 \[
- \Delta_g\log\tr_g h\ge \kappa_0\tr_g h-C_0
+ \Delta_g\log u\ge c_n\kappa u-C_n
 \]
-を与える．$g$-距離に関する cutoff $0\le\chi\le1$ を $B_g(p,2\sigma)$ 上に取り，内側球で $\chi=1$ とする．Ricci lower bound と Laplacian comparison により
-$|\nabla\chi|^2\le C_\sigma$ と $\Delta_g\chi\ge-C_\sigma$ を barrier の意味で満たすように選べる．
-$\chi^2\tr_g h$ の正の最大点で $\Delta_g\log(\chi^2\tr_g h)\le0$ を用い，$\chi^2$ を掛けると
-$\kappa_0\chi^2\tr_g h\le C_0\chi^2+2C_\sigma\chi+2C_\sigma$ を得る．
-Cut locus では標準の support-function argument を用いる．従って内側球で所要評価が成立する．
+を与える．曲線 target では通常の Chern--Lu 公式だけでよく，
+\cite[Section~1, equations~(10)--(16)]{YauSchwarzThm2} の任意の正則写像に対する
+計算を用いる．$\rho=d_g(p,\cdot)$ に対し，$\chi=\chi_0(\rho/\sigma)$ を
+内側球で $1$，外側球の境界近傍で $0$ となる非増加 cutoff とする．
+Ricci 下界と Laplacian comparison により，barrier の意味で
+\[
+ |\nabla\chi|^2\le C_n\sigma^{-2},\qquad
+ \Delta_g\chi\ge-C_n(\sigma^{-2}+\sigma^{-1}).
+\]
+これは $\chi_0'$ の支持上で $\rho\ge\sigma$ であることによる．
+$\chi^2u$ の最大値が正なら，その最大点で $u>0$，$\chi>0$ だから
+$\Delta_g\log(\chi^2u)\le0$ を使える．従って
+\[
+ c_n\kappa\chi^2u
+ \le C_n\chi^2-2\chi\Delta_g\chi+2|\nabla\chi|^2
+ \le C'_n(1+\sigma^{-2}).
+\]
+Cut locus では距離の上側 support を用いた Calabi の局所化を行う．
+$\chi_0$ が非増加なので cutoff の下側 support が得られ，同じ最大値計算に
+適用できる．$u=0$ の点で $\log u$ を取る必要はない．内側球では $\chi=1$ であり，
+\eqref{coarse:eq:localized-chern-lu-radius} が従う．
 \end{proof}
 
 \begin{proposition}[Actual-deep source comparison]\label{coarse:prop:deep-source}

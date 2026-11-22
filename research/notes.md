@@ -1,6 +1,6 @@
 # 研究ノート：一般型超曲面のKE退化
 
-更新：2026-11-22 / v1.25（Part IV本文はv1.12、Part V本文はv1.10）
+更新：2026-11-23 / v1.26（Part IV本文はv1.13、Part V本文はv1.10）
 
 ## 共同編集の正本と共有局所入力
 
@@ -8,9 +8,9 @@
 
 Part IV–Vが使う曲面の数学入力は、[改訂37・commit 32c67ae](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/tree/32c67aefe6beb47c2955923e2b6eb2471d48af31)に固定する。局所actual K4、全moment・五次同時実現と同じ射影の測度系の正本は曲面稿であり、指定箇所の内部点検と現行版の保存確認は科学引用pinとは別に管理する。
 
-現行Part IV v1.12は、固定end移送の最小log-density入力とnormal windingの規格化を独立に記載する。曲面稿の五次同時実現と改訂43の `ke:global-volume-measure` は曲面repoに証明を置き、現在確認した数学保存版は `1716a175dddbccf23e86027c34fba239c0cf527b` である。Part IVは122頁に組版済みで、指定10頁の表示確認は完了している。Part V本文・PDF・版・hashと科学引用の入力pinは不変である。
+現行Part IV v1.13は、固定end移送とnormal windingの既存入力に、localized Chern–Luの正則写像版と半径依存、縮むactual bufferの十分条件を統合する。曲面の五次と標準等重み六次の同時実現・測度系は曲面repoに証明を置く。確認した保存版は `1088f86cf8f0c70c74a1e4caa3b90393ff627067`（改訂44）。Part Vの本文・PDF・版・hashと既存科学引用の入力pinは不変である。
 
-固定補空間側は[Part I v1.9・総説v1.13・研究資料v1.17](https://github.com/uedakazushi/multiscale-kaehler-einstein/tree/7bb67f11f5cfb7afaa279b55d7096b10185b9c81)を確認版とする。尖点付き有限面積双曲曲線Sと境界のないコンパクト連結Riemann因子Yの積で、距離Laplace変換をRe s<3の切断半平面上でW/(1−s)−H(s)Log(1−s)+G(s)と表示する。Hはentire、GはRe s<3で正則であり、WとmonodromyからYの正規化基点距離分布を回収する。通常volume-IRFA一般への解析接続・等長型・族一様性は主張しない。総説はこの積の結果、Part IV v1.12の固定end/winding、曲面改訂43の同じ射影による確率体積極限を統合する。これらは固定補空間側の成果・共同編集であり、Part IV/Vへの新しい解析仮定やCP/PBE/TCの検証ではない。 既存の裾係数・compact基点一様性・非可積分cusp・gauge・K5 linkの指定点検は保持するが、新しい積の命題・系は別に作成担当・統合担当・独立担当が実本文を読んで照合した。
+固定補空間側は[Part I v1.10・総説v1.14・研究資料v1.19](https://github.com/uedakazushi/multiscale-kaehler-einstein/tree/2926300c2425c7e68550ac08ee81a2afa639a0c6)を確認版とする。尖点付き有限面積双曲曲線Sと境界のないコンパクト連結Riemann因子Yの積で、距離Laplace変換をRe s<3の切断半平面上でW/(1−s)−H(s)Log(1−s)+G(s)と表示する。Hはentire、GはRe s<3で正則であり、WとmonodromyからYの正規化基点距離分布を回収する。通常volume-IRFA一般への解析接続・等長型・族一様性は主張しない。総説はこの積の結果、Part IV v1.12の固定end/winding、曲面改訂44の同じ射影による確率体積極限を統合する。これらは固定補空間側の成果・共同編集であり、Part IV/Vへの新しい解析仮定やCP/PBE/TCの検証ではない。 既存の裾係数・compact基点一様性・非可積分cusp・gauge・K5 linkの指定点検は保持するが、新しい積の命題・系は別に作成担当・統合担当・独立担当が実本文を読んで照合した。 新しい `cor:CW-fixed-cutoff-budget` は固定SNC cutoffの脱落質量とStokes defectをCe^{-A}で抑える。統合担当がこの追加証明を実読し、固定対の予算とtの有効収束率を区別している。
 
 本稿の公表入口は無条件の局所解析を中心とし、Part IVの最小入力表 `tab:surface-minimal-inputs` に曲面P0が使う四群をまとめる。局所安定性は `coarse:thm:boundary-to-triple`、全平面族への適用は既存の `coarse:thm:full-triple-tensor` とし、証明を一回だけ置く。Part Vの抽象pruning–transportと有限targetの直径計算は独立の成果で、CP/PBEを仮定するactual raw-pruning経路、曲面側の直接scalar/portal経路を区別する。
 
@@ -30,17 +30,19 @@ Part IV–Vが使う曲面の数学入力は、[改訂37・commit 32c67ae](https
 
 **固定endの最小解析とvolume frame。** `pair:prop:fixed-end-transfer` の二入力は固定end collar上のlog-densityのC¹収束と、極限成分のradial derivativeが4/s+O(s^(−1−δ))となることである。共通frame Ω=dlog v∧τ=−dlog u∧τとperiod 1のVの向きを固定すると、momentは±π倍のradial derivativeの円平均になる。Hermitian normのcutにはs=s_r+O_K(1)を用い、主項の差O_K(s_r^−2)を吸収する。実際にはC¹収束のうちradial微分の収束だけで足り、moving内部のtensor/bufferは不要である。`pair:rem:normal-frame-winding` は、全orbitを含むpatchの非消滅正則unit bに対しμ′=μ−2π wind_V(b)を与える。Nonbasicでもzero windingなら同じmomentを保つが、λ′−λ=−d arg bの残余periodとprimitiveの同一性は別である。新しい式と適用順を作成担当と統合担当が点検した。
 
+**Actual bufferの半径と円周収縮。** `coarse:lem:localized-chern-lu` は、actual球の半径σとtargetの負曲率κに対して tr_g(F*h)≤C_n κ⁻¹(1+σ⁻²)を与える。正則写像のrank低下、潰れたinjectivity radius、targetの非完備性を許す。`neck:cor:shrinking-buffer-circle` はrank-one下界と体積上界を組み合わせ、normal深度m=min(s,M−s)に対しlength≤C(1+σ⁻¹)/mを得る。0<σ≤1ならmσ→∞が非正規化の収縮、Rmσ→∞がRで割った収縮の十分条件となる。半径は別の幾何的議論で確保する入力であり、bufferの存在、全tensor比較、Moser flow生存、CP/PBE/TCは証明しない。証明は距離cutoffの勾配・Laplacian bounds、正の最大点、mixed coefficientsを含むdeterminant比較を明記する。これは古典的なSchwarz評価の定量的帰結であり、新しいSchwarz lemmaとしての優先権は主張しない。
+
 **固定段階からの接続補題。** `pair:lem:diagonal-fixed-end` は、K_jを固定してr_jを選び、有限個の既証誤差E_j(t)→0とt閾値前の有限費用B_jを確定した後、j(t)→∞を十分遅く選べばE_j(t)≤ε_jかつB_j/R_t≤ε_jとend符号を同時に保てることを証明する。共通moment intervalは±π/s_jで段階ごとに縮んでよい。固定段階のbuffer・matchingの存在や、費用のj依存成長率を証明する補題ではない。原稿に証明を置き、ここでは量化だけを記す。
 
 **Sourceを含むfixed-shellの証明正本。** 曲面稿 [ke_staged_neck_averaging.tex](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/32c67aefe6beb47c2955923e2b6eb2471d48af31/papers/sections/paper/ke_staged_neck_averaging.tex) の `ke:source-inclusive-fixed-shell` は、source-inclusive正規形x′y′=t h_t(p)と固定compact P^+を用いる。各固定rのendとr²≤|x′|≤rのshellは、h_0(p)=0でも中央成分のsmooth locusのcompactにあり、全複素tの固定gauge収束を使える。同じΩ_t=dlog x′∧dp=−dlog y′∧dpはsourceでdx′∧dy′/(t h′_t(p))と非零正則に延びる。したがって全phaseのend値±4π/s_rと、rに共通な正のshell横断費用c log2を得る。t閾値のr依存を許し、shellを通る経路部分の費用を全曲面二点間距離と同一視しない。異なるvolume frameのprimitiveには閉形式差が残り、residual periodの消滅や異なる正規形間のprimitiveの一致は結論しない。証明と別の読み手による内部点検は曲面側に置き、Part IVのsource-free定理には新たな適用範囲を付け足さない。
 
 **二つの大域経路。** Part Vの全曲面適用はCP/PBE付きで、quinticのCP検証はTC5に依存する。曲面稿 `ke:global-metric-realization` には同じf_t=p_Tπ_tの直接scalar/portal証明があり、neck/core/sourceの接続もそこで別に扱う。したがって全曲面のGH問題自体を本稿の局所入力だけから「未解決」と記さず、CP/PBE/TCという追加packageの未検証部分を明記する。Part Vの特定のΦ_tとf_tとの一様近接性を新たに示したことにもならない。Part IIのsecondary complex periodsと第二symplectic action、Part IIIのH_loc/H_ancもそれぞれ別の入力である。
 
-**同じ射影での確率体積測度。** 曲面改訂43の保存稿 `papers/sections/paper/ke_global_metric_realization.tex` の `ke:global-volume-measure` と `ke:global-volume-scope` が証明の正本である。固定d≥5と既存の一般位置族について、dV_t=ω_t²/2、V_d=2π²d(d−4)²、ν_t=dV_t/V_dと置くと、同じf_t=p_Tπ_tの押し出しはd^−1Σδ_{e_i}、π_tの押し出しはd^−1Σδ_{v_i}へ弱収束する。前者は全cubical計量空間と同じGH近似写像を用いるmeasured GH収束であり、極限測度に全台性を要求しない。
+**同じ射影での確率体積測度。** 曲面改訂44の保存稿 `papers/sections/paper/ke_global_metric_realization.tex` の `ke:global-volume-measure` と `ke:global-volume-scope` が証明の正本である。固定d≥5と既存の一般位置族について、dV_t=ω_t²/2、V_d=2π²d(d−4)²、ν_t=dV_t/V_dと置くと、同じf_t=p_Tπ_tの押し出しはd^−1Σδ_{e_i}、π_tの押し出しはd^−1Σδ_{v_i}へ弱収束する。前者は全cubical計量空間と同じGH近似写像を用いるmeasured GH収束であり、極限測度に全台性を要求しない。
 
 各固定成分W_iの体積は、Part I `lem:CW`・`thm:facemass` のbounded primitiveによるStokesとK_{H_i}+D_i=(d−4)Hから2π²(d−4)²である。固定compact上の成分収束と `ke:global-clipped-depth-map`・`ke:global-depth-base-comparison` により、その像はe_iへ一様に近づく。成分体積の和と全体積が一致するため、固定compactを大きく取った後のt→0で補集合の質量を抑えられる。p_T^−1(e_i)={v_i}とcompact性がπ_t側の弱収束を与え、五次の作用指定射影には `ke:relative-replacement-gh` の一様値比較を使う。Moving coreへの包含や対角列の選び直し、moving neckの一様体積漸近は追加しない。
 
-証明本文を実読して量化・規格化・像の位置を照合したが、曲面全主稿やPart Iの全Stokes証明を今回再監査したという意味ではない。改訂43の数学保存版は `1716a175dddbccf23e86027c34fba239c0cf527b` である。Part IV/V本文の改訂37入力pinは保持し、現行の表示確認は別に記す。距離極限の辺・squareは残り、確率測度の台だけへ空間を取り替えない。R_t^−2g_tの未正規化体積はR_t^−4dV_tで総量が零へ向かう。成分体積保存やexhaustion原理自体の新規性は主張しない。
+証明本文を実読して量化・規格化・像の位置を照合したが、曲面全主稿やPart Iの全Stokes証明を今回再監査したという意味ではない。改訂44の数学保存版は `1088f86cf8f0c70c74a1e4caa3b90393ff627067` である。Part IV/V本文の改訂37入力pinは保持し、現行の表示確認は別に記す。距離極限の辺・squareは残り、確率測度の台だけへ空間を取り替えない。R_t^−2g_tの未正規化体積はR_t^−4dV_tで総量が零へ向かう。成分体積保存やexhaustion原理自体の新規性は主張しない。
 
 **公表範囲と仮定の接続。** Part Iの `thm:intro-metric` は連結smooth projective pair・reduced SNC境界・K+D ampleを仮定し、`prop:RZ` が `def:clean` と `def:metricIRFA` を検証する。n≥1であり、空境界はcompact spaceと一点錐の自明な距離定理に含める。固定基点でのconeの一意性と、移動基点の複数の極限型を区別する。Exact tailには非空境界が必要で、一般multidegree配置では超平面用の単一skeletonではなくcomponent-labelled dual complexを用いる。既存の直接点検では、この導入から定義・距離定理・KE適用・配置例へ渡る仮定と量化を照合した。Rochon–Zhang §5, pp.38–39, Theorem 5.1の対象とnormal coefficient c_i=1、および同論文p.2の複素次元1の場合を一次資料で確認した。距離定理の結論やPart IV/Vへの入力を強めたわけではない。
 
@@ -193,7 +195,7 @@ Source-freeの `ng8:relative-dh`・`ng8:straight-neck`・`ng8:central-criterion`
 
 曲面稿 [ke_global_base_compatibility.tex](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/c056ecba5d25a55f135e739faab5993582814484/papers/sections/paper/ke_global_base_compatibility.tex) の `ke:moment-relative-replacement` は、変更後のactual局所fibrationが既に得られた場合の条件付き定理である。同じ保持cornerと全K2 end collars、sourceのcompact nodal neighborhoods、canonical normal momentの向きと加法定数、anchor cutsとcore/変更collarを保つ。実際のmarked product自明化・compatibleなcore cone商・全overlapでのwhole-fiber一致も要求する。木の抽象同型やnormal circleの一致だけでは足りない。
 
-この下で、同じcubical targetへのparameter化を保持corner上で厳密に一致させ、sup_x d_square(f̂_{j,t}(x),f_{j,t}(x))≤Cη_{j,t}、η_{j,t}=A(1+log(N_j+1))/R_tとできる。Cは固定次数・族と有限targetに依存し、reduced葉を変更するdiffeomorphismの微分には依存しない。`ke:relative-replacement-gh` は同じ遅い対角列でdistortionと、各coarse fiber（一つのp_T-fiber上の葉の合併）のambient径の消失を与える。主担当の証明と別担当の独立点検を同期したもので、この担当による追加の全証明再監査とは区別する。曲面稿の `ke:quintic-simultaneous-realization` は上の全moment構成にこの評価を適用し、同じactual Lagrangian射影に作用適合matroidal atlas、全域distortionの消失、全coarse fibersの正規化ambient径の消失を同時に与える。Focus valuesには穿孔focus affine structureを用いる。等重みと対称六系は有限条件の明示解であり、五次の存在に追加の未検証解析仮定はない。結論は各tでの同時実現であって、atlas自体のt方向の収束、固定した極限affine structure、極限距離のHessian性・Monge–Ampère性を主張しない。六次の同時実現、任意の追加保持annuli・大きいtailsの相対可解性、t方向に滑らかなfibration族は含まない。
+この下で、同じcubical targetへのparameter化を保持corner上で厳密に一致させ、sup_x d_square(f̂_{j,t}(x),f_{j,t}(x))≤Cη_{j,t}、η_{j,t}=A(1+log(N_j+1))/R_tとできる。Cは固定次数・族と有限targetに依存し、reduced葉を変更するdiffeomorphismの微分には依存しない。`ke:relative-replacement-gh` は同じ遅い対角列でdistortionと、各coarse fiber（一つのp_T-fiber上の葉の合併）のambient径の消失を与える。主担当の証明と別担当の独立点検を同期したもので、この担当による追加の全証明再監査とは区別する。曲面稿の `ke:quintic-simultaneous-realization` は上の全moment構成にこの評価を適用し、同じactual Lagrangian射影に作用適合matroidal atlas、全域distortionの消失、全coarse fibersの正規化ambient径の消失を同時に与える。Focus valuesには穿孔focus affine structureを用いる。等重みと対称六系は有限条件の明示解であり、五次の存在に追加の未検証解析仮定はない。結論は各tでの同時実現であって、atlas自体のt方向の収束、固定した極限affine structure、極限距離のHessian性・Monge–Ampère性を主張しない。任意の追加保持annuli・大きいtailsの相対可解性、t方向に滑らかなfibration族は含まない。六次の標準等重み同時実現は別定理による。
 
 Atlas接続は `ke:eq:quintic-branch-action-coordinates`・`ke:eq:quintic-core-branch-extension`・`ke:eq:quintic-affine-full-transition` に実数切片まで記載する。全periodsを同時に2πで割り、四角形のpredecessor指標を \(y_k=\mathbf1_{\{f_i(k)=j\}}\)、\(y'_k=\mathbf1_{\{f_j(k)=i\}}\) とすれば、両core faceの座標は
 \[
@@ -438,7 +440,7 @@ c_B(0)=2/B、−c_B(0)^−1∂Z∂barZ log c_B(0)=B−1。したがって一様�
 - J. Cheng and Y. Xu, *Interior W^{2,p} estimate for small perturbations to the complex Monge–Ampère equation*, Calc. Var. PDE 62 (2023), 231, DOI 10.1007/s00526-023-02571-x、Lemma 2.1/Theorem 1.4。https://arxiv.org/pdf/2301.00940 。関連するsmall-perturbation regularityであり、今回の証明ではSavinを直接使う。
 - E. Di Nezza, V. Guedj, H. Guenancia, *Corrigendum to “Families of singular Kähler–Einstein metrics”*, JEMS 28 (2026), no.11, 5107–5111, DOI 10.4171/JEMS/1801。https://ems.press/content/serial-article-files/54000?nt=1 。元のProposition D/Theorem E（Prop.5.9/Thm.5.11）のpotential下界を訂正。訂正版Theorem 4はX0 irreducibleを仮定し、我々の可約中心fiberへ直接は適用しない。
 
-- S.-T. Yau, *A general Schwarz lemma for Kähler manifolds*, Amer. J. Math. 100 (1978), 197–203, Theorem 2, DOI 10.2307/2373880。https://archive.ymsc.tsinghua.edu.cn/pacm_download/59/11034-Shing-Tung_Yau_30.pdf 。Complete modelから半平面へのSchwarz評価に用いる。Rank oneでの係数1は本文の局所Bochner計算でも確認した。
+- S.-T. Yau, *A general Schwarz lemma for Kähler manifolds*, Amer. J. Math. 100 (1978), 197–203, Theorem 2, DOI 10.2307/2373880。https://archive.ymsc.tsinghua.edu.cn/pacm_download/59/11034-Shing-Tung_Yau_30.pdf 。Complete modelから半平面へのSchwarz評価に用いる。Rank oneでの係数1は本文の局所Bochner計算でも確認した。 今回は一次PDFの§1 (10)–(16)（p.199）とTheorem 2（p.201）を実読し、正則射影に対する局所化の入力を確認した。Buffer半径依存は主稿 `coarse:lem:localized-chern-lu` に直接証明する。Roydenの既存引用全体の再監査はしていない。
 - Gontard, arXiv:1807.02002v2。https://arxiv.org/abs/1807.02002v2 。一次PDFの冒頭とTheorems 1–2を確認した。Finite-type convex tube / Thullen domainの境界におけるcurvature pinchingを扱い、polyhedral simplexのLevi-flat facetsとcornersへの直接の適用結果ではない。本研究の新結果はこの文献に依存せず、定量的な優先権比較は未確認。
 - Fox, arXiv:1206.3176, DOI 10.1007/s10231-013-0362-6。https://arxiv.org/abs/1206.3176 。一次metadataとabstractのみ確認し、本文は未取得。具体的な定理・仮定との比較は未了であり、本研究の証明の入力に使わない。優先権について結論しない。
 
@@ -460,6 +462,8 @@ c_B(0)=2/B、−c_B(0)^−1∂Z∂barZ log c_B(0)=B−1。したがって一様�
 \]
 一般次数の証明は `papers/cubical-gh-limit.tex` の `prop:degree-d-cubical-topology` に統合した。Lagrangian研究の \(B_d(T)\) からは、分岐木を収縮するcell-like homotopy equivalence \(B_d(T)\to\mathcal C_d\) が得られるが、\(d\ge6\) で同相ではない。これは構成の**位相的比較**であり、KE距離、action atlas、special Lagrangianを同一視しない。有限次数 \(d=5,6,7,8\) の境界行列の独立検算（有理数体の階数および有限体の階数）は関連研究 `surface-lagrangian-torus-fibration/verification/verify_ke_base_topology.py` と対応する。
 
+**六次の標準Petersen同時実現。** 曲面改訂44の `ke:petersen-full-moment` と `ke:sextic-simultaneous-realization` は、六つの標準Petersen系の一つ、等重みw_i,j=2/5、各二重線のsource配分(1,1,1,1;2)を固定し、初期source葉を構成中に選ぶ範囲で、同じactual射影に作用atlas・全域GH実現・確率体積極限を与える。内部二端cutの累積位置はbalanced separatorとthin blockで調整し、正marginの後に中央parameterをfreezeしてからfull source annuliを固定する。Core domain・primitiveは先に固定し、anchor葉は全moment構成後に選ぶ。現在の同期では定理の仮定・結論、全開接着・相対GHへの接続を実読し、曲面側の指定独立点検の記録を確認した。全六次証明の新たな包括監査ではない。任意の非等重み、先指定された大きいsource近傍、t方向に滑らかなfibration族、atlasのparameter極限とHessian性は含まない。
+
 ## 六次基底の対称性の区別
 
 $\mathcal C_6$ は全 $S_6$ の座標置換で不変だが、六つの同時Petersen分岐木系は $S_6$ の一軌道をなし、単独の選択の安定化群は指数6（位数120）。従って、位相上の比較 $B_6(T)\to \mathcal C_6$ をラベル付きで全 $S_6$ 対称にするなら、一つの固定木系だけでは不十分で、六つの選択をともに管理する。厳密な組合せ証明は Lagrangianの base_topology.tex。これはactual KE計量の対称性や極限解析の証明ではない。
@@ -478,13 +482,13 @@ $\mathcal C_6$ は全 $S_6$ の座標置換で不変だが、六つの同時Pete
 
 ## 再現性
 
-保存された16本の旧原稿由来の検算と統合稿の5本は、2026-11-20に再実行され、元入力のSHA-256も照合されている。現在も有効な再現資産を保持するが、現行の研究資料v1.25では再実行していない。出典・ハッシュは `source-manifest.json`、実行状態は `validation.json` に記す。
+保存された16本の旧原稿由来の検算と統合稿の5本は、2026-11-20に再実行され、元入力のSHA-256も照合されている。現在も有効な再現資産を保持するが、現行の研究資料v1.26では再実行していない。出典・ハッシュは `source-manifest.json`、実行状態は `validation.json` に記す。
 
 保持する局所解析には、独立した局所安定性定理、全平面への適用、公表入口の四入力表と大域volume入力の証明がある。Capped positivityからpair/triple比較、六つの局所型のdeterminant、compact最小値原理、固定次数系までをPart IV v1.11の改訂時に実読した。追加したChern恒等式、曲率とframe errorの吸収予算、pair/tripleの定数、sourceのcapとresidue、有限coverから定数を選ぶ順序、大域potentialの範囲は別の読み手も独立に確認した。この第二点検が既存の全capped証明や全原著を再監査したことは意味しない。局所安定性核の既存内部点検も保持する。Part IV v1.12の固定end移送とframe windingについては、式・符号・半径差・固定段階の量化を作成担当と統合担当が点検した。曲面・固定補空間の既存理論はその正本へ参照を保ち、全てを再検証したとはしない。全原稿・全外部入力の包括的監査、新規性の網羅的確認、外部査読、形式証明は未了である。
 
-Part IV v1.12は122頁に組版済みで、logの未定義参照・引用、重複label、欠字、LaTeX error、overfull/underfullの六分類は全て0。150 dpiで1、8、10、71–75、80、122頁（計10頁）を実表示し、欠字・重なり・切断・数式のはみ出しを認めない。固定end担当は71–75・80頁、別担当は1・8・10・122頁、統合担当は73頁を確認した。定理13.9の冒頭は73–74頁に分かれるが、本文に欠落はなく読解できるため現行組版を保持する。全122頁の逐頁表示ではない。 内容不変のPart V v1.10は37頁、1–3、5、37頁（5頁）の表示記録とsource/PDF hashを保持し、今回は再組版・再表示していない。
+Part IV v1.13は122頁に組版し、未定義参照・引用、重複label、欠字、LaTeX error、overfull/underfullの六分類は全て0。150 dpiで1、79–81、84–85、122頁（7頁）を実表示し、変更したrank-one/circleの接続、縮小bufferの系、localized Chern–Luの全証明、隣接する適用と文献に欠字・重なり・切断・数式のはみ出しを認めない。全122頁の逐頁表示ではない。内容不変のPart V v1.10は、既存の37頁・指定5頁表示とsource/PDF hashを保持し、今回再組版・再表示していない。有限計算証明書は今回再実行していない。
 
-研究資料v1.25は、Part I v1.9の積の複素対数germと距離分布回収、および総説v1.13との接続を同期する。Part IV v1.12とV v1.10の全TeX・PDF・hash・既存組版表示記録は不変で、今回再組版・再表示・有限検算をしていない。固定end/winding、capped-volume/local-kernelの指定内部点検は有効な範囲で保持する。IV/Vの科学引用は改訂37・commit `32c67aefe6beb47c2955923e2b6eb2471d48af31` を保持する。曲面改訂43の確認済み保存版は `1716a175dddbccf23e86027c34fba239c0cf527b`。現行313頁と指定11頁の150 dpi表示記録は曲面側の既存報告であり、本repoの再組版ではない。固定側のI73頁/指定13頁と総説20頁/指定14頁の組版・実表示は、その正本の検証記録を確認した。保存・hub更新は別に確認する。
+研究資料v1.26は、曲面改訂44の等重みPetersen同時実現と測度系の適用範囲を同期する。確認した保存commitは曲面 `1088f86cf8f0c70c74a1e4caa3b90393ff627067`、固定側 `2926300c2425c7e68550ac08ee81a2afa639a0c6`（Part I v1.10・総説v1.14・資料v1.19）である。曲面側の既存の組版・表示記録と、本repoで今回行った確認を区別する。IV/Vの既存の科学引用pin（曲面改訂37・`32c67aefe6beb47c2955923e2b6eb2471d48af31`）は維持し、新しい六次の証明は曲面側を正本とする。保存・hub更新は別に確認する。
 
 実行環境にはLuaTeX-ja、Harano Aji、CM/AMS/RSFSのvector font mapを含むuser-local TeX設定を用いた。通常のLuaLaTeX/latexmk・SyncTeXのrepo設定は保持し、PDFとcacheはGit追跡しない。現行source/PDFのSHA-256、頁と実行範囲は検証JSONに集約する。GitHubへの反映とhub更新は組版から独立に確認する。
 

@@ -1,103 +1,67 @@
-# 数学的再監査報告
+# 現行原稿の証明状態と監査範囲
 
-日付: 2026-08-31  
-対象: `Multiscale Kähler–Einstein Geometry I–V` 統合改訂稿 v1.0
+2026-11-23 / v1.1。研究資料v1.26、Part IV v1.13・Part V v1.10。
 
-## 結論
+本書は現在有効な主張と、実際に確認した範囲をまとめる。原資料の回収元・版・hashは `source-manifest.json` と `migration.md`、組版・計算・表示の実行記録は `validation.json` が正本である。原稿に証明があること、今回その証明を読んだこと、計算・形式証明による確認を区別する。
 
-旧稿に含まれていた「証明済み」と「証明に追加入力が必要」の混在を解消しました。代数幾何、有限複体、抽象 metric gluing の無条件部分は維持し、未閉鎖の解析段階は次の三仮定へ分離しています。
+## 証明の正本と条件
 
-1. Part II: controlled parallel push-off
-2. Part III: `(H_loc)` と `(H_anc)`
-3. Part IV–V: `(PBE)_d`、および一般次数の大域適用では `(CP)_d`
+| 正本 | 無条件の中心結果・証明の所在 | 追加条件又は未解決の部分 |
+| --- | --- | --- |
+| Part IV・本repo | `coarse:cor:degree-d-volume-lower`、`coarse:thm:boundary-to-triple`、`coarse:thm:full-triple-tensor`、閉cornerの内在・protected距離、source-free固定baseの正則normal作用・canonical moment・固定end。局所模型、source packing、固定次数の代数・residue計算も保持。 | Sourceを含むquintic exteriorの一様coarse tensor比較は **(TC)_5付き**。任意のmoving領域のproduct exhaustion・全域sharp co-Gramには(PBE)_d等を要する。Bounded densityだけからtensor比較を推論しない。 |
+| Part V・本repo | Abstract pruning–transport、有限cubical target、diam(C_5)=√13。 | 本稿のactual degree-d GHへの適用経路は(CP)_d+(PBE)_d付き。 |
+| 曲面repo | 固定d≥5のactual負KE–Lagrangian fibrationと同じ合成写像の全域ambient GH実現、確率体積の等重み原子極限。五次と六次標準等重みPetersenでは同じ射影の作用atlasも実現。 | 任意に先指定した大きいsource近傍、任意weights、t方向の滑らかな射影族、atlasの極限又はHessian性は結論しない。直接scalar/portal証明はCP/PBE/TC自体の検証ではない。 |
+| 固定補空間repo・Part I–III | 固定SNCの距離錐と体積漸近、標識付きsecondary periods等。正確な仮定・証明・新規性比較は同repoの現行原稿を参照。 | Part IIの一般secondary WP completionはcontrolled parallel push-off付き、Part IIIのactual localization/global pGHはH_locとH_anc付き。固定空間の結果を退化族へ一様に移さない。 |
 
-したがって、統合稿は未証明事項を無条件定理として提示しません。
+曲面の確認保存版は `1088f86cf8f0c70c74a1e4caa3b90393ff627067`（改訂44）、固定側は `2926300c2425c7e68550ac08ee81a2afa639a0c6`（Part I v1.10・総説v1.14）である。IV/V本文が既存入力に使う曲面改訂37の科学引用pinは維持する。後続の結果の証明を本repoへ複製しない。
 
-## 篇別判定
+## 今回の局所解析の点検と精密化
 
-| 篇 | 無条件で保持した中核 | 明示仮定下へ変更した部分 |
-|---|---|---|
-| I | 距離錐、facewise translation、LDP、face mass、exact tail | 一様 Mellin 極限に weighted uniform integrability を追加 |
-| II | oriented/full/generic Torelli、finite period closure、branch separation、全四点 metric、minimal-excess completion | 一般 secondary WP completion |
-| III | algebraic models、canonical cell、positive model pGH、abstract scalar gluing、residual Torelli/WP | actual localization、anchors、portal transport、actual global pGH |
-| IV | quintic coarse geometry、局所模型、source packing、固定次数の代数・残差 package | moving-window product exhaustion、sharp co-Gram |
-| V | abstract pruning–transport、`diam(C_5)=sqrt(13)` | actual degree-`d` GH application |
+対象は `coarse:lem:localized-chern-lu` と `neck:lem:rank-one-circle` → `neck:cor:buffer-circle` → `neck:cor:shrinking-buffer-circle` に限定した。
 
-## 具体的に修正した誤り・過剰主張
+- 正則写像FのtargetがKählerでholomorphic sectional curvature≤−κ、sourceがRic(g)=−g、actual球の閉包が定義域にcompactに入るとき、tr_g(F*h)≤C_n κ⁻¹(1+σ⁻²)。恒等写像に限定せず、曲線への射影も含む。
+- 距離cutoffの勾配はCσ⁻¹、Laplacian下界は−C(σ⁻²+σ⁻¹)。χ²uの正の最大点で評価し、u=0でlogを取らない。Cut locusは距離の上側supportと非増加cutoffで扱う。Targetの完備性、sourceのinjectivity radius下界、dFの単射性は要らない。
+- 複素次元2のrank-one下界p*h_D≤Aωとvolume上界ω²≤Bh²から、mixed coefficientsを許したままnormal tensor≤AB h_Aを得る。平方根と周期1の積分から、m=min(s,M−s)に対しcircle長≤C(1+σ⁻¹)/m。
+- 0<σ≤1でmσ→∞なら非正規化circle長が零へ行く。径尺度Rで割る場合はRmσ→∞で足りる。いずれも **actual buffer半径の確保は別入力**。Full tensor比較・Moser flow生存をこの系から結論しない。
 
-### Part I
+作成担当と別の読み手が上記cutoff、rank-one行列式、平方根、period、量化を点検し、修正を要する問題を認めなかった。新規の形式証明・数値証明ではない。古典的Schwarz評価の定量的帰結として記載し、新しいSchwarz lemmaとしての優先権は主張しない。
 
-- Mellin recursion の `(2π)^{|I|}` は normal torus を二重計上していたため削除。
-- 一様 dominated convergence に必要な error-weighted exponential terms の uniform integrability を追加。
-- Chern–Weil の Stokes 符号、LDP lower bound、properness/net/fibre control を修正または展開。
-- link の復元を、追加 marking なしの強すぎる表現から isometry type の決定へ弱めた。
+一次資料としてYau, *A general Schwarz lemma for Kähler manifolds*, Amer. J. Math. 100 (1978), 197–203, §1 (10)–(16)、pp.199–201のChern–Lu公式とTheorem 2を今回実読した。[原典PDF](https://archive.ymsc.tsinghua.edu.cn/pacm_download/59/11034-Shing-Tung_Yau_30.pdf)。Roydenのholomorphic-sectional版は既存引用を維持し、今回その原典全証明を再監査したとはしない。局所cutoffによる半径依存は本文で証明する。
 
-### Part II
+## 保持する解析監査と適用上の障害
 
-- Exceptional fibre 内の paths を SNC divisor の補集合へ一様に押し出す議論は、compactness と path-connectedness だけでは不足する。この controlled push-off を仮定として明示。
-- 異なる finite sheets の正距離 barrier は上の仮定に依存しないため、独立の無条件命題に分離。
-- Schaffler–Tevelev の直接入力を Theorem 1.2 ではなく Corollary 3.5 に訂正。
-- `m=n+2` は全対象が一点になる端点として直接処理。
-- Plumbing neighborhood は二側比較でなく、証明される `O(ε)` 直径上界のみを主張。
+次の対象限定監査は現行証明に有効である。今回のSchwarz鎖の確認と、これら全体の反復検証を混同しない。
 
-### Part III
+- Capped positivity、零点を含むChern恒等式、weighted minor、pair/tripleと六型cover、adjunction residue、compact最小値原理、固定次数の大域volume下界。
+- 固定faceの一様density下界から、translated complete simplexの上下barrier、small Ricci potential、SavinのH1/H2/H4とSchauderによるfull-triple tensor。境界上界のt一様性やactual距離bufferを追加仮定しない。
+- Fixed-end transferのlog-densityの固定collar収束、Rochon–Zhangのradial remainder、period 1の係数4π、Hermitian深度差O(1)、normal frame windingと残余closed periods。
+- 固定stageの後にt閾値を取る遅い対角選択。固定stageで未証明のbuffer、matching、費用の有効成長率を対角操作で補わない。
 
-- Local coordinate product metric を非自明な normal bundle 上の global exact KE metric とみなす表現を撤回。
-- Whole-end localization と parent/refined compatibility を `(H_loc)` に分離。
-- Unrecorded depths、finite-depth anchors、指定端点 transport、radial density を `(H_anc)` に分離。
-- Actual global pGH は `(H_loc)+(H_anc)` の下の条件付き定理へ変更。
-- `P^3` の null 条件 `r_a+r_b=m+2` と一般 `P^n` の交点数公式を追加し、高次元局所模型が conifold ではなく Segre cone になることを明記。
+ZhangのQ-factorial/simple toroidalな退化定理をsource方程式xy=tzへ直接適用しない。Complete envelopeの上比較ではlog-volume ratioの上有界性を別に検証する。Fixed residual discのvolume boundだけでは指定productへの収束を導けず、fixed tame gaugeだけではgrowing chart chainsのproduct exhaustionを構成できない。詳細と反例は `research/notes.md` と現行本文に置く。
 
-### Part IV–V
+## 六次の現行到達点の同期
 
-- Terminal cusp で order zero の gauge は fast-cusp shear を除くが、growing chart chains の product exhaustion までは自動的に与えない。
-- 必要事項を `(PBE)_d` の四項目に分割:
-  quantitative terminal trivialization、protected rectangular inclusion、uniform local/global/actual comparison、compatible exhaustion with two-metric escape。
-- 一般次数の大域 GH 適用には coarse realization/connectors package `(CP)_d` も必要と明記。
-- Part V の抽象 pruning–transport theorem と `C_5` の有限直径証明は、上記解析仮定と独立な無条件定理として保持。
+曲面稿の `ke:petersen-full-moment`、`ke:sextic-simultaneous-realization` の仮定・結論と接続を確認した。標準Petersen系、等重み2/5、配分(1,1,1,1;2)、初期source葉の選択の下で、全momentと両anchorの全open germsを実現する。内部source blockは幅だけでなく累積位置が条件であり、正cut margin後に中央helperをfreezeし、その後でfull annuliを固定する。同じprimitive/domainを使い、anchor葉は全moment構成後に選ぶ。曲面側の独立内部点検の記録を同期するが、本repoで全六次証明を今回再監査したとはしない。
 
-## 固定次数 `d ≥ 5` の検算
+## 規格化と固定次数の代数
 
-`X_t = {∏_{i=1}^d L_i + tF_d = 0} ⊂ P^3` に対して次を照合しました。
+`X_t={∏L_i+tF_d=0}⊂P³`、固定d≥5、Ric(ω_t)=−ω_tに対し、現行本文の規約は次である。
 
-- maximal squares: `d * binom(d-1,2)`
-- double-line sources: `d * binom(d,2)`
-- residual curve: `(d-2)`-punctured sphere
-- relative section: `O(d) ⊗ O(-(d-2)) = O(2)`
-- divisor degree: `d-(d-2)=2`
-- canonical class: `K_X = O(d-4)`
-- `K_X^2 = d(d-4)^2`
-- `Ric(ω)=-ω` で `Vol = 2π^2 d(d-4)^2`
-- この Ricci 規格化では co-Gram leading coefficient は `1`
-- primitive normalization では距離が `1/sqrt(d-4)` 倍、co-Gram が `(d-4)I`
+| 量 | 値 |
+| --- | --- |
+| Maximal squares | d binom(d−1,2) |
+| Double-line sources | d binom(d,2) |
+| Residual curve | (d−2)-punctured sphere |
+| Relative section | O(d)⊗O(−(d−2))=O(2) |
+| Canonical class | K_X=O(d−4) |
+| K_X² | d(d−4)² |
+| KE volume | 2π²d(d−4)² |
+| Leading co-Gram coefficient | 1 |
 
-定数は固定した `d` に依存してよく、`d → ∞` に一様とは主張していません。
+定数は固定dと固定族に依存してよい。Primitive normalizationでは距離は1/√(d−4)倍、co-Gramは(d−4)Iとなる。次数に一様な評価は主張しない。
 
-## 高次元の安全な射程
+高次元degree-d hypersurface X⊂P^NではK_X=O(d−N−1)、体積は(2π)^(N−1)d(d−N−1)^(N−1)/(N−1)!。候補C_(d,N)={max w_i=1, |supp w|≤N}はsk_(N−1)Δ^(d−1)と同相である。一方N≥4ではsource locusが正次元で高階strataと交わり、mixed modelsの解析が残るためactual GH極限は予想の段階である。
 
-Degree `d` hypersurface `X ⊂ P^N` について、次は確定部分として記載しました。
+## 未了の公表前確認
 
-- `K_X = O(d-N-1)`
-- `K_X^{N-1} = d(d-N-1)^{N-1}`
-- `Vol = (2π)^{N-1} d(d-N-1)^{N-1}/(N-1)!`
-- 候補 `C_{d,N} = {max w_i=1, |supp w|≤N}`
-- `C_{d,N} ≅ sk_{N-1} Δ^{d-1}`
-- pure normal-crossing determinant package
-
-一方 `N ≥ 4` では double stratum 上の source locus が正次元で triple strata と交わるため、`x_1…x_r=tz` 型の mixed cores が不可避です。また residual factor は高次元 arrangement complement になります。このため高次元 GH 極限は予想に留めています。
-
-## 機械・視覚検査
-
-- LuaLaTeX: 全六ソース成功
-- Cross-reference/citation: 未解決なし
-- Box warnings: overfull/underfull ともになし
-- PDF: 全篇 A4、統合版233頁
-- Raster QA: 各篇全ページの contact sheet、統合版の各篇境界を確認
-- Exact gallery certificate: PASS、30 squares、465 unordered pairs、9 symmetry orbits
-- Intrinsic complete-window numerical audit: PASS
-- Slow-box frame-shear audit: PASS
-- Terminal-cusp adapted gauge audit: PASS
-- Relative Bishop–Gromov bookkeeping audit: PASS
-
-補助数値検査は解析証明の代わりではありません。定理状態は本文の仮定表示を最終的な基準としてください。
-
+全原稿・全一次資料の包括監査、外部査読、形式証明、定量的新規性の網羅的確認は未了。先に局所成果と曲面の直接GH証明を公表可能な範囲にまとめ、CP/PBE/TC、高次元化、先指定追加保持集合の相対可解性は独立の課題とする。組版・表示・計算の実施範囲と保存状態は `validation.json` を参照する。
