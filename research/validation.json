@@ -1077,6 +1077,13 @@
       "method": "50 randomly sampled positive semidefinite real symmetric 4x4 matrices projected to complex Hermitian 2x2; checked positivity, trace factor 1/4; separately tested mixed-block sign against u=x1*y2 via direct derivatives (H_{1\\bar2}=i/4)",
       "limitations": "Numerical spot-check is not a formal proof; exact identity and analytic determinant bounds appear in manuscript"
     },
-    "current_main_version_marker": "Updated root paper date from stale v1.15 to v1.17 after section edit; this is source consistency only, no entire paper LuaLaTeX build."
+    "current_main_version_marker": "Updated root paper date from stale v1.15 to v1.17 after section edit; this is source consistency only, no entire paper LuaLaTeX build.",
+    "current_smoke_checks": {
+      "exact_math": "Projected Hermitian block formula with +i(P_xy-P_xy^T); trace_C=trace_R/4 and PSD-preservation.",
+      "numerical": "PASS: 50 seeded PSD 4x4 samples checked trace and eigenvalues, plus mixed-block u=x1*y2 giving Hessian (1,bar2)=+i/4.",
+      "luatex": "PASS: standalone one-page ltjsarticle LuaLaTeX smoke for projected Hessian identity and the source-depth moment equation; visible PDF page rendered and inspected. This is NOT a full Part IV manuscript build or direct compilation of the source file.",
+      "tree": "Current Part IV main's seven root input files all exist in GitHub main; files with omitted .tex extensions were normalized before checking.",
+      "execution_date": "2026-11-23"
+    }
   }
 }
