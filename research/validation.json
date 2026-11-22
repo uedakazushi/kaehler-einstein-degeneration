@@ -92,7 +92,7 @@
       "current_revision_rebuilt": false
     }
   ],
-  "scope": "Research materials v1.22 synchronize the saved surface revision-41 proof of quintic same-projection action-atlas and ambient GH realization. The actual endpoint-period equations, full-moment source-wall and tail construction, open-collar matching and relative-replacement connection were read in the stated collaborative internal reviews. This is a documentation-only change in this repository: Part IV v1.11, Part V v1.10, their revision-37 input citation, the capped-volume audit, manuscript source/PDF hashes and previous build/visual records remain unchanged. No local typesetting, visual review or finite-certificate rerun was performed for v1.22. Sextic simultaneous realization, arbitrary pre-protected large source tails, CP/PBE/TC and H_loc/H_anc remain outside the new result.",
+  "scope": "Research materials v1.23 synchronize the surface revision-42 mathematical checkpoint 497b241898bc91787aacb09a97754fa2ea0fccf8: source-free scope, the smooth demand after the complete source-wall subtraction, thin leaves selected after analytic domains/cuts/t, and full affine translations for quintic same-projection atlas/GH realization. This is a documentation-only change in this repository. Part IV v1.11, Part V v1.10, their revision-37 input citation, the capped-volume audit, manuscript source/PDF hashes and previous local build/visual records remain unchanged. No local typesetting, visual review or finite-certificate rerun was performed for v1.23. The final 311-page surface build and selected 22-page visual report are synchronized as an external record. Atlas convergence or a Hessian limit metric, sextic simultaneous realization, arbitrary pre-protected large source tails, CP/PBE/TC and H_loc/H_anc are not concluded.",
   "certificate_runs": [
     {
       "script": "cubical_diameter_exact_gallery_certificate_definitive_v1.py",
@@ -210,7 +210,7 @@
     "scope": "Changed cap/volume proof and neighboring pages, title and bibliography. Not all pages or all mathematical claims."
   },
   "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested.",
-  "version": "1.22",
+  "version": "1.23",
   "certificate_runs_date": "2026-11-20",
   "certificate_runs_repeated_current_revision": false,
   "current_math_audit": {
@@ -266,7 +266,7 @@
   },
   "current_documentation_update": {
     "date": "2026-11-22",
-    "version": "1.22",
+    "version": "1.23",
     "manuscript_sources_changed": false,
     "lualatex_repeated": false,
     "computational_certificates_repeated": false,
@@ -323,7 +323,7 @@
         "scope": "python3 scripts/research_check.py arithmetic → verification/run_current_checks.py のfour-ray, five-node, central, axis, divisorと対応audit各5件、計10件がexit0。別担当が再実行。既存有限整数接着のみを検算し、KE解析や新しい一般面積輸送定理の証明確認ではない。",
         "interpretation": "Existing finite integer-gluing checks are distinct from KE analytic proof review, the general relative-area theorem, and the unchanged KE repository certificate runs."
       },
-      "pinned_reference_scope": "Revision 37 / 32c67ae is the unchanged actually read mathematical-input citation in the Part IV/V scientific manuscripts. It is distinct from the saved revision-41 full-moment and simultaneous-realization proof recorded below."
+      "pinned_reference_scope": "Revision 37 / 32c67ae is the unchanged actually read mathematical-input citation in the Part IV/V scientific manuscripts. It is distinct from the revision-42 mathematical checkpoint for the current full-moment and simultaneous-realization proofs recorded below."
     },
     "part_i_reference": {
       "version": "1.7",
@@ -498,8 +498,8 @@
         "commit": "50d093d29e493a4e17a6a633f8b2da4aa5727089"
       }
     },
-    "claims_not_established": "Same-projection atlas and GH realization for degree six remains open. The new quintic theorem chooses the initial labelled source allocation, leaves and complete nodal neighborhoods before freezing them; it does not modify an arbitrary pre-fixed P0 while retaining independently prescribed large source tails or arbitrary additional annuli, and it does not give a t-smooth fibration family, a t-uniform positive neighborhood width or arbitrary-speed moving-domain estimates. No new Part IV/V tensor theorem or verification of (TC)_5, global (CP)_d+(PBE)_d, or Part III (H_loc)/(H_anc) follows. Prior intermediate-scale, fixed-space/measure and Part II marking restrictions remain valid. External peer review, formal proof and a comprehensive novelty or primary-source audit are not claimed.",
-    "validation": "Documentation-only synchronization at materials v1.22. The saved surface revision 41 and its new proof labels were read; local surface HEAD was verified as 84d8b8b17d9426ede5792a301b5f45ec90eb48da and the coordinating editor reported main push/fetch agreement. The final 308-page surface build/25-page visual record was read from that repository current validation JSON and synchronized separately, including the final bibliography correction and source hashes. The prior Part IV v1.11 capped-volume audit and its 120-page/twelve-page-display record, Part V v1.10 and its 37-page/five-page-display record, their hashes and the unchanged revision-37 scientific citation are retained. No local scientific source, typesetting or visual-review result is changed; no finite certificate is rerun.",
+    "claims_not_established": "Same-projection atlas and GH realization for degree six remains open. The quintic theorem chooses the initial labelled source allocation, leaves and complete nodal neighborhoods; it does not retain arbitrary independently prescribed large source tails or additional annuli. The atlas and GH realization hold for the same projection at each t; convergence of the atlases as t tends to zero, a limiting affine structure, and a Hessian or Monge–Ampère property of the limiting metric are not asserted. Nor are a t-smooth fibration family, a t-uniform positive neighborhood width or arbitrary-speed moving-domain estimates. No new Part IV/V tensor theorem or verification of (TC)_5, global (CP)_d+(PBE)_d, or Part III (H_loc)/(H_anc) follows. Prior intermediate-scale, fixed-space/measure and Part II marking restrictions remain valid. External peer review, formal proof and comprehensive novelty confirmation are not claimed.",
+    "validation": "Documentation-only synchronization at materials v1.23. The revision-42 header and the source-free scope, full source-wall demand, thin-leaf selection order and affine translations were directly read at mathematical checkpoint 497b241898bc91787aacb09a97754fa2ea0fccf8. The final 311-page surface build, six zero log counts and selected 22-page visual record were synchronized from the coordinating editor record, including twenty unchanged PNG hashes, the final redisplay of page 310 and the additional display of continued bibliography page 306. The prior Part IV v1.11 capped-volume audit and 120-page/twelve-page-display record, Part V v1.10 and its 37-page/five-page-display record, all their hashes and the revision-37 scientific citation are retained. No local scientific source, typesetting or visual-review result is changed, and no finite certificate is rerun.",
     "part_ii_reference": {
       "version": "2.1",
       "commit": "2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4",
@@ -645,13 +645,13 @@
       "source_neighborhoods": "For each fixed j,N,t, full compact pinched fibers lie at canonical moment mu=0. The saturated-annulus lemma allows their entire saturated neighborhoods to be chosen inside |mu|<delta/2. Anchor changes supported in |q_a-delta|<delta/4, with q_a=epsilon_a mu, are disjoint. This is a pointwise-in-t choice after P0 exists, not a positive t-uniform width, a smooth choice in t, or preservation of a separately prescribed larger neighborhood. Consequently the anchor protected set can consist only of the K2 end collars.",
       "framing": "Use the positive meridians transported through the same actual corner tori. In the component P2, the line normal bundle is O(1); the finite/infinite normal coordinates x and xprime=x/z give total puncture winding -1, hence sum[beta_ab]=-[alpha_a]. The component-meridian normalization and K2 isotopies preserve these marked classes. Independent replacements beta_ab -> beta_ab+k alpha_a are not allowed without transforming all period/residue data.",
       "conclusion": "No conclusion-blocking gap was found in this restricted chain. It supports actual local quintic K4 anchor foliations and the corresponding core chart while retaining the standard corner/end partitions and the chosen full source neighborhoods.",
-      "limitations": "This retained selected review concerns the local actual quintic anchor chain, not all P0 inputs, the complete core proof or external papers. Full-moment and global atlas/GH realization are handled by the separate revision-41 proof and selected review below. Arbitrary pre-protected additional annuli, sextic targets and independently prescribed large source neighborhoods remain outside the local anchor conclusion. No new IV/V analytic theorem or local typesetting is part of the documentation synchronization."
+      "limitations": "This retained selected review concerns the local actual quintic anchor chain, not all P0 inputs, the complete core proof or external papers. Full-moment and global atlas/GH realization are handled by the separate revision-42 proof and selected review below. Arbitrary pre-protected additional annuli, sextic targets and independently prescribed large source neighborhoods remain outside the local anchor conclusion. No new IV/V analytic theorem or local typesetting is part of the documentation synchronization."
     },
     "current_surface_publication": {
-      "revision": 41,
-      "saved_commit": "84d8b8b17d9426ede5792a301b5f45ec90eb48da",
-      "source_url": "https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/84d8b8b17d9426ede5792a301b5f45ec90eb48da/papers/surface-lagrangian-torus-fibration.tex",
-      "source_status": "Saved checkpoint: local HEAD and revision-41 header directly checked; coordinating editor reported main push/fetch equality.",
+      "revision": 42,
+      "saved_commit": "497b241898bc91787aacb09a97754fa2ea0fccf8",
+      "source_url": "https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/497b241898bc91787aacb09a97754fa2ea0fccf8/papers/surface-lagrangian-torus-fibration.tex",
+      "source_status": "The revision-42 header and mathematical checkpoint were directly checked. Final bibliography/QA synchronization is subsequent to this mathematical checkpoint; repository publication status is handled separately by the coordinating editor.",
       "labels": [
         "ke:k4-actual-neck-periods",
         "ke:k4-equal-weight-periods",
@@ -659,27 +659,33 @@
         "ng8:uniform-k2-end-periods",
         "ng8:thin-source-tail-choice",
         "ng8:quintic-full-moment",
-        "ke:quintic-simultaneous-realization"
+        "ke:quintic-simultaneous-realization",
+        "ng8:relative-dh",
+        "ng8:straight-neck",
+        "ng8:central-criterion",
+        "ng8:actual-source-area-wall",
+        "ng8:source-corrected-area-demand",
+        "ke:eq:quintic-branch-action-coordinates",
+        "ke:eq:quintic-core-branch-extension",
+        "ke:eq:quintic-affine-full-transition"
       ],
-      "mathematical_status": "Full proofs integrated; specified collaborative internal proof reviews found no additional gap. External review, formal proof and comprehensive novelty confirmation are not claimed.",
+      "mathematical_status": "Full proofs integrated, with specified collaborative internal reviews recorded. Revision 42 explicitly separates the source-free lemmas, the full source-wall demand and the analytic-before-thin choice, and computes all affine translations. This documentation update directly read these clarification sites; it is not a comprehensive re-audit, external review, formal proof or novelty certification.",
       "local_typesetting_repeated": false,
-      "scope": "For a fixed general degree-five all-plane degeneration, compatible positive weights and labelled source allocation give one actual negative-KE Lagrangian fibration with denominator-one matroidal action charts away from focus values and ambient GH realization for the same projection. Equal weights and any of six symmetric systems provide explicit compatible data. Focus punctures retain their actual affine structure. Initial leaves and full nodal neighborhoods are chosen before being frozen; arbitrary pre-fixed large source tails, t-smooth families and degree-six simultaneous realization are not asserted.",
+      "scope": "For a fixed general degree-five all-plane degeneration, compatible positive weights and labelled source allocation give one actual negative-KE Lagrangian fibration with denominator-one matroidal action charts away from focus values and ambient GH realization for the same projection. The three-sheet transitions include one common real translation and work for asymmetric weights. Focus punctures retain their actual affine structure. Source-free lemmas require a free action on the full band; the source-inclusive construction instead subtracts the full source wall in the free area demand. Thin leaves are chosen after the analytic domains, cuts and small t, without changing those data or adding a new t threshold. This is simultaneous realization at each t, not convergence of atlases or a Hessian conclusion for the limit metric. Arbitrary pre-fixed large source tails, t-smooth families and degree-six simultaneous realization are not asserted.",
       "build_and_visual_record": {
         "date": "2026-11-22",
-        "revision": 41,
+        "revision": 42,
         "build_exit_code": 0,
-        "pages": 308,
-        "pdf_bytes": 2974053,
-        "pdf_sha256": "fb7d15633156d12b27ac42c53669e9b913986377cfaf03837e53500c754119b4",
-        "source_sha256": "71463a702f19b946832f8f1fe43885bbcf22a69a832ef34f28adebede5ffd478",
+        "pages": 311,
+        "pdf_bytes": 2990849,
+        "pdf_sha256": "51d97bd0d59e3289e76d223d945b5f5ee01eb75ece6d1be0b0cc688620900dc1",
+        "source_sha256": "43865001be17f2e7a719283429231a6ddb2fffc4d1cbc4d089d3a9e3d5653b75",
         "changed_tex_sha256": {
-          "papers/sections/paper/geometry_bibliography_v25.tex": "dadd6eb6d78659d09296714982b213fcb7abb7dcd2de1a5cf2f9f51ddfaeedc7",
-          "papers/sections/paper/geometry_introduction_v25.tex": "8b75de561c9c2f7b6e8a34220a0a296821707825815575e75585cf82ed7d5200",
-          "papers/sections/paper/geometry_main_statements_v17.tex": "247835c39b129fa6d8bf3a7a4f581029d9d903cc8940695a206289082b657ca8",
-          "papers/sections/paper/global_action_atlas.tex": "c28877bd0b43eab569671151e59d48b7e965b6bd38b3c5ed028046f8c4df8dbc",
-          "papers/sections/paper/ke_global_realization.tex": "31eedeb5232d47b171ce07a81d0dab71400b2b8646e0dfb749a86247b914baff",
-          "papers/sections/paper/neck_action_matching.tex": "a55be9c9120e86518bd0752eed50658c2aafb3a194cb4c610a6d865c7ba0005f",
-          "papers/surface-lagrangian-torus-fibration.tex": "71463a702f19b946832f8f1fe43885bbcf22a69a832ef34f28adebede5ffd478"
+          "papers/surface-lagrangian-torus-fibration.tex": "43865001be17f2e7a719283429231a6ddb2fffc4d1cbc4d089d3a9e3d5653b75",
+          "papers/sections/paper/geometry_introduction_v25.tex": "c64970124b25e6e97549cf42fd3a2b873125cc2bb7f4d0e8d3952998e23ed79c",
+          "papers/sections/paper/geometry_bibliography_v25.tex": "3c7f963c69139fc3fa960677ea1ca10dd3ef1f2a008835a266afbd2346c860fc",
+          "papers/sections/paper/neck_action_matching.tex": "65f2076638d4d2f2079b73e6c3d803c2de4e5afa9b14304040ec85701c35da4c",
+          "papers/sections/paper/global_action_atlas.tex": "c6cf1ef511dade105e5ec5c858d853eddda7dec94c0570440152934738241fb2"
         },
         "log_check_counts": {
           "undefined_references_or_citations": 0,
@@ -689,78 +695,113 @@
           "underfull_boxes": 0,
           "latex_errors": 0
         },
-        "source_revision": "第41稿・現行改訂41（2026-11-22）",
-        "pdf_and_synctex": true,
-        "refs_citations_checked": true,
         "visual_review_pages": [
           1,
-          2,
-          9,
-          19,
-          22,
-          23,
-          24,
-          25,
-          268,
-          269,
+          16,
+          17,
+          252,
+          253,
+          255,
+          256,
           270,
           271,
           272,
           273,
           274,
-          288,
-          289,
-          290,
-          291,
-          292,
-          293,
+          275,
+          284,
           294,
           295,
-          307,
-          308
+          296,
+          297,
+          305,
+          306,
+          310,
+          311
         ],
-        "visual_review": "150 dpiで指定25頁を実表示し全新証明頁を含めて確認。書誌訂正後に同じ25頁を再描画し、未変更24頁のPNG SHA256一致を確認、変更されたp308を再実表示した。指定範囲に欠字・重なり・切断・はみ出しなし。全308頁の逐頁画像検査ではない。",
+        "source_revision": "第42稿・現行改訂42（2026-11-22）",
+        "pdf_and_synctex": true,
+        "refs_citations_checked": true,
+        "visual_review": "150 dpiの指定22頁をrootと三担当が実表示。最終書誌重複除去後、元21頁中20頁のPNG SHA256が一致し、変更p310を再表示、継続書誌p306を追加表示した。指定範囲に欠字・重なり・切断なし。全311頁の逐頁画像検査ではない。",
         "visual_review_final_direct_pages": [
-          308
+          306,
+          310
         ],
         "visual_review_unchanged_png_pages": [
           1,
-          2,
-          9,
-          19,
-          22,
-          23,
-          24,
-          25,
-          268,
-          269,
+          16,
+          17,
+          252,
+          253,
+          255,
+          256,
           270,
           271,
           272,
           273,
           274,
-          288,
-          289,
-          290,
-          291,
-          292,
-          293,
+          275,
+          284,
           294,
           295,
-          307
+          296,
+          297,
+          305,
+          311
         ],
+        "visual_review_by_reader": {
+          "coordinator": [
+            1,
+            252,
+            253,
+            255,
+            256,
+            284,
+            306,
+            310
+          ],
+          "source_area_reviewer": [
+            270,
+            271,
+            272,
+            273,
+            274,
+            275
+          ],
+          "atlas_reviewer": [
+            294,
+            295,
+            296,
+            297
+          ],
+          "publication_reviewer": [
+            16,
+            17,
+            305,
+            310,
+            311
+          ]
+        },
         "other_warnings": "LuaTeX-ja/microtype advisory 1件、hyperref数式bookmark警告2件。本文の欠字・box overflowは0。",
-        "source": "五次のactual endpoint有限整合、全moment target/source wall、初期thin source葉、全open collars、同じ射影のatlas/GH定理を統合。Part IV v1.11 / V v1.10の書誌を確認。PDF/SyncTeXはGit追跡しない。"
+        "source": "五次同時実現のsource wallと全moment、thin代表の選択順、全平行移動を含む三面接続、source-free旧補題の限定、FBP/EM/Ruanの一次比較を整理。PDF/SyncTeXはGit追跡しない。"
       },
       "build_and_visual_record_provenance": {
         "repository": "uedakazushi/surface-lagrangian-torus-fibration",
         "source": "research/validation.json:reproduction.latest_reported_main_build",
         "read_date": "2026-11-22",
-        "performed_by": "surface coordinating editor",
-        "performed_by_this_documentation_reviewer": false,
-        "mathematical_source_checkpoint": "84d8b8b17d9426ede5792a301b5f45ec90eb48da",
-        "checkpoint_source_hash_check": "The main file, Introduction, main statements, global_action_atlas, ke_global_realization and neck_action_matching hashes match the mathematical checkpoint. The final bibliography correction is subsequent to that checkpoint; the exact final source hashes are retained in the reported build record.",
-        "scope": "Final 308-page build and the stated selected 25-page visual review are synchronized from the responsible editor record. Twenty-four unchanged pages were PNG-hash identical after bibliographic correction and page 308 was displayed again. No local Part IV/V rebuild or external-PDF visual review is asserted."
+        "performed_by": "surface coordinating editor and three designated visual reviewers",
+        "typesetting_performed_by_this_documentation_reviewer": false,
+        "direct_visual_pages_by_this_reviewer": [
+          16,
+          17,
+          305,
+          310,
+          311
+        ],
+        "final_changed_page_310_redisplayed_by": "surface coordinating editor",
+        "mathematical_source_checkpoint": "497b241898bc91787aacb09a97754fa2ea0fccf8",
+        "checkpoint_source_hash_check": "The main file, Introduction, neck_action_matching and global_action_atlas hashes match the mathematical checkpoint. The final bibliography correction is subsequent to that checkpoint; the exact final source hashes are retained in the reported build record.",
+        "scope": "External final 311-page build and specified 22-page visual report, not all-page visual inspection. After the final bibliography correction, twenty prior pages were PNG-hash identical, page 310 was displayed again and continued bibliography page 306 was additionally displayed. No Part IV/V rebuild or redisplay was performed during this documentation update."
       }
     },
     "updated_files": [
@@ -772,9 +813,9 @@
     ],
     "selected_quintic_simultaneous_realization_audit": {
       "date": "2026-11-22",
-      "surface_revision": 41,
-      "saved_commit": "84d8b8b17d9426ede5792a301b5f45ec90eb48da",
-      "type": "Proof construction plus collaborative independent internal review of the specified new proof chain; documentation synchronization in this repository.",
+      "surface_revision": 42,
+      "saved_commit": "497b241898bc91787aacb09a97754fa2ea0fccf8",
+      "type": "Previously recorded construction and collaborative internal proof review of the specified full-moment chain, with direct reading of the revision-42 clarifications and documentation-only synchronization in this repository.",
       "sources": [
         "papers/sections/paper/neck_action_matching.tex",
         "papers/sections/paper/global_action_atlas.tex"
@@ -786,22 +827,51 @@
         "ng8:uniform-k2-end-periods",
         "ng8:thin-source-tail-choice",
         "ng8:quintic-full-moment",
-        "ke:quintic-simultaneous-realization"
+        "ke:quintic-simultaneous-realization",
+        "ng8:relative-dh",
+        "ng8:straight-neck",
+        "ng8:central-criterion",
+        "ng8:actual-source-area-wall",
+        "ng8:source-corrected-area-demand",
+        "ke:eq:quintic-branch-action-coordinates",
+        "ke:eq:quintic-core-branch-extension",
+        "ke:eq:quintic-affine-full-transition"
       ],
       "endpoint_periods": "A single closed primitive difference on the actual K2 tube yields common chi_k; the normal period vanishes on that difference. The component closed-difference relation yields sum chi_k=-2pi. Actual capping transports have critical shear n_k-1 and end shear -1, yielding n_k=1+x_i+x_j and rho_ik+x_i*rho_ij=rho_jk+x_j*rho_ji.",
-      "full_interval_area": "In the common left frame, R_k=chi_k+nu_k and a_k^tar=rho_ik+x_i*rho_ij-x_i*mu-nu_k+n_k*min(mu,0). Total reduced area is -sum R_k-mu+5min(mu,0). The proof uses separate positive/negative actual capping framings, not an unsupported extrapolation of a local wall formula.",
+      "full_interval_area": "In the common left frame, R_k=chi_k+nu_k and a_k^tar=rho_ik+x_i*rho_ij-x_i*mu-nu_k+n_k*min(mu,0). Total reduced area is -sum R_k-mu+5min(mu,0). Separate positive/negative actual capping framings give the full-interval formula. For every source in the region, an interior equivariant Darboux ball contributes -|mu|/2 and its complement is a compact free quotient family. Thus target and protected mass have the same full source wall; their difference, rather than either absolute area, is smooth. Smoothness of the entire marked quotient through source points is not assumed.",
       "analytic_input": "The existing all-depth triple primitive bound, fixed integer-generator O(1/m) norm and the same exact transport give |nu_k|<=C/b_r uniformly on the full common moment interval. No new canonical d^c primitive is manufactured after source-coordinate pullback, and component-side asymptotics are not extrapolated through mu=0. This uses Part IV inputs already present, not CP/PBE/TC.",
-      "thin_tail_and_smooth_demand": "Fix the common P, source marks and end collars using S_t and K2-supported D_{r,mu,t}. Smooth density off isolated sources and their integrable zero point mass give zero graph mass. Darboux-ball removal near mu=0 and the free compact family elsewhere give continuity. Dini applies to the added tree-neighborhood mass after subtracting the fixed end-collar mass. Full source tails, not merely annulus widths, are below the target. Target and protected masses have the same source wall, so their difference is smooth and the strict finite area cuts apply.",
+      "thin_tail_and_smooth_demand": "Fix the common P, source marks, source disks and single-valued source sections using S_t, and radial K2 corrections D_{r,mu,t}, before choosing thin leaves. Choose an inner saddle disk away from source disks and correction supports. Smooth density off isolated sources and their zero point mass give zero graph mass; Darboux-ball removal and free-family integration give continuity through mu=0. Dini applies to added tree-neighborhood mass after subtracting fixed end-collar mass. Full source tails are below target. Initial leaves and annuli are chosen in pullback coordinates and then mapped by D composed with S_t; S_t need not preserve the new annuli setwise. Source and saddle point neighborhoods have mu-independent local leaves. The full source wall cancels from the free demand on the entire interval, and the strict cuts apply.",
       "open_collar_matching": "Perform the marked interpolation near each anchor, then apply parameter-relative area Moser with the same targets while keeping both open end germs. Exact first-jet correction of the Moser auxiliary primitive fixes all finite marked source sections throughout the isotopy, preserving allocation and framing. Chosen full compact nodal neighborhoods lie in |mu|<delta/2 and outside these free-band supports.",
-      "quantifiers_and_metric_transfer": "Choose positive weights, compatible labelled allocation and rooted-tree class, fixed residual regions/buffers and analytic cuts, then all sufficiently small complex t, then thin widths and supports within the same regions before freezing full source neighborhoods. Construct ordinary P0 and the action-prescribed fibration from the same initial leaves. Fixed T and the normal moments/K2 partitions/cuts are shared. Ambient connector bounds use entire same-moment sets and do not require uniform derivatives of the new leaves; the same slow diagonal and relative-replacement GH bound apply.",
-      "review_scope": "The author, coordinating editor and two separate reviewers read the new text with the existing componentwise area theorem, ordered cuts, actual source wall, fixed-base/all-moment connectors, endpoint-period results and relative-replacement conditions as appropriate. The coordinating/fixed reviewers also checked the action-chart gluing interface; no comprehensive re-audit of all earlier lattice or analytic proofs is claimed.",
-      "result": "No new gap identified within the specified chain. The quintic simultaneous theorem is a proved-existence statement in the manuscript with internally reviewed proof, not a computational certificate or formal proof.",
-      "limitations": "No arbitrary pre-protected large source-tail replacement, degree-six simultaneous realization, t-smooth family, CP/PBE/TC or H_loc/H_anc verification, external peer review or comprehensive novelty conclusion."
+      "quantifiers_and_metric_transfer": "Choose positive weights, compatible labelled allocation and rooted-tree class, fixed residual regions/buffers and analytic cuts, then sufficiently small complex t, then thin leaves and supports within the same regions before freezing full source neighborhoods. Neither S_t, D, the component primitive/domain nor analytic cuts are redefined from thin-leaf derivatives. If needed, a mu-independent H_{r,t} in Diff_0 converts a fixed reference foliation; no t-smoothness or uniform leaf C^k bound is used. Construct ordinary P0 and the action-prescribed fibration from the same initial leaves. Ambient connectors bound entire same-moment sets and the clipped-depth map uses the same form/cuts. The same slow diagonal applies, with no additional t threshold after the thin widths are selected.",
+      "review_scope": "The prior specified proof-chain review is retained. For revision 42, the source-free assumptions, complete source-wall cancellation, independence of analytic cuts from thin leaves and three-face affine translations were read directly at the mathematical checkpoint and synchronized. The coordinating editor and designated proof reviewers checked the strengthened source and atlas interfaces separately. No comprehensive re-audit of all earlier lattice or analytic proofs is claimed.",
+      "result": "The manuscript contains the quintic simultaneous existence proof with the stated internal reviews. The present local task synchronizes its clarified scope and external build/visual report; it is not a new computational certificate or formal proof.",
+      "limitations": "The theorem realizes atlas and GH properties on the same projection for each t; it does not prove t-convergence of the atlases, a limiting affine structure, or a Hessian/Monge–Ampere limit metric. No arbitrary pre-protected large source-tail replacement, degree-six simultaneous realization, t-smooth family, CP/PBE/TC or H_loc/H_anc verification, external peer review or comprehensive novelty conclusion.",
+      "source_free_scope": "ng8:relative-dh, ng8:straight-neck and ng8:central-criterion assume a source-free neck with circle action free on the full moment band at fixed t. An actual source-inclusive neck still has fixed points at mu=0 and uses ng8:actual-source-area-wall and ng8:source-corrected-area-demand instead.",
+      "affine_translations": "After dividing all periods by 2pi, branch coordinates h=mu/(2pi) and tau_k=-(J_k+x_k*h-b_k) have b_k=chi_k/(2pi)+w_ik+x_k*w_ij. The i-core extension has translation w_ij*v and the j-core extension has translation -w_ji*v. Their composition is zeta_prime=zeta and s_prime=-s+(y_k+y_k_prime)*zeta+w_ij+w_ji, with the same translation (w_ij+w_ji)*r_ji on all three faces. The chi_k cancel because the same neck primitive is used. This extends actual already-matched open-collar leaves/actions; matrices alone do not supply foliation gluing.",
+      "primary_comparison_scope": {
+        "fernandez_de_bobadilla_pelka": {
+          "source": "https://arxiv.org/html/2312.13248v4",
+          "locations": [
+            "Remark 5.9",
+            "Theorem 6.14"
+          ],
+          "scope": "Action-affine structure away from ramification locus and outer boundary; constructed auxiliary-metric GH convergence includes the whole fibre in the proper case. Do not describe the GH conclusion as only partial or local."
+        },
+        "evans_mauri": {
+          "source": "https://arxiv.org/html/1905.09229v3",
+          "locations": [
+            "Remarks 2.11–2.12",
+            "Lemma 2.16"
+          ],
+          "scope": "Contact action coordinates, Liouville homogeneity and cone extension are existing construction principles. The compared quintic result uses the actual negative-KE form, branch/core atlas and the same projection for global GH realization."
+        },
+        "scope": "Direct comparisons with the clarified theorem; no exhaustive priority or novelty certification."
+      }
     },
     "documentation_static_checks": {
       "status": "passed",
       "date": "2026-11-22",
-      "materials_version": "1.22",
+      "materials_version": "1.23",
       "git_diff_check_exit_code": 0,
       "updated_document_count": 5,
       "json_parsed": true,
@@ -812,7 +882,15 @@
         "ng8:uniform-k2-end-periods",
         "ng8:thin-source-tail-choice",
         "ng8:quintic-full-moment",
-        "ke:quintic-simultaneous-realization"
+        "ke:quintic-simultaneous-realization",
+        "ng8:relative-dh",
+        "ng8:straight-neck",
+        "ng8:central-criterion",
+        "ng8:actual-source-area-wall",
+        "ng8:source-corrected-area-demand",
+        "ke:eq:quintic-branch-action-coordinates",
+        "ke:eq:quintic-core-branch-extension",
+        "ke:eq:quintic-affine-full-transition"
       ],
       "relative_markdown_links_checked": 19,
       "invalid_control_bytes": 0,
@@ -828,9 +906,9 @@
         "build_environment"
       ],
       "scientific_input_pin_unchanged": "32c67aefe6beb47c2955923e2b6eb2471d48af31",
-      "scope": "Local documentation/version/link/JSON/source-label checks and exact comparison with the retained Part IV/V audit, build, visual, hash and certificate records. No proof verification or new typesetting is inferred from these checks."
+      "scope": "Local documentation/version/link/JSON/source-label checks at the revision-42 mathematical checkpoint, and exact comparison with the retained Part IV/V audit, build, visual, hash and certificate records. Fifteen source labels and nineteen relative Markdown links were checked. No new proof verification, typesetting or finite computation is inferred from these static checks."
     },
-    "retained_scientific_record_scope": "In the unchanged manuscripts records, current_revision_rebuilt and visual_review_current_pdf refer to the listed scientific manuscript versions (Part IV 1.11 and Part V 1.10), not to a new build during materials update 1.22. The unchanged current_math_audit retains its own version 1.21 and the previous capped-volume review."
+    "retained_scientific_record_scope": "In the unchanged manuscripts records, current_revision_rebuilt and visual_review_current_pdf refer to the listed scientific manuscript versions (Part IV 1.11 and Part V 1.10), not to a new build during materials update 1.23. The unchanged current_math_audit retains its own version 1.21 and the previous capped-volume review."
   },
   "build_environment": "LuaHBTeX 1.18.0 with LuaTeX-ja/Harano Aji and CM, AMS, RSFS vector fonts. The workspace used a user-local TeX setup; the repository retains the ordinary latexmk/LuaLaTeX/SyncTeX configuration. PDFs and caches stay under ignored build/cache directories. No GitHub Actions used.",
   "current_static_source_checks": {
