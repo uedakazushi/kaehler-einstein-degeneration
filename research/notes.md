@@ -8,6 +8,8 @@
 
 背景の複素HessianをHとし，P≥0を実対称4×4増分とすれば，B_s=H+ℋ(N+sP)に対してd/ds det(B_s)/det H=[det B_s/det H] tr(B_s^{-1}ℋ(P))。小さい近傍でB_sとdet比が上下から正に抑えられ，tr ℋ(P)=(1/4)tr P、||P||≤tr P≤4||P||なのでH2の一様λ,Λが得られる。H1/H4も原著の実際の定義と照合した。数学的な先行成果はSavin 2007であり，今回新規なのは本稿の使用箇所の明示的検証である。
 
+固定模型の固有値を `λI ≤ H ≤ ΛI` とし、実対称増分の `||N||,||P|| ≤ λ/4`、`P ≥ 0` を取れば、`||ℋ(Q)|| ≤ ||Q||/2` により `λI/2 ≤ B_s ≤ 2ΛI`。従って H2 の PSD 増分定数を明示的に `λ²/(32Λ³)`、`8Λ²/λ³` と取れる（`papers/sections/moving_triple_comparison.tex` の `coarse:lem:small-volume-tensor`）。これはモデルの一様楕円性から計算され、未知の actual tensor 上下界を入力にしない。`P` と `N` の小ささは固定した Savin の原点近傍に限る。**今回追加したのはこの定数の代数的再点検であり、Part IV 全局所解析の再証明・LuaLaTeX 再組版ではない。**
+
 ## Capped density の最大前因子と検証資産
 
 **Capped barrier の前因子は鋭い。** Part IV `coarse:prop:capped-prefactor-sharp` で、同じ α_i と canonical density に対する Ω^(β)=L_t^β∏α_i^(−2)Ω_0 を考えると、h^(β)=dd^c log Ω^(β)=h^low はβに依らず、β≤2では全域 determinant lower が成り立つが、β>2では source中央点で (h^low)^2/Ω^(β)≈L_t^(2−β)→0 のため失敗することを直接証明した。中央rescalingでactive二方向はL_t^(−1)、背景・inactiveはO(|t|)であり、canonical residueは非零である。これはこのcap ansatzの最適性であり、一般の別障壁やactual KE metricそのものに対する最適性を主張しない。Part IVのglobal capped lowerを変更せず、これを利用する曲面稿の仮定も変えない。
