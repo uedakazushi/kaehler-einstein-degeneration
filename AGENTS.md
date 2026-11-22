@@ -1,5 +1,5 @@
 # kaehler-einstein-degeneration — 研究・保存指示
-2026-11-23 / v1.9（研究資料v1.28、Part IV v1.15・Part V v1.10）
+2026-11-23 / v1.10（研究資料v1.29、Part IV v1.16・Part V v1.10）
 
 ## 公表計画の実行
 
@@ -32,6 +32,7 @@
 - 曲面稿の `ng8:quintic-full-moment` と `ke:quintic-simultaneous-realization` は、初期のmarked source allocationと全保持近傍を選べる五次で、同じactual射影による作用atlasとGH実現を与える。旧neck補題のsource-free仮定と、全source-wallを差し引く自由需要を区別する。解析領域・cuts・小さいtを選んだ後にthin葉を取り、既存の解析閾値を葉の微分に依存させない。全開collarの葉と作用を一致させ、実数平行移動を含めてatlasを接続する。結論は各tでの同時実現であり、atlasのt方向の収束、極限距離のHessian性、任意に既固定の大きいsource tailsの保存又はt方向に滑らかなfibration族を含めない。正本は曲面repoに置き、Part IV/V本文の改訂37の入力確認pinと、曲面稿で新たに確認した結果の現行版・保存状態を区別する。
 - 六次では曲面稿 `ke:petersen-full-moment` と `ke:sextic-simultaneous-realization` が、等重み2/5・source配分(1,1,1,1;2)・初期source葉選択の下で同じ射影のatlas/GH/測度を実現する。内部二端cutの累積位置、正margin後の中央freeze、full annuli固定とanchor後選択を保つ。任意先指定保持集合と非等重みへの拡張は別課題である。
 - Complete simplexの外部入力は実単体の凸解存在・Hessian完備性として引用する。Zhangの明示定理文の確認とCY1982原典本文の確認状態を区別する。一意性・tube完備・格子商・係数は本稿の直接証明を使い、w/Lのcover等長性を固定periodのquotient等長性やinjectivity radius下界へ読み替えない。
+- `coarse:prop:capped-prefactor-sharp` は固定capとadjunction canonical densityのL_t^β前因子について、h=dd^c log Ωの全域 determinant lower を維持できる指数がβ≤2であることを示す。単純source中央でh²/Ω^(β)∼L_t^(2−β)となる。曲面repo `ke:source-capped-actual-prefactor-sharp` は既存中央sourceのactual体積二側比較も入力として、実際のω_t²の同じ前因子最適性を証明する。指定cap以外の障壁や全域GHの収束率の最適性を結論しない。
 - `simplex:prop:boundary-floor-sharpness` は固定したexact深度座標と既定のcomplete simplex模型k_Lに対するO(1/m)の最適性である。固定facet shiftを模型へ吸収した後の改善、座標不変の最適性、compact射影的退化族での下限を結論しない。Balancedの正確例と正規化単体の境界へ向かう例を区別する。Zhangの固定normalized compact集合での全phase比較、Ruanの全域coarse比較とtorus-averageへの定量比較を既存成果として認め、canonical simplexへの全深度比一様小誤差・局所境界入力と比較する。
 - Localized Chern–Luの `coarse:eq:localized-chern-lu-radius` と `neck:cor:shrinking-buffer-circle` を用いる際は、actual計量の球半径σを別に確保する。長さ評価C(1+σ⁻¹)/mから、mσ→∞又はRで正規化したRmσ→∞を検査する。この条件付き系をbuffer存在、full tensor比較、flow生存へ格上げしない。
 - 固定endの最小解析入力は `pair:prop:fixed-end-transfer` の固定collarのlog-density収束と極限成分のradial derivativeに分ける。Volume frame変更時には `pair:rem:normal-frame-winding` のnormal windingと残余閉periodを確認する。これらや遅い対角選択をmoving neckのtensor比較・bufferの存在証明と読み替えない。曲面側の `ke:global-volume-measure` を引用するときは確率体積、同じ射影、成分頂点の等重み原子測度と全cubical計量空間を区別し、確認した版・保存commitを明記する。
