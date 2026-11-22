@@ -131,7 +131,7 @@
 \title{\bfseries 多重スケール Kähler--Einstein 幾何 V\\[3mm]
 \Large 超平面和への退化：定量的 pruning，立方体極限，および直径}
 \author{植田一石\\[-1mm]\small Kazushi Ueda}
-\date{2026年11月22日\\五部作・統合改訂稿 v1.9}
+\date{2026年11月22日\\五部作・統合改訂稿 v1.10}
 
 \begin{document}
 \maketitle
@@ -142,13 +142,16 @@
  d_{\mathrm{GH}}\bigl((X_t^{(d)},R_t^{-2}g_t),(\mathcal C_d,d_\square)\bigr)
  \le C_d\inf_A\left\{\mathfrak m_{d,t}(2A)+\frac{A+1}{R_t}\right\}
 \]
-を得る．従って同じ二入力の下で $(X_t^{(d)},R_t^{-2}g_t)\to(\mathcal C_d,d_\square)$ が部分列なしに成り立つ．解析入力と独立に有限正方形複体 $\mathcal C_5$ の内在距離を厳密に計算し，無条件に $\operatorname{diam}(\mathcal C_5,d_\square)=\sqrt{13}$ を証明する．よって $d=5$ では，$\mathrm{(CP)}_5+\mathrm{(PBE)}_5$ の下で $\operatorname{diam}(X_t,g_t)/R_t\to\sqrt{13}$ となる．高次元 $\PP^N$ の候補 $\mathcal C_{d,N}=\{\max w_i=1,\ |\operatorname{supp}w|\le N\}$ は予想としてのみ提示し，正の次元を持つ source locus と higher strata の混合模型を未解決入力として分離する．
+を得る．従って同じ二入力の下で $(X_t^{(d)},R_t^{-2}g_t)\to(\mathcal C_d,d_\square)$ が部分列なしに成り立つ．解析入力と独立に有限正方形複体 $\mathcal C_5$ の内在距離を厳密に計算し，無条件に $\operatorname{diam}(\mathcal C_5,d_\square)=\sqrt{13}$ を証明する．よって $d=5$ では，$\mathrm{(CP)}_5+\mathrm{(PBE)}_5$ の下で $\operatorname{diam}(X_t,g_t)/R_t\to\sqrt{13}$ となる．関連曲面稿は，同じ族の actual Lagrangian 射影を直接の scalar/portal 評価で大域的に実現する．
+本稿の抽象距離定理と有限複体の計算は独立した成果であり，
+その直接証明を本稿の $\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ の検証と読み替えない．
+高次元 $\PP^N$ の候補 $\mathcal C_{d,N}=\{\max w_i=1,\ |\operatorname{supp}w|\le N\}$ は予想としてのみ提示し，正の次元を持つ source locus と higher strata の混合模型を未解決入力として分離する．
 \end{abstract}
 
 \begin{center}
 \begin{minipage}{0.93\textwidth}\small
 \textbf{Abstract.}
-This is Part V of a five-paper series.  We first prove an unconditional quantitative pruning--transport criterion for finite Euclidean polyhedral complexes.  We then consider degree-$d$ surfaces in $\mathbb P^3$, $d\ge5$, degenerating to $d$ hyperplanes.  The analytic application explicitly assumes the coarse package $\mathrm{(CP)}_d$ from Part IV and the finite-depth raw co-Gram modulus supplied there under the Product--Box Exhaustion hypothesis $\mathrm{(PBE)}_d$.  Coordinatewise raw-depth pruning, scalar target-distance calibrations, affinely protected galleries, and canonical minimal-horizontal transport give a quantitative Gromov--Hausdorff estimate and, under these two inputs, the full non-subsequential convergence to $\mathcal C_d=\{w\in[0,1]^d:\max w_i=1,\ |\operatorname{supp}w|\le3\}$.  Independently of all analytic hypotheses, we compute $\operatorname{diam}(\mathcal C_5,d_\square)=\sqrt{13}$.  Thus the quintic diameter asymptotic follows under $\mathrm{(CP)}_5+\mathrm{(PBE)}_5$.  For hypersurfaces in $\mathbb P^N$ we state only a conjectural candidate $\mathcal C_{d,N}$, because positive-dimensional source loci create new mixed source--higher-stratum models.
+This is Part V of a five-paper series.  We first prove an unconditional quantitative pruning--transport criterion for finite Euclidean polyhedral complexes.  We then consider degree-$d$ surfaces in $\mathbb P^3$, $d\ge5$, degenerating to $d$ hyperplanes.  The analytic application explicitly assumes the coarse package $\mathrm{(CP)}_d$ from Part IV and the finite-depth raw co-Gram modulus supplied there under the Product--Box Exhaustion hypothesis $\mathrm{(PBE)}_d$.  Coordinatewise raw-depth pruning, scalar target-distance calibrations, affinely protected galleries, and canonical minimal-horizontal transport give a quantitative Gromov--Hausdorff estimate and, under these two inputs, the full non-subsequential convergence to $\mathcal C_d=\{w\in[0,1]^d:\max w_i=1,\ |\operatorname{supp}w|\le3\}$.  Independently of all analytic hypotheses, we compute $\operatorname{diam}(\mathcal C_5,d_\square)=\sqrt{13}$.  Thus the quintic diameter asymptotic follows under $\mathrm{(CP)}_5+\mathrm{(PBE)}_5$.  A companion surface paper proves a direct global realization by its actual Lagrangian projection using scalar and portal estimates. That route does not verify the packages assumed here; our abstract criterion and finite metric calculation remain independent results. For hypersurfaces in $\mathbb P^N$ we state only a conjectural candidate $\mathcal C_{d,N}$, because positive-dimensional source loci create new mixed source--higher-stratum models.
 
 \medskip
 \textbf{Keywords:} Gromov--Hausdorff convergence, negative Kähler--Einstein metric, hyperplane degeneration, polyhedral pruning, asymptotic submetry, cubical complex, diameter.
@@ -172,8 +175,14 @@ This is Part V of a five-paper series.  We first prove an unconditional quantita
 \texttt{coarse:prop:density-counterexample} によって排除し，
 exterior の粗い metric comparison を独立な $\mathrm{(TC)}_5$ に条件付けている．
 従って五次の場合にも $\mathrm{(CP)}_5$ の無条件な検証は完了していない．
-一方，第IV篇の \texttt{simplex:cor:actual-dominant-product} は，開正方形の固定 compact 部分では
-volume barriers と Savin の定理から actual tensor 漸近を $O(L_t^{-\eta})$ で証明する．
+一方，第IV篇の \texttt{coarse:thm:boundary-to-triple} は，exact triple 領域の
+固定 face 上の全 phase に一様な density 下界と，各固定 $t$ の compact radial 閉包への
+滑らかな延長から，全深部の semi-flat tensor 比較を導く局所定理である．
+その証明には $t$ 一様な境界上界や上記 package を要しない．
+同篇の \texttt{coarse:cor:degree-d-volume-lower} がその最小境界入力を与え，
+\texttt{coarse:thm:full-triple-tensor} が固定次数の全平面退化への適用を述べる．
+\texttt{simplex:cor:actual-dominant-product} は，開正方形の固定 compact 部分で
+actual tensor 漸近を $O(L_t^{-\eta})$ とする．
 関連 Lagrangian 原稿の \texttt{ke:open-cell-collapse} はその領域の内在距離に対する局所 GH 収束を与える．
 さらに第IV篇の \texttt{coarse:thm:full-triple-tensor} と
 関連 Lagrangian 原稿の \texttt{ke:actual-closed-corner} は，任意の固定 $d\ge5$ で
@@ -189,7 +198,12 @@ GH 収束を distortion $O((\log R_t)/R_t)$ で与える．
 全曲面の ambient GH 実現を直接の scalar/portal 評価で扱う．
 同稿には source・branch・core の接着を含む証明があるが，
 本稿の特定の raw map や $\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ の検証を与えたとはしない．
+本稿が選ぶ写像は smooth raw depth の pruning から作り，曲面稿は
+actual Lagrangian 射影 $f_t$ 自身の distortion を評価する．
+同じ極限複体を持つことだけから，両写像の一様近接性は従わない．
 本稿の条件付き定理はそのまま保持し，別経路による到達点と区別する．
+曲面側が利用する Part IV の局所入力と別に構成する buffer・source/core 接着は，
+同篇の \texttt{tab:surface-minimal-inputs} にまとめる．
 他方，\cref{thm:abstract-pruning} と有限計量 \cref{thm:intro-diameter-C5} はこれらの解析入力から独立である．
 
 \tableofcontents
@@ -207,7 +221,7 @@ GH 収束を distortion $O((\log R_t)/R_t)$ で与える．
  H_i^\circ=H_i\setminus\bigcup_{j\ne i}H_j
  \simeq\PP^2\setminus\bigcup_{j\ne i}(H_i\cap H_j)
 \]
-という $d-1$ 本の直線配置補空間に対する第I篇の orthant complexを unit depthで切り，surfaceの normal-crossing bound $|\supp w|\le3$ を課したものとみなせる．第II篇~\cite{SeriesII} の secondary periodsは，$d\ge6$ では residual arrangementの scale-one geometryを区別し得るが，$\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ から first logarithmic scaleを導く本稿の抽象推論には追加入力として現れない．局所 source germ $xy=tz$ は第III篇~\cite{SeriesIII} の conifold modelsとの形式的な橋をなし，本稿の \cref{thm:abstract-pruning} はその local-to-global距離論を有限複体向けに自己完結化したものである．第IV篇~\cite{SeriesIV} が raw coordinates と，明示したtensor比較・exhaustion仮定の下での粗い connector package および sharp co-Gram入力を扱い，本稿はそれらを大域 metric-space limitへ変換する．
+という $d-1$ 本の直線配置補空間に対する第I篇の orthant complexを unit depthで切り，surfaceの normal-crossing bound $|\supp w|\le3$ を課したものとみなせる．第II篇~\cite{SeriesII} の secondary periodsは，$d\ge6$ では residual arrangementの scale-one geometryを区別し得るが，$\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ から first logarithmic scaleを導く本稿の抽象推論には追加入力として現れない．局所 source germ $xy=tz$ は第III篇~\cite{SeriesIII} の conifold models との形式的な関係を持つが，本稿の \cref{thm:abstract-pruning} は有限複体の距離論として自己完結し，第III篇の条件付き gluing theorem を使わない．第IV篇~\cite{SeriesIV} が raw coordinates と，明示したtensor比較・exhaustion仮定の下での粗い connector package および sharp co-Gram入力を扱い，本稿はそれらを大域 metric-space limitへ変換する．
 
 ここで固定成分の空間的 blow-down と，変動する $X_t$ の $R_t$ 尺度の極限を
 同じ定理と扱わない．固定成分から退化族への入力には，固定 compact 上の収束と，
@@ -2196,15 +2210,15 @@ K.~Ueda,
 
 \bibitem{SeriesIV}
 K.~Ueda,
-\newblock \emph{多重スケール Kähler--Einstein 幾何 IV：超平面和への退化 I，完備局所模型，terminal-cusp adapted gauges，および conditional raw co-Gram 剛性},
-\newblock 五部作第IV篇, 2026.
+\newblock \emph{多重スケール Kähler--Einstein 幾何 IV：超平面和退化の局所安定性と閉 corner の収縮},
+\newblock 五部作第IV篇, v1.10, 2026年11月22日.
 
 \bibitem{SurfaceCurrent}
 K.~Ueda,
 \newblock 一般型射影曲面の Lagrangian torus fibration と負Kähler--Einstein極限，
-\newblock 現行未公表原稿，2026年11月22日，現行改訂32．
+\newblock 未公表原稿，2026年11月22日，確認版：改訂37（統合中）．
 \newblock \texttt{ke:global-metric-realization} と \texttt{topo:ke-map-compatibility}.
-\newblock \href{https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/main/papers/surface-lagrangian-torus-fibration.tex}{現行主原稿}.
+\newblock \href{https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/32c67aefe6beb47c2955923e2b6eb2471d48af31/papers/surface-lagrangian-torus-fibration.tex}{確認した主原稿（commit 32c67ae）}.
 
 \end{thebibliography}
 

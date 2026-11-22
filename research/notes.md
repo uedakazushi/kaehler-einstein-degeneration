@@ -1,17 +1,19 @@
 # 研究ノート：一般型超曲面のKE退化
 
-更新：2026-11-22 / v1.17（Part IV–V本文はv1.9）
+更新：2026-11-22 / v1.19（Part IV–V本文はv1.10）
 
 ## 共同編集の正本と共有局所入力
 
 `multiscale-kaehler-einstein` は固定配置補空間のPart I–III、本repoは退化族局所解析のPart IVと条件付き距離論のPart V、`surface-lagrangian-torus-fibration` はactual KE Lagrangian構成と同じ射影の全曲面GH実現を所有する。三研究の方針・Introduction・証明依存を共同で点検するが、証明全文を相互に複製しない。共有する結果を変更したら、利用側の定理ラベルと仮定も照合し、各repoの保存後にhubへ反映する。
 
-2026-11-22に照合した外部正本は、[固定配置Part I v1.6](https://github.com/uedakazushi/multiscale-kaehler-einstein/blob/2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4/papers/multiscale-kaehler-einstein.tex)、同repoの[Part II v2.1](https://github.com/uedakazushi/multiscale-kaehler-einstein/blob/2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4/papers/secondary-periods-torelli.tex)と、[曲面稿・改訂36](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/tree/c056ecba5d25a55f135e739faab5993582814484)。固定配置repoの確定確認commitは `2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4`（研究一式v1.10）。Part I v1.6・II v2.1の数学sourceと64頁/指定17頁・28頁/指定8頁の既存組版表示記録、総説v1.9の15頁/指定8頁のmultiscale担当による150 dpi表示記録を保持する。曲面の確認commit `c056ecba5d25a55f135e739faab5993582814484` は、有限componentwise配分とstrict cut、source固定のactual微小面積指定、core anchor periodsの条件付き構成を含む数学sourceの保存版である。改訂36は290頁に組版され、指定21頁を150 dpiで実表示した主担当・別担当の確定結果を同期する。この担当による外部稿の再組版・再表示はない。利用条件の照合・指定証明鎖の内部点検・共同点検の同期を、外部全文の包括的再検証と区別する。
+2026-11-22に実読した曲面の数学入力は、[改訂37・commit 32c67ae](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/tree/32c67aefe6beb47c2955923e2b6eb2471d48af31)。Part IV–Vの文献もこの確認版を参照する。現行入口は改訂38であり、その保存・組版記録は曲面正本を参照する。固定配置の現行確認版は [Part I v1.7・研究資料v1.12](https://github.com/uedakazushi/multiscale-kaehler-einstein/tree/f9cac112b6070bff240579eecf3a2c92e0975722)。今回、裾係数の内在性とcompact基点一様性、非可積分cusp例、depth gauge、K5 coneの非CAT(0)という四箇所を独立に読んだ。Part I 67頁/指定17頁と総説v1.10 15頁/指定7頁の組版・表示確認は各担当の実施報告を同期している。Part IIは変更せず、既存入力の限定点検を保持する。これらを全外部原稿の包括的監査と読み替えない。
+
+本稿の公表入口は無条件の局所解析を中心とし、Part IVの最小入力表 `tab:surface-minimal-inputs` に曲面P0が使う四群をまとめる。局所安定性は `coarse:thm:boundary-to-triple`、全平面族への適用は既存の `coarse:thm:full-triple-tensor` とし、証明を一回だけ置く。Part Vの抽象pruning–transportと有限targetの直径計算は独立の成果で、CP/PBEを仮定するactual raw-pruning経路、曲面側の直接scalar/portal経路を区別する。
 
 | 本repoの共有入力 | 仮定・量化と証明の所在 | 曲面稿での利用と適用限界 |
 | --- | --- | --- |
 | `coarse:cor:degree-d-volume-lower` | `ass:Gd`、固定d・固定族。主稿のweighted cap・六型minor・adjunction residueから全X_tでω_t²≥c_dΩ_low。Source軸でも正cap方向を保持する。 | K1のPoisson/Schwarz bufferとsource volume、full tripleの固定face入力。Density単独からtensor比較は結論しない。 |
-| `coarse:thm:full-triple-tensor` | `full_triple_comparison.tex`。m₁≤m<L_t/3、全深度比・全phaseでC^q誤差O(1/m)。固定m₀のface下界→内外simplex→small Ricci potentialの順。 | `ke:actual-closed-corner` と有限cut版、二active co-Gram。保護領域を出る全曲面の下距離は曲面側のscalar評価を要する。 |
+| `coarse:thm:boundary-to-triple` → `coarse:thm:full-triple-tensor` | `full_triple_comparison.tex`。Exact tripleの各固定tのcompact radial閉包×全phaseに滑らかなKE metric、全faceの一様density下界。m₁≤m<L_t/3、全深度比・全phaseでC^q誤差O(1/m)。族への適用だけにcapped下界を使う。 | `ke:actual-closed-corner` と有限cut版、二active co-Gram。保護領域を出る全曲面の下距離は曲面側のscalar評価を要する。 |
 | `simplex:cor:actual-closed-corner-metric` | `closed_triple_metric.tex`。H_{t,R}の内在距離と、min ell>R/2内のprotected距離に対するO(log R/R)。 | 曲面稿 `ke:slow-cut-closed-corner-gh` は固定mも許す有限条件を確認してm/2でfull-tripleを使う。全X_tの下距離へ直接読み替えない。 |
 | `simplex:lem:rank-one-schwarz`、`simplex:cor:active-cogram` | `simplex_boundary_geometry.tex`。Complete simplex模型で係数1、actual tripleではO(1/min ell)を加える。 | Triple上のscalar下界。Source-inclusiveな一active領域のsharp normal評価と混同しない。 |
 | `pair:prop:bundle-conic`、`pair:cor:global-primitive` | `source_free_neck_coordinates.tex`。Source・tripleを除く固定K上。射影を先に固定したexact uv=t、Ω=dlog v∧τと単一λを保持。 | Canonical normal action・momentの共通化。独立に指定した第二actionやorbit partitionは供給しない。 |
@@ -24,7 +26,7 @@
 
 **固定段階からの接続補題。** `pair:lem:diagonal-fixed-end` は、K_jを固定してr_jを選び、有限個の既証誤差E_j(t)→0とt閾値前の有限費用B_jを確定した後、j(t)→∞を十分遅く選べばE_j(t)≤ε_jかつB_j/R_t≤ε_jとend符号を同時に保てることを証明する。共通moment intervalは±π/s_jで段階ごとに縮んでよい。固定段階のbuffer・matchingの存在や、費用のj依存成長率を証明する補題ではない。原稿に証明を置き、ここでは量化だけを記す。
 
-**Sourceを含むfixed-shellの証明正本。** 曲面稿 [ke_staged_neck_averaging.tex](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/c056ecba5d25a55f135e739faab5993582814484/papers/sections/paper/ke_staged_neck_averaging.tex) の `ke:source-inclusive-fixed-shell` は、source-inclusive正規形x′y′=t h_t(p)と固定compact P^+を用いる。各固定rのendとr²≤|x′|≤rのshellは、h_0(p)=0でも中央成分のsmooth locusのcompactにあり、全複素tの固定gauge収束を使える。同じΩ_t=dlog x′∧dp=−dlog y′∧dpはsourceでdx′∧dy′/(t h′_t(p))と非零正則に延びる。したがって全phaseのend値±4π/s_rと、rに共通な正のshell横断費用c log2を得る。t閾値のr依存を許し、shellを通る経路部分の費用を全曲面二点間距離と同一視しない。異なるvolume frameのprimitiveには閉形式差が残り、residual periodの消滅や異なる正規形間のprimitiveの一致は結論しない。証明と別の読み手による内部点検は曲面側に置き、Part IVのsource-free定理には新たな適用範囲を付け足さない。
+**Sourceを含むfixed-shellの証明正本。** 曲面稿 [ke_staged_neck_averaging.tex](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/32c67aefe6beb47c2955923e2b6eb2471d48af31/papers/sections/paper/ke_staged_neck_averaging.tex) の `ke:source-inclusive-fixed-shell` は、source-inclusive正規形x′y′=t h_t(p)と固定compact P^+を用いる。各固定rのendとr²≤|x′|≤rのshellは、h_0(p)=0でも中央成分のsmooth locusのcompactにあり、全複素tの固定gauge収束を使える。同じΩ_t=dlog x′∧dp=−dlog y′∧dpはsourceでdx′∧dy′/(t h′_t(p))と非零正則に延びる。したがって全phaseのend値±4π/s_rと、rに共通な正のshell横断費用c log2を得る。t閾値のr依存を許し、shellを通る経路部分の費用を全曲面二点間距離と同一視しない。異なるvolume frameのprimitiveには閉形式差が残り、residual periodの消滅や異なる正規形間のprimitiveの一致は結論しない。証明と別の読み手による内部点検は曲面側に置き、Part IVのsource-free定理には新たな適用範囲を付け足さない。
 
 **二つの大域経路。** Part Vの全曲面適用はCP/PBE付きで、quinticのCP検証はTC5に依存する。曲面稿 `ke:global-metric-realization` には同じf_t=p_Tπ_tの直接scalar/portal証明があり、neck/core/sourceの接続もそこで別に扱う。したがって全曲面のGH問題自体を本稿の局所入力だけから「未解決」と記さず、CP/PBE/TCという追加packageの未検証部分を明記する。Part Vの特定のΦ_tとf_tとの一様近接性を新たに示したことにもならない。Part IIのsecondary complex periodsと第二symplectic action、Part IIIのH_loc/H_ancもそれぞれ別の入力である。
 
@@ -166,14 +168,22 @@ A=p(\delta-\rho),\qquad c=-p\rho
 
 固定baseの補題からactual circle長へ進むための解析入力は `neck:lem:rank-one-circle` のp*h_D≤Aωである。曲面稿の `ke:fixed-base-neck-moser` は必要な固定段階bufferを別に証明する。Volume上界と合わせれば、Hermitian matrix G=[[a,c],[c̄,b]]に対しdetG≥a/A、従ってa≤ABとなり、mixed coefficientsがあってもnormal circle長を抑えられる。Actual metric ball bufferがあればlocalized Chern–Luでこのrank-one下界を得るが、そのbufferを欲しいtensor比較から逆算しない。Full tensor比較にはsmall log-densityと一様smooth背景、あるいは別の解析が必要。Complete strip×curveへのglobal延長・完備性・bounded log-ratioを仮定すればOmori–Yauによる一意性でproductを同定できるが、fixed residual discの極限だけではこれらの条件を満たさない。
 
-## 全深部三重点の比較と大域density入力
+## 境界密度からの局所安定性と全平面族への適用
 
-正確な三重点座標ζ0ζ1ζ2=t、ell_i=−log|ζ_i|²、L=−log|t|²、R=log Lを用いる。固定次数d≥5の一般位置全平面退化について、min ell_i≥mで
+正確な三重点座標ζ0ζ1ζ2=t、ell_i=−log|ζ_i|²、L=−log|t|²、R=log Lを用いる。`coarse:thm:boundary-to-triple` は大域compactificationや全平面退化を仮定しない。固定m₀,c_*>0について、全phaseを含むD_{t,m₀}={min ell_i>m₀}の閉包近傍で各ω_tが滑らかな負KE metricであり、全ての固定faceでω_t²≥c_* V_Lを満たすことを入力とする。m₀,c_*に依存するm₁,L_*と各qのC_qを用い、L≥L_*、m₁≤m<L/3で
 \[
  \left|\log(\omega_t^2/k_L^2)\right|\le C/m,\qquad
  \|g_t-g_L^{\mathrm{sf}}\|_{C^q(g_L^{\mathrm{sf}})}\le C_q/m
 \]
-を証明した。全深度比・全位相・固定族の全三重点に一様であり、定数は固定した次数と族に依存してよい。正本は主稿 `coarse:thm:full-triple-tensor`。次数一様性、sourceのtensor比較、大域GHはこの定理の主張に含まれない。
+を得る。全深度比・全位相に一様で、normはnormalized holomorphic covering chartsまたはmodel covariant normで計算する。各固定tでsmoothであればよく、tに関する正則性や境界上界のt一様性は要しない。
+
+**最小入力と証明の向き。** 下barrierは固定c=M m₀で外へずらす。境界の一因子が(1+M)^(−2)となるため、L≥6cと9/4(1+M)^(−2)≤c_*から境界volume下比較を得る。負の内部最小値を排除して全域へ延長する。上barrierはm₀だけ内へずらし、complete模型のdensityが全人工境界で発散する。Actual densityは各固定tのcompact閉包で有限なので比は境界で0へ向かい、その上界をt一様に取らずに最大値原理が閉じる。Phaseのcompact quotientを外して非周期無限coverへ一般化することはできない。Coverはこの比較の後、局所正則性のために用いる。
+
+Shift評価により小さくなるv=log(ω_t²/k_L²)自身が、同じRicci規格化によるdd^c v=ω_t−k_Lを満たす。m₁≥4cを取ると、最大深度を従属にした固定相対窓の全深度は3m/4以上となり、Savinの閾値をqと独立に固定した後にSchauderで各qを得る。Interiorのdensity下界、actual tensor buffer、actual境界逃避を入力に加えていない。
+
+全平面退化への適用は `coarse:thm:full-triple-tensor` に分ける。一般性 `ass:Gd`、固定d≥5・固定族に対し、`coarse:cor:degree-d-volume-lower` とlocal residue比較が上記のfixed-face下界を与える。三重点の有限性から定数を共通にする。次数一様性、source全体のtensor比較、大域GHはこの局所適用の主張ではない。
+
+**今回の独立内部点検。** 別の読み手が局所定理と単一証明、small-volume-tensor、全平面への適用を読み、compact phase quotient、内外barrierの符号と全境界、t一様上界の不要性、coverへの移行順序、Savin/Schauderの量化を確認した。Savinのauthor PDFのH1/H2/H4・Theorem 1.3もその担当が再読した。指定鎖に新たな結論阻害gapは見つからなかった。Capped determinantの全証明や全一次原著の包括的な再監査、新規性確認、外部査読・形式証明ではない。
 
 固定toric模型k_Lの存在・一意性・完備性にはZhang (2015), 第2.1節、Theorem 2.1 / Proposition 2.2を用いる。退化族のTheorem 2.4やQ-factorial仮定は使わない。ψ_L=log L−Σlog ell_iと内外translated-simplex barriersによりψ_L−(log3)/2≤φ_L≤ψ_L、V_L/3≤k_L²≤V_Lを得る。半平面へのSchwarz評価とdeterminant上界からtensor二側比較を先に確保し、内部正則性で全高階を制御する。Log-densityの凸性から固定量のfacet shiftによる誤差O(1/min ell)を得て、actual volumeを内外の模型で挟み、小さいpotentialへSavinを適用する。証明の所在は `coarse:lem:simplex-model` / `coarse:lem:simplex-shift` / `coarse:lem:small-volume-tensor`。
 
@@ -400,11 +410,13 @@ $\mathcal C_6$ は全 $S_6$ の座標置換で不変だが、六つの同時Pete
 
 ## 再現性
 
-保存された16本の旧原稿由来の検算と統合稿の5本は、2026-11-20に再実行され、元入力のSHA-256も照合されている。現在も有効な再現資産を保持するが、v1.9で再実行していない。出典・ハッシュは `source-manifest.json`、実行状態は `validation.json` に記す。
+保存された16本の旧原稿由来の検算と統合稿の5本は、2026-11-20に再実行され、元入力のSHA-256も照合されている。現在も有効な再現資産を保持するが、今回のv1.10では再実行していない。出典・ハッシュは `source-manifest.json`、実行状態は `validation.json` に記す。
 
-管理文書v1.17の直接構成はsourceを固定したactual P0の微小critical-area指定であり、自由部分だけのsmoothness、連結incidence、線形右逆とbump density、momentを保つcircle liftと全葉接着を扱う。主担当と別担当も指定範囲を点検した。有限componentwise配分・strict cut・core anchor条件は共同構成と点検の範囲を同期し、全coreや全外部結果の追加独立監査とはしない。既存の共有解析、source-inclusive fixed-shell、四型分類、Part I/IIとK2/K3/K5の有効な確認範囲は保持し、今回は全てを再実行していない。Part I v1.6・II v2.1の数学sourceと既存組版表示記録、総説v1.9の15頁/指定8頁・150 dpiの担当確認記録も保持する。曲面改訂36の290頁・指定21頁の150 dpi表示確認は主担当・別担当の確定記録を同期し、source/PDFのSHA-256とbytesも手元で照合した。曲面repoの既存有限整数接着10件は別担当が再実行して全てexit0であるが、KE解析や新しい一般面積輸送定理の証明確認ではない。この担当による外部稿の再組版・再表示はない。各実行状態は検証JSONに集約する。Part IV–Vの本文v1.9は変更せず、この同期に伴う組版・有限検算も再実行していない。全原稿・全外部入力の包括的再監査、新規性の網羅的確認、外部査読、形式証明とは区別する。
+Part IV–V v1.10では局所安定性の独立定理化、全平面への適用分離、公表入口と四入力表、確認版への引用を更新した。指定証明鎖を別の読み手も内部点検した。曲面の既存相対面積構成・source壁・固定stage接着、固定補空間の既存理論はその正本へ参照を保ち、今回全てを再実行したとはしない。全原稿・全外部入力の包括的監査、新規性の網羅的確認、外部査読、形式証明は未了である。
 
-2026-11-22にv1.9のPart IVを117頁、Part Vを37頁へ `latexmk` で組版し、PDFとSyncTeXをbuildに生成した。最終logの未解決参照・引用、重複ラベル、欠字、overfull/underfull boxは0。日本語フォントの代替・featureとbookmark数式に関する警告は残る。IVの1、6–7、70–71、117頁、Vの2、4–5、37頁を画像化して、本文・数式・新補題・文献の欠落、重なり、はみ出しがないことを確認した。全頁の画像点検ではない。初期環境のformat/font map不足は利用可能なTeX Live環境で補い、主稿の設定は保持した。GitHubへの反映とhub更新は組版から独立に確認する。
+2026-11-22に現行Part IV v1.10を119頁、Part V v1.10を37頁へLuaLaTeX/latexmkで組版した。最終logの未定義参照・引用、重複label、欠字、LaTeX error、overfull/underfull boxは全て0。日本語font feature・斜体、微小math fontの代替とbookmark数式の警告は残る。IVの1、2、6、9–11、51–54、119頁（11頁）、Vの1–3、5、37頁（5頁）を150 dpiで単頁PNGへrenderし、実表示して確認した。題名・要約・四入力表・局所定理10.3とその単一証明・適用定理10.4・文献に、見切れ、欠落、重なり、数式のはみ出しを認めない。表の揃えを調整して該当頁を再確認した。全頁の表示確認ではない。
+
+実行環境にはLuaTeX-ja、Harano Aji、CM/AMS/RSFSのvector font mapを含むuser-local TeX設定を用いた。通常のLuaLaTeX/latexmk・SyncTeXのrepo設定は保持し、PDFとcacheはGit追跡しない。現行source/PDFのSHA-256、頁と実行範囲は検証JSONに集約する。GitHubへの反映とhub更新は組版から独立に確認する。
 
 ## 人工基底計量とactual退化計量の比較
 

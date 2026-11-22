@@ -52,29 +52,71 @@
 
 \pagestyle{fancy}\fancyhf{}
 \fancyhead[L]{\small Multiscale Kähler--Einstein Geometry IV}
-\fancyhead[R]{\small 超平面和への退化 I：局所模型と raw co-Gram}\fancyfoot[C]{\thepage}
-\hypersetup{pdftitle={Multiscale Kahler--Einstein Geometry IV: Hyperplane Degenerations I, Complete Local Models and Conditional Raw Co-Gram Rigidity},pdfauthor={Kazushi Ueda}}
+\fancyhead[R]{\small 局所安定性と閉 corner の収縮}\fancyfoot[C]{\thepage}
+\hypersetup{pdftitle={Multiscale Kahler--Einstein Geometry IV: Local Stability and Closed-Corner Collapse in Hyperplane Degenerations},pdfauthor={Kazushi Ueda}}
 \title{\bfseries 多重スケール Kähler--Einstein 幾何 IV\\[1mm]
-\large 超平面和への退化 I：完備局所模型，terminal-cusp adapted gauges，\\
-および raw co-Gram 剛性}
+\large 超平面和退化の局所安定性と閉 corner の収縮}
 \author{植田一石\\[-1mm]\small Kazushi Ueda}
-\date{2026年11月22日\\五部作・統合改訂稿 v1.9}
+\date{2026年11月22日\\五部作・統合改訂稿 v1.10}
 \begin{document}\maketitle
 
 \begin{abstract}
-本稿は五部作の第IV篇であり，第I--III篇の超平面配置補集合の完備負 Kähler--Einstein 幾何を，射影曲面が超平面の和へ退化する問題へ接続する．一般位置の五平面の和へ退化する五次曲面について，$R_t=\log(-\log|t|^2)$ の尺度で smooth raw logarithmic depths，有限正方形複体 $\mathcal C_5$ への $O(R_t^{-1})$-dense な写像，六つの intrinsic complete local models，capped determinant lower bound，および source-core の一様 inradius bound を構成する．開正方形の固定 compact 部分では，大域体積下界と明示的な負 KE barriers，Savin の小摂動定理から actual metric の product-cusp 漸近を全位相一様に証明する．さらに任意の固定次数 $d\ge5$ について capped volume 下界を証明し，complete simplex KE 模型の内外平行移動と小摂動正則性により，全深部三重点領域で actual semi-flat 漸近 $O(m^{-1})$ を得る．係数 $1$ の Schwarz 評価と二重 cusp への鋭い境界漸近を用いて，全閉 triple corner の内在距離と保護領域内の経路を許す距離が，三枚の unit squares 自身の内在距離へ distortion $O((\log R_t)/R_t)$ で収束することを証明する．同じ局所領域を覆う actual Lagrangian torus fibration への移送は関連稿で行う．Source を含む exterior 全体の一様 tensor comparison は独立の仮定 $\mathrm{(TC)}_5$ とし，粗い二側距離比較と source-core diameter bound はこの仮定の下で得る．Bounded volume density だけから局所 tensor comparison は導けないことを，滑らかな負 KE metrics の列による反例で示す．さらに固定次数 $d\ge5$ の $d$ 平面退化に対し，候補複体 $\mathcal C_d$，source と cusp の代数データ，terminal cusp で order zero を持つ有限 gauge family，および正規化を決定する．Sharp raw co-Gram 係数1定理は，compatible product boxes の存在・一様比較・二重 boundary escape・compatible exhaustion をまとめた仮定 $\mathrm{(PBE)}_d$ の下で証明する．第V篇の厳密 Gromov--Hausdorff 極限には，粗い大域入力 $\mathrm{(CP)}_d$ と $\mathrm{(PBE)}_d$ の双方を要する．高次元では pure normal-crossing determinant までは一般化する一方，mixed source--higher-stratum models が不可避であるため，厳密極限は予想として述べる．
-Source-free な二重線の固定 compact 部分には，射影的な法線束から exact conic 座標と共通の正則円作用を構成する．
-Actual KE form の円平均に対し，canonical primitive と加法定数のない normal moment を与え，
-固定 end での smooth convergence と normal-crossing cusp 漸近から，共通の moment interval を得る．
-Neck 内部の積比較には追加の解析が必要であり，固定 residual 境界による非消失誤差の例と，
-mixed terms を許す rank-one 比較による法線円周の収縮条件を示す．
+Exact triple 領域 $\zeta_0\zeta_1\zeta_2=t$ 上の負 Kähler--Einstein metrics に対し，
+固定 logarithmic face の一様な体積密度下界から，全深部の semi-flat tensor 漸近を証明する．
+各固定 $t\ne0$ で全角度を含む radial 閉包の近傍へ滑らかに延長することを仮定し，
+境界上界の $t$ 一様性は要求しない．Complete simplex KE metrics の内外平行移動が
+log-volume 誤差を $O(m^{-1})$ に抑え，Ricci 恒等式と Savin の小摂動定理が
+全固定階の tensor 誤差へ移す．ここで $m$ は三つの logarithmic depths の最小値である．
+
+任意の固定次数 $d\ge5$ の一般位置全平面退化では，大域 capped density の下界が
+この境界入力を与える．したがって全深度比・全角度で actual KE metric の同じ漸近を得る．
+係数 $1$ の Schwarz 評価と simplex 境界の積漸近から，三枚の unit squares を持つ
+全閉 triple corner への距離の distortion を $O((\log R_t)/R_t)$ と評価する．
+$R_t=\log(-\log|t|^2)$ とし，距離は $R_t^{-1}$ 倍する．
+評価は corner の内在距離と，より大きい保護 triple 領域内の全経路を許す距離に成立する．
+同じ領域の actual Lagrangian torus bundle への移送と全曲面への接着は関連曲面稿が扱う．
+
+Source-free な二重線の固定 compact base では，exact 束座標，共通の正則 normal circle，
+canonical primitive，および固定 end の moment 漸近を構成する．
+法線円周の収縮には volume 上界と residual rank-one 下界で十分であることを示し，
+固定 residual 境界による積比較の障害も明示する．
+これらの局所結果は大域的な tensor-comparison/exhaustion package を必要としない．
+
+別に，source を含む exterior 全体の粗い二側距離比較を仮定 $\mathrm{(TC)}_5$ の下で，
+moving flag-star の sharp raw co-Gram 定理を $\mathrm{(PBE)}_d$ の下で証明する．
+第V篇の raw pruning による大域 GH 適用は $\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ に条件付けられる．
+Bounded density のみから tensor 比較を導けない反例，terminal-cusp gauges，
+および高次元の mixed source--higher-stratum models に残る課題を保持する．
 \end{abstract}
 
 \begin{center}
 \begin{minipage}{0.93\textwidth}\small
 \textbf{Abstract.}
-This is Part IV of a five-paper series and the first paper on degenerations to unions of hyperplanes.  For a quintic surface degenerating to five hyperplanes in general position, with $\operatorname{Ric}(\omega_t)=-\omega_t$, we construct smooth raw logarithmic depths, an $O(R_t^{-1})$-dense map to the square complex $\mathcal C_5$, six intrinsic complete local models, and a uniform source-core inradius bound.  For every fixed degree $d\ge5$, translated complete-simplex barriers give actual semi-flat tensor asymptotics on the entire deep triple region, including balanced points.  A rank-one Schwarz estimate with exact coefficient one and sharp cusp-product asymptotics give convergence of every closed triple corner to its three-square intrinsic metric, with distortion $O((\log R_t)/R_t)$.  The estimate holds both for the intrinsic distance and for paths in a larger protected triple region; a related paper transfers it to the same actual Lagrangian torus bundle.  On compact subsets of open squares, explicit negative KE barriers and Savin's small-perturbation theorem give uniform product-cusp asymptotics for the actual metrics, with all angular phases included.  Coarse global two-sided distance control and bounded source-core diameter require an independent tensor-comparison hypothesis $\mathrm{(TC)}_5$.  We give a sequence of smooth negative Kähler--Einstein metrics showing that bounded local volume density alone does not imply tensor comparison.  For every fixed degree $d\ge5$ in $\mathbb P^3$, we determine the candidate complex $\mathcal C_d$, the source and cusp data, terminal-cusp order-zero gauges, and the normalization.  We isolate a Product-Box Exhaustion hypothesis $\mathrm{(PBE)}_d$, consisting of quantitative terminal trivialization, protected rectangular inclusion, uniform local/global/actual comparison, and compatible exhaustion with two-metric boundary escape.  Under $\mathrm{(PBE)}_d$, the relevant marked pointed limits are Poincaré bidiscs and the raw co-Gram matrices converge uniformly to the identity.  Part V obtains the exact cubical Gromov--Hausdorff limit under the coarse global package $\mathrm{(CP)}_d$ together with $\mathrm{(PBE)}_d$.  In higher dimension we establish the candidate complex, adjunction and the pure normal-crossing determinant package, while leaving the mixed source--higher-stratum analysis as a conjectural extension.
-On a fixed compact subset of a source-free double curve, explicit projective normal-bundle coordinates give a common holomorphic circle action. Its averaged KE form has a global primitive, a canonically normalized moment, and a uniform moment interval obtained from fixed-end convergence and cusp asymptotics. These facts do not give a uniform Moser buffer through the neck. We exhibit the residual-boundary obstruction to a prescribed product limit and give a rank-one criterion for shrinking normal circles, allowing mixed metric coefficients.
+We prove local stability for negative Kähler--Einstein metrics on the exact triple region
+$\zeta_0\zeta_1\zeta_2=t$. A uniform volume-density lower bound on fixed logarithmic faces,
+together with smooth extension near the compact radial closure with all angular phases for each fixed nonzero $t$,
+implies semi-flat tensor asymptotics of order $O(m^{-1})$ in every fixed derivative order,
+where $m$ is the minimum logarithmic depth. No parameter-uniform boundary upper bound is required.
+Translated complete-simplex barriers squeeze the volume ratio; the Ricci identity turns its logarithm
+into a small potential to which Savin's regularity theorem applies.
+
+For every fixed degree $d\ge5$, a global capped-density estimate supplies this boundary input
+for a surface degenerating to hyperplanes in general position. The comparison is uniform in all depth ratios and angular phases.
+An exact coefficient-one Schwarz estimate and product asymptotics at the simplex boundary give
+closed-corner distance distortion $O((\log R_t)/R_t)$ to the intrinsic metric of three unit squares,
+with distances rescaled by $R_t^{-1}$ and $R_t=\log(-\log|t|^2)$.
+The estimate allows all paths in a larger protected triple region.
+A companion surface paper transfers this limit to actual Lagrangian bundles and supplies global gluing.
+On fixed compact subsets of source-free double curves we also construct exact bundle coordinates,
+a common normal circle, a canonical primitive, and fixed-end moment asymptotics.
+A residual rank-one criterion controls normal-circle lengths without a full product limit.
+
+These local results are separate from our conditional global route:
+coarse exterior distance comparison assumes $\mathrm{(TC)}_5$,
+sharp moving raw co-Gram convergence assumes $\mathrm{(PBE)}_d$,
+and the raw-pruning application of Part V assumes $\mathrm{(CP)}_d+\mathrm{(PBE)}_d$.
+We retain the density-to-tensor counterexample, terminal-cusp gauges,
+and the unresolved mixed source--higher-stratum analysis in higher dimensions.
 \end{minipage}
 \end{center}
 
@@ -82,23 +124,42 @@ On a fixed compact subset of a source-free double curve, explicit projective nor
 
 \section{序論}\label{sec:intro}
 
-\subsection{五部作における本稿の位置}
-一般位置にある五枚の平面 $H_i=\{L_i=0\}\subset\PP^3$ $(0\le i\le4)$ と一般の五次形式 $F_5$ に対し，
+\subsection{局所結果と五部作における位置}
+整数 $d\ge5$，一般位置の平面 $H_i=\{L_i=0\}\subset\PP^3$，
+および次数 $d$ の形式 $F_d$ を固定し，
 \[
- X_t=\{L_0L_1L_2L_3L_4+tF_5=0\}\subset\PP^3
+ X_t^{(d)}=\left\{\prod_{i=1}^dL_i+tF_d=0\right\}\subset\PP^3
 \]
-を考える．$0<|t|\ll1$ では $X_t$ を滑らかとし，$\omega_t\in2\pi c_1(K_{X_t})$ を
-$\Ric(\omega_t)=-\omega_t$ で規格化した負 Kähler--Einstein 計量，$g_t$ を対応する実計量とする．
+を考える．一般性条件は \cref{ass:Gd} に明記する．
+$0<|t|\ll1$ で滑らかな $X_t^{(d)}$ に対し，
+$\omega_t\in2\pi c_1(K_{X_t^{(d)}})$ を $\Ric(\omega_t)=-\omega_t$ で規格化し，
+対応する実計量を $g_t$ と書く．
 \[
- L_t=-\log|t|^2,\qquad R_t=\log L_t
+ L_t=-\log|t|^2,\qquad R_t=\log L_t,
+ \qquad
+ \mathcal C_d=\{w\in[0,1]^d:\max_iw_i=1,\ |\supp w|\le3\}
 \]
-と置く．本稿は五部作の第IV篇である．第I--III篇は超平面配置補集合の空間無限遠，二次周期，および conifold gluing を扱う．第IV--V篇はそれらの局所模型を，滑らかな射影超曲面が超平面の和へ退化する compact family に移植する．退化二部作の最終目標は，$R_t$ で距離を規格化した空間を，有限 Euclid 正方形複体
-\[
- \Cfive=\{w\in[0,1]^5:\max_iw_i=1,\ |\supp w|\le3\}
-\]
-へ部分列なしに収束させ，その距離を厳密に決定することである．
+と置き，各 maximal square を unit Euclid square とする内在距離を用いる．
 
-証明の内部構造は三段階である．第一に smooth raw-depth functions と intrinsic complete local models を構成し，独立の tensor-comparison 仮定 $\mathrm{(TC)}_5$ の下で粗い立方体幾何を得る．第二に compatible product-box exhaustion の下で全 moving flag-star 上の pointed limits を Poincaré product と同定し，active raw covectors の co-Gram matrix の係数を厳密に $1$ と決める．第三に，第V篇で scalar target-distance calibration と protected horizontal transport を用い，局所係数を大域的な metric-space limit へ変換する．局所模型と volume bounds は actual metric の tensor bounds と区別する．前者から後者への推論には負 KE 条件だけでは不十分であり，\cref{coarse:prop:density-counterexample} の反例がその障害を具体化する．大域的な粗幾何を $\mathrm{(CP)}_d$，moving product boxes の定量的整合性を $\mathrm{(PBE)}_d$ として明示的に分離する．
+本稿の中心は，固定 logarithmic face 上の一様 density 下界から
+全深部 triple の actual KE metric を complete simplex model へ比較する
+\cref{coarse:thm:boundary-to-triple} と，その全平面退化への適用である．
+証明は三段階に分かれる．内外へ平行移動した complete models で volume を挟み，
+その log-ratio を小さい相対 potential として tensor 比較へ移し，
+simplex 境界の鋭い比較から閉 corner 全体の距離を決める．
+この順序では bounded density を直接 tensor 比較へ置き換えない．
+一般にその推論が失敗することは \cref{coarse:prop:density-counterexample} に示す．
+Source-free な neck の座標・primitive・固定 end の moment は独立した局所入力として扱う．
+
+本稿は五部作の第IV篇である．第I--III篇は固定された配置補空間の空間無限遠，
+secondary complex periods，および conifold gluing を扱う．
+本稿の上記局所結果には，それらの conditional gluing theorem は必要ない．
+一方，本稿後半と第V篇には，大域的な raw-depth 射影を用いる別の経路がある．
+五次曲面での粗い exterior 比較は $\mathrm{(TC)}_5$，
+全 moving flag-star の係数 $1$ は $\mathrm{(PBE)}_d$ に条件付けられる．
+第V篇は粗い大域入力 $\mathrm{(CP)}_d$ と $\mathrm{(PBE)}_d$ から
+$R_t$ 尺度の厳密な GH 極限を導く．これらの package の検証を，
+本稿の局所定理や閉 corner の結論の前提には置かない．
 
 共同研究における証明の分担を明確にする．第I--III篇の固定配置補空間，
 本稿の退化族の局所一様解析，第V篇の条件付き距離論，および曲面稿
@@ -124,7 +185,7 @@ $R_t\epsilon_t/a_t\to0$ を満たす選択した中間尺度における pointed
 固定段階で既に得られた入力を，選んだ遅い対角列と有限費用へ適用する量化は
 \cref{pair:lem:diagonal-fixed-end} にまとめる．
 
-本証明は relative five-source block，三 outlet の同時 framing，orbit-period matching，actual/relative long-corridor anchoring を用いない．三尖点に共通する一つの tame frame が存在しないという degree obstruction は，terminal cusp ごとの order-zero gauge を選ぶことで局所的に処理する．この選択を growing chart chains 上で一様かつ compatible に行えることが $\mathrm{(PBE)}_5$ の内容である．また，sharp differential statements は smooth raw map $q_t$ に対してのみ述べ，Lipschitz retraction $\Pi$ や $\Phi_t^{\mathrm{alg}}=\Pi\circ q_t$ は微分しない．
+条件付きの raw-depth 経路は relative five-source block，三 outlet の同時 framing，orbit-period matching，actual/relative long-corridor anchoring を用いない．三尖点に共通する一つの tame frame が存在しないという degree obstruction は，terminal cusp ごとの order-zero gauge を選ぶことで局所的に処理する．この選択を growing chart chains 上で一様かつ compatible に行えることが $\mathrm{(PBE)}_5$ の内容である．また，sharp differential statements は smooth raw map $q_t$ に対してのみ述べ，Lipschitz retraction $\Pi$ や $\Phi_t^{\mathrm{alg}}=\Pi\circ q_t$ は微分しない．
 
 Compact negative Kähler--Einstein metrics の存在一意性は Aubin--Yau 理論に基づく~\cite{Aubin,Yau}．準射影多様体上の完備負 Kähler--Einstein metrics については Cheng--Yau と Kobayashi~\cite{ChengYau,Kobayashi}，normal-crossing および toroidal degeneration については Ruan~\cite{RuanI,RuanII} を参照する．特異 Kähler--Einstein families と負曲率 compactness の背景には~\cite{DGG,SongSturmWang}，divisor 近傍の Poincaré 漸近には~\cite{Guenancia,RochonZhang}，局所 log-canonical geometry と neck/cusp closing には~\cite{DatarFuSong,Mandel,FuHeinJiang} がある．本稿の粗い距離論では有限長さ空間の標準事項を~\cite{BBI} の形で用いる．
 
@@ -139,7 +200,7 @@ exceptional curve上で次数零となるため，同定理を直接適用しな
 また，第V篇の径の尺度のGH近似をLagrangian fibrationのfiber収縮と同定するには，
 両写像の一様な近接性が別に必要である．
 その正確な比較条件と初等的証明は
-\href{https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/main/papers/sections/paper/base_topology.tex}
+\href{https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/32c67aefe6beb47c2955923e2b6eb2471d48af31/papers/sections/paper/base_topology.tex}
 {関連Lagrangian原稿の命題 \texttt{topo:ke-map-compatibility}} に記す．
 
 
@@ -224,7 +285,107 @@ $xy=tz$ の四つの toric divisors のうち中央ファイバーが二つし�
 訂正版 Theorem~4 の family statement は中央ファイバーが irreducible であることを仮定する．
 本稿の可約平面和に同結果を直接適用して moving tensor comparison を得ることはしない．
 
-\subsection{主結果}
+\subsection{主結果：局所安定性と全閉 corner}
+
+\begin{theorem}[固定 face からの局所安定性：主定理の要約]
+\label{thm:local-stability-intro}
+Exact triple $\zeta_0\zeta_1\zeta_2=t$ 上で
+$\ell_i=-\log|\zeta_i|^2$，$D_{t,m_0}=\{\min_i\ell_i>m_0\}$ とする．
+各固定 $t\ne0$ で全角度を含む $\overline{D_{t,m_0}}$ の近傍に滑らかな
+負 KE metric $\omega_t$ があり，固定 $m_0,c_*>0$ について
+\[
+ \omega_t^2\ge c_*\mathcal V_{L_t}\quad\text{on }\partial D_{t,m_0},
+ \qquad
+ \mathcal V_L=\frac{8L^2}{\ell_0^2\ell_1^2\ell_2^2}\,dV_{\log}
+\]
+が全位相・十分小さい $t$ に一様とする．ここで $dV_{\log}$ は独立な二つの
+$d\log\zeta_i$ による正の logarithmic volume form である．
+このとき十分大きい固定 $m_1$ と各 $q\ge0$ の $C_q$ が存在し，
+$m_1\le m<L_t/3$ 上で
+\[
+ \left\|\log\frac{\omega_t^2}{k_{L_t}^2}\right\|_{C^0(\min\ell_i\ge m)}
+       \le C/m,
+ \qquad
+ \|g_t-g_{L_t}^{\mathrm{sf}}\|_{C^q(\min\ell_i\ge m,g_{L_t}^{\mathrm{sf}})}
+       \le C_q/m.
+\]
+定数は $m_0,c_*,q$ のみに依存し，全深度比と全位相に一様である．
+境界 density の $t$ 一様な上界は不要である．
+\end{theorem}
+
+完全な定式化と証明は \cref{coarse:thm:boundary-to-triple} に置く．
+\Cref{ass:Gd} の全平面退化では，capped density 下界
+\cref{coarse:cor:degree-d-volume-lower} がこの fixed-face 入力を与えるので，
+\cref{coarse:thm:full-triple-tensor} は追加の解析 package なしに成立する．
+定数は固定した次数と族に依存してよい．
+その先の \cref{simplex:thm:closed-corner-model,simplex:cor:actual-closed-corner-metric} は，
+三枚の unit squares の内在距離に対する全閉 corner の distortion を
+$O((\log R_t)/R_t)$ と評価する．
+Corner の内在距離と，$\min\ell_i>R_t/2$ 内の全経路を許す距離が対象である．
+曲面全域を通る距離の下界と他の corner との接着は，この局所定理から分けて検証する．
+
+\subsection{曲面の大域実現に使う四つの局所入力}
+\label{sec:surface-minimal-inputs}
+
+関連曲面稿\cite{LagrangianCurrent}の
+\texttt{ke:global-metric-realization} への依存を，実際の利用箇所から整理する．
+以下では $d$ と族を固定し，負 KE 規格化 $\Ric(\omega_t)=-\omega_t$ を共通にする．
+局所計量は規格化前の $g_t$，GH 比較は $R_t^{-1}d_{g_t}$ に対して述べる．
+``固定'' と書く領域・cut は $t$ より先に選ぶ．
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.16\textwidth}>{\raggedright\arraybackslash}p{.40\textwidth}>{\raggedright\arraybackslash}p{.39\textwidth}@{}}
+\caption{曲面の同じ射影による全域 GH 実現への最小入力群}
+\label{tab:surface-minimal-inputs}\\
+\toprule
+入力 & 本稿の結論・領域・量化 & 曲面稿で別に供給する事項\\
+\midrule
+\endfirsthead
+\toprule
+入力 & 本稿の結論・領域・量化 & 曲面稿で別に供給する事項\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Capped lower と局所 upper &
+\Cref{coarse:cor:degree-d-volume-lower} の全 $X_t$ の正の capped 下界．
+\Cref{coarse:lem:pair-arm-density,coarse:lem:complete-volume-upper} の oriented pair/source 窓の上界．
+Complete 比較には各固定 $t$ の log-ratio 上有界性を含める． &
+\texttt{ke:staged-neck-averaging} 内の projective 下界，source 退出，actual-ball buffer．
+Source には両 arm と軸を含む正規形が必要で，volume のみから tensor 比較は結論しない．\\[1mm]
+Full triple と simplex &
+\Cref{coarse:thm:boundary-to-triple,coarse:thm:full-triple-tensor}，
+\cref{simplex:cor:active-cogram,simplex:cor:actual-closed-corner-metric}．
+$\min\ell_i\ge m\to\infty$，全深度比・全位相，固定族の全三重点に一様． &
+Actual Lagrangian bundle への Moser 移送，指定 normal subgroup，
+全 overlap の fiber 一致，保護領域外を通る全域距離の scalar 下界と portal 上界．\\[1mm]
+Source-free normal circle &
+\Cref{neck:prop:volume-envelope,neck:lem:rank-one-circle}．
+固定 residual compact で volume 上界と residual rank-one 下界から
+normal vectors を比較する．Actual-ball buffer があれば円周は
+$O(1/\min(s,M-s))$． &
+固定段階の共通 domain/image buffer と flow 生存．
+\Cref{coarse:lem:localized-chern-lu} の利用もこの buffer を要する．
+一般の neck 全体の product 漸近は入力に含めない．\\[1mm]
+束座標・primitive・固定 end &
+\Cref{pair:prop:bundle-conic,pair:cor:global-primitive,pair:thm:fixed-end-moment,pair:lem:diagonal-fixed-end}．
+Source と triple を避ける compact base $K$，end 半径 $r$，最後に $t$ を選ぶ．
+同じ residue frame，period $1$，normal moment の加法定数を保持する． &
+Source-inclusive fixed shells，residual periods と全 end の整合，core 接着．
+遅い対角列は固定段階の成立後に選ぶ．任意速度の moving 領域や
+$r\to0$ に一様な正の moment 幅は結論しない．\\
+\end{longtable}
+\endgroup
+
+この四群から曲面稿の全域証明へ進む順序は，局所入力，固定段階の接着と buffer，
+最後に遅い対角選択である．Part I の固定空間の無限遠，Part II の secondary complex periods，
+Part III の conditional conifold gluing は，この最小の解析鎖の追加仮定ではない．
+一方，固定成分上の収束や source-inclusive な構成を本表の局所結果だけから導くこともしない．
+本稿の $\mathrm{(CP)}_d,\mathrm{(PBE)}_d,\mathrm{(TC)}_5$ は次の別経路の仮定として残る．
+
+\subsection{条件付きの大域 raw-depth 経路}
+五次曲面の場合は $X_t=X_t^{(5)}$ と書く．
 十分大きい固定定数 $A_0$ に対し
 \[
  q_{i,t}=R_t^{-1}\log\!\left(A_0-\log(\|L_i\|^2+|t|)\right)
@@ -268,17 +429,31 @@ $1\le |I|\le2$ とし，raw flag region
 
 第一の定理は $\mathrm{(TC)}_5$ の下で\cref{coarse:thm:main}として証明する．第二の定理は\cref{sec:fixed-degree-extension}で定義する $\mathrm{(PBE)}_5$ の下で，\cref{sharp:thm:partII-raw-cogram}として証明する．$\mathrm{(PBE)}_5$ は対象となる moving protected regions 上の actual tensor comparison と boundary escape をそれ自体の仮定に含む．第V篇は粗い大域入力 $\mathrm{(CP)}_5$ と $\mathrm{(PBE)}_5$ の下で厳密 Gromov--Hausdorff 極限と直径係数を導く．本稿での $\mathrm{(CP)}_5$ の検証は $\mathrm{(TC)}_5$ に依存する．
 
-\subsection{証明状況}
-本稿の主張は次の四層に分かれる．
-\begin{enumerate}[label=\textup{(S\arabic*)}]
-\item 五次曲面に対する closed-cell realization，六局所型の capped determinant，intrinsic complete model windows，volume bounds，source-core の一様 inradius bound，および raw label localization は $\mathrm{(TC)}_5$ を用いない．
-\item Source を含む exterior 全体の actual/model tensor comparison は独立の仮定 $\mathrm{(TC)}_5$ である．それを用いる source-core diameter，finite connectors，coarse raw co-Gram，粗い二側距離比較，および $\mathrm{(CP)}_5$ の検証は条件付きである．一般の bounded-density interior estimate でこの仮定を置き換えることはできない．一方，任意の固定 $d\ge5$ の全深部三重点領域では，\cref{coarse:thm:full-triple-tensor} により追加の tensor 仮定なしに actual semi-flat 漸近を証明した．
-\item 固定 $d\ge5$ に対する source 数，relative divisor，$(d-2)$-punctured residual curve，cusp-adapted $\mathcal O(1)$ frames，adjunction，および pure local product models は無条件である．
-\item Moving flag-star の sharp product convergence と raw co-Gram 係数1は $\mathrm{(PBE)}_d$ の下での定理である．第V篇の厳密 GH 結論は $\mathrm{(CP)}_d+\mathrm{(PBE)}_d$ の下での定理であり，これらを本稿の対象族について検証する課題は残る．五次の場合の後半各節の local gauge と model calculations はそのための構成要素である．
-\end{enumerate}
+\subsection{証明状況と論文の構成}
+本稿の局所安定性，その固定次数の全平面退化への適用，simplex 境界の積漸近，
+全閉 corner の局所距離比較には本文中に証明がある．
+Source-free な束座標・canonical primitive・固定 end の moment にも証明があり，
+normal-circle 補題は residual 下界または actual buffer という正確な入力の下で用いる．
+これらと，各 degree の source/cusp 代数データ，capped volume，closed-cell realization，
+source-core inradius，raw label localization は，条件付きの大域経路から分離する．
 
-\subsection{論文の構成}
-まず固定次数 $d\ge5$ と高次元候補を独立の節で整理する．第I部では五次曲面に対し closed-cell realization，六局所型の capped determinant，intrinsic complete windows，central source packing，finite connectors を構成する．第II部では向き付き conic charts，three-cusp degree obstruction，terminal-cusp adapted gauges，product-box construction，bounded-ratio rigidity を展開し，$\mathrm{(PBE)}_5$ の下で係数1定理を証明する．補遺では六型 matrix certificate，closed-cell boundary regimes，規格化，frame degree，slow diagonal，chart-chain と adapted derivative の監査をまとめる．
+Source を含む exterior 全体の tensor comparison は $\mathrm{(TC)}_5$，
+moving protected boxes の一様性と二重 boundary escape は $\mathrm{(PBE)}_d$ の仮定である．
+Source-core diameter，finite connectors，粗い二側距離比較，$\mathrm{(CP)}_5$ の検証は前者に，
+moving flag-star 全体の係数 $1$ は後者に依存する．
+本族についてこれらの package 全体を検証する問題と，高次元の mixed source 解析は残る．
+本文に証明があることと独立の外部査読を終えたことは異なり，
+局所定量評価の包括的な新規性確認も未完了である．
+
+まず固定次数の設定を定め，capped density と complete local windows を構成する．
+局所安定性を読む最短経路は
+\cref{coarse:cor:degree-d-volume-lower,coarse:sec:full-triple-comparison} と
+その後の simplex 境界・閉 corner の各節である．
+固定 source-free neck は束座標・volume・moment の各節で独立に扱う．
+五次の source packing と条件付き粗幾何，terminal-cusp gauges と
+$\mathrm{(PBE)}_5$ の下での係数 $1$ の証明も保持する．
+補遺は六型 matrix certificate，規格化，frame degree，slow diagonal，
+chart-chain と adapted derivative を整理する．
 
 \section{固定次数と高次元への拡張範囲}\label{sec:fixed-degree-extension}
 
@@ -3896,10 +4071,10 @@ Theorems~1--2.
 \bibitem{LagrangianCurrent}
 K.~Ueda,
 \newblock 一般型射影曲面の Lagrangian torus fibration と負Kähler--Einstein極限，
-\newblock 現行未公表原稿，2026年11月22日，現行改訂32．
+\newblock 未公表原稿，2026年11月22日，確認版：改訂37（統合中）．
 \newblock \texttt{ke:closed-corner-gh}, \texttt{ke:closed-corner-protected-gh},
 \texttt{ke:relative-fiber-preserving}, \texttt{ke:global-metric-realization}.
-\newblock \url{https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/main/papers/surface-lagrangian-torus-fibration.tex}.
+\newblock \url{https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/32c67aefe6beb47c2955923e2b6eb2471d48af31/papers/surface-lagrangian-torus-fibration.tex}.
 
 \end{thebibliography}
 

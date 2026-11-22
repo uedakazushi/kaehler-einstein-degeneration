@@ -1,54 +1,84 @@
 {
   "date": "2026-11-22",
-  "engine": "LuaHBTeX 1.18.0 / TeX Live 2025/dev/Debian (current main manuscript)",
+  "engine": "LuaHBTeX 1.18.0 / TeX Live 2025/dev/Debian with user-local LuaTeX-ja and vector font maps",
   "manuscripts": [
     {
       "source": "papers/cubical-gh-limit.tex",
+      "version": "1.10",
+      "source_sha256": "cf0f06e7d268876153d44b293ae47ad5ad980d927cc54a4d3a4124e53c91886c",
       "pages": 37,
-      "pdf_sha256": "e2f7a1638f676d221b514e6f53ad3099b40961d7823bcde9d7879bee0ace7f68",
-      "unresolved_or_box_warnings": [],
-      "other_warnings": "Japanese-font scaling/feature and unavailable italic-shape notices, plus PDF bookmark math warnings remain; no unresolved references/citations, duplicate labels, missing glyphs, overfull or underfull boxes.",
+      "pdf_sha256": "1308eeba5687ba8041a822cdb3a8df2ca64d8ce95c0a65eb08fddb936522f29f",
+      "pdf_bytes": 681221,
       "verified_date": "2026-11-22",
-      "engine": "LuaHBTeX 1.18.0 / TeX Live 2025/dev/Debian",
-      "current_revision_rebuilt": true,
-      "current_revision_status": "Final v1.9 source rebuilt and selected changed pages visually inspected.",
-      "version": "1.9",
+      "engine": "LuaHBTeX 1.18.0 / TeX Live 2025/dev/Debian with user-local LuaTeX-ja and vector font maps",
       "build_exit_code": 0,
+      "build_command": "latexmk papers/cubical-gh-limit.tex",
+      "current_revision_rebuilt": true,
+      "current_revision_status": "Final v1.10 source built successfully; selected changed pages rendered at 150 dpi and actually displayed for review.",
+      "log_check_counts": {
+        "undefined_references_or_citations": 0,
+        "duplicate_labels": 0,
+        "missing_characters": 0,
+        "overfull_boxes": 0,
+        "underfull_boxes": 0,
+        "latex_errors": 0
+      },
+      "unresolved_or_box_warnings": [],
+      "other_warnings": "Japanese font scaling/feature and unavailable italic-shape notices, small math-font size substitutions, and PDF bookmark math warnings remain. No missing glyph, unresolved reference/citation, duplicate label, LaTeX error, overfull or underfull box.",
       "visual_review_current_pdf": {
         "pages": [
+          1,
           2,
-          4,
+          3,
           5,
           37
         ],
-        "result": "Rendered pages inspected: no visible omissions, overlaps or equation overflow. Main introductory scope, diagonal lemma and references display correctly.",
+        "dpi": 150,
+        "result": "Title/abstract, changed introduction and references inspected. For Part IV also the four-input table, local theorem 10.3, its complete proof, fixed-degree application 10.4 and scope remarks were displayed. No visible omission, overlap, clipping or equation overflow; table alignment was adjusted and rechecked.",
         "full_page_review": false
       }
     },
     {
       "source": "papers/kaehler-einstein-degeneration.tex",
-      "pages": 117,
-      "pdf_sha256": "f4939ba350ecd9036783ea8a5ed413c2f43c534a63d661f36d3cbbb7b0b7ebfe",
-      "unresolved_or_box_warnings": [],
-      "other_warnings": "Japanese-font scaling/feature and unavailable italic-shape notices, plus PDF bookmark math warnings remain; no unresolved references/citations, duplicate labels, missing glyphs, overfull or underfull boxes.",
+      "version": "1.10",
+      "source_sha256": "dc95b85a551d134e6df3e15b375f879007f6fbdc19db8bc64f50fc50d75b4087",
+      "pages": 119,
+      "pdf_sha256": "e333998ab2ecf58d19ad84559e930652064567cf1b06b98498baae0be4d32bf5",
+      "pdf_bytes": 1311689,
       "verified_date": "2026-11-22",
-      "version": "1.9",
+      "engine": "LuaHBTeX 1.18.0 / TeX Live 2025/dev/Debian with user-local LuaTeX-ja and vector font maps",
       "build_exit_code": 0,
-      "engine": "LuaHBTeX 1.18.0 / TeX Live 2025/dev/Debian",
+      "build_command": "latexmk papers/kaehler-einstein-degeneration.tex",
+      "current_revision_rebuilt": true,
+      "current_revision_status": "Final v1.10 source built successfully; selected changed pages rendered at 150 dpi and actually displayed for review.",
+      "log_check_counts": {
+        "undefined_references_or_citations": 0,
+        "duplicate_labels": 0,
+        "missing_characters": 0,
+        "overfull_boxes": 0,
+        "underfull_boxes": 0,
+        "latex_errors": 0
+      },
+      "unresolved_or_box_warnings": [],
+      "other_warnings": "Japanese font scaling/feature and unavailable italic-shape notices, small math-font size substitutions, and PDF bookmark math warnings remain. No missing glyph, unresolved reference/citation, duplicate label, LaTeX error, overfull or underfull box.",
       "visual_review_current_pdf": {
         "pages": [
           1,
+          2,
           6,
-          7,
-          70,
-          71,
-          117
+          9,
+          10,
+          11,
+          51,
+          52,
+          53,
+          54,
+          119
         ],
-        "result": "Rendered pages inspected: no visible omissions, overlaps or equation overflow. Main introductory scope, diagonal lemma and references display correctly.",
+        "dpi": 150,
+        "result": "Title/abstract, changed introduction and references inspected. For Part IV also the four-input table, local theorem 10.3, its complete proof, fixed-degree application 10.4 and scope remarks were displayed. No visible omission, overlap, clipping or equation overflow; table alignment was adjusted and rechecked.",
         "full_page_review": false
-      },
-      "current_revision_rebuilt": true,
-      "current_revision_status": "Final v1.9 source rebuilt and selected changed pages visually inspected."
+      }
     },
     {
       "source": "papers/punctured-neck-scattering.tex",
@@ -61,7 +91,7 @@
       "current_revision_rebuilt": false
     }
   ],
-  "scope": "Research documentation v1.17 synchronizes surface revision 36: componentwise positive area transport and its strict finite-cut criterion, actual P0 small balanced area increments preserving full source neighborhoods, and a conditional actual-anchor K4/Petersen core-chart construction. The source-fixed small-perturbation proof was drafted by this reviewer and selected steps were read by the main and another reviewer; general finite transport, cuts and anchor criteria are shared constructions/audits. Large prescribed atlas targets, opposite-end intercepts/residual periods/framing and all-open-overlap gluing remain unresolved. No IV/V mathematical source, tensor conclusion, CP/PBE/TC verification, typesetting or certificate computation is added. Prior valid proof/build scopes remain retained.",
+  "scope": "Part IV-V v1.10 extracts the exact-triple local stability theorem from its existing proof, separates the fixed-degree plane-degeneration application, leads with the unconditional local results, and lists the four actual input groups used by the surface direct GH proof. Part V distinguishes its abstract finite metric results from conditional raw-pruning application. Surface references are pinned to actually read revision 37, commit 32c67ae. The local kernel received a separate internal proof review. Both current manuscripts were successfully built, and 16 selected pages were displayed at 150 dpi. Existing finite certificate results remain retained without rerunning them; no external peer review, formal proof, or comprehensive novelty check is claimed.",
   "certificate_runs": [
     {
       "script": "cubical_diameter_exact_gallery_certificate_definitive_v1.py",
@@ -170,38 +200,48 @@
     }
   ],
   "visual_check": {
-    "sample": "First, middle and last pages of each manuscript (38 distinct pages across the three repositories).",
-    "result": "Reviewed rendered contact sheets; no visible clipping or overlap in sampled pages.",
+    "date": "2026-11-22",
+    "version": "1.10",
+    "sample": "Part IV: pages 1,2,6,9-11,51-54,119 (11 pages). Part V: pages 1-3,5,37 (5 pages).",
+    "dpi": 150,
+    "result": "All 16 selected pages actually displayed; no visible clipping, overlap, omission or equation overflow. Part IV table columns were aligned and the affected pages were rendered and checked again.",
     "full_page_review": false,
-    "scope": "Recovered manuscript editions; the separate current-main sample is recorded under manuscripts."
+    "scope": "Changed publication entrance, four-input table, new local theorem and proof, application and references; not all pages or all mathematical claims."
   },
   "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested.",
-  "version": "1.17",
+  "version": "1.19",
   "certificate_runs_date": "2026-11-20",
   "certificate_runs_repeated_current_revision": false,
   "current_math_audit": {
     "date": "2026-11-22",
-    "version": "1.9",
-    "mathematics_verified": "Read the shared capped-density/source minor/full-triple fixed-face dependency and fixed-end normalization/quantifier interfaces. Added and proved pair:lem:diagonal-fixed-end; independently checked by another agent for stage/cut/error/budget order and all-complex-parameter quantifiers. Coordinated documentation distinguishes the conditional CP/PBE/TC route from the surface direct scalar/portal route.",
-    "audit_limitations": "This is a selected source/interface audit, not a complete recheck of all analytic proofs or primary sources. No new computational certificate run, external peer review, formal proof, or comprehensive novelty survey.",
-    "claims_not_established": "(TC)_5 and the global (CP)_d+(PBE)_d package remain unverified; no arbitrary moving speed, prescribed full tensor limit, or fixed positive moment width is deduced.",
-    "post_edit_lualatex_rerun": true,
+    "version": "1.10",
+    "new_theorem": "coarse:thm:boundary-to-triple in papers/sections/full_triple_comparison.tex, Part IV Theorem 10.3, pp.51-52. The fixed-degree application remains coarse:thm:full-triple-tensor, Theorem 10.4, p.53.",
+    "mathematics_verified": "Read the exact triple model, compact full-phase closure, all boundary faces, signs of both maximum-principle comparisons, independence from a parameter-uniform upper boundary bound, normalized covering charts, small Ricci potential, Savin threshold and subsequent Schauder estimates. The family application supplies the boundary floor through the capped density and fixed local residue comparison, with constants uniform over finitely many triple charts for a fixed degree and family.",
+    "independent_review": "A separate reader checked the full section, small-volume-tensor proof and plane application. The reader confirmed L>=6c, c=M*m0, 9/4*(1+M)^(-2)<=c_*, min depth >=3m/4 in the relative window, m1>=4c and a q-independent smallness threshold. No new gap was found in this specified chain.",
+    "primary_source_scope": {
+      "reviewer": "separate internal reviewer",
+      "source": "O. Savin, Small perturbation solutions for elliptic equations, author PDF",
+      "url": "https://www.math.columbia.edu/~savin/Small_pert.pdf",
+      "locations": "H1/H2, printed p.558; H4, p.559; Theorem 1.3, p.560",
+      "checked": "The theorem requires H1, H2 and H4, not H3; global degenerate ellipticity and local uniform ellipticity/smoothness are compatible with the det_+ extension. This is not a rereading of all primary-source proofs."
+    },
+    "audit_limitations": "Selected theorem and dependency audit only. The new independent review did not recheck the entire capped determinant proof, all manuscript claims, or complete original papers. No computational certificates rerun, external peer review, formal proof, or comprehensive novelty survey.",
+    "claims_not_established": "(TC)_5 and the global (CP)_d+(PBE)_d package remain unverified. No arbitrary moving speed, source-wide tensor asymptotic, fixed positive moment width, or uniformity in degree follows.",
+    "post_edit_lualatex_attempted": true,
+    "post_edit_lualatex_succeeded": true,
     "visual_review_pending": false,
-    "new_lemma": "pair:lem:diagonal-fixed-end in papers/sections/source_free_neck_coordinates.tex (Part IV Lemma 13.9, pp.70-71)",
-    "independent_review": "A second agent read the new lemma statement and proof and checked the K_j -> r_j -> finite errors/costs -> parameter thresholds order, end signs, and absence of a fixed positive interval or arbitrary prescribed moving speed claim.",
-    "primary_source_scope": "No new comprehensive primary-source retrieval in v1.9; existing precise Song/Rochon-Zhang/Savin/Yau/Zhang reference checks are retained in the current text and notes."
+    "retained_inputs": "Earlier fixed-end/diagonal, capped source-density, simplex/closed-corner and shared surface/fixed-complement checks remain in research/notes.md with their exact scope; they were not all repeated."
   },
   "current_documentation_update": {
     "date": "2026-11-22",
-    "version": "1.17",
-    "manuscript_sources_changed": false,
-    "lualatex_repeated": false,
+    "version": "1.19",
+    "manuscript_sources_changed": true,
+    "lualatex_repeated": true,
     "computational_certificates_repeated": false,
     "surface_reference": {
-      "revision": 36,
-      "commit": "c056ecba5d25a55f135e739faab5993582814484",
-      "scope": "Saved revision 36 contains the finite positive-transport iff theorem in a fixed relative orbit, strict Hall cuts and endpoint/annular-protection obstructions, the actual P0 source-fixed small-area construction, and conditional K4/Petersen charts from actual anchor periods. Directly constructed the small-area result using smooth free-cell masses and relative increments, connected incidence, a spanning-tree right inverse, explicit positive bump density and circle lifting supported away from full source neighborhoods. Read the general transport/strict-cut and anchor statements and proofs for their dependency interface; record them as shared constructions and reviews, not an additional independent comprehensive core audit. Prior K5, source-wall, relative-replacement, analytic and geometric scopes remain valid.",
-      "research_set_version": "3.20",
+      "revision": 37,
+      "commit": "32c67aefe6beb47c2955923e2b6eb2471d48af31",
+      "scope": "Read the saved revision 37 source for the actual input interfaces: capped lower/oriented upper, full-triple/simplex estimates, normal-circle rank-one criterion, and fixed-base coordinates/primitive/end quantifiers. Bibliography now pins this source rather than calling revision 32 current. Prior source-wall, relative-area and core-criterion scopes are retained below without claiming a complete additional surface audit.",
       "labels": [
         "ke:source-inclusive-fixed-shell",
         "ke:eq:source-inclusive-fixed-frame",
@@ -238,8 +278,22 @@
         "ke:anchor-stokes-budget",
         "ke:eq:anchor-intercept"
       ],
-      "source_proof_ownership": "Surface ke_staged_neck_averaging.tex owns the source-inclusive fixed-shell input. Surface neck_action_matching.tex owns free-band Stokes/source-wall, componentwise area transport and strict cuts, and source-fixed actual small-area realization. Surface global_action_atlas.tex owns actual anchor-period and conditional K4/Petersen chart criteria. Surface ke_global_base_compatibility.tex owns relative-replacement GH stability. No proof is duplicated or added to the IV/V mathematical sources.",
-      "build_and_visual_status": {
+      "source_proof_ownership": "Surface ke_staged_neck_averaging.tex owns source-inclusive fixed shells and fixed-stage buffers. Surface neck_action_matching.tex owns free-band Stokes/source-wall and relative-area arguments. Surface global_action_atlas.tex owns conditional anchor-period/core criteria. These surface proofs are referenced, not duplicated in IV/V.",
+      "current_source_build_verified": false,
+      "current_source_build_status": "Revision 37 is an integrated working manuscript. The retained successful upstream build-and-visual record below is revision 36, not proof that revision 37 has been rebuilt.",
+      "upstream_finite_integer_checks": {
+        "date": "2026-11-22",
+        "source_repository_commit": "c056ecba5d25a55f135e739faab5993582814484",
+        "command": "python3 scripts/research_check.py arithmetic",
+        "driver": "verification/run_current_checks.py",
+        "cases": 10,
+        "all_exit_codes_zero": true,
+        "executed_by": "separate surface reviewer",
+        "executed_by_this_reviewer": false,
+        "scope": "python3 scripts/research_check.py arithmetic → verification/run_current_checks.py のfour-ray, five-node, central, axis, divisorと対応audit各5件、計10件がexit0。別担当が再実行。既存有限整数接着のみを検算し、KE解析や新しい一般面積輸送定理の証明確認ではない。",
+        "interpretation": "Existing finite integer-gluing checks are distinct from KE analytic proof review, the general relative-area theorem, and the unchanged KE repository certificate runs."
+      },
+      "last_successful_build_and_visual_status": {
         "date": "2026-11-22",
         "source_repository_commit": "c056ecba5d25a55f135e739faab5993582814484",
         "source_repository_tree": "a241fac1fe1e61522a62adcf2766496496f4d362",
@@ -287,28 +341,12 @@
         "pdf_visual_review_by_this_reviewer": false,
         "validation_record_read_and_local_hashes_checked": true,
         "status": "Final revision 36 upstream LuaLaTeX/latexmk, static/preflight and actual selected-page visual review succeeded. The main reviewer verified final remote main and tree; this reviewer independently checked the exact local Git tree, local source/PDF SHA-256 and PDF bytes and read the saved validation, without rerunning typesetting or visually reviewing these PDFs. The IV/V v1.9 build records remain unchanged."
-      },
-      "source_repository_tree": "a241fac1fe1e61522a62adcf2766496496f4d362",
-      "dependency_table_version": "3.10",
-      "current_source_build_verified": true,
-      "current_source_build_status": "Revision 36: successful 290-page upstream build; the main reviewer and a separate reviewer actually displayed the specified 21 pages at 150 dpi. Six checked diagnostic categories are zero. This record synchronizes their executed checks and is not a new build/visual review by this reviewer.",
-      "upstream_finite_integer_checks": {
-        "date": "2026-11-22",
-        "source_repository_commit": "c056ecba5d25a55f135e739faab5993582814484",
-        "command": "python3 scripts/research_check.py arithmetic",
-        "driver": "verification/run_current_checks.py",
-        "cases": 10,
-        "all_exit_codes_zero": true,
-        "executed_by": "separate surface reviewer",
-        "executed_by_this_reviewer": false,
-        "scope": "python3 scripts/research_check.py arithmetic → verification/run_current_checks.py のfour-ray, five-node, central, axis, divisorと対応audit各5件、計10件がexit0。別担当が再実行。既存有限整数接着のみを検算し、KE解析や新しい一般面積輸送定理の証明確認ではない。",
-        "interpretation": "Existing finite integer-gluing checks are distinct from KE analytic proof review, the general relative-area theorem, and the unchanged KE repository certificate runs."
       }
     },
     "part_i_reference": {
-      "version": "1.6",
-      "commit": "2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4",
-      "status": "Verified latest source-repository main and tree. Research documentation is v1.10 and series-overview is v1.9. The Part I v1.6, Part II v2.1, Part III and research-directions mathematical sources are unchanged. Prior Part I/II proof-audit scopes and successful build/visual records remain valid. Only the overview was rebuilt upstream for this synchronization. This reviewer read the final validation and checked source/PDF hashes and PDF bytes without typesetting or visually reviewing the new overview.",
+      "version": "1.7",
+      "commit": "f9cac112b6070bff240579eecf3a2c92e0975722",
+      "status": "Part I v1.7 and overview v1.10 saved to source-repository main. Four new Part I proofs independently reviewed in this joint publication pass; older selected input audits remain separate from a comprehensive re-audit. Part II/III are unchanged. Current source-repository build and selected-page reports are synchronized below.",
       "labels": [
         "lem:SNC-compatible-collars",
         "lem:fc-collar-transfer",
@@ -373,17 +411,20 @@
       "shared_measure_audit": "Shared audit covers the ambient-open LDP. The shared conditional actual-residual moment bound yields vertex tightness, exact tail, joint law and distance Laplace transform under ordinary all-face volume-IRFA without an exponential-volume hypothesis. Synchronize bounded-primitive Stokes from a smooth reference curvature, its KE applicability and normal-torus normalization. For Mellin, record all-face conditional moments with essential supremum in normal depths, Holder weighted-TV interpolation on compact subcritical parameter sets, residue/adjunction recursion without a weighted hypothesis on the chosen dominator, and mixed component coefficients m_G times the incidence indicator. Critical-limit order and meromorphic-continuation conditions remain explicit. These are shared audits; the reviewer of translation does not claim an independent audit of every other proof or primary source.",
       "upstream_build_and_visual_check": {
         "date": "2026-11-22",
-        "source_repository_commit": "2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4",
-        "engine": "LuaHBTeX 1.18.0 / TeX Live 2025/dev/Debian via latexmk",
+        "source_repository_commit": "f9cac112b6070bff240579eecf3a2c92e0975722",
         "manuscripts": [
           {
             "source": "papers/multiscale-kaehler-einstein.tex",
-            "source_version": "v1.6",
-            "pages": 64,
-            "source_sha256": "61afb2fdc75e08158d1ced75f146036b80c2ac10eb0b61064e6c2f7b59e01d7d",
-            "pdf_sha256": "7a2677d5182e90ab0bac0cfbe2e1bc73fc710685abd0ebd43e3861c058509283",
+            "source_version": "v1.7",
+            "source_sha256": "a89fc7828da94f4d70f934c6af76494f805be1f654b8cca5f07139712c915fa0",
             "build_date": "2026-11-22",
-            "rerun_in_current_revision": false,
+            "build_status": "success",
+            "build_exit_status": 0,
+            "pages": 67,
+            "pdf_bytes": 958528,
+            "pdf_sha256": "97f1d2ad61d92333fa4ff6fb84b7c370878eef8b5e9329883bab866ec3ad2e6b",
+            "rerun_in_current_revision": true,
+            "source_unchanged_in_current_revision": false,
             "log_check_counts": {
               "undefined_references_or_citations": 0,
               "duplicate_labels": 0,
@@ -392,6 +433,7 @@
               "underfull_boxes": 0,
               "latex_errors": 0
             },
+            "other_warnings": "Font-size substitutions and legacy class rm warning remain; the overview also reports Japanese font scaling and ignored addjfontfeatures. No missing characters.",
             "visual_check_pages": [
               1,
               2,
@@ -404,26 +446,28 @@
               9,
               10,
               11,
-              12,
-              37,
-              48,
-              49,
-              63,
-              64
+              44,
+              45,
+              56,
+              57,
+              66,
+              67
             ],
-            "visual_check_result": "Pages 1-12 rendered with Poppler at 90 dpi and actually viewed in four-page layout sheets by the main reviewer; pages 37,48,49,63,64 separately rendered and actually viewed at 150 dpi by an independent internal reviewer. The final table of contents and introduction, hypothesis table, probability normalization, Abel obstruction and bibliography have no visible clipping, overlap or missing glyphs.",
-            "other_warnings": "Math-font size substitutions, Japanese font scaling or unavailable italic-shape fallback, legacy class rm and ignored addjfontfeatures notices may remain; no missing glyphs.",
-            "source_unchanged_in_current_revision": true,
-            "verified_build_source_commit": "32566ee8dded382a4d1d0a8446b368fd81598a94"
+            "visual_check_resolution": "Poppler PNGs, 1754 pixels high on A4 (approximately 150 dpi), viewed individually.",
+            "visual_check_result": "Title, abstract, contents and full Introduction; new intrinsic/uniform-tail corollary, nonintegrable non-KE cusp example, non-CAT(0) K5 remark, depth gauge proposition and bibliography actually viewed. No clipping, overlap or missing glyphs."
           },
           {
-            "source": "papers/secondary-periods-torelli.tex",
-            "source_version": "v2.1",
-            "pages": 28,
-            "source_sha256": "e15ca2c1e7dde21c1cbdd5d6b48d53d58945cf162b71cc0ea3aaa786b11e68f5",
-            "pdf_sha256": "6d837ee486a50de06dbbfb88adf907bf88b202753777c71cb544e63c4c6b8bd9",
+            "source": "papers/series-overview.tex",
+            "source_version": "v1.10",
+            "source_sha256": "b5e0874e7e3a7ff940227b2cc3904da054baa94b262e8a566f0cf4f405e14287",
             "build_date": "2026-11-22",
-            "rerun_in_current_revision": false,
+            "build_status": "success",
+            "build_exit_status": 0,
+            "pages": 15,
+            "pdf_bytes": 487670,
+            "pdf_sha256": "fd30d8bc24b466a5d79cea03f6b3c9e41d002232ff58562909c5492ab02218e2",
+            "rerun_in_current_revision": true,
+            "source_unchanged_in_current_revision": false,
             "log_check_counts": {
               "undefined_references_or_citations": 0,
               "duplicate_labels": 0,
@@ -432,77 +476,42 @@
               "underfull_boxes": 0,
               "latex_errors": 0
             },
+            "other_warnings": "Font-size substitutions and legacy class rm warning remain; the overview also reports Japanese font scaling and ignored addjfontfeatures. No missing characters.",
             "visual_check_pages": [
               1,
               2,
               3,
               4,
-              8,
-              9,
-              27,
-              28
-            ],
-            "visual_check_result": "All eight specified pages rendered with Poppler at 150 dpi and actually viewed individually by an independent internal reviewer. Setup n>=2, markings/orientation, diagram, stable translation reference, period definition and single bibliography heading were checked; no visible clipping, overlap or missing glyphs.",
-            "other_warnings": "Math-font size substitutions, Japanese font scaling or unavailable italic-shape fallback, legacy class rm and ignored addjfontfeatures notices may remain; no missing glyphs.",
-            "source_unchanged_in_current_revision": true,
-            "verified_build_source_commit": "32566ee8dded382a4d1d0a8446b368fd81598a94"
-          },
-          {
-            "source": "papers/series-overview.tex",
-            "pages": 15,
-            "pdf_sha256": "5f6736781f6e47610a2376c005d3da524f57f1a9842e59c5e6b26254b37cc85f",
-            "unresolved_or_box_warnings": [],
-            "other_warnings": "Math-font size substitutions, Japanese font scaling or unavailable italic-shape fallback, legacy class rm and ignored addjfontfeatures notices may remain; no missing glyphs.",
-            "build_date": "2026-11-22",
-            "rerun_in_current_revision": true,
-            "source_sha256": "dd700ccabc529bd1237d46541ed9a4bcecf799095689aedfd74dc9972e0fd663",
-            "log_check_counts": {
-              "undefined_references_or_citations": 0,
-              "duplicate_labels": 0,
-              "missing_characters": 0,
-              "overfull_boxes": 0,
-              "underfull_boxes": 0,
-              "latex_errors": 0
-            },
-            "visual_check_pages": [
-              1,
-              2,
-              6,
-              7,
-              8,
-              9,
+              5,
               14,
               15
             ],
-            "visual_check_result": "All eight specified pages rendered with Poppler at 150 dpi and actually viewed individually. Title/version and contents, the preceding surface comparison, relative GH, finite positive allocation and strict cut conditions, actual source-preserving small flexibility, anchor action and core criterion, following-page continuity, priorities and the bibliography heading/continuation were checked. No visible clipping, overlap or missing glyphs.",
-            "source_version": "v1.9",
-            "source_unchanged_in_current_revision": false,
-            "pdf_bytes": 476714,
-            "visual_check_dpi": 150,
-            "source_repository_commit": "2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4",
-            "visual_review_performed_by": "multiscale coordination agent",
-            "lualatex_run_by_this_reviewer": false,
-            "pdf_visual_review_by_this_reviewer": false,
-            "validation_record_read_and_local_hashes_checked": true
+            "visual_check_resolution": "Poppler PNGs, 1754 pixels high on A4 (approximately 150 dpi), viewed individually.",
+            "visual_check_result": "Final title/version, contents, new central-results/publication-unit section, W comparison, boundary-to-triple kernel, K4 protected-anchor condition, theorem-status table, following-page continuity, limitations and bibliography actually viewed. No clipping, overlap or missing glyphs."
           }
         ],
-        "scope": "Current upstream state: Part I v1.6 remains 64 pages with the prior 17-page visual review and Part II v2.1 remains 28 pages with the prior 8-page review; their mathematical sources and the Part III/research-directions sources are unchanged. Only series-overview v1.9 was rebuilt: 15 pages, with pages 1,2,6,7,8,9,14,15 actually viewed individually at 150 dpi by the multiscale coordination agent. Six final log categories are zero. This reviewer read the saved validation, verified the exact source-repository tree and local source/PDF hashes and bytes, without typesetting or visually reviewing the new overview. These records are separate from the unchanged IV/V v1.9 builds.",
-        "unchanged_part_i_ii_source_comparison": {
-          "from_commit": "32566ee8dded382a4d1d0a8446b368fd81598a94",
-          "to_commit": "2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4",
-          "sources": [
-            "papers/multiscale-kaehler-einstein.tex",
-            "papers/secondary-periods-torelli.tex"
-          ],
-          "byte_identical": true
-        }
+        "scope": "Current upstream builds and selected-page visual checks reported by the responsible reviewer; not a visual check or rebuild by the local analytic reviewer."
       },
       "direct_moving_basepoint_audit": "Independently audited thm:moving and prop:cone-limits. Defined the residual link by cofaces and face maps retaining the chosen face copy; established the intrinsic product only on positive face coordinates. If the minimum weighted face coordinate m exceeds 2A, first exit and last re-entry cost at least 2(m-A)>2A, giving an exact isometry of ambient closed A-balls. Checked repeated coface copies, finite/divergent coordinate extraction, bounded residual basepoint convergence, the empty-link convention, exhaustiveness and realization of every listed pointed limit for any prescribed scaling sequence by surjectivity of S. Closed-star shortcut and boundary-identification counterexamples are retained upstream.",
       "shared_metric_link_and_literature_audit": "Read the integrated metric-link statement and scope and synchronized the shared audit: uniform O(1/r) radial divergence for coarse sections, recovery of the extended spherical length metric including infinity between components, and metric isometry type only. Divisor labels, a chosen cell subdivision, depth-coordinate weights and a genuine geodesic-ray boundary are not reconstructed. Leuzinger Lemma 5.1, Theorem 5.2 and Corollary 6.3 cover overlapping locally symmetric results; Bridson-Haefliger I.5 Definition 5.6 and Remarks 5.7 cover standard cone geometry. Detailed primary-source checks and bibliography are owned by the Part I Introduction and source-audit, not claimed as a new comprehensive independent review here.",
-      "research_set_version": "1.10",
+      "research_set_version": "1.12",
       "direct_intro_distance_scope_audit": "Independently compared Abstract/Introduction with clean/metric-IRFA, rough/contract/closed-ball statements, moving/link, KE applicability and general-position/multidegree corollaries. Confirmed proper 1-Lipschitz surjectivity, a single fixed-space K for all centres/radii/scales, compact-collapse choices with K allowed to depend on the chosen compact set, ambient rather than intrinsic ball metrics, and fixed-basepoint uniqueness. Made connectedness, reduced SNC, n>=1, compact empty-boundary case and nonempty-boundary tail scope explicit. Read Rochon-Zhang v2 p.2 and Section 5 pp.38-39/Theorem 5.1 for dimension-one validity and c_i=1 normalization. No change to distance theorem conclusions and no comprehensive re-audit of all analytic proofs is claimed.",
       "shared_measure_scope_and_literature_audit": "Shared publication-scope audit distinguishes raw KE volume face masses from their probability-normalized versions, which are divided by total volume and are not a probability partition over faces. Ordinary recursive volume-IRFA yields one-sided Abel limits; the abstract cusp density e^(-t)(1+1/t) gives a logarithmic obstruction to meromorphic continuation and is not asserted to be KE volume. Joint polyhomogeneity with residual/angular L1 estimates remains an additional continuation assumption. The shared primary-source comparison with Chambert-Loir-Tschinkel separates prior residue-measure/Igusa leading-coefficient theory from this log-log depth and ordinary-L1 setting. Detailed source locations and novelty limitations belong to the upstream Introduction and source-audit.",
-      "source_repository_tree": "3480ad120484383c90fb6fe21a32cc5b05f4921b"
+      "source_repository_tree": "b4d6e7a3b726376f21b89462485468cf873d0833",
+      "selected_new_proof_review": {
+        "date": "2026-11-22",
+        "version": "1.7",
+        "source": "papers/multiscale-kaehler-einstein.tex",
+        "labels": [
+          "cor:tail-intrinsic-uniform",
+          "ex:nonintegrable-cusp-tail",
+          "prop:depth-gauge",
+          "rem:K5-not-CAT0"
+        ],
+        "checked": "Independent read-only check of finite-net compact basepoint uniformity, intrinsic tail rate/weight and log-Lipschitz comparison, r=ell+t+a*log(1+t) and R^a*exp(-R) tail for the explicitly non-KE cusp, O(exp(-t)) Hermitian-gauge shifts and exact constant-shift compensation, and the two length-3pi/4 angular paths in the graph K5 with edge lengths pi/2.",
+        "result": "No gap found in these four selected additions. No Leuzinger primary-source re-retrieval, full Part I audit or external build/visual review by this reviewer.",
+        "commit": "f9cac112b6070bff240579eecf3a2c92e0975722"
+      }
     },
     "claims_not_established": "Large prescribed atlas-target feasibility in the finite transport polytope, opposite-end intercepts, residual primitive periods and integer framings, marked interpolation preserving full source neighborhoods, and whole-fiber matching on all open overlaps remain unresolved. The small-area theorem is for fixed stage/t and a sufficiently small moment interval; it supplies neither degeneration-uniform margins nor arbitrary targets. Conditional actual-anchor charts require the specified periods and actual overlap markings; Stokes total mass alone is insufficient when protected source annuli disconnect the free region. Same-projection atlas+GH existence for d=5,6 remains open. No new IV/V tensor estimate, arbitrary moving speed, or verification of (TC)_5 or global (CP)_d+(PBE)_d is supplied. Prior intermediate-scale, fixed-space/measure and Part II marking restrictions remain valid. No comprehensive independent audit of all manuscripts or primary-source proofs is claimed.",
     "validation": "Targeted final v1.17 documentation checks passed: JSON and versions agree; exact surface c056ecba5d25a55f135e739faab5993582814484/tree and multiscale 2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4/tree match local Git objects; all 34 listed surface labels and 63 Markdown surface references resolve, as do 57 Part I and 3 Part II labels; all 19 local Markdown links exist. Exactly four documentation files changed. No provisional or obsolete current-state reference remains; git diff --check passed. IV/V source bytes/SHA-256 and prior mathematical audit/build/certificate records are unchanged, as are retained analytic, moving, K5 and relative-GH scopes. Prior Part I/II proof/build records are unchanged; their sources match the prior verified mathematical snapshot, and all four unchanged multiscale mathematical sources match the previous saved main. Final upstream records are surface revision 36 (290 pages, 21 selected pages at 150 dpi) and overview v1.9 (15 pages, 8 selected pages at 150 dpi), with source/PDF hashes and PDF sizes verified locally. The separate upstream ten-case integer-gluing run is attributed to its executing reviewer and is not KE analytic/general-area proof verification. This reviewer did not rerun typesetting, visually inspect these final PDFs, or repeat computational certificates.",
@@ -613,7 +622,26 @@
       "conditional_chart": "Actual marked anchor leaves with the stated K4 directed-cycle periods or Petersen external-zero/internal-(0,-M) periods, actual torus-overlap markings, negative meridian periods and annular Stokes identities give a K4/Petersen action chart on the same Liouville filling, with saturated lattices and denominator 1. The domain, skeleton/filtration and retained corner leaves are unchanged.",
       "stokes_budget": "Under the specified clutching relation and period-1 framing, Area(P)=-sum(c_b)-M. K4 target basins have A_b-c_b; Petersen external basins have -c_b and its internal annulus has -M. This gives exact total mass; protected source annuli still require the full finite transport constraints. Residual framing and opposite-end/open-overlap matching remain inputs.",
       "review_scope": "Shared construction and selected internal review. This reviewer read the integrated finite-transport, strict-cut and anchor proof interfaces for synchronization; no additional independent comprehensive core or external-source audit is claimed. The general max-flow/min-cut principle is prior theory cited upstream."
-    }
+    },
+    "lualatex_succeeded": true
   },
-  "build_environment": "Stock LuaLaTeX first lacked its format, and the first recovered environment lacked the rsfs font map. Existing TeX Live dependencies and valid font maps resolved both. The repository latexmk/SyncTeX configuration is unchanged; successful outputs are in build/. No GitHub Actions used."
+  "build_environment": "LuaHBTeX 1.18.0 with LuaTeX-ja/Harano Aji and CM, AMS, RSFS vector fonts. The workspace used a user-local TeX setup; the repository retains the ordinary latexmk/LuaLaTeX/SyncTeX configuration. PDFs and caches stay under ignored build/cache directories. No GitHub Actions used.",
+  "current_static_source_checks": {
+    "date": "2026-11-22",
+    "version": "1.10",
+    "git_diff_check_exit_code": 0,
+    "manuscripts": [
+      {
+        "source": "papers/kaehler-einstein-degeneration.tex",
+        "input_files": 8,
+        "labels": 449
+      },
+      {
+        "source": "papers/cubical-gh-limit.tex",
+        "input_files": 1,
+        "labels": 177
+      }
+    ],
+    "results": "Recursive source scan found no missing input file, undefined internal reference, duplicate label, undefined bibliography key, mismatched or unclosed explicit environment. This source scan does not replace LuaLaTeX compilation or visual inspection."
+  }
 }

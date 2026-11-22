@@ -1,5 +1,5 @@
 % !TeX root = ../kaehler-einstein-degeneration.tex
-% Current content: 2026-11-20, v1.1.
+% Current content: 2026-11-22, v1.2 (Part IV v1.10).
 \section{全深部三重点領域と complete simplex KE model}
 \label{coarse:sec:full-triple-comparison}
 
@@ -12,8 +12,11 @@ logarithmic simplex 全体の complete toric KE metric を用いる．
 \emph{固定された toric model} の存在と完備性の結果である．
 同論文の退化族に関する Theorem~2.4 や，その全空間の
 $\mathbb Q$-factorial 仮定は用いない．
-Actual family には，\cref{ass:Gd} を満たす固定次数 $d\ge5$ の全平面退化を用い，
-その適用は \cref{coarse:cor:degree-d-volume-lower} の大域 volume 下界に依存する．
+まず exact triple 領域の固定 face 上に一様な density 下界を持つ負 KE metrics に対し，
+局所安定性を証明する．各固定 parameter で radial closure と全 phase tori が compact であり，
+metric がその近傍で滑らかなことを仮定するが，parameter 一様な境界上界は要しない．
+その後，\cref{ass:Gd} を満たす固定次数 $d\ge5$ の全平面退化へ，
+\cref{coarse:cor:degree-d-volume-lower} を用いて適用する．
 Actual estimates の定数は固定した $d$ と退化族に依存してよく，次数に一様な評価は主張しない．
 以下の比較法と本族への適用について，新規性の包括的確認は未完了である．
 
@@ -238,7 +241,122 @@ $|\log(1\pm3c/L)|\le Cc/L$ も用いると
 \]
 \end{proof}
 
-\subsection{固定次数の actual metric の全深部比較}
+\subsection{固定 face 下界からの局所安定性}
+
+\begin{theorem}[Exact triple 領域の境界密度からの局所安定性]
+\label{coarse:thm:boundary-to-triple}
+$m_0,c_*>0$ を固定し，$0<|t|<t_0$ に対し
+\[
+ M_t=\{(\zeta_0,\zeta_1,\zeta_2)\in(\CC^*)^3:
+                  \zeta_0\zeta_1\zeta_2=t\},\qquad
+ \ell_i=-\log|\zeta_i|^2,\qquad L_t=-\log|t|^2
+\]
+とする．$L_t>3m_0$ とし，全 angular phases を含む領域
+\[
+ D_{t,m_0}=\{\zeta\in M_t:\ell_i>m_0\ (i=0,1,2)\}
+\]
+を考える．各 $t$ について，$\omega_t$ は $M_t$ 内の
+$\overline{D_{t,m_0}}$ の近傍で滑らかな Kähler metric であり，
+$\Ric(\omega_t)=-\omega_t$ とする．さらに全ての境界 face と angular phases 上で
+\begin{equation}\label{coarse:eq:local-triple-face-floor}
+ \omega_t^2\ge c_*\mathcal V_{L_t}
+ \qquad\text{on }\partial D_{t,m_0}
+\end{equation}
+を仮定する．
+
+このとき，$m_0,c_*$ のみに依存する $m_1>m_0$ と $L_*>0$，
+および各整数 $q\ge0$ に対する $C_q$ が存在し，
+$L_t\ge L_*$，$m_1\le m<L_t/3$ ならば
+\begin{align}
+ \sup_{\min_i\ell_i\ge m}
+   \left|\log\frac{\omega_t^2}{k_{L_t}^2}\right|
+  &\le C_0/m,
+       \label{coarse:eq:local-triple-small-volume}\\
+ \|g_t-g_{L_t}^{\mathrm{sf}}\|_{C^q(\{\min_i\ell_i\ge m\},g_{L_t}^{\mathrm{sf}})}
+  &\le C_q/m.
+       \label{coarse:eq:local-triple-small-tensor}
+\end{align}
+ここで $g_t,g_{L_t}^{\mathrm{sf}}$ は $\omega_t,k_{L_t}$ の実計量であり，
+$C^q$ norm は最大深度を従属にする normalized holomorphic covering charts，
+または同値な model covariant norm で計算する．定数は全深度比・全 angular phases に一様であり，
+$C_q$ は $m_0,c_*,q$ のみに依存する．
+各固定 $t$ の滑らかな閉包への延長以外に $t$ に関する正則性は仮定せず，
+境界上の density 上界を $t$ に一様に取る必要もない．
+\end{theorem}
+
+\begin{proof}
+以下 $L=L_t$ と書く．最大値原理は $D_{t,m_0}$ 自身，すなわち全 angular phases を含む
+compact radial closure 上で用いる．Angular universal cover は最後の局所正則性にのみ用いる．
+
+まず下 barrier を作る．$c=M m_0$ とし，$M\ge1$ を十分大きい固定定数に取る．
+平行移動は $w_i\mapsto w_i+c$ という正則写像なので，
+expanded simplex model の引戻し
+\[
+ k_L^{\mathrm{out}}(\ell)=k_{L+3c}(\ell+c\mathbf1)
+\]
+は $D_{t,m_0}$ の閉包の近傍で滑らかな負 KE metric である．
+\Cref{coarse:lem:simplex-model} により
+\begin{equation}\label{coarse:eq:expanded-simplex-face-ratio}
+ \frac{(k_L^{\mathrm{out}})^2}{\mathcal V_L}
+ \le\left(1+\frac{3c}{L}\right)^2
+       \prod_{i=0}^2\left(\frac{\ell_i}{\ell_i+c}\right)^2.
+\end{equation}
+境界では少なくとも一つの $\ell_i$ が $m_0$ に等しく，対応する因子は
+$(1+M)^{-2}$ である．他の二因子は $1$ 以下である．
+$L\ge6c$ とし，$M$ を $\tfrac94(1+M)^{-2}\le c_*$ となるように選べば
+\[
+ (k_L^{\mathrm{out}})^2\le c_*\mathcal V_L\le\omega_t^2
+ \qquad\text{on }\partial D_{t,m_0}.
+\]
+両 metric の Ricci curvature は $-1$ であるから，
+$\log(\omega_t^2/(k_L^{\mathrm{out}})^2)$ の負の内部最小点では
+$\omega_t-k_L^{\mathrm{out}}\ge0$ となり，determinant の符号に矛盾する．
+従ってこの volume 下比較は $D_{t,m_0}$ 全体で成り立つ．
+
+上 barrier には inner simplex 自身の complete model
+\[
+ k_L^{\mathrm{in}}(\ell)=k_{L-3m_0}(\ell-m_0\mathbf1)
+\]
+を用いる．\eqref{coarse:eq:simplex-density-bounds} よりその density は
+$\partial D_{t,m_0}$ で無限大へ発散する．
+各固定 $t$ で $\omega_t$ の logarithmic density は閉包上で有限であるから，
+$\log(\omega_t^2/(k_L^{\mathrm{in}})^2)$ は境界で $-\infty$ へ向かう．
+この有限上界は $t$ に依存してよく，以下の比較定数には現れない．
+正の内部最大点における同じ determinant 比較から上比較を得る．
+以上より
+\begin{equation}\label{coarse:eq:full-simplex-volume-sandwich}
+ (k_L^{\mathrm{out}})^2\le\omega_t^2\le(k_L^{\mathrm{in}})^2
+ \qquad\text{on }D_{t,m_0}.
+\end{equation}
+この最大値原理は compact phase quotient 上で適用しており，
+actual distance に関する境界逃避や tensor 比較を前提としていない．
+
+$m\ge2c$ とし，\cref{coarse:lem:simplex-shift} を下側の shift $+c$ と
+上側の shift $-m_0$ に用いる．$m_0,c$ は固定されているので
+\eqref{coarse:eq:full-simplex-volume-sandwich} は
+\eqref{coarse:eq:local-triple-small-volume} を与える．
+
+最後に，$p$ が $\min_i\ell_i(p)\ge m$ を満たすとする．
+最大深度を従属にする固定相対窓では，全ての深度は $3m/4$ 以上であり，
+同じ volume squeeze による
+\[
+ v_t=\log(\omega_t^2/k_L^2),\qquad \|v_t\|_{C^0}\le C/m
+\]
+がその窓全体で成立する．
+\Cref{coarse:lem:simplex-model} により背景 $k_L$ はその normalized charts で
+一様な ellipticity と全固定階の bounds を持つ．
+両 metric は負 KE なので
+\[
+ \ddc v_t=\omega_t-k_L,\qquad
+ (k_L+\ddc v_t)^2=e^{v_t}k_L^2.
+\]
+$m_1\ge4c$ をさらに十分大きく固定すれば，
+\cref{coarse:lem:small-volume-tensor} の Savin small-perturbation estimate が
+全ての窓に一様に適用できる．同補題の線形化後の Schauder estimates により
+\eqref{coarse:eq:local-triple-small-tensor} を得る．
+\end{proof}
+
+\subsection{固定次数の全平面退化への適用}
 
 \Cref{ass:Gd} を満たす固定次数 $d\ge5$ の全平面退化 $X_t^{(d)}$ を取り，
 $\Ric(\omega_t)=-\omega_t$ と規格化した actual KE metric を考える．
@@ -280,99 +398,29 @@ $\min_i\ell_i\ge m_t$ の全体で actual/model comparison が成立する．
 \end{theorem}
 
 \begin{proof}
-全位相を含む有限 triangle domain
-\[
- D_{t,m_0}=\{\ell_i>m_0\ (i=0,1,2),\quad \sum_i\ell_i=L\}
-\]
-を取る．固定した $t$ ではその radial closure と phase quotient の積は
-chart 内の compact subset であり，actual metric はその近傍で滑らかである．
-
-まず下 barrier を作る．$c=M m_0$ とし，$M$ を十分大きい固定定数に取る．
-平行移動は $w_i\mapsto w_i+c$ という正則写像なので，
-expanded simplex model の引戻し
-\[
- k_L^{\mathrm{out}}(\ell)=k_{L+3c}(\ell+c\mathbf1)
-\]
-は $D_{t,m_0}$ の閉包の近傍で滑らかな負 KE metric である．
-\Cref{coarse:lem:simplex-model} により
-\begin{equation}\label{coarse:eq:expanded-simplex-face-ratio}
- \frac{(k_L^{\mathrm{out}})^2}{\mathcal V_L}
- \le\left(1+\frac{3c}{L}\right)^2
-       \prod_{i=0}^2\left(\frac{\ell_i}{\ell_i+c}\right)^2.
-\end{equation}
-境界では少なくとも一つの $\ell_i$ が $m_0$ に等しく，対応する因子は
-$(1+M)^{-2}$ である．他の二因子は $1$ 以下である．
-$L\ge6c$ とし，$M$ を $\tfrac94(1+M)^{-2}\le c_*$ となるように選べば
-\[
- (k_L^{\mathrm{out}})^2\le c_*\mathcal V_L\le\omega_t^2
- \qquad\text{on }\partial D_{t,m_0}.
-\]
-両 metric の Ricci curvature は $-1$ であるから，
-$\log(\omega_t^2/(k_L^{\mathrm{out}})^2)$ の負の内部最小点では
-$\omega_t-k_L^{\mathrm{out}}\ge0$ となり，determinant の符号に矛盾する．
-従ってこの volume 下比較は $D_{t,m_0}$ 全体で成り立つ．
-
-上 barrier には inner simplex 自身の complete model
-\[
- k_L^{\mathrm{in}}(\ell)=k_{L-3m_0}(\ell-m_0\mathbf1)
-\]
-を用いる．\eqref{coarse:eq:simplex-density-bounds} よりその density は
-$\partial D_{t,m_0}$ で無限大へ発散する．
-従って $\log(\omega_t^2/(k_L^{\mathrm{in}})^2)$ は境界で $-\infty$ へ向かう．
-正の内部最大点における同じ determinant 比較から上比較を得る．
-以上より
-\begin{equation}\label{coarse:eq:full-simplex-volume-sandwich}
- (k_L^{\mathrm{out}})^2\le\omega_t^2\le(k_L^{\mathrm{in}})^2
- \qquad\text{on }D_{t,m_0}.
-\end{equation}
-この最大値原理は compact phase quotient 上で適用しており，
-actual distance に関する境界逃避や tensor 比較を前提としていない．
-
-$m\ge2c$ とし，\cref{coarse:lem:simplex-shift} を下側の shift $+c$ と
-上側の shift $-m_0$ に用いる．$m_0,c$ は固定されているので
-\eqref{coarse:eq:full-simplex-volume-sandwich} は
-\eqref{coarse:eq:full-triple-small-volume} を与える．
-
-最後に，$p$ が $\min_i\ell_i(p)\ge m$ を満たすとする．
-最大深度を従属にする固定相対窓では，全ての深度は $3m/4$ 以上であり，
-同じ volume squeeze による
-\[
- v_t=\log(\omega_t^2/k_L^2),\qquad \|v_t\|_{C^0}\le C/m
-\]
-がその窓全体で成立する．
-\Cref{coarse:lem:simplex-model} により背景 $k_L$ はその normalized charts で
-一様な ellipticity と全固定階の bounds を持つ．
-両 metric は負 KE なので
-\[
- \ddc v_t=\omega_t-k_L,\qquad
- (k_L+\ddc v_t)^2=e^{v_t}k_L^2.
-\]
-$m_1\ge4c$ をさらに十分大きく固定すれば，
-\cref{coarse:lem:small-volume-tensor} の Savin small-perturbation estimate が
-全ての窓に一様に適用できる．同補題の線形化後の Schauder estimates により
-\eqref{coarse:eq:full-triple-small-tensor} を得る．
+十分大きい固定 $m_0$ を取れば，各固定 $t\ne0$ の全 phase を含む
+$\overline{D_{t,m_0}}$ は exact triple chart に compact に含まれる．
+Actual KE metric はその近傍で滑らかであり，
+\eqref{coarse:eq:actual-simplex-density-floor} は
+\cref{coarse:thm:boundary-to-triple} の境界入力
+\eqref{coarse:eq:local-triple-face-floor} を与える．同定理を各 triple chart へ適用する．
+固定族の三重点は有限個なので，$m_1,L_*,C_q$ を共通に取れる．
 \end{proof}
 
 \begin{remark}[Actual 比較の最小境界入力]
 \label{coarse:rem:full-triple-face-input}
-上の exact triple chart と負 KE 規格化の下では，証明で用いる density 下界は
-\eqref{coarse:eq:actual-simplex-density-floor} のうち，固定した $m_0,c_*>0$ に対する
-\[
- \omega_t^2\ge c_*\mathcal V_{L_t}
- \qquad\text{on }\partial D_{t,m_0}
-\]
-だけでよい．この下界は全 angular phases と十分小さい $t$ に一様とする．
-各固定 $t\ne0$ について radial closure と phase quotient の積が chart に compact に含まれ，
-actual metric がその近傍で滑らかなら，外側 model との境界下比較と
-内側 model の全人工境界での発散から
-\eqref{coarse:eq:full-simplex-volume-sandwich} が得られる．
-Interior の density 下界は別途仮定する必要がなく，固定 $t$ における
-actual density の境界上界を $t$ に一様に取る必要もない．
-この段階では actual tensor 比較，actual distance に関する境界逃避，
-または actual 領域の完備性を用いない．
-\Cref{coarse:cor:degree-d-volume-lower} は，この一様な face 下界を供給する前段入力である．
+\Cref{coarse:thm:boundary-to-triple} は exact triple 領域だけの定理であり，
+大域的な compactification や全平面退化を仮定しない．
+\Cref{coarse:cor:degree-d-volume-lower} は本族への適用で
+\eqref{coarse:eq:local-triple-face-floor} を供給する一つの前段入力である．
+Interior の density 下界，actual tensor 比較，actual distance に関する境界逃避，
+または actual 領域の完備性は別途仮定しない．
+一方，最大値原理には全 phase の compact quotient と各固定 $t$ の閉包への滑らかな延長を使う．
+非周期な無限 cover 上の局所 metrics や，一部の角度だけの領域へ，
+同じ境界仮定だけで定理を適用することはできない．
+本稿の angular universal cover 上の評価は quotient 上の metrics の引戻しである．
 
-その後の小さい potential は，shift 評価で小さくなった
+小さい potential は，shift 評価で小さくなった
 $v_t=\log(\omega_t^2/k_{L_t}^2)$ 自身である．
 同じ負 KE 規格化による Ricci 恒等式
 $\ddc v_t=\omega_t-k_{L_t}$ が相対 potential を正確に与えるので，
