@@ -1,6 +1,19 @@
 # 現行研究方針：一般型超曲面の負Kähler–Einstein退化
 
-更新：2026-11-22 / v1.17・現行研究方針（Part IV–V本文はv1.9）
+更新：2026-11-22 / v1.18・現行研究方針（Part IV–V本文はv1.9）
+
+## 公表に向けた実行計画
+
+数学的重要性、新規性、理解の深化、応用可能性、正確性、読者による検証、実現可能性を総合し、研究全体の価値を最大化する。[三研究の公表計画](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/main/00_research_plan.md)に従い、本repoでは曲面P0を支える無条件の局所解析をPart IVの中心に置く。CP/PBE/TCの解決を局所成果の公表条件にしない。
+
+1. 全深部tripleの既存証明を再点検し、exact triple領域、各固定parameterの滑らかなradial閉包、固定faceの一様密度下界を入力とする局所安定性定理を抽出する。境界上界にparameter一様性が不要であることを証明の向きとともに明示し、全平面退化への適用を別に述べる。既存の証明を一回だけ掲載する。
+2. 題名・abstract・主結果を、局所安定性、complete simplexと閉corner、source-free neckと固定end、条件付きexterior/PBEの順に整理する。条件付き結果と必要な証明は保持する。
+3. 曲面主稿の実際の引用を逆引きし、capped lowerとoriented upper、full-tripleとsimplex、normal circle、束座標・共通primitive・固定endの最小入力表を作る。領域、全位相、定数、cutの選択順と曲面側が別に証明する事項を明記する。
+4. Part Vの抽象距離論と(CP)+(PBE)付きactual適用を区別し、曲面の直接scalar/portal経路との関係を短く整理する。参照版は実際に確認したmainとcommitへ合わせる。
+5. 変更した局所定理を独立内部点検し、LuaLaTeXの組版・相互参照と変更箇所の表示を確認する。ZhangのQ-factorial/simple toroidalな全空間の結果を、source方程式 \(xy=tz\) へ無条件に適用しない。新規性未確認点はそのまま明示する。
+
+達成基準は、曲面P0が使う局所解析を最小の正確な入力と一意の証明場所から検証できること。これは全主稿の包括的再監査、外部査読、投稿の完了を意味しない。原稿・ノート・方針・READMEの保存後、利用側の依存表とresearch-hubへ実際の到達点を反映する。共通の一般原則・保存許可は本書後半と `AGENTS.md` に記す。
+
 
 ## 研究固有の目標
 
