@@ -1,6 +1,6 @@
 # 現行研究方針：一般型超曲面の負Kähler–Einstein退化
 
-更新：2026-11-22 / v1.13・現行研究方針（Part IV–V本文はv1.9）
+更新：2026-11-22 / v1.14・現行研究方針（Part IV–V本文はv1.9）
 
 ## 研究固有の目標
 
@@ -18,11 +18,13 @@
 
 共有入力は [研究ノート](research/notes.md) の依存表と曲面側の `research/ke-dependencies.md` で、定理・仮定・尺度・固定/可動領域・確認版を照合する。Part IIのsecondary complex periodsと第二symplectic actionは同一視しない。Part IIIの(H_loc)/(H_anc)も別模型の仮定として残す。方針・本文・ノートを先に保存し、その結果をhubの短い要約へ反映する。
 
-固定補空間側のPart I v1.5（研究一式v1.6）は、Hermitian depthsを保つ可換collars・全残余一様なRZ延長比較・一面tensor評価を保持し、metric-IRFAからproperな1-Lipschitz全射Sと有界加法誤差Kを構成する。固定したSについて、中心oと半径Aに一様に、ambient閉球のGH誤差は3K/(2R)以下で、比較先の中心はS(o)/Rである。指定compact集合をSで零へ送る選択もでき、その場合Kはその集合に依存してよい。LDP、exact tail、joint law、distance Laplace transformは通常の全face volume-IRFAで成立し、指数的volume remainderを追加仮定しない。正本・ラベル・独立点検と共同監査の範囲は研究ノートに記す。
+固定補空間側のPart I v1.6（研究一式v1.7）は、連結smooth projective・reduced SNC・K+D ampleの範囲で、n=1と空境界のcompact caseを含む。Hermitian depthsを保つ可換collars・全残余一様なRZ延長比較・一面tensor評価からmetric-IRFAを検証し、properな1-Lipschitz全射Sと有界加法誤差Kを構成する。固定基点からのblow-downは一意である。固定したSについて、中心oと半径Aに一様に、ambient閉球のGH誤差は3K/(2R)以下で、比較先の中心はS(o)/Rである。指定compact集合をSで零へ送る選択もでき、その場合Kはその集合に依存してよい。LDPと、非空境界のexact tail・joint law・distance Laplace transformは通常の全face volume-IRFAで成立し、指数的volume remainderを追加仮定しない。正本・ラベル・独立点検と共同監査の範囲は研究ノートに記す。
 
 同じ固定空間のmoving-basepoint blow-downは、cone内の有界基点極限、または面αに沿うEuclidean因子とincidence link coneの積に分類され、任意に指定した拡大列に対して全て実現する。正のα座標を持つstarと、最小weighted座標m>2Aでのambient閉A球の厳密な積同定を用いる。Closed star全体のambient積表示は一般に成り立たない。距離だけから復元するのはmetric linkの等長型であり、標識付きcell分割・depth重み・geodesic-ray boundaryの復元は含めない。Leuzingerのlocally symmetric cone比較・radial公式、Bridson–Haefligerの標準cone幾何との重なりを正本Introductionに明記する。
 
-同稿の面ごとの測度付き平行移動は、任意のnormal中心vectorでmin T_i→∞なら、通常volume-IRFAから全残余strip上の全変動収束を得る。Metric-IRFAと収束するbasepoint offsetも仮定すると、固定gのscale-one積極限と全半径のambient閉球測度の全変動収束が成立する。Smooth volume-IRFAを必要としない。滑らかな基準曲率からの有界primitiveを用いる直接Stokes・face mass規格化、および全faceのvolume漸近に基づくMellinの一様momentとincidenceは共同点検として同期する。これらの証明は固定空間のものであり、退化族の一様bufferやCP/PBE/TCへ移さない。
+同稿の面ごとの測度付き平行移動は、任意のnormal中心vectorでmin T_i→∞なら、通常volume-IRFAから全残余strip上の全変動収束を得る。Metric-IRFAと収束するnormal offset・残余基点も仮定すると、固定gのscale-one積極限と全半径のambient閉球測度の全変動収束が成立する。Smooth volume-IRFAを必要としない。滑らかな基準曲率からの有界primitiveを用いる直接Stokes・face mass規格化、および全faceのvolume漸近に基づくMellinの一様momentとincidenceは共同点検として同期する。交点数公式のface massは非正規化KE体積に対応し、確率版では全体積で割る。通常volume-IRFAからのAbel極限は有理型延長を意味せず、1/t誤差による反例と追加のjoint polyhomogeneity条件を区別する。これらの証明は固定空間のものであり、退化族の一様bufferやCP/PBE/TCへ移さない。
+
+公表範囲の依存表では、距離に必要なmetric-IRFA、測度に必要なordinary volume-IRFA、交点数のbounded primitive、複素有理型延長の追加条件を分ける。Part II v2.1のsecondary periodはcomponent-labelled collarとdeeper-face labelsを伴う収束から得る標識付き残余曲線であり、複素periodにはKähler orientationも保持する。向きだけを忘れる場合にもfactor/cusp labelsは保持し、一般secondary WP completionのcontrolled parallel push-off仮定は残す。Chambert–Loir–Tschinkelのresidue measures・Igusa積分の先行結果と本稿のordinary L1/一側Abel条件の比較は、正本Introductionと一次資料監査に委ねる。
 
 曲面改訂33の `ke:intermediate-component-cone` は、同じP0のdistortionと基点のtarget変位を尺度に吸収し、component coreと変更collarの任意基点にも成分錐へのpointed GH収束を与える。Part Iの全中心一様性は一つの固定空間内の主張であり、退化parameterに一様なKやbufferを供給しない。曲面の中間尺度も固定空間の定理を退化族へ直接適用した結論ではなく、CP/PBE/TCや任意速度で指定した退化族のmoving解析の検証状況を変えない。
 
@@ -46,7 +48,7 @@
 
 Actual側の大域入力は `coarse:cor:degree-d-volume-lower`。Adjunction residueでcanonical densityを固定し、backgroundによるHermitian frame errorの吸収と各正のcap方向のminorから六型のdeterminant下界を証明する。Sourceでは元のplane coordinatesを保つexact xy=tzとrescalingにより二つのcap係数≥c_d/Lを使う。Compact minimum原理からactual volume下界を得る。
 
-Full tripleの証明に必要なのは、この大域入力が供給する固定face ∂D_{t,m0}上の全phase・t一様なdensity下界だけである（`coarse:rem:full-triple-face-input`）。各固定tのradial closure×phase quotientがchartにcompactに含まれ、actual metricが近傍で滑らかなら、内外simplexのmaximum principleからinteriorのvolume sandwichを得る。Interiorのdensity下界、t一様な境界上界、actual tensor比較、actual距離の境界逃避を別に仮定しない。Shift評価で小さくなるv=log(ω_t²/k_L²)自身が、Ricci恒等式dd^cv=ω_t−k_Lによって小さい相対potentialとなる。今回の独立監査では大域capped densityを前段入力として分離し、それから先の領域・境界・全深度比・Savin/Schauderの連鎖を確認した。
+Full tripleの証明に必要なのは、この大域入力が供給する固定face ∂D_{t,m0}上の全phase・t一様なdensity下界だけである（`coarse:rem:full-triple-face-input`）。各固定tのradial closure×phase quotientがchartにcompactに含まれ、actual metricが近傍で滑らかなら、内外simplexのmaximum principleからinteriorのvolume sandwichを得る。Interiorのdensity下界、t一様な境界上界、actual tensor比較、actual距離の境界逃避を別に仮定しない。Shift評価で小さくなるv=log(ω_t²/k_L²)自身が、Ricci恒等式dd^cv=ω_t−k_Lによって小さい相対potentialとなる。全深部三重点の独立監査では大域capped densityを前段入力として分離し、それから先の領域・境界・全深度比・Savin/Schauderの連鎖を確認した。
 
 ## 全閉cornerの距離と同じLagrangian bundleによるGH収縮
 
@@ -112,7 +114,7 @@ Actual計量への大域適用には(N) global no-shortcut、(S) square path lif
 ## 次の課題
 
 1. 共有するcapped volume下界→full-triple比較→固定成分収束・fixed-end momentの量化と、曲面K2の全交わり・K3のlinkから補間後trimまでの指定証明鎖は重点点検済み。研究ノートの依存表と曲面側の監査範囲から再開し、未確認の入力・一次資料・Introductionのscopeを主定理から逆向きに照合する。固定段階で有限個の誤差・費用を確定した後にのみ対角選択を行う（`pair:lem:diagonal-fixed-end`）。
-2. Part Iのcollar/tensor入力、全射収縮・閉球近似、測度付き平行移動と移動基点分類の点検済み範囲を起点に、曲面改訂33の中間尺度との接続で固定量・尺度予算・測度規格化を照合する。固定空間で全てのmoving limitsを実現できても退化parameter一様性は従わず、曲面の一般基点ではtarget変位も尺度予算へ入れる。Metric linkの等長型と標識付きincidence情報、曲面の直接scalar/portal経路とCP/PBE/TC経路を区別し、既知のcone幾何との比較を踏まえて未確認の外部入力と公表上のscopeを監査する。
+2. Part Iの公表範囲・仮定依存とPart IIの標識/向きの確認を踏まえ、曲面改訂33の中間尺度との接続で固定量・尺度予算・測度規格化を照合する。固定空間での全中心一様性やmoving型の実現から退化parameter一様性は従わず、曲面の一般基点ではtarget変位も尺度予算へ入れる。Raw/probability face mass、metric linkと標識付きincidence、Abel極限と有理型延長の入力を使い分け、未確認の依存入力を具体的な定理から点検する。
 3. 独立の解析課題としてsourceを含むexteriorの(TC)_5、(PBE)_dのquantitative terminal trivialization・protected rectangular inclusion・uniform comparison・two-metric escape、および(CP)_dのconnectorsを検証する。固定baseの定理を任意速度のmoving領域へ拡張せず、bounded densityをtensor比較へ読み替えない。これらの強いpackageの解決を曲面global結果の完成条件へ戻さない。
 4. 一次文献との比較と新規性確認を続ける。高次元mixed source modelsや一般のsecondary completionは、現在の固定次数曲面の監査と別の優先順位で扱う。
 
@@ -120,11 +122,11 @@ Actual計量への大域適用には(N) global no-shortcut、(S) square path lif
 
 全文TeXのSHA-256は `research/source-manifest.json`、元監査は `research/source-audit.md`。回収時に3原稿のLuaLaTeX組版と、統合稿5 scripts・旧v0.12の16 scriptsの再実行を行った。検査は有限組合せ・式・bookkeepingに限られ、未完成の解析証明を代替しない。詳細は `research/migration.md`。
 
-現行資料にはexplicit bundle coordinates、canonical moment、fixed-end漸近、weighted cap determinant、source residue、全三重点比較、simplex境界漸近、閉corner評価を保持する。今回の重点点検はcapped density→full-triple固定face→fixed-endとcanonical moment→選んだ遅い対角列という共有入力の量化を対象とした。新補題 `pair:lem:diagonal-fixed-end` は本文に証明を置き、別の読み手も量化と証明を内部点検した。既存のSavin H1/H2/H4・Theorem 1.3、Yau Theorems 1–2、Zhang Theorem 2.1・Proposition 2.2の一次照合記録を保持するが、今回全てを再取得・再監査したとはしない。Cheng–Yau 1982原典全証明、外部査読、形式証明、新規性の包括的確認は未了。
+現行資料にはexplicit bundle coordinates、canonical moment、fixed-end漸近、weighted cap determinant、source residue、全三重点比較、simplex境界漸近、閉corner評価を保持する。Part IV–V v1.9の重点点検はcapped density→full-triple固定face→fixed-endとcanonical moment→選んだ遅い対角列という共有入力の量化を対象とした。補題 `pair:lem:diagonal-fixed-end` は本文に証明を置き、別の読み手も量化と証明を内部点検した。既存のSavin H1/H2/H4・Theorem 1.3、Yau Theorems 1–2、Zhang Theorem 2.1・Proposition 2.2の一次照合記録を保持するが、今回全てを再取得・再監査したとはしない。Cheng–Yau 1982原典全証明、外部査読、形式証明、新規性の包括的確認は未了。
 
 2026-11-22にv1.9のPart IVを117頁、Part Vを37頁にLuaLaTeX組版した。未定義参照・引用、重複ラベル、欠字、overfull/underfull boxはなく、フォント・PDF bookmark警告は残る。IVの1、6–7、70–71、117頁とVの2、4–5、37頁を画像で確認した。全頁の表示確認と有限検算の再実行は行っていない。実行環境はTeX Liveのformat・font mapを補完して使用し、通常のlatexmk設定とbuild出力を保持した。証明記載、内部点検、計算、組版、GitHub反映、hub更新を別々の状態として扱う。
 
-管理文書v1.13はPart I v1.5（研究一式v1.6）の移動基点分類・metric linkの復元範囲・先行研究比較に同期する。直接点検はpositive incidence star、ambient閉球の2A条件、全極限の分類と実現であり、metric linkとLeuzinger/Bridson–Haefliger比較は共同監査として記録する。距離収縮・測度付き平行移動・Stokes・Mellinの指定証明鎖も確認範囲に保持する。外部稿はPart I v1.5が62頁、総説v1.5が12頁に組版され、共同作業でPart Iの指定19頁と総説全12頁を画像確認した。これはIV–Vのv1.9の組版記録と区別する。IV–Vの本文・仮定・版は変更しておらず、本repoの組版と計算は再実行していない。
+管理文書v1.14はPart I v1.6・Part II v2.1（研究一式v1.7）の公表範囲と仮定依存に同期する。今回の直接点検は、Part IのAbstract/Introduction、clean/metric-IRFA、距離定理、KE適用、配置例の連結性・空境界・次元・規格化・properness/全射性・量化の照合である。Raw/probability face mass、Abel/有理型延長の1/t反例、Part IIの標識/向き、Chambert–Loir–Tschinkel比較は共同点検として記録する。既存の指定証明鎖の確認範囲も保持する。外部稿はPart Iが64頁、Part IIが28頁、総説が12頁に組版され、共同作業で指定17頁・指定8頁・全12頁を画像確認した。確定commit・SHA-256・表示条件は検証記録を参照する。IV–Vの本文・数学的仮定・版と組版記録はv1.9のままであり、本repoの組版と計算は再実行していない。
 
 ## 共通研究原則と保存許可（研究固有方針から独立）
 
