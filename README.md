@@ -1,14 +1,16 @@
 # Kähler–Einstein degeneration
 
-更新：2026-11-22 / v1.21（研究資料。Part IV v1.11、Part V v1.10）
+更新：2026-11-22 / v1.22（研究資料。Part IV v1.11、Part V v1.10）
 
-**公表計画：** 数学的価値の最大化を基準に、曲面P0・Part IVの最小局所解析・Part Iの距離と実球体積漸近を優先する。[研究方針](00_research_plan.md)に実行順序・達成基準・担当を記した。まず中心定理の構成、入力の範囲、先行研究との差を確定し、同時atlasと条件付き拡張は独立した完成基準で進める。
+**公表計画：** 数学的価値の最大化を基準に、曲面P0・Part IVの最小局所解析・Part Iの距離と実球体積漸近を優先する。[研究方針](00_research_plan.md)に実行順序・達成基準・担当を記した。中心定理の構成、入力の範囲、先行研究との差を確定し、五次の同時atlas/GH実現を公表範囲へ加える。六次の同時実現と条件付き解析拡張は独立した完成基準で進める。
 
 最初に[現行研究方針](00_research_plan.md)、次に[研究ノート](research/notes.md)を読む。固定次数d≥5の一般型曲面の全平面退化について、actual KE計量の径の尺度の極限とLagrangian torus fibrationによる実現を研究する。正本はGitHubのmain、研究全体の入口は[research-hub](https://github.com/uedakazushi/research-hub)。
 
 **公表準備で明確にした解析核：** `coarse:thm:boundary-to-triple` はexact triple領域、全angular phasesのcompact quotient、各固定tのsmooth radial閉包、固定faceの一様なdensity下界から、全深度比に一様なC^q誤差O(1/m)を導く。境界上界のt一様性は不要。`coarse:thm:full-triple-tensor` を全平面退化への適用として分け、証明は一度だけ置いた。Part IVの入口を無条件の局所成果中心へ改め、曲面P0への最小四入力表を設けた。
 
 **Capped-volume入力の確認：** Part IV v1.11では、正値性からweighted cap minors、pair/triple、六つの局所型、compact最小値原理、固定次数の大域下界までの指定証明鎖を実読した。結論を妨げる誤りは見つからず、零点を含むChern微分の正確なcap恒等式、曲率・frame誤差の明示的吸収条件、固定adjunction residue、有限coverから最後に小さい複素parameterを取る順序を補った。追加式と定数依存は別担当も独立点検した。全原著・全主稿の包括的検証とは区別する。
+
+**五次の同じ射影による同時実現：** 曲面改訂41の `ke:quintic-simultaneous-realization` は、初期source葉・allocation・全保持近傍を構成中に選ぶ範囲で、actual負KE形式に関する一つの大域Lagrangian fibrationに作用適合matroidal atlasと全曲面ambient GH実現を同時に与える。両端periodの有限整合式、全momentのsource wallとstrict cuts、coreとの全開collarの一致を実際に証明し、等重みと対称六系が整合データの実例を与える。Focus valuesでは通常のmatroidal chartの代わりに穿孔focus affine structureを用いる。六次の同時実現は未解決であり、既指定の大きいsource近傍を保つ相対存在やCP/PBE/TC・H_loc/H_ancの検証を結論しない。今回確認した改訂41の証明ソースと保存checkpointの状態は研究ノート・検証JSONに記す。
 
 ## 三研究を一体で進める方針
 
@@ -45,7 +47,7 @@ Sourceを含む固定基底のendとshellは、同じ曲面稿の `ke:source-inc
 
 ## 残る核心と次の着手
 
-本repoの公表準備では、独立定理化した最小局所入力核を基準に、まだ点検していない前段の証明・一次資料と定量的新規性を確認する。今回済ませた局所定理の指定証明鎖と組版を繰り返すことを優先課題にはしない。同時atlas、CP/PBE/TCと高次元化は、それぞれ別の完成条件を持つ課題として進める。
+本repoの公表準備では、独立定理化した最小局所入力核を基準に、まだ点検していない前段の証明・一次資料と定量的新規性を確認する。既に済ませた局所定理の指定証明鎖と組版を繰り返すことを優先課題にはしない。五次の同時atlas/GH実現の新証明との接続を維持し、六次の同時実現、CP/PBE/TCと高次元化は、それぞれ別の完成条件を持つ課題として進める。
 
 曲面repoの `ke:global-metric-realization` には、各固定d≥5・既存の一般性条件の族について、actual全域Lagrangian fibrationと同じ f_t=p_Tπ_t の全曲面ambient距離のGH実現を示す証明がある。Normal Moser buffer、全交わりのmatching、core filling、sourceの全moment退出O(1)、global scalar下界とportal上界はそこで別に構成する。本repoの局所closed-corner評価だけからこれらが従うという意味ではない。
 
@@ -57,7 +59,9 @@ Sourceを含む固定基底のendとshellは、同じ曲面稿の `ke:source-inc
 
 Core側の `ke:actual-anchor-fan-criterion` は、同じLiouville primitiveでのactual anchor periodsと保持overlapのcycle markingが所定値を満たせば、既存domain・skeleton・corner葉を保つK4／Petersen作用chartを構成する。五次では、anchor上の保持集合を標準K2 end collarsだけに選ぶ局所適用を `ke:k4-actual-end-anchor`（曲面改訂39に統合済み）として得る。正のresiduesを固定し、stage→component cut→小さいtの順に選ぶと、全保持境界のperiodはQ_ab=ν_b−ρ_b<−ρ_b/2となる。同じtransported meridiansのclutchingも確認でき、任意の有向四角形のK4 anchor targetsを実現できる。Sourceの全compact pinched fibersの飽和近傍は、各固定tで|μ|<δ/2に選び、anchor bandから離して保持する。
 
-**Atlas側の次課題は、追加の保持annuliを指定した場合と六次の有限面積条件、反対側の切片・残余primitive periods・整数framing、および全neck intervalと全open overlapの整合である。** 五次の局所core chartから、これらの大域整合は結論しない。条件が揃った相対変更には既存の `ke:relative-replacement-gh` を使えるが、同じ射影によるatlas/GHの同時実現は未解決である。Part IV/Vの新tensor入力やCP/PBE/TCの検証には読み替えない。
+五次では `ke:k4-actual-neck-periods` が共通primitiveの実切片とsource shearを有限式へ帰着し、`ng8:quintic-full-moment` がそのcompatible dataの全intervalを実現する。Full-triple primitiveからの一様なend period上界、初期rooted-tree近傍の全tailを小さくするDini選択、同じsource wallの相殺、parameter-relativeな面積Moserを使う。最後のfree-band補正でも有限source pointsを固定し、全開overlapの作用と全葉を一致させる。`ke:quintic-simultaneous-realization` はこれに `ke:relative-replacement-gh` を適用し、同じ射影のatlas/GHを同時に得る。
+
+**Atlas側の次課題は六次Petersenの同時実現と、任意に追加した保持annuli・大きいsource tailsに対する相対可解性である。** 五次の存在証明は初期葉を選ぶ自由を使い、その後に全nodal neighborhoodsを固定する。既固定の任意P0の変更やt方向のsmooth familyを主張しない。Part IV/Vの新tensor入力、CP/PBE/TC又はH_loc/H_ancの検証にも読み替えない。
 
 ## 論文と再現資産
 
@@ -77,6 +81,6 @@ Core側の `ke:actual-anchor-fan-criterion` は、同じLiouville primitiveで�
 
 Part IV v1.10では新局所定理 `coarse:thm:boundary-to-triple`、モデルとshift比較、小摂動評価、全平面退化への適用を担当と別担当が点検した。Compact phase quotientでの最大値原理、境界上界の各固定tでの有限性、定数依存、normalized coverでの正則性を確認した。全capped determinant・全外部原典・全主稿の包括的再監査、外部査読、形式証明は未実施。有限距離論の計算は今回変更しておらず再実行していない。詳しい状態は[検証状態](research/validation.json)。
 
-研究資料v1.20は曲面改訂39への局所K4系の統合とPart I v1.7の公表準備に接続する。五次の標準K2 end collarsに対するQの負性、広いconstruction domainでの全交わりの保持、source近傍の量化、同じmeridian framingのclutchingを限定的に独立点検した。追加の保持annuliと全neckのperiod/framing整合は別に残る。Part IV–Vの本文・組版は変更せず、その数学入力の文献は実読した改訂37・commit `32c67aefe6beb47c2955923e2b6eb2471d48af31` に固定している。現行版の紹介と旧確認版の実読記録を同一視しない。外部稿の確認箇所と各担当の実施範囲はノート・検証状態に記す。
+研究資料v1.22は、曲面改訂41の五次同時実現と全moment証明の実文を参照して研究入口を同期した。新証明の指定鎖は担当・統合担当と別の読み手が内部点検したが、包括的な外部監査・新規性確認とは区別する。この文書更新でPart IV v1.11・Part V v1.10の科学本文と既存の組版・表示・hash記録は変更せず、再組版・再表示・有限検算も行っていない。Part IV–Vの数学入力の文献は実読した改訂37・commit `32c67aefe6beb47c2955923e2b6eb2471d48af31` に維持する。改訂41の実文と保存checkpoint `84d8b8b17d9426ede5792a301b5f45ec90eb48da` を確認した。曲面担当の最終報告は308頁・指定25頁の表示確認であり、書誌訂正後の24頁のPNG一致と308頁の再表示も含めて検証JSONへ同期した。これは本repo担当による再組版・再表示ではない。外部稿の確認箇所と各担当の実施範囲はノート・検証状態に記す。
 
 再生成はルートで `latexmk`、PDF/SyncTeXの出力先は `build/`。LuaLaTeX、luatexja、Harano Ajiと数学フォントの有効なmapを備えたTeX Liveを用いる。[移行・検証範囲](research/migration.md)と[ソース対応](research/source-manifest.json)を参照する。通常のcommitとmainへのpushで保存し、研究成果の保存とresearch-hubの更新を別々に確認する。
