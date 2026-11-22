@@ -604,7 +604,8 @@
       "new_result": {
         "label": "ke:k4-actual-end-anchor",
         "surface_revision": 39,
-        "status": "restricted actual application being integrated by the surface manuscript owner; the saved-result commit is separate from the existing-proof-input commit above"
+        "status": "Integrated and saved in surface revision 39; the coordinating editor read back the saved main head. The existing-proof-input commit above records the analytic reviewer’s separate input reading.",
+        "saved_commit": "76ffe7e6b3f166cb4a116dbfec7e70254b244487"
       },
       "quantifier_order": "Fix the degree-five family and positive residue weights with rho_min>0; take the K2 stage j sufficiently large, then N sufficiently large with delta=4pi/N and the existing normal-cut constraints, then the threshold for all small complex t with L much larger than N. Constants in the two-action estimate are independent of the depth ratio.",
       "wide_domain_and_preservation": "The primitive switch ends at source label B/b_j=5.4. All actual K2 intersections satisfy b_res/b_j>5.5, and b_res=B(1+O(b_j^(-2))). Choose the innermost end-collar boundary B=5.45 b_j, with a small open buffer. The construction on min ell>3 b_j and exact reduced-family agreement for 5 b_j<B<9 b_j justify this choice even though the retained corner starts at 6 b_j. All actual neck-corner intersections remain in the protected collars.",
@@ -661,7 +662,8 @@
         "other_warnings": "既存hyperref数式bookmark警告2件、runtimeのLuaTeX-ja/microtype advisory。本文の欠字やbox overflowはない。",
         "source": "P0の精密な主定理・証明経路と保護tailによるK4判定に加え、標準P0のactual end anchorのQ負性・clutching・同じLiouville coreの局所K4 chartを統合。全域作用atlasは未証明。PDF/SyncTeXはGit追跡しない。"
       },
-      "scope": "Current build and selected ten-page visual check reported by surface reviewer; this analytic reviewer independently checked the stated prior P0 input chain, not all of the current manuscript."
+      "scope": "Current build and selected ten-page visual check reported by surface reviewer; this analytic reviewer independently checked the stated prior P0 input chain, not all of the current manuscript.",
+      "saved_commit": "76ffe7e6b3f166cb4a116dbfec7e70254b244487"
     }
   },
   "build_environment": "LuaHBTeX 1.18.0 with LuaTeX-ja/Harano Aji and CM, AMS, RSFS vector fonts. The workspace used a user-local TeX setup; the repository retains the ordinary latexmk/LuaLaTeX/SyncTeX configuration. PDFs and caches stay under ignored build/cache directories. No GitHub Actions used.",
