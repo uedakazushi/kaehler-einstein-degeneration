@@ -10,7 +10,7 @@ Part IV–Vが使う曲面の数学入力は、[改訂37・commit 32c67ae](https
 
 現行Part IV v1.12は、固定end移送の最小log-density入力とnormal windingの規格化を独立に記載する。曲面稿の五次同時実現と改訂43の `ke:global-volume-measure` は曲面repoに証明を置き、現在確認した数学保存版は `1716a175dddbccf23e86027c34fba239c0cf527b` である。Part IVは122頁に組版済みで、指定10頁の表示確認は完了している。Part V本文・PDF・版・hashと科学引用の入力pinは不変である。
 
-固定補空間側は[Part I v1.9・総説v1.13・研究資料v1.17](https://github.com/uedakazushi/multiscale-kaehler-einstein/tree/7bb67f11f5cfb7afaa279b55d7096b10185b9c81)を確認版とする。尖点付き有限面積双曲曲線Sと閉コンパクトRiemann因子Yの積で、距離Laplace変換をRe s<3の切断半平面上でW/(1−s)−H(s)Log(1−s)+G(s)と表示する。Hはentire、GはRe s<3で正則であり、WとmonodromyからYの正規化基点距離分布を回収する。通常volume-IRFA一般への解析接続・等長型・族一様性は主張しない。総説はこの積の結果、Part IV v1.12の固定end/winding、曲面改訂43の同じ射影による確率体積極限を統合する。これらは固定補空間側の成果・共同編集であり、Part IV/Vへの新しい解析仮定やCP/PBE/TCの検証ではない。 既存の裾係数・compact基点一様性・非可積分cusp・gauge・K5 linkの指定点検は保持するが、新しい積の命題・系は別に作成担当・統合担当・独立担当が実本文を読んで照合した。
+固定補空間側は[Part I v1.9・総説v1.13・研究資料v1.17](https://github.com/uedakazushi/multiscale-kaehler-einstein/tree/7bb67f11f5cfb7afaa279b55d7096b10185b9c81)を確認版とする。尖点付き有限面積双曲曲線Sと境界のないコンパクト連結Riemann因子Yの積で、距離Laplace変換をRe s<3の切断半平面上でW/(1−s)−H(s)Log(1−s)+G(s)と表示する。Hはentire、GはRe s<3で正則であり、WとmonodromyからYの正規化基点距離分布を回収する。通常volume-IRFA一般への解析接続・等長型・族一様性は主張しない。総説はこの積の結果、Part IV v1.12の固定end/winding、曲面改訂43の同じ射影による確率体積極限を統合する。これらは固定補空間側の成果・共同編集であり、Part IV/Vへの新しい解析仮定やCP/PBE/TCの検証ではない。 既存の裾係数・compact基点一様性・非可積分cusp・gauge・K5 linkの指定点検は保持するが、新しい積の命題・系は別に作成担当・統合担当・独立担当が実本文を読んで照合した。
 
 本稿の公表入口は無条件の局所解析を中心とし、Part IVの最小入力表 `tab:surface-minimal-inputs` に曲面P0が使う四群をまとめる。局所安定性は `coarse:thm:boundary-to-triple`、全平面族への適用は既存の `coarse:thm:full-triple-tensor` とし、証明を一回だけ置く。Part Vの抽象pruning–transportと有限targetの直径計算は独立の成果で、CP/PBEを仮定するactual raw-pruning経路、曲面側の直接scalar/portal経路を区別する。
 
