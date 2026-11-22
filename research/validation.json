@@ -40,17 +40,17 @@
     },
     {
       "source": "papers/kaehler-einstein-degeneration.tex",
-      "version": "1.10",
-      "source_sha256": "dc95b85a551d134e6df3e15b375f879007f6fbdc19db8bc64f50fc50d75b4087",
-      "pages": 119,
-      "pdf_sha256": "e333998ab2ecf58d19ad84559e930652064567cf1b06b98498baae0be4d32bf5",
-      "pdf_bytes": 1311689,
+      "version": "1.11",
+      "source_sha256": "e3315616548be4715c2e42aae20f279878df5715526f1b36bb2998fbbb5cc092",
+      "pages": 120,
+      "pdf_sha256": "a325e5e6b74a548784e0b009e25c0b0cd098ac53ffbeb8dfa57485dccd78e8e8",
+      "pdf_bytes": 1322042,
       "verified_date": "2026-11-22",
       "engine": "LuaHBTeX 1.18.0 / TeX Live 2025/dev/Debian with user-local LuaTeX-ja and vector font maps",
       "build_exit_code": 0,
       "build_command": "latexmk papers/kaehler-einstein-degeneration.tex",
       "current_revision_rebuilt": true,
-      "current_revision_status": "Final v1.10 source built successfully; selected changed pages rendered at 150 dpi and actually displayed for review.",
+      "current_revision_status": "Final v1.11 source built successfully; the twelve selected pages listed below were rendered at 150 dpi and actually displayed. The Part V source and its build record are unchanged.",
       "log_check_counts": {
         "undefined_references_or_citations": 0,
         "duplicate_labels": 0,
@@ -64,19 +64,20 @@
       "visual_review_current_pdf": {
         "pages": [
           1,
-          2,
-          6,
-          9,
-          10,
-          11,
-          51,
-          52,
-          53,
-          54,
-          119
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          120
         ],
         "dpi": 150,
-        "result": "Title/abstract, changed introduction and references inspected. For Part IV also the four-input table, local theorem 10.3, its complete proof, fixed-degree application 10.4 and scope remarks were displayed. No visible omission, overlap, clipping or equation overflow; table alignment was adjusted and rechecked.",
+        "result": "Title, finite atlas, fixed adjunction residue normalization, intrinsic cap identity, curvature/frame absorption, pair/triple bounds, all determinant cases including central source and arms, compact minimum comparison, fixed-degree corollary, global-potential scope and bibliography were displayed. No visible clipping, omission, overlap or equation overflow.",
         "full_page_review": false
       }
     },
@@ -91,7 +92,7 @@
       "current_revision_rebuilt": false
     }
   ],
-  "scope": "Part IV-V v1.10 extracts the exact-triple local stability theorem from its existing proof, separates the fixed-degree plane-degeneration application, leads with the unconditional local results, and lists the four actual input groups used by the surface direct GH proof. Part V distinguishes its abstract finite metric results from conditional raw-pruning application. Surface references are pinned to actually read revision 37, commit 32c67ae. The local kernel received a separate internal proof review. Both current manuscripts were successfully built, and 16 selected pages were displayed at 150 dpi. Existing finite certificate results remain retained without rerunning them; no external peer review, formal proof, or comprehensive novelty check is claimed. Documentation v1.20 additionally synchronizes the restricted actual quintic K4 anchor application and a selected independent check of its pre-existing P0 inputs; manuscript v1.10 sources, their revision-37 references, build records and certificates are unchanged.",
+  "scope": "Part IV v1.11 strengthens the capped canonical-density input with a smooth intrinsic Chern-derivative identity, explicit curvature/frame absorption, fixed finite-cover and residue normalization, quantitative pair/triple thresholds and the global potential consequence. The specified original chain from capped positivity through all six determinant regions and the fixed-degree global volume lower bound was read; the added formulas and quantifier explanations received a separate independent internal review. No conclusion-blocking gap was found in that chain. The local exact-triple stability theorem and its application, the surface four-input interface and the revision-37 manuscript citation remain valid. Part IV was rebuilt to 120 pages and twelve selected pages actually displayed; Part V v1.10 and its 37-page build and five-page visual record are retained without rebuilding. Finite certificates were not rerun. No full primary-source proof audit, external peer review, formal proof or comprehensive novelty check is claimed.",
   "certificate_runs": [
     {
       "script": "cubical_diameter_exact_gallery_certificate_definitive_v1.py",
@@ -201,31 +202,62 @@
   ],
   "visual_check": {
     "date": "2026-11-22",
-    "version": "1.10",
-    "sample": "Part IV: pages 1,2,6,9-11,51-54,119 (11 pages). Part V: pages 1-3,5,37 (5 pages).",
+    "version": "Part IV 1.11 / Part V 1.10",
+    "sample": "Current Part IV: pages 1,22-31,120 (12 pages). Retained unchanged Part V record: pages 1-3,5,37 (5 pages).",
     "dpi": 150,
-    "result": "All 16 selected pages actually displayed; no visible clipping, overlap, omission or equation overflow. Part IV table columns were aligned and the affected pages were rendered and checked again.",
+    "result": "All twelve selected current Part IV pages actually displayed; no visible clipping, overlap, omission or equation overflow. The Part V source, PDF hash and prior five-page inspection remain unchanged; its pages were not redisplayed in this update.",
     "full_page_review": false,
-    "scope": "Changed publication entrance, four-input table, new local theorem and proof, application and references; not all pages or all mathematical claims."
+    "scope": "Changed cap/volume proof and neighboring pages, title and bibliography. Not all pages or all mathematical claims."
   },
   "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested.",
-  "version": "1.20",
+  "version": "1.21",
   "certificate_runs_date": "2026-11-20",
   "certificate_runs_repeated_current_revision": false,
   "current_math_audit": {
     "date": "2026-11-22",
-    "version": "1.10",
-    "new_theorem": "coarse:thm:boundary-to-triple in papers/sections/full_triple_comparison.tex, Part IV Theorem 10.3, pp.51-52. The fixed-degree application remains coarse:thm:full-triple-tensor, Theorem 10.4, p.53.",
-    "mathematics_verified": "Read the exact triple model, compact full-phase closure, all boundary faces, signs of both maximum-principle comparisons, independence from a parameter-uniform upper boundary bound, normalized covering charts, small Ricci potential, Savin threshold and subsequent Schauder estimates. The family application supplies the boundary floor through the capped density and fixed local residue comparison, with constants uniform over finitely many triple charts for a fixed degree and family.",
-    "independent_review": "A separate reader checked the full section, small-volume-tensor proof and plane application. The reader confirmed L>=6c, c=M*m0, 9/4*(1+M)^(-2)<=c_*, min depth >=3m/4 in the relative window, m1>=4c and a q-independent smallness threshold. No new gap was found in this specified chain.",
-    "primary_source_scope": {
-      "reviewer": "separate internal reviewer",
-      "source": "O. Savin, Small perturbation solutions for elliptic equations, author PDF",
-      "url": "https://www.math.columbia.edu/~savin/Small_pert.pdf",
-      "locations": "H1/H2, printed p.558; H4, p.559; Theorem 1.3, p.560",
-      "checked": "The theorem requires H1, H2 and H4, not H3; global degenerate ellipticity and local uniform ellipticity/smoothness are compatible with the det_+ extension. This is not a rereading of all primary-source proofs."
+    "version": "Part IV 1.11",
+    "capped_volume_input_review": {
+      "source": "papers/kaehler-einstein-degeneration.tex",
+      "proof_labels": [
+        "coarse:lem:capped-positivity",
+        "coarse:lem:weighted-cap-lower",
+        "coarse:lem:capped-pair",
+        "coarse:lem:capped-triple",
+        "coarse:thm:global-determinant",
+        "coarse:lem:one-sided-volume",
+        "coarse:cor:global-volume-lower",
+        "coarse:cor:degree-d-volume-lower"
+      ],
+      "scope": "Actual reading of the specified proofs, finite atlas and adjunction normalization, all six determinant regions, source axes, compact minimum principle and fixed-degree extension; not merely confirming that proofs are present.",
+      "intrinsic_identity": "For s=||L||^2, epsilon=|t|>0, alpha=A0-log(s+epsilon), chi=s/(s+epsilon), curvature Theta and Chern derivative square D, ddc[-2log(alpha)]=-2chi Theta/alpha + 2(epsilon alpha+s)D/[alpha^2(s+epsilon)^2]. The expression extends smoothly across L=0 for each fixed nonzero t.",
+      "absorption": "Let alpha_*=A0-log S and Theta_i<=k_i h0. Positivity follows from alpha_*>=max(1,4 sum k_i). For the holomorphic df lower bound require 2 sum k_i/alpha_*+K_b[1/(2alpha_*)+2/alpha_*^2]<=1/2. The mu bound uses chi(1-chi)<=1/4. Constants come from fixed ambient data and finitely many holomorphic frames.",
+      "pair_triple_quantifiers": "For fixed C0 and A0 choose the small-parameter threshold. Pair: after ordering x=s_u/epsilon>=C0^(-1/2), chi_u>=1/(1+sqrt(C0)), y<=C0^(3/2) and alpha_v>=A0+L/2-log(1+C0^(3/2)). Triple: delta=1/(2C0) gives two chi values at least 1/(2C0+1), and the remaining alpha is at least A0+L/3-log(C0^(1/3)+1). These constants do not depend on depth ratios or phases.",
+      "source_and_residue": "Keep the original plane representatives x,y and set z=-F/P, so xy=tz exactly. For t=tau^2, (x,y,z)=(tau X,tau Y,XY); alpha_x=A0+L/2-log(1+b_x|X|^2), |t|Q_x and |t|Q_y are bounded below by c/L, including axes, and -dx wedge dy/t=-dX wedge dY. Adjunction residue densities retain all units/Jacobians and have no arbitrary t-dependent rescaling.",
+      "cover_and_order": "Fixed ambient finite charts cover a neighborhood of the central fiber. On its compact complement the product section is bounded away from zero, so all sufficiently small fibers lie in the charts. Choose domains, absorption A0, finitely many unit/product constants and the L floor before the final complex-t threshold. No actual KE tensor bound or moving-domain escape is used to create this cover.",
+      "global_and_degree": "At the global minimum of r=log(omega^2/Omega_low) on each smooth compact fiber, ddc r=omega-h_low>=0 gives omega^2>=h_low^2>=c Omega_low. This yields a global potential lower bound including axes and all phases. Degree d>=5 and the family/Hermitian metrics are fixed; at most three plane factors are small. With Fubini-Study plane metrics k_i=1/(d-4), alpha_*>=max(1,4d/(d-4)) suffices for positivity, while the frame budget is separate.",
+      "conclusion": "No conclusion-blocking error was found in the specified existing proof chain. The edits remove a misleading unitary-frame shorthand, give a regular identity at section zeros and make normalization, constant dependencies and quantifier order explicit without dropping existing useful proofs.",
+      "new_labels": [
+        "coarse:eq:residue-density-normalization",
+        "coarse:eq:intrinsic-cap-curvature",
+        "coarse:eq:cap-absorption-budget",
+        "coarse:rem:capped-global-potential"
+      ],
+      "independent_review": "The coordinating author independently recomputed the Chern chain rule and coefficients and read the entire changed proof text: mu bound, frame-error budget, pair/triple constants, source alpha identity, fixed-cover -> A0 -> constants -> small-t order and global potential lower bound. No correction was required. This second review concerns the added/changed formulas and explanations, not a fresh independent review of every original capped-determinant case.",
+      "primary_source_scope": "The additions are direct Chern calculus, elementary weighted-minor/cap estimates, adjunction normalization and the compact minimum principle. They introduce no new external analytic theorem. Existing KE-existence and local-stability references retain their previously stated verification scope; no claim of rereading entire original papers or proving novelty is made."
     },
-    "audit_limitations": "Selected theorem and dependency audit only. The new independent review did not recheck the entire capped determinant proof, all manuscript claims, or complete original papers. No computational certificates rerun, external peer review, formal proof, or comprehensive novelty survey.",
+    "retained_local_kernel_review": {
+      "mathematics_verified": "Read the exact triple model, compact full-phase closure, all boundary faces, signs of both maximum-principle comparisons, independence from a parameter-uniform upper boundary bound, normalized covering charts, small Ricci potential, Savin threshold and subsequent Schauder estimates. The family application supplies the boundary floor through the capped density and fixed local residue comparison, with constants uniform over finitely many triple charts for a fixed degree and family.",
+      "independent_review": "A separate reader checked the full section, small-volume-tensor proof and plane application. The reader confirmed L>=6c, c=M*m0, 9/4*(1+M)^(-2)<=c_*, min depth >=3m/4 in the relative window, m1>=4c and a q-independent smallness threshold. No new gap was found in this specified chain.",
+      "primary_source_scope": {
+        "reviewer": "separate internal reviewer",
+        "source": "O. Savin, Small perturbation solutions for elliptic equations, author PDF",
+        "url": "https://www.math.columbia.edu/~savin/Small_pert.pdf",
+        "locations": "H1/H2, printed p.558; H4, p.559; Theorem 1.3, p.560",
+        "checked": "The theorem requires H1, H2 and H4, not H3; global degenerate ellipticity and local uniform ellipticity/smoothness are compatible with the det_+ extension. This is not a rereading of all primary-source proofs."
+      },
+      "theorem": "coarse:thm:boundary-to-triple in papers/sections/full_triple_comparison.tex, Theorem 10.3; fixed-degree application coarse:thm:full-triple-tensor, Theorem 10.4. In the current pagination these begin on pp.52 and 54. Their proof text is unchanged in v1.11; this is retained proof-review information, not a repeat display inspection."
+    },
+    "audit_limitations": "The current capped-volume chain and the retained local-kernel review are specified internal mathematical checks. Other manuscript claims, external original proofs, all downstream P0 inputs and novelty were not comprehensively audited. Finite certificates were not rerun; no external peer review or formal verification is claimed.",
     "claims_not_established": "(TC)_5 and the global (CP)_d+(PBE)_d package remain unverified. No arbitrary moving speed, source-wide tensor asymptotic, fixed positive moment width, or uniformity in degree follows.",
     "post_edit_lualatex_attempted": true,
     "post_edit_lualatex_succeeded": true,
@@ -234,9 +266,9 @@
   },
   "current_documentation_update": {
     "date": "2026-11-22",
-    "version": "1.20",
-    "manuscript_sources_changed": false,
-    "lualatex_repeated": false,
+    "version": "1.21",
+    "manuscript_sources_changed": true,
+    "lualatex_repeated": true,
     "computational_certificates_repeated": false,
     "surface_reference": {
       "revision": 37,
@@ -467,7 +499,7 @@
       }
     },
     "claims_not_established": "For quintic anchors with only the standard K2 end collars protected on the anchor face, negativity of the inner protected periods and the transported positive-meridian clutching are verified, giving the restricted local K4 core application. Arbitrary additional protected annuli, sextic prescribed targets, full-neck-interval finite transport conditions, opposite-end intercepts/residual primitive periods/integer framings, and all-open-overlap matching for a global atlas remain unresolved. Source neighborhoods may be chosen after each fixed j,N,t inside |mu|<delta/2; no claim preserves an independently prescribed larger neighborhood or supplies a uniform positive width. Same-projection atlas+GH existence for d=5,6 remains open. No new IV/V tensor estimate, arbitrary moving speed, or verification of (TC)_5 or global (CP)_d+(PBE)_d is supplied. Prior intermediate-scale, fixed-space/measure and Part II marking restrictions remain valid. No comprehensive independent audit of all manuscripts or primary-source proofs is claimed.",
-    "validation": "Documentation-only synchronization of README, research plan, notes and this JSON to version 1.20. The restricted quintic anchor application is identified as ke:k4-actual-end-anchor, being integrated into surface revision 39; its new saved commit will be recorded separately from the read proof-input commit 18f19561429700ceeec9ad0e0ff40afa2cc17cde. JSON, local references and git diff whitespace checks are verified for this update. IV/V manuscript sources, revision-37 bibliography pin, v1.10 build records (119/37 pages and 16 displayed pages), PDF/source hashes and finite certificates are retained without rerunning them. The new mathematical review is restricted to Q negativity, the wide K2 construction domain and all-intersection preservation, source-neighborhood quantifiers and the specified meridian framing.",
+    "validation": "Research version 1.21 accompanies the Part IV v1.11 capped-volume proof clarification and its 120-page successful build. All twelve selected current pages were displayed, and current source/PDF hashes and log checks are recorded above. Part V v1.10 (37 pages), its source/PDF hashes and five-page display record are unchanged and were not rebuilt. The revision-37/32c67ae bibliography pin remains the actually read manuscript input, distinct from the saved surface revision-39 publication metadata. Current notes and this JSON record the precise capped proof chain and the separate review of its added formulas. Finite certificates were not rerun; their existing records remain valid.",
     "part_ii_reference": {
       "version": "2.1",
       "commit": "2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4",
@@ -669,16 +701,18 @@
   "build_environment": "LuaHBTeX 1.18.0 with LuaTeX-ja/Harano Aji and CM, AMS, RSFS vector fonts. The workspace used a user-local TeX setup; the repository retains the ordinary latexmk/LuaLaTeX/SyncTeX configuration. PDFs and caches stay under ignored build/cache directories. No GitHub Actions used.",
   "current_static_source_checks": {
     "date": "2026-11-22",
-    "version": "1.10",
+    "version": "Part IV 1.11 / Part V 1.10",
     "git_diff_check_exit_code": 0,
     "manuscripts": [
       {
         "source": "papers/kaehler-einstein-degeneration.tex",
+        "version": "1.11",
         "input_files": 8,
-        "labels": 449
+        "labels": 453
       },
       {
         "source": "papers/cubical-gh-limit.tex",
+        "version": "1.10",
         "input_files": 1,
         "labels": 177
       }

@@ -1,6 +1,6 @@
 # 現行研究方針：一般型超曲面の負Kähler–Einstein退化
 
-更新：2026-11-22 / v1.20・現行研究方針（Part IV–V本文はv1.10）
+更新：2026-11-22 / v1.21・現行研究方針（Part IV v1.11、Part V v1.10）
 
 ## 公表に向けた実行計画
 
@@ -17,7 +17,7 @@
 
 ### 実行状況と次の課題
 
-Part IV v1.10に最小境界入力からの局所安定性定理と全平面退化への適用を分けて統合し、別担当が指定証明鎖を点検した。入口・abstract・主結果と曲面P0の四入力表を整理し、Part Vの条件付き経路との範囲を明示した。次はこの最小入力核から逆向きに未点検の証明・一次資料を確認し、曲面の直接経路との依存関係を保った公表稿を確定する。CP/PBE/TC、同時atlas、高次元化は別の未解決課題である。Part IV v1.10は119頁、Part V v1.10は37頁に組版し、指定16頁の表示確認まで完了した。実施範囲・残るfont/bookmark警告・source/PDFのハッシュはREADMEとvalidationを参照する。
+最小境界入力からの局所安定性定理と全平面退化への適用を分離し、Part IV v1.11では前段のcapped-volume証明鎖を正値性から固定次数の大域下界まで点検した。Chern微分による零点上も正則な公式、曲率とframe誤差の明示的吸収予算、固定residue、有限coverとparameter閾値の選択順を補強した。これらの追加式と量化は別担当も独立点検した。次は残る局所入力の一次資料・定量的貢献と利用側の全域接続を確認し、公表稿の範囲を確定する。CP/PBE/TC、同時atlas、高次元化は別の達成条件で扱う。IV v1.11は120頁に組版し、1・22–31・120頁の計12頁を実表示した。V v1.10・37頁の本文と既存の組版・表示・hashは保持し、再組版していない。実施範囲はREADMEとvalidationを参照する。
 
 ## 研究固有の目標
 
@@ -47,7 +47,7 @@ Part IV v1.10に最小境界入力からの局所安定性定理と全平面退�
 
 ## 論文と証明の状態
 
-- `papers/kaehler-einstein-degeneration.tex`：Part IV、現行v1.10は119頁。局所模型、source packing、固定次数d≥5の代数・残差packageに、全深部三重点のactual tensor比較、simplex境界の積漸近、全閉cornerのGH定理を統合。Sourceを含むquintic exteriorのcoarse metric geometryは独立な(TC)_5付き。全域のsharp co-Gramは粗い比較に加えて(PBE)_d付きであり、証明済みの三重点内のactive co-Gramと区別する。Bounded-densityからtensor比較を導く一般的推論は反例により排除した。
+- `papers/kaehler-einstein-degeneration.tex`：Part IV、現行v1.11は120頁。局所模型、source packing、固定次数d≥5の代数・残差packageに、全深部三重点のactual tensor比較、simplex境界の積漸近、全閉cornerのGH定理を統合。Sourceを含むquintic exteriorのcoarse metric geometryは独立な(TC)_5付き。全域のsharp co-Gramは粗い比較に加えて(PBE)_d付きであり、証明済みの三重点内のactive co-Gramと区別する。Bounded-densityからtensor比較を導く一般的推論は反例により排除した。
 - `papers/cubical-gh-limit.tex`：Part V、現行v1.10は37頁。Abstract pruning–transportとdiam(C_5)=sqrt(13)は解析仮定と独立。本稿の全曲面actual degree-d GHへの適用経路は(CP)_d+(PBE)_d付きであり、このpackageの検証は未完。関連する[曲面fibration研究](https://github.com/uedakazushi/surface-lagrangian-torus-fibration)の `ke:global-metric-realization` は別の直接scalar/portal評価で同じ族の大域GH実現を与えるが、このpackage自体の検証を結論しない。
 - 高次元ではmixed source–higher-stratum modelsの解析が残るためGH極限は予想。
 - Fixed arrangement complement側Part I–IIIの正本は[multiscale-kaehler-einstein](https://github.com/uedakazushi/multiscale-kaehler-einstein)。固定空間の結果から族の一様性を自動的に導かない。
@@ -64,6 +64,8 @@ Part IV v1.10に最小境界入力からの局所安定性定理と全平面退�
 固定toric模型の存在・完備性にはZhang (2015), §2.1, Theorem 2.1 / Proposition 2.2を用いる（退化族のTheorem 2.4とQ-factorial仮定は使わない）。ψ_L=log L−Σlog ell_iに対してψ_L−(log3)/2≤φ_L≤ψ_L、V_L/3≤k_L²≤V_Lを内外にずらした障壁で証明する。Complete模型から三つの半平面へのYau Schwarz lemma、determinant比較、内部正則性により一様cusp geometryを得る。凸性からfacet shiftのlog-density差をO(1/min ell)とし、actual計量を内外のsimplex KE metricsでvolume比較する。Savinの小摂動定理でtensor・全高階誤差へ移る。Actual metric bufferや(TC)/(PBE)を前提としない。
 
 Actual側の大域入力は `coarse:cor:degree-d-volume-lower`。Adjunction residueでcanonical densityを固定し、backgroundによるHermitian frame errorの吸収と各正のcap方向のminorから六型のdeterminant下界を証明する。Sourceでは元のplane coordinatesを保つexact xy=tzとrescalingにより二つのcap係数≥c_d/Lを使う。Compact minimum原理からactual volume下界を得る。
+
+**Capped-volume入力の確認：** Part IV v1.11では、正値性からweighted cap minors、pair/triple、六つの局所型、compact最小値原理、固定次数の大域下界までの指定証明鎖を実読した。結論を妨げる誤りは見つからず、零点を含むChern微分の正確なcap恒等式、曲率・frame誤差の明示的吸収条件、固定adjunction residue、有限coverから最後に小さい複素parameterを取る順序を補った。追加式と定数依存は別担当も独立点検した。全原著・全主稿の包括的検証とは区別する。
 
 Full tripleの証明に必要なのは、この大域入力が供給する固定face ∂D_{t,m0}上の全phase・t一様なdensity下界だけである（`coarse:rem:full-triple-face-input`）。各固定tのradial closure×phase quotientがchartにcompactに含まれ、actual metricが近傍で滑らかなら、内外simplexのmaximum principleからinteriorのvolume sandwichを得る。Interiorのdensity下界、t一様な境界上界、actual tensor比較、actual距離の境界逃避を別に仮定しない。Shift評価で小さくなるv=log(ω_t²/k_L²)自身が、Ricci恒等式dd^cv=ω_t−k_Lによって小さい相対potentialとなる。全深部三重点の独立監査では大域capped densityを前段入力として分離し、それから先の領域・境界・全深度比・Savin/Schauderの連鎖を確認した。
 

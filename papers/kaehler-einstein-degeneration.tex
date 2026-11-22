@@ -57,7 +57,7 @@
 \title{\bfseries 多重スケール Kähler--Einstein 幾何 IV\\[1mm]
 \large 超平面和退化の局所安定性と閉 corner の収縮}
 \author{植田一石\\[-1mm]\small Kazushi Ueda}
-\date{2026年11月22日\\五部作・統合改訂稿 v1.10}
+\date{2026年11月22日\\五部作・統合改訂稿 v1.11}
 \begin{document}\maketitle
 
 \begin{abstract}
@@ -1052,7 +1052,11 @@ $u=t/x=\tau/X$ は小さく，$y=uz$ から $|y|\le C|\tau|$ である．従っ�
 \end{theorem}
 
 \begin{proof}
-Source-free strataの compactnessと special pointsの有限性から有限部分被覆を取る．Unit $U$ は enlarged domain上で零を持たず，像を単連結な小円板に入るよう領域を縮小すれば，$uv=tU$ の $U$ を一方の座標へ一価に吸収できる．Source polydiscは \cref{coarse:lem:source-trichotomy} で処理する．
+Source-free strataの compactnessと special pointsの有限性から，中央 fiber の
+固定近傍を覆う有限個の ambient charts を先に取る．その近傍の外の compact set では
+$\|L_0\cdots L_4\|$ が正数以上であり，$\|F_5\|$ は有界なので，十分小さい全複素 $t$ の
+$X_t$ はこの近傍に含まれる．これにより被覆から漏れる moving 領域はない．
+Unit $U$ は enlarged domain上で零を持たず，像を単連結な小円板に入るよう領域を縮小すれば，$uv=tU$ の $U$ を一方の座標へ一価に吸収できる．Source polydiscは \cref{coarse:lem:source-trichotomy} で処理する．
 \end{proof}
 
 \begin{remark}
@@ -1068,6 +1072,21 @@ $G_t=L_0L_1L_2L_3L_4+tF_5$ に対する adjunction residue によって取る．
 従って $h_{0,t}=\ddc\log\Omega_{0,t}$ は Fubini--Study form の制限と
 一様比較可能である．この residue normalization を固定し，
 $\Omega_{0,t}$ に任意の $t$ 依存 scalar を掛ける自由は用いない．
+具体的には，固定 affine chart と $\mathcal O(1)$ の frame $e$ を取り，
+その adjunction 像を $\sigma_t$ とすると
+\begin{equation}\label{coarse:eq:residue-density-normalization}
+ \Omega_{0,t}=\|e\|^{-2}|\sigma_t|^2,
+ \qquad
+ \sigma_t=\operatorname{Res}_{X_t}
+       \frac{dz_1\wedge dz_2\wedge dz_3}{G_t(z)}
+\end{equation}
+である．ここでは固定 chart の frame に伴う定数を $e$ に含める．
+$\|e\|^{-2}$ は固定 ambient 領域上の正の smooth function なので，
+その上下界は $t$ に依存しない．局所方程式を $G_t=P g_t$ と分解したときには
+$\sigma_t=P^{-1}\operatorname{Res}(dz_1\wedge dz_2\wedge dz_3/g_t)$ であり，
+ambient 座標変更の Jacobian とこの unit $P^{-1}$ を保持して比較する．
+Residue frame 自体が極限で発散することと，その smooth Hermitian weight の
+一様性を区別する．
 \begin{definition}\label{coarse:def:Omega-low}
 \begin{equation}\label{coarse:eq:Omega-low}
  \Omega_t^{\mathrm{low}}
@@ -1083,35 +1102,68 @@ $h_t^{\mathrm{low}}$ は全 $X_t$ 上で K\"ahler form であり，一様な固�
  h_t^{\mathrm{low}}\ge \frac12 h_{0,t}
 \end{equation}
 が成り立つ．
+より定量的に，$0<\epsilon=|t|\le\epsilon_0\le1$ に対して
+\[
+ S=\max_{i,x\in\PP^3}(s_i(x)+\epsilon_0),\qquad
+ \alpha_*=A_0-\log S
+\]
+と置く．Plane sections の Hermitian curvature を $\Theta_i$ とし，
+$\Theta_i\le k_i h_{0,t}$ となる固定 $k_i\ge0$ を取ると，
+$\alpha_*\ge\max\{1,4\sum_i k_i\}$ は上の正値性の十分条件である．
 \end{lemma}
 
 \begin{proof}
-$\Omega_{0,t}$ は $K_{X_t}\simeq\mathcal O_{X_t}(1)$ の固定正 Hermitian metricから取り，
-$h_{0,t}:=\ddc\log\Omega_{0,t}$ は Fubini--Study formと一様比較可能な正形式とする．
-局所 frameで $s=|f|^2e^{-\varphi}$ と書くと，regularized logarithmについて
+固定 ambient curvature の比較により，$k_i$ は全 fibers に共通に取れる．
+一つの section について holomorphic frame で $s=b|f|^2$ と書き，
+$\Theta=-\ddc\log b$ とする．Chern derivative はこの frame で
 \[
- \ddc\log(s+|t|)\ge -C h_{0,t}
+ \nabla' L=(df+f\partial\log b)e
 \]
-が $t$ に一様に成り立つ．実際，$\log(|f|^2+|t|e^{\varphi})-\varphi$ と書けば，
-第一項の Levi formの負部分と $\varphi$ の固定曲率は一つの定数へ吸収できる．
-一方
+である．その二乗から定まる大域的な半正形式を
+\[
+ \mathcal D
+ =\sqrt{-1}\langle\nabla' L\wedge\overline{\nabla' L}\rangle
+ =b\sqrt{-1}(df+f\partial\log b)
+             \wedge\overline{(df+f\partial\log b)}
+\]
+と置く．$\epsilon$ は fiber 上では定数なので，直接微分により
+\[
+ \ddc\log(s+\epsilon)
+ =-\frac{s}{s+\epsilon}\Theta
+   +\frac{\epsilon}{(s+\epsilon)^2}\mathcal D
+\]
+を得る．$\alpha=A_0-\log(s+\epsilon)$ に対する連鎖律
 \begin{equation}\label{coarse:eq:one-cap-curvature}
  \ddc(-2\log\alpha)
- =\frac{2}{\alpha}\ddc\log(s+|t|)
- +\frac{2}{\alpha^2}d\log(s+|t|)\wedge d^c\log(s+|t|)
+ =\frac{2}{\alpha}\ddc\log(s+\epsilon)
+ +\frac{2}{\alpha^2}\sqrt{-1}\,
+       \partial\log(s+\epsilon)\wedge\bar\partial\log(s+\epsilon)
 \end{equation}
-で，第二項は半正である．$\alpha\ge A_0-C$ と五個の sectionsの有限性から，
-$A_0$ を大きくすれば第一項の負部分の総和は $\frac12h_{0,t}$ 以下である．
-従って \eqref{coarse:eq:capped-positivity} を得る．
+から，$\chi=s/(s+\epsilon)$ として
+\begin{equation}\label{coarse:eq:intrinsic-cap-curvature}
+ \ddc(-2\log\alpha)
+ =-\frac{2\chi}{\alpha}\Theta
+  +\frac{2(\epsilon\alpha+s)}
+         {\alpha^2(s+\epsilon)^2}\mathcal D
+\end{equation}
+となる．この式は $f=0$ を含む全点で滑らかな表示であり，
+右辺の第二項は半正である．従って
+\[
+ h_t^{\mathrm{low}}
+ \ge\left(1-\frac{2\sum_i k_i}{\alpha_*}\right)h_{0,t}
+ \ge\tfrac12h_{0,t}.
+\]
+$t=0$ での smooth extension や局所座標の unitary 化は用いていない．
 \end{proof}
 
-一変数の capped curvature を正確に記録する．局所 unitary frameで $s=|f|^2$，
+一変数の logarithmic 表示も記録する．同じ holomorphic frame で
+$s=b|f|^2$ とし，$f\ne0$ 上で
 \[
  \alpha=A_0-\log(s+|t|),\qquad
  \chi=\frac{s}{s+|t|},\qquad
- \eta=\partial\log s
+ \eta=\partial\log s=d\log f+\partial\log b
 \]
-とする．固定 background curvatureを $\mathcal R$ と書けば
+とする．$\mathcal R=\ddc\log b=-\Theta$ と書けば
 \begin{equation}\label{coarse:eq:exact-cap-curvature}
  \ddc(-2\log\alpha)
  =\frac{2\chi}{\alpha}\mathcal R
@@ -1120,7 +1172,9 @@ $A_0$ を大きくすれば第一項の負部分の総和は $\frac12h_{0,t}$ �
      +\frac{\chi^2}{\alpha^2}
    \right)\sqrt{-1}\,\eta\wedge\bar\eta .
 \end{equation}
-第一項の負部分は \cref{coarse:lem:capped-positivity} で background に吸収済みである．以下
+第一項の負部分は \cref{coarse:lem:capped-positivity} で background に吸収できる．
+$f=0$ では logarithmic coframe 自体を用いず，
+\eqref{coarse:eq:intrinsic-cap-curvature}又は次の補題の $df$ 表示を使う．以下
 \begin{equation}\label{coarse:eq:mu-cap}
  \mu(s,\alpha)=2\left(
      \frac{\chi(1-\chi)}{\alpha}
@@ -1166,20 +1220,27 @@ $f_i\ne0$ で
  |\partial\log b_i(v)|^2\le C h_{0,t}(v,\bar v)
 \]
 が全 tangent vectors について一様に成立する．
-Exact cap formula と $\alpha_i\ge A_0-C$ は
+特に $K_b$ を
+$\sum_i|\partial\log b_i(v)|^2\le K_bh_{0,t}(v,\bar v)$
+の共通定数とすれば，exact cap formula と前補題の $\alpha_*$ は
 \[
  h_t^{\mathrm{low}}
- \ge (1-C/A_0)h_{0,t}
+ \ge\left(1-\frac{2\sum_i k_i}{\alpha_*}\right)h_{0,t}
       +\sum_i\mu_i\sqrt{-1}\eta_i\wedge\bar\eta_i,
- \qquad 0\le\mu_i\le C/A_0
+ \qquad
+ 0\le\mu_i\le\frac1{2\alpha_*}+\frac2{\alpha_*^2}
 \]
 を与える．さらに
 \[
  |a+b|^2\ge\tfrac12|a|^2-|b|^2
 \]
-を各 $\eta_i(v)$ に適用する．負の error は
-$\sum_i\mu_i|\partial\log b_i(v)|^2\le(C/A_0)h_{0,t}(v,\bar v)$
-以下であるから，$A_0$ を大きくすれば
+を各 $\eta_i(v)$ に適用する．従って追加の frame error も含めた十分条件は
+\begin{equation}\label{coarse:eq:cap-absorption-budget}
+ \frac{2\sum_i k_i}{\alpha_*}
+  +K_b\left(\frac1{2\alpha_*}+\frac2{\alpha_*^2}\right)
+ \le\frac12
+\end{equation}
+である．この条件を満たすよう $A_0$ を一度だけ大きく取れば
 \[
  h_t^{\mathrm{low}}
  \ge \tfrac12 h_{0,t}
@@ -1196,6 +1257,10 @@ $\sum_i\mu_i|\partial\log b_i(v)|^2\le(C/A_0)h_{0,t}(v,\bar v)$
 連続性により \eqref{coarse:eq:weighted-cap-lower} はその点でも成立する．
 \end{proof}
 
+以下の二つの数値補題では $C_0\ge1$ と $A_0$ を固定し，
+$0<|t|<t_0(C_0,A_0)$ とする．定数はこの固定 data に依存してよいが，
+個々の $s_i$，深度比，角度又は $t$ の位相には依存しない．
+
 \begin{lemma}[Capped pair inequality]\label{coarse:lem:capped-pair}
 $C_0^{-1}|t|^2\le s_us_v\le C_0|t|^2$ とし，$s_u,s_v\le C_0$ とする．対応する
 $\alpha_u,\alpha_v,\chi_u,\chi_v,\mu_u,\mu_v$ について，一様定数 $c>0$ が存在して
@@ -1206,9 +1271,12 @@ $\alpha_u,\alpha_v,\chi_u,\chi_v,\mu_u,\mu_v$ について，一様定数 $c>0$ 
 \end{lemma}
 
 \begin{proof}
-$x=s_u/|t|$，$y=s_v/|t|$ とすれば $xy\asymp1$ である．従って少なくとも一方，例えば $x$ は固定正数以上であり，$\chi_u\ge c_1$ である．そのとき $y\le C$ なので
+$x=s_u/|t|$，$y=s_v/|t|$ とすれば $C_0^{-1}\le xy\le C_0$ である．
+従って少なくとも一方，例えば $x$ は $C_0^{-1/2}$ 以上であり，
+$\chi_u\ge(1+\sqrt{C_0})^{-1}$ である．そのとき $y\le C_0^{3/2}$ なので
 \[
- \alpha_v=A_0+\frac12L_t-\log(1+y)\ge \frac12L_t-C.
+ \alpha_v=A_0+\frac12L_t-\log(1+y)
+ \ge A_0+\frac12L_t-\log(1+C_0^{3/2}).
 \]
 よって $\mu_u\ge2\chi_u^2\alpha_u^{-2}\ge c\alpha_u^{-2}$ であり，
 $\alpha_v^2\ge cL_t^2$ を用いれば \eqref{coarse:eq:capped-pair} が従う．$y$ が下から抑えられる場合は対称である．
@@ -1229,20 +1297,20 @@ $C_0^{-1}|t|^2\le s_1s_2s_3\le C_0|t|^2$，$s_a\le C_0$ とする．すると，
 \end{lemma}
 
 \begin{proof}
-十分小さい固定 $\delta>0$ を $\delta^2 C_0<C_0^{-1}$ となるように取る．
+固定 $\delta=(2C_0)^{-1}$ を取れば $\delta^2 C_0<C_0^{-1}$ である．
 二つの $s_a$ が $\delta|t|$ 未満なら，第三の $s_a\le C_0$ と合わせて
 積が $C_0^{-1}|t|^2$ 未満となり矛盾する．
 $s_k=\min\{s_1,s_2,s_3\}$ とし，残りを $s_r,s_s$ と書く．
 もし $s_r<\delta|t|$ なら $s_k\le s_r<\delta|t|$ となるので，
 上の議論から $s_r,s_s\ge\delta|t|$ である．従って
-$\chi_r,\chi_s\ge\delta/(1+\delta)$ である．
+$\chi_r,\chi_s\ge(2C_0+1)^{-1}$ である．
 また
 \[
  s_k^3\le s_1s_2s_3\le C_0|t|^2,
  \qquad
  s_k+|t|\le C|t|^{2/3}
 \]
-より $\alpha_k\ge L_t/3-C$ である．したがって
+より $\alpha_k\ge A_0+L_t/3-\log(C_0^{1/3}+1)$ である．したがって
 \[
  \mu_r\mu_s
  \ge c(\alpha_r\alpha_s)^{-2}
@@ -1358,7 +1426,9 @@ Source で $P$ は unit であり，$F_5$ は double line 上に単純零点を�
 family は正確に $xy=tz$ となる．
 $t=\tau^2$ として $(x,y,z)=(\tau X,\tau Y,XY)$ と書く．
 固定 central domain では $|X|,|Y|\le C_0$ である．
-$s_x=b_x|t||X|^2$ なので，\cref{coarse:lem:weighted-cap-lower} の
+$s_x=b_x|t||X|^2$，
+$\alpha_x=A_0+L_t/2-\log(1+b_x|X|^2)$ なので，
+\cref{coarse:lem:weighted-cap-lower} の
 $x$-cap の $dX$ 係数は
 \[
  |t|Q_x
@@ -1408,7 +1478,12 @@ $c\alpha_x^{-2}\asymp cL_t^2/(\alpha_x^2\alpha_y^2)$ 以上である．
 
 以上は有限個の fixed ambient charts と固定 central rescaling domains 上の評価であり，
 minors，Hermitian weights，canonical residue coefficients の全ての上下界が一様である．
-六型の cover によって，一つの $c>0$ を全 $X_t$ に取れる．
+まずこれらの domains と \eqref{coarse:eq:cap-absorption-budget} を満たす $A_0$ を固定し，
+その後に pair/triple の共通 $C_0$，central/arm の比較定数と
+$\alpha_x\asymp L_t$ に必要な $L_t$ の下限を確定する．
+最後に有限個の $t$ 閾値の最小値を取れば，六型の cover によって
+一つの $c>0$ を全 $X_t$ に取れる．ここで compactness を用いるのは ambient
+有限被覆と固定 data の上下界であり，actual KE tensor の比較やその境界逃避ではない．
 \end{proof}
 
 \begin{lemma}[Compact manifold 上の片側 Monge--Amp\`ere 最小値原理]
@@ -1460,6 +1535,12 @@ $t$ に依存しない．$d\to\infty$ に関する一様性は主張しない．
 
 \begin{proof}
 固定背景を $h_{0,t}^{(d)}=(d-4)\omega_{\mathrm{FS}}|_{X_t^{(d)}}$ とする．
+Plane sections の metric も Fubini--Study に選ぶ場合，
+$k_i=(d-4)^{-1}$ なので，正値性だけなら
+$\alpha_*\ge\max\{1,4d/(d-4)\}$ で足りる．
+一般の固定 Hermitian plane metrics でも ambient curvature の比較で
+$\sum_i k_i<\infty$ を取れる．Holomorphic cap directions まで下評価する際は
+さらに \eqref{coarse:eq:cap-absorption-budget} を課す．
 各 cap の負の曲率部分と Hermitian frame error は
 $C_d A_0^{-1}h_{0,t}^{(d)}$ 以下であるから，$A_0$ を $d$ と固定族に応じて大きくすれば
 \cref{coarse:lem:weighted-cap-lower} の同じ不等式が $d$ 項の和に対して成立する．
@@ -1482,6 +1563,21 @@ bounded units である．これで最初の二結論が得られる．最後は
 \cref{coarse:lem:one-sided-volume} を適用する．
 \end{proof}
 
+
+\begin{remark}[大域 potential と比較の範囲]\label{coarse:rem:capped-global-potential}
+同じ residue normalization の下で
+\[
+ \varphi_{t,d}=\log\frac{(\omega_t^{(d)})^2}{\Omega_{t,d}^{\mathrm{low}}}
+ \ge\log c_d,
+ \qquad
+ \ddc\varphi_{t,d}=\omega_t^{(d)}-h_{t,d}^{\mathrm{low}}
+\]
+は全 smooth compact fiber 上の一つの関数の不等式である．
+Source の軸や triple の全角度を除去して最大値原理を使う必要はなく，
+cap の係数と residue をそれらの点でも上で直接評価した．
+一方，$\varphi_{t,d}$ の上界，actual tensor の二側比較，
+次数に一様な $c_d$，又は moving domains の buffer はこの議論から結論しない．
+\end{remark}
 
 \section{Complete envelopes と source-arm fixed balls}\label{coarse:sec:envelopes}
 

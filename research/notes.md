@@ -1,6 +1,6 @@
 # 研究ノート：一般型超曲面のKE退化
 
-更新：2026-11-22 / v1.20（Part IV–V本文はv1.10）
+更新：2026-11-22 / v1.21（Part IV本文はv1.11、Part V本文はv1.10）
 
 ## 共同編集の正本と共有局所入力
 
@@ -189,11 +189,25 @@ Shift評価により小さくなるv=log(ω_t²/k_L²)自身が、同じRicci規
 
 全平面退化への適用は `coarse:thm:full-triple-tensor` に分ける。一般性 `ass:Gd`、固定d≥5・固定族に対し、`coarse:cor:degree-d-volume-lower` とlocal residue比較が上記のfixed-face下界を与える。三重点の有限性から定数を共通にする。次数一様性、source全体のtensor比較、大域GHはこの局所適用の主張ではない。
 
-**今回の独立内部点検。** 別の読み手が局所定理と単一証明、small-volume-tensor、全平面への適用を読み、compact phase quotient、内外barrierの符号と全境界、t一様上界の不要性、coverへの移行順序、Savin/Schauderの量化を確認した。Savinのauthor PDFのH1/H2/H4・Theorem 1.3もその担当が再読した。指定鎖に新たな結論阻害gapは見つからなかった。Capped determinantの全証明や全一次原著の包括的な再監査、新規性確認、外部査読・形式証明ではない。
+**局所安定性核の独立内部点検。** 別の読み手が局所定理と単一証明、small-volume-tensor、全平面への適用を読み、compact phase quotient、内外barrierの符号と全境界、t一様上界の不要性、coverへの移行順序、Savin/Schauderの量化を確認した。Savinのauthor PDFのH1/H2/H4・Theorem 1.3もその担当が再読した。指定鎖に新たな結論阻害gapは見つからなかった。この点検は以下のcapped determinantの指定鎖の監査と範囲を分ける。全一次原著の包括的な再監査、新規性確認、外部査読・形式証明ではない。
 
 固定toric模型k_Lの存在・一意性・完備性にはZhang (2015), 第2.1節、Theorem 2.1 / Proposition 2.2を用いる。退化族のTheorem 2.4やQ-factorial仮定は使わない。ψ_L=log L−Σlog ell_iと内外translated-simplex barriersによりψ_L−(log3)/2≤φ_L≤ψ_L、V_L/3≤k_L²≤V_Lを得る。半平面へのSchwarz評価とdeterminant上界からtensor二側比較を先に確保し、内部正則性で全高階を制御する。Log-densityの凸性から固定量のfacet shiftによる誤差O(1/min ell)を得て、actual volumeを内外の模型で挟み、小さいpotentialへSavinを適用する。証明の所在は `coarse:lem:simplex-model` / `coarse:lem:simplex-shift` / `coarse:lem:small-volume-tensor`。
 
-Actual側の大域入力 `coarse:cor:degree-d-volume-lower` は、adjunction residueによるcanonical densityの規格化、backgroundによるHermitian frame errorの吸収、各正のcap方向のminorから得る六型のdeterminant下界である。固定dについてh0=(d−4)FS、A0をdに対し十分大きく取り、active supportは高々三つ、inactive capsは有界となる。Sourceでは元のplane coordinatesを保つexact xy=tzとrescalingを用い、二つのcap係数≥c_d/Lを確保する。Compact minimum原理からactual volume下界へ進む。この入力は全固定次数について点検済みであり、三重点のtensor比較に(TC)/(PBE)やactual metric bufferを仮定しない。
+**Capped volume入力の監査と定量化。** Part IV v1.11では `coarse:lem:capped-positivity` → `coarse:lem:weighted-cap-lower` → pair/triple数値補題 → `coarse:thm:global-determinant` → `coarse:cor:degree-d-volume-lower` の全指定証明鎖を直接点検した。結論を妨げる誤りは認めず、Chern derivativeによる軸上も滑らかな式、吸収の明示的閾値、residueの規格化と有限coverの量化を本文へ補った。固定positive backgroundに対しΘ_i≤k_i h0、α_*≤α_iと取ると、`coarse:eq:intrinsic-cap-curvature` は
+\[
+ dd^c(-2\log\alpha_i)
+ =-\frac{2\chi_i}{\alpha_i}\Theta_i
+  +\frac{2(\epsilon\alpha_i+s_i)}{\alpha_i^2(s_i+\epsilon)^2}
+       \sqrt{-1}\langle\nabla' L_i\wedge\overline{\nabla' L_i}\rangle,
+ \qquad \epsilon=|t|
+\]
+を与える。α_*≥max(1,4Σk_i)でhlow≥h0/2となる。Holomorphic directionsへ移す際はμ_i≤1/(2α_*)+2/α_*²と固定frame定数K_bを用い、`coarse:eq:cap-absorption-budget` の全誤差≤1/2を先に課す。FS metricsなら正値性だけの十分条件はα_*≥4d/(d−4)だが、frame吸収とdeterminantの定数は別に固定する。
+
+Pairではχ_u≥(1+√C0)^−1かつ反対capのα_v≥L/2+A0−log(1+C0^(3/2))、tripleでは二つのχ≥(2C0+1)^−1かつ残るα≥L/3+A0−log(C0^(1/3)+1)を用いる。これらは深度比・全phaseに一様である。六型のambient領域とA0を固定し、有限個のunit/Jacobian/minor下界とLの下限を選んだ後に、全小複素tの共通閾値を取る。中央fiber近傍の外のcompact領域ではplane積のnormが正数以上なので、小tの全X_tが六型coverへ入る。
+
+Canonical densityは固定adjunction frameのnorm逆数とresidueの二乗であり、局所方程式のunit Pと座標Jacobianを保持する（`coarse:eq:residue-density-normalization`）。Sourceでは元のplane coordinates x,yを保つz=−F_d/Pによりxy=tzを正確に得る。Central rescaling x=τX,y=τY,t=τ²では、|t|Q_xと|t|Q_yが軸上もc_d/L以上であり、residueの1/tはdx∧dyで相殺して−dX∧dYとなる。Oriented armsではcapとdzの二方向を使う。Fixed dのinactive capsは一様有界で、三重点以上の新模型は生じない。各smooth compact fiberでlog(ω²/Ωlow)の最小点を取り、ddc log(ω²/Ωlow)=ω−hlowの符号から全域下界を得る。Sourceの軸や全phaseを取り除いた非compact領域へ最大値原理を移していない。大域potentialと下界の範囲は `coarse:rem:capped-global-potential` に明記した。
+
+上の補強は直接微分、正のrank-one formsのminor、adjunction residue、compact最小値原理による。新たな外部解析定理は加えておらず、Aubin–Yauの存在論を含む原著全証明の再監査ではない。指定鎖に(TC)/(PBE)、actual tensor比較又はactual metric bufferへの循環依存はない。次数一様性、global potential上界、source全域tensor漸近、任意速度のmoving域へは結論を広げない。
 
 **Complete envelopeの上比較。** `coarse:lem:complete-volume-upper` の一般形は、complete負KE形式hに対するlog-volume ratio uが上に有界であることを仮定する。Ricci下界によるLaplacian型Omori–Yauを使い、複素次元2でtr_hω=2+Δ_huと算術幾何平均からω²≤h²を得る。Hessian型原理は不要で、完備性だけからsup u<∞を推論しない。本稿のfinite ball、annulus–disc、product-annulus windowsでは、各固定tでactual densityが人工境界を越えて有限に延長し、explicit complete modelのdensityが全人工境界で発散するためu→−∞となる。Angular coversは周期性で同じ上界を持ち、residual universal coverには内部のfinite disc windowを使う。Source xy=tzのenlarged annulus–discはy=tz/xにより固定chartへ延長するので、有限quotient上の直接の最大値原理だけでも上比較が閉じる。非周期な無限coverへ適用する場合の上有界性は別の確認事項である。
 
@@ -416,11 +430,11 @@ $\mathcal C_6$ は全 $S_6$ の座標置換で不変だが、六つの同時Pete
 
 ## 再現性
 
-保存された16本の旧原稿由来の検算と統合稿の5本は、2026-11-20に再実行され、元入力のSHA-256も照合されている。現在も有効な再現資産を保持するが、今回のv1.10では再実行していない。出典・ハッシュは `source-manifest.json`、実行状態は `validation.json` に記す。
+保存された16本の旧原稿由来の検算と統合稿の5本は、2026-11-20に再実行され、元入力のSHA-256も照合されている。現在も有効な再現資産を保持するが、今回のPart IV v1.11では再実行していない。出典・ハッシュは `source-manifest.json`、実行状態は `validation.json` に記す。
 
-Part IV–V v1.10では局所安定性の独立定理化、全平面への適用分離、公表入口と四入力表、確認版への引用を更新した。指定証明鎖を別の読み手も内部点検した。曲面の既存相対面積構成・source壁・固定stage接着、固定補空間の既存理論はその正本へ参照を保ち、今回全てを再実行したとはしない。全原稿・全外部入力の包括的監査、新規性の網羅的確認、外部査読、形式証明は未了である。
+現行Part IV v1.11は局所安定性の独立定理、全平面への適用、公表入口の四入力表に加え、その大域volume入力の証明を整えている。Capped positivityからpair/triple比較、六つの局所型のdeterminant、compact最小値原理、固定次数系までを今回実読した。追加したChern恒等式、曲率とframe errorの吸収予算、pair/tripleの定数、sourceのcapとresidue、有限coverから定数を選ぶ順序、大域potentialの範囲は別の読み手も独立に確認した。この第二点検が既存の全capped証明や全原著を再監査したことは意味しない。局所安定性核の既存内部点検は保持する。曲面の既存相対面積構成・source壁・固定stage接着、固定補空間の既存理論はその正本へ参照を保ち、今回全てを再実行したとはしない。全原稿・全外部入力の包括的監査、新規性の網羅的確認、外部査読、形式証明は未了である。
 
-2026-11-22に現行Part IV v1.10を119頁、Part V v1.10を37頁へLuaLaTeX/latexmkで組版した。最終logの未定義参照・引用、重複label、欠字、LaTeX error、overfull/underfull boxは全て0。日本語font feature・斜体、微小math fontの代替とbookmark数式の警告は残る。IVの1、2、6、9–11、51–54、119頁（11頁）、Vの1–3、5、37頁（5頁）を150 dpiで単頁PNGへrenderし、実表示して確認した。題名・要約・四入力表・局所定理10.3とその単一証明・適用定理10.4・文献に、見切れ、欠落、重なり、数式のはみ出しを認めない。表の揃えを調整して該当頁を再確認した。全頁の表示確認ではない。
+2026-11-22に現行Part IV v1.11を120頁へLuaLaTeX/latexmkで組版した。最終logの未定義参照・引用、重複label、欠字、LaTeX error、overfull/underfull boxは全て0。日本語font feature・斜体、微小math fontの代替とbookmark数式の警告は残る。IVの1、22–31、120頁（12頁）を150 dpiで単頁PNGへrenderし、実表示して確認した。題名・有限atlasとresidue正規化・Chern恒等式・吸収予算・pair/triple・sourceを含むdeterminant証明・compact最小値原理・固定次数系・大域potentialの注意・文献に、見切れ、欠落、重なり、数式のはみ出しを認めない。内容不変のPart V v1.10は同日確認の37頁、1–3、5、37頁（5頁）の実表示記録とsource/PDF hashを保持し、今回は再組版・再表示していない。全頁の表示確認ではない。
 
 実行環境にはLuaTeX-ja、Harano Aji、CM/AMS/RSFSのvector font mapを含むuser-local TeX設定を用いた。通常のLuaLaTeX/latexmk・SyncTeXのrepo設定は保持し、PDFとcacheはGit追跡しない。現行source/PDFのSHA-256、頁と実行範囲は検証JSONに集約する。GitHubへの反映とhub更新は組版から独立に確認する。
 

@@ -1,12 +1,14 @@
 # Kähler–Einstein degeneration
 
-更新：2026-11-22 / v1.20（研究資料。Part IV–V本文はv1.10）
+更新：2026-11-22 / v1.21（研究資料。Part IV v1.11、Part V v1.10）
 
 **公表計画：** 数学的価値の最大化を基準に、曲面P0・Part IVの最小局所解析・Part Iの距離と実球体積漸近を優先する。[研究方針](00_research_plan.md)に実行順序・達成基準・担当を記した。まず中心定理の構成、入力の範囲、先行研究との差を確定し、同時atlasと条件付き拡張は独立した完成基準で進める。
 
 最初に[現行研究方針](00_research_plan.md)、次に[研究ノート](research/notes.md)を読む。固定次数d≥5の一般型曲面の全平面退化について、actual KE計量の径の尺度の極限とLagrangian torus fibrationによる実現を研究する。正本はGitHubのmain、研究全体の入口は[research-hub](https://github.com/uedakazushi/research-hub)。
 
 **公表準備で明確にした解析核：** `coarse:thm:boundary-to-triple` はexact triple領域、全angular phasesのcompact quotient、各固定tのsmooth radial閉包、固定faceの一様なdensity下界から、全深度比に一様なC^q誤差O(1/m)を導く。境界上界のt一様性は不要。`coarse:thm:full-triple-tensor` を全平面退化への適用として分け、証明は一度だけ置いた。Part IVの入口を無条件の局所成果中心へ改め、曲面P0への最小四入力表を設けた。
+
+**Capped-volume入力の確認：** Part IV v1.11では、正値性からweighted cap minors、pair/triple、六つの局所型、compact最小値原理、固定次数の大域下界までの指定証明鎖を実読した。結論を妨げる誤りは見つからず、零点を含むChern微分の正確なcap恒等式、曲率・frame誤差の明示的吸収条件、固定adjunction residue、有限coverから最後に小さい複素parameterを取る順序を補った。追加式と定数依存は別担当も独立点検した。全原著・全主稿の包括的検証とは区別する。
 
 ## 三研究を一体で進める方針
 
@@ -61,17 +63,17 @@ Core側の `ke:actual-anchor-fan-criterion` は、同じLiouville primitiveで�
 
 2026-08-31五篇連作の退化二部作を元の全文TeXから移行し、有効な内容を現行稿に保持している。
 
-- [Part IV：局所安定性と閉cornerの収縮](papers/kaehler-einstein-degeneration.tex)：主たる公表用原稿。現行v1.10、119頁。全深部三重点・閉cornerの無条件結果と、sourceを含むquintic exteriorの(TC)_5付き結果を分ける。全域のsharp co-Gramは粗い比較と(PBE)_d付き。
+- [Part IV：局所安定性と閉cornerの収縮](papers/kaehler-einstein-degeneration.tex)：主たる公表用原稿。現行v1.11、120頁。全深部三重点・閉cornerの無条件結果と、sourceを含むquintic exteriorの(TC)_5付き結果を分ける。全域のsharp co-Gramは粗い比較と(PBE)_d付き。
 - [Part V：cubical GH](papers/cubical-gh-limit.tex)：現行v1.10、37頁。一般次数のcubical複体の位相・整数ホモロジー、abstract pruning–transport、diam(C_5)=sqrt(13)を含む。全曲面のactual GH適用は(CP)_d+(PBE)_d付き。
 - [Punctured-neck技術稿](papers/punctured-neck-scattering.tex)：旧81頁の証明全文をLuaLaTeXへ移植した稿（回収時92頁）。条件付きの解析入力を冒頭に明記。
 - [Source-free比較の研究ノート](papers/source-free-comparison.tex)：source-free領域の補助原稿。
-- [補助検算](scripts/)：2026-11-20に統合稿5本と旧v0.12の16本を再実行し、全件成功。今回のv1.10では再実行していない。旧16本は配布時のSHA-256と一致。有限計算・式の診断であり解析証明の代用ではない。
+- [補助検算](scripts/)：2026-11-20に統合稿5本と旧v0.12の16本を再実行し、全件成功。今回のv1.11では再実行していない。旧16本は配布時のSHA-256と一致。有限計算・式の診断であり解析証明の代用ではない。
 
 関連Lagrangian研究の人工PL基底計量では、分岐基底からC_dへのdistortionはd=5でΘ(ε²)、d≥6でΘ(ε)。これはactual KE計量の収束とは別の結果である。大域的な適用にはno-shortcut、square lifts、fiber/portal connectorsの定量条件を揃える必要があり、最初の二条件だけから第三は従わない。
 
 ## 保存と検証
 
-2026-11-22にPart IV v1.10を119頁、Part V v1.10を37頁へLuaLaTeX/latexmkで組版した。最終logの未定義参照・引用、重複label、欠字、LaTeX error、overfull/underfull boxは全て0。IVの1、2、6、9–11、51–54、119頁（11頁）、Vの1–3、5、37頁（5頁）を150 dpiで単頁PNGへrenderし、実表示した。題名・abstract・四入力表・局所定理10.3と証明・適用定理10.4・文献に、見切れ、重なり、欠落、数式のはみ出しを認めない。全頁の表示確認ではない。Font feature・斜体・微小math font代替とPDF bookmark数式の警告は残る。
+2026-11-22にPart IV v1.11を120頁へLuaLaTeX/latexmkで組版し、1・22–31・120頁の計12頁を150 dpiで実表示した。新しいcap公式・吸収条件・source計算・次数dの系・大域potential注意・書誌に切れ、欠落、重なりを認めなかった。最終logの未定義参照・引用、重複label、欠字、LaTeX error、overfull/underfullは全て0。Part V v1.10（37頁）は本文を変えず、同日の成功組版と1–3・5・37頁の表示確認、source/PDFのhashを保持する。全頁の視覚検査ではない。Font feature・斜体・微小math font代替とPDF bookmark数式の警告は残る。
 
 Part IV v1.10では新局所定理 `coarse:thm:boundary-to-triple`、モデルとshift比較、小摂動評価、全平面退化への適用を担当と別担当が点検した。Compact phase quotientでの最大値原理、境界上界の各固定tでの有限性、定数依存、normalized coverでの正則性を確認した。全capped determinant・全外部原典・全主稿の包括的再監査、外部査読、形式証明は未実施。有限距離論の計算は今回変更しておらず再実行していない。詳しい状態は[検証状態](research/validation.json)。
 
