@@ -40,17 +40,17 @@
     },
     {
       "source": "papers/kaehler-einstein-degeneration.tex",
-      "version": "1.13",
-      "source_sha256": "1e27c6a44b743a9865644140ce6da416c11286f84604aa56380ada68ea668b8d",
-      "pages": 122,
-      "pdf_sha256": "eb6e54d26badafd85e3aa7dd92876b02bef75dab65b959f905e34c9ddb664f8f",
-      "pdf_bytes": 1337304,
+      "version": "1.14",
+      "source_sha256": "bb7fcfbfadea32f0ce00828705488502d85706be8f59f7a0947e306ed138c6ae",
+      "pages": 124,
+      "pdf_sha256": "e8955628ba5127d576f8c0662a4ae81ed4d3b9efd16e4b6387e332fd3f16394d",
+      "pdf_bytes": 1350815,
       "verified_date": "2026-11-23",
       "engine": "LuaHBTeX 1.18.0 / TeX Live 2025/dev/Debian with user-local LuaTeX-ja and vector font maps",
       "build_exit_code": 0,
       "build_command": "latexmk papers/kaehler-einstein-degeneration.tex (LuaLaTeX; runtime supplied LuaTeX-ja/Harano Aji; writable TEXMFCACHE)",
       "current_revision_rebuilt": true,
-      "current_revision_status": "Part IV v1.13 compiled to 122 pages; all six log categories zero; seven selected pages rendered at 150 dpi and actually displayed.",
+      "current_revision_status": "PartIV1.14 compiled to124pages; six log classes zero; nine selected pages rendered at150dpi and actually displayed.",
       "log_check_counts": {
         "undefined_references_or_citations": 0,
         "duplicate_labels": 0,
@@ -65,31 +65,35 @@
         "status": "completed",
         "pages": [
           1,
-          79,
-          80,
-          81,
-          84,
-          85,
-          122
+          7,
+          8,
+          49,
+          50,
+          51,
+          52,
+          53,
+          123
         ],
         "dpi": 150,
         "full_page_review": false,
         "reviewers": {
           "local_analytic_reviewer": [
             1,
-            79,
-            80,
-            81,
-            84,
-            85,
-            122
+            7,
+            8,
+            49,
+            50,
+            51,
+            52,
+            53,
+            123
           ]
         },
-        "result": "All seven rendered pages actually displayed. Title/date, rank-one and fixed-buffer chain, complete shrinking-buffer corollary and proof, quantitative localized Chern-Lu statement and complete proof, adjacent application and bibliography show no missing glyph, overlap, clipping or equation overflow. Not a full-page review of all 122 pages."
+        "result": "All nine rendered pages actually displayed: title, changed introduction, complete simplex proof, scaling/period, normalized potential and Cheng-Yau bibliography. No missing glyph, overlap, clipping or equation overflow."
       },
       "source_includes_sha256": {
         "papers/sections/closed_triple_metric.tex": "61ba5eb77e28e604178d57c90a5ea96e533458f2baeb8d3471253851422f1d51",
-        "papers/sections/full_triple_comparison.tex": "ea5462ddf392a5cb47d29802bc218a3948d5ed913c781f40e7686b0e10fb5730",
+        "papers/sections/full_triple_comparison.tex": "4a2061ae8a978a4e48ffc7420b8819e780ca6136923979fc4d893a6b0d9b6291",
         "papers/sections/moving_triple_comparison.tex": "75d4a0c54749d99e627dc5922d07e3f89e7707edd0084b0160251791caa05ad0",
         "papers/sections/simplex_boundary_geometry.tex": "8f621f723f42aa92512e80a0daf462c5037cc85d9b10e4d83012d99d72790050",
         "papers/sections/source_free_neck_comparison.tex": "3b9193de6771858909a53ed6cbf121ee09f2dec7ecc36592fc0fff30e298aa43",
@@ -108,7 +112,7 @@
       "current_revision_rebuilt": false
     }
   ],
-  "scope": "Part IV v1.13 makes localized Chern-Lu quantitative in the actual buffer radius for holomorphic maps, and derives a conditional shrinking-buffer normal-circle criterion. Selected new proof independently checked; current IV compiled and seven selected pages displayed. Source-audit and cross-repository current state corrected, including the separate standard equal-weight degree-six atlas/GH/measure theorem. Part V and computational certificate sources unchanged; no finite-certificate rerun, comprehensive proof audit, external review or formal verification.",
+  "scope": "Part IV v1.14 isolates the Cheng-Yau existence/real-Hessian-completeness input as explicitly stated in Zhang Theorem2.1, and directly proves simplex uniqueness, tube/lattice completeness, scaling and normalized geometry. Added proof chain independently read. Current124-page build and nine selected actual page displays passed. CY1982 theorem text remains unverified; no new mathematical assumption is introduced. PartV/certificates unchanged; no comprehensive or formal audit.",
   "certificate_runs": [
     {
       "script": "cubical_diameter_exact_gallery_certificate_definitive_v1.py",
@@ -217,30 +221,31 @@
     }
   ],
   "visual_check": {
-    "date": "2026-11-23",
-    "version": "Part IV 1.13 / unchanged Part V 1.10",
-    "status": "completed for current Part IV",
-    "sample": [
-      1,
-      79,
-      80,
-      81,
-      84,
-      85,
-      122
-    ],
-    "dpi": 150,
-    "result": "All seven rendered pages actually displayed. Title/date, rank-one and fixed-buffer chain, complete shrinking-buffer corollary and proof, quantitative localized Chern-Lu statement and complete proof, adjacent application and bibliography show no missing glyph, overlap, clipping or equation overflow. Not a full-page review of all 122 pages.",
-    "full_page_review": false,
-    "scope": "Current IV seven-page review; V previous five-page record retained, not repeated."
+    "current_part_iv": {
+      "pages": [
+        1,
+        7,
+        8,
+        49,
+        50,
+        51,
+        52,
+        53,
+        123
+      ],
+      "dpi": 150,
+      "actual_display": true,
+      "full_page_review": false
+    },
+    "unchanged_other_papers": "Their prior explicitly scoped records are retained, not repeated."
   },
   "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested.",
-  "version": "1.26",
+  "version": "1.27",
   "certificate_runs_date": "2026-11-20",
   "certificate_runs_repeated_current_revision": false,
   "current_math_audit": {
     "date": "2026-11-23",
-    "version": "Part IV 1.13",
+    "version": "Part IV1.14",
     "capped_volume_input_review": {
       "source": "papers/kaehler-einstein-degeneration.tex",
       "proof_labels": [
@@ -268,7 +273,8 @@
         "coarse:rem:capped-global-potential"
       ],
       "independent_review": "The coordinating author independently recomputed the Chern chain rule and coefficients and read the entire changed proof text: mu bound, frame-error budget, pair/triple constants, source alpha identity, fixed-cover -> A0 -> constants -> small-t order and global potential lower bound. No correction was required. This second review concerns the added/changed formulas and explanations, not a fresh independent review of every original capped-determinant case.",
-      "primary_source_scope": "The additions are direct Chern calculus, elementary weighted-minor/cap estimates, adjunction normalization and the compact minimum principle. They introduce no new external analytic theorem. Existing KE-existence and local-stability references retain their previously stated verification scope; no claim of rereading entire original papers or proving novelty is made."
+      "primary_source_scope": "The additions are direct Chern calculus, elementary weighted-minor/cap estimates, adjunction normalization and the compact minimum principle. They introduce no new external analytic theorem. Existing KE-existence and local-stability references retain their previously stated verification scope; no claim of rereading entire original papers or proving novelty is made.",
+      "repeated_in_current_revision": false
     },
     "retained_local_kernel_review": {
       "mathematics_verified": "Read the exact triple model, compact full-phase closure, all boundary faces, signs of both maximum-principle comparisons, independence from a parameter-uniform upper boundary bound, normalized covering charts, small Ricci potential, Savin threshold and subsequent Schauder estimates. The family application supplies the boundary floor through the capped density and fixed local residue comparison, with constants uniform over finitely many triple charts for a fixed degree and family.",
@@ -280,7 +286,8 @@
         "locations": "H1/H2, printed p.558; H4, p.559; Theorem 1.3, p.560",
         "checked": "The theorem requires H1, H2 and H4, not H3; global degenerate ellipticity and local uniform ellipticity/smoothness are compatible with the det_+ extension. This is not a rereading of all primary-source proofs."
       },
-      "theorem": "coarse:thm:boundary-to-triple in papers/sections/full_triple_comparison.tex, Theorem 10.3; fixed-degree application coarse:thm:full-triple-tensor, Theorem 10.4. In the current pagination these begin on pp.52 and 54. Their proof text is unchanged in v1.11; this is retained proof-review information, not a repeat display inspection."
+      "theorem": "coarse:thm:boundary-to-triple in papers/sections/full_triple_comparison.tex, Theorem 10.3; fixed-degree application coarse:thm:full-triple-tensor, Theorem 10.4. In the current pagination these begin on pp.52 and 54. Their proof text is unchanged in v1.11; this is retained proof-review information, not a repeat display inspection.",
+      "repeated_in_current_revision": false
     },
     "audit_limitations": "The new local Schwarz/rank-one/shrinking-buffer chain is a specified internal review. Capped-volume, local-kernel, fixed-end/gauge and downstream surface reviews are retained within their previous scopes and were not all repeated. No full manuscript/primary-source/novelty audit, external review, formal proof or computational-certificate rerun.",
     "claims_not_established": "(TC)_5 and the global (CP)_d+(PBE)_d package remain unverified. No arbitrary moving speed, source-wide tensor asymptotic, fixed positive moment width, or uniformity in degree follows.",
@@ -317,7 +324,8 @@
         }
       ],
       "independent_review": "The coordinating editor read the exact added proposition/remark and accepted the formulas, signs, Hermitian-radius shift, all-phase/all-complex-parameter uniformity and fixed-stage quantifier order. This is a second internal review of the addition, not a repeat of all source proofs.",
-      "limits": "No stronger moving-neck tensor theorem, arbitrary prescribed moving speed, uniform fixed positive moment width, CP/PBE/TC validation, formal verification, external peer review or comprehensive novelty claim."
+      "limits": "No stronger moving-neck tensor theorem, arbitrary prescribed moving speed, uniform fixed positive moment width, CP/PBE/TC validation, formal verification, external peer review or comprehensive novelty claim.",
+      "repeated_in_current_revision": false
     },
     "localized_schwarz_radius_review": {
       "date": "2026-11-23",
@@ -338,18 +346,34 @@
         "locations": "Section 1 equations (10)-(16), printed p.199; Theorem 2, p.201",
         "scope": "Original PDF read for the arbitrary-holomorphic-map Chern-Lu input. Existing Royden holomorphic-sectional citation retained; its complete proof not reaudited."
       },
-      "novelty": "A quantitative consequence of the classical local Schwarz estimate, not asserted as a new Schwarz lemma or optimal radius law."
+      "novelty": "A quantitative consequence of the classical local Schwarz estimate, not asserted as a new Schwarz lemma or optimal radius law.",
+      "repeated_in_current_revision": false
+    },
+    "complete_simplex_input_review": {
+      "date": "2026-11-23",
+      "labels": [
+        "coarse:lem:simplex-model",
+        "coarse:eq:simplex-real-block-metric",
+        "coarse:eq:simplex-normalized-potential",
+        "coarse:lem:nested-metric"
+      ],
+      "external_input": "Zhang arXiv:1505.04728v2 pp4–6, Theorem2.1 explicitly states CY1982 Theorem4.4. The positive orthant with u=(1,1,1) gives Delta1, including its polyhedral boundary. Only convex-solution existence, boundary blow-up and real Hessian completeness are imported.",
+      "direct_proof": "Inner homothety gives uniqueness without a boundary rate or second-solution completeness. Finite-length real projection plus local Hessian positivity gives tube completeness; free proper isometric lattice quotient stays complete. w/L changes the4pi lattice to4pi/L. Ricci and volume constants, Phi=phi+log(ab), fixed-strip ellipticity and nested regularity checked.",
+      "independent_review": "Author, coordinator and separate surface reviewer read the specified proof chain and normalization; no correction required. No whole-PartIV audit.",
+      "primary_source_limit": "CY1982 pp339–370 bibliography and official collected-work location verified; original Theorem4.4 page/text/proof not obtained. This is a verification limitation, not an additional mathematical assumption.",
+      "coefficient_check": "Zhang v2 p6 prints4^n after(2.2), confirmed in an actual page image by two readers. Chain rule gives4^(-n). The constant does not affect Ricci; our k^2=8 exp(2phi)dV_log was independently recomputed and needs no correction.",
+      "scope": "Classical comparison/completeness consequences, no novelty claim and no formal proof."
     }
   },
   "current_documentation_update": {
     "date": "2026-11-23",
-    "version": "1.26",
+    "version": "1.27",
     "manuscript_sources_changed": true,
     "lualatex_repeated": true,
     "computational_certificates_repeated": false,
     "surface_reference": {
-      "revision": 37,
-      "commit": "32c67aefe6beb47c2955923e2b6eb2471d48af31",
+      "revision": 45,
+      "commit": "d39270ec79ad973551f67c740682dbb06bac48e5",
       "scope": "Read the saved revision 37 source for the actual input interfaces: capped lower/oriented upper, full-triple/simplex estimates, normal-circle rank-one criterion, and fixed-base coordinates/primitive/end quantifiers. Bibliography now pins this source rather than calling revision 32 current. Prior source-wall, relative-area and core-criterion scopes are retained below without claiming a complete additional surface audit.",
       "labels": [
         "ke:source-inclusive-fixed-shell",
@@ -400,10 +424,10 @@
         "scope": "python3 scripts/research_check.py arithmetic → verification/run_current_checks.py のfour-ray, five-node, central, axis, divisorと対応audit各5件、計10件がexit0。別担当が再実行。既存有限整数接着のみを検算し、KE解析や新しい一般面積輸送定理の証明確認ではない。",
         "interpretation": "Existing finite integer-gluing checks are distinct from KE analytic proof review, the general relative-area theorem, and the unchanged KE repository certificate runs."
       },
-      "pinned_reference_scope": "Revision37/32c67ae remains the scientific input citation in IV/V. Current saved surface revision44 is documented separately; the local Schwarz refinement does not silently advance this input pin."
+      "pinned_reference_scope": "Revision37/32c67ae remains the scientific input citation in IV/V. Saved surface revision45 and its retained selected reviews are documented separately; new comparison text being prepared in46 is not a new analytic input."
     },
     "part_i_reference": {
-      "version": "1.9",
+      "version": "1.10",
       "commit": "2926300c2425c7e68550ac08ee81a2afa639a0c6",
       "status": "Saved Part I v1.10 / research materials v1.19 / unchanged overview v1.14 verified. Coordinating reviewer read cor:CW-fixed-cutoff-budget and its finite-SNC-chart, Poincare-tail and Stokes proof; other retained reviews below keep their stated scope. Current Part I build: 73 pages, six log classes zero, selected pages 1,36,37,38,73 displayed by the owning reviewer. No whole-Part-I audit.",
       "labels": [
@@ -625,7 +649,7 @@
       }
     },
     "claims_not_established": "The standard equal-weight degree-six theorem is now proved in the surface manuscript under its initial-source-leaf selection conditions. Arbitrarily prescribed large protected neighborhoods, arbitrary non-equal degree-six weights, a t-smooth fibration family, atlas parameter convergence or a Hessian limit are not asserted. Actual buffer existence and full tensor or Moser-flow control do not follow from the new shrinking-buffer circle criterion. (TC)_5, global (CP)_d+(PBE)_d and Part III H_loc/H_anc remain unverified; no comprehensive novelty, external or formal-proof certification.",
-    "validation": "Current IV v1.13 built and seven selected pages actually displayed; V sources and previous build/visual records unchanged. Local input/label/link/hash and git-diff checks passed. Finite certificates not rerun. External build records were read from their saved source repositories, not rebuilt here.",
+    "validation": "Current PartIV1.14 compiled124pages; six log classes zero; nine specified pages actually displayed at150dpi. Other manuscript and certificate runs retained with their original scope.",
     "part_ii_reference": {
       "version": "2.1",
       "commit": "2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4",
@@ -1001,21 +1025,22 @@
       "label": "cor:CW-fixed-cutoff-budget",
       "source_commit": "2926300c2425c7e68550ac08ee81a2afa639a0c6",
       "scope": "Fixed SNC compactification/norms/reference metric: cutoff tail and Stokes defect <=C exp(-A). No family-uniform constant or effective t rate; proof read by the coordinating reviewer and an independent surface reviewer."
-    }
+    },
+    "complete_simplex_input": "Direct model proof and exact current source verification status synchronized to plan, notes, source-audit and README. Source hashes regenerated without replacing original recovery hashes."
   },
   "build_environment": "LuaHBTeX 1.18.0 with LuaTeX-ja/Harano Aji and CM, AMS, RSFS vector fonts. The workspace used a user-local TeX setup; the repository retains the ordinary latexmk/LuaLaTeX/SyncTeX configuration. PDFs and caches stay under ignored build/cache directories. No GitHub Actions used.",
   "current_static_source_checks": {
     "date": "2026-11-23",
-    "version": "Materials1.26; PartIV1.13 / unchanged PartV1.10",
+    "version": "Materials1.27; PartIV1.14 / unchanged PartV1.10",
     "git_diff_check_exit_code": 0,
     "manuscripts": [
       {
         "source": "papers/kaehler-einstein-degeneration.tex",
-        "version": "1.13",
+        "version": "1.14",
         "input_files": 7,
-        "labels": 463
+        "labels": 465
       }
     ],
-    "results": "Recursive TeX input files present and all labels unique; all current manifest destinations/hash values checked with original source hashes preserved. JSON parsed, local Markdown link targets/control bytes and git diff --check passed. Current IV six log categories zero. No finite arithmetic certificate or formal-proof run."
+    "results": "Recursive inputs present; labels unique. Current manifest hashes rebuilt with recovery hashes preserved. JSON/local references/control-byte and diff checks are run before saving. No finite arithmetic or formal-proof run."
   }
 }

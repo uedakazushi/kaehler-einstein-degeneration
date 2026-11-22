@@ -1,6 +1,6 @@
 # Kähler–Einstein degeneration
 
-更新：2026-11-23 / v1.26（研究資料。Part IV v1.13、Part V v1.10）
+更新：2026-11-23 / v1.27（研究資料。Part IV v1.14、Part V v1.10）
 
 **公表計画：** 数学的価値の最大化を基準に、曲面P0・Part IVの最小局所解析・Part Iの距離と実球体積漸近を優先する。[研究方針](00_research_plan.md)に実行順序・達成基準・担当を記した。中心定理の構成、入力の範囲、先行研究との差を確定し、五次の同時atlas/GH実現を公表範囲へ加える。六次の標準等重み同時実現も公表範囲へ加え、追加保持集合や条件付き解析拡張は独立した完成基準で進める。
 
@@ -12,11 +12,13 @@
 
 **五次の同じ射影による同時実現：** 曲面稿の `ke:quintic-simultaneous-realization` は、初期source葉・allocation・全保持近傍を構成中に選ぶ範囲で、actual負KE形式に関する一つの大域Lagrangian fibrationに作用適合matroidal atlasと全曲面ambient GH実現を同時に与える。Source-freeな旧neck補題と全source-wallを用いる構成を区別し、両端periodの有限整合、全momentの自由需要とstrict cuts、coreとの全開collarの葉・作用および平行移動を含むatlas接続を証明する。等重みと対称六系が整合データの実例を与える。Focus valuesには穿孔focus affine structureを用いる。各tでの同時実現であり、atlas自体のt方向の極限や極限距離のHessian性は含まない。六次には別に標準等重みの同時実現がある。既指定の大きいsource近傍を保つ相対存在、CP/PBE/TC・H_loc/H_ancの検証は未解決。証明の正本と限定した内部点検の範囲を研究ノート・検証JSONに記す。
 
-**同じ射影上の確率体積測度：** 曲面改訂44の保存稿 `ke:global-volume-measure` は、同じGH近似写像とLagrangian射影による確率体積の押し出しが、各成分頂点に重み1/dを置く原子測度へ弱収束することを示す。固定成分の体積と固定compact上の収束、既存の全域値比較を使い、moving neckの体積漸近は追加しない。計量極限の辺・squareは残り、極限測度の台だけに空間を縮めない。本文と証明を確認し、数学保存版は `1088f86cf8f0c70c74a1e4caa3b90393ff627067` である。数学保存と現行の表示確認は個別に記す。
+**同じ射影上の確率体積測度：** 曲面改訂44の保存稿 `ke:global-volume-measure` は、同じGH近似写像とLagrangian射影による確率体積の押し出しが、各成分頂点に重み1/dを置く原子測度へ弱収束することを示す。固定成分の体積と固定compact上の収束、既存の全域値比較を使い、moving neckの体積漸近は追加しない。計量極限の辺・squareは残り、極限測度の台だけに空間を縮めない。本文と証明を確認し、数学保存版は `d39270ec79ad973551f67c740682dbb06bac48e5` である。数学保存と現行の表示確認は個別に記す。
 
 **Actual bufferの半径と円周収縮。** `coarse:lem:localized-chern-lu` は、actual球の半径σとtargetの負曲率κに対して tr_g(F*h)≤C_n κ⁻¹(1+σ⁻²)を与える。正則写像のrank低下、潰れたinjectivity radius、targetの非完備性を許す。`neck:cor:shrinking-buffer-circle` はrank-one下界と体積上界を組み合わせ、normal深度m=min(s,M−s)に対しlength≤C(1+σ⁻¹)/mを得る。0<σ≤1ならmσ→∞が非正規化の収縮、Rmσ→∞がRで割った収縮の十分条件となる。半径は別の幾何的議論で確保する入力であり、bufferの存在、全tensor比較、Moser flow生存、CP/PBE/TCは証明しない。証明は距離cutoffの勾配・Laplacian bounds、正の最大点、mixed coefficientsを含むdeterminant比較を明記する。これは古典的なSchwarz評価の定量的帰結であり、新しいSchwarz lemmaとしての優先権は主張しない。
 
 **六次の標準Petersen同時実現。** 曲面改訂44の `ke:petersen-full-moment` と `ke:sextic-simultaneous-realization` は、六つの標準Petersen系の一つ、等重みw_i,j=2/5、各二重線のsource配分(1,1,1,1;2)を固定し、初期source葉を構成中に選ぶ範囲で、同じactual射影に作用atlas・全域GH実現・確率体積極限を与える。内部二端cutの累積位置はbalanced separatorとthin blockで調整し、正marginの後に中央parameterをfreezeしてからfull source annuliを固定する。Core domain・primitiveは先に固定し、anchor葉は全moment構成後に選ぶ。現在の同期では定理の仮定・結論、全開接着・相対GHへの接続を実読し、曲面側の指定独立点検の記録を確認した。全六次証明の新たな包括監査ではない。任意の非等重み、先指定された大きいsource近傍、t方向に滑らかなfibration族、atlasのparameter極限とHessian性は含まない。
+
+**Complete simplex模型の最小入力。** Part IV `coarse:lem:simplex-model` は、Zhang Theorem 2.1に明記されたCheng–Yauの標準実単体上の凸解存在・境界発散・実Hessian完備性を入力とする。一意性は内側homothety比較、tube完備性は有限長曲線の実射影、格子商の完備性は等長作用から直接証明する。w/Lはuniversal cover上の等長写像だが、4πの角度格子を4π/Lへ変える。固定周期商のinjectivity radius下界は結論しない。全深度比の正規化窓でpotentialとtensorの規格化を明示した。Zhangの定理文と適用条件は実読済みだが、CY1982 Theorem 4.4の原文・証明は未取得であり、原典確認済みとはしない。正確な書誌・係数点検・確認範囲は `research/source-audit.md`、直接証明は現行本文が正本である。
 
 ## 三研究を一体で進める方針
 
@@ -75,11 +77,11 @@ Core側の `ke:actual-anchor-fan-criterion` は、同じLiouville primitiveで�
 
 2026-08-31五篇連作の退化二部作を元の全文TeXから移行し、有効な内容を現行稿に保持している。
 
-- [Part IV：局所安定性と閉cornerの収縮](papers/kaehler-einstein-degeneration.tex)：主たる公表用原稿。現行v1.13は122頁、変更箇所を含む7頁の表示を確認済み。Schwarz半径依存と縮小bufferの系を統合した。全深部三重点・閉cornerの無条件結果と、sourceを含むquintic exteriorの(TC)_5付き結果を分ける。全域のsharp co-Gramは粗い比較と(PBE)_d付き。
+- [Part IV：局所安定性と閉cornerの収縮](papers/kaehler-einstein-degeneration.tex)：主たる公表用原稿。現行v1.14は124頁、変更箇所を含む9頁の表示を確認済み。Complete simplexの最小存在入力と一意性・完備性・規格化の直接証明を統合した。全深部三重点・閉cornerの無条件結果と、sourceを含むquintic exteriorの(TC)_5付き結果を分ける。全域のsharp co-Gramは粗い比較と(PBE)_d付き。
 - [Part V：cubical GH](papers/cubical-gh-limit.tex)：現行v1.10、37頁。一般次数のcubical複体の位相・整数ホモロジー、abstract pruning–transport、diam(C_5)=sqrt(13)を含む。全曲面のactual GH適用は(CP)_d+(PBE)_d付き。
 - [Punctured-neck技術稿](papers/punctured-neck-scattering.tex)：旧81頁の証明全文をLuaLaTeXへ移植した稿（回収時92頁）。条件付きの解析入力を冒頭に明記。
 - [Source-free比較の研究ノート](papers/source-free-comparison.tex)：source-free領域の補助原稿。
-- [補助検算](scripts/)：2026-11-20に統合稿5本と旧v0.12の16本を再実行し、全件成功。現行の研究資料v1.26では再実行していない。旧16本は配布時のSHA-256と一致。有限計算・式の診断であり解析証明の代用ではない。
+- [補助検算](scripts/)：2026-11-20に統合稿5本と旧v0.12の16本を再実行し、全件成功。現行の研究資料v1.27では再実行していない。旧16本は配布時のSHA-256と一致。有限計算・式の診断であり解析証明の代用ではない。
 
 関連Lagrangian研究の人工PL基底計量では、分岐基底からC_dへのdistortionはd=5でΘ(ε²)、d≥6でΘ(ε)。これはactual KE計量の収束とは別の結果である。大域的な適用にはno-shortcut、square lifts、fiber/portal connectorsの定量条件を揃える必要があり、最初の二条件だけから第三は従わない。
 
@@ -87,10 +89,10 @@ Core側の `ke:actual-anchor-fan-criterion` は、同じLiouville primitiveで�
 
 ## 保存と検証
 
-Part IV v1.13は122頁に組版し、未定義参照・引用、重複label、欠字、LaTeX error、overfull/underfullの六分類は全て0。150 dpiで1、79–81、84–85、122頁（7頁）を実表示し、変更したrank-one/circleの接続、縮小bufferの系、localized Chern–Luの全証明、隣接する適用と文献に欠字・重なり・切断・数式のはみ出しを認めない。全122頁の逐頁表示ではない。内容不変のPart V v1.10は、既存の37頁・指定5頁表示とsource/PDF hashを保持し、今回再組版・再表示していない。有限計算証明書は今回再実行していない。
+Part IV v1.14は124頁に組版し、未定義参照・引用、重複label、欠字、LaTeX error、overfull/underfullの六分類は全て0。1・7–8・49–53・123頁の9頁を150dpiで実表示し、表題、Introduction、simplex模型の全証明とCheng–Yau書誌に欠字・重なり・切断・数式のはみ出しを認めない。全124頁の逐頁表示ではない。内容不変のPart V v1.10は既存37頁・指定5頁表示の記録を保持し、今回は再組版・再表示していない。有限計算証明書も今回再実行していない。各source/PDF hashと実行環境はvalidation.jsonに記す。
 
 Part IV v1.10では新局所定理 `coarse:thm:boundary-to-triple`、モデルとshift比較、小摂動評価、全平面退化への適用を担当と別担当が点検した。Compact phase quotientでの最大値原理、境界上界の各固定tでの有限性、定数依存、normalized coverでの正則性を確認した。全capped determinant・全外部原典・全主稿の包括的再監査、外部査読、形式証明は未実施。有限距離論の計算は今回変更しておらず再実行していない。詳しい状態は[検証状態](research/validation.json)。
 
-研究資料v1.26は、曲面改訂44の等重みPetersen同時実現と測度系の適用範囲を同期する。確認した保存commitは曲面 `1088f86cf8f0c70c74a1e4caa3b90393ff627067`、固定側 `2926300c2425c7e68550ac08ee81a2afa639a0c6`（Part I v1.10・総説v1.14・資料v1.19）である。曲面側の既存の組版・表示記録と、本repoで今回行った確認を区別する。IV/Vの既存の科学引用pin（曲面改訂37・`32c67aefe6beb47c2955923e2b6eb2471d48af31`）は維持し、新しい六次の証明は曲面側を正本とする。保存・hub更新は別に確認する。
+研究資料v1.27は、曲面改訂44の等重みPetersen同時実現と測度系の適用範囲を同期する。確認した保存commitは曲面 `d39270ec79ad973551f67c740682dbb06bac48e5`、固定側 `2926300c2425c7e68550ac08ee81a2afa639a0c6`（Part I v1.10・総説v1.14・資料v1.19）である。曲面側の既存の組版・表示記録と、本repoで今回行った確認を区別する。IV/Vの既存の科学引用pin（曲面改訂37・`32c67aefe6beb47c2955923e2b6eb2471d48af31`）は維持し、新しい六次の証明は曲面側を正本とする。保存・hub更新は別に確認する。
 
 再生成はルートで `latexmk`、PDF/SyncTeXの出力先は `build/`。LuaLaTeX、luatexja、Harano Ajiと数学フォントの有効なmapを備えたTeX Liveを用いる。[移行・検証範囲](research/migration.md)と[ソース対応](research/source-manifest.json)を参照する。通常のcommitとmainへのpushで保存し、研究成果の保存とresearch-hubの更新を別々に確認する。

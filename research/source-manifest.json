@@ -6,10 +6,10 @@
     {
       "source": "04_hyperplane_degenerations_local_ja.tex",
       "destination": "papers/kaehler-einstein-degeneration.tex",
-      "sha256": "1e27c6a44b743a9865644140ce6da416c11286f84604aa56380ada68ea668b8d",
-      "bytes": 247575,
+      "sha256": "bb7fcfbfadea32f0ce00828705488502d85706be8f59f7a0947e306ed138c6ae",
+      "bytes": 248323,
       "source_sha256": "cc0343cf295d26321d9c19e979c0181db34bd93de25673967c649b31cf13be3b",
-      "current_blob_sha": "60b7bcb72426f252dd7dda0b585937e50b29f3dc"
+      "current_blob_sha": "01f984c79a983cbfd895e9b22dfa678118d3288b"
     },
     {
       "source": "05_hyperplane_degenerations_global_ja.tex",
@@ -23,31 +23,36 @@
       "source": "supplementary/intrinsic_complete_window_audit_definitive_v1.py",
       "destination": "scripts/intrinsic_complete_window_audit_definitive_v1.py",
       "sha256": "4499d910b07982f11fc03017b5a09cbf4680d591a528e618825f815e96105550",
-      "bytes": 2660
+      "bytes": 2660,
+      "current_blob_sha": "09356b5ac62e404de85ee138656ea319f5ae29a7"
     },
     {
       "source": "supplementary/slow_box_frame_shear_audit_definitive_v1.py",
       "destination": "scripts/slow_box_frame_shear_audit_definitive_v1.py",
       "sha256": "607caa30e6ccb8deef235863effa34856e629d246e0f5cb5c991283f3463b2ec",
-      "bytes": 3350
+      "bytes": 3350,
+      "current_blob_sha": "b84667f10cefec1342490fdc0e84365f72e42b7f"
     },
     {
       "source": "supplementary/relative_bishop_gromov_packing_audit_definitive_v1.py",
       "destination": "scripts/relative_bishop_gromov_packing_audit_definitive_v1.py",
       "sha256": "e58e3ffd433829c05a7534e396fc95cfdbc872df2a5b15d470867cd36ca1a6d3",
-      "bytes": 1479
+      "bytes": 1479,
+      "current_blob_sha": "09128160f0cef7607b0206f2921b4ceee582f165"
     },
     {
       "source": "supplementary/cubical_diameter_exact_gallery_certificate_definitive_v1.py",
       "destination": "scripts/cubical_diameter_exact_gallery_certificate_definitive_v1.py",
       "sha256": "b44fe4feedd8be20939027a27892fb56c92f849b5cd9e41d6c79ebb6b669946e",
-      "bytes": 12631
+      "bytes": 12631,
+      "current_blob_sha": "8a683d0b5f6c2bd0c679041f07dc0f2dfac65e0a"
     },
     {
       "source": "supplementary/terminal_cusp_adapted_gauge_audit_definitive_v1.py",
       "destination": "scripts/terminal_cusp_adapted_gauge_audit_definitive_v1.py",
       "sha256": "02faecb64877ddacdc0f78c7561b838cfdbd6c235fd4e5784dff64e0c4b58d49",
-      "bytes": 2095
+      "bytes": 2095,
+      "current_blob_sha": "a530c7054e2616a44334ef82661a65e7eea40f55"
     }
   ],
   "additional_sources": [

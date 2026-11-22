@@ -1,5 +1,5 @@
 % !TeX root = ../kaehler-einstein-degeneration.tex
-% Current content: 2026-11-22, v1.2 (Part IV v1.10).
+% Current content: 2026-11-23, v1.3.
 \section{全深部三重点領域と complete simplex KE model}
 \label{coarse:sec:full-triple-comparison}
 
@@ -8,8 +8,11 @@
 logarithmic simplex 全体の complete toric KE metric を用いる．
 この模型の境界を固定量だけ内外へ平行移動することにより，balanced な点を含む
 全深部三重点領域で actual metric を比較する．
-利用する Zhang\cite[Theorem~2.1, Proposition~2.2]{ZhangNegativeKE} は
-\emph{固定された toric model} の存在と完備性の結果である．
+外部存在入力には，有界な\emph{実}単体上の Cheng--Yau の凸解と
+実 Hessian metric の完備性を用いる
+\cite[Theorem~2.1]{ZhangNegativeKE}．
+複素 tube の完備性，一意性，尺度変更と以下の一様評価は，この入力から本文で導く．
+有界な実底空間と，虚方向には非有界な複素 tube を区別する．
 同論文の退化族に関する Theorem~2.4 や，その全空間の
 $\mathbb Q$-factorial 仮定は用いない．
 まず exact triple 領域の固定 face 上に一様な density 下界を持つ負 KE metrics に対し，
@@ -73,20 +76,76 @@ $\Delta_L$ 上に一意な滑らかな strictly convex function $\phi_L$ が存�
 定数 $C$ は $L$ と点の深度比に依存しない．
 最大深度を従属座標に選ぶ固定相対窓の normalized holomorphic coordinates 上では，
 $k_L$ は一様な ellipticity と全固定階の $C^q$ bounds を持つ．
+この一様性は angular universal cover の固定半径座標でのものであり，
+固定周期の phase quotient の injectivity radius の下界を主張しない．
 \end{lemma}
 
 \begin{proof}
-存在，一意性，Hessian metric の完備性，および tube 上の
-\eqref{coarse:eq:simplex-KE-form} の完備性は
-Zhang\cite[Theorem~2.1, equation~(2.2), Proposition~2.2]{ZhangNegativeKE}
-に記されている Cheng--Yau の結果を，正象限の断面 $\Delta_1$ に適用して得る．
-一般の $L$ には
+\emph{用いる外部存在結果．}
+Zhang\cite[Theorem~2.1]{ZhangNegativeKE} が Cheng--Yau の実凸領域定理から
+取り出す入力は，次のものである．有界な実単体 $\Delta_1$ 上に，
+$\det D^2\phi_1=e^{2\phi_1}$，$\phi_1\to+\infty$ at $\partial\Delta_1$ を満たす
+滑らかな strictly convex 解が少なくとも一つ存在し，
+\[
+ g_{B,1}=\sum_{j,k=1}^2(\phi_1)_{jk}\,d\ell_j\,d\ell_k
+\]
+は complete である．多面体の境界を滑らかな strongly convex 境界とみなすことも，
+非有界な tube に有界 domain の存在定理を直接適用することも行わない．
+この入力から先は次の直接証明を用いる．
+
+\emph{尺度変更と一意性．}
+一般の $L>0$ には
 \begin{equation}\label{coarse:eq:simplex-scaling}
  \phi_L(\ell)=\phi_1(\ell/L)-2\log L
 \end{equation}
 を用いる．$\phi_L$ は実部のみに依存するため，translation invariance は直接従う．
+二実次元の Hessian determinant は $L^{-4}$ 倍になるので，
+\eqref{coarse:eq:simplex-real-MA} と境界 blow-up が保たれる．
+$g_{B,L}$ は $\ell\mapsto\ell/L$ による $g_{B,1}$ の pullback であり complete である．
+独立な二つの深度の選び直しは絶対値 $1$ の affine Jacobian を持つため，
+方程式とこの規格化はその選択に依存しない．
 
-Potential bounds を示す．直接計算により
+一意性は simplex の内側 homothety だけから従う．
+$u,v$ を \eqref{coarse:eq:simplex-real-MA} を満たす二解とし，
+$0<\varepsilon<L/3$，$a=1-3\varepsilon/L$ に対して
+\[
+ v_\varepsilon^{\mathrm{in}}(\ell)
+ =v\bigl((\ell-\varepsilon\mathbf1)/a\bigr)-2\log a
+ \quad(\ell_i>\varepsilon)
+\]
+と置く．引数の三深度の和は $L$ であり，
+$\det D^2v_\varepsilon^{\mathrm{in}}=e^{2v_\varepsilon^{\mathrm{in}}}$ である．
+内側単体の境界では $v_\varepsilon^{\mathrm{in}}\to+\infty$，
+その閉包で $u$ は有限である．$u-v_\varepsilon^{\mathrm{in}}$ の正の最大点では
+Hessian の大小と Monge--Amp\`ere 方程式が矛盾するので
+$u\le v_\varepsilon^{\mathrm{in}}$ である．$\varepsilon\downarrow0$ から $u\le v$，
+両者を交換して $u=v$ を得る．境界発散率や二つ目の解の完備性を追加仮定しない．
+
+\emph{複素 tube と phase quotient の完備性．}
+$w_j=\ell_j+\sqrt{-1}y_j$ と書くと，$k_L$ の実計量は
+\begin{equation}\label{coarse:eq:simplex-real-block-metric}
+ g_L^{\mathrm{sf}}
+ =\sum_{j,k=1}^2(\phi_L)_{jk}
+       (d\ell_j\,d\ell_k+dy_j\,dy_k).
+\end{equation}
+従って実底への射影は長さを増やさない．有限長の曲線の実射影は，
+$g_{B,L}$ の完備性により $\Delta_L$ の内点へ収束する．
+その末尾の実射影を含む compact 集合では $D^2\phi_L$ に正の下界があるので，
+虚座標の変動も Euclidean 長で有限であり，有限点へ収束する．
+よって tube に有限長の発散曲線はなく，$g_L^{\mathrm{sf}}$ は complete である．
+また
+\[
+ \Ric(k_L)=-\ddc\log\det D^2\phi_L=-2\ddc\phi_L=-k_L.
+\]
+虚平行移動の格子は free かつ properly discontinuous に等長的に働くため，
+phase quotient も complete である．Actual 座標 $w_i=-2\log\zeta_i+\mathrm{const.}$
+では各独立虚座標の周期は $4\pi$ である．
+写像 $w\mapsto w/L$ は tube の universal covers の間では等長だが，
+この格子を周期 $4\pi/L$ の格子へ送る．従って固定周期 $4\pi$ の quotient 同士を
+同じ尺度で等長と主張しているわけではない．
+
+\emph{Potential と density の障壁．}
+直接計算により
 \begin{equation}\label{coarse:eq:simplex-barrier-determinant}
  \frac{\det D^2\psi_L}{e^{2\psi_L}}
    =\frac{\ell_0^2+\ell_1^2+\ell_2^2}{L^2}
@@ -157,22 +216,45 @@ $f_i^*\omega_{\mathbb H}\le C_0 k_L$ である．
 複素次元が $2$ なので，先に得た各固有値の正の下界と determinant の上界から，
 各固有値の一様上界を得る．これで \eqref{coarse:eq:simplex-model-tensor} が成立する．
 
-高階評価には \cref{coarse:lem:triple-relative-window} と同じ相対窓を，
-任意の $\ell\in\Delta_L$ で取る．ここでは固定 chart 内への包含を必要としないので，
-正の深度に下限を仮定する必要はない．最大の $\ell_i$ を従属に選び，
-残る二深度を中心値の $1\pm1/8$ の間で動かす．
-内側半窓でその complete annulus product と $\omega_L^{\mathrm{cusp}}$ は一様同値であり，
-\eqref{coarse:eq:simplex-model-tensor} により $k_L$ も同じ比較を満たす．
-Normalized coordinates
+\emph{全深度比に一様な normalized geometry．}
+任意の中心 $p$ で最大深度を $c=\ell_i(p)$，残る二深度を
+$a=\ell_j(p)$，$b=\ell_k(p)$ とし，$\delta=1/8$ を固定する．
 \[
- \xi_j=\frac{w_j-w_j(p)}{\ell_j(p)},\qquad
- \xi_k=\frac{w_k-w_k(p)}{\ell_k(p)}
+ \xi_j=\frac{w_j-w_j(p)}a,\qquad
+ \xi_k=\frac{w_k-w_k(p)}b,\qquad x=\Re\xi_j,\quad y=\Re\xi_k
 \]
-では，annulus product の bounded geometry は中心と $L$ に依存しない．
-両 metric は負 KE なので，さらに小さい固定 balls に
-\cref{coarse:lem:nested-metric} を適用すれば全固定階の bounds を得る．
-ここでは Schwarz lemma によって tensor 比較を先に証明しており，
-bounded density を局所 tensor 評価に直接置き換えていない．
+と置くと，$|x|,|y|<\delta$ の固定 strip product 上で
+\[
+ \ell_j=a(1+x),\quad\ell_k=b(1+y),\quad
+ \ell_i=c-ax-by\in[(1-2\delta)c,(1+2\delta)c]
+\]
+となる．これは任意の正の深度に対して tube 内に含まれ，
+actual 三重点 chart の大きさや任意半径の球の包含を要求しない．
+この座標で constrained cusp metric は
+\[
+ \frac{|d\xi_j|^2}{(1+x)^2}
+ +\frac{|d\xi_k|^2}{(1+y)^2}
+ +\frac{|a\,d\xi_j+b\,d\xi_k|^2}{(c-ax-by)^2}
+\]
+である．$a,b\le c$ なので，これは固定 Euclidean metric と一様に比較できる．
+従って既に証明した \eqref{coarse:eq:simplex-model-tensor} により，
+$k_L$ の pullback の coefficient matrix も一様に正で有界である．
+Potential の規格化も明示すると
+\begin{equation}\label{coarse:eq:simplex-normalized-potential}
+ \Phi_p(x,y)=\phi_L\bigl(\ell(x,y)\bigr)+\log(ab)
+\end{equation}
+は $\det D^2\Phi_p=e^{2\Phi_p}$ を満たし，
+\eqref{coarse:eq:simplex-potential-bounds} と $1\le L/c\le3$ から
+固定 strip product の実底上で一様に有界である．
+
+各 strip の complete curvature $-1$ metric の積を固定した比較背景とする．
+内側半 strip 上ではその全階係数は一様に有界で，Euclidean metric と一様同値である．
+従って $k_L$ との tensor 二側比較を既知の入力として，さらに小さい固定座標球で
+\cref{coarse:lem:nested-metric} を適用し，全固定階の bounds を得る．
+ここで用いる rectangles は内部正則性の小さい窓だけであり，
+単体全体や任意半径の球を一つの積領域へ置き換えてはいない．
+Tensor 比較は完備模型への Schwarz 評価と determinant 上界から先に得ており，
+bounded potential 又は bounded density 単独から導いたものではない．
 \end{proof}
 
 \subsection{平行移動した simplex の density 比較}

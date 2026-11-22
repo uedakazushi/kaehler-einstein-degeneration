@@ -57,7 +57,7 @@
 \title{\bfseries 多重スケール Kähler--Einstein 幾何 IV\\[1mm]
 \large 超平面和退化の局所安定性と閉 corner の収縮}
 \author{植田一石\\[-1mm]\small Kazushi Ueda}
-\date{2026年11月23日\\五部作・統合改訂稿 v1.13}
+\date{2026年11月23日\\五部作・統合改訂稿 v1.14}
 \begin{document}\maketitle
 
 \begin{abstract}
@@ -221,8 +221,13 @@ $\min_i\ell_i\ge m\to\infty$ に対し，complete simplex KE metric $g_L^{\mathr
 \[
  \|g_t-g_L^{\mathrm{sf}}\|_{C^q}\le C_q/m
 \]
-を全深度比・全位相で証明する．模型の存在は
-Zhang\cite[Theorem~2.1, Proposition~2.2]{ZhangNegativeKE} に記される Cheng--Yau の固定 toric model を用い，
+を全深度比・全位相で証明する．模型の入力は，Cheng--Yau の実 Monge--Amp\`ere 方程式の
+結果\cite{ChengYauAffine}を明記する Zhang\cite[Theorem~2.1]{ZhangNegativeKE}による
+固定 simplex 上の凸解の存在と実 Hessian 計量の完備性である．
+一意性，tube と角度格子商の完備性，Ricci と体積の規格化，および $L$ による
+scaling は\cref{coarse:lem:simplex-model}で直接確認する．
+とくに cover の scaling と固定 period lattice の同一視を区別し，
+
 actual family には \cref{coarse:cor:degree-d-volume-lower} の下界を用いる．
 これにより関連 Lagrangian 原稿の \texttt{ke:actual-closed-corner} は
 三枚の閉 square を一つの actual Lagrangian torus bundle で実現する．
@@ -4076,6 +4081,14 @@ E.~Bedford and B.~A.~Taylor,
 S.-Y.~Cheng and S.-T.~Yau,
 \newblock On the existence of a complete K\"ahler metric on noncompact complex manifolds and the regularity of Fefferman's equation,
 \newblock Comm. Pure Appl. Math. \textbf{33} (1980), 507--544.
+
+\bibitem{ChengYauAffine}
+S.-Y.~Cheng and S.-T.~Yau,
+\newblock The real Monge--Amp\`ere equation and affine flat structures,
+\newblock in \emph{Proceedings of the 1980 Beijing Symposium on Differential Geometry and Differential Equations},
+Science Press, Beijing, 1982, pp.~339--370.
+\newblock Theorem~4.4; for its formulation on a polyhedral slice,
+see~\cite[Theorem~2.1]{ZhangNegativeKE}.
 
 \bibitem{DGG}
 E.~Di Nezza, V.~Guedj and H.~Guenancia,

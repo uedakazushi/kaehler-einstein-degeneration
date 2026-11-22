@@ -1,5 +1,5 @@
 # kaehler-einstein-degeneration — 研究・保存指示
-2026-11-23 / v1.7（研究資料v1.26、Part IV v1.13・Part V v1.10）
+2026-11-23 / v1.8（研究資料v1.27、Part IV v1.14・Part V v1.10）
 
 ## 公表計画の実行
 
@@ -31,6 +31,7 @@
 - 曲面repoの直接scalar/portal証明を、本repoの(CP)/(PBE)/(TC)又はPart IIIの(H_loc)/(H_anc)自体の検証と読み替えない。局所結果が与えないglobal入力と、別稿で証明を持つglobal結果を区別する。固定配置の空間無限遠から退化族の一様性を推論せず、固定段階の証明と遅い対角選択の順を守る。
 - 曲面稿の `ng8:quintic-full-moment` と `ke:quintic-simultaneous-realization` は、初期のmarked source allocationと全保持近傍を選べる五次で、同じactual射影による作用atlasとGH実現を与える。旧neck補題のsource-free仮定と、全source-wallを差し引く自由需要を区別する。解析領域・cuts・小さいtを選んだ後にthin葉を取り、既存の解析閾値を葉の微分に依存させない。全開collarの葉と作用を一致させ、実数平行移動を含めてatlasを接続する。結論は各tでの同時実現であり、atlasのt方向の収束、極限距離のHessian性、任意に既固定の大きいsource tailsの保存又はt方向に滑らかなfibration族を含めない。正本は曲面repoに置き、Part IV/V本文の改訂37の入力確認pinと、曲面稿で新たに確認した結果の現行版・保存状態を区別する。
 - 六次では曲面稿 `ke:petersen-full-moment` と `ke:sextic-simultaneous-realization` が、等重み2/5・source配分(1,1,1,1;2)・初期source葉選択の下で同じ射影のatlas/GH/測度を実現する。内部二端cutの累積位置、正margin後の中央freeze、full annuli固定とanchor後選択を保つ。任意先指定保持集合と非等重みへの拡張は別課題である。
+- Complete simplexの外部入力は実単体の凸解存在・Hessian完備性として引用する。Zhangの明示定理文の確認とCY1982原典本文の確認状態を区別する。一意性・tube完備・格子商・係数は本稿の直接証明を使い、w/Lのcover等長性を固定periodのquotient等長性やinjectivity radius下界へ読み替えない。
 - Localized Chern–Luの `coarse:eq:localized-chern-lu-radius` と `neck:cor:shrinking-buffer-circle` を用いる際は、actual計量の球半径σを別に確保する。長さ評価C(1+σ⁻¹)/mから、mσ→∞又はRで正規化したRmσ→∞を検査する。この条件付き系をbuffer存在、full tensor比較、flow生存へ格上げしない。
 - 固定endの最小解析入力は `pair:prop:fixed-end-transfer` の固定collarのlog-density収束と極限成分のradial derivativeに分ける。Volume frame変更時には `pair:rem:normal-frame-winding` のnormal windingと残余閉periodを確認する。これらや遅い対角選択をmoving neckのtensor比較・bufferの存在証明と読み替えない。曲面側の `ke:global-volume-measure` を引用するときは確率体積、同じ射影、成分頂点の等重み原子測度と全cubical計量空間を区別し、確認した版・保存commitを明記する。
 - 優先順は、共有する局所入力の仮定・量化の照合、曲面の大域証明の利用箇所の監査、シリーズ総説とIntroductionの同期、公表前の一次文献比較。実質的な訂正は利用側にも反映してからhubを更新し、三次元研究は独立した未完成の課題として保持する。

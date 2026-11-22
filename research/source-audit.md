@@ -1,6 +1,6 @@
 # 現行原稿の証明状態と監査範囲
 
-2026-11-23 / v1.1。研究資料v1.26、Part IV v1.13・Part V v1.10。
+2026-11-23 / v1.2。研究資料v1.27、Part IV v1.14・Part V v1.10。
 
 本書は現在有効な主張と、実際に確認した範囲をまとめる。原資料の回収元・版・hashは `source-manifest.json` と `migration.md`、組版・計算・表示の実行記録は `validation.json` が正本である。原稿に証明があること、今回その証明を読んだこと、計算・形式証明による確認を区別する。
 
@@ -13,11 +13,22 @@
 | 曲面repo | 固定d≥5のactual負KE–Lagrangian fibrationと同じ合成写像の全域ambient GH実現、確率体積の等重み原子極限。五次と六次標準等重みPetersenでは同じ射影の作用atlasも実現。 | 任意に先指定した大きいsource近傍、任意weights、t方向の滑らかな射影族、atlasの極限又はHessian性は結論しない。直接scalar/portal証明はCP/PBE/TC自体の検証ではない。 |
 | 固定補空間repo・Part I–III | 固定SNCの距離錐と体積漸近、標識付きsecondary periods等。正確な仮定・証明・新規性比較は同repoの現行原稿を参照。 | Part IIの一般secondary WP completionはcontrolled parallel push-off付き、Part IIIのactual localization/global pGHはH_locとH_anc付き。固定空間の結果を退化族へ一様に移さない。 |
 
-曲面の確認保存版は `1088f86cf8f0c70c74a1e4caa3b90393ff627067`（改訂44）、固定側は `2926300c2425c7e68550ac08ee81a2afa639a0c6`（Part I v1.10・総説v1.14）である。IV/V本文が既存入力に使う曲面改訂37の科学引用pinは維持する。後続の結果の証明を本repoへ複製しない。
+曲面の確認保存版は `d39270ec79ad973551f67c740682dbb06bac48e5`（改訂45）、固定側は `2926300c2425c7e68550ac08ee81a2afa639a0c6`（Part I v1.10・総説v1.14）である。IV/V本文が既存入力に使う曲面改訂37の科学引用pinは維持する。後続の結果の証明を本repoへ複製しない。
 
-## 今回の局所解析の点検と精密化
+## Complete simplexの現在の確認範囲
 
-対象は `coarse:lem:localized-chern-lu` と `neck:lem:rank-one-circle` → `neck:cor:buffer-circle` → `neck:cor:shrinking-buffer-circle` に限定した。
+**Complete simplex模型の最小入力。** Part IV `coarse:lem:simplex-model` は、Zhang Theorem 2.1に明記されたCheng–Yauの標準実単体上の凸解存在・境界発散・実Hessian完備性を入力とする。一意性は内側homothety比較、tube完備性は有限長曲線の実射影、格子商の完備性は等長作用から直接証明する。w/Lはuniversal cover上の等長写像だが、4πの角度格子を4π/Lへ変える。固定周期商のinjectivity radius下界は結論しない。全深度比の正規化窓でpotentialとtensorの規格化を明示した。Zhangの定理文と適用条件は実読済みだが、CY1982 Theorem 4.4の原文・証明は未取得であり、原典確認済みとはしない。正確な書誌・係数点検・確認範囲は `research/source-audit.md`、直接証明は現行本文が正本である。
+
+- Zhang, arXiv:1505.04728v2, p.4のB_σの定義、p.5 Theorem 2.1と(2.1)、p.6 (2.2)・Proposition 2.2を実読した。σ=R_{≥0}³、u_σ=(1,1,1)でΔ_1そのものであり、多面体境界による適用条件の欠落は認めない。Lの有理性は不要。
+- 1982年の原著は著者公式書誌でpp.339–370、公式再録目次で *Selected Works of Shing-Tung Yau*, Part I, Vol.4, Kähler Geometry I (2019), pp.301–332と確認した。Theorem 4.4の原典頁・本文・証明は未確認。この文献確認の状態を、Zhangの明示定理に追加の数学的仮定が必要であることと混同しない。
+- 原稿の内側homothetyによる一意性、有限長曲線によるtube完備性、free proper等長格子作用、w/Lと角度period、Ricciとvolumeの係数、normalized potential Φ=φ+log(ab)と固定stripでの正則性の鎖を作成担当と別担当が点検した。実際の模型の高階評価はangular cover上のものである。
+- Zhang p.6の4^nという印刷はPDF画像で確認し、w=x+iyから正しい係数4^{−n}を独立に計算した。Ricciには定数なので影響せず、本稿のk²=8e^{2φ}dV_logは正しい。係数を引用から転記せず直接確認する。
+
+原著書誌: https://daweb.qzc.tsinghua.edu.cn/ShingTungYau/en/zdylm/5542/list/index.htm （項目172）。再録目次: https://www.tup.tsinghua.edu.cn/booksCenter/bookcatalog?id=10473901 。実読した定理文: https://arxiv.org/pdf/1505.04728v2 。本文証明と数学的計算の確認を、組版・表示・形式証明・包括的新規性確認と分ける。
+
+## 保持するSchwarz半径の点検と精密化
+
+保持する対象は `coarse:lem:localized-chern-lu` と `neck:lem:rank-one-circle` → `neck:cor:buffer-circle` → `neck:cor:shrinking-buffer-circle` に限定した。
 
 - 正則写像FのtargetがKählerでholomorphic sectional curvature≤−κ、sourceがRic(g)=−g、actual球の閉包が定義域にcompactに入るとき、tr_g(F*h)≤C_n κ⁻¹(1+σ⁻²)。恒等写像に限定せず、曲線への射影も含む。
 - 距離cutoffの勾配はCσ⁻¹、Laplacian下界は−C(σ⁻²+σ⁻¹)。χ²uの正の最大点で評価し、u=0でlogを取らない。Cut locusは距離の上側supportと非増加cutoffで扱う。Targetの完備性、sourceのinjectivity radius下界、dFの単射性は要らない。
@@ -26,11 +37,11 @@
 
 作成担当と別の読み手が上記cutoff、rank-one行列式、平方根、period、量化を点検し、修正を要する問題を認めなかった。新規の形式証明・数値証明ではない。古典的Schwarz評価の定量的帰結として記載し、新しいSchwarz lemmaとしての優先権は主張しない。
 
-一次資料としてYau, *A general Schwarz lemma for Kähler manifolds*, Amer. J. Math. 100 (1978), 197–203, §1 (10)–(16)、pp.199–201のChern–Lu公式とTheorem 2を今回実読した。[原典PDF](https://archive.ymsc.tsinghua.edu.cn/pacm_download/59/11034-Shing-Tung_Yau_30.pdf)。Roydenのholomorphic-sectional版は既存引用を維持し、今回その原典全証明を再監査したとはしない。局所cutoffによる半径依存は本文で証明する。
+一次資料としてYau, *A general Schwarz lemma for Kähler manifolds*, Amer. J. Math. 100 (1978), 197–203, §1 (10)–(16)、pp.199–201のChern–Lu公式とTheorem 2を該当する監査で実読した。[原典PDF](https://archive.ymsc.tsinghua.edu.cn/pacm_download/59/11034-Shing-Tung_Yau_30.pdf)。Roydenのholomorphic-sectional版は既存引用を維持し、今回その原典全証明を再監査したとはしない。局所cutoffによる半径依存は本文で証明する。
 
 ## 保持する解析監査と適用上の障害
 
-次の対象限定監査は現行証明に有効である。今回のSchwarz鎖の確認と、これら全体の反復検証を混同しない。
+次の対象限定監査は現行証明に有効である。今回のsimplex模型の確認と、これら全体の反復検証を混同しない。
 
 - Capped positivity、零点を含むChern恒等式、weighted minor、pair/tripleと六型cover、adjunction residue、compact最小値原理、固定次数の大域volume下界。
 - 固定faceの一様density下界から、translated complete simplexの上下barrier、small Ricci potential、SavinのH1/H2/H4とSchauderによるfull-triple tensor。境界上界のt一様性やactual距離bufferを追加仮定しない。
