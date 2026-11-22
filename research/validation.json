@@ -1071,6 +1071,12 @@
     "input": "O. Savin, Small Perturbation Solutions for Elliptic Equations, Commun PDE 32 (2007) 557-578, Theorem 1.3 H1 H2 H4, pp558-560, author PDF",
     "checked": "PDF extraction and visual screenshots of original pp558-560; explicit real-to-Hermitian projection H(P)=(P_xx+P_yy+i(P_xy^T-P_xy))/4, Hermitian trace=real trace/4; derivative of determinant along PSD real P; local uniform ellipticity under fixed H bounds",
     "conclusion": "The operator det_+(H+HessianProjection(N))/detH-exp(z) satisfies H2 with constants independent of moving normalized charts; H1 and H4 as in existing proof. No pre-Savin actual tensor assumption is needed.",
-    "limits": "Targeted verification of theorem hypotheses and linear-algebra factors, not full global proof audit, formal verification, or compilation of entire updated manuscript."
+    "limits": "Targeted verification of theorem hypotheses and linear-algebra factors, not full global proof audit, formal verification, or compilation of entire updated manuscript.",
+    "algebraic_smoke_test": {
+      "result": "PASS",
+      "method": "50 randomly sampled positive semidefinite real symmetric 4x4 matrices projected to complex Hermitian 2x2; checked positivity, trace factor 1/4; separately tested mixed-block sign against u=x1*y2 via direct derivatives (H_{1\\bar2}=i/4)",
+      "limitations": "Numerical spot-check is not a formal proof; exact identity and analytic determinant bounds appear in manuscript"
+    },
+    "current_main_version_marker": "Updated root paper date from stale v1.15 to v1.17 after section edit; this is source consistency only, no entire paper LuaLaTeX build."
   }
 }

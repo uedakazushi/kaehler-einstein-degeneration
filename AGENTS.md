@@ -1,5 +1,5 @@
 # kaehler-einstein-degeneration — 研究・保存指示
-2026-11-23 / v1.11（研究資料v1.30、Part IV v1.17・Part V v1.10）
+2026-11-23 / v1.12（研究資料v1.30、Part IV v1.17・Part V v1.10）
 
 ## 公表計画の実行
 
@@ -37,6 +37,8 @@
 - Localized Chern–Luの `coarse:eq:localized-chern-lu-radius` と `neck:cor:shrinking-buffer-circle` を用いる際は、actual計量の球半径σを別に確保する。長さ評価C(1+σ⁻¹)/mから、mσ→∞又はRで正規化したRmσ→∞を検査する。この条件付き系をbuffer存在、full tensor比較、flow生存へ格上げしない。
 - 固定endの最小解析入力は `pair:prop:fixed-end-transfer` の固定collarのlog-density収束と極限成分のradial derivativeに分ける。Volume frame変更時には `pair:rem:normal-frame-winding` のnormal windingと残余閉periodを確認する。これらや遅い対角選択をmoving neckのtensor比較・bufferの存在証明と読み替えない。曲面側の `ke:global-volume-measure` を引用するときは確率体積、同じ射影、成分頂点の等重み原子測度と全cubical計量空間を区別し、確認した版・保存commitを明記する。
 - 優先順は、共有する局所入力の仮定・量化の照合、曲面の大域証明の利用箇所の監査、シリーズ総説とIntroductionの同期、公表前の一次文献比較。実質的な訂正は利用側にも反映してからhubを更新し、三次元研究は独立した未完成の課題として保持する。
+
+- `coarse:lem:small-volume-tensor` はSavin H1/H2/H4への帰着を実対称4×4 HessianからHermitian 2×2 Hessianへの写像で確認する。半正定値増分Pに対するtr_C ℋ(P)=tr_R P/4と、determinantの局所一様楕円性を用いる。記号と符号は混合成分の微分順序に合わせ、H3を追加仮定しない。原稿内の確認を全局所解析の形式検証と混同しない。
 
 ## research-hub 更新義務
 1. まず本repoの方針・原稿・ノート・READMEを最新の内容へ整理し、`main`へ保存する。
