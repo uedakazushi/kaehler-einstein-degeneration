@@ -300,7 +300,32 @@ $\det B_s/\det H$ も正の上下界を持つ．従って
  \lambda_0\|P\|\le F(N+P,p,z,x)-F(N,p,z,x)
                    \le\Lambda_0\|P\|\qquad(P\ge0)
 \]
-を得る．これは Savin の H2 が用いる実対称方向の operator norm に
+を得る．定数の依存も明示できる．\(\lambda I\le H(x)\le\Lambda I\) とし，
+\(\|N\|,\|P\|\le\lambda/4\) に制限する．
+複素・実座標の対応から
+\(\|\mathcal H(Q)\|\le\tfrac12\|Q\|\) であるため，
+全ての \(0\le s\le1\) で
+\[
+ \frac{\lambda}{2}I\le B_s\le2\Lambda I,\qquad
+ \frac{\lambda^2}{4\Lambda^2}
+ \le\frac{\det B_s}{\det H}
+ \le\frac{4\Lambda^2}{\lambda^2}.
+\]
+さらに \(P\ge0\) に対して
+\[
+ \frac{\|P\|}{8\Lambda}
+ \le\operatorname{tr}_{\CC}(B_s^{-1}\mathcal H(P))
+ \le\frac{2\|P\|}{\lambda}.
+\]
+したがって積分した determinant operator の増分は
+\[
+ \frac{\lambda^2}{32\Lambda^3}\|P\|
+ \le F(N+P,p,z,x)-F(N,p,z,x)
+ \le\frac{8\Lambda^2}{\lambda^3}\|P\|.
+\]
+この \(\lambda,\Lambda\) は固定模型 \(H\) の上下界であり，
+actual 解の tensor bounds を先取りしていない．
+これは Savin の H2 が用いる実対称方向の operator norm に
 関する条件そのものであり，actual $\omega_\nu$ の tensor 上下比較を
 入力にしていない．
 同じ近傍で $F$ は $C^2$ で，その二階微分は $H$ の一様 $C^2$ bounds によって制御され，
