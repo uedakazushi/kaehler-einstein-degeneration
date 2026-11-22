@@ -61,7 +61,7 @@
       "current_revision_rebuilt": false
     }
   ],
-  "scope": "Research documentation v1.16 synchronizes the selected K5 actual relative-gluing audit and surface revision 35. The new fixed-fiber free-band Stokes lemma and source area wall have complete proofs in the surface manuscript and were independently internally reviewed. Conditional C-eta stability under moment-preserving relative replacement and the raw-moment error example are synchronized from the main author and independent reviewer. Actual atlas-compatible relative data remain unconstructed; no new IV/V tensor input or CP/PBE/TC verification follows. Prior analytic, K2/K3 and Part I/II audit scopes and all IV/V v1.9 source/build/certificate records are retained; no local typesetting or certificate run was repeated.",
+  "scope": "Research documentation v1.17 synchronizes surface revision 36: componentwise positive area transport and its strict finite-cut criterion, actual P0 small balanced area increments preserving full source neighborhoods, and a conditional actual-anchor K4/Petersen core-chart construction. The source-fixed small-perturbation proof was drafted by this reviewer and selected steps were read by the main and another reviewer; general finite transport, cuts and anchor criteria are shared constructions/audits. Large prescribed atlas targets, opposite-end intercepts/residual periods/framing and all-open-overlap gluing remain unresolved. No IV/V mathematical source, tensor conclusion, CP/PBE/TC verification, typesetting or certificate computation is added. Prior valid proof/build scopes remain retained.",
   "certificate_runs": [
     {
       "script": "cubical_diameter_exact_gallery_certificate_definitive_v1.py",
@@ -176,7 +176,7 @@
     "scope": "Recovered manuscript editions; the separate current-main sample is recorded under manuscripts."
   },
   "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested.",
-  "version": "1.16",
+  "version": "1.17",
   "certificate_runs_date": "2026-11-20",
   "certificate_runs_repeated_current_revision": false,
   "current_math_audit": {
@@ -193,15 +193,15 @@
   },
   "current_documentation_update": {
     "date": "2026-11-22",
-    "version": "1.16",
+    "version": "1.17",
     "manuscript_sources_changed": false,
     "lualatex_repeated": false,
     "computational_certificates_repeated": false,
     "surface_reference": {
-      "revision": 35,
-      "commit": "e801a6511451232246cb164d1dfcbf38699625ee",
-      "scope": "Saved revision 35 includes the fixed-fiber/free-band relative Stokes lemma, the weights-(1,-1) reduced-area wall pi(c-|mu|), conditional C-eta GH stability for compatible moment-preserving relative replacements, and the raw-moment-o(1) insufficiency example. Directly checked the selected K5 primitive/Moser, leaf-period/basic-cutoff, compact/cut/parameter quantifiers, core-preservation and source/triple-collar chain. The new Stokes/wall proof was written by this reviewer and independently read by the main author and a second reviewer. Relative-replacement stability is a shared audit, not an additional independent full proof audit by this reviewer. All still-valid prior selected analytic and geometric scopes are retained.",
-      "research_set_version": "3.19",
+      "revision": 36,
+      "commit": "c056ecba5d25a55f135e739faab5993582814484",
+      "scope": "Saved revision 36 contains the finite positive-transport iff theorem in a fixed relative orbit, strict Hall cuts and endpoint/annular-protection obstructions, the actual P0 source-fixed small-area construction, and conditional K4/Petersen charts from actual anchor periods. Directly constructed the small-area result using smooth free-cell masses and relative increments, connected incidence, a spanning-tree right inverse, explicit positive bump density and circle lifting supported away from full source neighborhoods. Read the general transport/strict-cut and anchor statements and proofs for their dependency interface; record them as shared constructions and reviews, not an additional independent comprehensive core audit. Prior K5, source-wall, relative-replacement, analytic and geometric scopes remain valid.",
+      "research_set_version": "3.20",
       "labels": [
         "ke:source-inclusive-fixed-shell",
         "ke:eq:source-inclusive-fixed-frame",
@@ -222,19 +222,33 @@
         "ke:moment-relative-replacement",
         "ke:eq:relative-replacement-value",
         "ke:relative-replacement-gh",
-        "ke:raw-moment-error-insufficient"
+        "ke:raw-moment-error-insufficient",
+        "ng8:componentwise-primitive",
+        "ng8:componentwise-critical-area",
+        "ng8:strict-area-cuts",
+        "ng8:annular-protection-obstruction",
+        "ng8:interior-area-cut-obstruction",
+        "ng8:affine-area-cuts",
+        "ng8:p0-source-protected-reduction",
+        "ng8:p0-small-area-flexibility",
+        "ng8:eq:p0-small-area-increments",
+        "ng8:p0-area-scope",
+        "ke:anchor-liouville-actions",
+        "ke:actual-anchor-fan-criterion",
+        "ke:anchor-stokes-budget",
+        "ke:eq:anchor-intercept"
       ],
-      "source_proof_ownership": "Surface papers/sections/paper/ke_staged_neck_averaging.tex owns the source-inclusive fixed-shell proof. Surface papers/sections/paper/neck_action_matching.tex owns the fixed-fiber free-band Stokes lemma and source-area wall; ke_global_base_compatibility.tex owns conditional relative-replacement GH stability and the raw-moment example. No mathematical proof is duplicated or added to the IV/V sources.",
+      "source_proof_ownership": "Surface ke_staged_neck_averaging.tex owns the source-inclusive fixed-shell input. Surface neck_action_matching.tex owns free-band Stokes/source-wall, componentwise area transport and strict cuts, and source-fixed actual small-area realization. Surface global_action_atlas.tex owns actual anchor-period and conditional K4/Petersen chart criteria. Surface ke_global_base_compatibility.tex owns relative-replacement GH stability. No proof is duplicated or added to the IV/V mathematical sources.",
       "build_and_visual_status": {
         "date": "2026-11-22",
-        "source_repository_commit": "e801a6511451232246cb164d1dfcbf38699625ee",
-        "source_repository_tree": "ea7dec987e513741a7cd4929e47c53b43bf31ff7",
-        "revision": 35,
-        "pages": 280,
+        "source_repository_commit": "c056ecba5d25a55f135e739faab5993582814484",
+        "source_repository_tree": "a241fac1fe1e61522a62adcf2766496496f4d362",
+        "revision": 36,
+        "pages": 290,
         "source": "papers/surface-lagrangian-torus-fibration.tex",
-        "source_sha256": "92c8de8cf1b38f5c225fc9a8c2e0d76f9e16382a3bfad7633c1155d015a30fc1",
-        "pdf_sha256": "4a66c33fc24de1ca6b5255ffccba4ec4745cadcbafd51c25157046e8a8eb5e4a",
-        "pdf_bytes": 2751541,
+        "source_sha256": "0d2ddebc2bbed934adf166560aa4c6440d420473dc172dd071edd097c5d2079e",
+        "pdf_sha256": "a642fe7d37bfcdff85b7ec5e4e93aaceb676bdd1699a7632da920e366f5eab34",
+        "pdf_bytes": 2838134,
         "log_check_counts": {
           "undefined_references_or_citations": 0,
           "duplicate_labels": 0,
@@ -246,35 +260,55 @@
         "visual_check_pages": [
           1,
           8,
-          11,
-          17,
-          23,
+          9,
+          24,
           63,
           64,
-          190,
-          191,
-          192,
-          252,
-          253,
-          275
+          255,
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263,
+          273,
+          274,
+          275,
+          276,
+          277,
+          285
         ],
         "visual_dpi": 150,
-        "visual_check_result": "1・8・11・17・23・63–64・190–192・252–253・275頁、計13頁をPoppler 150 dpi単頁PNGとして実表示。主担当が1/8/11/17/23/63/64/190/275、別担当が191/192/252/253を確認。新しい命題・系・補題とsource wall例の頁を含む。全280頁の逐頁表示ではない。",
-        "other_warnings": "LuaTeX-ja/microtype互換patch警告1件、hyperrefのPDF bookmark文字列警告2件。指定頁に表示欠落なし。",
+        "visual_check_result": "1・8–9・24・63–64・255–263・273–277・285頁、計21頁をPoppler150 dpi単頁PNGで実表示。主担当7頁、別担当が新面積証明255–263・新core証明273–277の14頁を確認。数式・本文・改頁・見出し/余白に見切れ、重なり、欠落を認めない。全290頁の逐頁確認ではない。",
+        "other_warnings": "既存LuaTeX-ja/microtype互換patch警告1件、hyperref PDF bookmark警告2件。指定21頁に表示欠落なし。",
         "lualatex_run_by_this_reviewer": false,
         "pdf_visual_review_by_this_reviewer": false,
         "validation_record_read_and_local_hashes_checked": true,
-        "status": "Successful final revision 35 build, static/preflight checks and selected-page actual visual review are synchronized from the main/shared reviewers and the current surface validation. The main reviewer verified the final remote main and tree; this reviewer read the validation record and checked local source/PDF SHA-256 values and PDF byte size, without rerunning LuaLaTeX or rendering/viewing the surface PDF. The separate IV/V v1.9 build records remain unchanged."
+        "status": "Final revision 36 upstream LuaLaTeX/latexmk, static/preflight and actual selected-page visual review succeeded. The main reviewer verified final remote main and tree; this reviewer independently checked the exact local Git tree, local source/PDF SHA-256 and PDF bytes and read the saved validation, without rerunning typesetting or visually reviewing these PDFs. The IV/V v1.9 build records remain unchanged."
       },
-      "source_repository_tree": "ea7dec987e513741a7cd4929e47c53b43bf31ff7",
-      "dependency_table_version": "3.9",
+      "source_repository_tree": "a241fac1fe1e61522a62adcf2766496496f4d362",
+      "dependency_table_version": "3.10",
       "current_source_build_verified": true,
-      "current_source_build_status": "Revision 35: upstream LuaLaTeX/latexmk succeeded (280 pages); main/shared reviewers actually viewed the specified 13 pages at 150 dpi. Six checked diagnostic categories are zero. This is synchronization of their verified record, not a new build or visual review by this reviewer."
+      "current_source_build_status": "Revision 36: successful 290-page upstream build; the main reviewer and a separate reviewer actually displayed the specified 21 pages at 150 dpi. Six checked diagnostic categories are zero. This record synchronizes their executed checks and is not a new build/visual review by this reviewer.",
+      "upstream_finite_integer_checks": {
+        "date": "2026-11-22",
+        "source_repository_commit": "c056ecba5d25a55f135e739faab5993582814484",
+        "command": "python3 scripts/research_check.py arithmetic",
+        "driver": "verification/run_current_checks.py",
+        "cases": 10,
+        "all_exit_codes_zero": true,
+        "executed_by": "separate surface reviewer",
+        "executed_by_this_reviewer": false,
+        "scope": "python3 scripts/research_check.py arithmetic → verification/run_current_checks.py のfour-ray, five-node, central, axis, divisorと対応audit各5件、計10件がexit0。別担当が再実行。既存有限整数接着のみを検算し、KE解析や新しい一般面積輸送定理の証明確認ではない。",
+        "interpretation": "Existing finite integer-gluing checks are distinct from KE analytic proof review, the general relative-area theorem, and the unchanged KE repository certificate runs."
+      }
     },
     "part_i_reference": {
       "version": "1.6",
-      "commit": "48308795c9ae17cb46d49eee9184285547e1f0fb",
-      "status": "Verified latest source-repository main and tree. Research documentation is v1.9 and series-overview is v1.8. Part I v1.6 and Part II v2.1 mathematical source bytes are identical to the prior verified mathematical snapshot; their proof-audit scopes and prior successful build/visual records remain valid. Only the overview was rebuilt upstream for this synchronization. This reviewer read the final validation and checked source/PDF hashes and PDF byte size, without typesetting or visually reviewing the new overview.",
+      "commit": "2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4",
+      "status": "Verified latest source-repository main and tree. Research documentation is v1.10 and series-overview is v1.9. The Part I v1.6, Part II v2.1, Part III and research-directions mathematical sources are unchanged. Prior Part I/II proof-audit scopes and successful build/visual records remain valid. Only the overview was rebuilt upstream for this synchronization. This reviewer read the final validation and checked source/PDF hashes and PDF bytes without typesetting or visually reviewing the new overview.",
       "labels": [
         "lem:SNC-compatible-collars",
         "lem:fc-collar-transfer",
@@ -339,7 +373,7 @@
       "shared_measure_audit": "Shared audit covers the ambient-open LDP. The shared conditional actual-residual moment bound yields vertex tightness, exact tail, joint law and distance Laplace transform under ordinary all-face volume-IRFA without an exponential-volume hypothesis. Synchronize bounded-primitive Stokes from a smooth reference curvature, its KE applicability and normal-torus normalization. For Mellin, record all-face conditional moments with essential supremum in normal depths, Holder weighted-TV interpolation on compact subcritical parameter sets, residue/adjunction recursion without a weighted hypothesis on the chosen dominator, and mixed component coefficients m_G times the incidence indicator. Critical-limit order and meromorphic-continuation conditions remain explicit. These are shared audits; the reviewer of translation does not claim an independent audit of every other proof or primary source.",
       "upstream_build_and_visual_check": {
         "date": "2026-11-22",
-        "source_repository_commit": "48308795c9ae17cb46d49eee9184285547e1f0fb",
+        "source_repository_commit": "2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4",
         "engine": "LuaHBTeX 1.18.0 / TeX Live 2025/dev/Debian via latexmk",
         "manuscripts": [
           {
@@ -415,13 +449,13 @@
           },
           {
             "source": "papers/series-overview.tex",
-            "pages": 14,
-            "pdf_sha256": "8a3b0a9df70a8c4a9e1c105a9eed20ce2e3caa5e322d5eaab1edd7fcc33425d2",
+            "pages": 15,
+            "pdf_sha256": "5f6736781f6e47610a2376c005d3da524f57f1a9842e59c5e6b26254b37cc85f",
             "unresolved_or_box_warnings": [],
             "other_warnings": "Math-font size substitutions, Japanese font scaling or unavailable italic-shape fallback, legacy class rm and ignored addjfontfeatures notices may remain; no missing glyphs.",
             "build_date": "2026-11-22",
             "rerun_in_current_revision": true,
-            "source_sha256": "9bbf4bfcbb60234375e91236406cc8dcd072e616219c755dd5b7273abc27de64",
+            "source_sha256": "dd700ccabc529bd1237d46541ed9a4bcecf799095689aedfd74dc9972e0fd663",
             "log_check_counts": {
               "undefined_references_or_citations": 0,
               "duplicate_labels": 0,
@@ -436,25 +470,26 @@
               6,
               7,
               8,
-              13,
-              14
+              9,
+              14,
+              15
             ],
-            "visual_check_result": "All seven specified pages rendered with Poppler at 150 dpi and actually viewed individually. Title/version and contents, the FBP comparison, the relative-replacement estimate and assumptions, raw-moment example, fixed-band/source-wall statement, following-page continuity, priorities and the single bibliography heading were checked. No visible clipping, overlap or missing glyphs.",
-            "source_version": "v1.8",
+            "visual_check_result": "All eight specified pages rendered with Poppler at 150 dpi and actually viewed individually. Title/version and contents, the preceding surface comparison, relative GH, finite positive allocation and strict cut conditions, actual source-preserving small flexibility, anchor action and core criterion, following-page continuity, priorities and the bibliography heading/continuation were checked. No visible clipping, overlap or missing glyphs.",
+            "source_version": "v1.9",
             "source_unchanged_in_current_revision": false,
-            "pdf_bytes": 464538,
+            "pdf_bytes": 476714,
             "visual_check_dpi": 150,
-            "source_repository_commit": "48308795c9ae17cb46d49eee9184285547e1f0fb",
+            "source_repository_commit": "2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4",
             "visual_review_performed_by": "multiscale coordination agent",
             "lualatex_run_by_this_reviewer": false,
             "pdf_visual_review_by_this_reviewer": false,
             "validation_record_read_and_local_hashes_checked": true
           }
         ],
-        "scope": "Current upstream state: Part I v1.6 remains 64 pages with the prior 17-page visual review and Part II v2.1 remains 28 pages with the prior 8-page review; both mathematical sources are byte-identical to the previous verified source commit and neither was rebuilt in this synchronization. The updated series-overview v1.8 is 14 pages; the multiscale coordination agent actually viewed selected pages 1,2,6,7,8,13,14 individually at 150 dpi. Six final log categories are zero. This reviewer read the source-repository validation and checked source/PDF hashes and PDF byte size without rerunning typesetting or viewing the new overview. These checks are separate from the unchanged IV/V v1.9 builds.",
+        "scope": "Current upstream state: Part I v1.6 remains 64 pages with the prior 17-page visual review and Part II v2.1 remains 28 pages with the prior 8-page review; their mathematical sources and the Part III/research-directions sources are unchanged. Only series-overview v1.9 was rebuilt: 15 pages, with pages 1,2,6,7,8,9,14,15 actually viewed individually at 150 dpi by the multiscale coordination agent. Six final log categories are zero. This reviewer read the saved validation, verified the exact source-repository tree and local source/PDF hashes and bytes, without typesetting or visually reviewing the new overview. These records are separate from the unchanged IV/V v1.9 builds.",
         "unchanged_part_i_ii_source_comparison": {
           "from_commit": "32566ee8dded382a4d1d0a8446b368fd81598a94",
-          "to_commit": "48308795c9ae17cb46d49eee9184285547e1f0fb",
+          "to_commit": "2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4",
           "sources": [
             "papers/multiscale-kaehler-einstein.tex",
             "papers/secondary-periods-torelli.tex"
@@ -464,16 +499,16 @@
       },
       "direct_moving_basepoint_audit": "Independently audited thm:moving and prop:cone-limits. Defined the residual link by cofaces and face maps retaining the chosen face copy; established the intrinsic product only on positive face coordinates. If the minimum weighted face coordinate m exceeds 2A, first exit and last re-entry cost at least 2(m-A)>2A, giving an exact isometry of ambient closed A-balls. Checked repeated coface copies, finite/divergent coordinate extraction, bounded residual basepoint convergence, the empty-link convention, exhaustiveness and realization of every listed pointed limit for any prescribed scaling sequence by surjectivity of S. Closed-star shortcut and boundary-identification counterexamples are retained upstream.",
       "shared_metric_link_and_literature_audit": "Read the integrated metric-link statement and scope and synchronized the shared audit: uniform O(1/r) radial divergence for coarse sections, recovery of the extended spherical length metric including infinity between components, and metric isometry type only. Divisor labels, a chosen cell subdivision, depth-coordinate weights and a genuine geodesic-ray boundary are not reconstructed. Leuzinger Lemma 5.1, Theorem 5.2 and Corollary 6.3 cover overlapping locally symmetric results; Bridson-Haefliger I.5 Definition 5.6 and Remarks 5.7 cover standard cone geometry. Detailed primary-source checks and bibliography are owned by the Part I Introduction and source-audit, not claimed as a new comprehensive independent review here.",
-      "research_set_version": "1.9",
+      "research_set_version": "1.10",
       "direct_intro_distance_scope_audit": "Independently compared Abstract/Introduction with clean/metric-IRFA, rough/contract/closed-ball statements, moving/link, KE applicability and general-position/multidegree corollaries. Confirmed proper 1-Lipschitz surjectivity, a single fixed-space K for all centres/radii/scales, compact-collapse choices with K allowed to depend on the chosen compact set, ambient rather than intrinsic ball metrics, and fixed-basepoint uniqueness. Made connectedness, reduced SNC, n>=1, compact empty-boundary case and nonempty-boundary tail scope explicit. Read Rochon-Zhang v2 p.2 and Section 5 pp.38-39/Theorem 5.1 for dimension-one validity and c_i=1 normalization. No change to distance theorem conclusions and no comprehensive re-audit of all analytic proofs is claimed.",
       "shared_measure_scope_and_literature_audit": "Shared publication-scope audit distinguishes raw KE volume face masses from their probability-normalized versions, which are divided by total volume and are not a probability partition over faces. Ordinary recursive volume-IRFA yields one-sided Abel limits; the abstract cusp density e^(-t)(1+1/t) gives a logarithmic obstruction to meromorphic continuation and is not asserted to be KE volume. Joint polyhomogeneity with residual/angular L1 estimates remains an additional continuation assumption. The shared primary-source comparison with Chambert-Loir-Tschinkel separates prior residue-measure/Igusa leading-coefficient theory from this log-log depth and ordinary-L1 setting. Detailed source locations and novelty limitations belong to the upstream Introduction and source-audit.",
-      "source_repository_tree": "bfb76d0b84c9ed6e7718ebc32b74365443a87a98"
+      "source_repository_tree": "3480ad120484383c90fb6fe21a32cc5b05f4921b"
     },
-    "claims_not_established": "Actual atlas-compatible relative local data and same-projection atlas+GH existence for d=5,6 remain unresolved. Fixed-fiber Stokes does not cross source fixed points; target-area positivity/total matching/protected margins/end germs/marked identifications and core compatibility remain inputs. Raw moment o(1) does not control target longitude. No new IV/V tensor estimate, arbitrary moving speed, or verification of (TC)_5 or global (CP)_d+(PBE)_d is supplied. Prior intermediate-scale, metric-link, ordinary-volume continuation and Part II marking/action restrictions remain valid. No complete independent audit of all manuscripts or primary-source proofs is claimed.",
-    "validation": "Targeted v1.16 documentation checks passed: JSON parsed; versions and exact saved source pins/trees agree; all 20 listed surface labels and 52 surface ke:/topo:/snc:/ng8: references in Markdown resolve at e801a6511451232246cb164d1dfcbf38699625ee; all 57 listed Part I labels and 3 listed Part II labels resolve at 48308795c9ae17cb46d49eee9184285547e1f0fb; all 19 local Markdown links exist; no temporary or obsolete current-state marker remains. Exactly four documentation files changed. IV/V source bytes/SHA-256 and prior mathematical-audit/build/certificate records are unchanged; retained Part I/II proof scopes and build records, selected analytic audit and moving classification are unchanged. Part I/II source bytes match the prior verified mathematical snapshot. Surface revision 35 (280 pages, 13 selected pages at 150 dpi) and overview v1.8 (14 pages, 7 selected pages at 150 dpi) upstream build/visual records are synchronized; local source/PDF hashes and byte sizes match. This reviewer did not rerun typesetting, visually review these PDFs, or repeat certificate computations. git diff --check passed.",
+    "claims_not_established": "Large prescribed atlas-target feasibility in the finite transport polytope, opposite-end intercepts, residual primitive periods and integer framings, marked interpolation preserving full source neighborhoods, and whole-fiber matching on all open overlaps remain unresolved. The small-area theorem is for fixed stage/t and a sufficiently small moment interval; it supplies neither degeneration-uniform margins nor arbitrary targets. Conditional actual-anchor charts require the specified periods and actual overlap markings; Stokes total mass alone is insufficient when protected source annuli disconnect the free region. Same-projection atlas+GH existence for d=5,6 remains open. No new IV/V tensor estimate, arbitrary moving speed, or verification of (TC)_5 or global (CP)_d+(PBE)_d is supplied. Prior intermediate-scale, fixed-space/measure and Part II marking restrictions remain valid. No comprehensive independent audit of all manuscripts or primary-source proofs is claimed.",
+    "validation": "Targeted final v1.17 documentation checks passed: JSON and versions agree; exact surface c056ecba5d25a55f135e739faab5993582814484/tree and multiscale 2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4/tree match local Git objects; all 34 listed surface labels and 63 Markdown surface references resolve, as do 57 Part I and 3 Part II labels; all 19 local Markdown links exist. Exactly four documentation files changed. No provisional or obsolete current-state reference remains; git diff --check passed. IV/V source bytes/SHA-256 and prior mathematical audit/build/certificate records are unchanged, as are retained analytic, moving, K5 and relative-GH scopes. Prior Part I/II proof/build records are unchanged; their sources match the prior verified mathematical snapshot, and all four unchanged multiscale mathematical sources match the previous saved main. Final upstream records are surface revision 36 (290 pages, 21 selected pages at 150 dpi) and overview v1.9 (15 pages, 8 selected pages at 150 dpi), with source/PDF hashes and PDF sizes verified locally. The separate upstream ten-case integer-gluing run is attributed to its executing reviewer and is not KE analytic/general-area proof verification. This reviewer did not rerun typesetting, visually inspect these final PDFs, or repeat computational certificates.",
     "part_ii_reference": {
       "version": "2.1",
-      "commit": "48308795c9ae17cb46d49eee9184285547e1f0fb",
+      "commit": "2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4",
       "source": "papers/secondary-periods-torelli.tex",
       "labels": [
         "prop:partI-translation",
@@ -555,6 +590,29 @@
       "raw_moment_obstruction": "At fixed stage, mu_t=-L_t^{-alpha} and nu_t=-L_t^{-beta}, 0<alpha<beta<1, have raw difference tending to zero but longitude limits alpha and beta. Approximate matching requires uniform control of the longitude profiles, not just an o(1) moment difference.",
       "review_scope": "Main-author proof plus a separate independent internal audit; this reviewer read the statement/proof for interface synchronization, not as an additional complete independent audit.",
       "unresolved": "Construction of actual atlas-compatible relative local data for d=5,6, including critical-area realization and core compatibility, remains open. No new IV/V tensor estimate or CP/PBE/TC verification follows."
+    },
+    "selected_source_fixed_area_construction": {
+      "date": "2026-11-22",
+      "labels": [
+        "ng8:p0-source-protected-reduction",
+        "ng8:p0-small-area-flexibility",
+        "ng8:eq:p0-small-area-increments",
+        "ng8:p0-area-scope"
+      ],
+      "actual_input": "Fix one allowable stage and t != 0. In the projected-source actual neck, distinct sources lie on distinct closed regular leaves. A sufficiently small compact moment interval around zero and small saturated annuli around those leaves are disjoint from critical leaves/end collars; their inverse images contain the full compact pinched tori and their saturated neighborhoods. The complement has a free smooth circle quotient even through mu=0.",
+      "construction": "For K consisting of these source annuli and end collars/caps, each annulus lies within a single critical region, so the region/free-component incidence graph is connected. Positive free-cell masses are smooth with a positive minimum on the fixed compact interval. A fixed spanning-tree right inverse realizes any sufficiently small smooth zero-sum increment vector as row changes with zero column changes. Integral-one cell bumps give rho=1+sum(L delta-a) phi >= 1/2; each free-component mass is unchanged. Componentwise compact-supported primitives and relative Moser realize the increment in the original actual form.",
+      "source_and_gluing": "All changes are supported in the free complement. Original absolute areas and protected masses may be nonsmooth at zero; only free-cell masses and increments are required smooth. A connection lifts the reduced isotopy while fixing moment and circle action and extends by identity near sources. Actual Lagrangianity follows from circle reduction, not symplecticity of the auxiliary lift. Full source neighborhoods, end germs, marked tree, connected fibers, compact Hausdorff quotient and existing whole-fiber overlaps are preserved.",
+      "quantifiers": "The increment bound depends on stage, t, interval and protected regions. Increments vanish on specified open parameter-end germs. No uniform t-bound, prescribed large target, full critical-neighborhood fixation or globally affine absolute area is inferred.",
+      "review_scope": "This reviewer drafted the proof. The main author integrated it; another reviewer spot-checked connected incidence, positive cell masses, tree flow and the source-free connection lift. Reference/environment checks were performed on the draft. This is a selected direct construction/internal review, not formal proof or a new audit of every P0 input."
+    },
+    "shared_finite_area_and_anchor_conditions": {
+      "finite_transport": "With an existing marked interpolation and actual relative-orbit identifications, target areas are realizable iff a matrix is positive on exactly the nonempty free cells, has row sums a_h-kappa_h and column sums M_alpha. Protected measures need not be smooth; their contribution is unchanged, and smoothness is required only for the free data and the residual requirements. This is an iff within the given relative orbit.",
+      "strict_cuts": "The positive matrix exists iff each connected incidence component has balanced total mass and every nonempty proper row subset satisfies the strict neighboring-column cut inequality. Isolated rows require zero residual mass. Compact-parameter margins follow only after all cuts are verified. If all residual requirements and free-component masses are affine, endpoint tests suffice. Smoothness alone does not guarantee that sufficiency; affineness is not claimed necessary for every possible endpoint test.",
+      "obstructions": "An annular protected set gives a free-component mass that cannot leave its original region, despite global total and individual protected margins. A smooth interior-parameter example passes both endpoint tests but fails an interior cut. These are logical model obstructions, not nonexistence results for the actual KE family.",
+      "anchor_core": "With the same period-1 Liouville primitive, M=delta-rho<0 and anchor period A, critical periods scale as (r M,r A). On the actual normal collar, I_beta(q)=A(q-rho)/M. Matching c+p q requires A=p M and c=-p rho in the same framing. With a closed primitive difference kappa and beta_N=epsilon beta+k alpha, p=k+epsilon A/M and c+rho(p-k)=epsilon kappa.",
+      "conditional_chart": "Actual marked anchor leaves with the stated K4 directed-cycle periods or Petersen external-zero/internal-(0,-M) periods, actual torus-overlap markings, negative meridian periods and annular Stokes identities give a K4/Petersen action chart on the same Liouville filling, with saturated lattices and denominator 1. The domain, skeleton/filtration and retained corner leaves are unchanged.",
+      "stokes_budget": "Under the specified clutching relation and period-1 framing, Area(P)=-sum(c_b)-M. K4 target basins have A_b-c_b; Petersen external basins have -c_b and its internal annulus has -M. This gives exact total mass; protected source annuli still require the full finite transport constraints. Residual framing and opposite-end/open-overlap matching remain inputs.",
+      "review_scope": "Shared construction and selected internal review. This reviewer read the integrated finite-transport, strict-cut and anchor proof interfaces for synchronization; no additional independent comprehensive core or external-source audit is claimed. The general max-flow/min-cut principle is prior theory cited upstream."
     }
   },
   "build_environment": "Stock LuaLaTeX first lacked its format, and the first recovered environment lacked the rsfs font map. Existing TeX Live dependencies and valid font maps resolved both. The repository latexmk/SyncTeX configuration is unchanged; successful outputs are in build/. No GitHub Actions used."
