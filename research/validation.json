@@ -115,7 +115,7 @@
       "current_revision_rebuilt": false
     }
   ],
-  "scope": "Research materials v1.24 integrate Part IV v1.12: the minimum fixed-end log-density transfer and the normal-frame winding law, separating Song/Rochon-Zhang inputs from moving-neck tensor/buffer assumptions. The added formulas and quantifiers received two internal readings. Current Part IV was built to 122 pages with six zero log categories; ten selected pages were actually displayed at 150 dpi. Part V v1.10 source/PDF/hash/build entry and the revision-37 scientific surface citation remain unchanged. Surface revision-43 ke:global-volume-measure was read at mathematical checkpoint 102ae9a382406bcd14755c216d2bc0ca8bc84321; its current 313-page build and eleven-page visual report are synchronized. No finite certificate rerun, all-manuscript audit or novelty certification is claimed.",
+  "scope": "Documentation-only research setv1.25 synchronizes saved PartIv1.9 product logarithmic germ/radial recovery and overviewv1.13 with the current PartIVv1.12 fixed-end inputs and surface revision43 measure corollary. All IV/V scientific sources, PDFs, hashes and manuscript/visual records are unchanged; no local rebuild or certificate rerun. Existing targeted local-kernel/capped/fixed-end and surface proof reviews remain valid in their specified scopes; no comprehensive or novelty audit claimed.",
   "certificate_runs": [
     {
       "script": "cubical_diameter_exact_gallery_certificate_definitive_v1.py",
@@ -234,7 +234,7 @@
     "scope": "Title/publication introduction, minimum-input table, canonical primitive/frame winding, complete fixed-end transfer and Song/Rochon-Zhang application, interval/diagonal interface, fixed-stage buffer ownership and bibliography. Not all 122 pages."
   },
   "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested.",
-  "version": "1.24",
+  "version": "1.25",
   "certificate_runs_date": "2026-11-20",
   "certificate_runs_repeated_current_revision": false,
   "current_math_audit": {
@@ -321,9 +321,9 @@
   },
   "current_documentation_update": {
     "date": "2026-11-22",
-    "version": "1.24",
-    "manuscript_sources_changed": true,
-    "lualatex_repeated": true,
+    "version": "1.25",
+    "manuscript_sources_changed": false,
+    "lualatex_repeated": false,
     "computational_certificates_repeated": false,
     "surface_reference": {
       "revision": 37,
@@ -378,12 +378,12 @@
         "scope": "python3 scripts/research_check.py arithmetic → verification/run_current_checks.py のfour-ray, five-node, central, axis, divisorと対応audit各5件、計10件がexit0。別担当が再実行。既存有限整数接着のみを検算し、KE解析や新しい一般面積輸送定理の証明確認ではない。",
         "interpretation": "Existing finite integer-gluing checks are distinct from KE analytic proof review, the general relative-area theorem, and the unchanged KE repository certificate runs."
       },
-      "pinned_reference_scope": "Revision 37 / 32c67ae is the unchanged actually read mathematical-input citation in the Part IV/V scientific manuscripts. It is distinct from the revision-42 mathematical checkpoint for the current full-moment and simultaneous-realization proofs recorded below."
+      "pinned_reference_scope": "Revision37 /32c67ae remains the actual mathematical-input citation in unchanged PartIV/V scientific manuscripts. Current surface revision43 and its same-map probability-volume result are recorded separately below; documentation updates do not silently change that input pin."
     },
     "part_i_reference": {
-      "version": "1.7",
-      "commit": "50d093d29e493a4e17a6a633f8b2da4aa5727089",
-      "status": "Part I v1.7 and overview v1.11 saved on source-repository main. Four Part I additions independently reviewed; overview v1.11 synchronizes actual local K4 realization and its limits. Earlier selected input audits remain distinct from comprehensive re-audit.",
+      "version": "1.9",
+      "commit": "7bb67f11f5cfb7afaa279b55d7096b10185b9c81",
+      "status": "Saved PartIv1.9 and overviewv1.13 checked at current source-repository commit. Product logarithmic germ/radial recovery and updated three-research overview independently reviewed; unrelated existing proof chains retained in their explicit scopes.",
       "labels": [
         "lem:SNC-compatible-collars",
         "lem:fc-collar-transfer",
@@ -441,27 +441,26 @@
         "cor:arrangement-cone",
         "cor:multidegree",
         "rem:probability-face-mass",
-        "ex:Abel-not-meromorphic"
+        "ex:Abel-not-meromorphic",
+        "lem:hyperbolic-curve-tail",
+        "ex:KE-product-distance-log",
+        "prop:compact-product-logarithmic-germ",
+        "cor:compact-radial-recovery"
       ],
       "scope": "Independently checked compatible real-oriented collars and residual-uniform transfer. Independently read the co-Gram -> contraction -> ambient-ball correspondence chain: deep common collars, residual covector bounds in the full inverse metric, integrable cutoff, local single-cell length argument, H composed with Psi surjectivity, ambient fibre bound and all-centres/all-radii 3K/(2R) GH bound. No proof is duplicated in this repository.",
       "direct_translation_audit": "Directly audited and expanded thm:translation for arbitrary normal-centre vectors with minimum tending to infinity. Ordinary volume-IRFA gives total variation on a bounded normal strip over the entire residual space; metric-IRFA gives the scale-one product and total variation of pushed-forward ambient-ball measures at every radius. Checked the full-residual cutoff, short-path escape, recursive bundle/connection model, torus endpoint correction, basepoint offsets and zero mass of all product spheres. Smooth volume-IRFA is unnecessary. No family-uniform conclusion is inferred.",
       "shared_measure_audit": "Shared audit covers the ambient-open LDP. The shared conditional actual-residual moment bound yields vertex tightness, exact tail, joint law and distance Laplace transform under ordinary all-face volume-IRFA without an exponential-volume hypothesis. Synchronize bounded-primitive Stokes from a smooth reference curvature, its KE applicability and normal-torus normalization. For Mellin, record all-face conditional moments with essential supremum in normal depths, Holder weighted-TV interpolation on compact subcritical parameter sets, residue/adjunction recursion without a weighted hypothesis on the chosen dominator, and mixed component coefficients m_G times the incidence indicator. Critical-limit order and meromorphic-continuation conditions remain explicit. These are shared audits; the reviewer of translation does not claim an independent audit of every other proof or primary source.",
       "upstream_build_and_visual_check": {
-        "date": "2026-11-22",
-        "source_repository_commit": "50d093d29e493a4e17a6a633f8b2da4aa5727089",
+        "source_repository_commit": "7bb67f11f5cfb7afaa279b55d7096b10185b9c81",
+        "reported_by": "Coordinating editor and independent fixed-repository reviewers",
+        "locally_rebuilt_here": false,
         "manuscripts": [
           {
             "source": "papers/multiscale-kaehler-einstein.tex",
-            "source_version": "v1.7",
-            "source_sha256": "a89fc7828da94f4d70f934c6af76494f805be1f654b8cca5f07139712c915fa0",
-            "build_date": "2026-11-22",
-            "build_status": "success",
-            "build_exit_status": 0,
-            "pages": 67,
-            "pdf_bytes": 958528,
-            "pdf_sha256": "97f1d2ad61d92333fa4ff6fb84b7c370878eef8b5e9329883bab866ec3ad2e6b",
-            "rerun_in_current_revision": false,
-            "source_unchanged_in_current_revision": true,
+            "source_version": "v1.9",
+            "source_sha256": "9c00b18db16043de3e868897aa900733d9e6031ad1c6ee0b1373ffc582c3450f",
+            "pages": 73,
+            "pdf_sha256": "b1a531353f5814cc71a89d565165b55dfbae1f0630d512a3d5ce22b7db3e79af",
             "log_check_counts": {
               "undefined_references_or_citations": 0,
               "duplicate_labels": 0,
@@ -470,75 +469,65 @@
               "underfull_boxes": 0,
               "latex_errors": 0
             },
-            "other_warnings": "Font-size substitutions and legacy class rm warning remain; the overview also reports Japanese font scaling and ignored addjfontfeatures. No missing characters.",
+            "visual_check_pages": [
+              1,
+              3,
+              8,
+              9,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              72,
+              73
+            ],
+            "visual_check_result": "The coordinator actually viewed pages1,3,8,9,72,73; independent reviewer viewed47-53, all150dpi. Title/abstract, contents, scope, Golubev-Kamber comparison, original cusp/product proofs, new proposition/corollary, Stieltjes/Q_n/moment equations and bibliography are legible. No clipping, overlap, missing glyphs or equation-number collision. The proposition spans49-50 and the three-line h(s,b) resummation spans51-52; both remain readable, as does the corollary proof across52-53. No full73-page visual review."
+          },
+          {
+            "source": "papers/series-overview.tex",
+            "source_version": "v1.13",
+            "source_sha256": "d6358192f9bf66f48160187d84689398ef25b37ba53c4c5ae9b60715a17c2f49",
+            "pages": 20,
+            "pdf_sha256": "bcd61c22e3983246f36d8bd9e25ce29e16f31954bfbb193bdc6ff2ebc3baff7e",
+            "log_check_counts": {
+              "undefined_references_or_citations": 0,
+              "duplicate_labels": 0,
+              "missing_characters": 0,
+              "overfull_boxes": 0,
+              "underfull_boxes": 0,
+              "latex_errors": 0
+            },
             "visual_check_pages": [
               1,
               2,
               3,
               4,
               5,
-              6,
-              7,
               8,
               9,
               10,
               11,
-              44,
-              45,
-              56,
-              57,
-              66,
-              67
+              12,
+              13,
+              14,
+              19,
+              20
             ],
-            "visual_check_resolution": "Poppler PNGs, 1754 pixels high on A4 (approximately 150 dpi), viewed individually.",
-            "visual_check_result": "Title, abstract, contents and full Introduction; new intrinsic/uniform-tail corollary, nonintegrable non-KE cusp example, non-CAT(0) K5 remark, depth gauge proposition and bibliography actually viewed. No clipping, overlap or missing glyphs.",
-            "verification_scope": "Retained same-day successful build and specified visual inspection of the unchanged Part I v1.7 source; not rerun during the overview v1.11 update. Source and PDF hashes rechecked."
-          },
-          {
-            "source": "papers/series-overview.tex",
-            "source_version": "v1.11",
-            "source_sha256": "d851700b5bf1354ce9a68a54217c333c343aacb3d1f2b5fb833a779be7ca22c3",
-            "build_date": "2026-11-22",
-            "build_status": "success",
-            "build_exit_status": 0,
-            "pages": 16,
-            "pdf_bytes": 491661,
-            "pdf_sha256": "99fa61f443c32b39f8a158e887a1dd3bad8c475d16138ffadc5d45bd2ad4614f",
-            "rerun_in_current_revision": true,
-            "source_unchanged_in_current_revision": false,
-            "log_check_counts": {
-              "undefined_references_or_citations": 0,
-              "duplicate_labels": 0,
-              "missing_characters": 0,
-              "overfull_boxes": 0,
-              "underfull_boxes": 0,
-              "latex_errors": 0
-            },
-            "other_warnings": "Font-size substitutions and legacy class rm warning remain; the overview also reports Japanese font scaling and ignored addjfontfeatures. No missing characters.",
-            "visual_check_pages": [
-              1,
-              2,
-              3,
-              4,
-              8,
-              9,
-              10,
-              15,
-              16
-            ],
-            "visual_check_resolution": "Poppler PNGs, 1754 pixels high on A4 (approximately 150 dpi), viewed individually.",
-            "visual_check_result": "Final title/version and contents, actual standard-P0 K4 anchor summary, theorem-status table, relative replacement/area/core context, new actual-anchor corollary and remaining full-neck/global-atlas limitations, following-page continuity, next tasks and revision-39 bibliography actually viewed. No clipping, overlap or missing glyphs."
+            "visual_check_result": "Overview reviewer actually viewed all14 selected pages at150dpi; no clipping, overlap, missing glyphs or equation-number collision. Checked log-germ and recovery, same-map atomic probability measure, full metric target, fixed-end signs/radius/winding, quintic full-moment/affine-transition scope, bibliography. After the final explicit cusp assumption, page4 was re-rendered and viewed by the coordinator; all13 other selected PNGs were byte-identical. English abstract occupies only the top ofpage2; no text missing. No full20-page visual review."
           }
         ],
-        "scope": "Current upstream builds and selected-page visual checks reported by the responsible reviewer; not a visual check or rebuild by the local analytic reviewer."
+        "scope": "Current builds only; older PartI/overview build records replaced, while valid mathematical audits remain."
       },
       "direct_moving_basepoint_audit": "Independently audited thm:moving and prop:cone-limits. Defined the residual link by cofaces and face maps retaining the chosen face copy; established the intrinsic product only on positive face coordinates. If the minimum weighted face coordinate m exceeds 2A, first exit and last re-entry cost at least 2(m-A)>2A, giving an exact isometry of ambient closed A-balls. Checked repeated coface copies, finite/divergent coordinate extraction, bounded residual basepoint convergence, the empty-link convention, exhaustiveness and realization of every listed pointed limit for any prescribed scaling sequence by surjectivity of S. Closed-star shortcut and boundary-identification counterexamples are retained upstream.",
       "shared_metric_link_and_literature_audit": "Read the integrated metric-link statement and scope and synchronized the shared audit: uniform O(1/r) radial divergence for coarse sections, recovery of the extended spherical length metric including infinity between components, and metric isometry type only. Divisor labels, a chosen cell subdivision, depth-coordinate weights and a genuine geodesic-ray boundary are not reconstructed. Leuzinger Lemma 5.1, Theorem 5.2 and Corollary 6.3 cover overlapping locally symmetric results; Bridson-Haefliger I.5 Definition 5.6 and Remarks 5.7 cover standard cone geometry. Detailed primary-source checks and bibliography are owned by the Part I Introduction and source-audit, not claimed as a new comprehensive independent review here.",
-      "research_set_version": "1.13",
+      "research_set_version": "1.17",
       "direct_intro_distance_scope_audit": "Independently compared Abstract/Introduction with clean/metric-IRFA, rough/contract/closed-ball statements, moving/link, KE applicability and general-position/multidegree corollaries. Confirmed proper 1-Lipschitz surjectivity, a single fixed-space K for all centres/radii/scales, compact-collapse choices with K allowed to depend on the chosen compact set, ambient rather than intrinsic ball metrics, and fixed-basepoint uniqueness. Made connectedness, reduced SNC, n>=1, compact empty-boundary case and nonempty-boundary tail scope explicit. Read Rochon-Zhang v2 p.2 and Section 5 pp.38-39/Theorem 5.1 for dimension-one validity and c_i=1 normalization. No change to distance theorem conclusions and no comprehensive re-audit of all analytic proofs is claimed.",
       "shared_measure_scope_and_literature_audit": "Shared publication-scope audit distinguishes raw KE volume face masses from their probability-normalized versions, which are divided by total volume and are not a probability partition over faces. Ordinary recursive volume-IRFA yields one-sided Abel limits; the abstract cusp density e^(-t)(1+1/t) gives a logarithmic obstruction to meromorphic continuation and is not asserted to be KE volume. Joint polyhomogeneity with residual/angular L1 estimates remains an additional continuation assumption. The shared primary-source comparison with Chambert-Loir-Tschinkel separates prior residue-measure/Igusa leading-coefficient theory from this log-log depth and ordinary-L1 setting. Detailed source locations and novelty limitations belong to the upstream Introduction and source-audit.",
-      "source_repository_tree": "e0a37fa6ffcf9c4a9098d21b1d537d663bd23ddd",
-      "selected_new_proof_review": {
+      "source_repository_tree": "22b12d07db36baa5897aa9deb464f1307b692d41",
+      "retained_intrinsic_tail_gauge_review": {
         "date": "2026-11-22",
         "version": "1.7",
         "source": "papers/multiscale-kaehler-einstein.tex",
@@ -551,10 +540,23 @@
         "checked": "Independent read-only check of finite-net compact basepoint uniformity, intrinsic tail rate/weight and log-Lipschitz comparison, r=ell+t+a*log(1+t) and R^a*exp(-R) tail for the explicitly non-KE cusp, O(exp(-t)) Hermitian-gauge shifts and exact constant-shift compensation, and the two length-3pi/4 angular paths in the graph K5 with edge lengths pi/2.",
         "result": "No gap found in these four selected additions. No Leuzinger primary-source re-retrieval, full Part I audit or external build/visual review by this reviewer.",
         "commit": "50d093d29e493a4e17a6a633f8b2da4aa5727089"
+      },
+      "selected_new_proof_review": {
+        "date": "2026-11-22",
+        "version": "1.9",
+        "commit": "7bb67f11f5cfb7afaa279b55d7096b10185b9c81",
+        "source": "papers/multiscale-kaehler-einstein.tex",
+        "labels": [
+          "prop:compact-product-logarithmic-germ",
+          "cor:compact-radial-recovery"
+        ],
+        "checked": "Author, coordinating editor and independent reviewer read the implemented proposition and corollary. Checked Stieltjes lower-boundary sign, uniform domination without T-prime, exact product substitution, J_n recurrence, Q_n bound and normal convergence, pole and log2 terms, entire H, monodromy sign, factorial recovery, compact moment uniqueness, cutoff independence and scope of KE application. No concrete gap found.",
+        "notes_scope": "Coordinating editor and independent reviewers checked smoothness near both poles, exact north-pole distance r, all-radius ball areas, curvature and the compact-support ODE argument of the S^2 example. This is not a negative-KE rigidity counterexample. The small-ball recovery of dimension and volume was also checked.",
+        "limits": "Fixed product geometry only; not a new degeneration-family input or general volume-IRFA continuation. No isometry/recovery-stability conclusion."
       }
     },
     "claims_not_established": "Same-projection atlas and GH realization for degree six remains open. The quintic theorem chooses the initial labelled source allocation, leaves and complete nodal neighborhoods; it does not retain arbitrary independently prescribed large source tails or additional annuli. The atlas and GH realization hold for the same projection at each t; convergence of the atlases as t tends to zero, a limiting affine structure, and a Hessian or Monge–Ampère property of the limiting metric are not asserted. Nor are a t-smooth fibration family, a t-uniform positive neighborhood width or arbitrary-speed moving-domain estimates. No new Part IV/V tensor theorem or verification of (TC)_5, global (CP)_d+(PBE)_d, or Part III (H_loc)/(H_anc) follows. Prior intermediate-scale, fixed-space/measure and Part II marking restrictions remain valid. External peer review, formal proof and comprehensive novelty confirmation are not claimed.",
-    "validation": "Current Part IV v1.12 fixed-end/gauge source was checked and independently reviewed, built to 122 pages with six zero log counts, and ten selected pages actually displayed. Existing capped-volume/local-kernel mathematical audits remain valid with their specified scopes. Part V source/PDF/version/hash/build entry and the revision-37 scientific pin are unchanged. The current surface volume corollary was read at revision-43 mathematical checkpoint 102ae9a382406bcd14755c216d2bc0ca8bc84321; its 313-page build and eleven-page external visual report are synchronized. No finite certificate was rerun.",
+    "validation": "Current IV/V sources and build/visual entries are byte-for-byte unchanged from11910259dd1628d542df57d370123d0a40b08d61. No build, actual image review or finite certificate run performed in this documentation revision. Shared PartIv1.9/overviewv1.13 results and their actual source-repository build/visual reports were checked; exact current hashes and pins are recorded in the PartI reference.",
     "part_ii_reference": {
       "version": "2.1",
       "commit": "2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4",
@@ -704,8 +706,8 @@
     },
     "current_surface_publication": {
       "revision": 43,
-      "saved_commit": "102ae9a382406bcd14755c216d2bc0ca8bc84321",
-      "source_url": "https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/102ae9a382406bcd14755c216d2bc0ca8bc84321/papers/surface-lagrangian-torus-fibration.tex",
+      "saved_commit": "1716a175dddbccf23e86027c34fba239c0cf527b",
+      "source_url": "https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/1716a175dddbccf23e86027c34fba239c0cf527b/papers/surface-lagrangian-torus-fibration.tex",
       "source_status": "Current mathematical source saved and verified by the coordinating editor at revision 43. Scientific IV/V input citation remains revision 37. Source ownership and the specified internal audit scopes are retained.",
       "labels": [
         "ke:k4-actual-neck-periods",
@@ -761,20 +763,17 @@
         "performed_by": "surface coordinating editor and designated global/visual reviewers",
         "typesetting_performed_by_this_documentation_reviewer": false,
         "direct_visual_pages_by_this_reviewer": [],
-        "mathematical_source_checkpoint": "102ae9a382406bcd14755c216d2bc0ca8bc84321",
+        "mathematical_source_checkpoint": "1716a175dddbccf23e86027c34fba239c0cf527b",
         "scope": "Current revision-43 313-page build and eleven selected-page visual report confirmed by the coordinating editor. The PDF hash and size were read from the current artifact; no older surface QA record is used."
       },
       "record_status": "Current revision-43 mathematical checkpoint and current build/selected-page external QA."
     },
     "updated_files": [
-      "README.md",
       "00_research_plan.md",
+      "README.md",
       "research/notes.md",
       "AGENTS.md",
-      "research/validation.json",
-      "papers/kaehler-einstein-degeneration.tex",
-      "papers/sections/source_free_neck_coordinates.tex",
-      "papers/sections/source_free_neck_comparison.tex"
+      "research/validation.json"
     ],
     "selected_quintic_simultaneous_realization_audit": {
       "date": "2026-11-22",
@@ -856,10 +855,10 @@
       "part_v_record_and_source_pdf_hashes_unchanged": true,
       "scope": "Current version/JSON/relative-link/new-label/control-byte checks and git diff --check. Current IV recursive input files and label uniqueness checked. These static checks do not constitute proof, typesetting or visual validation."
     },
-    "retained_scientific_record_scope": "The exact Part V manuscript entry and source/PDF hashes remain unchanged. Current Part IV contains only its v1.12 122-page build and ten-page visual review. Substantive capped-volume, local-kernel and selected quintic proof audits remain with their precise scopes; obsolete Part IV and surface build/QA histories are not retained.",
+    "retained_scientific_record_scope": "Both IV/V manuscript entries and all scientific source/PDF hashes remain unchanged; current IV1.12 has122pages and selected10-page visual record, V1.10 has37pages. Existing mathematical audits are preserved by scope. Superseded external PartI/overview build records are replaced by current73/20-page records.",
     "current_surface_volume_measure": {
       "revision": 43,
-      "mathematical_checkpoint": "102ae9a382406bcd14755c216d2bc0ca8bc84321",
+      "mathematical_checkpoint": "1716a175dddbccf23e86027c34fba239c0cf527b",
       "save_confirmation": "Coordinating editor confirmed the saved and verified surface checkpoint.",
       "source": "papers/sections/paper/ke_global_metric_realization.tex",
       "source_sha256": "d9fbf548445b1040b483f86f8a144c72f0a205da05a28ff456fdb47cb2d85c0c",
@@ -879,7 +878,7 @@
   "build_environment": "LuaHBTeX 1.18.0 with LuaTeX-ja/Harano Aji and CM, AMS, RSFS vector fonts. The workspace used a user-local TeX setup; the repository retains the ordinary latexmk/LuaLaTeX/SyncTeX configuration. PDFs and caches stay under ignored build/cache directories. No GitHub Actions used.",
   "current_static_source_checks": {
     "date": "2026-11-22",
-    "version": "Part IV 1.12 / unchanged Part V 1.10",
+    "version": "Materials1.25; unchanged IV1.12/V1.10",
     "git_diff_check_exit_code": 0,
     "manuscripts": [
       {
@@ -889,6 +888,6 @@
         "labels": 460
       }
     ],
-    "results": "Current Part IV recursive inputs exist and labels are unique; all seven new labels occur. Updated relative Markdown links and control bytes checked. The unchanged Part V source and PDF hashes match its retained record. No independent full environment/reference parser is claimed for this check; the coordinating editor reports six zero LuaLaTeX log categories."
+    "results": "Documentation JSON/links/control bytes and git diff --check passed. All tracked papers/ source files and both manuscript/visual records exactly match initial HEAD1191025. Current local PDFs match the retained hashes. No TeX compilation, finite computation or proof-assistant check in this documentation update."
   }
 }

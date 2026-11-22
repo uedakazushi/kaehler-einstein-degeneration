@@ -1,6 +1,6 @@
 # 現行研究方針：一般型超曲面の負Kähler–Einstein退化
 
-更新：2026-11-22 / v1.24・現行研究方針（Part IV v1.12、Part V v1.10）
+更新：2026-11-22 / v1.25・現行研究方針（Part IV v1.12、Part V v1.10）
 
 ## 公表に向けた実行計画
 
@@ -9,7 +9,7 @@
 1. Exact triple領域、各固定parameterの滑らかなradial閉包と全phase quotient、固定faceの一様密度下界を入力とする局所安定性定理 `coarse:thm:boundary-to-triple` を抽出した。境界上界にparameter一様性が不要であることを証明の向きとともに明示し、全平面退化への適用を `coarse:thm:full-triple-tensor` に分けた。証明は一回だけ掲載する。
 2. 題名・abstract・主結果を、局所安定性、complete simplexと閉corner、source-free neckと固定end、条件付きexterior/PBEの順に整理した。条件付き結果と必要な証明も保持する。
 3. 曲面主稿の実際の引用を逆引きし、capped lowerとoriented upper、full-tripleとsimplex、normal circle、束座標・共通primitive・固定endの最小四入力表を主稿 `tab:surface-minimal-inputs` に置いた。領域、全位相、定数、cutの選択順と曲面側が別に証明する事項を明記する。固定endには `pair:prop:fixed-end-transfer` の最小log-density入力を置き、normal windingによる加法定数と残余periodを分離する。
-4. Part Vの(CP)+(PBE)付きactual適用と曲面の直接scalar/portal経路を区別する。Part IV/V本文の曲面入力引用は実読した改訂37・commit `32c67aefe6beb47c2955923e2b6eb2471d48af31` に保持する。曲面稿は五次の全moment・同時atlas/GH実現と `ke:global-volume-measure` の証明を所有し、現在確認した数学保存版は `102ae9a382406bcd14755c216d2bc0ca8bc84321`（改訂43）である。
+4. Part Vの(CP)+(PBE)付きactual適用と曲面の直接scalar/portal経路を区別する。Part IV/V本文の曲面入力引用は実読した改訂37・commit `32c67aefe6beb47c2955923e2b6eb2471d48af31` に保持する。曲面稿は五次の全moment・同時atlas/GH実現と `ke:global-volume-measure` の証明を所有し、現在確認した数学保存版は `1716a175dddbccf23e86027c34fba239c0cf527b`（改訂43）である。
 5. 局所安定性とcapped-volumeの指定証明鎖、固定end移送とframe windingの追加式を作成担当と別担当が内部点検した。組版・表示は各版の実施範囲を別に記す。ZhangのQ-factorial/simple toroidalな全空間の結果はsource方程式 \(xy=tz\) へ無条件に適用しない。全原著証明・全主稿の包括監査と定量的新規性の確認は残る。
 
 達成基準は、曲面P0が使う局所解析を最小の正確な入力と一意の証明場所から検証できること。これは全主稿の包括的再監査、外部査読、投稿の完了を意味しない。原稿・ノート・方針・READMEの保存後、利用側の依存表とresearch-hubへ実際の到達点を反映する。共通の一般原則・保存許可は本書後半と `AGENTS.md` に記す。
@@ -19,11 +19,13 @@
 
 Part IV v1.12は、既存の局所安定性とcapped-volumeの証明に、固定endの最小log-density入力とnormal windingの規格化を統合する。Songの固定collar収束とRochon–Zhangのradial cusp微分を分離し、全phase・全複素t、固定rの後のt閾値、Hermitian半径差を点検した。次はこの入力表から未確認の一次資料・定量的新規性と利用側の接続を絞り込み、公表稿の範囲を確定する。曲面の五次同時実現に加え、改訂43保存稿の確率測度極限を既存の全域写像・固定成分体積の帰結として整理する。CP/PBE/TC、六次の同時atlas、高次元化は別の達成条件で扱う。IV v1.12は122頁に組版済みで、指定10頁の表示確認を完了した。V v1.10・37頁の本文・PDF・hashと既存QAは不変である。
 
+固定補空間側は[Part I v1.9・総説v1.13・研究資料v1.17](https://github.com/uedakazushi/multiscale-kaehler-einstein/tree/7bb67f11f5cfb7afaa279b55d7096b10185b9c81)を確認版とする。尖点付き有限面積双曲曲線Sと閉コンパクトRiemann因子Yの積で、距離Laplace変換をRe s<3の切断半平面上でW/(1−s)−H(s)Log(1−s)+G(s)と表示する。Hはentire、GはRe s<3で正則であり、WとmonodromyからYの正規化基点距離分布を回収する。通常volume-IRFA一般への解析接続・等長型・族一様性は主張しない。総説はこの積の結果、Part IV v1.12の固定end/winding、曲面改訂43の同じ射影による確率体積極限を統合する。これらは固定補空間側の成果・共同編集であり、Part IV/Vへの新しい解析仮定やCP/PBE/TCの検証ではない。
+
 ## 研究固有の目標
 
 固定次数d≥5の一般型曲面の全平面退化について、actual KE計量の局所一様解析と、それを大域的な径尺度の極限へ接続するための正確な入力を整える。本稿には全深部三重点のtensor比較、全閉cornerの局所GH収縮、source-freeな固定compact baseの正則normal action・canonical primitive・共通moment intervalの証明がある。全曲面のGH極限とactual Lagrangian射影による実現には曲面repoに別の直接scalar/portal証明があるため、その共有局所入力と量化の接続を最優先で監査する。五次ではさらに `ke:quintic-simultaneous-realization` が、初期marked source葉と全保持近傍を選ぶ範囲で、一つのactual射影に作用atlasとGH実現を同時に与える。本repoの(CP)/(PBE)/(TC)という強い解析package、Part IIIの(H_loc)/(H_anc)、六次の同時実現は未解決のまま残る。高次元のmixed source–higher-stratum modelsは後続課題とする。
 
-曲面側 `ke:global-volume-measure` は、確率体積を同じGH近似写像およびLagrangian射影で押し出したとき、各成分頂点に重み1/dを置く弱極限を与える。固定成分体積の交点数、固定compact収束と既存全域値比較を用い、moving neckの体積漸近を追加仮定しない。極限測度の台は成分頂点である一方、計量極限は辺とsquareを含む全cubical空間である。証明正本と改訂43の数学保存版は曲面repoの `102ae9a382406bcd14755c216d2bc0ca8bc84321` である。
+曲面側 `ke:global-volume-measure` は、確率体積を同じGH近似写像およびLagrangian射影で押し出したとき、各成分頂点に重み1/dを置く弱極限を与える。固定成分体積の交点数、固定compact収束と既存全域値比較を用い、moving neckの体積漸近を追加仮定しない。極限測度の台は成分頂点である一方、計量極限は辺とsquareを含む全cubical空間である。証明正本と改訂43の数学保存版は曲面repoの `1716a175dddbccf23e86027c34fba239c0cf527b` である。
 
 ## 三研究の共同方針と正本
 
@@ -37,7 +39,7 @@ Part IV v1.12は、既存の局所安定性とcapped-volumeの証明に、固定
 
 共有入力は [研究ノート](research/notes.md) の依存表と曲面側の `research/ke-dependencies.md` で、定理・仮定・尺度・固定/可動領域・確認版を照合する。Part IIのsecondary complex periodsと第二symplectic actionは同一視しない。Part IIIの(H_loc)/(H_anc)も別模型の仮定として残す。方針・本文・ノートを先に保存し、その結果をhubの短い要約へ反映する。
 
-固定補空間側のPart I v1.7（研究一式v1.12）は、連結smooth projective・reduced SNC・K+D ampleの範囲で、n=1と空境界のcompact caseを含む。Hermitian depthsを保つ可換collars・全残余一様なRZ延長比較・一面tensor評価からmetric-IRFAを検証し、properな1-Lipschitz全射Sと有界加法誤差Kを構成する。固定基点からのblow-downは一意である。固定したSについて、中心oと半径Aに一様に、ambient閉球のGH誤差は3K/(2R)以下で、比較先の中心はS(o)/Rである。指定compact集合をSで零へ送る選択もでき、その場合Kはその集合に依存してよい。LDPと、非空境界のexact tail・joint law・distance Laplace transformは通常の全face volume-IRFAで成立し、指数的volume remainderを追加仮定しない。正本・ラベル・独立点検と共同監査の範囲は研究ノートに記す。
+固定補空間側のPart I v1.9（研究一式v1.17）は、連結smooth projective・reduced SNC・K+D ampleの範囲で、n=1と空境界のcompact caseを含む。Hermitian depthsを保つ可換collars・全残余一様なRZ延長比較・一面tensor評価からmetric-IRFAを検証し、properな1-Lipschitz全射Sと有界加法誤差Kを構成する。固定基点からのblow-downは一意である。固定したSについて、中心oと半径Aに一様に、ambient閉球のGH誤差は3K/(2R)以下で、比較先の中心はS(o)/Rである。指定compact集合をSで零へ送る選択もでき、その場合Kはその集合に依存してよい。LDPと、非空境界のexact tail・joint law・distance Laplace transformは通常の全face volume-IRFAで成立し、指数的volume remainderを追加仮定しない。正本・ラベル・独立点検と共同監査の範囲は研究ノートに記す。
 
 同じ固定空間のmoving-basepoint blow-downは、cone内の有界基点極限、または面αに沿うEuclidean因子とincidence link coneの積に分類され、任意に指定した拡大列に対して全て実現する。正のα座標を持つstarと、最小weighted座標m>2Aでのambient閉A球の厳密な積同定を用いる。Closed star全体のambient積表示は一般に成り立たない。距離だけから復元するのはmetric linkの等長型であり、標識付きcell分割・depth重み・geodesic-ray boundaryの復元は含めない。Leuzingerのlocally symmetric cone比較・radial公式、Bridson–Haefligerの標準cone幾何との重なりを正本Introductionに明記する。
 
@@ -176,7 +178,7 @@ Core側は `ke:anchor-liouville-actions`、`ke:anchor-stokes-budget` と `ke:act
 
 Part IV v1.12は122頁に組版済みで、logの未定義参照・引用、重複label、欠字、LaTeX error、overfull/underfullの六分類は全て0。150 dpiで1、8、10、71–75、80、122頁（計10頁）を実表示し、欠字・重なり・切断・数式のはみ出しを認めない。固定end担当は71–75・80頁、別担当は1・8・10・122頁、統合担当は73頁を確認した。定理13.9の冒頭は73–74頁に分かれるが、本文に欠落はなく読解できるため現行組版を保持する。全122頁の逐頁表示ではない。 V v1.10の版・本文・PDF・hash、37頁の組版と指定5頁の表示記録は不変である。有限検算は再実行せず、通常のLuaLaTeX/latexmk・SyncTeX設定を保持する。
 
-研究資料v1.24はPart IVの固定end移送・normal windingを公表入口へ統合する。Songの指定箇所、Rochon–Zhangの(5.5)–(5.6)・Theorem 5.1とextension map (2.44)–(2.46)を照合し、追加式と量化を統合担当も点検した。Part IV/Vの科学引用は改訂37・commit `32c67aefe6beb47c2955923e2b6eb2471d48af31` に保持する。曲面改訂43の数学保存版は `102ae9a382406bcd14755c216d2bc0ca8bc84321`。現行313頁の組版から1、10、26、28、29、126、215–217、312、313頁（計11頁）を外部担当が150 dpiで実表示し、指定範囲に欠字・重なり・切断を認めないとの完了報告を確認した。全313頁の逐頁表示ではない。 証明記載、内部点検、計算、組版、GitHub反映、hub更新は個別に記録する。
+研究資料v1.25は、Part I v1.9の積の複素対数germと距離分布回収、および総説v1.13との接続を同期する。Part IV v1.12とV v1.10の全TeX・PDF・hash・既存組版表示記録は不変で、今回再組版・再表示・有限検算をしていない。固定end/winding、capped-volume/local-kernelの指定内部点検は有効な範囲で保持する。IV/Vの科学引用は改訂37・commit `32c67aefe6beb47c2955923e2b6eb2471d48af31` を保持する。曲面改訂43の確認済み保存版は `1716a175dddbccf23e86027c34fba239c0cf527b`。現行313頁と指定11頁の150 dpi表示記録は曲面側の既存報告であり、本repoの再組版ではない。固定側のI73頁/指定13頁と総説20頁/指定14頁の組版・実表示は、その正本の検証記録を確認した。保存・hub更新は別に確認する。
 
 ## 共通研究原則と保存許可（研究固有方針から独立）
 

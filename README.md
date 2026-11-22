@@ -1,6 +1,6 @@
 # Kähler–Einstein degeneration
 
-更新：2026-11-22 / v1.24（研究資料。Part IV v1.12、Part V v1.10）
+更新：2026-11-22 / v1.25（研究資料。Part IV v1.12、Part V v1.10）
 
 **公表計画：** 数学的価値の最大化を基準に、曲面P0・Part IVの最小局所解析・Part Iの距離と実球体積漸近を優先する。[研究方針](00_research_plan.md)に実行順序・達成基準・担当を記した。中心定理の構成、入力の範囲、先行研究との差を確定し、五次の同時atlas/GH実現を公表範囲へ加える。六次の同時実現と条件付き解析拡張は独立した完成基準で進める。
 
@@ -12,13 +12,13 @@
 
 **五次の同じ射影による同時実現：** 曲面稿の `ke:quintic-simultaneous-realization` は、初期source葉・allocation・全保持近傍を構成中に選ぶ範囲で、actual負KE形式に関する一つの大域Lagrangian fibrationに作用適合matroidal atlasと全曲面ambient GH実現を同時に与える。Source-freeな旧neck補題と全source-wallを用いる構成を区別し、両端periodの有限整合、全momentの自由需要とstrict cuts、coreとの全開collarの葉・作用および平行移動を含むatlas接続を証明する。等重みと対称六系が整合データの実例を与える。Focus valuesには穿孔focus affine structureを用いる。各tでの同時実現であり、atlas自体のt方向の極限や極限距離のHessian性は含まない。六次の同時実現、既指定の大きいsource近傍を保つ相対存在、CP/PBE/TC・H_loc/H_ancの検証は未解決。証明の正本と限定した内部点検の範囲を研究ノート・検証JSONに記す。
 
-**同じ射影上の確率体積測度：** 曲面改訂43の保存稿 `ke:global-volume-measure` は、同じGH近似写像とLagrangian射影による確率体積の押し出しが、各成分頂点に重み1/dを置く原子測度へ弱収束することを示す。固定成分の体積と固定compact上の収束、既存の全域値比較を使い、moving neckの体積漸近は追加しない。計量極限の辺・squareは残り、極限測度の台だけに空間を縮めない。本文と証明を確認し、数学保存版は `102ae9a382406bcd14755c216d2bc0ca8bc84321` である。数学保存と現行の表示確認は個別に記す。
+**同じ射影上の確率体積測度：** 曲面改訂43の保存稿 `ke:global-volume-measure` は、同じGH近似写像とLagrangian射影による確率体積の押し出しが、各成分頂点に重み1/dを置く原子測度へ弱収束することを示す。固定成分の体積と固定compact上の収束、既存の全域値比較を使い、moving neckの体積漸近は追加しない。計量極限の辺・squareは残り、極限測度の台だけに空間を縮めない。本文と証明を確認し、数学保存版は `1716a175dddbccf23e86027c34fba239c0cf527b` である。数学保存と現行の表示確認は個別に記す。
 
 ## 三研究を一体で進める方針
 
 [固定配置補空間・Part I–III](https://github.com/uedakazushi/multiscale-kaehler-einstein)、本repoの退化族局所解析・Part IVと条件付き距離論・Part V、[曲面のactual KE Lagrangian構成と大域GH実現](https://github.com/uedakazushi/surface-lagrangian-torus-fibration)を共同で編集・監査する。各repoと主論文の正本はこの責任分担で維持する。証明を重複収録せず、仮定・定理ラベル・尺度・確認版を揃える。固定空間の漸近と退化族の一様性、Part IIのcomplex periodsとsymplectic actions、曲面の直接評価と本稿のCP/PBE/TCを区別する。詳しい方針は[現行研究方針](00_research_plan.md)、共有局所入力は[研究ノートの依存表](research/notes.md)を参照する。
 
-Part I v1.7（研究一式v1.12）は、連結なsmooth projective pairのreduced SNC境界とK+D ampleを仮定する。n=1を含み、空境界はcompactな一点錐の場合として扱う。固定空間のexact collar/tensor入力からproperな1-Lipschitz全射と有界加法誤差Kを与え、固定基点のblow-downは一意に定まる。固定した写像について、全中心・全半径のambient閉球のGH誤差は3K/(2R)以下である。LDPのambient-open下界に加え、非空境界のexact tail・joint law・distance Laplace transformも通常の全face volume-IRFAで扱い、指数的volume remainderを追加仮定しない。Kは固定空間の定数であり、退化parameterに一様な評価を意味しない。曲面改訂38は、P0の同じ全射のdistortionを吸収する中間尺度で、任意の移動基点のpointed GH極限を成分錐、分岐する半平面の積模型、全角3π/2の錐、平面の四型に分類する。これは既存の全域歪みと有限targetの計量幾何の帰結であり、Part IV/Vの新しいtensor入力ではない。利用条件・監査範囲・正本のラベルは研究ノートに集約する。
+Part I v1.9（研究一式v1.17）は、連結なsmooth projective pairのreduced SNC境界とK+D ampleを仮定する。n=1を含み、空境界はcompactな一点錐の場合として扱う。固定空間のexact collar/tensor入力からproperな1-Lipschitz全射と有界加法誤差Kを与え、固定基点のblow-downは一意に定まる。固定した写像について、全中心・全半径のambient閉球のGH誤差は3K/(2R)以下である。LDPのambient-open下界に加え、非空境界のexact tail・joint law・distance Laplace transformも通常の全face volume-IRFAで扱い、指数的volume remainderを追加仮定しない。Kは固定空間の定数であり、退化parameterに一様な評価を意味しない。曲面の `ke:intermediate-moving-classification` は、P0の同じ全射のdistortionを吸収する中間尺度で、任意の移動基点のpointed GH極限を成分錐、分岐する半平面の積模型、全角3π/2の錐、平面の四型に分類する。これは既存の全域歪みと有限targetの計量幾何の帰結であり、Part IV/Vの新しいtensor入力ではない。利用条件・監査範囲・正本のラベルは研究ノートに集約する。
 
 同じ固定空間の移動基点極限は、有界基点のcone、またはEuclidean因子とincidence link coneの積に分類され、任意の拡大列に対して全て実現する。正の面座標を保つstarとm>2Aのambient閉球同定を用いる。復元対象はmetric linkの等長型であり、元の標識・cell分割・depth重みは別のデータである。標準cone幾何やLeuzingerのlocally symmetric spaceでの先行結果との関係は、研究ノートとPart I Introductionに記す。
 
@@ -75,9 +75,11 @@ Core側の `ke:actual-anchor-fan-criterion` は、同じLiouville primitiveで�
 - [Part V：cubical GH](papers/cubical-gh-limit.tex)：現行v1.10、37頁。一般次数のcubical複体の位相・整数ホモロジー、abstract pruning–transport、diam(C_5)=sqrt(13)を含む。全曲面のactual GH適用は(CP)_d+(PBE)_d付き。
 - [Punctured-neck技術稿](papers/punctured-neck-scattering.tex)：旧81頁の証明全文をLuaLaTeXへ移植した稿（回収時92頁）。条件付きの解析入力を冒頭に明記。
 - [Source-free比較の研究ノート](papers/source-free-comparison.tex)：source-free領域の補助原稿。
-- [補助検算](scripts/)：2026-11-20に統合稿5本と旧v0.12の16本を再実行し、全件成功。現行の研究資料v1.24では再実行していない。旧16本は配布時のSHA-256と一致。有限計算・式の診断であり解析証明の代用ではない。
+- [補助検算](scripts/)：2026-11-20に統合稿5本と旧v0.12の16本を再実行し、全件成功。現行の研究資料v1.25では再実行していない。旧16本は配布時のSHA-256と一致。有限計算・式の診断であり解析証明の代用ではない。
 
 関連Lagrangian研究の人工PL基底計量では、分岐基底からC_dへのdistortionはd=5でΘ(ε²)、d≥6でΘ(ε)。これはactual KE計量の収束とは別の結果である。大域的な適用にはno-shortcut、square lifts、fiber/portal connectorsの定量条件を揃える必要があり、最初の二条件だけから第三は従わない。
+
+固定補空間側は[Part I v1.9・総説v1.13・研究資料v1.17](https://github.com/uedakazushi/multiscale-kaehler-einstein/tree/7bb67f11f5cfb7afaa279b55d7096b10185b9c81)を確認版とする。尖点付き有限面積双曲曲線Sと閉コンパクトRiemann因子Yの積で、距離Laplace変換をRe s<3の切断半平面上でW/(1−s)−H(s)Log(1−s)+G(s)と表示する。Hはentire、GはRe s<3で正則であり、WとmonodromyからYの正規化基点距離分布を回収する。通常volume-IRFA一般への解析接続・等長型・族一様性は主張しない。総説はこの積の結果、Part IV v1.12の固定end/winding、曲面改訂43の同じ射影による確率体積極限を統合する。これらは固定補空間側の成果・共同編集であり、Part IV/Vへの新しい解析仮定やCP/PBE/TCの検証ではない。
 
 ## 保存と検証
 
@@ -85,6 +87,6 @@ Part IV v1.12は122頁に組版済みで、logの未定義参照・引用、重�
 
 Part IV v1.10では新局所定理 `coarse:thm:boundary-to-triple`、モデルとshift比較、小摂動評価、全平面退化への適用を担当と別担当が点検した。Compact phase quotientでの最大値原理、境界上界の各固定tでの有限性、定数依存、normalized coverでの正則性を確認した。全capped determinant・全外部原典・全主稿の包括的再監査、外部査読、形式証明は未実施。有限距離論の計算は今回変更しておらず再実行していない。詳しい状態は[検証状態](research/validation.json)。
 
-研究資料v1.24では固定end移送とnormal windingの式・符号・半径差・固定段階の量化を作成担当と統合担当が点検した。SongとRochon–Zhangの指定一次資料、RZのextension map (2.44)–(2.46)を照合した。既存のcapped-volume/local-kernel監査と改訂37・commit `32c67aefe6beb47c2955923e2b6eb2471d48af31` の科学入力pinは保持する。曲面改訂43の数学保存版は `102ae9a382406bcd14755c216d2bc0ca8bc84321`。現行313頁の組版から1、10、26、28、29、126、215–217、312、313頁（計11頁）を外部担当が150 dpiで実表示し、指定範囲に欠字・重なり・切断を認めないとの完了報告を確認した。全313頁の逐頁表示ではない。 有限検算は再実行していない。保存・hub反映は検証JSONで個別に管理する。
+研究資料v1.25は、Part I v1.9の積の複素対数germと距離分布回収、および総説v1.13との接続を同期する。Part IV v1.12とV v1.10の全TeX・PDF・hash・既存組版表示記録は不変で、今回再組版・再表示・有限検算をしていない。固定end/winding、capped-volume/local-kernelの指定内部点検は有効な範囲で保持する。IV/Vの科学引用は改訂37・commit `32c67aefe6beb47c2955923e2b6eb2471d48af31` を保持する。曲面改訂43の確認済み保存版は `1716a175dddbccf23e86027c34fba239c0cf527b`。現行313頁と指定11頁の150 dpi表示記録は曲面側の既存報告であり、本repoの再組版ではない。固定側のI73頁/指定13頁と総説20頁/指定14頁の組版・実表示は、その正本の検証記録を確認した。保存・hub更新は別に確認する。
 
 再生成はルートで `latexmk`、PDF/SyncTeXの出力先は `build/`。LuaLaTeX、luatexja、Harano Ajiと数学フォントの有効なmapを備えたTeX Liveを用いる。[移行・検証範囲](research/migration.md)と[ソース対応](research/source-manifest.json)を参照する。通常のcommitとmainへのpushで保存し、研究成果の保存とresearch-hubの更新を別々に確認する。
