@@ -1,8 +1,14 @@
 # 現行原稿の証明状態と監査範囲
 
-2026-11-23 / v1.4。研究資料v1.29、Part IV v1.16・Part V v1.10。
+2026-11-23 / v1.5。研究資料v1.30、Part IV v1.17・Part V v1.10。
 
 本書は現在有効な主張と、実際に確認した範囲をまとめる。原資料の回収元・版・hashは `source-manifest.json` と `migration.md`、組版・計算・表示の実行記録は `validation.json` が正本である。原稿に証明があること、今回その証明を読んだこと、計算・形式証明による確認を区別する。
+
+## 実方向におけるSavinの一様楕円性
+
+**Savin H2の係数点検。** Part IV `coarse:lem:small-volume-tensor` で、実HessianからHermitian Hessianへの写像 ℋ は半正定値を保ち、複素次元2では tr_C ℋ(P)=tr_R P/4 を満たす。背景Hの一様正値近傍ではdetの実PSD方向の増分がc||P||とC||P||の間にあり、Savin Theorem 1.3のH2を実対称4×4行列のoperator normについて直接確認できる。H1はglobal degenerate ellipticity、H4は零解近傍のC²構造。Volume ratioのC⁰小ささからSavin→一様楕円性→線形Schauderへ進む順序は循環しない。原著定理と本稿の該当証明を照合したが、全稿の独立完全監査ではない。
+
+一次資料: O. Savin, *Small Perturbation Solutions for Elliptic Equations*, Commun. PDE **32** (2007), 557–578, [author PDF](https://www.math.columbia.edu/~savin/Small_pert.pdf), pp.558–560（H1/H2/H4とTheorem 1.3、実PDF画像の確認）。同定理のc₁はoperatorと係数の一様な局所boundsに依存するため、全深度比で一様に用いる際には本稿のnormalized covering charts上のHの全固定階boundsを先に使う。Volume squeezeとSavinの仮定を分離し、actual tensor比較をSavin適用より前に仮定しない。
 
 ## Capped lower の監査と Savin 一次資料
 

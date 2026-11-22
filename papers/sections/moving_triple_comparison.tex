@@ -1,5 +1,5 @@
 % !TeX root = ../kaehler-einstein-degeneration.tex
-% Current content: 2026-11-20, v1.1.  Included from the main manuscript.
+% Current content: 2026-11-23, v1.2.  Explicit real-Hermitian ellipticity constants for Savin H2.
 \section{三重点の開正方形領域における actual KE 比較}
 \label{sec:moving-triple-comparison}
 
@@ -274,10 +274,35 @@ positive semidefinite 方向に単調である．
 $\tr_{\CC}\mathcal H(N)$ は $\tr_{\RR}N$ の固定正倍である．
 従って $F$ は Savin の hypothesis H1 を満たす．
 
-$H\ge\lambda I$ より，$(N,p,z)=(0,0,0)$ の十分小さい固定近傍では
-$H+\mathcal H(N)$ は一様に正である．この近傍で determinant の微分を取ると，
-real positive semidefinite increment に対する増分は，その operator norm の
-正の定数倍の間に挟まれる．これが hypothesis H2 である．
+Hypothesis H2 の一様楕円性を実方向の定数まで確認する．
+ここでは複素次元が $2$ なので，$\mathcal H$ は実対称
+$4\times4$ 行列から Hermitian $2\times2$ 行列への写像である．
+実 Hessian の $xx,xy,yy$ block を用いれば
+\[
+ \mathcal H(P)=\frac14(P_{xx}+P_{yy}
+              +\sqrt{-1}(P_{xy}^{\,T}-P_{xy})),
+ \quad
+ \operatorname{tr}_{\CC}\mathcal H(P)=\frac14\operatorname{tr}_{\RR}P .
+\]
+$P\ge0$ なら $\mathcal H(P)\ge0$ であり，
+$\|P\|\le\operatorname{tr}_{\RR}P\le4\|P\|$ である．
+$H\ge\lambda I$ より，$N$ と $P$ を十分小さくし，
+$B_s=H+\mathcal H(N+sP)$ $(0\le s\le1)$ を考えると，
+$B_s$ は一様な上下の正の固有値界を持ち，
+$\det B_s/\det H$ も正の上下界を持つ．従って
+\[
+ \frac{d}{ds}F(N+sP,p,z,x)
+ =\frac{\det B_s}{\det H}
+       \operatorname{tr}_{\CC}(B_s^{-1}\mathcal H(P))
+\]
+から，$x,N,p,z,P$ に一様な $0<\lambda_0\le\Lambda_0$ により
+\[
+ \lambda_0\|P\|\le F(N+P,p,z,x)-F(N,p,z,x)
+                   \le\Lambda_0\|P\|\qquad(P\ge0)
+\]
+を得る．これは Savin の H2 が用いる実対称方向の operator norm に
+関する条件そのものであり，actual $\omega_\nu$ の tensor 上下比較を
+入力にしていない．
 同じ近傍で $F$ は $C^2$ で，その二階微分は $H$ の一様 $C^2$ bounds によって制御され，
 \[
  F(0,0,0,x)=0

@@ -1,5 +1,5 @@
 # kaehler-einstein-degeneration — 研究・保存指示
-2026-11-23 / v1.10（研究資料v1.29、Part IV v1.16・Part V v1.10）
+2026-11-23 / v1.11（研究資料v1.30、Part IV v1.17・Part V v1.10）
 
 ## 公表計画の実行
 

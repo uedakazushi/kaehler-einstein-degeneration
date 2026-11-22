@@ -1,6 +1,6 @@
 # 現行研究方針：一般型超曲面の負Kähler–Einstein退化
 
-更新：2026-11-23 / v1.29・現行研究方針（Part IV v1.16、Part V v1.10）
+更新：2026-11-23 / v1.30・現行研究方針（Part IV v1.17、Part V v1.10）
 
 ## 公表に向けた実行計画
 
@@ -16,6 +16,8 @@
 
 
 **Capped barrier の前因子は鋭い。** Part IV `coarse:prop:capped-prefactor-sharp` で、同じ α_i と canonical density に対する Ω^(β)=L_t^β∏α_i^(−2)Ω_0 を考えると、h^(β)=dd^c log Ω^(β)=h^low はβに依らず、β≤2では全域 determinant lower が成り立つが、β>2では source中央点で (h^low)^2/Ω^(β)≈L_t^(2−β)→0 のため失敗することを直接証明した。中央rescalingでactive二方向はL_t^(−1)、背景・inactiveはO(|t|)であり、canonical residueは非零である。これはこのcap ansatzの最適性であり、一般の別障壁やactual KE metricそのものに対する最適性を主張しない。Part IVのglobal capped lowerを変更せず、これを利用する曲面稿の仮定も変えない。
+
+**Savin H2の係数点検。** Part IV `coarse:lem:small-volume-tensor` で、実HessianからHermitian Hessianへの写像 ℋ は半正定値を保ち、複素次元2では tr_C ℋ(P)=tr_R P/4 を満たす。背景Hの一様正値近傍ではdetの実PSD方向の増分がc||P||とC||P||の間にあり、Savin Theorem 1.3のH2を実対称4×4行列のoperator normについて直接確認できる。H1はglobal degenerate ellipticity、H4は零解近傍のC²構造。Volume ratioのC⁰小ささからSavin→一様楕円性→線形Schauderへ進む順序は循環しない。原著定理と本稿の該当証明を照合したが、全稿の独立完全監査ではない。
 
 ### 実行状況と次の課題
 

@@ -1,6 +1,12 @@
 # 研究ノート：一般型超曲面のKE退化
 
-更新：2026-11-23 / v1.29（Part IV本文はv1.16、Part V本文はv1.10）
+更新：2026-11-23 / v1.30（Part IV本文はv1.17、Part V本文はv1.10）
+
+## Savin の最小仮定と実・複素Hessianの対応
+
+**Savin H2の係数点検。** Part IV `coarse:lem:small-volume-tensor` で、実HessianからHermitian Hessianへの写像 ℋ は半正定値を保ち、複素次元2では tr_C ℋ(P)=tr_R P/4 を満たす。背景Hの一様正値近傍ではdetの実PSD方向の増分がc||P||とC||P||の間にあり、Savin Theorem 1.3のH2を実対称4×4行列のoperator normについて直接確認できる。H1はglobal degenerate ellipticity、H4は零解近傍のC²構造。Volume ratioのC⁰小ささからSavin→一様楕円性→線形Schauderへ進む順序は循環しない。原著定理と本稿の該当証明を照合したが、全稿の独立完全監査ではない。
+
+背景の複素HessianをHとし，P≥0を実対称4×4増分とすれば，B_s=H+ℋ(N+sP)に対してd/ds det(B_s)/det H=[det B_s/det H] tr(B_s^{-1}ℋ(P))。小さい近傍でB_sとdet比が上下から正に抑えられ，tr ℋ(P)=(1/4)tr P、||P||≤tr P≤4||P||なのでH2の一様λ,Λが得られる。H1/H4も原著の実際の定義と照合した。数学的な先行成果はSavin 2007であり，今回新規なのは本稿の使用箇所の明示的検証である。
 
 ## Capped density の最大前因子と検証資産
 
