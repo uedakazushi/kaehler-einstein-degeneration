@@ -1614,6 +1614,94 @@ bounded units である．これで最初の二結論が得られる．最後は
 \end{proof}
 
 
+\begin{proposition}[Capped canonical density の前因子の最適性]
+\label{coarse:prop:capped-prefactor-sharp}
+\Cref{coarse:cor:degree-d-volume-lower} の固定次数 $d\ge5$ と
+一般位置全平面退化を取り，cap 関数 $\alpha_{i,t}$ と
+canonical density $\Omega_{0,t}^{(d)}$ を同じものとする．
+実数 $\beta$ に対し
+\[
+ \Omega_{t,d}^{(\beta)}
+  :=L_t^\beta\prod_{i=1}^d\alpha_{i,t}^{-2}\Omega_{0,t}^{(d)},
+ \qquad h_{t,d}^{(\beta)}:=\ddc\log\Omega_{t,d}^{(\beta)}
+\]
+と置く．$L_t>1$ とすると，全ての $\beta$ で
+$h_{t,d}^{(\beta)}=h_{t,d}^{\mathrm{low}}$ であり，
+$\beta\le2$ ならば $t$ に独立な $c_d>0$ により
+\[
+ (h_{t,d}^{(\beta)})^2\ge c_d\Omega_{t,d}^{(\beta)}
+ \qquad\text{on }X_t^{(d)}
+\]
+が成立する．これに対し $\beta>2$ なら，上の不等式を
+全ての十分小さい $t\ne0$ について満たす
+$t$ に独立な正定数 $c_d$ は存在しない．
+従って固定した cap 関数と canonical normalization において
+前因子 $L_t^2$ の指数 $2$ は最大である．
+\end{proposition}
+\begin{proof}
+$L_t^\beta$ は各 $X_t$ 上で定数だから，
+$\ddc\log L_t^\beta=0$ であり，最初の等式が従う．
+$\beta\le2$ では
+$\Omega_{t,d}^{(\beta)}=L_t^{\beta-2}\Omega_{t,d}^{\mathrm{low}}
+\le\Omega_{t,d}^{\mathrm{low}}$
+なので，\cref{coarse:cor:degree-d-volume-lower}を用いればよい．
+
+逆向きには，一つの二重線上にある $F_d$ の単純零点を取る．
+その fixed source chart は
+\[
+ xy=tz,\qquad t=\tau^2,\qquad
+ (x,y,z)=(\tau X,\tau Y,XY)
+\]
+であり，$X=Y=0$ に対応する $X_t$ 上の点を $p_t$ とする．
+この点では二つの active representatives が零で，
+残る $d-2$ 個の representatives は零でない．
+$\alpha_x=\alpha_y=A_0+L_t/2$，
+inactive な $\alpha_i$ は正の固定定数の間にある．
+したがって，式\eqref{coarse:eq:intrinsic-cap-curvature}を
+$p_t$ の $(X,Y)$-tangent coordinates で評価すると，
+二つの active cap の正の係数はそれぞれ
+\[
+ |t|Q_x(p_t)=\frac{2b_x(p_t)}{\alpha_x(p_t)},
+ \qquad
+ |t|Q_y(p_t)=\frac{2b_y(p_t)}{\alpha_y(p_t)}
+\]
+となる．ここで $b_x,b_y$ とその逆は一様に有界である．
+背景 $h_{0,t}^{(d)}$ と inactive cap の行列係数は
+この点の rescaled $(X,Y)$ frame で $O(|t|)$ である．
+実際 $dz|_{p_t}=0$ で，$dx=\tau\,dX$，
+$dy=\tau\,dY$ だから，それらの固定 ambient
+$C^2$ 係数は二つの scaled tangent directions に
+$O(|t|)$ しか寄与しない．Active cap の
+曲率の負部分は $\chi_x=\chi_y=0$ によりこの点では消える．
+従って一様に
+\[
+ cL_t^{-1}\omega_{\rm E}\le h_{t,d}^{\mathrm{low}}(p_t)
+ \le CL_t^{-1}\omega_{\rm E}
+\]
+が成立し，その二乗は
+$|dX\wedge dY|^2$ に関して $\asymp L_t^{-2}$ である．
+
+一方，adjunction residue は $p_t$ で
+$dx\wedge dy/t=dX\wedge dY$ の
+bounded nonvanishing multiple であり，
+canonical density $\Omega_{0,t}^{(d)}$ も
+$|dX\wedge dY|^2$ に一様に比較可能である．
+二つの active caps だけが $\asymp L_t$ なので
+\[
+ \Omega_{t,d}^{(\beta)}(p_t)
+ \asymp L_t^{\beta-4}|dX\wedge dY|^2,
+ \qquad
+ \frac{(h_{t,d}^{(\beta)})^2}{\Omega_{t,d}^{(\beta)}}(p_t)
+ \asymp L_t^{2-\beta}.
+\]
+$\beta>2$ なら最後の比は零へ収束する．
+これは一つの actual fiber 上の一つの source 点での評価なので，
+全 $X_t$ に共通する正の下界は存在しない．
+ここで示したのは指定 capped barrier の規格化の最適性であり，
+別の barrier の不可能性や actual $\omega_t^2$ 自体の上界を
+この命題だけから主張するものではない．
+\end{proof}
+
 \begin{remark}[大域 potential と比較の範囲]\label{coarse:rem:capped-global-potential}
 同じ residue normalization の下で
 \[

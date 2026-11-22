@@ -1,10 +1,12 @@
 # Kähler–Einstein degeneration
 
-更新：2026-11-23 / v1.28（研究資料。Part IV v1.15、Part V v1.10）
+更新：2026-11-23 / v1.29（研究資料。Part IV v1.16、Part V v1.10）
 
 **公表計画：** 数学的価値の最大化を基準に、曲面P0・Part IVの最小局所解析・Part Iの距離と実球体積漸近を優先する。[研究方針](00_research_plan.md)に実行順序・達成基準・担当を記した。中心定理の構成、入力の範囲、先行研究との差を確定し、五次の同時atlas/GH実現を公表範囲へ加える。六次の標準等重み同時実現も公表範囲へ加え、追加保持集合や条件付き解析拡張は独立した完成基準で進める。
 
 最初に[現行研究方針](00_research_plan.md)、次に[研究ノート](research/notes.md)を読む。固定次数d≥5の一般型曲面の全平面退化について、actual KE計量の径の尺度の極限とLagrangian torus fibrationによる実現を研究する。正本はGitHubのmain、研究全体の入口は[research-hub](https://github.com/uedakazushi/research-hub)。
+
+**Capped barrier の前因子は鋭い。** Part IV `coarse:prop:capped-prefactor-sharp` で、同じ α_i と canonical density に対する Ω^(β)=L_t^β∏α_i^(−2)Ω_0 を考えると、h^(β)=dd^c log Ω^(β)=h^low はβに依らず、β≤2では全域 determinant lower が成り立つが、β>2では source中央点で (h^low)^2/Ω^(β)≈L_t^(2−β)→0 のため失敗することを直接証明した。中央rescalingでactive二方向はL_t^(−1)、背景・inactiveはO(|t|)であり、canonical residueは非零である。これはこのcap ansatzの最適性であり、一般の別障壁やactual KE metricそのものに対する最適性を主張しない。Part IVのglobal capped lowerを変更せず、これを利用する曲面稿の仮定も変えない。
 
 **公表準備で明確にした解析核：** `coarse:thm:boundary-to-triple` はexact triple領域、全angular phasesのcompact quotient、各固定tのsmooth radial閉包、固定faceの一様なdensity下界から、全深度比に一様なC^q誤差O(1/m)を導く。境界上界のt一様性は不要。`coarse:thm:full-triple-tensor` を全平面退化への適用として分け、証明は一度だけ置いた。Part IVの入口を無条件の局所成果中心へ改め、曲面P0への最小四入力表を設けた。固定endについては `pair:prop:fixed-end-transfer` がlog-densityの固定collar収束と成分cusp微分を切り分け、normal windingがmomentの加法定数を決めることを明示する。
 

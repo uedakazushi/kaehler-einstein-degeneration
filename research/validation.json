@@ -1044,5 +1044,17 @@
     ],
     "manifest_destinations_checked": 31,
     "results": "Recursive inputs present and labels unique. Current destination SHA256/bytes/git blobs checked; recovery-source/bundle hashes preserved. JSON, local Markdown links, control bytes and diff checked before saving. No finite arithmetic or formal-proof run."
+  },
+  "new_capped_prefactor": {
+    "date": "2026-11-23",
+    "version": "Part IV v1.16 / materials v1.29",
+    "label": "coarse:prop:capped-prefactor-sharp",
+    "statement": "For a fixed d>=5 all-plane degeneration with simple source, same cap functions alpha_i and fixed canonical volume, the density L^beta prod alpha_i^-2 Omega_0 with h=ddc log density satisfies h^2>=c Omega uniformly for beta<=2. For beta>2 fails uniformly at one central source point: h^2~L^-2 and Omega_beta~L^(beta-4), ratio~L^(2-beta).",
+    "proof_scope": "Mathematically deduced from original cap curvature formula, central source xy=tz, t=tau^2 rescaling x=tau X, y=tau Y, upper and lower bounds on h at X=Y=0, residue normalization and existing global beta=2 determinant lower.",
+    "script": "research/check_capped_prefactor.py",
+    "script_status": "SymPy algebraic identity checks PASS in this turn; geometric/analytic inequalities not formally checked by script",
+    "savin_primary_check": "Theorem1.3 of Savin 2007 p560 requires H1,H2,H4, not H3; inspected author PDF and page images pp559-560. Matched operator det_+ near H as a targeted logical inspection.",
+    "status": "proof entered manuscript and targeted manually checked; independent external review, full manuscript LuaLaTeX build, image display not performed this turn",
+    "limitations": "No optimality for other barrier constructions or actual KE form independently. No change to existing global lower inputs or CP/PBE/TC."
   }
 }

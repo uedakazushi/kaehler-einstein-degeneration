@@ -1,8 +1,16 @@
 # 現行原稿の証明状態と監査範囲
 
-2026-11-23 / v1.3。研究資料v1.28、Part IV v1.15・Part V v1.10。
+2026-11-23 / v1.4。研究資料v1.29、Part IV v1.16・Part V v1.10。
 
 本書は現在有効な主張と、実際に確認した範囲をまとめる。原資料の回収元・版・hashは `source-manifest.json` と `migration.md`、組版・計算・表示の実行記録は `validation.json` が正本である。原稿に証明があること、今回その証明を読んだこと、計算・形式証明による確認を区別する。
+
+## Capped lower の監査と Savin 一次資料
+
+**Capped barrier の前因子は鋭い。** Part IV `coarse:prop:capped-prefactor-sharp` で、同じ α_i と canonical density に対する Ω^(β)=L_t^β∏α_i^(−2)Ω_0 を考えると、h^(β)=dd^c log Ω^(β)=h^low はβに依らず、β≤2では全域 determinant lower が成り立つが、β>2では source中央点で (h^low)^2/Ω^(β)≈L_t^(2−β)→0 のため失敗することを直接証明した。中央rescalingでactive二方向はL_t^(−1)、背景・inactiveはO(|t|)であり、canonical residueは非零である。これはこのcap ansatzの最適性であり、一般の別障壁やactual KE metricそのものに対する最適性を主張しない。Part IVのglobal capped lowerを変更せず、これを利用する曲面稿の仮定も変えない。
+
+命題の代数部分は `research/check_capped_prefactor.py` をSymPyで実行してPASS。ここで実行したのはcap係数・source rescaling・二次minorの恒等式のみであり、各局所型の幾何学的被覆や全曲面のKE方程式を計算で検証したのではない。Six-type determinantの利用は `coarse:lem:weighted-cap-lower` → `coarse:lem:capped-pair` / `coarse:lem:capped-triple` → `coarse:thm:global-determinant` → `coarse:lem:one-sided-volume` → `coarse:cor:degree-d-volume-lower`。対象を限定してこれらの公式と論理順序を確認し、今回の読解範囲内に結論阻害gapは認めなかった。全局所座標の幾何学的被覆と全原稿の形式証明は未実施。
+
+O. Savin, [*Small Perturbation Solutions for Elliptic Equations*](https://www.math.columbia.edu/~savin/Small_pert.pdf), Commun. PDE 32 (2007), 557–578, Theorem 1.3 pp.559–560をPDF画像を含め実読し、必要条件がH1,H2,H4（H3は不要）であることを確認した。現在の `coarse:lem:small-volume-tensor` のoperator `det_+(H+\mathcal H(N))/detH-e^z` はPSD順序でglobal degenerate elliptic、基準行列の近傍でstrictly elliptic、零解の周囲でsmoothという構造を用いる。Savin全原著証明・該当局所入力の全適用鎖を再証明したわけではない。
 
 ## 証明の正本と条件
 

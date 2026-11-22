@@ -1,6 +1,14 @@
 # 研究ノート：一般型超曲面のKE退化
 
-更新：2026-11-23 / v1.28（Part IV本文はv1.15、Part V本文はv1.10）
+更新：2026-11-23 / v1.29（Part IV本文はv1.16、Part V本文はv1.10）
+
+## Capped density の最大前因子と検証資産
+
+**Capped barrier の前因子は鋭い。** Part IV `coarse:prop:capped-prefactor-sharp` で、同じ α_i と canonical density に対する Ω^(β)=L_t^β∏α_i^(−2)Ω_0 を考えると、h^(β)=dd^c log Ω^(β)=h^low はβに依らず、β≤2では全域 determinant lower が成り立つが、β>2では source中央点で (h^low)^2/Ω^(β)≈L_t^(2−β)→0 のため失敗することを直接証明した。中央rescalingでactive二方向はL_t^(−1)、背景・inactiveはO(|t|)であり、canonical residueは非零である。これはこのcap ansatzの最適性であり、一般の別障壁やactual KE metricそのものに対する最適性を主張しない。Part IVのglobal capped lowerを変更せず、これを利用する曲面稿の仮定も変えない。
+
+直接計算は主稿の命題に置く。基本恒等式 `Q_i\vert f_i\vert^2=\mu_i`、central rescalingでの `|t|Q_x=2b_x(α_x+b_x|X|²)/[α_x²(1+b_x|X|²)²]` と三capの二次minorを、再現可能な `research/check_capped_prefactor.py` のsympy検算でも照合した。ただしスクリプトは幾何学的coverや係数の一様性、Monge–Ampère最小値原理を自動証明するものではない。
+
+Savinの原著 `Small Perturbation Solutions for Elliptic Equations`, *Commun. PDE* 32 (2007), 557–578, Theorem 1.3 pp.559–560のH1/H2/H4を一次PDF本文・ページ画像で確認した。局所lemma `coarse:lem:small-volume-tensor` では、PSD順序に関して単調な `det_+` を用いたH1、基準正定値行列近傍の一様楕円性H2、零解の周囲のC²条件H4を明示している。H3はTheorem 1.3の仮定ではない。この監査は定理文とoperatorへの適合に限り、原著全証明や曲面原稿の局所安定性全体の形式検証ではない。
 
 ## 固定比較模型に対する局所安定性率の最適性
 
