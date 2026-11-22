@@ -10,6 +10,8 @@
 
 Savinの原著 `Small Perturbation Solutions for Elliptic Equations`, *Commun. PDE* 32 (2007), 557–578, Theorem 1.3 pp.559–560のH1/H2/H4を一次PDF本文・ページ画像で確認した。局所lemma `coarse:lem:small-volume-tensor` では、PSD順序に関して単調な `det_+` を用いたH1、基準正定値行列近傍の一様楕円性H2、零解の周囲のC²条件H4を明示している。H3はTheorem 1.3の仮定ではない。この監査は定理文とoperatorへの適合に限り、原著全証明や曲面原稿の局所安定性全体の形式検証ではない。
 
+曲面側では、このbarrierの証明と独立な中央sourceのactual体積二側比較 `ke:source-central-density` をさらに用い、同じ固定cap密度について actual `ω_t²≥cΩ_t,d^(β)` が全曲面でt一様に成立する必要十分条件もβ≤2と証明した（`ke:source-capped-actual-prefactor-sharp`、[曲面研究commit 66b2a4e](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/commit/66b2a4e28dd67c30d96f57360a14ad55e87b1e83)）。Part IVの命題単独からactual上界を導いたとはしない。
+
 ## 固定比較模型に対する局所安定性率の最適性
 
 `simplex:prop:boundary-floor-sharpness` は、固定深度座標と既定のcomplete simplex模型k_Lに対する局所定理 `coarse:thm:boundary-to-triple` のO(1/m)を、一般にo(1/m)へ改善できないことを示す。固定m₀,b>0に対する一つの族 \(\omega_{b,L}=F_b^*k_{L+3b}\)、\(F_b(w)=w+b\mathbf1\) が、同じdensity floor c_*=(1/3)(m₀/(m₀+b))⁶を満たす。Balanced点L=3m、ell_i=mでは相対実計量が正確に(m/(m+b))² Id、体積対数比が−4log(1+b/m)である。L=m²、ell=(m²−2m,m,m)では、それぞれId−(2b/m)Id+O_b(m⁻²)、−4b/m+O_b(m⁻²)となり、正規化単体の境界へ向かう領域でも一次誤差が残る。証明は現行本文に一回だけ置く。Balanced例はscaling、境界例はpure-modelのdominant-product漸近だけに依存する。

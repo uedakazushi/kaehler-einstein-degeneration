@@ -12,6 +12,8 @@
 
 O. Savin, [*Small Perturbation Solutions for Elliptic Equations*](https://www.math.columbia.edu/~savin/Small_pert.pdf), Commun. PDE 32 (2007), 557–578, Theorem 1.3 pp.559–560をPDF画像を含め実読し、必要条件がH1,H2,H4（H3は不要）であることを確認した。現在の `coarse:lem:small-volume-tensor` のoperator `det_+(H+\mathcal H(N))/detH-e^z` はPSD順序でglobal degenerate elliptic、基準行列の近傍でstrictly elliptic、零解の周囲でsmoothという構造を用いる。Savin全原著証明・該当局所入力の全適用鎖を再証明したわけではない。
 
+曲面側では、このbarrierの証明と独立な中央sourceのactual体積二側比較 `ke:source-central-density` をさらに用い、同じ固定cap密度について actual `ω_t²≥cΩ_t,d^(β)` が全曲面でt一様に成立する必要十分条件もβ≤2と証明した（`ke:source-capped-actual-prefactor-sharp`、[曲面研究commit 66b2a4e](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/commit/66b2a4e28dd67c30d96f57360a14ad55e87b1e83)）。Part IVの命題単独からactual上界を導いたとはしない。
+
 ## 証明の正本と条件
 
 | 正本 | 無条件の中心結果・証明の所在 | 追加条件又は未解決の部分 |

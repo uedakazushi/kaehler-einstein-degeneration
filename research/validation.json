@@ -1055,6 +1055,13 @@
     "script_status": "SymPy algebraic identity checks PASS in this turn; geometric/analytic inequalities not formally checked by script",
     "savin_primary_check": "Theorem1.3 of Savin 2007 p560 requires H1,H2,H4, not H3; inspected author PDF and page images pp559-560. Matched operator det_+ near H as a targeted logical inspection.",
     "status": "proof entered manuscript and targeted manually checked; independent external review, full manuscript LuaLaTeX build, image display not performed this turn",
-    "limitations": "No optimality for other barrier constructions or actual KE form independently. No change to existing global lower inputs or CP/PBE/TC."
+    "limitations": "No optimality for other barrier constructions or actual KE form independently. No change to existing global lower inputs or CP/PBE/TC.",
+    "linked_surface_actual_result": {
+      "commit": "66b2a4e28dd67c30d96f57360a14ad55e87b1e83",
+      "label": "ke:source-capped-actual-prefactor-sharp",
+      "source": "papers/sections/paper/ke_source_potential_buffer.tex",
+      "status": "actual KE counterpart proved in surface paper using pre-existing ke:source-central-density, separate from the current barrier proposition",
+      "no_new_analytic_requirement": true
+    }
   }
 }
