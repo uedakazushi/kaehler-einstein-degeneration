@@ -240,6 +240,30 @@ $\lambda_t'=\lambda_t-d^c\log|b(p)|^2$ となる．この差は base からの�
 normal moment への寄与は零だが，residual cycles に関する primitive の選択は保持する必要がある．
 \end{proof}
 
+\begin{remark}[Volume frame の winding と moment の加法定数]
+\label{pair:rem:normal-frame-winding}
+全 normal orbit を含む連結な invariant patch 上で，nowhere-zero holomorphic function
+$b$ によって volume frame を $\Omega'=b\Omega$ へ変更する．
+$\Gamma_x(\theta)=\rho_\theta(x)$ を period $1$ の向き付き orbit とし，
+\[
+ k_b=\frac{1}{2\pi\sqrt{-1}}\int_{\Gamma_x}\frac{db}{b}\in\ZZ
+\]
+と置くと，$k_b$ は patch 上で局所定数であり，対応する canonical moments は
+\begin{equation}\label{pair:eq:normal-frame-winding}
+ \mu_t'=\mu_t-2\pi k_b
+\end{equation}
+を満たす．実際，$d^c\log|b|^2=d\arg b$ は大域的に定義された閉形式であり，
+\[
+ A(d^c\log|b|^2)(V)
+ =\int_{\Gamma_x}d\arg b=2\pi k_b.
+\]
+従って base-only の unit に限らず，normal winding が零の holomorphic unit は
+同じ moment を保つ．一方，normal winding が非零の frame に替えた後で
+加法定数が変わらないとはいえない．また $k_b=0$ でも
+$\lambda_t'-\lambda_t=-d\arg b$ の residual periods は消えるとは限らず，
+primitive 自体の一致を意味しない．
+\end{remark}
+
 \begin{proposition}[End signs からの共通 moment interval]
 \label{pair:prop:common-moment-interval}
 固定した $K\Subset B$ と $r>0$ に対し，$c>0$ と $t_0>0$ が存在して，
@@ -273,6 +297,86 @@ $S(\mathcal L_j|_K)$ を $K\times I$ へ引き戻したものと同型になる�
 次の定理は fixed-scale convergence と central component の cusp 漸近を用いる．
 ここで $r$ を先に小さく固定し，その後 $t\to0$ とする．
 $r=r(t)\to0$ とする moving-end estimate は主張しない．
+
+\begin{proposition}[固定 end の log-density から moment への移送]
+\label{pair:prop:fixed-end-transfer}
+上記の marked bundle neck と canonical moment を用い，
+$K$ の近傍を含む compact set $K^+\Subset B$ を固定する．
+$q_+=v$，$q_-=u$ とし，十分小さい各固定 $r>0$ に対し，
+\[
+ \mathcal A_r^\pm
+ =\{p\in K^+,\ r/2\le\Norm{q_\pm}\le2r\}
+\]
+を固定 end collar とする．これらを他方の座標 $t/q_\pm$ によって
+十分小さい全 $t\ne0$ の neck に埋め込む写像を $\iota_t^\pm$ と書く．
+座標と形式はこれらの collar の近傍まで定義しておく．
+\Cref{pair:cor:global-primitive} の $\tau$ を固定し，
+\[
+ \Omega_\pm=\frac{dq_\pm}{q_\pm}\wedge\pi^*\tau,
+ \qquad
+ F_t^\pm=\log\frac{(\iota_t^\pm)^*\omega_t^2}
+                         {\Omega_\pm\wedge\overline{\Omega_\pm}}
+\]
+と置く．次の二つを仮定する．
+\begin{enumerate}
+\item 各固定 $r$ について，固定座標で
+\begin{equation}\label{pair:eq:fixed-end-density-input}
+ F_t^\pm\longrightarrow F_0^\pm
+ \quad\text{in }C^1(\mathcal A_r^\pm)
+\end{equation}
+が全複素 parameter $t\to0$ に対して成り立つ．収束は全 base points と全 phase に
+一様であり，$t$ の閾値は $r,K^+$ に依存してよい．
+\item 固定した有限個の正則 bundle frames で
+$\varrho_\pm=|q_\pm|$，$s_\pm=-\log|q_\pm|^2$ と置く．
+ある $0<\delta\le1$ と $C_K<\infty$ に対し，全 $p\in K$，全 phase と十分小さい
+$q_\pm\ne0$ について
+\begin{equation}\label{pair:eq:fixed-end-radial-input}
+ \left|\varrho_\pm\partial_{\varrho_\pm}F_0^\pm
+                         -\frac4{s_\pm}\right|
+ \le C_Ks_\pm^{-1-\delta}
+\end{equation}
+が成り立つ．ここで定数は小さい $r$ に依存しない．
+\end{enumerate}
+このとき $s_r=-\log r^2$ として，同じ canonical moment に対し
+\begin{equation}\label{pair:eq:fixed-end-transfer}
+ \mu_t|_{\{p\in K,\ \Norm{q_\pm}=r\}}
+ =\pm\frac{4\pi}{s_r}
+   +O_K(s_r^{-1-\delta})+o_{t\to0;r,K}(1)
+\end{equation}
+が全 base points・全 phase に一様に成立する．特に $r$ を十分小さく固定した後で
+$t$ を小さくすれば，$(-\pi/s_r,\pi/s_r)$ は平均形式の共通 moment interval となる．
+\end{proposition}
+
+\begin{proof}
+共通の logarithmic volume frame は fibre 上で厳密に
+\[
+ \Omega=\frac{dv}{v}\wedge\pi^*\tau
+       =-\frac{du}{u}\wedge\pi^*\tau
+\]
+を満たす．従って $(\iota_t^+)^*\Omega=\Omega_+$，
+$(\iota_t^-)^*\Omega=-\Omega_-$ であり，符号は density を変えない．
+また $V=2\pi\partial_{\arg q_+}=-2\pi\partial_{\arg q_-}$ である．
+$A_\pm$ を $q_\pm$ の正の円回転による平均とすると，向きを逆転しても平均は同じなので
+\begin{equation}\label{pair:eq:end-moment-transfer-identity}
+ \mu_t\circ\iota_t^\pm
+ =\pm\pi A_\pm
+       \bigl(\varrho_\pm\partial_{\varrho_\pm}F_t^\pm\bigr).
+\end{equation}
+固定 $r$ に対し \eqref{pair:eq:fixed-end-density-input} はこの右辺の一様収束を与える．
+固定した smooth Hermitian norm と有限個の frames によって，$\Norm{q_\pm}=r$ 上では
+$s_\pm=s_r+O_K(1)$ であり，従って
+$s_\pm^{-1}=s_r^{-1}+O_K(s_r^{-2})$ である．
+これと \eqref{pair:eq:fixed-end-radial-input} を
+\eqref{pair:eq:end-moment-transfer-identity} へ代入する．
+$\delta\le1$ なので $O_K(s_r^{-2})$ は表示の remainder に含まれ，
+\eqref{pair:eq:fixed-end-transfer} を得る．
+
+まず $r$ を固定して cusp remainder を $\pi/s_r$ 以下とし，次に $t$ を小さくして
+収束誤差を $\pi/s_r$ 以下とすれば，両 end で $\mu_t\ge2\pi/s_r$ と
+$\mu_t\le-2\pi/s_r$ を得る．\Cref{pair:prop:common-moment-interval} を適用すればよい．
+この証明で必要なのは \eqref{pair:eq:fixed-end-density-input} の radial derivative の収束だけである．
+Neck 内部の tensor 比較，moment の微分の一様下界，actual metric の buffer は用いない．
+\end{proof}
 
 \begin{theorem}[固定 end の actual moment]
 \label{pair:thm:fixed-end-moment}
@@ -357,17 +461,11 @@ $\delta=\min\{\nu,1\}>0$ とすれば
  |q|\partial_{|q|}F_0
  =\frac4s+O_K(s^{-1-\delta}).
 \end{equation}
-固定 smooth Hermitian norm による $\Norm q=r$ と local frame による $|q|=r$ の差は
-$s=s_r+O_K(1)$ であり，同じ評価を保つ．
-
-Period $1$ の正の回転 $V_q=2\pi\partial_{\arg q}$ については
-\[
- (d^cF_0)(V_q)=\pi|q|\partial_{|q|}F_0
- =\frac{4\pi}{s_r}+O_K(s_r^{-1-\delta}).
-\]
-この式は phase に一様であり，circle average 後も成立する．
-$v$-end では $V=V_v$，$u$-end では $V=-V_u$ なので符号が反転する．
-Fixed-scale convergence の誤差を加えると
+これは全 phase に一様な \eqref{pair:eq:fixed-end-radial-input} である．
+先に確認した Song の固定 gauge での smooth convergence は，両 fixed end collars 上で
+\eqref{pair:eq:fixed-end-density-input} を与える．$\tau$ を用いた共通 frame と
+local frame $dz_\alpha$ との差は base-only の unit なので，radial derivative は変わらない．
+従って \cref{pair:prop:fixed-end-transfer} により
 \eqref{pair:eq:positive-end-moment}--\eqref{pair:eq:negative-end-moment} を得る．
 \end{proof}
 

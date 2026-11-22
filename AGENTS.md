@@ -1,5 +1,5 @@
 # kaehler-einstein-degeneration — 研究・保存指示
-2026-11-22 / v1.4（研究資料v1.23）
+2026-11-22 / v1.5（研究資料v1.24、Part IV v1.12・Part V v1.10）
 
 ## 公表計画の実行
 
@@ -29,7 +29,8 @@
 - `multiscale-kaehler-einstein`（固定配置補空間・Part I–III）、本repo（退化族の局所一様解析・Part IVと条件付き距離論・Part V）、`surface-lagrangian-torus-fibration`（actual KE Lagrangian構成と同じ射影の全域GH実現）を一つの研究計画の下で編集・検証する。リポジトリと本文の正本はこの分担で維持し、同一証明を複製しない。論文の統合・分割は中心結果と論理的まとまりに基づいて判断する。
 - 外部結果を使う箇所には定理ラベル、仮定、次数と族の固定、計量と距離の規格化、固定領域とmoving領域の区別、確認した版を記す。共同作業の現在の依存表は本repoの `research/notes.md` と曲面repoの `research/ke-dependencies.md`、全体の短い分担はhubを正本とする。
 - 曲面repoの直接scalar/portal証明を、本repoの(CP)/(PBE)/(TC)又はPart IIIの(H_loc)/(H_anc)自体の検証と読み替えない。局所結果が与えないglobal入力と、別稿で証明を持つglobal結果を区別する。固定配置の空間無限遠から退化族の一様性を推論せず、固定段階の証明と遅い対角選択の順を守る。
-- 曲面改訂42・数学checkpoint `497b241898bc91787aacb09a97754fa2ea0fccf8` の `ng8:quintic-full-moment` と `ke:quintic-simultaneous-realization` は、初期のmarked source allocationと全保持近傍を選べる五次で、同じactual射影による作用atlasとGH実現を与える。旧neck補題のsource-free仮定と、全source-wallを差し引く自由需要を区別する。解析領域・cuts・小さいtを選んだ後にthin葉を取り、既存の解析閾値を葉の微分に依存させない。全開collarの葉と作用を一致させ、実数平行移動を含めてatlasを接続する。結論は各tでの同時実現であり、atlasのt方向の収束、極限距離のHessian性、六次の同時実現、任意に既固定の大きいsource tailsの保存又はt方向に滑らかなfibration族を含めない。正本は曲面repoに置き、Part IV/V本文・改訂37の入力確認pin・既存組版記録と、今回の文書同期を区別する。
+- 曲面稿の `ng8:quintic-full-moment` と `ke:quintic-simultaneous-realization` は、初期のmarked source allocationと全保持近傍を選べる五次で、同じactual射影による作用atlasとGH実現を与える。旧neck補題のsource-free仮定と、全source-wallを差し引く自由需要を区別する。解析領域・cuts・小さいtを選んだ後にthin葉を取り、既存の解析閾値を葉の微分に依存させない。全開collarの葉と作用を一致させ、実数平行移動を含めてatlasを接続する。結論は各tでの同時実現であり、atlasのt方向の収束、極限距離のHessian性、六次の同時実現、任意に既固定の大きいsource tailsの保存又はt方向に滑らかなfibration族を含めない。正本は曲面repoに置き、Part IV/V本文の改訂37の入力確認pinと、曲面稿で新たに確認した結果の現行版・保存状態を区別する。
+- 固定endの最小解析入力は `pair:prop:fixed-end-transfer` の固定collarのlog-density収束と極限成分のradial derivativeに分ける。Volume frame変更時には `pair:rem:normal-frame-winding` のnormal windingと残余閉periodを確認する。これらや遅い対角選択をmoving neckのtensor比較・bufferの存在証明と読み替えない。曲面側の `ke:global-volume-measure` を引用するときは確率体積、同じ射影、成分頂点の等重み原子測度と全cubical計量空間を区別し、確認した版・保存commitを明記する。
 - 優先順は、共有する局所入力の仮定・量化の照合、曲面の大域証明の利用箇所の監査、シリーズ総説とIntroductionの同期、公表前の一次文献比較。実質的な訂正は利用側にも反映してからhubを更新し、三次元研究は独立した未完成の課題として保持する。
 
 ## research-hub 更新義務

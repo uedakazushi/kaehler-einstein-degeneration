@@ -40,17 +40,17 @@
     },
     {
       "source": "papers/kaehler-einstein-degeneration.tex",
-      "version": "1.11",
-      "source_sha256": "e3315616548be4715c2e42aae20f279878df5715526f1b36bb2998fbbb5cc092",
-      "pages": 120,
-      "pdf_sha256": "a325e5e6b74a548784e0b009e25c0b0cd098ac53ffbeb8dfa57485dccd78e8e8",
-      "pdf_bytes": 1322042,
+      "version": "1.12",
+      "source_sha256": "f3cefd1aded715e34f64e393499425b568b6a2221b3c63de4a1d9f7762cd570a",
+      "pages": 122,
+      "pdf_sha256": "0b4593955715f33b74a6781c3fc20e49c57bd7f2175588b80d41e9f6b1df4bf9",
+      "pdf_bytes": 1332736,
       "verified_date": "2026-11-22",
       "engine": "LuaHBTeX 1.18.0 / TeX Live 2025/dev/Debian with user-local LuaTeX-ja and vector font maps",
       "build_exit_code": 0,
       "build_command": "latexmk papers/kaehler-einstein-degeneration.tex",
       "current_revision_rebuilt": true,
-      "current_revision_status": "Final v1.11 source built successfully; the twelve selected pages listed below were rendered at 150 dpi and actually displayed. The Part V source and its build record are unchanged.",
+      "current_revision_status": "Current Part IV v1.12 built to 122 pages with all six log categories zero. All ten selected pages were rendered at 150 dpi and actually displayed by the designated reviewers; PDF/source hashes are current.",
       "log_check_counts": {
         "undefined_references_or_citations": 0,
         "duplicate_labels": 0,
@@ -62,23 +62,46 @@
       "unresolved_or_box_warnings": [],
       "other_warnings": "Japanese font scaling/feature and unavailable italic-shape notices, small math-font size substitutions, and PDF bookmark math warnings remain. No missing glyph, unresolved reference/citation, duplicate label, LaTeX error, overfull or underfull box.",
       "visual_review_current_pdf": {
+        "status": "completed",
         "pages": [
           1,
-          22,
-          23,
-          24,
-          25,
-          26,
-          27,
-          28,
-          29,
-          30,
-          31,
-          120
+          8,
+          10,
+          71,
+          72,
+          73,
+          74,
+          75,
+          80,
+          122
         ],
         "dpi": 150,
-        "result": "Title, finite atlas, fixed adjunction residue normalization, intrinsic cap identity, curvature/frame absorption, pair/triple bounds, all determinant cases including central source and arms, compact minimum comparison, fixed-degree corollary, global-potential scope and bibliography were displayed. No visible clipping, omission, overlap or equation overflow.",
-        "full_page_review": false
+        "full_page_review": false,
+        "reviewers": {
+          "fixed_end_reviewer": [
+            71,
+            72,
+            73,
+            74,
+            75,
+            80
+          ],
+          "second_reviewer": [
+            1,
+            8,
+            10,
+            122
+          ],
+          "coordinating_editor": [
+            73
+          ]
+        },
+        "result": "No missing glyph, clipping, overlap, equation overflow or broken reference in the selected pages. The theorem 13.9 statement crosses pages 73-74 with a short continuation at the page top; the complete text is readable and the coordinating editor kept the current pagination unchanged.",
+        "scope": "Title/publication introduction, minimum-input table, canonical primitive/frame winding, complete fixed-end transfer and Song/Rochon-Zhang application, interval/diagonal interface, fixed-stage buffer ownership and bibliography. Not all 122 pages."
+      },
+      "source_includes_sha256": {
+        "papers/sections/source_free_neck_coordinates.tex": "b318a5b81d96a33da5258188ef53d287b92920d918dba889c5ffa3e7b197cf30",
+        "papers/sections/source_free_neck_comparison.tex": "5e74c59601b6d21536c2480a1f3ccb76d05169438f26adb88ec876f52110b4fa"
       }
     },
     {
@@ -92,7 +115,7 @@
       "current_revision_rebuilt": false
     }
   ],
-  "scope": "Research materials v1.23 synchronize the surface revision-42 mathematical checkpoint 497b241898bc91787aacb09a97754fa2ea0fccf8: source-free scope, the smooth demand after the complete source-wall subtraction, thin leaves selected after analytic domains/cuts/t, and full affine translations for quintic same-projection atlas/GH realization. This is a documentation-only change in this repository. Part IV v1.11, Part V v1.10, their revision-37 input citation, the capped-volume audit, manuscript source/PDF hashes and previous local build/visual records remain unchanged. No local typesetting, visual review or finite-certificate rerun was performed for v1.23. The final 311-page surface build and selected 22-page visual report are synchronized as an external record. Atlas convergence or a Hessian limit metric, sextic simultaneous realization, arbitrary pre-protected large source tails, CP/PBE/TC and H_loc/H_anc are not concluded.",
+  "scope": "Research materials v1.24 integrate Part IV v1.12: the minimum fixed-end log-density transfer and the normal-frame winding law, separating Song/Rochon-Zhang inputs from moving-neck tensor/buffer assumptions. The added formulas and quantifiers received two internal readings. Current Part IV was built to 122 pages with six zero log categories; ten selected pages were actually displayed at 150 dpi. Part V v1.10 source/PDF/hash/build entry and the revision-37 scientific surface citation remain unchanged. Surface revision-43 ke:global-volume-measure was read at mathematical checkpoint 102ae9a382406bcd14755c216d2bc0ca8bc84321; its current 313-page build and eleven-page visual report are synchronized. No finite certificate rerun, all-manuscript audit or novelty certification is claimed.",
   "certificate_runs": [
     {
       "script": "cubical_diameter_exact_gallery_certificate_definitive_v1.py",
@@ -202,20 +225,21 @@
   ],
   "visual_check": {
     "date": "2026-11-22",
-    "version": "Part IV 1.11 / Part V 1.10",
-    "sample": "Current Part IV: pages 1,22-31,120 (12 pages). Retained unchanged Part V record: pages 1-3,5,37 (5 pages).",
+    "version": "Part IV 1.12 / unchanged Part V 1.10",
+    "status": "completed for selected pages",
+    "sample": "Current Part IV: pages 1,8,10,71-75,80,122 (10 pages). Part V: unchanged 37-page build and its retained five-page record.",
     "dpi": 150,
-    "result": "All twelve selected current Part IV pages actually displayed; no visible clipping, overlap, omission or equation overflow. The Part V source, PDF hash and prior five-page inspection remain unchanged; its pages were not redisplayed in this update.",
+    "result": "No missing glyph, clipping, overlap, equation overflow or broken reference in the selected pages. The theorem 13.9 statement crosses pages 73-74 with a short continuation at the page top; the complete text is readable and the coordinating editor kept the current pagination unchanged.",
     "full_page_review": false,
-    "scope": "Changed cap/volume proof and neighboring pages, title and bibliography. Not all pages or all mathematical claims."
+    "scope": "Title/publication introduction, minimum-input table, canonical primitive/frame winding, complete fixed-end transfer and Song/Rochon-Zhang application, interval/diagonal interface, fixed-stage buffer ownership and bibliography. Not all 122 pages."
   },
   "vscode": "Settings parsed and root search limited to papers/*.tex. UI not tested.",
-  "version": "1.23",
+  "version": "1.24",
   "certificate_runs_date": "2026-11-20",
   "certificate_runs_repeated_current_revision": false,
   "current_math_audit": {
     "date": "2026-11-22",
-    "version": "Part IV 1.11",
+    "version": "Part IV 1.12",
     "capped_volume_input_review": {
       "source": "papers/kaehler-einstein-degeneration.tex",
       "proof_labels": [
@@ -257,18 +281,49 @@
       },
       "theorem": "coarse:thm:boundary-to-triple in papers/sections/full_triple_comparison.tex, Theorem 10.3; fixed-degree application coarse:thm:full-triple-tensor, Theorem 10.4. In the current pagination these begin on pp.52 and 54. Their proof text is unchanged in v1.11; this is retained proof-review information, not a repeat display inspection."
     },
-    "audit_limitations": "The current capped-volume chain and the retained local-kernel review are specified internal mathematical checks. Other manuscript claims, external original proofs, all downstream P0 inputs and novelty were not comprehensively audited. Finite certificates were not rerun; no external peer review or formal verification is claimed.",
+    "audit_limitations": "The new fixed-end transfer/gauge calculations and the retained capped-volume/local-kernel checks are specified internal reviews. Existing all-manuscript claims, all original source proofs, all downstream P0 inputs and novelty were not comprehensively reaudited. Finite certificates were not rerun; no external peer review or formal verification is claimed.",
     "claims_not_established": "(TC)_5 and the global (CP)_d+(PBE)_d package remain unverified. No arbitrary moving speed, source-wide tensor asymptotic, fixed positive moment width, or uniformity in degree follows.",
     "post_edit_lualatex_attempted": true,
     "post_edit_lualatex_succeeded": true,
     "visual_review_pending": false,
-    "retained_inputs": "Earlier fixed-end/diagonal, capped source-density, simplex/closed-corner and shared surface/fixed-complement checks remain in research/notes.md with their exact scope; they were not all repeated."
+    "retained_inputs": "Earlier fixed-end/diagonal, capped source-density, simplex/closed-corner and shared surface/fixed-complement checks remain in research/notes.md with their exact scope; they were not all repeated.",
+    "fixed_end_transfer_review": {
+      "date": "2026-11-22",
+      "source": "papers/sections/source_free_neck_coordinates.tex",
+      "proof_labels": [
+        "pair:prop:fixed-end-transfer",
+        "pair:rem:normal-frame-winding",
+        "pair:thm:fixed-end-moment",
+        "pair:lem:diagonal-fixed-end"
+      ],
+      "new_input_statement": "On each fixed full-phase end collar, C1 convergence of the logarithmic density, for all complex t tending to zero, plus the limiting radial 4/s+O(s^(-1-delta)) estimate gives the canonical moment law. Only convergence of the radial derivative is used. Constants are uniform in small r for the cusp remainder; the parameter threshold may depend on the already fixed r and compact base.",
+      "exact_frames_and_signs": "q_+=v, q_-=u; Omega=dlog(v) wedge tau=-dlog(u) wedge tau. V=2pi d/darg(v)=-2pi d/darg(u), so mu composed with the two collar embeddings is +/- pi times the radial derivative averaged over the full normal circle.",
+      "norm_shift": "For the fixed smooth Hermitian norms and finitely many holomorphic frames, s_+/-=s_r+O_K(1); the resulting O_K(s_r^(-2)) term is absorbed by 0<delta<=1.",
+      "frame_winding": "For a nowhere-zero holomorphic b on a full-orbit invariant patch, Omega_prime=b Omega gives mu_prime=mu-2pi wind_V(b). Nonbasic zero-winding units preserve the moment, but lambda_prime-lambda=-d arg(b) can have nonzero residual periods.",
+      "global_geometry_and_quantifiers": "The existing exact bundle normalization, overlap/gauge calculation, finite-annulus complete volume comparison, and fixed-K -> fixed-r -> finite proved errors/budgets -> all-complex-t diagonal order were read. The fixed-end transfer does not supply moving tensor bounds, uniform moment derivative bounds or actual buffers. Surface ke:fixed-base-neck-moser remains the owner of fixed-stage moving-strip buffers.",
+      "primary_sources": [
+        {
+          "source": "Song, arXiv:1706.01518v1",
+          "url": "https://arxiv.org/pdf/1706.01518",
+          "locations": "Definition 2.3 (p.8), Lemma 3.7 (pp.15-16), Lemmas 4.4-4.5 (pp.22-23)",
+          "scope": "Stable-family assumptions, limiting component identification and fixed-gauge smooth convergence."
+        },
+        {
+          "source": "Rochon-Zhang, arXiv:1106.0873v2",
+          "url": "https://arxiv.org/pdf/1106.0873v2",
+          "locations": "Equations (5.5)-(5.6), Theorem 5.1 (pp.38-39); extension construction (2.44)-(2.46) (pp.17-18)",
+          "scope": "SNC weighted-potential remainder and the extension radial derivative on a compact away from deeper faces. The smooth-divisor full expansion is not used."
+        }
+      ],
+      "independent_review": "The coordinating editor read the exact added proposition/remark and accepted the formulas, signs, Hermitian-radius shift, all-phase/all-complex-parameter uniformity and fixed-stage quantifier order. This is a second internal review of the addition, not a repeat of all source proofs.",
+      "limits": "No stronger moving-neck tensor theorem, arbitrary prescribed moving speed, uniform fixed positive moment width, CP/PBE/TC validation, formal verification, external peer review or comprehensive novelty claim."
+    }
   },
   "current_documentation_update": {
     "date": "2026-11-22",
-    "version": "1.23",
-    "manuscript_sources_changed": false,
-    "lualatex_repeated": false,
+    "version": "1.24",
+    "manuscript_sources_changed": true,
+    "lualatex_repeated": true,
     "computational_certificates_repeated": false,
     "surface_reference": {
       "revision": 37,
@@ -499,7 +554,7 @@
       }
     },
     "claims_not_established": "Same-projection atlas and GH realization for degree six remains open. The quintic theorem chooses the initial labelled source allocation, leaves and complete nodal neighborhoods; it does not retain arbitrary independently prescribed large source tails or additional annuli. The atlas and GH realization hold for the same projection at each t; convergence of the atlases as t tends to zero, a limiting affine structure, and a Hessian or Monge–Ampère property of the limiting metric are not asserted. Nor are a t-smooth fibration family, a t-uniform positive neighborhood width or arbitrary-speed moving-domain estimates. No new Part IV/V tensor theorem or verification of (TC)_5, global (CP)_d+(PBE)_d, or Part III (H_loc)/(H_anc) follows. Prior intermediate-scale, fixed-space/measure and Part II marking restrictions remain valid. External peer review, formal proof and comprehensive novelty confirmation are not claimed.",
-    "validation": "Documentation-only synchronization at materials v1.23. The revision-42 header and the source-free scope, full source-wall demand, thin-leaf selection order and affine translations were directly read at mathematical checkpoint 497b241898bc91787aacb09a97754fa2ea0fccf8. The final 311-page surface build, six zero log counts and selected 22-page visual record were synchronized from the coordinating editor record, including twenty unchanged PNG hashes, the final redisplay of page 310 and the additional display of continued bibliography page 306. The prior Part IV v1.11 capped-volume audit and 120-page/twelve-page-display record, Part V v1.10 and its 37-page/five-page-display record, all their hashes and the revision-37 scientific citation are retained. No local scientific source, typesetting or visual-review result is changed, and no finite certificate is rerun.",
+    "validation": "Current Part IV v1.12 fixed-end/gauge source was checked and independently reviewed, built to 122 pages with six zero log counts, and ten selected pages actually displayed. Existing capped-volume/local-kernel mathematical audits remain valid with their specified scopes. Part V source/PDF/version/hash/build entry and the revision-37 scientific pin are unchanged. The current surface volume corollary was read at revision-43 mathematical checkpoint 102ae9a382406bcd14755c216d2bc0ca8bc84321; its 313-page build and eleven-page external visual report are synchronized. No finite certificate was rerun.",
     "part_ii_reference": {
       "version": "2.1",
       "commit": "2e17c2c2d1e4a854a0e7febd9ee0657e88b153b4",
@@ -648,10 +703,10 @@
       "limitations": "This retained selected review concerns the local actual quintic anchor chain, not all P0 inputs, the complete core proof or external papers. Full-moment and global atlas/GH realization are handled by the separate revision-42 proof and selected review below. Arbitrary pre-protected additional annuli, sextic targets and independently prescribed large source neighborhoods remain outside the local anchor conclusion. No new IV/V analytic theorem or local typesetting is part of the documentation synchronization."
     },
     "current_surface_publication": {
-      "revision": 42,
-      "saved_commit": "497b241898bc91787aacb09a97754fa2ea0fccf8",
-      "source_url": "https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/497b241898bc91787aacb09a97754fa2ea0fccf8/papers/surface-lagrangian-torus-fibration.tex",
-      "source_status": "The revision-42 header and mathematical checkpoint were directly checked. Final bibliography/QA synchronization is subsequent to this mathematical checkpoint; repository publication status is handled separately by the coordinating editor.",
+      "revision": 43,
+      "saved_commit": "102ae9a382406bcd14755c216d2bc0ca8bc84321",
+      "source_url": "https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/102ae9a382406bcd14755c216d2bc0ca8bc84321/papers/surface-lagrangian-torus-fibration.tex",
+      "source_status": "Current mathematical source saved and verified by the coordinating editor at revision 43. Scientific IV/V input citation remains revision 37. Source ownership and the specified internal audit scopes are retained.",
       "labels": [
         "ke:k4-actual-neck-periods",
         "ke:k4-equal-weight-periods",
@@ -667,149 +722,59 @@
         "ng8:source-corrected-area-demand",
         "ke:eq:quintic-branch-action-coordinates",
         "ke:eq:quintic-core-branch-extension",
-        "ke:eq:quintic-affine-full-transition"
+        "ke:eq:quintic-affine-full-transition",
+        "ke:global-volume-measure",
+        "ke:global-volume-scope"
       ],
-      "mathematical_status": "Full proofs integrated, with specified collaborative internal reviews recorded. Revision 42 explicitly separates the source-free lemmas, the full source-wall demand and the analytic-before-thin choice, and computes all affine translations. This documentation update directly read these clarification sites; it is not a comprehensive re-audit, external review, formal proof or novelty certification.",
+      "mathematical_status": "The curve manuscript owns the quintic full-moment and same-projection action-atlas/GH proofs, together with the revision-43 probability-volume corollary. Selected internal proof audits are recorded separately; they are not a comprehensive re-audit, external review, formal proof or novelty certification.",
       "local_typesetting_repeated": false,
       "scope": "For a fixed general degree-five all-plane degeneration, compatible positive weights and labelled source allocation give one actual negative-KE Lagrangian fibration with denominator-one matroidal action charts away from focus values and ambient GH realization for the same projection. The three-sheet transitions include one common real translation and work for asymmetric weights. Focus punctures retain their actual affine structure. Source-free lemmas require a free action on the full band; the source-inclusive construction instead subtracts the full source wall in the free area demand. Thin leaves are chosen after the analytic domains, cuts and small t, without changing those data or adding a new t threshold. This is simultaneous realization at each t, not convergence of atlases or a Hessian conclusion for the limit metric. Arbitrary pre-fixed large source tails, t-smooth families and degree-six simultaneous realization are not asserted.",
       "build_and_visual_record": {
         "date": "2026-11-22",
-        "revision": 42,
+        "revision": 43,
         "build_exit_code": 0,
-        "pages": 311,
-        "pdf_bytes": 2990849,
-        "pdf_sha256": "51d97bd0d59e3289e76d223d945b5f5ee01eb75ece6d1be0b0cc688620900dc1",
-        "source_sha256": "43865001be17f2e7a719283429231a6ddb2fffc4d1cbc4d089d3a9e3d5653b75",
-        "changed_tex_sha256": {
-          "papers/surface-lagrangian-torus-fibration.tex": "43865001be17f2e7a719283429231a6ddb2fffc4d1cbc4d089d3a9e3d5653b75",
-          "papers/sections/paper/geometry_introduction_v25.tex": "c64970124b25e6e97549cf42fd3a2b873125cc2bb7f4d0e8d3952998e23ed79c",
-          "papers/sections/paper/geometry_bibliography_v25.tex": "3c7f963c69139fc3fa960677ea1ca10dd3ef1f2a008835a266afbd2346c860fc",
-          "papers/sections/paper/neck_action_matching.tex": "65f2076638d4d2f2079b73e6c3d803c2de4e5afa9b14304040ec85701c35da4c",
-          "papers/sections/paper/global_action_atlas.tex": "c6cf1ef511dade105e5ec5c858d853eddda7dec94c0570440152934738241fb2"
-        },
-        "log_check_counts": {
-          "undefined_references_or_citations": 0,
-          "duplicate_labels": 0,
-          "missing_characters": 0,
-          "overfull_boxes": 0,
-          "underfull_boxes": 0,
-          "latex_errors": 0
-        },
+        "pages": 313,
+        "pdf_bytes": 3004832,
+        "pdf_sha256": "ecbba307d508d8d12f295f3b11e7a9f04975082067daaae4bae92c5963b20445",
+        "source_sha256": "8baeaf78c25bddbf5fceded56bc412adf233924105a514961e3ff41dd024c7e9",
         "visual_review_pages": [
           1,
-          16,
-          17,
-          252,
-          253,
-          255,
-          256,
-          270,
-          271,
-          272,
-          273,
-          274,
-          275,
-          284,
-          294,
-          295,
-          296,
-          297,
-          305,
-          306,
-          310,
-          311
+          10,
+          26,
+          28,
+          29,
+          126,
+          215,
+          216,
+          217,
+          312,
+          313
         ],
-        "source_revision": "第42稿・現行改訂42（2026-11-22）",
-        "pdf_and_synctex": true,
-        "refs_citations_checked": true,
-        "visual_review": "150 dpiの指定22頁をrootと三担当が実表示。最終書誌重複除去後、元21頁中20頁のPNG SHA256が一致し、変更p310を再表示、継続書誌p306を追加表示した。指定範囲に欠字・重なり・切断なし。全311頁の逐頁画像検査ではない。",
-        "visual_review_final_direct_pages": [
-          306,
-          310
-        ],
-        "visual_review_unchanged_png_pages": [
-          1,
-          16,
-          17,
-          252,
-          253,
-          255,
-          256,
-          270,
-          271,
-          272,
-          273,
-          274,
-          275,
-          284,
-          294,
-          295,
-          296,
-          297,
-          305,
-          311
-        ],
-        "visual_review_by_reader": {
-          "coordinator": [
-            1,
-            252,
-            253,
-            255,
-            256,
-            284,
-            306,
-            310
-          ],
-          "source_area_reviewer": [
-            270,
-            271,
-            272,
-            273,
-            274,
-            275
-          ],
-          "atlas_reviewer": [
-            294,
-            295,
-            296,
-            297
-          ],
-          "publication_reviewer": [
-            16,
-            17,
-            305,
-            310,
-            311
-          ]
-        },
-        "other_warnings": "LuaTeX-ja/microtype advisory 1件、hyperref数式bookmark警告2件。本文の欠字・box overflowは0。",
-        "source": "五次同時実現のsource wallと全moment、thin代表の選択順、全平行移動を含む三面接続、source-free旧補題の限定、FBP/EM/Ruanの一次比較を整理。PDF/SyncTeXはGit追跡しない。"
+        "dpi": 150,
+        "visual_review": "The coordinating editor confirmed completion of actual display of all eleven selected current PDF pages by the designated reviewers, without missing glyphs, overlap or clipping. Not an all-313-page visual inspection.",
+        "full_page_review": false,
+        "source": "Current global-volume corollary, its ownership/normalization, related publication scope and references; mathematical checkpoint and PDF verification are separate."
       },
       "build_and_visual_record_provenance": {
         "repository": "uedakazushi/surface-lagrangian-torus-fibration",
-        "source": "research/validation.json:reproduction.latest_reported_main_build",
         "read_date": "2026-11-22",
-        "performed_by": "surface coordinating editor and three designated visual reviewers",
+        "performed_by": "surface coordinating editor and designated global/visual reviewers",
         "typesetting_performed_by_this_documentation_reviewer": false,
-        "direct_visual_pages_by_this_reviewer": [
-          16,
-          17,
-          305,
-          310,
-          311
-        ],
-        "final_changed_page_310_redisplayed_by": "surface coordinating editor",
-        "mathematical_source_checkpoint": "497b241898bc91787aacb09a97754fa2ea0fccf8",
-        "checkpoint_source_hash_check": "The main file, Introduction, neck_action_matching and global_action_atlas hashes match the mathematical checkpoint. The final bibliography correction is subsequent to that checkpoint; the exact final source hashes are retained in the reported build record.",
-        "scope": "External final 311-page build and specified 22-page visual report, not all-page visual inspection. After the final bibliography correction, twenty prior pages were PNG-hash identical, page 310 was displayed again and continued bibliography page 306 was additionally displayed. No Part IV/V rebuild or redisplay was performed during this documentation update."
-      }
+        "direct_visual_pages_by_this_reviewer": [],
+        "mathematical_source_checkpoint": "102ae9a382406bcd14755c216d2bc0ca8bc84321",
+        "scope": "Current revision-43 313-page build and eleven selected-page visual report confirmed by the coordinating editor. The PDF hash and size were read from the current artifact; no older surface QA record is used."
+      },
+      "record_status": "Current revision-43 mathematical checkpoint and current build/selected-page external QA."
     },
     "updated_files": [
       "README.md",
       "00_research_plan.md",
       "research/notes.md",
       "AGENTS.md",
-      "research/validation.json"
+      "research/validation.json",
+      "papers/kaehler-einstein-degeneration.tex",
+      "papers/sections/source_free_neck_coordinates.tex",
+      "papers/sections/source_free_neck_comparison.tex"
     ],
     "selected_quintic_simultaneous_realization_audit": {
       "date": "2026-11-22",
@@ -871,64 +836,59 @@
     "documentation_static_checks": {
       "status": "passed",
       "date": "2026-11-22",
-      "materials_version": "1.23",
+      "materials_version": "1.24",
       "git_diff_check_exit_code": 0,
       "updated_document_count": 5,
       "json_parsed": true,
-      "source_labels_checked_at_math_checkpoint": [
-        "ke:k4-actual-neck-periods",
-        "ke:k4-equal-weight-periods",
-        "ke:k4-cyclic-weight-periods",
-        "ng8:uniform-k2-end-periods",
-        "ng8:thin-source-tail-choice",
-        "ng8:quintic-full-moment",
-        "ke:quintic-simultaneous-realization",
-        "ng8:relative-dh",
-        "ng8:straight-neck",
-        "ng8:central-criterion",
-        "ng8:actual-source-area-wall",
-        "ng8:source-corrected-area-demand",
-        "ke:eq:quintic-branch-action-coordinates",
-        "ke:eq:quintic-core-branch-extension",
-        "ke:eq:quintic-affine-full-transition"
+      "new_source_labels_checked": [
+        "pair:rem:normal-frame-winding",
+        "pair:eq:normal-frame-winding",
+        "pair:prop:fixed-end-transfer",
+        "pair:eq:fixed-end-density-input",
+        "pair:eq:fixed-end-radial-input",
+        "pair:eq:fixed-end-transfer",
+        "pair:eq:end-moment-transfer-identity"
       ],
       "relative_markdown_links_checked": 19,
       "invalid_control_bytes": 0,
-      "new_note_math_backslashes_checked": true,
-      "scientific_sources_changed": false,
-      "retained_validation_sections_unchanged": [
-        "manuscripts",
-        "certificate_runs",
-        "certificate_runs_date",
-        "visual_check",
-        "current_math_audit",
-        "current_static_source_checks",
-        "build_environment"
-      ],
+      "scientific_sources_changed": true,
       "scientific_input_pin_unchanged": "32c67aefe6beb47c2955923e2b6eb2471d48af31",
-      "scope": "Local documentation/version/link/JSON/source-label checks at the revision-42 mathematical checkpoint, and exact comparison with the retained Part IV/V audit, build, visual, hash and certificate records. Fifteen source labels and nineteen relative Markdown links were checked. No new proof verification, typesetting or finite computation is inferred from these static checks."
+      "part_v_record_and_source_pdf_hashes_unchanged": true,
+      "scope": "Current version/JSON/relative-link/new-label/control-byte checks and git diff --check. Current IV recursive input files and label uniqueness checked. These static checks do not constitute proof, typesetting or visual validation."
     },
-    "retained_scientific_record_scope": "In the unchanged manuscripts records, current_revision_rebuilt and visual_review_current_pdf refer to the listed scientific manuscript versions (Part IV 1.11 and Part V 1.10), not to a new build during materials update 1.23. The unchanged current_math_audit retains its own version 1.21 and the previous capped-volume review."
+    "retained_scientific_record_scope": "The exact Part V manuscript entry and source/PDF hashes remain unchanged. Current Part IV contains only its v1.12 122-page build and ten-page visual review. Substantive capped-volume, local-kernel and selected quintic proof audits remain with their precise scopes; obsolete Part IV and surface build/QA histories are not retained.",
+    "current_surface_volume_measure": {
+      "revision": 43,
+      "mathematical_checkpoint": "102ae9a382406bcd14755c216d2bc0ca8bc84321",
+      "save_confirmation": "Coordinating editor confirmed the saved and verified surface checkpoint.",
+      "source": "papers/sections/paper/ke_global_metric_realization.tex",
+      "source_sha256": "d9fbf548445b1040b483f86f8a144c72f0a205da05a28ff456fdb47cb2d85c0c",
+      "labels": [
+        "ke:global-volume-measure",
+        "ke:global-volume-scope",
+        "ke:eq:component-volume-budget",
+        "ke:eq:compact-component-base-value"
+      ],
+      "claim": "For fixed d>=5 and the existing general-position family, nu_t=(omega_t^2/2)/(2pi^2 d(d-4)^2) pushes forward by the same f_t=p_T pi_t to (1/d) sum delta_{e_i}, and by pi_t to (1/d) sum delta_{v_i}. Together with the existing distortion estimate this gives compact measured GH convergence retaining the full cubical metric space; the limiting measure need not have full support.",
+      "proof_checked": "Read the full local corollary proof: component volume 2pi^2(d-4)^2 from Part I bounded-primitive Chern-Weil/Stokes, fixed compact component convergence, eventual clipped-depth vertex value, existing global value comparison, mass-preserving compact exhaustion, singleton p_T vertex preimages, and transfer to the quintic action-prescribed projection by uniform value comparison.",
+      "quantifier_and_limits": "No requirement that fixed compacts lie inside the moving cores, no diagonal reselection and no moving-neck volume asymptotic. R_t^(-2)g_t has unnormalized volume R_t^(-4)dV_t with vanishing total mass; the nonzero stated limit uses probability normalization. No novelty claim for component-volume conservation or exhaustion itself.",
+      "verification_scope": "Direct reading of this corollary and cited dependency interface, not a fresh audit of the entire surface proof or Part I Stokes proof. Mathematical saving and current build/eleven-page external visual review are recorded separately under current_surface_publication.",
+      "scientific_input_pin_unchanged": "32c67aefe6beb47c2955923e2b6eb2471d48af31"
+    }
   },
   "build_environment": "LuaHBTeX 1.18.0 with LuaTeX-ja/Harano Aji and CM, AMS, RSFS vector fonts. The workspace used a user-local TeX setup; the repository retains the ordinary latexmk/LuaLaTeX/SyncTeX configuration. PDFs and caches stay under ignored build/cache directories. No GitHub Actions used.",
   "current_static_source_checks": {
     "date": "2026-11-22",
-    "version": "Part IV 1.11 / Part V 1.10",
+    "version": "Part IV 1.12 / unchanged Part V 1.10",
     "git_diff_check_exit_code": 0,
     "manuscripts": [
       {
         "source": "papers/kaehler-einstein-degeneration.tex",
-        "version": "1.11",
+        "version": "1.12",
         "input_files": 8,
-        "labels": 453
-      },
-      {
-        "source": "papers/cubical-gh-limit.tex",
-        "version": "1.10",
-        "input_files": 1,
-        "labels": 177
+        "labels": 460
       }
     ],
-    "results": "Recursive source scan found no missing input file, undefined internal reference, duplicate label, undefined bibliography key, mismatched or unclosed explicit environment. This source scan does not replace LuaLaTeX compilation or visual inspection."
+    "results": "Current Part IV recursive inputs exist and labels are unique; all seven new labels occur. Updated relative Markdown links and control bytes checked. The unchanged Part V source and PDF hashes match its retained record. No independent full environment/reference parser is claimed for this check; the coordinating editor reports six zero LuaLaTeX log categories."
   }
 }

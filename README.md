@@ -1,16 +1,18 @@
 # Kähler–Einstein degeneration
 
-更新：2026-11-22 / v1.23（研究資料。Part IV v1.11、Part V v1.10）
+更新：2026-11-22 / v1.24（研究資料。Part IV v1.12、Part V v1.10）
 
 **公表計画：** 数学的価値の最大化を基準に、曲面P0・Part IVの最小局所解析・Part Iの距離と実球体積漸近を優先する。[研究方針](00_research_plan.md)に実行順序・達成基準・担当を記した。中心定理の構成、入力の範囲、先行研究との差を確定し、五次の同時atlas/GH実現を公表範囲へ加える。六次の同時実現と条件付き解析拡張は独立した完成基準で進める。
 
 最初に[現行研究方針](00_research_plan.md)、次に[研究ノート](research/notes.md)を読む。固定次数d≥5の一般型曲面の全平面退化について、actual KE計量の径の尺度の極限とLagrangian torus fibrationによる実現を研究する。正本はGitHubのmain、研究全体の入口は[research-hub](https://github.com/uedakazushi/research-hub)。
 
-**公表準備で明確にした解析核：** `coarse:thm:boundary-to-triple` はexact triple領域、全angular phasesのcompact quotient、各固定tのsmooth radial閉包、固定faceの一様なdensity下界から、全深度比に一様なC^q誤差O(1/m)を導く。境界上界のt一様性は不要。`coarse:thm:full-triple-tensor` を全平面退化への適用として分け、証明は一度だけ置いた。Part IVの入口を無条件の局所成果中心へ改め、曲面P0への最小四入力表を設けた。
+**公表準備で明確にした解析核：** `coarse:thm:boundary-to-triple` はexact triple領域、全angular phasesのcompact quotient、各固定tのsmooth radial閉包、固定faceの一様なdensity下界から、全深度比に一様なC^q誤差O(1/m)を導く。境界上界のt一様性は不要。`coarse:thm:full-triple-tensor` を全平面退化への適用として分け、証明は一度だけ置いた。Part IVの入口を無条件の局所成果中心へ改め、曲面P0への最小四入力表を設けた。固定endについては `pair:prop:fixed-end-transfer` がlog-densityの固定collar収束と成分cusp微分を切り分け、normal windingがmomentの加法定数を決めることを明示する。
 
 **Capped-volume入力の確認：** Part IV v1.11では、正値性からweighted cap minors、pair/triple、六つの局所型、compact最小値原理、固定次数の大域下界までの指定証明鎖を実読した。結論を妨げる誤りは見つからず、零点を含むChern微分の正確なcap恒等式、曲率・frame誤差の明示的吸収条件、固定adjunction residue、有限coverから最後に小さい複素parameterを取る順序を補った。追加式と定数依存は別担当も独立点検した。全原著・全主稿の包括的検証とは区別する。
 
-**五次の同じ射影による同時実現：** 曲面改訂42の `ke:quintic-simultaneous-realization` は、初期source葉・allocation・全保持近傍を構成中に選ぶ範囲で、actual負KE形式に関する一つの大域Lagrangian fibrationに作用適合matroidal atlasと全曲面ambient GH実現を同時に与える。Source-freeな旧neck補題と全source-wallを用いる構成を区別し、両端periodの有限整合、全momentの自由需要とstrict cuts、coreとの全開collarの葉・作用および平行移動を含むatlas接続を証明する。等重みと対称六系が整合データの実例を与える。Focus valuesには穿孔focus affine structureを用いる。各tでの同時実現であり、atlas自体のt方向の極限や極限距離のHessian性は含まない。六次の同時実現、既指定の大きいsource近傍を保つ相対存在、CP/PBE/TC・H_loc/H_ancの検証は未解決。数学checkpoint `497b241898bc91787aacb09a97754fa2ea0fccf8` と確認範囲を研究ノート・検証JSONに記す。
+**五次の同じ射影による同時実現：** 曲面稿の `ke:quintic-simultaneous-realization` は、初期source葉・allocation・全保持近傍を構成中に選ぶ範囲で、actual負KE形式に関する一つの大域Lagrangian fibrationに作用適合matroidal atlasと全曲面ambient GH実現を同時に与える。Source-freeな旧neck補題と全source-wallを用いる構成を区別し、両端periodの有限整合、全momentの自由需要とstrict cuts、coreとの全開collarの葉・作用および平行移動を含むatlas接続を証明する。等重みと対称六系が整合データの実例を与える。Focus valuesには穿孔focus affine structureを用いる。各tでの同時実現であり、atlas自体のt方向の極限や極限距離のHessian性は含まない。六次の同時実現、既指定の大きいsource近傍を保つ相対存在、CP/PBE/TC・H_loc/H_ancの検証は未解決。証明の正本と限定した内部点検の範囲を研究ノート・検証JSONに記す。
+
+**同じ射影上の確率体積測度：** 曲面改訂43の保存稿 `ke:global-volume-measure` は、同じGH近似写像とLagrangian射影による確率体積の押し出しが、各成分頂点に重み1/dを置く原子測度へ弱収束することを示す。固定成分の体積と固定compact上の収束、既存の全域値比較を使い、moving neckの体積漸近は追加しない。計量極限の辺・squareは残り、極限測度の台だけに空間を縮めない。本文と証明を確認し、数学保存版は `102ae9a382406bcd14755c216d2bc0ca8bc84321` である。数学保存と現行の表示確認は個別に記す。
 
 ## 三研究を一体で進める方針
 
@@ -37,7 +39,9 @@ Part I v1.7（研究一式v1.12）は、連結なsmooth projective pairのreduce
 
 ## Source-free neckで得た接続の入力
 
-[束座標とnormal moment](papers/sections/source_free_neck_coordinates.tex)では、固定compact base上の射影的法線束からexact uv=tと共通の正則S¹を構成した。Canonical primitiveを一つ固定でき、actual KE formの円平均η_tに対するmomentが加法定数なしに大域化する。固定した両endでは、周期1のmomentが±4π/(−log r²)を主項に持つ。Songの固定gauge収束とRochon–ZhangのSNC cusp漸近により、rを固定してからt→0とすればη_tの共通moment intervalを得る。全neckのMoser flow bufferはこの結果に含まれない。
+[束座標とnormal moment](papers/sections/source_free_neck_coordinates.tex)では、固定compact base上の射影的法線束からexact uv=tと共通の正則S¹を構成する。単一のcanonical primitiveにより円平均η_tのmomentを規格化し、`pair:prop:fixed-end-transfer` が、固定end collarsのlog-densityのC¹収束と極限成分のradial derivative評価からperiod 1の主項±4π/(−log r²)と共通moment intervalを与える。Songの固定gauge収束とRochon–ZhangのSNC定理がこの二条件を検証する。Hermitian normと局所frameの半径差によるO(s_r^−2)を含め、rを先に固定してから全複素t→0とする。全neckのMoser flow bufferは別の入力である。
+
+`pair:rem:normal-frame-winding` は、全orbitを含むpatch上でΩをbΩへ変更するとmomentが−2π wind(b)だけ変わることを示す。Base-onlyでないunitでもnormal windingが零なら同じmomentを保つが、primitiveの残余閉periodまで消えるとは限らない。
 
 関連Lagrangian稿の[二段階平均](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/main/papers/sections/paper/ke_staged_neck_averaging.tex)は、normal circleを先に平均して、同じactual circleと全marked cycleの作用周期を保つ。指定primitive subgroupに適合するclosed-corner bundleにも同じO(log R/R)のGH評価を与え、一段階bundleとはHamiltonian mapで比較する。
 
@@ -47,7 +51,7 @@ Sourceを含む固定基底のendとshellは、同じ曲面稿の `ke:source-inc
 
 ## 残る核心と次の着手
 
-本repoの公表準備では、独立定理化した最小局所入力核を基準に、まだ点検していない前段の証明・一次資料と定量的新規性を確認する。既に済ませた局所定理の指定証明鎖と組版を繰り返すことを優先課題にはしない。五次の同時atlas/GH実現の新証明との接続を維持し、六次の同時実現、CP/PBE/TCと高次元化は、それぞれ別の完成条件を持つ課題として進める。
+本repoの公表準備では、固定faceの局所安定性と固定end移送の最小入力を基準に、未確認の一次資料・定量的新規性と実際の利用箇所を絞って確認する。既存のcapped-volume、full-triple、固定endの指定証明鎖を一律に反復しない。曲面の同じ射影によるatlas/GH実現と確率測度極限の適用範囲を整え、六次の同時実現、CP/PBE/TCと高次元化は別の完成条件で進める。
 
 曲面repoの `ke:global-metric-realization` には、各固定d≥5・既存の一般性条件の族について、actual全域Lagrangian fibrationと同じ f_t=p_Tπ_t の全曲面ambient距離のGH実現を示す証明がある。Normal Moser buffer、全交わりのmatching、core filling、sourceの全moment退出O(1)、global scalar下界とportal上界はそこで別に構成する。本repoの局所closed-corner評価だけからこれらが従うという意味ではない。
 
@@ -67,20 +71,20 @@ Core側の `ke:actual-anchor-fan-criterion` は、同じLiouville primitiveで�
 
 2026-08-31五篇連作の退化二部作を元の全文TeXから移行し、有効な内容を現行稿に保持している。
 
-- [Part IV：局所安定性と閉cornerの収縮](papers/kaehler-einstein-degeneration.tex)：主たる公表用原稿。現行v1.11、120頁。全深部三重点・閉cornerの無条件結果と、sourceを含むquintic exteriorの(TC)_5付き結果を分ける。全域のsharp co-Gramは粗い比較と(PBE)_d付き。
+- [Part IV：局所安定性と閉cornerの収縮](papers/kaehler-einstein-degeneration.tex)：主たる公表用原稿。現行v1.12は122頁。指定10頁の表示確認は完了している。全深部三重点・閉cornerの無条件結果と、sourceを含むquintic exteriorの(TC)_5付き結果を分ける。全域のsharp co-Gramは粗い比較と(PBE)_d付き。
 - [Part V：cubical GH](papers/cubical-gh-limit.tex)：現行v1.10、37頁。一般次数のcubical複体の位相・整数ホモロジー、abstract pruning–transport、diam(C_5)=sqrt(13)を含む。全曲面のactual GH適用は(CP)_d+(PBE)_d付き。
 - [Punctured-neck技術稿](papers/punctured-neck-scattering.tex)：旧81頁の証明全文をLuaLaTeXへ移植した稿（回収時92頁）。条件付きの解析入力を冒頭に明記。
 - [Source-free比較の研究ノート](papers/source-free-comparison.tex)：source-free領域の補助原稿。
-- [補助検算](scripts/)：2026-11-20に統合稿5本と旧v0.12の16本を再実行し、全件成功。今回のv1.11では再実行していない。旧16本は配布時のSHA-256と一致。有限計算・式の診断であり解析証明の代用ではない。
+- [補助検算](scripts/)：2026-11-20に統合稿5本と旧v0.12の16本を再実行し、全件成功。現行の研究資料v1.24では再実行していない。旧16本は配布時のSHA-256と一致。有限計算・式の診断であり解析証明の代用ではない。
 
 関連Lagrangian研究の人工PL基底計量では、分岐基底からC_dへのdistortionはd=5でΘ(ε²)、d≥6でΘ(ε)。これはactual KE計量の収束とは別の結果である。大域的な適用にはno-shortcut、square lifts、fiber/portal connectorsの定量条件を揃える必要があり、最初の二条件だけから第三は従わない。
 
 ## 保存と検証
 
-2026-11-22にPart IV v1.11を120頁へLuaLaTeX/latexmkで組版し、1・22–31・120頁の計12頁を150 dpiで実表示した。新しいcap公式・吸収条件・source計算・次数dの系・大域potential注意・書誌に切れ、欠落、重なりを認めなかった。最終logの未定義参照・引用、重複label、欠字、LaTeX error、overfull/underfullは全て0。Part V v1.10（37頁）は本文を変えず、同日の成功組版と1–3・5・37頁の表示確認、source/PDFのhashを保持する。全頁の視覚検査ではない。Font feature・斜体・微小math font代替とPDF bookmark数式の警告は残る。
+Part IV v1.12は122頁に組版済みで、logの未定義参照・引用、重複label、欠字、LaTeX error、overfull/underfullの六分類は全て0。150 dpiで1、8、10、71–75、80、122頁（計10頁）を実表示し、欠字・重なり・切断・数式のはみ出しを認めない。固定end担当は71–75・80頁、別担当は1・8・10・122頁、統合担当は73頁を確認した。定理13.9の冒頭は73–74頁に分かれるが、本文に欠落はなく読解できるため現行組版を保持する。全122頁の逐頁表示ではない。 Part V v1.10の科学本文・PDF・版・hash、37頁の組版と1–3・5・37頁の既存表示記録は変更していない。Font feature・斜体・微小math font代替とPDF bookmark数式の警告は保持する。
 
 Part IV v1.10では新局所定理 `coarse:thm:boundary-to-triple`、モデルとshift比較、小摂動評価、全平面退化への適用を担当と別担当が点検した。Compact phase quotientでの最大値原理、境界上界の各固定tでの有限性、定数依存、normalized coverでの正則性を確認した。全capped determinant・全外部原典・全主稿の包括的再監査、外部査読、形式証明は未実施。有限距離論の計算は今回変更しておらず再実行していない。詳しい状態は[検証状態](research/validation.json)。
 
-研究資料v1.23は、曲面改訂42の実文と数学checkpoint `497b241898bc91787aacb09a97754fa2ea0fccf8` を参照した文書同期である。Source-free限定、全source-wall、thin葉の選択順、平行移動付きatlasと各tでの同時実現の範囲を整理した。Part IV v1.11・Part V v1.10の科学本文、既存の組版・表示・hash記録と改訂37・commit `32c67aefe6beb47c2955923e2b6eb2471d48af31` の数学入力pinは保持し、本repoの再組版・再表示・有限検算は行っていない。曲面稿の最終311頁・log六分類0・指定22頁の表示確認は外部報告として同期した。最終書誌訂正後の20頁のPNG一致、310頁の再表示と継続書誌306頁の追加表示を含み、全311頁の逐頁表示ではない。各担当の実施範囲と新規性の確認範囲はノート・検証JSONに記す。
+研究資料v1.24では固定end移送とnormal windingの式・符号・半径差・固定段階の量化を作成担当と統合担当が点検した。SongとRochon–Zhangの指定一次資料、RZのextension map (2.44)–(2.46)を照合した。既存のcapped-volume/local-kernel監査と改訂37・commit `32c67aefe6beb47c2955923e2b6eb2471d48af31` の科学入力pinは保持する。曲面改訂43の数学保存版は `102ae9a382406bcd14755c216d2bc0ca8bc84321`。現行313頁の組版から1、10、26、28、29、126、215–217、312、313頁（計11頁）を外部担当が150 dpiで実表示し、指定範囲に欠字・重なり・切断を認めないとの完了報告を確認した。全313頁の逐頁表示ではない。 有限検算は再実行していない。保存・hub反映は検証JSONで個別に管理する。
 
 再生成はルートで `latexmk`、PDF/SyncTeXの出力先は `build/`。LuaLaTeX、luatexja、Harano Ajiと数学フォントの有効なmapを備えたTeX Liveを用いる。[移行・検証範囲](research/migration.md)と[ソース対応](research/source-manifest.json)を参照する。通常のcommitとmainへのpushで保存し、研究成果の保存とresearch-hubの更新を別々に確認する。
