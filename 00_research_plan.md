@@ -1,6 +1,6 @@
 # 現行研究方針：一般型超曲面の負Kähler–Einstein退化
 
-更新：2026-11-22 / v1.19・現行研究方針（Part IV–V本文はv1.10）
+更新：2026-11-22 / v1.20・現行研究方針（Part IV–V本文はv1.10）
 
 ## 公表に向けた実行計画
 
@@ -9,7 +9,7 @@
 1. Exact triple領域、各固定parameterの滑らかなradial閉包と全phase quotient、固定faceの一様密度下界を入力とする局所安定性定理 `coarse:thm:boundary-to-triple` を抽出した。境界上界にparameter一様性が不要であることを証明の向きとともに明示し、全平面退化への適用を `coarse:thm:full-triple-tensor` に分けた。証明は一回だけ掲載する。
 2. 題名・abstract・主結果を、局所安定性、complete simplexと閉corner、source-free neckと固定end、条件付きexterior/PBEの順に整理した。条件付き結果と必要な証明も保持する。
 3. 曲面主稿の実際の引用を逆引きし、capped lowerとoriented upper、full-tripleとsimplex、normal circle、束座標・共通primitive・固定endの最小四入力表を主稿 `tab:surface-minimal-inputs` に置いた。領域、全位相、定数、cutの選択順と曲面側が別に証明する事項を明記する。
-4. Part Vの抽象距離論と(CP)+(PBE)付きactual適用、曲面の直接scalar/portal経路の役割を整理した。曲面の数学入力の引用は実読した改訂37・commit `32c67aefe6beb47c2955923e2b6eb2471d48af31` に固定し、研究入口の現行改訂38と区別する。
+4. Part Vの抽象距離論と(CP)+(PBE)付きactual適用、曲面の直接scalar/portal経路の役割を整理した。曲面の数学入力の引用は実読した改訂37・commit `32c67aefe6beb47c2955923e2b6eb2471d48af31` に固定し、局所K4系を統合した研究入口・改訂39と区別する。
 5. 変更した局所定理の指定証明鎖を別担当も内部点検し、LuaLaTeX組版・相互参照と指定16頁の表示を確認した。ZhangのQ-factorial/simple toroidalな全空間の結果はsource方程式 \(xy=tz\) へ無条件に適用しない。全原著証明・全主稿の包括監査と定量的新規性の確認は残る。
 
 達成基準は、曲面P0が使う局所解析を最小の正確な入力と一意の証明場所から検証できること。これは全主稿の包括的再監査、外部査読、投稿の完了を意味しない。原稿・ノート・方針・READMEの保存後、利用側の依存表とresearch-hubへ実際の到達点を反映する。共通の一般原則・保存許可は本書後半と `AGENTS.md` に記す。
@@ -116,7 +116,7 @@ Actual計量への大域適用には(N) global no-shortcut、(S) square path lif
 
 ### K5の相対接着と同じ射影でのatlasへの経路
 
-曲面改訂38の `ke:moment-relative-replacement` / `ke:relative-replacement-gh` は条件付きの安定性を与える。同じ保持cornerと全K2 end collars、sourceのcompact nodal neighborhoods、向き・加法定数を含むcanonical momentとanchor cuts、coreと変更collarを保ち、実際のmarked product/cone商と全overlapのwhole-fiber一致が得られれば、同じcubical targetへの値の差はCη、η=A(1+log(N+1))/R以下に取れる。変更する葉の座標やdiffeomorphismの微分の小ささは要求しない。この条件付き評価を主担当の証明・別担当の独立点検から同期する。五次・六次の所定の大きいatlas targetsの有限配分可能性、両端の切片・framingと全open overlapの整合はなお未解決である。
+曲面改訂38の `ke:moment-relative-replacement` / `ke:relative-replacement-gh` は条件付きの安定性を与える。同じ保持cornerと全K2 end collars、sourceのcompact nodal neighborhoods、向き・加法定数を含むcanonical momentとanchor cuts、coreと変更collarを保ち、実際のmarked product/cone商と全overlapのwhole-fiber一致が得られれば、同じcubical targetへの値の差はCη、η=A(1+log(N+1))/R以下に取れる。変更する葉の座標やdiffeomorphismの微分の小ささは要求しない。この条件付き評価を主担当の証明・別担当の独立点検から同期する。五次の標準K2 end collarsだけを保持する局所anchor問題は下記の新系で解決したが、追加の保持annuli・六次の面積条件、両端の切片・framingと全neck intervalの整合はなお未解決である。
 
 既存の直接監査は、固定coupling chartsのregular-leaf periodsとbasic＋exact cutoff、固定graph gaugeのexact Moser、actual作用によるprimitive平均とnontrapping、全end collarsに相対的な葉族補間を対象とした。固定stage・残余compact・cuts・有限bufferの後にt閾値を取る順序を確認した。曲面稿 `ng8:fixed-fiber-relative-dh` は各固定tのfree bandで、全空間のt=0延長なしにStokesによるreduced areaのaffine性を与えるが、positive target areas・総量一致・全protected collarsの余裕・端germs・marked identificationsは別に要る。Sourceのμ=0を横切る標準模型の面積π(c−|μ|)と、raw moment o(1)だけではlongitude誤差が消えない例を有効な障害として保持する。いずれも既存P0の訂正やPart IV/Vの新tensor入力、CP/PBE/TCの検証ではない。
 
@@ -144,10 +144,12 @@ Sourceを含む固定baseでは、曲面稿の `ke:source-inclusive-fixed-shell`
 
 Core側は `ke:anchor-liouville-actions`、`ke:anchor-stokes-budget` と `ke:actual-anchor-fan-criterion` を使う。同じprimitiveと周期1のcycleで、M=δ−ρ<0、anchor period Aを固定すればLiouville fillingのcritical actionは A(q−ρ)/(δ−ρ) である。Neckの直線c+pqとの一致にはA=p(δ−ρ)、c=−pρが必要で、primitiveが異なる場合は残余period差と整数framingも式に残す。実際のanchor葉が所定のK4／Petersen period値を持ち、保持overlapの標識と符号が一致する場合には同じdomain・skeleton上に作用chartを得る。Stokesが与える総量一致は有限配分の全cutや反対側のopen germsを代替しない。この条件付き構成と微小面積実現を、同じ射影のatlas/GH完成又はPart IV/Vの新解析入力とはしない。
 
+五次の限定actual適用は曲面稿 `ke:k4-actual-end-anchor`（改訂39に統合済み）に置く。正のresiduesを固定し、十分大きいstage j、その後N、最後にt閾値を選ぶ。Anchor q_a=δ=4π/Nでは、標準K2 end collarsの最内境界をsource label B=5.45b_jに取れる。これはprimitive切替え終了5.4と全actual交わりの下限5.5の間にあり、min ell>3b_jの広いconstruction domainと5b_j<B<9b_jの共通葉族を使う。深度比に一様な二作用評価からQ_ab=ν_b−ρ_b<−ρ_b/2を全境界で得る。同じ正meridiansのclutchingは直線のnormal bundle O(1)とP0のisotopiesで確認できるので、任意の有向四角形のK4 targetsを実現する。Sourceの全compact pinched fibersの飽和近傍は各固定tで|μ|<δ/2に選び、anchor上には追加保持annuliを置かない。この量化では局所core chartを得るが、既指定の大きいsource近傍、一般の追加保持annuli、全neck interval・反対側germsの整合は結論しない。今回の独立点検はこの指定経路の範囲に限る。
+
 ## 次の課題
 
 1. 公表の中心となる最小局所入力核から逆向きに、未点検の前段証明・一次資料と定量的新規性を確認する。今回確認した局所定理の証明を一律に再監査せず、capped density、source-free neck、固定成分収束のうち実際の利用に必要で未確認の箇所を特定して進める。曲面の直接scalar/portal経路との依存関係を保ち、正確な仮定と一意の証明場所を備えた公表稿を確定する。
-2. Atlas側では曲面稿の有限面積配分条件へ、K4／Petersenの所定anchor targetsとsource保護annuliの実面積を代入し、全parameterのstrict cutsを検証する。小変更の実現は証明されたが、大きいtargetへの到達は別である。続いて反対側neckの切片、同じprimitiveの残余periodと整数framing、全open overlapのwhole-fiber一致を確かめる。条件が揃った相対構成には `ke:moment-relative-replacement` のGH比較を適用する。既存の共有解析・K2/K3/K5監査は保持し、全外部入力の再監査済みとはしない。
+2. Atlas側では、五次の標準K2 end collarsに対する局所K4 anchor実現を出発点とし、追加の保持annuliを指定する場合と六次Petersenの有限面積条件を調べる。全neck intervalの所定targetsについては実際のsource保護領域と全parameterのstrict cutsを検証し、反対側neckの切片、同じprimitiveの残余periodと整数framing、全open overlapのwhole-fiber一致を確かめる。局所coreの達成を全intervalの実現へ読み替えない。条件が揃った相対構成には `ke:moment-relative-replacement` のGH比較を適用する。既存の共有解析・K2/K3/K5監査は保持し、全外部入力の再監査済みとはしない。
 3. 曲面改訂38の四型分類は既存P0と有限targetの帰結として保持し、適用する中間尺度でR_t ε_t/a_t→0を確認する。成分錐の頂点を指定する場合はtarget変位も尺度予算へ入れる。Part Iの固定空間の全中心一様性、raw/probability face mass、metric linkと標識付きincidence、Abel極限と有理型延長の入力を使い分け、未確認の退化族への適用は具体的な定理と量化へ戻って点検する。
 4. 独立の解析課題としてsourceを含むexteriorの(TC)_5、(PBE)_dのquantitative terminal trivialization・protected rectangular inclusion・uniform comparison・two-metric escape、および(CP)_dのconnectorsを検証する。固定baseの定理を任意速度のmoving領域へ拡張せず、bounded densityをtensor比較へ読み替えない。これらの強いpackageの解決を曲面global結果の完成条件へ戻さない。
 5. 高次元mixed source modelsと一般のsecondary completionは、現在の固定次数曲面の公表準備と別の優先順位で扱う。
@@ -160,7 +162,7 @@ Core側は `ke:anchor-liouville-actions`、`ke:anchor-stokes-budget` と `ke:act
 
 2026-11-22にPart IV v1.10を119頁、Part V v1.10を37頁にLuaLaTeX/latexmkで組版した。最終logの未定義参照・引用、重複ラベル、欠字、LaTeX error、overfull/underfull boxは全て0。Font feature・斜体・微小math fontの代替とPDF bookmark数式の警告は残る。IVの1、2、6、9–11、51–54、119頁（11頁）とVの1–3、5、37頁（5頁）を150 dpiで単頁PNGへrenderして実表示し、題名・abstract・入力表・局所定理と証明・適用・引用に見切れ、重なり、欠落、数式のはみ出しを認めなかった。全頁の表示確認と有限検算の再実行は行っていない。LuaTeX-ja、Harano Aji、CM/AMS/RSFS vector fontsを備えた環境を用い、通常のlatexmk/SyncTeX設定とbuild出力を保持する。
 
-研究資料v1.19は、研究入口として曲面改訂38とPart I v1.7の公表準備を参照する。一方、Part IV–V本文の曲面引用は実読した改訂37・commit `32c67aefe6beb47c2955923e2b6eb2471d48af31` に固定している。旧確認版の証明・表示記録を新しい現行版の実施結果へ読み替えない。固定Part Iの新しい四項目に対する限定した独立点検と、各repo担当の組版・表示確認も区別し、詳細と保存commitは研究ノート・検証JSONへ集約する。本repo担当による外部稿の再組版・再表示はない。証明記載、内部点検、計算、組版、GitHub反映、hub更新を別々の状態として扱う。
+研究資料v1.20は、曲面改訂39に統合済みの限定actual K4系とPart I v1.7の公表準備を参照する。局所K4の指定証明鎖に対する独立点検をノート・検証JSONに記した。Part IV–V本文の曲面引用は実読した改訂37・commit `32c67aefe6beb47c2955923e2b6eb2471d48af31` に固定している。旧確認版の証明・表示記録を新しい現行版の実施結果へ読み替えない。固定Part Iの新しい四項目に対する限定した独立点検と、各repo担当の組版・表示確認も区別し、詳細と保存commitは研究ノート・検証JSONへ集約する。本repo担当による外部稿の再組版・再表示はない。証明記載、内部点検、計算、組版、GitHub反映、hub更新を別々の状態として扱う。
 
 ## 共通研究原則と保存許可（研究固有方針から独立）
 

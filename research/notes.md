@@ -1,12 +1,12 @@
 # 研究ノート：一般型超曲面のKE退化
 
-更新：2026-11-22 / v1.19（Part IV–V本文はv1.10）
+更新：2026-11-22 / v1.20（Part IV–V本文はv1.10）
 
 ## 共同編集の正本と共有局所入力
 
 `multiscale-kaehler-einstein` は固定配置補空間のPart I–III、本repoは退化族局所解析のPart IVと条件付き距離論のPart V、`surface-lagrangian-torus-fibration` はactual KE Lagrangian構成と同じ射影の全曲面GH実現を所有する。三研究の方針・Introduction・証明依存を共同で点検するが、証明全文を相互に複製しない。共有する結果を変更したら、利用側の定理ラベルと仮定も照合し、各repoの保存後にhubへ反映する。
 
-2026-11-22に実読した曲面の数学入力は、[改訂37・commit 32c67ae](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/tree/32c67aefe6beb47c2955923e2b6eb2471d48af31)。Part IV–Vの文献もこの確認版を参照する。現行入口は改訂38であり、その保存・組版記録は曲面正本を参照する。固定配置の現行確認版は [Part I v1.7・研究資料v1.12](https://github.com/uedakazushi/multiscale-kaehler-einstein/tree/f9cac112b6070bff240579eecf3a2c92e0975722)。今回、裾係数の内在性とcompact基点一様性、非可積分cusp例、depth gauge、K5 coneの非CAT(0)という四箇所を独立に読んだ。Part I 67頁/指定17頁と総説v1.10 15頁/指定7頁の組版・表示確認は各担当の実施報告を同期している。Part IIは変更せず、既存入力の限定点検を保持する。これらを全外部原稿の包括的監査と読み替えない。
+2026-11-22に実読したPart IV–Vへの曲面の数学入力は、[改訂37・commit 32c67ae](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/tree/32c67aefe6beb47c2955923e2b6eb2471d48af31)。Part IV–Vの文献もこの確認版を参照する。研究入口では局所K4系を改訂39に統合済みであり、その保存・組版記録は曲面正本を参照する。下記の限定actual適用の点検で読んだ既存証明鎖は別の[commit 18f1956](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/tree/18f19561429700ceeec9ad0e0ff40afa2cc17cde)であり、本文の実読pinを置き換えない。固定配置の現行確認版は [Part I v1.7・研究資料v1.13](https://github.com/uedakazushi/multiscale-kaehler-einstein/tree/50d093d29e493a4e17a6a633f8b2da4aa5727089)。今回、裾係数の内在性とcompact基点一様性、非可積分cusp例、depth gauge、K5 coneの非CAT(0)という四箇所を独立に読んだ。Part I 67頁/指定17頁と総説v1.11 16頁/指定9頁の組版・表示確認は各担当の実施報告を同期している。Part IIは変更せず、既存入力の限定点検を保持する。これらを全外部原稿の包括的監査と読み替えない。
 
 本稿の公表入口は無条件の局所解析を中心とし、Part IVの最小入力表 `tab:surface-minimal-inputs` に曲面P0が使う四群をまとめる。局所安定性は `coarse:thm:boundary-to-triple`、全平面族への適用は既存の `coarse:thm:full-triple-tensor` とし、証明を一回だけ置く。Part Vの抽象pruning–transportと有限targetの直径計算は独立の成果で、CP/PBEを仮定するactual raw-pruning経路、曲面側の直接scalar/portal経路を区別する。
 
@@ -132,7 +132,7 @@ K内の質量をκ_h、各U_αの面積をM_αとし、r_h=a_h−κ_hをtarget�
 
 元の絶対面積a_h^0やprotected mass κ_hのsmoothnessは不要で、a_h=a_h^0+δa_hの相対増分だけを扱う。小ささの定数は固定stage・t・保護領域に依存する。Critical leavesの全近傍まで追加固定する場合にはincidence graphが分断され得るため、この零総和だけの結論へは含めない。この証明はこの担当が起草し、主担当と別担当が指定範囲を点検した。所定の大きいaffine targetsや退化一様な予算、全intervalのabsolute areaのaffine性を結論しない。
 
-### Actual anchor periodsと条件付きcore chart
+### Actual anchor periodsと五次の限定core chart
 
 曲面稿 [global_action_atlas.tex](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/c056ecba5d25a55f135e739faab5993582814484/papers/sections/paper/global_action_atlas.tex) の `ke:anchor-liouville-actions` は、同じLiouville primitiveと**周期1のcycles**で M=δ−ρ<0、A=∫_βλを固定し、critical rayのperiodsを(rM,rA)とする。Canonical normal actionが実際に存在する共通collarではq=ρ+rMなので、第二作用はA(q−ρ)/Mとなる。Neckの直線c+pqとの一致には
 \[
@@ -144,11 +144,17 @@ A=p(\delta-\rho),\qquad c=-p\rho
 
 `ke:anchor-stokes-budget` は、所定clutching relationと同じ周期1のframingを確認した上で、reference periods c_bに対しArea(P)=−Σc_b−Mを与える。K4のbasin targetsはA_b−c_b、Petersenのexternal targetsは−c_b、内部annulusは−Mであり、総量は厳密に一致する。保持集合がpuncture collarsだけで内側referenceも負ならpositive marginを得る。しかしsource annuli等を追加固定する場合には全有限cutを確認する必要がある。反対側neckの切片・残余period差・整数framing、sourceを含むmarked interpolationと全open overlapsのwhole-fiber一致は未解決入力として残す。現行のCP/PBE/TCやPart IV/Vのtensor定理には新たな結論を加えない。
 
+**五次の標準K2 end collarsへのactual適用。** 曲面稿 `ke:k4-actual-end-anchor`（改訂39に統合済み）は、anchor上に追加保持annuliを置かない選択で上の条件を満たす。既存証明鎖の `ke:component-meridian-normalization`、`ke:eq:component-two-action-estimate`、`ke:neck-corner-saturated-union`、`ke:link-relative-collar-gluing` と `ng8:p0-source-protected-reduction` を独立に読んだ。Primitive切替えがB/b_j=5.4までに終わり、全actual K2交わりはb_res/b_j>5.5に入る。Bはsource torus labelで、b_res=B(1+O(b_j^−2))だから、保持collarの最内境界をB=5.45b_jに選べる。Retained cornerの6b_j cutだけでなく、min ell>3b_jの広いconstruction domainと5b_j<B<9b_jの共通reduced葉族を使う。
+
+同じtransported positive meridianでQ_ab=ν_b−ρ_bは厳密である。正のρ_minを固定し、j大→N大→t小の順に取る。q_a=δ=4π/Nのanchorではnormal depthが[N/2,2N]、残余depthが5.45b_jと比較可能であり、深度比に一様な二作用評価とL≫Nからν_b=O(b_j^−1)を得る。従って全十二境界でQ_ab<−ρ_b/2<0となり、任意の有向四角形のK4 targetsを選べる。同じ正meridiansのclutchingは、component内の直線のnormal bundle O(1)を使い、有限chartのxと無限遠chartのx'=x/zのtransitionからΣ[β_ab]=−[α_a]と確認する。P0のgraph・averaging・Hamiltonian isotopiesを通じてこのframingを移す。各βを独立にβ+kαへ変更した基底にはこの確認を流用しない。
+
+Sourceのfull compact pinched fibersはμ=0にあり、各固定j,N,tの後に、それら全体の飽和近傍を|μ|<δ/2へ選べる。Anchor変更を|q_a−δ|<δ/4に支持させれば両者は離れ、sourceを点だけでなく全fiberと近傍ごと保持する。近傍幅のt一様下界やtに関するsmooth choiceは不要である。この選択は、既指定の大きいsource近傍まで保存する主張ではない。局所coreの達成と、追加保持annuli・全neck interval・反対側germsの面積とframing整合は分ける。独立点検はこの指定経路に限り、全P0・全core証明・外部一次文献の包括的再監査ではない。
+
 ### 共通momentを保つ変更のGH安定性
 
 曲面稿 [ke_global_base_compatibility.tex](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/c056ecba5d25a55f135e739faab5993582814484/papers/sections/paper/ke_global_base_compatibility.tex) の `ke:moment-relative-replacement` は、変更後のactual局所fibrationが既に得られた場合の条件付き定理である。同じ保持cornerと全K2 end collars、sourceのcompact nodal neighborhoods、canonical normal momentの向きと加法定数、anchor cutsとcore/変更collarを保つ。実際のmarked product自明化・compatibleなcore cone商・全overlapでのwhole-fiber一致も要求する。木の抽象同型やnormal circleの一致だけでは足りない。
 
-この下で、同じcubical targetへのparameter化を保持corner上で厳密に一致させ、sup_x d_square(f̂_{j,t}(x),f_{j,t}(x))≤Cη_{j,t}、η_{j,t}=A(1+log(N_j+1))/R_tとできる。Cは固定次数・族と有限targetに依存し、reduced葉を変更するdiffeomorphismの微分には依存しない。`ke:relative-replacement-gh` は同じ遅い対角列でdistortionと、各coarse fiber（一つのp_T-fiber上の葉の合併）のambient径の消失を与える。主担当の証明と別担当の独立点検を同期したもので、この担当による追加の全証明再監査とは区別する。五次・六次の所定の大きいatlas targetsの有限配分可能性、反対側の切片・framing、および全open overlapsのwhole-fiber一致はなお未解決である。
+この下で、同じcubical targetへのparameter化を保持corner上で厳密に一致させ、sup_x d_square(f̂_{j,t}(x),f_{j,t}(x))≤Cη_{j,t}、η_{j,t}=A(1+log(N_j+1))/R_tとできる。Cは固定次数・族と有限targetに依存し、reduced葉を変更するdiffeomorphismの微分には依存しない。`ke:relative-replacement-gh` は同じ遅い対角列でdistortionと、各coarse fiber（一つのp_T-fiber上の葉の合併）のambient径の消失を与える。主担当の証明と別担当の独立点検を同期したもので、この担当による追加の全証明再監査とは区別する。五次の標準K2 end collarsでの局所anchor実現は上記のとおり得たが、追加保持annuli・六次の面積条件、全neck intervalと反対側の切片・framing、および全open overlapsのwhole-fiber一致はなお未解決である。
 
 `ke:raw-moment-error-insufficient` の障害はprofileの尺度にある。固定stageと0<α<β<1についてμ_t=−L_t^(−α)、ν_t=−L_t^(−β)なら|μ_t−ν_t|→0だが、共通longitudeはそれぞれα、βへ収束し、target差は消えない。近似matchingにはraw momentのo(1)ではなく、longitude profileの一様誤差制御が必要である。この例は実際のatlasの不存在を意味しない。これらの相対atlas経路は、Part IV/Vのtensor結論やCP/PBE/TCの未検証状態を変更しない。
 
