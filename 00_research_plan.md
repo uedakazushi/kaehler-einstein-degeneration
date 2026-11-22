@@ -19,6 +19,8 @@
 
 **Savin H2の係数点検。** Part IV `coarse:lem:small-volume-tensor` で、実HessianからHermitian Hessianへの写像 ℋ は半正定値を保ち、複素次元2では tr_C ℋ(P)=tr_R P/4 を満たす。背景Hの一様正値近傍ではdetの実PSD方向の増分がc||P||とC||P||の間にあり、Savin Theorem 1.3のH2を実対称4×4行列のoperator normについて直接確認できる。H1はglobal degenerate ellipticity、H4は零解近傍のC²構造。Volume ratioのC⁰小ささからSavin→一様楕円性→線形Schauderへ進む順序は循環しない。原著定理と本稿の該当証明を照合したが、全稿の独立完全監査ではない。
 
+Savin H2 の定数は固定背景の `λI ≤ H ≤ ΛI` から `λ²/(32Λ³)` と `8Λ²/λ³` と明示できる（正半定値の実Hessian増分、固定した十分小さい operator norm 近傍）。この有限次元計算は曲面側で必要な局所正則性の適用条件の点検であり、actual moving-source の全域tensor定数や K2 source-inclusive buffer を新たに証明するものではない。
+
 ### 実行状況と次の課題
 
 Part IV v1.15は、complete simplexの最小存在入力と直接証明を保持し、`simplex:prop:boundary-floor-sharpness` により固定深度座標でのO(1/m)の最適性を示す。同じ境界floorを持つ平行移動模型では、balanced点で計量比と体積対数比が正確に求まり、L=m²の正規化境界へ向かう点列でも−2b/m、−4b/mの一次項が残る。固定facet shiftを模型へ吸収した後の改善や、compact射影的退化族の最適率は結論しない。後続の精度問題としてfixed-end情報から有界facet shiftを選ぶ追加条件と、補正模型への剰余を検討する。補正模型による率の改善は、現在の局所安定性と最適性の公表条件にしない。公表準備は指定一次比較・主張範囲の整理を優先する。
