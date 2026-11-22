@@ -1,6 +1,21 @@
 # 研究ノート：一般型超曲面のKE退化
 
-更新：2026-11-23 / v1.27（Part IV本文はv1.14、Part V本文はv1.10）
+更新：2026-11-23 / v1.28（Part IV本文はv1.15、Part V本文はv1.10）
+
+## 固定比較模型に対する局所安定性率の最適性
+
+`simplex:prop:boundary-floor-sharpness` は、固定深度座標と既定のcomplete simplex模型k_Lに対する局所定理 `coarse:thm:boundary-to-triple` のO(1/m)を、一般にo(1/m)へ改善できないことを示す。固定m₀,b>0に対する一つの族 \(\omega_{b,L}=F_b^*k_{L+3b}\)、\(F_b(w)=w+b\mathbf1\) が、同じdensity floor c_*=(1/3)(m₀/(m₀+b))⁶を満たす。Balanced点L=3m、ell_i=mでは相対実計量が正確に(m/(m+b))² Id、体積対数比が−4log(1+b/m)である。L=m²、ell=(m²−2m,m,m)では、それぞれId−(2b/m)Id+O_b(m⁻²)、−4b/m+O_b(m⁻²)となり、正規化単体の境界へ向かう領域でも一次誤差が残る。証明は現行本文に一回だけ置く。Balanced例はscaling、境界例はpure-modelのdominant-product漸近だけに依存する。
+
+**Lだけの率がないこと。** 同じ積比較を一般のL、m→∞、m/L→0へ適用すると、p=(L−2m,m,m)で
+\[
+v_{b,L}(p):=\log\frac{\omega_{b,L}^2}{k_L^2}(p)
+=-\frac{4b}{m}+O_b\!\left(m^{-2}+(m/L)^2\right).
+\]
+任意の正関数r(L)→0に対し、m(L)=min{r(L)^(−1/2),L^(1/2)}と選ぶ。このときm→∞、m/L→0、m r(L)≤sqrt(r(L))→0、m³/L²≤L^(−1/2)→0だから、m v_b,L→−4bであり、|v_b,L|/r(L)→∞となる。同じ固定bの局所族で評価点だけを選び直すため、最小深度の発散速度を指定しない全ての深部点列に共通する、Lだけによる消失率は存在しない。この結論も固定した座標・模型と局所仮定クラスに限り、compact射影族の実際の誤差下界ではない。
+
+**次の精度問題。** この例はfacetの固定平行移動を比較模型に吸収すれば消える。従ってcoordinate-invariantな最適性、又は補正済み模型に対する最適性は示さない。Actual familyのfixed-end情報から有界なfacet shiftを選べるか、その後の剰余をo(1/m)に抑える追加境界条件は何か、が次の候補である。一般の境界入力を三つの平行移動定数だけで記述できるとは仮定しない。既存のfixed-end moment則だけから、全深度域の二次漸近を推論しない。
+
+**先行比較の範囲。** Zhangのcanonical semi-flat比較は正規化座標x_i=ell_i/Lの固定compact集合上で、全phaseを含められる。Ruan I/IIには全域の粗いquasi-isometryがあり、H-minimal論文には固定縮小領域上のtorus-averageとの定量比較がある。本稿で比較するのは、指定したcomplete simplex解への相対小誤差を最小深度で定量化し、深度比に一様にする点と局所境界入力である。確認した定理・量化・版は `research/source-audit.md` を参照する。優先権の網羅的確認は未了である。
 
 ## Complete simplexの存在入力と直接比較
 
@@ -18,7 +33,7 @@ Zhang, arXiv:1505.04728v2, pp.4–6では、σ=R_{≥0}³とu_σ=(1,1,1)に対�
 
 Part IV–Vが使う曲面の数学入力は、[改訂37・commit 32c67ae](https://github.com/uedakazushi/surface-lagrangian-torus-fibration/tree/32c67aefe6beb47c2955923e2b6eb2471d48af31)に固定する。局所actual K4、全moment・五次同時実現と同じ射影の測度系の正本は曲面稿であり、指定箇所の内部点検と現行版の保存確認は科学引用pinとは別に管理する。
 
-現行Part IV v1.14は、既存の固定end・normal winding・Schwarz半径依存に、complete simplexの最小存在入力と直接証明を統合する。曲面の五次と標準等重み六次の同時実現・測度系は曲面repoに証明を置く。既存の科学引用pinと今回の確認範囲を分け、Part V本文は不変である。
+現行Part IV v1.15は、固定end・normal winding・Schwarz半径依存、complete simplexの最小存在入力と直接証明に、固定比較模型での局所安定性率の最適性と先行結果との具体的比較を統合する。曲面の五次と標準等重み六次の同時実現・測度系は曲面repoに証明を置く。既存の科学引用pinと今回の確認範囲を分け、Part V本文は不変である。
 
 固定補空間側は[Part I v1.10・総説v1.14・研究資料v1.19](https://github.com/uedakazushi/multiscale-kaehler-einstein/tree/2926300c2425c7e68550ac08ee81a2afa639a0c6)を確認版とする。尖点付き有限面積双曲曲線Sと境界のないコンパクト連結Riemann因子Yの積で、距離Laplace変換をRe s<3の切断半平面上でW/(1−s)−H(s)Log(1−s)+G(s)と表示する。Hはentire、GはRe s<3で正則であり、WとmonodromyからYの正規化基点距離分布を回収する。通常volume-IRFA一般への解析接続・等長型・族一様性は主張しない。総説はこの積の結果、Part IV v1.12の固定end/winding、曲面改訂44の同じ射影による確率体積極限を統合する。これらは固定補空間側の成果・共同編集であり、Part IV/Vへの新しい解析仮定やCP/PBE/TCの検証ではない。 既存の裾係数・compact基点一様性・非可積分cusp・gauge・K5 linkの指定点検は保持するが、新しい積の命題・系は別に作成担当・統合担当・独立担当が実本文を読んで照合した。 新しい `cor:CW-fixed-cutoff-budget` は固定SNC cutoffの脱落質量とStokes defectをCe^{-A}で抑える。統合担当がこの追加証明を実読し、固定対の予算とtの有効収束率を区別している。
 

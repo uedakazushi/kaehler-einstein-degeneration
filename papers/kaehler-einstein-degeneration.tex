@@ -57,7 +57,7 @@
 \title{\bfseries 多重スケール Kähler--Einstein 幾何 IV\\[1mm]
 \large 超平面和退化の局所安定性と閉 corner の収縮}
 \author{植田一石\\[-1mm]\small Kazushi Ueda}
-\date{2026年11月23日\\五部作・統合改訂稿 v1.14}
+\date{2026年11月23日\\五部作・統合改訂稿 v1.15}
 \begin{document}\maketitle
 
 \begin{abstract}
@@ -67,6 +67,9 @@ Exact triple 領域 $\zeta_0\zeta_1\zeta_2=t$ 上の負 Kähler--Einstein metric
 境界上界の $t$ 一様性は要求しない．Complete simplex KE metrics の内外平行移動が
 log-volume 誤差を $O(m^{-1})$ に抑え，Ricci 恒等式と Savin の小摂動定理が
 全固定階の tensor 誤差へ移す．ここで $m$ は三つの logarithmic depths の最小値である．
+固定した深度座標と比較模型に対して，この局所仮定クラスの $O(m^{-1})$ は最適である．
+外へ平行移動した単体の KE metric が，balanced な点と正規化単体の境界へ向かう点列の
+双方で非零の一次誤差を与える．
 
 任意の固定次数 $d\ge5$ の一般位置全平面退化では，大域 capped density の下界が
 この境界入力を与える．したがって全深度比・全角度で actual KE metric の同じ漸近を得る．
@@ -99,6 +102,9 @@ implies semi-flat tensor asymptotics of order $O(m^{-1})$ in every fixed derivat
 where $m$ is the minimum logarithmic depth. No parameter-uniform boundary upper bound is required.
 Translated complete-simplex barriers squeeze the volume ratio; the Ricci identity turns its logarithm
 into a small potential to which Savin's regularity theorem applies.
+For the fixed depth coordinates and reference model, the order $m^{-1}$ is sharp
+within this local hypothesis class: translated simplex metrics have nonzero
+first-order error both at balanced points and along normalized boundary-escaping sequences.
 
 For every fixed degree $d\ge5$, a global capped-density estimate supplies this boundary input
 for a surface degenerating to hyperplanes in general position. The comparison is uniform in all depth ratios and angular phases.
@@ -203,6 +209,30 @@ exceptional curve上で次数零となるため，同定理を直接適用しな
 \href{https://github.com/uedakazushi/surface-lagrangian-torus-fibration/blob/32c67aefe6beb47c2955923e2b6eb2471d48af31/papers/sections/paper/base_topology.tex}
 {関連Lagrangian原稿の命題 \texttt{topo:ke-map-compatibility}} に記す．
 
+局所比較についても，比較模型，領域，率を区別する．
+Ruan\cite[Theorem~4.2]{RuanI}\cite[Theorem~5.2]{RuanII} は，
+actual KE metric と構成した背景計量の全域での一様な quasi-isometry を与える．
+Zhang\cite[Theorem~2.4(ii), Lemmas~3.2--3.3 and~3.5, Proposition~3.4]{ZhangNegativeKE} は最深 stratum で，
+complete affine KE metric から作る semi-flat metric への $C^\infty_{\mathrm{loc}}$ 収束を示す．
+その証明は $x_i=\ell_i/L_t$ の固定 $K\Subset\Delta_1$ 上で進み，
+この指定模型への比較誤差に有効な率を付すものではない．
+固定 $K$ 上では角度 cover の周期性によって全 phase を含むので，
+全 phase の扱い自体を本稿の差分とはしない．
+本稿の \cref{coarse:thm:boundary-to-triple} は，固定 face の density 下界と
+各 parameter の滑らかな compact radial 閉包だけから，指定した complete simplex
+模型への相対 $C^q$ 誤差を $C_q/\min_i\ell_i$ と評価する．
+従って $\min_i\ell_i\to\infty$ と $\min_i\ell_i/L_t\to0$ が同時に起こる領域も含む．
+
+定量的な torus averaging にも先行結果がある．
+Ruan\cite[Proposition~3.1, Corollary~3.1]{RuanHMinimal} は，
+一様な $C^\infty$ quasi-isometry の下で，固定 $c<1$ の領域 $\Delta_{c\tau}$ における
+potential の角度振動成分に任意多項式率を与える．
+そこでの比較相手は actual potential の $\tau$ 依存の torus 平均であり，
+定数は $c$ に依存する．また\cite[Theorems~6.2--6.3, Lemma~8.1]{RuanPantsKE} には
+非 compact hypersurface の complete KE 比較と固定 raw cutoff の領域がある．
+本稿で確認する相違は，既定の complete simplex 解への小誤差，全深度比での一様性，
+および局所境界入力の範囲である．
+
 
 開いた maximal square の内部については，これらの未検証な大域仮定を用いない局所結果がある．
 \Cref{simplex:cor:actual-dominant-product} は，$0<\eta<1/2$ を固定し，正確な三重点方程式
@@ -226,7 +256,17 @@ $\min_i\ell_i\ge m\to\infty$ に対し，complete simplex KE metric $g_L^{\mathr
 固定 simplex 上の凸解の存在と実 Hessian 計量の完備性である．
 一意性，tube と角度格子商の完備性，Ricci と体積の規格化，および $L$ による
 scaling は\cref{coarse:lem:simplex-model}で直接確認する．
-とくに cover の scaling と固定 period lattice の同一視を区別し，
+とくに cover の scaling と固定 period lattice の同一視を区別する．
+
+\Cref{simplex:prop:boundary-floor-sharpness} は，固定深度座標と比較模型に対する
+この局所安定性の $O(m^{-1})$ が一般に $o(m^{-1})$ へ改善できないことを示す．
+$b>0$ を固定した $F_b(w)=w+b\mathbf1$ に対し，
+$F_b^*k_{L+3b}$ は同じ $L$ 非依存の境界密度下界を満たす．
+$L=3m$, $\ell_i=m$ で体積対数比は正確に $-4\log(1+b/m)$ であり，
+$L=m^2$, $(\ell_0,\ell_1,\ell_2)=(m^2-2m,m,m)$ でも
+$-4b/m+O_b(m^{-2})$ となる．
+この最適性は，facet shift を模型へ吸収した後の改善や
+compact 射影的退化族での下界を主張しない．
 
 actual family には \cref{coarse:cor:degree-d-volume-lower} の下界を用いる．
 これにより関連 Lagrangian 原稿の \texttt{ke:actual-closed-corner} は
@@ -4152,11 +4192,27 @@ H.~L.~Royden,
 W.-D.~Ruan,
 \newblock Degeneration of K\"ahler--Einstein manifolds I: the normal crossing case,
 \newblock Commun. Contemp. Math. \textbf{6} (2004), 301--313.
+\newblock Theorems~4.1--4.2 in arXiv:math/0303112v2;
+\url{https://arxiv.org/abs/math/0303112}.
 
 \bibitem{RuanII}
 W.-D.~Ruan,
 \newblock Degeneration of K\"ahler--Einstein manifolds II: the toroidal case,
 \newblock Comm. Anal. Geom. \textbf{14} (2006), 1--24.
+\newblock Theorems~5.1--5.2 in arXiv:math/0303113v4;
+\url{https://arxiv.org/abs/math/0303113}.
+
+\bibitem{RuanHMinimal}
+W.-D.~Ruan,
+\newblock H-minimal Lagrangian fibrations in K\"ahler manifolds and minimal Lagrangian vanishing tori in K\"ahler--Einstein manifolds,
+\newblock arXiv:math/0309177v2, Proposition~3.1, Corollary~3.1 and Theorem~3.1.
+\newblock \url{https://arxiv.org/abs/math/0309177}.
+
+\bibitem{RuanPantsKE}
+W.-D.~Ruan,
+\newblock Degeneration of K\"ahler--Einstein hypersurfaces in complex torus to generalized pair of pants decomposition,
+\newblock arXiv:math/0311098v2, Theorems~6.2--6.3 and Lemma~8.1.
+\newblock \url{https://arxiv.org/abs/math/0311098}.
 
 \bibitem{SongSturmWang}
 J.~Song, J.~Sturm and X.~Wang,

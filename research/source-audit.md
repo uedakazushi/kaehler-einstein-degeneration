@@ -1,6 +1,6 @@
 # 現行原稿の証明状態と監査範囲
 
-2026-11-23 / v1.2。研究資料v1.27、Part IV v1.14・Part V v1.10。
+2026-11-23 / v1.3。研究資料v1.28、Part IV v1.15・Part V v1.10。
 
 本書は現在有効な主張と、実際に確認した範囲をまとめる。原資料の回収元・版・hashは `source-manifest.json` と `migration.md`、組版・計算・表示の実行記録は `validation.json` が正本である。原稿に証明があること、今回その証明を読んだこと、計算・形式証明による確認を区別する。
 
@@ -13,7 +13,7 @@
 | 曲面repo | 固定d≥5のactual負KE–Lagrangian fibrationと同じ合成写像の全域ambient GH実現、確率体積の等重み原子極限。五次と六次標準等重みPetersenでは同じ射影の作用atlasも実現。 | 任意に先指定した大きいsource近傍、任意weights、t方向の滑らかな射影族、atlasの極限又はHessian性は結論しない。直接scalar/portal証明はCP/PBE/TC自体の検証ではない。 |
 | 固定補空間repo・Part I–III | 固定SNCの距離錐と体積漸近、標識付きsecondary periods等。正確な仮定・証明・新規性比較は同repoの現行原稿を参照。 | Part IIの一般secondary WP completionはcontrolled parallel push-off付き、Part IIIのactual localization/global pGHはH_locとH_anc付き。固定空間の結果を退化族へ一様に移さない。 |
 
-曲面の確認保存版は `d39270ec79ad973551f67c740682dbb06bac48e5`（改訂45）、固定側は `2926300c2425c7e68550ac08ee81a2afa639a0c6`（Part I v1.10・総説v1.14）である。IV/V本文が既存入力に使う曲面改訂37の科学引用pinは維持する。後続の結果の証明を本repoへ複製しない。
+曲面の確認保存版は `46e128e47bd536e577afad24641d6461fe6169e8`（改訂46）、固定側は `2926300c2425c7e68550ac08ee81a2afa639a0c6`（Part I v1.10・総説v1.14）である。IV/V本文が既存入力に使う曲面改訂37の科学引用pinは維持する。後続の結果の証明を本repoへ複製しない。
 
 ## Complete simplexの現在の確認範囲
 
@@ -25,6 +25,28 @@
 - Zhang p.6の4^nという印刷はPDF画像で確認し、w=x+iyから正しい係数4^{−n}を独立に計算した。Ricciには定数なので影響せず、本稿のk²=8e^{2φ}dV_logは正しい。係数を引用から転記せず直接確認する。
 
 原著書誌: https://daweb.qzc.tsinghua.edu.cn/ShingTungYau/en/zdylm/5542/list/index.htm （項目172）。再録目次: https://www.tup.tsinghua.edu.cn/booksCenter/bookcatalog?id=10473901 。実読した定理文: https://arxiv.org/pdf/1505.04728v2 。本文証明と数学的計算の確認を、組版・表示・形式証明・包括的新規性確認と分ける。
+
+## 局所安定性の先行結果との比較
+
+比較対象は、指定したcomplete simplex KE模型への相対小誤差、正規化領域、誤差の率、入力仮定の四点とする。以下の原著の指定定理・対応する証明箇所を実読した。全原著の包括的な証明監査又は本結果の優先権調査を完了した意味ではない。
+
+| 一次資料・確認箇所 | 確認した内容 | 本稿の局所定理との関係 |
+| --- | --- | --- |
+| Zhang, *Collapsing of negative Kähler–Einstein metrics*, [arXiv:1505.04728v2](https://arxiv.org/pdf/1505.04728v2), Theorem 2.4(ii), p.8; (3.7)–(3.9), Lemma 3.2, p.13; Lemma 3.3, Proposition 3.4, pp.16–17; Lemma 3.5, pp.18–19 | Simple toroidal・Q-factorial全空間・相対canonical ampleの下で、最深stratumのcanonical semi-flat模型へのC∞loc収束。証明の領域はx_i=ell_i/Lの固定K⊂⊂B_Iで、最深stratumの一意性で部分列を除く。 | 指定模型への比較誤差の有効率はこの証明鎖では与えない。固定Kはmin ell_i≥δ_K Lを要求し、min ell_i→∞かつmin ell_i/L→0の点列を含まない。 |
+| Ruan I, *Degeneration of Kähler–Einstein manifolds I: the normal crossing case*, [arXiv:math/0303112v2](https://arxiv.org/pdf/math/0303112), Theorems 4.1–4.2, p.9 | 固定exhaustion compactのC^k収束と、全域でC₁g_app,t≤g_KE,t≤C₂g_app,t。 | Moving点・深度比・全phaseを除外していない。比較相手は構成したapproximate metricであり、比較定数が1へ近づく率ではない。 |
+| Ruan II, *Degeneration of Kähler–Einstein manifolds II: the toroidal case*, [arXiv:math/0303113v4](https://arxiv.org/pdf/math/0303113), Theorems 5.1–5.2, p.15 | Toroidal canonical degenerationで同種の収束と全域の一様quasi-isometry。 | Ruanの結果全体を固定normalized compact上の定性的収束だけと記述しない。 |
+| Ruan, *H-minimal Lagrangian fibrations in Kähler manifolds and minimal Lagrangian vanishing tori in Kähler–Einstein manifolds*, [arXiv:math/0309177v2](https://arxiv.org/pdf/math/0309177), Lemma 3.1, p.6; Proposition 3.1, Corollary 3.1, p.7; Theorem 3.1, p.9 | 一様C∞ quasi-isometryの下で、固定c<1のΔ_(cτ)上のpotentialの角度振動成分に任意多項式率。H-minimal fibrationの変形にはO(1/τ)。 | 比較相手はactual potentialのτ依存のtorus平均。定数C(N,c,I)はcに依存し、指定されたcomplete simplex解との小誤差ではない。c→1への一様性をこの定数だけから推論しない。 |
+| Ruan, *Degeneration of Kähler–Einstein hypersurfaces in complex torus to generalized pair of pants decomposition*, [arXiv:math/0311098v2](https://arxiv.org/pdf/math/0311098), Theorems 6.2–6.3, pp.15–16; Lemma 8.1, pp.18–19 | 非compact hypersurfaceのcomplete KE収束と一様C∞ quasi-isometry、固定raw cutoff Δ_(τ−μ)の領域。 | Ruanの議論がmoving領域を扱わないとは述べない。本稿はcanonical simplexへの全深度比一様な消失誤差を比較する。 |
+
+Zhangの(3.9)の角度基本領域は幅2π/|log|t||であり、固定の有界imaginary boxに入る。従って固定K上のcoverの比較はquotientの全phaseを含む。この読み取りから、全phase又は定量評価の存在そのものを本稿の新規性としない。
+
+`coarse:thm:boundary-to-triple` の差分は、fixed-face density下界と各parameterのsmooth compact radial閉包から、既定complete simplexへの相対C^q誤差C_q/min ell_iを全深度比で得る定式化である。Actual buffer、事前のactual/background tensor比較、t一様な境界上界を別入力にしない。Moser flow又は領域外の距離比較に使うactual bufferは別の問題である。ここで挙げた既存の手法を精密化して同様の結論が得られる可能性や、未調査文献を排除したわけではない。
+
+## 局所率の最適性の点検
+
+`simplex:prop:boundary-floor-sharpness` の命題・証明と、pure-model `simplex:prop:dominant-product`、`coarse:thm:boundary-to-triple`、small-volume-tensorの依存を作成担当と別担当が実読した。固定m₀,bの単一KE族、共通density floor、period lattice、logarithmic frame、smooth閉包、balanced点の正確なscalingとcutoff m/2、boundary-escaping例の先頭係数−4b/−2b、点でのoperator normを確認した。Actual安定性を証明へ逆用する循環はない。研究ノートの一般L展開とLだけの率がない帰結は同じ純模型の積比較による。
+
+最適性は固定depth coordinates・固定k_Lに対する局所仮定クラスに限る。Facet shiftを模型へ吸収した後の改善、compact射影的族の誤差下界、幾何学的に不変な最適率は主張しない。数学的手計算と指定本文の内部点検であり、形式証明・数値証明ではない。組版・表示は `validation.json` に別記する。
 
 ## 保持するSchwarz半径の点検と精密化
 

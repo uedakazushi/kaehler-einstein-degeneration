@@ -6,10 +6,10 @@
     {
       "source": "04_hyperplane_degenerations_local_ja.tex",
       "destination": "papers/kaehler-einstein-degeneration.tex",
-      "sha256": "bb7fcfbfadea32f0ce00828705488502d85706be8f59f7a0947e306ed138c6ae",
-      "bytes": 248323,
+      "sha256": "f3910ae0db6906adc8fa52fa902a066a5cd5e888a370f7237372feed15c63064",
+      "bytes": 252104,
       "source_sha256": "cc0343cf295d26321d9c19e979c0181db34bd93de25673967c649b31cf13be3b",
-      "current_blob_sha": "01f984c79a983cbfd895e9b22dfa678118d3288b"
+      "current_blob_sha": "0998b312146e101436273065009bcfdb29cb3464"
     },
     {
       "source": "05_hyperplane_degenerations_global_ja.tex",
@@ -192,15 +192,15 @@
     },
     {
       "destination": "papers/sections/full_triple_comparison.tex",
-      "sha256": "ea5462ddf392a5cb47d29802bc218a3948d5ed913c781f40e7686b0e10fb5730",
-      "bytes": 21466,
-      "current_blob_sha": "4bba48ec58f3d25310e184fe345335f8666c34bc"
+      "sha256": "4a2061ae8a978a4e48ffc7420b8819e780ca6136923979fc4d893a6b0d9b6291",
+      "bytes": 25935,
+      "current_blob_sha": "12014ea43e2cc038a1917c41eec93e1e7c28daad"
     },
     {
       "destination": "papers/sections/simplex_boundary_geometry.tex",
-      "sha256": "8f621f723f42aa92512e80a0daf462c5037cc85d9b10e4d83012d99d72790050",
-      "bytes": 21983,
-      "current_blob_sha": "3e4977399964c6b924d904bbb4b98ecbe6bf971f"
+      "sha256": "2ff645e6da3a9fab5fc1b14b9c0e9ffbd547a04dbef38a37d3df8644fbdaac15",
+      "bytes": 26806,
+      "current_blob_sha": "88a698898d8b2c42be80aeeac2ba18ab2559e2d6"
     },
     {
       "destination": "papers/sections/closed_triple_metric.tex",
@@ -222,5 +222,6 @@
     }
   ],
   "current_content_verified_date": "2026-11-23",
-  "hash_scope": "source_sha256 and source bundle identities are immutable recovery provenance. sha256, bytes and current_blob_sha describe the current destination contents verified on the stated date; regenerated PDFs are recorded in validation.json."
+  "hash_scope": "source_sha256 and source bundle identities are immutable recovery provenance. sha256, bytes and current_blob_sha describe the current destination contents verified on the stated date; regenerated PDFs are recorded in validation.json.",
+  "current_materials_version": "1.28"
 }

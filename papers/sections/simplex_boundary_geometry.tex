@@ -1,5 +1,5 @@
 % !TeX root = ../kaehler-einstein-degeneration.tex
-% Current content: 2026-11-20, v1.0.
+% Current content: 2026-11-23, v1.1.
 \section{Complete simplex 模型の境界幾何と積計量への漸近}
 \label{simplex:sec:boundary-geometry}
 
@@ -242,6 +242,106 @@ $\log(x/\sin x)=O(x^2)$ から
 $O(\delta^2)$ の率で全固定階の tensor 比較を得る．
 正規化された座標の norm を covariant norm へ移せば
 \eqref{simplex:eq:dominant-tensor} となる．
+\end{proof}
+
+\begin{proposition}[固定深度座標における局所安定性率の最適性]
+\label{simplex:prop:boundary-floor-sharpness}
+$m_0,b>0$ を固定する．$w_0+w_1+w_2=L$ の simplex tube から
+$w_0+w_1+w_2=L+3b$ の simplex tube への正則写像
+$F_b(w)=w+b\mathbf1$ により
+\[
+ \omega_{b,L}=F_b^*k_{L+3b},\qquad L>3m_0
+\]
+と置き，その実計量を $g_{b,L}$ とする．固定周期 $4\pi$ の phase quotient 上で，
+この族は \cref{coarse:thm:boundary-to-triple} の仮定を
+\begin{equation}\label{simplex:eq:shifted-model-face-floor}
+ c_*=\frac13\left(\frac{m_0}{m_0+b}\right)^6>0
+\end{equation}
+という $L$ に依存しない境界密度下界で満たす．
+
+$A_{b,L}=(g_L^{\mathrm{sf}})^{-1}g_{b,L}$ を実計量の相対 endomorphism とする．
+$L=3m$ の balanced 点 $q_m=(m,m,m)$ では正確に
+\begin{equation}\label{simplex:eq:shifted-model-balanced}
+ A_{b,3m}(q_m)=\left(\frac{m}{m+b}\right)^2\operatorname{Id},
+ \qquad
+ \log\frac{\omega_{b,3m}^2}{k_{3m}^2}(q_m)
+       =-4\log(1+b/m)
+\end{equation}
+である．さらに $L=m^2$，$m\to\infty$ とし，
+$p_m=(\ell_0,\ell_1,\ell_2)=(m^2-2m,m,m)$ を取ると，
+\begin{align}
+ \log\frac{\omega_{b,m^2}^2}{k_{m^2}^2}(p_m)
+   &=-\frac{4b}{m}+O_b(m^{-2}),
+       \label{simplex:eq:shifted-model-volume-leading}\\
+ A_{b,m^2}(p_m)-\operatorname{Id}
+   &=-\frac{2b}{m}\operatorname{Id}+O_b(m^{-2}).
+       \label{simplex:eq:shifted-model-tensor-leading}
+\end{align}
+第二式の剰余は点 $p_m$ の $g_{m^2}^{\mathrm{sf}}$ に関する operator norm で測る．
+全ての式は angular phases に依存しない．後者の正規化された点 $p_m/L$ は
+$\partial\Delta_1$ に近づくので，固定 compact 集合内の比較には限定されない．
+従って同定理の局所仮定クラスでは，固定した深度座標と比較模型 $k_L$ に対する
+体積対数比・$C^0$ tensor 誤差を一般に $o(m^{-1})$ へ改善できない．
+これは比較模型へ固定 facet shift を吸収した後の改善や，
+compact 射影的退化族における最適率を結論するものではない．
+\end{proposition}
+
+\begin{proof}
+$F_b$ は角度格子を保ち，$\omega_{b,L}$ は
+$\{\ell_i\ge m_0\}$ の全 phase を含む compact quotient の近傍で滑らかである．
+また $\Ric(\omega_{b,L})=-\omega_{b,L}$ であり，
+$F_b$ は logarithmic volume frame を変えない．
+\Cref{coarse:lem:simplex-model} の密度下界から，この閉領域全体で
+\[
+ \frac{\omega_{b,L}^2}{\mathcal V_L}
+ \ge\frac13\left(1+\frac{3b}{L}\right)^2
+        \prod_{i=0}^2\left(\frac{\ell_i}{\ell_i+b}\right)^2
+ \ge\frac13\left(\frac{m_0}{m_0+b}\right)^6 .
+\]
+$L=L_t$ とすれば局所定理の全ての仮定を満たす．
+
+\Cref{coarse:eq:simplex-scaling} より，
+$D^2\phi_L(\ell)=L^{-2}D^2\phi_1(\ell/L)$ である．
+$q_m/(3m)=(q_m+b\mathbf1)/(3m+3b)=\mathbf1/3$ だから，
+平行移動の微分が恒等写像であることと合わせて
+$g_{b,3m}(q_m)=(m/(m+b))^2g_{3m}^{\mathrm{sf}}(q_m)$ を得る．
+複素次元 $2$ の体積比はこの係数の二乗なので
+\eqref{simplex:eq:shifted-model-balanced} が従う．
+この点へ局所定理を適用する際の深度閾値は $m/2<L/3$ と取ればよい．
+
+$m>3$ なら $\min_i\ell_i(p_m)=m$ である．
+\Cref{simplex:prop:dominant-product} を元の模型と平行移動後の模型に用いると，
+それぞれの小 parameter は
+\[
+ \delta=\frac{2}{m},\qquad
+ \delta_b=\frac{2(m+b)}{m^2+3b}=O_b(m^{-1})
+\]
+である．$\omega_{\mathrm{prod},b}$，$g_{\mathrm{prod},b}$ を
+$g_{\mathrm{prod}}$ の二つの分母 $s_j^2$ を $(s_j+b)^2$ に置き換えた
+積計量の form と実計量とする．同命題の密度評価により，点 $p_m$ で
+\[
+ \begin{aligned}
+  \frac{k_{m^2}^2}{\omega_{\mathrm{prod}}^2}&=1+O(m^{-2}),\\
+  \frac{\omega_{b,m^2}^2}{\omega_{\mathrm{prod},b}^2}&=1+O_b(m^{-2}),
+  \qquad
+  \frac{\omega_{\mathrm{prod},b}^2}{\omega_{\mathrm{prod}}^2}
+        =\left(\frac{m}{m+b}\right)^4 .
+ \end{aligned}
+\]
+対数を取り，$\log(1+b/m)=b/m+O_b(m^{-2})$ とすれば
+\eqref{simplex:eq:shifted-model-volume-leading} を得る．
+同命題の $q=0$ の tensor 評価と
+$g_{\mathrm{prod},b}(p_m)=(m/(m+b))^2g_{\mathrm{prod}}(p_m)$ から
+\[
+ A_{b,m^2}(p_m)=\left(\frac{m}{m+b}\right)^2\operatorname{Id}+O_b(m^{-2})
+     =\operatorname{Id}-\frac{2b}{m}\operatorname{Id}+O_b(m^{-2})
+\]
+となる．両積計量と $g_{m^2}^{\mathrm{sf}}$ の点での norm は一様に同値なので，
+剰余を指定した operator norm で測ってよい．
+従って体積対数比の絶対値と
+$\|A_{b,m^2}(p_m)-\operatorname{Id}\|_{\mathrm{op}}$ に $m$ を
+掛けた極限は，それぞれ $4b$ と $2b$ である．
+この非零極限が，固定した同じ境界下界の下での $o(m^{-1})$ 改善を排除する．
 \end{proof}
 
 \begin{corollary}[Actual dominant 領域と開正方形の改善された誤差]
